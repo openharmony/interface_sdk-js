@@ -453,6 +453,87 @@ declare namespace eSIM {
   function cancelSession(slotId: int, transactionId: string, cancelReason: CancelReason): Promise<ResultCode>;
 
   /**
+   * Get contract info
+   *
+   * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
+   * @param { int } slotId - Indicates the card slot index number.
+   * @param { ContractRequestData } requestData - request infomation required to get contract infomation.
+   * @returns { Promise<string> } Returns the contract info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
+   * @syscap SystemCapability.Telephony.CoreService.Esim
+   * @systemapi Hide this for inner system use.
+   * @since 20 dynamic
+   * @since 20 static
+   */
+  function getContractInfo(slotId: int, requestData: ContractRequestData) : Promise<string>;
+
+  /**
+   * Get supported pkids
+   *
+   * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
+   * @param { int } slotId - Indicates the card slot index number.
+   * @returns { Promise<string> } Returns the supported pkids.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
+   * @syscap SystemCapability.Telephony.CoreService.Esim
+   * @systemapi Hide this for inner system use.
+   * @since 20 dynamic
+   * @since 20 static
+   */
+  function getSupportedPkids(slotId: int) : Promise<string>;
+
+  /**
+   * Contract request data
+   *
+   * @interface ContractRequestData
+   * @syscap SystemCapability.Telephony.CoreService.Esim
+   * @systemapi Hide this for inner system use.
+   * @since 20 dynamic
+   * @since 20 static
+   */
+  export interface ContractRequestData {
+    /**
+     * Public key required to get contract info
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 20 dynamic
+     * @since 20 static
+     */
+    publicKey: string;
+
+    /**
+     * Nonce required to get contract info
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 20 dynamic
+     * @since 20 static
+     */
+    nonce: string;
+
+    /**
+     * Euicc Ci PKID to be used, required to get contract info
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 20 dynamic
+     * @since 20 static
+     */
+    pkid: string;
+  }
+
+  /**
    * Establishes a single UICC access rule pursuant to the GlobalPlatform Secure Element Access Control specification.
    *
    * @interface AccessRule
