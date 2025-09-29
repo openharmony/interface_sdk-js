@@ -20,6 +20,7 @@
 
 import { Callback } from './@ohos.base';
 import window from './@ohos.window';
+import uiExtension from './@ohos.arkui.uiExtension';
 /**
  * uiExtensionHost.
  *
@@ -57,7 +58,7 @@ declare namespace uiExtensionHost {
      * Register the callback of avoidAreaChange
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
-     * @param { Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }> } callback - Callback used to return the area.
+     * @param { Callback<uiExtension.AvoidAreaInfo> } callback - Callback used to return the area.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
@@ -66,24 +67,24 @@ declare namespace uiExtensionHost {
      * @systemapi
      * @since 11 dynamic
      */
-    on(type: 'avoidAreaChange', callback: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
+    on(type: 'avoidAreaChange', callback: Callback<uiExtension.AvoidAreaInfo>): void;
 
     /**
      * Register the callback of avoidAreaChange
      *
-     * @param { Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }> } callback
+     * @param { Callback<uiExtension.AvoidAreaInfo> } callback
      *     - Callback used to return the area.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
-    onAvoidAreaChange(callback: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
+    onAvoidAreaChange(callback: Callback<uiExtension.AvoidAreaInfo>): void;
 
     /**
      * Unregister the callback of avoidAreaChange
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
-     * @param { Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }> } callback - Callback used to return the area.
+     * @param { Callback<uiExtension.AvoidAreaInfo> } callback - Callback used to return the area.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
@@ -92,18 +93,18 @@ declare namespace uiExtensionHost {
      * @systemapi
      * @since 11 dynamic
      */
-    off(type: 'avoidAreaChange', callback?: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
+    off(type: 'avoidAreaChange', callback?: Callback<uiExtension.AvoidAreaInfo>): void;
 
     /**
      * Unregister the callback of avoidAreaChange
      *
-     * @param { Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }> } [callback]
+     * @param { Callback<uiExtension.AvoidAreaInfo> } [callback]
      *     - Unregister the callback function. If not provided, all callbacks for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
-    offAvoidAreaChange(callback?: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
+    offAvoidAreaChange(callback?: Callback<uiExtension.AvoidAreaInfo>): void;
 
     /**
      * Subscribes to the component (EmbeddedComponent or UIExtensionComponent) size change event.
