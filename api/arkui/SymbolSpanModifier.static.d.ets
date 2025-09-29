@@ -22,8 +22,8 @@
 
 
 
-import { AttributeModifier } from './component/common';
-import { SymbolSpanAttribute } from './component/symbolSpan';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { SymbolSpanAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines SymbolSpan Modifier

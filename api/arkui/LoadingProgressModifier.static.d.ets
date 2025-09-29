@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { LoadingProgressAttribute } from './component/loadingProgress';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { LoadingProgressAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines LoadingProgress Modifier

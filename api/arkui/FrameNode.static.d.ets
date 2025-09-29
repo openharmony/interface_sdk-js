@@ -19,56 +19,56 @@
  * @arkts 1.2
  */
 
-import { RenderNode } from './RenderNode';
-import { Size, Position, Edges, LengthMetrics, SizeT } from './Graphics';
-import { DrawContext } from './Graphics';
-import { ComponentContent } from './ComponentContent';
+import { RenderNode } from 'arkui.RenderNode';
+import { Size, NodePosition, NodeEdges, LengthMetrics, SizeT } from 'arkui.Graphics';
+import { DrawContext } from 'arkui.Graphics';
+import { ComponentContent } from 'arkui.ComponentContent';
 import { BusinessError } from '../@ohos.base';
 import { UIContext } from '@ohos.arkui.UIContext';
-import { UICommonEvent, UIGestureEvent, CommonAttribute, CustomProperty } from './component/common';
-import { SwiperAttribute, SwiperController } from './component/swiper';
-import { ScrollAttribute, Scroller } from './component/scroll';
-import { ListAttribute, ListOptions } from './component/list';
-import { ListItemAttribute, ListItemOptions } from './component/listItem';
-import { ListItemGroupAttribute, ListItemGroupOptions } from './component/listItemGroup';
-import { WaterFlowAttribute, WaterFlowOptions } from './component/waterFlow';
-import { FlowItemAttribute } from './component/flowItem';
-import { GridAttribute, GridLayoutOptions } from './component/grid';
-import { GridItemAttribute, GridItemOptions } from './component/gridItem';
+import { UICommonEvent, UIGestureEvent, CommonAttribute, CustomProperty } from '@ohos.arkui.component';
+import { SwiperAttribute, SwiperController } from '@ohos.arkui.component';
+import { ScrollAttribute, Scroller } from '@ohos.arkui.component';
+import { ListAttribute, ListOptions } from '@ohos.arkui.component';
+import { ListItemAttribute, ListItemOptions } from '@ohos.arkui.component';
+import { ListItemGroupAttribute, ListItemGroupOptions } from '@ohos.arkui.component';
+import { WaterFlowAttribute, WaterFlowOptions } from '@ohos.arkui.component';
+import { FlowItemAttribute } from '@ohos.arkui.component';
+import { GridAttribute, GridLayoutOptions } from '@ohos.arkui.component';
+import { GridItemAttribute, GridItemOptions } from '@ohos.arkui.component';
 import { Resource } from '../global/resource';
-import { TextAttribute, TextOptions } from './component/text';
-import { TextInputAttribute, TextInputOptions } from './component/textInput';
-import { TextAreaAttribute, TextAreaOptions } from './component/textArea';
-import { SearchAttribute, SearchOptions } from './component/search';
-import { MarqueeAttribute, MarqueeOptions } from './component/marquee';
-import { SymbolGlyphAttribute } from './component/symbolglyph';
-import { ColumnAttribute, ColumnOptions, ColumnOptionsV2 } from './component/column';
-import { RowAttribute, RowOptions, RowOptionsV2 } from './component/row';
-import { StackAttribute, StackOptions } from './component/stack';
-import { FlexAttribute, FlexOptions } from './component/flex';
-import { RelativeContainerAttribute } from './component/relativeContainer';
-import { DividerAttribute } from './component/divider';
-import { BlankAttribute } from './component/blank';
-import { GridRowAttribute, GridRowOptions } from './component/gridRow';
-import { GridColAttribute, GridColOptions } from './component/gridCol';
-import { ProgressAttribute, ProgressOptions } from './component/progress';
-import { QRCodeAttribute } from './component/qrcode';
-import { BadgeAttribute, BadgeParamWithNumber, BadgeParamWithString } from './component/badge';
-import { TextClockAttribute, TextClockOptions } from './component/textClock';
-import { TextTimerAttribute, TextTimerOptions } from './component/textTimer';
-import { ImageAttribute, ImageContent } from './component/image';
+import { TextAttribute, TextOptions } from '@ohos.arkui.component';
+import { TextInputAttribute, TextInputOptions } from '@ohos.arkui.component';
+import { TextAreaAttribute, TextAreaOptions } from '@ohos.arkui.component';
+import { SearchAttribute, SearchOptions } from '@ohos.arkui.component';
+import { MarqueeAttribute, MarqueeOptions } from '@ohos.arkui.component';
+import { SymbolGlyphAttribute } from '@ohos.arkui.component';
+import { ColumnAttribute, ColumnOptions, ColumnOptionsV2 } from '@ohos.arkui.component';
+import { RowAttribute, RowOptions, RowOptionsV2 } from '@ohos.arkui.component';
+import { StackAttribute, StackOptions } from '@ohos.arkui.component';
+import { FlexAttribute, FlexOptions } from '@ohos.arkui.component';
+import { RelativeContainerAttribute } from '@ohos.arkui.component';
+import { DividerAttribute } from '@ohos.arkui.component';
+import { BlankAttribute } from '@ohos.arkui.component';
+import { GridRowAttribute, GridRowOptions } from '@ohos.arkui.component';
+import { GridColAttribute, GridColOptions } from '@ohos.arkui.component';
+import { ProgressAttribute, ProgressOptions } from '@ohos.arkui.component';
+import { QRCodeAttribute } from '@ohos.arkui.component';
+import { BadgeAttribute, BadgeParamWithNumber, BadgeParamWithString } from '@ohos.arkui.component';
+import { TextClockAttribute, TextClockOptions } from '@ohos.arkui.component';
+import { TextTimerAttribute, TextTimerOptions } from '@ohos.arkui.component';
+import { ImageAttribute, ImageContent } from '@ohos.arkui.component';
 import { DrawableDescriptor } from '../@ohos.arkui.drawableDescriptor';
-import { ButtonAttribute, ButtonOptions } from './component/button';
-import { CheckboxOptions, CheckboxAttribute } from './component/checkbox';
-import { RadioOptions, RadioAttribute } from './component/radio';
-import { SliderAttribute, SliderOptions } from './component/slider';
-import { ToggleAttribute, ToggleOptions } from './component/toggle';
-import { CheckboxGroupAttribute, CheckboxGroupOptions } from './component/checkboxgroup';
-import { RatingAttribute, RatingOptions } from './component/rating';
+import { ButtonAttribute, ButtonOptions } from '@ohos.arkui.component';
+import { CheckboxOptions, CheckboxAttribute } from '@ohos.arkui.component';
+import { RadioOptions, RadioAttribute } from '@ohos.arkui.component';
+import { SliderAttribute, SliderOptions } from '@ohos.arkui.component';
+import { ToggleAttribute, ToggleOptions } from '@ohos.arkui.component';
+import { CheckboxGroupAttribute, CheckboxGroupOptions } from '@ohos.arkui.component';
+import { RatingAttribute, RatingOptions } from '@ohos.arkui.component';
 import image from '../@ohos.multimedia.image';
-import { ImageAIOptions } from './component/imageCommon';
-import { ResourceStr } from './component/units';
-import { LoadingProgressAttribute } from './component/loadingProgress';
+import { ImageAIOptions } from '@ohos.arkui.component';
+import { ResourceStr } from '@ohos.arkui.component';
+import { LoadingProgressAttribute } from '@ohos.arkui.component';
 
 /**
  * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
@@ -335,11 +335,11 @@ export declare class FrameNode {
   /**
    * Get the position of the node relative to window.
    *
-   * @returns { Position } - Returns position of the node relative to window.
+   * @returns { NodePosition } - Returns position of the node relative to window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getPositionToWindow(): Position;
+  getPositionToWindow(): NodePosition;
 
   /**
    * Get if the FrameNode is disposed.
@@ -353,11 +353,11 @@ export declare class FrameNode {
   /**
    * Get the position of the node relative to its parent.
    *
-   * @returns { Position } - Returns position of the node relative to its parent.
+   * @returns { NodePosition } - Returns position of the node relative to its parent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getPositionToParent(): Position;
+  getPositionToParent(): NodePosition;
 
   /**
    * Get the size of the FrameNode after measure, with unit PX.
@@ -371,38 +371,38 @@ export declare class FrameNode {
   /**
    * Get the offset to the parent of the FrameNode after layout, with unit PX.
    *
-   * @returns { Position } - Returns the offset to the parent of the FrameNode after layout, with unit PX.
+   * @returns { NodePosition } - Returns the offset to the parent of the FrameNode after layout, with unit PX.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getLayoutPosition(): Position;
+  getLayoutPosition(): NodePosition;
 
   /**
    * Get the user config border width of the FrameNode.
    *
-   * @returns { Edges<LengthMetrics> } - Returns the user config border width of the FrameNode.
+   * @returns { NodeEdges<LengthMetrics> } - Returns the user config border width of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getUserConfigBorderWidth(): Edges<LengthMetrics>;
+  getUserConfigBorderWidth(): NodeEdges<LengthMetrics>;
 
   /**
    * Get the user config padding of the FrameNode.
    *
-   * @returns { Edges<LengthMetrics> } - Returns the user config padding of the FrameNode.
+   * @returns { NodeEdges<LengthMetrics> } - Returns the user config padding of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getUserConfigPadding(): Edges<LengthMetrics>;
+  getUserConfigPadding(): NodeEdges<LengthMetrics>;
 
   /**
    * Get the user config margin of the FrameNode.
    *
-   * @returns { Edges<LengthMetrics> } - Returns the user config margin of the FrameNode.
+   * @returns { NodeEdges<LengthMetrics> } - Returns the user config margin of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getUserConfigMargin(): Edges<LengthMetrics>;
+  getUserConfigMargin(): NodeEdges<LengthMetrics>;
 
   /**
    * Get the user config size of the FrameNode.
@@ -541,11 +541,11 @@ export declare class FrameNode {
    * Method to assign a position to the FrameNode and each of its children. Use this method to override the
    * default layout method.
    *
-   * @param { Position } position - The position of the node, will be used when executed layout method.
+   * @param { NodePosition } position - The position of the node, will be used when executed layout method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  onLayout(position: Position): void;
+  onLayout(position: NodePosition): void;
 
   /**
    * Set the size of the FrameNode after measure, with unit PX.
@@ -559,11 +559,11 @@ export declare class FrameNode {
   /**
    * Set the position to the parent of the FrameNode after layout, with unit PX.
    *
-   * @param { Position } position - The position to the parent of the FrameNode after layout.
+   * @param { NodePosition } position - The position to the parent of the FrameNode after layout.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  setLayoutPosition(position: Position): void;
+  setLayoutPosition(position: NodePosition): void;
 
   /**
    * This is called to find out how big the FrameNode should be. The parent node supplies constraint information. The
@@ -580,11 +580,11 @@ export declare class FrameNode {
    * the position of the frameNode, and the actual layout work of FrameNode is performed in onLayout or the default
    * layout method.
    *
-   * @param { Position } position - The position of the node, will be used when executed the layout method.
+   * @param { NodePosition } position - The position of the node, will be used when executed the layout method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  layout(position: Position): void;
+  layout(position: NodePosition): void;
 
   /**
    * Mark the frame node as need layout.
@@ -605,47 +605,47 @@ export declare class FrameNode {
   /**
    * Get the position of the node relative to screen.
    *
-   * @returns { Position } - Returns position of the node relative to screen.
+   * @returns { NodePosition } - Returns position of the node relative to screen.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getPositionToScreen(): Position;
+  getPositionToScreen(): NodePosition;
 
   /**
    * Get the position of the node relative to unified display, in vp.
    *
-   * @returns { Position } - Returns position of the node relative to unified display, in vp.
+   * @returns { NodePosition } - Returns position of the node relative to unified display, in vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getGlobalPositionOnDisplay(): Position;
+  getGlobalPositionOnDisplay(): NodePosition;
 
   /**
    * Get the position of the node relative to window with transform.
    *
-   * @returns { Position } - Returns position of the node relative to window with transform.
+   * @returns { NodePosition } - Returns position of the node relative to window with transform.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getPositionToWindowWithTransform(): Position;
+  getPositionToWindowWithTransform(): NodePosition;
 
   /**
    * Get the position of the node relative to its parent with transform.
    *
-   * @returns { Position } - Returns position of the node relative to its parent with transform.
+   * @returns { NodePosition } - Returns position of the node relative to its parent with transform.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getPositionToParentWithTransform(): Position;
+  getPositionToParentWithTransform(): NodePosition;
 
   /**
    * Get the position of the node relative to screen with transform.
    *
-   * @returns { Position } - Returns position of the node relative to screen with transform.
+   * @returns { NodePosition } - Returns position of the node relative to screen with transform.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getPositionToScreenWithTransform(): Position;
+  getPositionToScreenWithTransform(): NodePosition;
 
   /**
    * Detach from parent and dispose all child recursively.

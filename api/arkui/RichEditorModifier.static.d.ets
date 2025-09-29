@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AttributeModifier } from './component/common';
-import { RichEditorAttribute } from './component/richEditor';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { RichEditorAttribute } from '@ohos.arkui.component';
 
 /**
  * @file

@@ -20,8 +20,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { GridAttribute } from './component/grid';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { GridAttribute } from '@ohos.arkui.component';
 
 
 /**

@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { ProgressAttribute } from './component/progress';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { ProgressAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Progress Modifier

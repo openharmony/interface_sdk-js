@@ -22,8 +22,8 @@
 
 
 
-import { AttributeModifier } from './component/common';
-import { SearchAttribute } from './component/search';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { SearchAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Search Modifier

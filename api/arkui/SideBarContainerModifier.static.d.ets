@@ -20,8 +20,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { SideBarContainerAttribute } from './component/sidebar';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { SideBarContainerAttribute } from '@ohos.arkui.component';
 
 
 /**

@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { RowSplitAttribute } from './component/rowSplit';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { RowSplitAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines RowSplit Modifier

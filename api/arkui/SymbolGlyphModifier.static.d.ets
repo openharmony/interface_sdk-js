@@ -22,8 +22,8 @@
 
 
 
-import { AttributeModifier } from './component/common';
-import { SymbolGlyphAttribute } from './component/symbolglyph';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { SymbolGlyphAttribute } from '@ohos.arkui.component';
 import { Resource } from '../global/resource';
 
 /**
