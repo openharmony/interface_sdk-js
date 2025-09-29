@@ -20,10 +20,22 @@
 
 import { LocalStorage } from '@ohos.arkui.stateManagement'
 import { StateContext } from '../runtime-api/@koalaui.runtime.states.State'
-// From incremental engine
+
+/**
+ * Defined memo Annotation.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface memo {};
 
+/**
+ * Defines ComponentBuilder Annotation.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export @interface ComponentBuilder {}
 
