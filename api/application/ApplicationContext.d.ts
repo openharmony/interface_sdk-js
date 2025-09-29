@@ -107,6 +107,18 @@ declare class ApplicationContext extends Context {
   on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback): number;
 
   /**
+   * Register ability lifecycle callback.
+   *
+   * @param { AbilityLifecycleCallback } callback - Callback used to return the ID of the registered listener.
+   * @returns { int } Returns the number code of the callback.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22
+   * @arkts 1.2
+   */
+  onAbilityLifecycle(callback: AbilityLifecycleCallback): int;
+
+  /**
    * Unregister ability lifecycle callback.
    *
    * @param { 'abilityLifecycle' } type - abilityLifecycle.
@@ -152,6 +164,18 @@ declare class ApplicationContext extends Context {
   off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback<void>): void;
 
   /**
+   * Unregisters ability lifecycle callback.
+   * 
+   * @param { int } callbackId - ID of the listener to unregister.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the deregistration is successful,
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22
+   * @arkts 1.2
+   */
+  offAbilityLifecycle(callbackId: int, callback: AsyncCallback<void>): void;
+
+  /**
    * Unregister ability lifecycle callback.
    *
    * @param { 'abilityLifecycle' } type - abilityLifecycle.
@@ -194,6 +218,23 @@ declare class ApplicationContext extends Context {
    * @since 12
    */
   off(type: 'abilityLifecycle', callbackId: number): Promise<void>;
+
+  /**
+   * Unregisters the listener that monitors the ability lifecycle of the application.
+   * This API uses a promise to return the result.
+   * 
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { int } callbackId - Indicates the number code of the callback.
+   * @returns { Promise<void> } ThePromise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22
+   * @arkts 1.2
+   */
+  offAbilityLifecycle(callbackId: int): Promise<void>;
 
   /**
    * Register environment callback.
