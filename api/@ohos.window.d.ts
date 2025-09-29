@@ -7684,7 +7684,6 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 22 static
      */
     onWindowHighlightChange(callback: Callback<boolean>): void;
@@ -7717,7 +7716,6 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 22 static
      */
     offWindowHighlightChange(callback?: Callback<boolean>): void;
