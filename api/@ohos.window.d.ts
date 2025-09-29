@@ -7486,6 +7486,62 @@ declare namespace window {
     off(type: 'windowVisibilityChange', callback?: Callback<boolean>): void;
 
     /**
+     * Register the callback for occlusion state changed.
+     *
+     * @param { 'occlusionStateChanged' } type - The event of occlusion state changed.
+     * @param { Callback<OcclusionState> } callback - Callback used to return the result of occlusion state.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic
+     */
+    on(type: 'occlusionStateChanged', callback: Callback<OcclusionState>): void;
+
+    /**
+     * Register the callback for occlusion state changed.
+     *
+     * @param { Callback<OcclusionState> } callback - Callback used to return the result of occlusion state.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onOcclusionStateChanged(callback: Callback<OcclusionState>): void;
+
+    /**
+     * Unregister the callback for occlusion state changed.
+     *
+     * @param { 'occlusionStateChanged' } type - The event of occlusion state changed.
+     * @param { Callback<OcclusionState> } [callback] - Callback used to return the result of occlusion state.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic
+     */
+    off(type: 'occlusionStateChanged', callback?: Callback<OcclusionState>): void;
+
+    /**
+     * Unregister the callback for occlusion state changed.
+     *
+     * @param { Callback<OcclusionState> } [callback] - Callback used to return the result of occlusion state.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offOcclusionStateChanged(callback?: Callback<OcclusionState>): void;
+
+    /**
      * System density change callback on.
      *
      * @param { 'systemDensityChange' } type - The value is fixed at 'systemDensityChange', indicating the system density is current has changed.
@@ -12758,6 +12814,40 @@ declare namespace window {
      * @since 20
      */
     PIP = 1 << 3
+  }
+
+  /**
+   * Note: The alpha channel value is included in visibility computation. When a window is covered by another window
+   * with alpha < 1, it is not considered occluded, and its occlusion state is reported as fully visible.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 22 dynamic&static
+   */
+  enum OcclusionState {
+    /**
+     * The window is fully visible.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    NO_OCCLUSION = 0,
+
+    /**
+     * The window is partially occluded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    PARTIAL_OCCLUSION = 1,
+
+    /**
+     * The window is fully occluded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    FULL_OCCLUSION = 2
   }
 
   /**
