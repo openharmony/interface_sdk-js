@@ -12661,7 +12661,8 @@ declare namespace window {
   }
 
   /**
-   * Window occlusion state.
+   * Note: The alpha channel value is included in visibility computation. When a window is covered by another window
+   * with alpha < 1, it is not considered occluded, and its occlusion state is reported as fully visible.
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
@@ -12669,7 +12670,7 @@ declare namespace window {
    */
   enum OcclusionState {
     /**
-     * Window no occlusion.
+     * The window is fully visible.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 22 dynamic&static
@@ -12677,7 +12678,7 @@ declare namespace window {
     NO_OCCLUSION = 0,
 
     /**
-     * Window partially occlusion.
+     * The window is partially occluded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 22 dynamic&static
@@ -12685,12 +12686,12 @@ declare namespace window {
     PARTIAL_OCCLUSION = 1,
 
     /**
-     * Window totally occlusion.
+     * The window is fully occluded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 22 dynamic&static
      */
-    TOTAL_OCCLUSION = 2
+    FULL_OCCLUSION = 2
   }
 
   /**
