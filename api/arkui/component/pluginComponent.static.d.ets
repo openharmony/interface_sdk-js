@@ -21,6 +21,7 @@
 import { VoidCallback } from './units';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
+import { RecordData } from '../../@ohos.base';
 /**
  * PluginComponentTemplate
  *
@@ -49,16 +50,6 @@ export interface PluginComponentTemplate {
      */
     bundleName: string | undefined;
 }
-
-/**
- * Defines RecordData.
- * 
- * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> } RecordData
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 20 static
- */
-export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
 
 /**
  * Define options used to construct a plugin component.
