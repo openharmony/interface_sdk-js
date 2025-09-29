@@ -168,6 +168,7 @@ type OnAbilityWillSaveStateFn = (ability: UIAbility) => void;
  */
 type OnAbilitySaveStateFn = (ability: UIAbility) => void;
 
+/*** if arkts 1.1 */
 /**
  * The ability lifecycle callback.
  *
@@ -190,10 +191,25 @@ type OnAbilitySaveStateFn = (ability: UIAbility) => void;
  * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since arkts{ '1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export default class AbilityLifecycleCallback {
+/*** endif */
+
+/*** if arkts 1.2 */
+/**
+ * The ability lifecycle callback.
+ *
+ * @typedef AbilityLifecycleCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @StageModelOnly
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface AbilityLifecycleCallback {
+/*** endif */
   /**
    * Called back when an ability is started for initialization.
    *
@@ -700,3 +716,7 @@ export default class AbilityLifecycleCallback {
    */
   onAbilitySaveState?(ability: UIAbility): void;
 }
+
+/*** if arkts 1.2 */
+export default AbilityLifecycleCallback;
+/*** endif */
