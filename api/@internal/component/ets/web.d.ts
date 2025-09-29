@@ -84,6 +84,16 @@ type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDe
  * @atomicservice
  * @since 12
  */
+/**
+ * The callback of ssl error event.
+ *
+ * @typedef { function } OnSslErrorEventCallback
+ * @param { SslErrorEvent } sslErrorEvent - callback information of onSslErrorEvent.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
 type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
 
 /**
@@ -132,8 +142,20 @@ type OnFirstMeaningfulPaintCallback = (firstMeaningfulPaint: FirstMeaningfulPain
  *                        false causes the Web to continue loading the url as usual.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
+ */
+/**
+ * The callback of onOverrideUrlLoading.
+ * Should not call WebviewController.loadUrl with the request's URL and then return true.
+ *
+ * @typedef { function } OnOverrideUrlLoadingCallback
+ * @param { WebResourceRequest } webResourceRequest - callback information of onOverrideUrlLoading.
+ * @returns { boolean } - Returning true causes the current Web to abort loading the URL,
+ *                        false causes the Web to continue loading the url as usual.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic&static
  */
 type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => boolean;
 
@@ -1552,8 +1574,16 @@ type OnContextMenuHideCallback = () => void;
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
+ */
+/**
+ * Enum type supplied to {@link error} when onSslErrorEventReceive being called.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic&static
  */
 declare enum SslError {
   /**
@@ -1583,8 +1613,15 @@ declare enum SslError {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
+   */
+  /**
+   * Hostname mismatch.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   HostMismatch = 1,
 
@@ -1599,8 +1636,15 @@ declare enum SslError {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
+   */
+  /**
+   * The certificate date is invalid.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   DateInvalid = 2,
 
@@ -1615,8 +1659,15 @@ declare enum SslError {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
+   */
+  /**
+   * The certificate authority is not trusted.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   Untrusted = 3
 }
@@ -2122,8 +2173,15 @@ declare class HttpAuthHandler {
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
+ */
+/**
+ * Defines the ssl error request result, related to {@link onSslErrorEventReceive} method.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic&static
  */
 declare class SslErrorHandler {
   /**
@@ -2137,8 +2195,15 @@ declare class SslErrorHandler {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
+   */
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   constructor();
 
@@ -2153,8 +2218,15 @@ declare class SslErrorHandler {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
+   */
+  /**
+   * Confirm to use the SSL certificate.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   handleConfirm(): void;
 
@@ -2169,8 +2241,15 @@ declare class SslErrorHandler {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
+   */
+  /**
+   * Cancel this request.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   handleCancel(): void;
 
@@ -4212,8 +4291,20 @@ declare class WebResourceResponse {
    *                                              ArrayBuffer type indicate binary data.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
+   */
+  /**
+   * Sets the response data.
+   *
+   * @param { string | int | Resource | ArrayBuffer } data - the response data.
+   *                                              string type indicate strings in HTML format.
+   *                                              number type indicate file handle.
+   *                                              Resource type indicate $rawfile resource.
+   *                                              ArrayBuffer type indicate binary data.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   setResponseData(data: string | int | Resource | ArrayBuffer): void;
 
@@ -4238,8 +4329,16 @@ declare class WebResourceResponse {
    * @param { string } encoding the response encoding.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  /**
+   * Sets the response encoding.
+   *
+   * @param { string } encoding the response encoding.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   setResponseEncoding(encoding: string): void;
 
@@ -4264,8 +4363,16 @@ declare class WebResourceResponse {
    * @param { string } mimeType the response MIME type.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  /**
+   * Sets the response MIME type.
+   *
+   * @param { string } mimeType the response MIME type.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   setResponseMimeType(mimeType: string): void;
 
@@ -4290,8 +4397,16 @@ declare class WebResourceResponse {
    * @param { string } reason the reason message.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  /**
+   * Sets the reason message.
+   *
+   * @param { string } reason the reason message.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   setReasonMessage(reason: string): void;
 
@@ -4318,6 +4433,15 @@ declare class WebResourceResponse {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Sets the response headers.
+   *
+   * @param { Array<Header> } header the response headers.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   setResponseHeader(header: Array<Header>): void;
 
   /**
@@ -4341,8 +4465,16 @@ declare class WebResourceResponse {
    * @param { int } code the response code.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  /**
+   * Sets the response code.
+   *
+   * @param { int } code the response code.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   setResponseCode(code: int): void;
 
@@ -4368,6 +4500,15 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Sets the response is ready or not.
+   *
+   * @param { boolean } IsReady whether the response is ready.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   setResponseIsReady(IsReady: boolean): void;
 
@@ -6770,8 +6911,16 @@ declare interface OnHttpAuthRequestEvent {
  * @typedef OnInterceptRequestEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
+ */
+/**
+ * Defines the triggered callback when the resources loading is intercepted.
+ *
+ * @typedef OnInterceptRequestEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic&static
  */
 declare interface OnInterceptRequestEvent {
   /**
@@ -6780,8 +6929,16 @@ declare interface OnInterceptRequestEvent {
    * @type { WebResourceRequest }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  /**
+   * The information of request.
+   *
+   * @type { WebResourceRequest }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   request: WebResourceRequest;
 }
@@ -6949,8 +7106,16 @@ declare interface OnScrollEvent {
  * @typedef OnSslErrorEventReceiveEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
+ */
+/**
+ * Defines the triggered callback when the Web page receives an ssl Error.
+ *
+ * @typedef OnSslErrorEventReceiveEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic&static
  */
 declare interface OnSslErrorEventReceiveEvent {
   /**
@@ -6959,8 +7124,16 @@ declare interface OnSslErrorEventReceiveEvent {
    * @type { SslErrorHandler }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  /**
+   * Notifies the user of the operation behavior of the web component.
+   *
+   * @type { SslErrorHandler }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   handler: SslErrorHandler;
 
@@ -6970,8 +7143,16 @@ declare interface OnSslErrorEventReceiveEvent {
    * @type { SslError }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  /**
+   * Error codes.
+   *
+   * @type { SslError }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   error: SslError;
 
@@ -6980,8 +7161,15 @@ declare interface OnSslErrorEventReceiveEvent {
    *
    * @type { ?Array<Uint8Array> }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
+   */
+  /**
+   * Certificate chain data in DER format.
+   *
+   * @type { ?Array<Uint8Array> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 22 dynamic&static
    */
   certChainData?: Array<Uint8Array>;
 }
@@ -7888,8 +8076,24 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  /**
+   * Sets whether to enable access to the file system in the application.
+   * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
+   * <p><strong>API Note</strong>:<br>
+   * fileAccess is disabled by default since API version 12.
+   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile<br>
+   * directory can still be accessed through the file protocol.
+   * </p>
+   *
+   * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
+   *    The default value is false.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   fileAccess(fileAccess: boolean): WebAttribute;
 
@@ -8370,8 +8574,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
+   */
+  /**
+   * Sets the ratio of the text zoom.
+   *
+   * @param { int } textZoomRatio Text zoom ratio to set. The value is an integer. The value range is (0, 2147483647].
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   textZoomRatio(textZoomRatio: int): WebAttribute;
 
@@ -9347,8 +9560,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute } If the response value is null, the Web will continue to load the resources. Otherwise, the response value will be used
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  /**
+   * Triggered when the resources loading is intercepted.
+   *
+   * @param { Callback<OnInterceptRequestEvent, WebResourceResponse> } callback The triggered callback when the resources loading is intercepted.
+   * @returns { WebAttribute } If the response value is null, the Web will continue to load the resources. Otherwise, the response value will be used
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   onInterceptRequest(callback: Callback<OnInterceptRequestEvent, WebResourceResponse>): WebAttribute;
 
@@ -9603,8 +9825,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  /**
+   * Called to notify users when an SSL error occurs with a request for the main frame.
+   * To include errors with requests for subframes, use the OnSslErrorEvent API.
+   *
+   * @param { Callback<OnSslErrorEventReceiveEvent> } callback The triggered callback when the Web page receives an ssl Error.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   onSslErrorEventReceive(callback: Callback<OnSslErrorEventReceiveEvent>): WebAttribute;
 
@@ -9617,6 +9849,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Called to notify users when an SSL error occurs during the loading of resources (for the main frame and subframes).
+   * To handle SSL errors for requests for the main frame, use the isMainFrame field to distinguish.
+   *
+   * @param { OnSslErrorEventCallback } callback The triggered callback when the Web page receives an ssl Error.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   onSslErrorEvent(callback: OnSslErrorEventCallback): WebAttribute;
 
@@ -10600,8 +10843,31 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute } the attribute of the scroll.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
+   */
+  /**
+   * Called to setting the nested scroll options.
+   *
+   * <p><strong>API Note</strong>:<br>
+   * You can set four directions: up, down, left, and right, or set nested scrolling modes for forward and backward directions
+   * to achieve scrolling linkage with the parent component.<br>
+   * When value is of type NestedScrollOptionsExt (four directions: up, down, left, and right), the default scrolling options
+   * for scrollUp, scrollDown, scrollLeft, and scrollRight are NestedScrollMode.SELF_FIRST.<br>
+   * When value is of type NestedScrollOptions (two directions: forward and backward), the default scrolling options for scrollForward
+   * and scrollBackward are NestedScrollMode.SELF_FIRST.<br>
+   * Supported nested scrolling containers: Grid, List, Scroll, Swiper, Tabs, WaterFlow, Refresh, bindSheet.<br>
+   * Supported nested scrolling input events: gestures, mouse, and trackpad.<br>
+   * In nested scrolling scenarios, since web scrolling to the edge will prioritize triggering the overscroll bounce effect,
+   * it is recommended to set overScrollMode to OverScrollMode.NEVER to avoid affecting the user experience in this scenario.
+   * </p>
+   *
+   * @param { NestedScrollOptions | NestedScrollOptionsExt } value - options for
+   *     nested scrolling.
+   * @returns { WebAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   nestedScroll(value: NestedScrollOptions | NestedScrollOptionsExt): WebAttribute;
 
@@ -10736,8 +11002,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  /**
+   * When the URL is about to be loaded into the current Web, it gives the application the opportunity to take control.
+   * This will not called for POST requests, may be called for subframes and with non-HTTP(S) schemes.
+   *
+   * @param { OnOverrideUrlLoadingCallback } callback - The callback for onOverrideUrlLoading.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   onOverrideUrlLoading(callback: OnOverrideUrlLoadingCallback): WebAttribute;
 
@@ -11144,6 +11420,15 @@ declare const WebInstance: WebAttribute;
  * @atomicservice
  * @since 12
  */
+/**
+ * Defines the ssl error event.
+ *
+ * @typedef SslErrorEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
 declare interface SslErrorEvent {
   /**
    * Notifies the user of the operation behavior of the web component.
@@ -11152,6 +11437,15 @@ declare interface SslErrorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Notifies the user of the operation behavior of the web component.
+   *
+   * @type { SslErrorHandler }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   handler: SslErrorHandler;
 
@@ -11163,6 +11457,15 @@ declare interface SslErrorEvent {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Error codes.
+   *
+   * @type { SslError }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   error: SslError;
 
   /**
@@ -11172,6 +11475,15 @@ declare interface SslErrorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Request url.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   url: string;
 
@@ -11183,6 +11495,15 @@ declare interface SslErrorEvent {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Original url.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   originalUrl: string;
 
   /**
@@ -11192,6 +11513,15 @@ declare interface SslErrorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Referrer.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   referrer: string;
 
@@ -11213,6 +11543,15 @@ declare interface SslErrorEvent {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Whether the request is main frame.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   isMainFrame: boolean;
 
   /**
@@ -11221,6 +11560,14 @@ declare interface SslErrorEvent {
    * @type { ?Array<Uint8Array> }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   */
+  /**
+   * Certificate chain data in DER format.
+   *
+   * @type { ?Array<Uint8Array> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 22 dynamic
    */
   certChainData?: Array<Uint8Array>;
 }
@@ -11274,8 +11621,15 @@ declare interface ExpandedMenuItemOptions {
  *
  * @interface NestedScrollOptionsExt
  * @syscap SystemCapability.Web.Webview.Core
- * @since arkts {'1.1':'14', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
+ */
+/**
+ * Define nested scroll options
+ *
+ * @interface NestedScrollOptionsExt
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @since 22 dynamic&static
  */
 declare interface NestedScrollOptionsExt {
   /**
@@ -11283,8 +11637,15 @@ declare interface NestedScrollOptionsExt {
    *
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
+   */
+  /**
+   * Set NestedScrollMode when the scrollable component scrolls up
+   *
+   * @type { ?NestedScrollMode }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 22 dynamic&static
    */
   scrollUp?: NestedScrollMode;
 
@@ -11293,8 +11654,15 @@ declare interface NestedScrollOptionsExt {
    *
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
+   */
+  /**
+   * Set NestedScrollMode when the scrollable component scrolls down
+   *
+   * @type { ?NestedScrollMode }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 22 dynamic&static
    */
   scrollDown?: NestedScrollMode;
 
@@ -11303,8 +11671,15 @@ declare interface NestedScrollOptionsExt {
    *
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
+   */
+  /**
+   * Set NestedScrollMode when the scrollable component scrolls right
+   *
+   * @type { ?NestedScrollMode }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 22 dynamic&static
    */
   scrollRight?: NestedScrollMode;
 
@@ -11313,8 +11688,15 @@ declare interface NestedScrollOptionsExt {
    *
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
+   */
+  /**
+   * Set NestedScrollMode when the scrollable component scrolls left
+   *
+   * @type { ?NestedScrollMode }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 22 dynamic&static
    */
   scrollLeft?: NestedScrollMode;
 }
