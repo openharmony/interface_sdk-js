@@ -11696,6 +11696,28 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @arkts dynamic&static
    */
   zoomControlAccess(zoomControlAccess: boolean): WebAttribute;
+
+  /**
+   * Enable selected data detector.
+   *
+   * @param { boolean } enable - whether to enable the selected data detector.
+   *     {@code true} means enable all select data detector in Web;{@code false} otherwise.
+   *     The default value is true.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic
+   */
+  enableSelectedDataDetector(enable: boolean): WebAttribute
+
+  /**
+   * Config selected data detector.
+   *
+   * @param { SelectDataDetectorConfig } config - Set the config of selected data detector.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic
+   */
+  selectedDataDetectorConfig(config: SelectDataDetectorConfig): WebAttribute
 }
 
 /**
