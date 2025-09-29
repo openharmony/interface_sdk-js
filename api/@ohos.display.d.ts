@@ -1649,7 +1649,7 @@ declare namespace display {
      * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic&static
      */
     readonly sdrNits: double;
     /**
@@ -1659,7 +1659,7 @@ declare namespace display {
      * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic&static
      */
     readonly currentHeadroom: double;
     /**
@@ -1669,7 +1669,7 @@ declare namespace display {
      * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic&static
      */
     readonly maxHeadroom: double;
   }
