@@ -5088,9 +5088,18 @@ declare namespace drawing {
      * @type { ?FontMetricsFlags }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     flags?: FontMetricsFlags;
+
+    /**
+     * Font measurement flags that are valid.
+     * @type { ?int }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 22 static
+     */
+    flags?: int;
 
     /**
      * Maximum distance from the baseline to the highest coordinate of the text. The value is a floating point number.
