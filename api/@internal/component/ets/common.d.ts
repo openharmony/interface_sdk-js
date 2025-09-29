@@ -19691,6 +19691,15 @@ declare interface FadingEdgeOptions {
  * @atomicservice
  * @since 11
  */
+/**
+ * Define nested scroll options
+ *
+ * @interface NestedScrollOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
 declare interface NestedScrollOptions {
   /**
    * Set NestedScrollMode when the scrollable component scrolls forward
