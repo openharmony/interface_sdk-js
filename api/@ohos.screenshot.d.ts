@@ -79,7 +79,8 @@ declare namespace screenshot {
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1.Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function saveHdrPicture(options?: HdrScreenshotOptions): Promise<Array<image.PixelMap>>;
 
@@ -359,7 +360,8 @@ declare namespace screenshot {
    * @interface HdrScreenshotOptions
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface HdrScreenshotOptions {
     /**
@@ -369,7 +371,8 @@ declare namespace screenshot {
      * @default The ID of current display. The value is a positive integer greater than or equal to 0.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     displayId?: long;
     /**
@@ -379,7 +382,8 @@ declare namespace screenshot {
      * @default true
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     isNotificationNeeded?: boolean;
     /**
@@ -389,7 +393,8 @@ declare namespace screenshot {
      * @default false
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     isCaptureFullOfScreen?: boolean;
   }
