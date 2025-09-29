@@ -20,7 +20,6 @@
 
 /*** if arkts 1.1 */
 import image from '../@ohos.multimedia.image';
-import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
 import contextConstant from '../@ohos.app.ability.contextConstant';
 import type UIServiceProxy from './UIServiceProxy';
@@ -30,6 +29,7 @@ import { AbilityInfo } from '../bundleManager/AbilityInfo';
 import { AbilityResult } from '../ability/abilityResult';
 import { AsyncCallback } from '../@ohos.base';
 import Context from './Context';
+import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import { HapModuleInfo } from '../bundleManager/HapModuleInfo';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
 import Want from '../@ohos.app.ability.Want';
@@ -4388,7 +4388,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   requestDialogService(want: Want, result: AsyncCallback<dialogRequest.RequestResult>): void;
 
@@ -4445,7 +4446,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   requestDialogService(want: Want): Promise<dialogRequest.RequestResult>;
 
