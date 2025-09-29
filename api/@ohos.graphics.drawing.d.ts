@@ -5882,7 +5882,7 @@ declare namespace drawing {
      * @returns { PathEffect | undefined } PathEffect object.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 static
      */
     static createSumPathEffect(firstPathEffect: PathEffect, secondPathEffect: PathEffect): PathEffect | undefined;
   }
