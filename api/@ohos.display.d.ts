@@ -1615,7 +1615,7 @@ declare namespace display {
    * @atomicservice
    * @since 22 dynamic&static
    */
-  interface FoldCreaseRegion {
+  interface BrightnessInfo {
     /**
      * Standard Dynamic Range.
      *
