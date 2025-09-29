@@ -2323,6 +2323,140 @@ declare namespace sim {
   function getSimAuthentication(slotId: int, authType: AuthType, authData: string): Promise<SimAuthenticationResponse>;
 
   /**
+   * Get the list of all SIM card account information.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { AsyncCallback<Array<IccAccountInfo>> } callback - The callback is used to
+   * return the array of {@link IccAccountInfo}. The ICCID and phone number will be null
+   * if has no ohos.permission.GET_TELEPHONY_STATE.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - Do not have sim card.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 20 dynamic
+   * @since 20 static
+   */
+  function getAllSimAccountInfoList(callback: AsyncCallback<Array<IccAccountInfo>>): void;
+
+  /**
+   * Get the list of all SIM card account information.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @returns { Promise<Array<IccAccountInfo>> } Returns the array of {@link IccAccountInfo}. The ICCID
+   * and phone number will be null if has no ohos.permission.GET_TELEPHONY_STATE.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - Do not have sim card.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 20 dynamic
+   * @since 20 static
+   */
+  function getAllSimAccountInfoList(): Promise<Array<IccAccountInfo>>;
+
+  /**
+   * Obtains the SIM card label.
+   * @param { int } slotId SIM card slot ID.
+   * @param { AsyncCallback<SimLabel> } callback Callback used to return the SIM card label.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 20 dynamic
+   * @since 20 static
+   */
+  function getSimLabel(slotId: int, callback: AsyncCallback<SimLabel>): void;
+
+  /**
+   * Obtains the SIM card label.
+   * @param { int } slotId SIM card slot ID.
+   * @returns { Promise<SimLabel> } Promise used to return the SIM card label.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 20 dynamic
+   * @since 20 static
+   */
+  function getSimLabel(slotId: int): Promise<SimLabel>;
+
+  /**
+   * Obtains the SIM card label synchronously.
+   * @param { int } slotId SIM card slot ID, which ranges from 0 to the maximum number of slots supported
+   * by the device.
+   * @returns { SimLabel } SIM card label.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 20 dynamic
+   * @since 20 static
+   */
+  function getSimLabelSync(slotId: int): SimLabel;
+
+  /**
+   * Indicates the SIM card type.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 20 dynamic
+   * @since 20 static
+   */
+  export enum SimType {
+    /**
+     * Indicates psim type.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 20 dynamic
+     * @since 20 static
+     */
+    PSIM = 0,
+
+    /**
+     * Indicates esim type.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 20 dynamic
+     * @since 20 static
+     */
+    ESIM = 1
+  }
+
+  /**
+   * Defines the SIM card label.
+   * @interface SimLabel
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 20 dynamic
+   * @since 20 static
+   */
+  export interface SimLabel {
+    /**
+     * Represents the SIM card type.
+     * @type { SimType }
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 20 dynamic
+     * @since 20 static
+     */
+    simType: SimType;
+
+    /**
+     * Represents the SIM card index.
+     * @type { int }
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 20 dynamic
+     * @since 20 static
+     */
+    index: int;
+  }
+
+  /**
    * Defines the carrier configuration.
    *
    * @interface OperatorConfig
