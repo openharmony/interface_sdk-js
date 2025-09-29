@@ -7548,6 +7548,20 @@ declare namespace window {
     on(type: 'windowEvent', callback: Callback<WindowEventType>): void;
 
     /**
+     * Subscribes to the window lifecycle change event.
+     *
+     * @param { Callback<WindowEventType> } callback - Callback used to return the window lifecycle state.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 static
+     */
+    onWindowEvent(callback: Callback<WindowEventType>): void;
+
+    /**
      * Unregister the callback of windowEvent
      *
      * @param { 'windowEvent' } type - The value is fixed at 'windowEvent', indicating the window lifecycle change event.
@@ -7573,6 +7587,21 @@ declare namespace window {
      * @since 20 static
      */
     off(type: 'windowEvent', callback?: Callback<WindowEventType>): void;
+
+    /**
+     * Unsubscribes from the window lifecycle change event.
+     *
+     * @param { Callback<WindowEventType> } callback - Callback used to return the window lifecycle state.
+     *                                                 If a value is passed in, the corresponding subscription is canceled.
+     *                                                 If no value is passed in, all subscriptions to the specified event are canceled.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 static
+     */
+    offWindowEvent(callback?: Callback<WindowEventType>): void;
 
     /**
      * Register the callback of windowStatusChange
@@ -11922,6 +11951,24 @@ declare namespace window {
      * @since 20 static
      */
     on(eventType: 'windowStageEvent', callback: Callback<WindowStageEventType>): void;
+
+    /**
+     * Subscribes to the window stage lifecycle change event.
+     *
+     * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 22 static
+     */
+    onWindowStageEvent(callback: Callback<WindowStageEventType>): void;
+
     /**
      * Window stage event callback off.
      *
@@ -11968,6 +12015,25 @@ declare namespace window {
      * @since 20 static
      */
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
+
+    /**
+     * Unsubscribes from the window stage lifecycle change event.
+     *
+     * @param { 'windowStageEvent' } eventType Event type. The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
+     * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
+     *                                                    If a value is passed in, the corresponding subscription is canceled.
+     *                                                    If no value is passed in, all subscriptions to the specified event are canceled.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 22 static
+     */
+    offWindowStageEvent(callback?: Callback<WindowStageEventType>): void;
 
     /**
      * Subscribes to the window stage lifecycle change event.
