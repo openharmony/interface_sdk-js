@@ -311,11 +311,11 @@ export declare interface AlertDialogParam {
     /**
      * Grid count of dialog.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    gridCount?: number;
+    gridCount?: int;
     /**
      * Mask Region of dialog. The size cannot exceed the main window.
      *
@@ -517,11 +517,11 @@ export declare interface AlertDialogParam {
     /**
      * The uniqueId of any node in the router or navigation page.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    levelUniqueId?: number;
+    levelUniqueId?: int;
     /**
      * Determine the immersive mode of the dialog.
      *

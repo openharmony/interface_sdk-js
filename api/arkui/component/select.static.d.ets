@@ -138,12 +138,12 @@ export declare enum AvoidanceMode {
  * Callback of selecting an item from the select event.
  *
  * @typedef {function} OnSelectCallback
- * @param {number} index - The index of the selected item.
+ * @param {int} index - The index of the selected item.
  * @param {string} selectStr - The value of the selected item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export type OnSelectCallback = (index: number, selectStr: string) => void;
+export type OnSelectCallback = (index: int, selectStr: string) => void;
 /**
  * The declare of menuOutlineOptions.
  *
@@ -182,13 +182,13 @@ export declare interface SelectAttribute extends CommonMethod {
     /**
      * Sets the serial number of the select item, starting from 0.
      *
-     * @param { number | Resource | undefined | Bindable<number> | Bindable<Resource> } numCount
+     * @param { int | Resource | undefined | Bindable<int> | Bindable<Resource> } numCount
      *     the serial number of the select item.
      * @returns { SelectAttribute } the attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default selected(numCount: number | Resource | undefined | Bindable<number> | Bindable<Resource>): this;
+    default selected(numCount: int | Resource | undefined | Bindable<int> | Bindable<Resource>): this;
     /**
      * Sets the text display of the select button itself.
      *
@@ -491,20 +491,20 @@ export declare interface MenuItemConfiguration extends CommonConfiguration<MenuI
     /**
      * Indicates the index of the menu item.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    index: number;
+    index: int;
     /**
      * Select this menu item.
      *
-     * @param { number } index - The value of menu item index.
+     * @param { int } index - The value of menu item index.
      * @param { string } value - The value of menu item text.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    triggerSelect(index: number, value: string): void;
+    triggerSelect(index: int, value: string): void;
 }
 /**
  * Defines Select Component.

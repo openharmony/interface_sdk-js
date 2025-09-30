@@ -117,12 +117,12 @@ export declare enum ButtonRole {
  * Defines the callback type used in ButtonConfiguration.
  *
  * @typedef {function} ButtonTriggerClickCallback
- * @param { number } xPos - The value of xPos is x coordinate.
- * @param { number } yPos - The value of yPos is y coordinate.
+ * @param { double } xPos - The value of xPos is x coordinate.
+ * @param { double } yPos - The value of yPos is y coordinate.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
+export type ButtonTriggerClickCallback = (xPos: double, yPos: double) => void;
 /**
  * ButtonConfiguration used by button content modifier.
  *
@@ -251,27 +251,27 @@ export declare interface ButtonLabelStyle {
     /**
      * Label max lines.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    maxLines?: number;
+    maxLines?: int;
     /**
      * Min font size for adapted height.
      *
-     * @type { ?(number | ResourceStr) }
+     * @type { ?(double | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    minFontSize?: number | ResourceStr;
+    minFontSize?: double | ResourceStr;
     /**
      * Max font size for adapted height.
      *
-     * @type { ?(number | ResourceStr) }
+     * @type { ?(double | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    maxFontSize?: number | ResourceStr;
+    maxFontSize?: double | ResourceStr;
     /**
      * Adapt text height option.
      *
@@ -356,12 +356,12 @@ export declare interface ButtonAttribute extends CommonMethod {
     /**
      * Font weight.
      *
-     * @param { number | FontWeight | string } value
+     * @param { int | FontWeight | string } value
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default fontWeight(value: number | FontWeight | string | undefined): this;
+    default fontWeight(value: int | FontWeight | string | undefined): this;
     /**
      * Font style.
      *
@@ -401,21 +401,21 @@ export declare interface ButtonAttribute extends CommonMethod {
     /**
      * Sets the minimum zoom-out ratio of the button text.
      *
-     * @param { number | Resource } scale
+     * @param { double | Resource } scale
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default minFontScale(scale: number | Resource | undefined): this;
+    default minFontScale(scale: double | Resource | undefined): this;
     /**
      * Sets the maximum magnification of the button text.
      *
-     * @param { number | Resource  } scale
+     * @param { double | Resource  } scale
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default maxFontScale(scale: number | Resource | undefined): this;
+    default maxFontScale(scale: double | Resource | undefined): this;
     /**
      * Set the attribute modifier of button.
      *
