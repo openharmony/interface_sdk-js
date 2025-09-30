@@ -3762,20 +3762,24 @@ declare namespace window {
   /**
    * Get windows by coordinate.
    *
-   * @param { number } displayId - Indicate the id of display.
-   * @param { number } windowNumber - Indicate the Number of query windows.
-   * @param { number } x - Indicate the X-coordinate of the window.
-   * @param { number } y - Indicate the Y-coordinate of the window.
+   * @param { long } displayId - Indicate the id of display.
+   * @param { int } [windowNumber] - Indicate the Number of query windows. Default Value: 0. If the value is less than
+   *    or equal to 0, the function returns all visible windows at the target coordinate in the display.
+   * @param { int } [x] - Indicate the X-coordinate of the window. Default Value: -1. If the value is less than
+   *    or equal to 0, the function returns all visible windows in the display.
+   * @param { int } [y] - Indicate the Y-coordinate of the window. Default Value: -1. If the value is less than
+   *    or equal to 0, the function returns all visible windows in the display.
    * @returns { Promise<Array<Window>> } Promise used to return the window.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+   *    capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 14 dynamic
    * @since 20 static
    */
-  function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number):
+  function getWindowsByCoordinate(displayId: long, windowNumber?: int, x?: int, y?: int):
       Promise<Array<Window>>;
 
   /**
