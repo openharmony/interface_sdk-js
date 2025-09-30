@@ -35,12 +35,12 @@ type RepeatArray<T> = Array<T> | ReadonlyArray<T> | Readonly<Array<T>>;
  *
  * @typedef {function} TemplateTypedFunc<T>
  * @param { T } item - data item.
- * @param { number } index - data index number in array.
+ * @param { int } index - data index in array.
  * @returns { string } template type.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-type TemplateTypedFunc<T> = (item: T, index: number) => string;
+type TemplateTypedFunc<T> = (item: T, index: int) => string;
 /**
  * Define builder function to render one template type.
  *
@@ -71,44 +71,44 @@ export interface RepeatItem<T> {
   /**
    * index of each item.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  index: number;
+  index: int;
 }
 
 /**
  * Function that is used to do lazy loading.
  *
  * @typedef {function} OnLazyLoadingFunc
- * @param { number } index - data index.
+ * @param { int } index - data index.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-type OnLazyLoadingFunc = (index: number) => void;
+type OnLazyLoadingFunc = (index: int) => void;
 
 /**
  * Define key generator function.
  *
  * @typedef {function} KeyGeneratorFunc<T>
  * @param { T } item - data item.
- * @param { number } index - data index number in array.
+ * @param { int } index - data index in array.
  * @returns { string } key value.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-type KeyGeneratorFunc<T> = (item: T, index: number) => string;
+type KeyGeneratorFunc<T> = (item: T, index: int) => string;
 
 /**
  * Function that is used to get total count.
  *
  * @typedef {function} OnTotalCountFunc
- * @returns { number } Returns the total data count
+ * @returns { int } Returns the total data count
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-type OnTotalCountFunc = () => number;
+type OnTotalCountFunc = () => int;
 
 /**
  * Define the options of repeat virtualScroll to implement reuse and lazy loading.
@@ -121,11 +121,11 @@ export interface VirtualScrollOptions {
   /**
    * Total data count.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  totalCount?: number;
+  totalCount?: int;
   /**
    * Reuse or not.
    *
@@ -173,11 +173,11 @@ export interface TemplateOptions {
   /**
    * The cached number of each template.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  cachedCount?: number;
+  cachedCount?: int;
 }
 
 /**
