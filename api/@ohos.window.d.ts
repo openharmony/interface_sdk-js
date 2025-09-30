@@ -11063,6 +11063,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
      * @since 22 dynamic&static
      */
     isInFreeWindowMode(): boolean;
@@ -11077,6 +11078,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
      * @since 22 dynamic
      */
     on(type: 'freeWindowModeChange', callback: Callback<boolean>): void;
@@ -11092,6 +11094,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
      * @since 22 dynamic
      */
     off(type: 'freeWindowModeChange', callback?: Callback<boolean>): void;
@@ -11104,6 +11107,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
      * @since 22 static
      */
     onFreeWindowModeChange(callback: Callback<boolean>): void;
@@ -11117,6 +11121,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
      * @since 22 static
      */
     offFreeWindowModeChange(callback?: Callback<boolean>): void;
