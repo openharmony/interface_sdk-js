@@ -530,20 +530,20 @@ export interface NodeParam {
     currentNodeId?: number,
 
     /**
-     * Set catalog whether is floder.
+     * Set catalog whether is folder.
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
     /**
-     * Set catalog whether is floder.
+     * Set catalog whether is folder.
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11
      */
     /**
-     * Set catalog whether is floder.
+     * Set catalog whether is folder.
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
