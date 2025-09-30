@@ -114,7 +114,7 @@ export declare interface TextDecorationOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    type: TextDecorationType;
+    type: TextDecorationType | undefined;
     /**
      * Sets the color of decoration.
      *
