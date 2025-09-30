@@ -11335,7 +11335,7 @@ declare namespace media {
      * transcoding completion events.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     on(type:'complete', callback: Callback<void>):void;
 
@@ -11381,7 +11381,7 @@ declare namespace media {
      * @throws { BusinessError } 5400106 - Unsupported format.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     on(type:'error', callback: ErrorCallback):void;
 
@@ -11393,8 +11393,8 @@ declare namespace media {
      * @param { Callback<int> } callback - Callback invoked when the event is triggered.
      * **progress** is a number that indicates the current transcoding progress.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Subscribes to transcoding progress updates. An application can subscribe to only one transcoding progress update
@@ -11405,7 +11405,7 @@ declare namespace media {
      * **progress** is a number that indicates the current transcoding progress.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     on(type:'progressUpdate', callback: Callback<int>):void;
 
@@ -11427,7 +11427,7 @@ declare namespace media {
      * transcoding completion events.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     off(type:'complete', callback?: Callback<void>):void;
 
@@ -11451,7 +11451,7 @@ declare namespace media {
      * @param { ErrorCallback } callback - Callback that has been registered to listen for AVTranscoder errors.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     off(type:'error', callback?: ErrorCallback):void;
 
@@ -11463,8 +11463,8 @@ declare namespace media {
      * You are advised to use the default value because only the last registered callback is retained in the current
      * callback mechanism.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Unsubscribes from transcoding progress updates.
@@ -11475,7 +11475,7 @@ declare namespace media {
      * callback mechanism.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     off(type:'progressUpdate', callback?: Callback<int>):void;
   }
