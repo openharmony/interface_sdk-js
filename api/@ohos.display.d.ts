@@ -874,60 +874,60 @@ declare namespace display {
    */
   function getBrightnessInfo(displayId: long): BrightnessInfo;
 
-/**
-  * Register the callback for brightness info changes.
-  *
-  * @param { 'brightnessInfoChange' } type - the event of display brightness info changes.
-  * @param { Callback<long, BrightnessInfo> } callback - Callback used to return the display corresponding
-  *     brightness info.
-  * @throws { BusinessError } 801 - Capability not supported.
-  * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-  * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
-  * @syscap SystemCapability.Window.SessionManager
-  * @atomicservice
-  * @since 22 dynamic
-  */
+  /**
+   * Register the callback for brightness info changes.
+   *
+   * @param { 'brightnessInfoChange' } type - the event of display brightness info changes.
+   * @param { Callback<long, BrightnessInfo> } callback - Callback used to return the display corresponding
+   *     brightness info.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 22 dynamic
+   */
   function on(type: 'brightnessInfoChange', callback: Callback<long, BrightnessInfo>): void;
 
   /**
-  * Unregister the callback for brightness info changes.
-  *
-  * @param { 'brightnessInfoChange' } type - the event of display brightness info changes.
-  * @param { Callback<long, BrightnessInfo> } [callback] - Callback used to return the display corresponding
-  *     brightness info. If not provided, all callbacks for the given event type will be removed.
-  * @throws { BusinessError } 801 - Capability not supported.
-  * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-  * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
-  * @syscap SystemCapability.Window.SessionManager
-  * @atomicservice
-  * @since 22 dynamic
-  */
+   * Unregister the callback for brightness info changes.
+   *
+   * @param { 'brightnessInfoChange' } type - the event of display brightness info changes.
+   * @param { Callback<long, BrightnessInfo> } [callback] - Callback used to return the display corresponding
+   *     brightness info. If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 22 dynamic
+   */
   function off(type: 'brightnessInfoChange', callback?: Callback<long, BrightnessInfo>): void;
 
   /**
-  * Register the callback for brightness info changes.
-  *
-  * @param { Callback<long, BrightnessInfo> } callback - Callback used to return the display if and
-  *     corresponding brightness info.
-  * @throws { BusinessError } 801 - Capability not supported.
-  * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-  * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
-  * @syscap SystemCapability.Window.SessionManager
-  * @since 22 static
-  */
+   * Register the callback for brightness info changes.
+   *
+   * @param { Callback<long, BrightnessInfo> } callback - Callback used to return the display if and
+   *     corresponding brightness info.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 22 static
+   */
   function onBrightnessInfoChange(callback: Callback<long, BrightnessInfo>): void;
 
   /**
-  * Unregister the callback for brightness info changes.
-  *
-  * @param { Callback<long, BrightnessInfo> } [callback] - Callback used to return the display corresponding
-  *     brightness info. If not provided, all callbacks for the given event type will be removed.
-  * @throws { BusinessError } 801 - Capability not supported.
-  * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-  * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
-  * @syscap SystemCapability.Window.SessionManager
-  * @since 22 static
-  */
+   * Unregister the callback for brightness info changes.
+   *
+   * @param { Callback<long, BrightnessInfo> } [callback] - Callback used to return the display corresponding
+   *     brightness info. If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 22 static
+   */
   function offBrightnessInfoChange(callback?: Callback<long, BrightnessInfo>): void;
 
   /**
