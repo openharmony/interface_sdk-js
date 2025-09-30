@@ -32,7 +32,6 @@ import { Builder } from './arkui/component/builder';
  * @enum { number }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare enum ToolBarV2ItemState {
   /**
@@ -62,7 +61,6 @@ export declare enum ToolBarV2ItemState {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ObservedV2
 export declare class ToolBarV2SymbolGlyph {
@@ -99,7 +97,6 @@ export declare class ToolBarV2SymbolGlyph {
  * @interface ToolBarV2SymbolGlyphOptions.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export interface ToolBarV2SymbolGlyphOptions {
   /**
@@ -125,7 +122,6 @@ export interface ToolBarV2SymbolGlyphOptions {
  * @class ToolBarV2ItemText.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ObservedV2
 export declare class ToolBarV2ItemText {
@@ -171,7 +167,6 @@ export declare class ToolBarV2ItemText {
  * @interface ToolBarV2ItemTextOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export interface ToolBarV2ItemTextOptions {
   /**
@@ -204,7 +199,6 @@ export interface ToolBarV2ItemTextOptions {
  * @typedef { ToolBarV2ItemImage | ToolBarV2SymbolGlyph } ToolBarV2ItemIconType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare type ToolBarV2ItemIconType = ToolBarV2ItemImage | ToolBarV2SymbolGlyph;
 /**
@@ -213,7 +207,6 @@ export declare type ToolBarV2ItemIconType = ToolBarV2ItemImage | ToolBarV2Symbol
  * @class ToolBarV2ItemImage.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ObservedV2
 export declare class ToolBarV2ItemImage {
@@ -259,7 +252,6 @@ export declare class ToolBarV2ItemImage {
  * @interface ToolBarV2ItemImageOptions.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export interface ToolBarV2ItemImageOptions {
   /**
@@ -293,7 +285,6 @@ export interface ToolBarV2ItemImageOptions {
  * @class ToolBarV2Item
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ObservedV2
 export declare class ToolBarV2Item {
@@ -376,7 +367,6 @@ export declare class ToolBarV2Item {
  * @interface ToolBarV2ItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export interface ToolBarV2ItemOptions {
   /**
@@ -443,7 +433,6 @@ export interface ToolBarV2ItemOptions {
  * @param { number } index - toolBarV2's ItemAction.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export type ToolBarV2ItemAction = (index: number) => void;
 /**
@@ -451,7 +440,6 @@ export type ToolBarV2ItemAction = (index: number) => void;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class ToolBarV2Modifier {
   /**
@@ -497,7 +485,6 @@ export declare class ToolBarV2Modifier {
  * @struct { ToolBarV2 }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ComponentV2
 export declare struct ToolBarV2 {

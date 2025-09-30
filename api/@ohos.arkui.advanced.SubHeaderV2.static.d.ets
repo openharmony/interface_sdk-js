@@ -32,7 +32,6 @@ import { BuilderParam, Builder } from './arkui/component/builder';
  * @typedef { ResourceStr | SymbolGlyphModifier } SubHeaderV2IconType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 declare type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier;
 /**
@@ -41,7 +40,6 @@ declare type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier;
  * @interface SubHeaderV2TitleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export interface SubHeaderV2TitleOptions {
   /**
@@ -82,7 +80,6 @@ export interface SubHeaderV2TitleOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ObservedV2
 export declare class SubHeaderV2Title {
@@ -139,7 +136,6 @@ export declare class SubHeaderV2Title {
  * @param { string } [selectedContent] - the content of selected item
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?: string) => void;
 /**
@@ -148,7 +144,6 @@ export type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?
  * @interface SubHeaderV2SelectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export interface SubHeaderV2SelectOptions {
   /**
@@ -198,7 +193,6 @@ export interface SubHeaderV2SelectOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ObservedV2
 export declare class SubHeaderV2Select {
@@ -262,7 +256,6 @@ export declare class SubHeaderV2Select {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare enum SubHeaderV2OperationType {
   /**
@@ -300,7 +293,6 @@ export declare enum SubHeaderV2OperationType {
  * @typedef { function } OnClicked
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export type SubHeaderV2OperationItemAction = () => void;
 /**
@@ -309,7 +301,6 @@ export type SubHeaderV2OperationItemAction = () => void;
  * @typedef { ResourceStr | SymbolGlyphModifier } SubHeaderV2OperationItemType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 declare type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier;
 /**
@@ -318,7 +309,6 @@ declare type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier;
  * @interface SubHeaderV2OperationItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export interface SubHeaderV2OperationItemOptions {
   /**
@@ -382,7 +372,6 @@ export interface SubHeaderV2OperationItemOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ObservedV2
 export declare class SubHeaderV2OperationItem {
@@ -462,7 +451,6 @@ export declare class SubHeaderV2OperationItem {
  * @typedef { function } SubHeaderV2TitleBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @Builder
 export type SubHeaderV2TitleBuilder = () => void;
@@ -472,7 +460,6 @@ export type SubHeaderV2TitleBuilder = () => void;
  * @struct { SubHeaderV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ComponentV2
 export declare struct SubHeaderV2 {

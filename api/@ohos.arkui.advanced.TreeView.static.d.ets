@@ -29,7 +29,6 @@ import { Builder } from './arkui/component/builder';
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare enum TreeListenType {
     /**
@@ -75,7 +74,6 @@ export declare enum TreeListenType {
  * @param { CallbackParam } callbackParam - The result of event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 declare type OnChangedCallback = (callbackParam: CallbackParam) => void;
 /**
@@ -83,7 +81,6 @@ declare type OnChangedCallback = (callbackParam: CallbackParam) => void;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class TreeListener {
     /**
@@ -121,7 +118,6 @@ export declare class TreeListener {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class TreeListenerManager {
     /**
@@ -147,7 +143,6 @@ export declare class TreeListenerManager {
  * @struct { TreeView }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @Component
 export declare struct TreeView {
@@ -173,7 +168,6 @@ export declare struct TreeView {
  * @typedef CallbackParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export interface CallbackParam {
     /**
@@ -207,7 +201,6 @@ export interface CallbackParam {
  * @typedef NodeParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export interface NodeParam {
     /**
@@ -312,7 +305,6 @@ export interface NodeParam {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class TreeController {
     /**

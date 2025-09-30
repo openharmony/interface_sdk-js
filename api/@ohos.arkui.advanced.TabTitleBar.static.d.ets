@@ -28,7 +28,6 @@ import { BuilderParam, Builder } from './arkui/component/builder';
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class TabTitleBarMenuItem {
   /**
@@ -101,7 +100,6 @@ export declare class TabTitleBarMenuItem {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class TabTitleBarTabItem {
   /**
@@ -134,7 +132,6 @@ export declare class TabTitleBarTabItem {
  * @struct { TabTitleBar }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @Component
 export declare struct TabTitleBar {

@@ -30,7 +30,6 @@ import { Builder } from './arkui/component/builder';
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class EditableTitleBarMenuItem {
   /**
@@ -113,7 +112,6 @@ export declare class EditableTitleBarMenuItem {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export type EditableTitleBarItem = EditableTitleBarMenuItem;
 /**
@@ -122,7 +120,6 @@ export type EditableTitleBarItem = EditableTitleBarMenuItem;
  * @enum { int }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare enum EditableLeftIconType {
   /**
@@ -146,7 +143,6 @@ export declare enum EditableLeftIconType {
  * @interface EditableTitleBarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface EditableTitleBarOptions {
   /**
@@ -187,7 +183,6 @@ export declare interface EditableTitleBarOptions {
  * @struct { EditableTitleBar }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @Component
 export declare struct EditableTitleBar {

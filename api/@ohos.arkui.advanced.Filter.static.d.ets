@@ -29,7 +29,6 @@ import { PropRef } from './arkui/stateManagement/decorator';
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare enum FilterType {
     /**
@@ -52,7 +51,6 @@ export declare enum FilterType {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class FilterParams {
     /**
@@ -78,7 +76,6 @@ export declare class FilterParams {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class FilterResult {
     /**
@@ -114,7 +111,6 @@ export declare class FilterResult {
  * @param { Array<FilterResult> } filterResults - The result of filter.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 declare type OnFilterChangedCallback = (filterResults: Array<FilterResult>) => void;
 
@@ -123,7 +119,6 @@ declare type OnFilterChangedCallback = (filterResults: Array<FilterResult>) => v
  * @struct { Filter }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @Component
 export declare struct Filter {

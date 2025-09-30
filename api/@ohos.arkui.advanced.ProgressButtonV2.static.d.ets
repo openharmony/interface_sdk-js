@@ -29,7 +29,6 @@ import { LengthMetrics, ColorMetrics } from './arkui/Graphics';
  * @struct { ProgressButtonV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ComponentV2
 export declare struct ProgressButtonV2 {
@@ -117,7 +116,6 @@ export declare struct ProgressButtonV2 {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ObservedV2
 export declare class ProgressButtonV2Color {
@@ -171,7 +169,6 @@ export declare class ProgressButtonV2Color {
  * @typedef { function } ClickCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export type ClickCallback = () => void;
 /**
@@ -179,7 +176,6 @@ export type ClickCallback = () => void;
  * @typedef ProgressButtonV2ColorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface ProgressButtonV2ColorOptions {
   /**

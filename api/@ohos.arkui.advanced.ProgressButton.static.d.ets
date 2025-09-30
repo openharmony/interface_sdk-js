@@ -30,7 +30,6 @@ import { Length } from './arkui/component/common';
  * @struct { ProgressButton }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @Component
 export declare struct ProgressButton {
@@ -103,7 +102,6 @@ export declare struct ProgressButton {
  * @typedef ProgressButtonColorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface ProgressButtonColorOptions {
   /**

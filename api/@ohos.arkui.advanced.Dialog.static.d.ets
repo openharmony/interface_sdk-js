@@ -34,7 +34,6 @@ import { SheetInfo } from './arkui/component/actionSheet';
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class ButtonOptions {
   /**
@@ -102,7 +101,6 @@ export declare class ButtonOptions {
  * @struct { TipsDialog }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @CustomDialog
 export declare struct TipsDialog {
@@ -223,7 +221,6 @@ export declare struct TipsDialog {
  * @struct { SelectDialog }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @CustomDialog
 export declare struct SelectDialog {
@@ -304,7 +301,6 @@ export declare struct SelectDialog {
  * @struct { ConfirmDialog }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @CustomDialog
 export declare struct ConfirmDialog {
@@ -401,7 +397,6 @@ export declare struct ConfirmDialog {
  * @struct { AlertDialog }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @CustomDialog
 export declare struct AlertDialog {
@@ -482,7 +477,6 @@ export declare struct AlertDialog {
  * @struct { LoadingDialog }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @CustomDialog
 export declare struct LoadingDialog {
@@ -531,7 +525,6 @@ export declare struct LoadingDialog {
  * @struct { CustomContentDialog }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @CustomDialog
 export declare struct CustomContentDialog {
@@ -620,7 +613,6 @@ export declare struct CustomContentDialog {
  * @struct { PopoverDialog }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @Component
 export declare struct PopoverDialog {
@@ -665,7 +657,6 @@ export declare struct PopoverDialog {
  * @typedef PopoverOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface PopoverOptions extends CustomPopupOptions {
 }

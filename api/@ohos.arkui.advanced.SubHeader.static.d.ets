@@ -33,7 +33,6 @@ import { BuilderParam, Builder } from './arkui/component/builder';
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare enum OperationType {
     /**
@@ -70,7 +69,6 @@ export declare enum OperationType {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class OperationOption {
     /**
@@ -129,7 +127,6 @@ export declare class OperationOption {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class SelectOptions {
     /**
@@ -179,7 +176,6 @@ export declare class SelectOptions {
 *
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @since 20
-* @noninterop
 */
 export declare class SymbolOptions {
     /**
@@ -228,7 +224,6 @@ export declare class SymbolOptions {
  * @struct { SubHeader }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @Component
 export declare struct SubHeader {

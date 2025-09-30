@@ -31,7 +31,6 @@ import { EmbeddedType } from './enums'
  * @extends CommonMethod
  * @typedef EmbeddedComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @noninterop
  * @since 20
  */
 export declare interface EmbeddedComponentAttribute extends CommonMethod {
@@ -76,7 +75,6 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
  * @returns { EmbeddedComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @noninterop
  * @since 20
  */
 @memo
