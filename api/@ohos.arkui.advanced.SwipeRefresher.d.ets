@@ -35,7 +35,6 @@
  * @crossplatform
  * @atomicservice
  * @since 20
- * @noninterop
  */
 @Component
 export declare struct SwipeRefresher {

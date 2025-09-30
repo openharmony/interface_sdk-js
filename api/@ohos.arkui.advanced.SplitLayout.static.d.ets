@@ -28,7 +28,6 @@ import { BuilderParam, Builder } from './arkui/component/builder';
  * @struct { SplitLayout }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @Component
 export declare struct SplitLayout {

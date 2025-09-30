@@ -28,7 +28,6 @@ import { Builder } from './arkui/component/builder';
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class ComposeTitleBarMenuItem {
   /**
@@ -107,7 +106,6 @@ export declare class ComposeTitleBarMenuItem {
  * @struct { ComposeTitleBar }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @Component
 export declare struct ComposeTitleBar {

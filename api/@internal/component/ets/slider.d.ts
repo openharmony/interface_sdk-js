@@ -925,7 +925,6 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
  * @form
  * @atomicservice
  * @since 11
- * @noninterop
  */
 interface SliderInterface {
     /**

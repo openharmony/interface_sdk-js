@@ -28,7 +28,6 @@ import { Builder } from './arkui/component/builder';
  * @struct { SwipeRefresher }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @Component
 export declare struct SwipeRefresher {

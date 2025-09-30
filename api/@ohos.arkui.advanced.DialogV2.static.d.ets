@@ -33,7 +33,6 @@ import { SheetInfo } from './arkui/component/actionSheet';
  * @typedef { function } AdvancedDialogV2ButtonAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare type AdvancedDialogV2ButtonAction = () => void;
 /**
@@ -42,7 +41,6 @@ export declare type AdvancedDialogV2ButtonAction = () => void;
  * @class AdvancedDialogV2Button
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ObservedV2
 export declare class AdvancedDialogV2Button {
@@ -137,7 +135,6 @@ export declare class AdvancedDialogV2Button {
  * @interface AdvancedDialogV2ButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface AdvancedDialogV2ButtonOptions {
   /**
@@ -216,7 +213,6 @@ export declare interface AdvancedDialogV2ButtonOptions {
  * @param { boolean } checked - Checkbox status.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare type AdvancedDialogV2OnCheckedChange = (checked: boolean) => void;
 /**
@@ -225,7 +221,6 @@ export declare type AdvancedDialogV2OnCheckedChange = (checked: boolean) => void
  * @struct { TipsDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ComponentV2
 export declare struct TipsDialogV2 {
@@ -342,7 +337,6 @@ export declare struct TipsDialogV2 {
  * @struct { SelectDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ComponentV2
 export declare struct SelectDialogV2 {
@@ -406,7 +400,6 @@ export declare struct SelectDialogV2 {
  * @struct { ConfirmDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ComponentV2
 export declare struct ConfirmDialogV2 {
@@ -488,7 +481,6 @@ export declare struct ConfirmDialogV2 {
  * @struct { AlertDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ComponentV2
 export declare struct AlertDialogV2 {
@@ -552,7 +544,6 @@ export declare struct AlertDialogV2 {
  * @struct { LoadingDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ComponentV2
 export declare struct LoadingDialogV2 {
@@ -579,7 +570,6 @@ export declare struct LoadingDialogV2 {
  * @struct { CustomContentDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ComponentV2
 export declare struct CustomContentDialogV2 {
@@ -641,7 +631,6 @@ export declare struct CustomContentDialogV2 {
  * @struct { PopoverDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @ComponentV2
 export declare struct PopoverDialogV2 {
@@ -698,7 +687,6 @@ export declare struct PopoverDialogV2 {
  * @param { boolean } visible - The visibility of PopoverDialogV2.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare type PopoverDialogV2OnVisibleChange = (visible: boolean) => void;
 /**
@@ -708,7 +696,6 @@ export declare type PopoverDialogV2OnVisibleChange = (visible: boolean) => void;
  * @interface PopoverDialogV2Options
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface PopoverDialogV2Options extends CustomPopupOptions {
 }

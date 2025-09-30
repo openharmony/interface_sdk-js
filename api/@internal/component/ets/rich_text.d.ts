@@ -47,7 +47,6 @@ import { Resource } from '../../global/resource';
  * @crossplatform
  * @since 12 dynamic
  * @since 20 static
- * @noninterop
  */
 interface RichTextInterface {
   /**
@@ -113,7 +112,6 @@ interface RichTextInterface {
  * @crossplatform
  * @since 12 dynamic
  * @since 20 static
- * @noninterop
  */
 declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
   /**

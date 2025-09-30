@@ -33,7 +33,6 @@ import { Builder } from './arkui/component/builder';
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare enum ItemState {
   /**
@@ -64,7 +63,6 @@ export declare enum ItemState {
  * @interface ToolBarSymbolGlyphOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export interface ToolBarSymbolGlyphOptions {
   /**
@@ -89,7 +87,6 @@ export interface ToolBarSymbolGlyphOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @Observed
 export declare class ToolBarOption {
@@ -196,7 +193,6 @@ export declare class ToolBarOption {
  * @extends Array<ToolBarOption>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @Observed
 export declare class ToolBarOptions extends Array<ToolBarOption> {
@@ -206,7 +202,6 @@ export declare class ToolBarOptions extends Array<ToolBarOption> {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class ToolBarModifier {
   /**
@@ -251,7 +246,6 @@ export declare class ToolBarModifier {
  * @struct { ToolBar }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @Component
 export declare struct ToolBar {

@@ -30,7 +30,6 @@ import { Builder } from './arkui/component/builder';
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare enum IconType {
   /**
@@ -95,7 +94,6 @@ export declare enum IconType {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class OperateIcon {
   /**
@@ -154,7 +152,6 @@ export declare class OperateIcon {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class OperateCheck {
   /**
@@ -204,7 +201,6 @@ export declare class OperateCheck {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class OperateButton {
   /**
@@ -246,7 +242,6 @@ export declare class OperateButton {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class ContentItem {
   /**
@@ -303,7 +298,6 @@ export declare class ContentItem {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class OperateItem {
   /**
@@ -393,7 +387,6 @@ export declare class OperateItem {
  * @struct { ComposeListItem }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @Component
 export declare struct ComposeListItem {

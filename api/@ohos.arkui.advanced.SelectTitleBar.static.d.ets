@@ -30,7 +30,6 @@ import { PropRef } from './arkui/stateManagement/decorator';
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class SelectTitleBarMenuItem {
   /**
@@ -112,7 +111,6 @@ declare type OnSelectedCallback = (index: number) => void;
  * @struct { SelectTitleBar }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @Component
 export declare struct SelectTitleBar {
