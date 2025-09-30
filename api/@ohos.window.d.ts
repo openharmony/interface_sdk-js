@@ -7908,9 +7908,18 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
      */
     on(type: 'windowEvent', callback: Callback<WindowEventType>): void;
+
+    /**
+     * Subscribes to the window lifecycle change event.
+     *
+     * @param { Callback<WindowEventType> } callback - Callback used to return the window lifecycle state.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    onWindowEvent(callback: Callback<WindowEventType>): void;
 
     /**
      * Unregister the callback of windowEvent
@@ -7935,9 +7944,19 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
      */
     off(type: 'windowEvent', callback?: Callback<WindowEventType>): void;
+
+    /**
+     * Unsubscribes from the window lifecycle change event.
+     *
+     * @param { Callback<WindowEventType> } [callback] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    offWindowEvent(callback?: Callback<WindowEventType>): void;
 
     /**
      * Register the callback of windowStatusChange
@@ -12353,9 +12372,22 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
      */
     on(eventType: 'windowStageEvent', callback: Callback<WindowStageEventType>): void;
+
+    /**
+     * Subscribes to the window stage lifecycle change event.
+     *
+     * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 22 static
+     */
+    onWindowStageEvent(callback: Callback<WindowStageEventType>): void;
+
     /**
      * Window stage event callback off.
      *
@@ -12399,9 +12431,22 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
      */
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
+
+    /**
+     * Unsubscribes from the window stage lifecycle change event.
+     *
+     * @param { Callback<WindowStageEventType> } [callback] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 22 static
+     */
+    offWindowStageEvent(callback?: Callback<WindowStageEventType>): void;
 
     /**
      * Subscribes to the window stage lifecycle change event.
