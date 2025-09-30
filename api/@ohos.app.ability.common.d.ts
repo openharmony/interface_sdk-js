@@ -47,6 +47,7 @@ import _UIExtensionContext from './application/UIExtensionContext';
 import _UIServiceExtensionContext from './application/UIServiceExtensionContext';
 import _AbilityStageContext from './application/AbilityStageContext';
 import _ApplicationContext from './application/ApplicationContext';
+import _AppServiceExtensionContext from './application/AppServiceExtensionContext';
 import _BaseContext from './application/BaseContext';
 import _Context from './application/Context';
 import _ExtensionContext from './application/ExtensionContext';
@@ -657,6 +658,18 @@ declare namespace common {
    * @since 20
    */
   export type AppServiceExtensionContext = _AppServiceExtensionContext.default;
+
+  /**
+   * The context of app service extension. It allows access to
+   * appServiceExtension-specific resources.
+   *
+   * @typedef { _AppServiceExtensionContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AppServiceExtensionContext = _AppServiceExtensionContext;
 }
 
 export default common;
