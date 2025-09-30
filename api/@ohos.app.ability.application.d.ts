@@ -130,6 +130,8 @@ declare namespace application {
 
   /**
    * Elevate the current process to be a candidate master process.
+   * If the current process is already a master process,
+   * calling this interface will not perform any operation and will not throw an error code.
    * If UIAbility or UIExtension component within the application is configured with "isolationProcess",launching an
    * instance of such UIAbility or UIExtension will trigger a callback to the master process's "onNewProcessRequest".
    * The "onNewProcessRequest" callback return value determines whether the new instance starts in a new process or an existing one.
@@ -139,8 +141,7 @@ declare namespace application {
    * @param { boolean } insertToHead - Whether inset current process to the head of candidates master process list.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 16000115 - The current process is not running a component configured with "isolationProcess"
-   *                                      and cannot be set as a candidate master process.
+   * @throws { BusinessError } 16000115 - The current process cannot be set as a candidate master process.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
@@ -169,7 +170,7 @@ declare namespace application {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000118 - Not a master process.
-   * @throws { BusinessError } 16000119 - Cannot exit because there is an unfinished onNewProcessRequest.
+   * @throws { BusinessError } 16000119 - Cannot exit because there is an unfinished request.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 21
