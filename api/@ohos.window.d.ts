@@ -3843,7 +3843,8 @@ declare namespace window {
   /**
    * Register the callback of systemBarTintChange
    *
-   * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
+   * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change
+   *    event of the system bar.
    * @param { Callback<SystemBarTintState> } callback - Callback used to return the properties of the system bar.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
@@ -3852,24 +3853,47 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
    */
   function on(type: 'systemBarTintChange', callback: Callback<SystemBarTintState>): void;
 
   /**
+   * Register the callback of systemBarTintChange
+   *.
+   * @param { Callback<SystemBarTintState> } callback - Callback used to return the properties of the system bar.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function onSystemBarTintChange(callback: Callback<SystemBarTintState>): void;
+
+  /**
    * Unregister the callback of systemBarTintChange
    *
-   * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
-   * @param { Callback<SystemBarTintState> } callback - Callback used to return the properties of the system bar.
+   * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change
+   *    event of the system bar.
+   * @param { Callback<SystemBarTintState> } [callback] - Callback used to return the properties of the system bar.
+   *    If not provided, all callbacks for the given event type will be removed.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
    *                                                                  2. Parameter verification failed.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
    */
   function off(type: 'systemBarTintChange', callback?: Callback<SystemBarTintState>): void;
+
+  /**
+   * Unregister the callback of systemBarTintChange
+   *
+   * @param { Callback<SystemBarTintState> } [callback] - Callback used to return the properties of the system bar.
+   *    If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function offSystemBarTintChange(callback?: Callback<SystemBarTintState>): void;
 
   /**
    * Register the callback for gesture navigation enabled changes.
@@ -3885,15 +3909,29 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
    */
   function on(type: 'gestureNavigationEnabledChange', callback: Callback<boolean>): void;
+
+  /**
+   * Register the callback for gesture navigation enabled changes.
+   *
+   * @param { Callback<boolean> } callback Callback used to return the result whether gesture navigation enabled or not.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function onGestureNavigationEnabledChange(callback: Callback<boolean>): void;
 
   /**
    * Unregister the callback for gesture navigation enabled changes.
    *
    * @param { 'gestureNavigationEnabledChange' } type the event of gesture navigation enabled changes.
-   * @param { Callback<boolean> } callback Callback used to return the result whether gesture navigation enabled or not.
+   * @param { Callback<boolean> } [callback] Callback used to return the result whether gesture navigation enabled or
+   *    not.
+   *    If not provided, all callbacks for the given event type will be removed.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
    *                                                                  2. Parameter verification failed.
@@ -3905,6 +3943,21 @@ declare namespace window {
    * @since 20 static
    */
   function off(type: 'gestureNavigationEnabledChange', callback?: Callback<boolean>): void;
+
+  /**
+   * Unregister the callback for gesture navigation enabled changes.
+   *
+   * @param { Callback<boolean> } [callback] Callback used to return the result whether gesture navigation enabled or
+   *    not.
+   *    If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function offGestureNavigationEnabledChange(callback?: Callback<boolean>): void;
 
   /**
    * Register the callback for watermark flag change.
@@ -3919,15 +3972,28 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
    */
   function on(type: 'waterMarkFlagChange', callback: Callback<boolean>): void;
+
+  /**
+   * Register the callback for watermark flag change.
+   *
+   * @param { Callback<boolean> } callback Callback used to return the result whether watermark flag change or not.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function onWaterMarkFlagChange(callback: Callback<boolean>): void;
 
   /**
    * Unregister the callback for watermark flag change.
    *
    * @param { 'waterMarkFlagChange' } type the event of watermark flag change.
-   * @param { Callback<boolean> } callback Callback used to return the result whether watermark flag change or not.
+   * @param { Callback<boolean> } [callback] Callback used to return the result whether watermark flag change or not.
+   *    If not provided, all callbacks for the given event type will be removed.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
    * <br>2. Parameter verification failed.
@@ -3936,9 +4002,22 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
    */
   function off(type: 'waterMarkFlagChange', callback?: Callback<boolean>): void;
+
+  /**
+   * Unregister the callback for watermark flag change.
+   *
+   * @param { Callback<boolean> } [callback] Callback used to return the result whether watermark flag change or not.
+   *    If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function offWaterMarkFlagChange(callback?: Callback<boolean>): void;
 
   /**
    * Sets starting window background color
@@ -6893,7 +6972,8 @@ declare namespace window {
     /**
      * Register the callback of avoidAreaChange
      *
-     * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to
+     *    the avoid area.
      * @param { Callback<AvoidAreaOptions> } callback - Callback used to return the area.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
      *                                                                   2. Incorrect parameter types; 
@@ -6901,9 +6981,19 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     on(type: 'avoidAreaChange', callback: Callback<AvoidAreaOptions>): void;
+
+    /**
+     * Register the callback of avoidAreaChange
+     *
+     * @param { Callback<AvoidAreaOptions> } callback - Callback used to return the area.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    onAvoidAreaChange(callback: Callback<AvoidAreaOptions>): void;
 
     /**
      * Unregister the callback of avoidAreaChange
@@ -6940,16 +7030,29 @@ declare namespace window {
     /**
      * Unregister the callback of avoidAreaChange
      *
-     * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
-     * @param { Callback<AvoidAreaOptions> } callback - Callback used to return the area.
+     * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to
+     *    the avoid area.
+     * @param { Callback<AvoidAreaOptions> } [callback] - Callback used to return the area.
+     *    If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 
      *                                                                   2. Parameter verification failed.  
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     off(type: 'avoidAreaChange', callback?: Callback<AvoidAreaOptions>): void;
+
+    /**
+     * Unregister the callback of avoidAreaChange
+     *
+     * @param { Callback<AvoidAreaOptions> } [callback] - Callback used to return the area.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    offAvoidAreaChange(callback?: Callback<AvoidAreaOptions>): void;
 
     /**
      * Register the callback of keyboardHeightChange
@@ -7172,25 +7275,54 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
      */   
     on(type: 'displayIdChange', callback: Callback<long>): void;
 
     /**
+     * Window displayId change callback on.
+     *
+     * @param { Callback<long> } callback - Callback used to notify the Display this window is current showing has
+     *    changed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *    capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */   
+    onDisplayIdChange(callback: Callback<long>): void;
+
+    /**
      * Window displayId change callback off.
      *
-     * @param { 'displayIdChange' } type - The value is fixed at 'displayIdChange', indicating the Display this window is current showing has changed.
-     * @param { Callback<long> } callback - Callback used to notify the Display this window is current showing has changed.
+     * @param { 'displayIdChange' } type - The value is fixed at 'displayIdChange', indicating the Display this window
+     *    is current showing has changed.
+     * @param { Callback<long> } [callback] - Callback used to notify the Display this window is current showing has
+     *    changed.
+     *    If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *    capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
      */
     off(type: 'displayIdChange', callback?: Callback<long>): void;
+
+    /**
+     * Window displayId change callback off.
+     *
+     * @param { Callback<long> } [callback] - Callback used to notify the Display this window is current showing has
+     *    changed.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *    capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offDisplayIdChange(callback?: Callback<long>): void;
 
     /**
      * Window visibility change callback on.
@@ -7209,21 +7341,39 @@ declare namespace window {
     /**
      * Subscribes to the visibility status change event of this window.
      *
-     * @param { 'windowVisibilityChange' } type - Event type. The value is fixed at 'windowVisibilityChange', indicating the visibility status change event.
-     * @param { Callback<boolean> } callback - Callback used to return the visibility status of the window, which is a Boolean value.
-     *                                         The value true means that the window is visible, and false means the opposite.
+     * @param { 'windowVisibilityChange' } type - Event type. The value is fixed at 'windowVisibilityChange', indicating
+     *    the visibility status change event.
+     * @param { Callback<boolean> } callback - Callback used to return the visibility status of the window, which is a
+     *                                            Boolean value.
+     *                                         The value true means that the window is visible, and false means the
+     *                                            opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *    capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'windowVisibilityChange', callback: Callback<boolean>): void;
+
+    /**
+     * Subscribes to the visibility status change event of this window.
+     *
+     * @param { Callback<boolean> } callback - Callback used to return the visibility status of the window,
+     *    which is a Boolean value.
+     *    The value true means that the window is visible, and false means the opposite.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *    capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onWindowVisibilityChange(callback: Callback<boolean>): void;
 
     /**
      * Window visibility change callback off.
@@ -7241,54 +7391,103 @@ declare namespace window {
     /**
      * Unsubscribes from the visibility status change event of this window.
      *
-     * @param { 'windowVisibilityChange' } type - Event type. The value is fixed at 'windowVisibilityChange', indicating the visibility status change event.
-     * @param { Callback<boolean> } callback - Callback used to return the visibility status of the window.
+     * @param { 'windowVisibilityChange' } type - Event type. The value is fixed at 'windowVisibilityChange', indicating
+     *    the visibility status change event.
+     * @param { Callback<boolean> } [callback] - Callback used to return the visibility status of the window.
      *                                         If a value is passed in, the corresponding subscription is canceled.
-     *                                         If no value is passed in, all subscriptions to the specified event are canceled.
+     *                                         If no value is passed in, all subscriptions to the specified event are
+     *                                            canceled.
+     *    If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *    capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'windowVisibilityChange', callback?: Callback<boolean>): void;
 
     /**
+     * Unsubscribes from the visibility status change event of this window.
+     *
+     * @param { Callback<boolean> } [callback] - Callback used to return the visibility status of the window.
+     *     If a value is passed in, the corresponding subscription is canceled.
+     *     If no value is passed in, all subscriptions to the specified event are canceled.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offWindowVisibilityChange(callback?: Callback<boolean>): void;
+
+    /**
      * System density change callback on.
      *
-     * @param { 'systemDensityChange' } type - The value is fixed at 'systemDensityChange', indicating the system density is current has changed.
+     * @param { 'systemDensityChange' } type - The value is fixed at 'systemDensityChange', indicating the system 
+     *    density is current has changed.
      * @param { Callback<double> } callback - Callback used to notify the system density is current has changed.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     * 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *    capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
-     */   
+     */
     on(type: 'systemDensityChange', callback: Callback<double>): void;
+
+    /**
+     * System density change callback on.
+     *
+     * @param { Callback<double> } callback - Callback used to notify the system density is current has changed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *    capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onSystemDensityChange(callback: Callback<double>): void;
 
     /**
      * System density change callback off.
      *
-     * @param { 'systemDensityChange' } type - The value is fixed at 'systemDensityChange', indicating the system density is current showing has changed.
-     * @param { Callback<double> } callback - Callback used to notify the system density is current has changed.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
-     *                                                                  2. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @param { 'systemDensityChange' } type - The value is fixed at 'systemDensityChange', indicating the system
+     *    density is current showing has changed.
+     * @param { Callback<double> } [callback] - Callback used to notify the system density is current has changed.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *    1. Incorrect parameter types; 
+     *    2. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *    capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
      */
     off(type: 'systemDensityChange', callback?: Callback<double>): void;
+
+    /**
+     * System density change callback off.
+     *
+     * @param { Callback<double> } [callback] - Callback used to notify the system density is current has changed.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *    capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offSystemDensityChange(callback?: Callback<double>): void;
 
     /**
      *  Register Callback for window spans multiple screens and displays in full screen mode changed.
@@ -7416,9 +7615,17 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'screenshot', callback: Callback<void>): void;
+
+    /**
+     * Register the callback of screenshot, only the focused window called back
+     *
+     * @param { Callback<void> } callback - Callback invoked when a screenshot event occurs.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 static
+     */
+    onScreenshot(callback: Callback<void>): void;
 
     /**
      * Unregister the callback of screenshot
@@ -7434,15 +7641,26 @@ declare namespace window {
      * Unregister the callback of screenshot
      *
      * @param { 'screenshot' } type - The value is fixed at 'screenshot', indicating the screenshot event.
-     * @param { Callback<void> } callback - Callback invoked when a screenshot event occurs.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
-     *                                                                  2. Parameter verification failed.
+     * @param { Callback<void> } [callback] - Callback invoked when a screenshot event occurs.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *    1. Incorrect parameter types;
+     *    2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'screenshot', callback?: Callback<void>): void;
+
+    /**
+     * Unregister the callback of screenshot
+     *
+     * @param { Callback<void> } [callback] - Callback invoked when a screenshot event occurs.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 static
+     */
+    offScreenshot(callback?: Callback<void>): void;
 
     /**
      * Register the callback of screenshot app event
