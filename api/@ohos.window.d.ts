@@ -2471,7 +2471,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface TransitionController {
     /**
@@ -2495,6 +2495,8 @@ declare namespace window {
      * @systemapi
      * @since 12 dynamic
      */
+    animationForShown(context: TransitionContext): void;
+
     /**
      * Animation configuration when showing window
      *
@@ -2505,6 +2507,7 @@ declare namespace window {
      * @since 22 static
      */
     animationForShown?: TransitionControllerCallback;
+
     /**
      * Animation configuration when hiding window
      *
@@ -2526,6 +2529,8 @@ declare namespace window {
      * @systemapi
      * @since 12 dynamic
      */
+    animationForHidden(context: TransitionContext): void;
+
     /**
      * Animation configuration when hiding window
      *
