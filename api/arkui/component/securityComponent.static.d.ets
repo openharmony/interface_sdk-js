@@ -17,6 +17,7 @@
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 import { Dimension, Position, Edges, LocalizedEdges, ResourceColor, Padding, Length, SizeOptions, ConstraintSizeOptions, BorderRadiuses } from './units';
@@ -31,7 +32,7 @@ import { memo, ComponentBuilder } from './../stateManagement/runtime';
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 20 static
+ * @since 20
  */
 export declare enum SecurityComponentLayoutDirection {
   /**
@@ -39,7 +40,7 @@ export declare enum SecurityComponentLayoutDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   HORIZONTAL = 0,
   /**
@@ -47,7 +48,7 @@ export declare enum SecurityComponentLayoutDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   VERTICAL = 1
 }
@@ -58,7 +59,7 @@ export declare enum SecurityComponentLayoutDirection {
  * @interface SecurityComponentMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 20 static
+ * @since 20
  */
 export declare interface SecurityComponentMethod {
   /**
@@ -68,7 +69,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   iconSize(value: Dimension | undefined): this;
   /**
@@ -79,7 +80,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   layoutDirection(value: SecurityComponentLayoutDirection | undefined): this;
   /**
@@ -89,7 +90,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   position(value: Position | undefined): this;
   /**
@@ -100,7 +101,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   markAnchor(value: Position | undefined): this;
   /**
@@ -112,7 +113,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   offset(value: Position | Edges | LocalizedEdges | undefined): this;
   /**
@@ -122,7 +123,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   fontSize(value: Dimension | undefined): this;
   /**
@@ -132,9 +133,20 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   fontStyle(value: FontStyle | undefined): this;
+  /**
+   * Font weight of the inner text.
+   *
+   * @param { int | FontWeight | string | Resource | undefined } value - Font weight of the text in
+   *     the security component.
+   * @returns { SecurityComponentMethod } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  fontWeight(value: int | FontWeight | string | Resource | undefined): this;
   /**
    * Font family of the inner text.
    *
@@ -142,7 +154,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   fontFamily(value: string | Resource | undefined): this;
   /**
@@ -152,7 +164,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   fontColor(value: ResourceColor | undefined): this;
   /**
@@ -162,7 +174,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   iconColor(value: ResourceColor | undefined): this;
   /**
@@ -172,7 +184,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   backgroundColor(value: ResourceColor | undefined): this;
   /**
@@ -182,7 +194,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   borderStyle(value: BorderStyle | undefined): this;
   /**
@@ -192,7 +204,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   borderWidth(value: Dimension | undefined): this;
   /**
@@ -202,7 +214,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   borderColor(value: ResourceColor | undefined): this;
   /**
@@ -212,7 +224,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   borderRadius(radius: Dimension | BorderRadiuses | undefined): this;
   /**
@@ -222,7 +234,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   padding(value: Padding | Dimension | undefined): this;
   /**
@@ -232,7 +244,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   textIconSpace(value: Dimension | undefined): this;
   /**
@@ -242,7 +254,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20 static
+   * @since 20
    * @test
    */
   key(value: string | undefined): this;
@@ -253,7 +265,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   width(value: Length | undefined): this;
   /**
@@ -263,7 +275,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   height(value: Length | undefined): this;
   /**
@@ -273,7 +285,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   size(value: SizeOptions | undefined): this;
   /**
@@ -284,7 +296,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   constraintSize(value: ConstraintSizeOptions | undefined): this;
   /**
@@ -294,7 +306,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   align(alignType: Alignment | undefined): this;
   /**
@@ -304,7 +316,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   alignRules(alignRule: AlignRuleOption | LocalizedAlignRuleOptions | undefined): this;
 
@@ -315,7 +327,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   id(description: string | undefined): this;
   /**
@@ -326,7 +338,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   chainMode(direction: Axis | undefined, style: ChainStyle | undefined): this;
   /**
@@ -336,7 +348,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attributes of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   minFontScale(scale: double | Resource | undefined): this;
   /**
@@ -346,9 +358,19 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attributes of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   maxFontScale(scale: double | Resource | undefined): this;
+  /**
+   * Called when the maximum number of lines of text is set.
+   *
+   * @param { int | Resource | undefined } line
+   * @returns { SecurityComponentMethod } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  maxLines(line: int | Resource | undefined): this;
   /**
    * Called when the minimum font size of the font is set.
    *
@@ -356,7 +378,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   minFontSize(minSize: double | string | Resource | undefined): this;
   /**
@@ -366,7 +388,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   maxFontSize(maxSize: double | string | Resource | undefined): this;
   /**
@@ -376,7 +398,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   heightAdaptivePolicy(policy: TextHeightAdaptivePolicy | undefined): this;
   /**
@@ -387,7 +409,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20 static
+   * @since 20
    */
   enabled(respond: boolean | undefined): this;
 }
