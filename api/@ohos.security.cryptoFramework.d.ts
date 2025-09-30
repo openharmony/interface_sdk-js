@@ -546,6 +546,57 @@ declare namespace cryptoFramework {
   }
 
   /**
+   * Provides the Poly1305ParamsSpec type, including the parameter iv, aad and authTag.
+   *
+   * @extends ParamsSpec
+   * @typedef Poly1305ParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework.Cipher
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  interface Poly1305ParamsSpec extends ParamsSpec {
+    /**
+     * Indicates the nonce for ChaCha20-Poly1305.
+     *
+     * @type { DataBlob }
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    iv: DataBlob;
+
+    /**
+     * Indicates the Additional Authenticated Data in Poly1305 mode.
+     *
+     * The aad parameter in the aead algorithm is optional. If this parameter is not used during encryption, the data
+     * of aad can be set to an empty Uint8Array during encryption and decryption.
+     *
+     * @type { DataBlob }
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    aad: DataBlob;
+
+    /**
+     * Indicates the output tag from the encryption operation. The tag is used for integrity check.
+     *
+     * When encrypting, the data of authTag can be set to an empty Uint8Array;
+     * When decrypting, the data of authTag must be set to the output tag from the encryption operation.
+     *
+     * @type { DataBlob }
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    authTag: DataBlob;
+  }
+
+  /**
    * Enum for obtain the crypto operation.
    *
    * @enum { int }
