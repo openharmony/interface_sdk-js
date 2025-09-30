@@ -251,9 +251,39 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   function on(type: 'add' | 'remove' | 'change', callback: Callback<long>): void;
+
+  /**
+   * Register the callback for display add events.
+   *
+   * @param { Callback<long> } callback the display id of changed
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 22 static
+   */
+  function onAdd(callback: Callback<long>): void;
+  
+  /**
+   * Register the callback for display remove events.
+   *
+   * @param { Callback<long> } callback the display id of changed
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 22 static
+   */
+  function onRemove(callback: Callback<long>): void;
+
+  /**
+   * Register the callback for display changes.
+   *
+   * @param { Callback<long> } callback the display id of changed
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 22 static
+   */
+  function onChange(callback: Callback<long>): void;
 
   /**
    * Unregister the callback for display changes.
@@ -286,9 +316,42 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   function off(type: 'add' | 'remove' | 'change', callback?: Callback<long>): void;
+
+  /**
+   * Unregister the callback for display add events.
+   *
+   * @param { Callback<long> } [callback] - Unregister the callback function.
+   *		If not provided, all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 22 static
+   */
+  function offAdd(callback?: Callback<long>): void;
+  
+  /**
+   * Unregister the callback for display remove events.
+   *
+   * @param { Callback<long> } [callback] - Unregister the callback function.
+   *		If not provided, all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 22 static
+   */
+  function offRemove(callback?: Callback<long>): void;
+  
+  /**
+   * Unregister the callback for display changes.
+   *
+   * @param { Callback<long> } [callback] - Unregister the callback function.
+   *		If not provided, all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 22 static
+   */
+  function offChange(callback?: Callback<long>): void;
 
   /**
    * Register the callback for private mode changes.
@@ -301,9 +364,19 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
    */
   function on(type: 'privateModeChange', callback: Callback<boolean>): void;
+
+  /**
+   * Register the callback for private mode changes.
+   *
+   * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function onPrivateModeChange(callback: Callback<boolean>): void;
 
   /**
    * Unregister the callback for private mode changes.
@@ -316,9 +389,20 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
    */
   function off(type: 'privateModeChange', callback?: Callback<boolean>): void;
+ 
+   /**
+   * Unregister the callback for private mode changes.
+   *
+   * @param { Callback<boolean> } [callback] - Unregister the callback function.
+   *		If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function offPrivateModeChange(callback?: Callback<boolean>): void;
 
   /**
    * Check whether the device is foldable.
@@ -412,9 +496,20 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   function on(type: 'foldStatusChange', callback: Callback<FoldStatus>): void;
+
+  /**
+   * Register the callback for fold status changes.
+   *
+   * @param { Callback<FoldStatus> } callback Callback used to return the current fold status of device
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @since 22 static
+   */
+  function onFoldStatusChange(callback: Callback<FoldStatus>): void;
 
   /**
    * Unregister the callback for fold status changes.
@@ -450,11 +545,23 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   function off(type: 'foldStatusChange', callback?: Callback<FoldStatus>): void;
 
   /**
+   * Unregister the callback for fold status changes.
+   *
+   * @param { Callback<FoldStatus> } [callback] - Unregister the callback function.
+   *		If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @since 22 static
+   */
+  function offFoldStatusChange(callback?: Callback<FoldStatus>): void;
+
+  /**
    * Register the callback for fold angle changes.
    *
    * @param { 'foldAngleChange' } type the event of fold angle changes.
@@ -477,9 +584,20 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   function on(type: 'foldAngleChange', callback: Callback<Array<double>>): void;
+
+  /**
+   * Register the callback for fold angle changes.
+   *
+   * @param { Callback<Array<double>> } callback Callback used to return the current fold angle of device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @since 22 static
+   */
+  function onFoldAngleChange(callback: Callback<Array<double>>): void;
 
   /**
    * Unregister the callback for fold angle changes.
@@ -504,9 +622,21 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   function off(type: 'foldAngleChange', callback?: Callback<Array<double>>): void;
+
+  /**
+   * Unregister the callback for fold angle changes.
+   *
+   * @param { Callback<Array<double>> } [callback] - Unregister the callback function.
+   *		If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @since 22 static
+   */
+  function offFoldAngleChange(callback?: Callback<Array<double>>): void;
 
   /**
    * Register the callback for device capture, casting, or recording status changes.
@@ -519,9 +649,18 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   function on(type: 'captureStatusChange', callback: Callback<boolean>): void;
+  
+  /**
+   * Register the callback for device capture, casting, or recording status changes.
+   *
+   * @param { Callback<boolean> } callback Callback used to return the device capture, casting, or recording status.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 22 static
+   */
+  function onCaptureStatusChange(callback: Callback<boolean>): void;
 
   /**
    * Unregister the callback for device capture, casting, or recording status changes.
@@ -534,10 +673,19 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   function off(type: 'captureStatusChange', callback?: Callback<boolean>): void;
 
+  /**
+   * Unregister the callback for device capture, casting, or recording status changes.
+   *
+   * @param { Callback<boolean> } [callback] - Unregister the callback function.
+   *		If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 22 static
+   */
+  function offCaptureStatusChange(callback?: Callback<boolean>): void;
 
   /**
    * Check whether the device is captured, projected, or recorded.
@@ -643,9 +791,20 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   function on(type: 'foldDisplayModeChange', callback: Callback<FoldDisplayMode>): void;
+  
+  /**
+   * Register the callback for fold display mode changes.
+   *
+   * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @since 22 static
+   */
+  function onFoldDisplayModeChange(callback: Callback<FoldDisplayMode>): void;
 
   /**
    * Unregister the callback for fold display mode changes.
@@ -681,9 +840,21 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   function off(type: 'foldDisplayModeChange', callback?: Callback<FoldDisplayMode>): void;
+ 
+   /**
+   * Unregister the callback for fold display mode changes.
+   *
+   * @param { Callback<FoldDisplayMode> } [callback] - Unregister the callback function.
+   *		If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @since 22 static
+   */
+  function offFoldDisplayModeChange(callback?: Callback<FoldDisplayMode>): void;
 
   /**
    * Get the fold crease region in the current display mode.
@@ -2394,9 +2565,19 @@ declare namespace display {
     * @syscap SystemCapability.Window.SessionManager
     * @atomicservice
     * @since 12 dynamic
-    * @since 20 static
     */
     on(type: 'availableAreaChange', callback: Callback<Rect>): void;
+
+    /**
+    * Register the callback for available area changes.
+    *
+    * @param { Callback<Rect> } callback - Callback used to return the available area
+    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+    * @syscap SystemCapability.Window.SessionManager
+    * @since 22 static
+    */
+    onAvailableAreaChange(callback: Callback<Rect>): void;
 
     /**
     * Unregister the callback for available area changes.
@@ -2410,9 +2591,20 @@ declare namespace display {
     * @syscap SystemCapability.Window.SessionManager
     * @atomicservice
     * @since 12 dynamic
-    * @since 20 static
     */
     off(type: 'availableAreaChange', callback?: Callback<Rect>): void;
+	
+    /**
+    * Unregister the callback for available area changes.
+    *
+    * @param { Callback<Rect> } [callback] - Unregister the callback function.
+    *		If not provided, all callbacks for the given event type will be removed.
+    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+    * @syscap SystemCapability.Window.SessionManager
+    * @since 22 static
+    */
+    offAvailableAreaChange(callback?: Callback<Rect>): void;
 
     /**
     * Get current display capability, including foldstatus, displaymode, rotation, and orientation information.
