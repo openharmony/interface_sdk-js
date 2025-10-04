@@ -2528,8 +2528,6 @@ export declare interface ItemDragInfo {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     x: double;
@@ -2538,8 +2536,6 @@ export declare interface ItemDragInfo {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     y: double;
@@ -3819,9 +3815,6 @@ export declare interface BaseEvent {
      *
      * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20 static
      */
     timestamp: long;
@@ -3841,9 +3834,6 @@ export declare interface BaseEvent {
      *
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20 static
      */
     axisHorizontal?: double;
@@ -3852,9 +3842,6 @@ export declare interface BaseEvent {
      *
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20 static
      */
     axisVertical?: double;
@@ -3863,9 +3850,6 @@ export declare interface BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20 static
      */
     pressure: double;
@@ -3874,9 +3858,6 @@ export declare interface BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20 static
      */
     tiltX: double;
@@ -3885,9 +3866,6 @@ export declare interface BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20 static
      */
     tiltY: double;
@@ -3896,9 +3874,6 @@ export declare interface BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20 static
      */
     rollAngle?: double;
@@ -3923,8 +3898,6 @@ export declare interface BaseEvent {
      *
      * @type { ?int } [deviceId] The ID of the input device that triggers the current event
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     deviceId?: int;
@@ -3933,8 +3906,6 @@ export declare interface BaseEvent {
      *
      * @type { ?int } [targetDisplayId] The screen ID on which the event occurred.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     targetDisplayId?: int;
@@ -4036,8 +4007,6 @@ export declare interface ClickEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     displayX: double;
@@ -4046,8 +4015,6 @@ export declare interface ClickEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     displayY: double;
@@ -4056,8 +4023,6 @@ export declare interface ClickEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     windowX: double;
@@ -4066,8 +4031,6 @@ export declare interface ClickEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     windowY: double;
@@ -4076,9 +4039,6 @@ export declare interface ClickEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20 static
      */
     x: double;
@@ -4087,9 +4047,6 @@ export declare interface ClickEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20 static
      */
     y: double;
@@ -4098,8 +4055,6 @@ export declare interface ClickEvent extends BaseEvent {
      *
      * @type { InteractionHand }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     hand?: InteractionHand;
@@ -4129,7 +4084,6 @@ export declare interface HoverEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     x?: double;
@@ -4138,7 +4092,6 @@ export declare interface HoverEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     y?: double;
@@ -4147,7 +4100,6 @@ export declare interface HoverEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     windowX?: double;
@@ -4156,7 +4108,6 @@ export declare interface HoverEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     windowY?: double;
@@ -4165,7 +4116,6 @@ export declare interface HoverEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     displayX?: double;
@@ -4174,7 +4124,6 @@ export declare interface HoverEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     displayY?: double;
@@ -4201,7 +4150,6 @@ export declare interface MouseEvent extends BaseEvent {
      *
      * @type { MouseButton }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     button: MouseButton;
@@ -4210,7 +4158,6 @@ export declare interface MouseEvent extends BaseEvent {
      *
      * @type { MouseAction }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     action: MouseAction;
@@ -4219,7 +4166,6 @@ export declare interface MouseEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     displayX: double;
@@ -4228,7 +4174,6 @@ export declare interface MouseEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     displayY: double;
@@ -4237,7 +4182,6 @@ export declare interface MouseEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     windowX: double;
@@ -4246,7 +4190,6 @@ export declare interface MouseEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     windowY: double;
@@ -4255,7 +4198,6 @@ export declare interface MouseEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     x: double;
@@ -4264,7 +4206,6 @@ export declare interface MouseEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     y: double;
@@ -4282,7 +4223,6 @@ export declare interface MouseEvent extends BaseEvent {
      *
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     rawDeltaX?: double;
@@ -4292,7 +4232,6 @@ export declare interface MouseEvent extends BaseEvent {
      *
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     rawDeltaY?: double;
@@ -4392,8 +4331,6 @@ export declare interface TouchObject {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     id: int;
@@ -4402,8 +4339,6 @@ export declare interface TouchObject {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     displayX: double;
@@ -4412,8 +4347,6 @@ export declare interface TouchObject {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     displayY: double;
@@ -4422,8 +4355,6 @@ export declare interface TouchObject {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     windowX: double;
@@ -4432,8 +4363,6 @@ export declare interface TouchObject {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     windowY: double;
@@ -4442,8 +4371,6 @@ export declare interface TouchObject {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     x: double;
@@ -4452,8 +4379,6 @@ export declare interface TouchObject {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     y: double;
@@ -4462,8 +4387,6 @@ export declare interface TouchObject {
      *
      * @type { InteractionHand }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     hand?: InteractionHand;
@@ -4472,28 +4395,22 @@ export declare interface TouchObject {
      *
      * @type { ?long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     pressedTime?: long;
     /**
-   * Pressure value of the finger press.
-   *
-   * @type { ?double }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 static
-   */
+     * Pressure value of the finger press.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
     pressure?: double;
     /**
      * Width of the area pressed by the finger.
      *
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     width?: double;
@@ -4502,8 +4419,6 @@ export declare interface TouchObject {
      *
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     height?: double;
@@ -4529,8 +4444,6 @@ export declare interface HistoricalPoint {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     size: int;
@@ -4539,8 +4452,6 @@ export declare interface HistoricalPoint {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     force: double;
@@ -4549,8 +4460,6 @@ export declare interface HistoricalPoint {
      *
      * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     timestamp: long;
@@ -4628,7 +4537,6 @@ export declare interface AxisEvent extends BaseEvent {
      *
      * @type { AxisAction }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     action: AxisAction;
@@ -4637,7 +4545,6 @@ export declare interface AxisEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     displayX: double;
@@ -4646,7 +4553,6 @@ export declare interface AxisEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     displayY: double;
@@ -4655,7 +4561,6 @@ export declare interface AxisEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     windowX: double;
@@ -4664,7 +4569,6 @@ export declare interface AxisEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     windowY: double;
@@ -4673,7 +4577,6 @@ export declare interface AxisEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     x: double;
@@ -4682,7 +4585,6 @@ export declare interface AxisEvent extends BaseEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     y: double;
@@ -4691,7 +4593,6 @@ export declare interface AxisEvent extends BaseEvent {
      *  *
      * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     scrollStep?: int;
@@ -4709,7 +4610,6 @@ export declare interface AxisEvent extends BaseEvent {
      *
      * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     getHorizontalAxisValue(): double;
@@ -4718,7 +4618,6 @@ export declare interface AxisEvent extends BaseEvent {
      *
      * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     getVerticalAxisValue(): double;
@@ -5163,8 +5062,6 @@ export declare interface DragEvent {
      *
      * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     getDisplayX(): double;
@@ -5173,8 +5070,6 @@ export declare interface DragEvent {
      *
      * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     getDisplayY(): double;
@@ -5183,8 +5078,6 @@ export declare interface DragEvent {
      *
      * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     getWindowX(): double;
@@ -5193,8 +5086,6 @@ export declare interface DragEvent {
      *
      * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     getWindowY(): double;
@@ -5269,8 +5160,6 @@ export declare interface DragEvent {
      *
      * @returns { double } - get x axis velocity.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     getVelocityX(): double;
@@ -5279,8 +5168,6 @@ export declare interface DragEvent {
      *
      * @returns { double } - get y axis velocity.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     getVelocityY(): double;
@@ -5289,8 +5176,6 @@ export declare interface DragEvent {
      *
      * @returns { double } - get velocity.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     getVelocity(): double;
@@ -5388,8 +5273,6 @@ export declare interface KeyEvent {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     keyCode: int;
@@ -5414,8 +5297,6 @@ export declare interface KeyEvent {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     deviceId: int;
@@ -5425,8 +5306,6 @@ export declare interface KeyEvent {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     metaKey: int;
@@ -5435,8 +5314,6 @@ export declare interface KeyEvent {
      *
      * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     timestamp: long;
@@ -5470,7 +5347,6 @@ export declare interface KeyEvent {
      *
      * @type { ?long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     unicode?: long;
@@ -5489,7 +5365,6 @@ export declare interface FocusAxisEvent extends BaseEvent {
      *
      * @type { Map<AxisModel, double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     axisMap: Map<AxisModel, double>;
@@ -5516,7 +5391,6 @@ export declare interface CrownEvent {
      *
      * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     timestamp: long;
@@ -5525,7 +5399,6 @@ export declare interface CrownEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     angularVelocity: double;
@@ -5534,7 +5407,6 @@ export declare interface CrownEvent {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     degree: double;
@@ -7932,8 +7804,6 @@ export declare class TouchTestInfo {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     windowX: double;
@@ -7942,8 +7812,6 @@ export declare class TouchTestInfo {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     windowY: double;
@@ -7952,8 +7820,6 @@ export declare class TouchTestInfo {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     parentX: double;
@@ -7962,8 +7828,6 @@ export declare class TouchTestInfo {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     parentY: double;
@@ -7972,8 +7836,6 @@ export declare class TouchTestInfo {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     x: double;
@@ -7982,8 +7844,6 @@ export declare class TouchTestInfo {
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     y: double;
@@ -7992,8 +7852,6 @@ export declare class TouchTestInfo {
      *
      * @type { RectResult }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     rect: RectResult;
@@ -8002,8 +7860,6 @@ export declare class TouchTestInfo {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     id: string;
@@ -8113,7 +7969,6 @@ export declare interface ClickEffect {
      * </p>
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     scale?: double;
@@ -8471,8 +8326,6 @@ export declare interface DragPreviewOptions {
      * @type { ?(DragPreviewMode | Array<DragPreviewMode>) }
      * @default DragPreviewMode.AUTO
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     mode?: DragPreviewMode | Array<DragPreviewMode>;
@@ -8490,8 +8343,6 @@ export declare interface DragPreviewOptions {
      * @type { ?(boolean | long) }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     numberBadge?: boolean | long;
@@ -8501,7 +8352,6 @@ export declare interface DragPreviewOptions {
     * @type { ?DraggingSizeChangeEffect }
     * @default DraggingSizeChangeEffect.DEFAULT
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @atomicservice
     * @since 20 static
     */
     sizeChangeEffect?: DraggingSizeChangeEffect;
@@ -12517,8 +12367,6 @@ export declare interface VisibleAreaEventOptions {
      *
      * @type { Array<double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     ratios: Array<double>;
@@ -12528,8 +12376,6 @@ export declare interface VisibleAreaEventOptions {
      * @type { ?int }
      * @default 1000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     expectedUpdateInterval?: int;
@@ -12542,8 +12388,6 @@ export declare interface VisibleAreaEventOptions {
  * It is true as the ratio increases and false as the ratio decreases.
  * @param { double } currentRatio - The value of currentRatio indicates the visibility ratio of the current component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20 static
  */
 export type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: double) => void;
