@@ -292,12 +292,12 @@ export declare interface Configuration {
     /**
      * Set fontScale.
      *
-     * @type { number }
+     * @type { double }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    readonly fontScale: number;
+    readonly fontScale: double;
 }
 /**
  * Defines the data type of the interface restriction.
@@ -11666,27 +11666,27 @@ export declare interface CaretOffset {
     /**
      * Get the index of the CaretOffset
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    index: number;
+    index: int;
     /**
      * Get the x of the relative position.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    x: number;
+    x: int;
     /**
      * Get the y of the relative position.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    y: number;
+    y: int;
 }
 /**
  * Defines the span options of TextContentController.
@@ -11699,11 +11699,11 @@ export declare interface TextContentControllerOptions {
     /**
      * the offset that add a text at.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    offset?: number;
+    offset?: int;
 }
 /**
  * TextContentControllerBase
