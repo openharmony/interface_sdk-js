@@ -2526,23 +2526,23 @@ export declare interface ItemDragInfo {
     /**
      * Obtains the X coordinate of the drag window, in vp.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    x: number;
+    x: double;
     /**
      * Obtains the Y coordinate of the drag window, in vp.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    y: number;
+    y: double;
 }
 /**
  * Enum of using the effects template mode.
@@ -3817,14 +3817,14 @@ export declare interface BaseEvent {
     /**
      * Timestamp of the event.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20 static
      */
-    timestamp: number;
+    timestamp: long;
     /**
      * Event input device.
      *
@@ -3839,69 +3839,69 @@ export declare interface BaseEvent {
     /**
      * the Horizontal axis coordinate.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20 static
      */
-    axisHorizontal?: number;
+    axisHorizontal?: double;
     /**
      * the Vertical axis coordinate.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20 static
      */
-    axisVertical?: number;
+    axisVertical?: double;
     /**
      * Press pressure.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20 static
      */
-    pressure: number;
+    pressure: double;
     /**
      * Angle between the projection of the stylus on the device plane and the x-axis.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20 static
      */
-    tiltX: number;
+    tiltX: double;
     /**
      * Angle between the projection of the stylus on the device plane and the y-axis.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20 static
      */
-    tiltY: number;
+    tiltY: double;
     /**
      * Indicates the angle at which the stylus rotates around the Z-axis.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20 static
      */
-    rollAngle?: number;
+    rollAngle?: double;
     /**
      * Event input source.
      *
@@ -3921,23 +3921,23 @@ export declare interface BaseEvent {
     /**
      * Indicates the ID of the input device that triggers the current event.
      *
-     * @type { ?number } [deviceId] The ID of the input device that triggers the current event
+     * @type { ?int } [deviceId] The ID of the input device that triggers the current event
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    deviceId?: number;
+    deviceId?: int;
     /**
      * Indicates the screen ID on which the event occurred.
      *
-     * @type { ?number } [targetDisplayId] The screen ID on which the event occurred.
+     * @type { ?int } [targetDisplayId] The screen ID on which the event occurred.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    targetDisplayId?: number;
+    targetDisplayId?: int;
 }
 /**
  * Border image option
@@ -4034,65 +4034,65 @@ export declare interface ClickEvent extends BaseEvent {
     /**
      * X coordinate of the click relative to the upper left corner of the application screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    displayX: number;
+    displayX: double;
     /**
      * Y coordinate of the click relative to the upper left corner of the application screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    displayY: number;
+    displayY: double;
     /**
      * X coordinate of the click relative to the upper left corner of the application window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    windowX: number;
+    windowX: double;
     /**
      * Y coordinate of the click relative to the upper left corner of the application window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    windowY: number;
+    windowY: double;
     /**
      * X coordinate of the click point relative to the left edge of the clicked element.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20 static
      */
-    x: number;
+    x: double;
     /**
      * Y coordinate of the click point relative to the left edge of the clicked element.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20 static
      */
-    y: number;
+    y: double;
     /**
      * Whether the event is triggered by a left-hand or right-hand tap.
      *
@@ -4127,57 +4127,57 @@ export declare interface HoverEvent extends BaseEvent {
     /**
      * X coordinate of the hover point relative to the left edge of the hover element.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    x?: number;
+    x?: double;
     /**
      * Y coordinate of the hover point relative to the upper edge of the hover element.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    y?: number;
+    y?: double;
     /**
      * X coordinate of the hover point relative to the left edge of the current window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    windowX?: number;
+    windowX?: double;
     /**
      * Y coordinate of the hover point relative to the upper edge of the current window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    windowY?: number;
+    windowY?: double;
     /**
      * X coordinate of the hover point relative to the left edge of the device screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    displayX?: number;
+    displayX?: double;
     /**
      * Y coordinate of the hover point relative to the upper edge of the device screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    displayY?: number;
+    displayY?: double;
     /**
      * The blocking hover event pops up.
      *
@@ -4217,57 +4217,57 @@ export declare interface MouseEvent extends BaseEvent {
     /**
      * X coordinate of the mouse pointer relative to the upper left corner of the application screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    displayX: number;
+    displayX: double;
     /**
      * Y coordinate of the mouse pointer relative to the upper left corner of the application screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    displayY: number;
+    displayY: double;
     /**
      * X coordinate of the mouse pointer relative to the upper left corner of the application window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    windowX: number;
+    windowX: double;
     /**
      * Y coordinate of the mouse pointer relative to the upper left corner of the application window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    windowY: number;
+    windowY: double;
     /**
      * X coordinate of the mouse pointer relative to the upper left corner of the component being clicked.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    x: number;
+    x: double;
     /**
      * Y coordinate of the mouse pointer relative to the upper left corner of the component being clicked.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    y: number;
+    y: double;
     /**
      * Stops the event from bubbling upwards or downwards.
      *
@@ -4280,22 +4280,22 @@ export declare interface MouseEvent extends BaseEvent {
      * X axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at
      * the edge of the screen, the value may be less than the difference of the X coordinate reported twice.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    rawDeltaX?: number;
+    rawDeltaX?: double;
     /**
      * Y axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at
      * the edge of the screen, the value may be less than the difference of the Y coordinate reported twice.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    rawDeltaY?: number;
+    rawDeltaY?: double;
     /**
      * Array of all mouse buttons that are currently pressed.
      *
@@ -4390,73 +4390,73 @@ export declare interface TouchObject {
     /**
      * Unique identifier of a finger.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    id: number;
+    id: int;
     /**
      * X coordinate of the touch point relative to the upper left corner of the application screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    displayX: number;
+    displayX: double;
     /**
      * Y coordinate of the touch point relative to the upper left corner of the application screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    displayY: number;
+    displayY: double;
     /**
      * X coordinate of the touch point relative to the upper left corner of the application window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    windowX: number;
+    windowX: double;
     /**
      * Y coordinate of the touch point relative to the upper left corner of the application window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    windowY: number;
+    windowY: double;
     /**
      * X coordinate of the touch point relative to the upper left corner of the event responding component.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    x: number;
+    x: double;
     /**
      * Y coordinate of the touch point relative to the upper left corner of the event responding component.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    y: number;
+    y: double;
     /**
      * Whether the event is triggered by a left-hand or right-hand tap.
      *
@@ -4470,43 +4470,43 @@ export declare interface TouchObject {
     /**
      * Time when the finger is pressed.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    pressedTime?: number;
+    pressedTime?: long;
     /**
    * Pressure value of the finger press.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20 static
    */
-    pressure?: number;
+    pressure?: double;
     /**
      * Width of the area pressed by the finger.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    width?: number;
+    width?: double;
     /**
      * Height of the area pressed by the finger.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    height?: number;
+    height?: double;
 }
 /**
  * TouchObject getHistoricalPoints Function Parameters
@@ -4527,33 +4527,33 @@ export declare interface HistoricalPoint {
     /**
      * Contact area between the finger pad and the screen.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    size: number;
+    size: int;
     /**
      * Pressure of the touch event.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    force: number;
+    force: double;
     /**
      * Timestamp of the touch event.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    timestamp: number;
+    timestamp: long;
 }
 /**
  * Touch Action Function Parameters
@@ -4635,66 +4635,66 @@ export declare interface AxisEvent extends BaseEvent {
     /**
      * X coordinate of the mouse cursor relative to the left edge of the device screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    displayX: number;
+    displayX: double;
     /**
      * Y coordinate of the mouse cursor relative to the upper edge of the device screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    displayY: number;
+    displayY: double;
     /**
      * X coordinate of the mouse cursor relative to the left edge of the current window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    windowX: number;
+    windowX: double;
     /**
      * Y coordinate of the mouse cursor relative to the upper edge of the current window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    windowY: number;
+    windowY: double;
     /**
      * X coordinate of the mouse cursor relative to the left edge of the axis event hit element.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    x: number;
+    x: double;
     /**
      * Y coordinate of the mouse cursor relative to the upper edge of the axis event hit element.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    y: number;
+    y: double;
     /**
      * Scroll step configuration which is only mouse wheel has.
      *  *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    scrollStep?: number;
+    scrollStep?: int;
     /**
      * Active event bubbling.
      *
@@ -4707,21 +4707,21 @@ export declare interface AxisEvent extends BaseEvent {
     /**
      * Obtains the value of the horizontal scroll axis for this axis event.
      *
-     * @returns { number }
+     * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    getHorizontalAxisValue(): number;
+    getHorizontalAxisValue(): double;
     /**
      * Obtains the value of the vertical scroll axis for this axis event.
      *
-     * @returns { number }
+     * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    getVerticalAxisValue(): number;
+    getVerticalAxisValue(): double;
 }
 /**
  * Defines the callback type used in onSizeChange.
@@ -5161,43 +5161,43 @@ export declare interface DragEvent {
     /**
      * X coordinate of the touch point relative to the left edge of the device screen.
      *
-     * @returns { number }
+     * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    getDisplayX(): number;
+    getDisplayX(): double;
     /**
      * Y coordinate of the touch point relative to the upper edge of the device screen.
      *
-     * @returns { number }
+     * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    getDisplayY(): number;
+    getDisplayY(): double;
     /**
      * X coordinate of the touch point relative to the left edge of the current window.
      *
-     * @returns { number }
+     * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    getWindowX(): number;
+    getWindowX(): double;
     /**
      * Y coordinate of the touch point relative to the left edge of the current window.
      *
-     * @returns { number }
+     * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    getWindowY(): number;
+    getWindowY(): double;
     /**
     * If copy is COPY, this DragEvent is a copy event.
     * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
@@ -5267,33 +5267,33 @@ export declare interface DragEvent {
     /**
      * Get the x axis velocity of drag gesture.
      *
-     * @returns { number } - get x axis velocity.
+     * @returns { double } - get x axis velocity.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    getVelocityX(): number;
+    getVelocityX(): double;
     /**
      * Get the y axis velocity of drag gesture.
      *
-     * @returns { number } - get y axis velocity.
+     * @returns { double } - get y axis velocity.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    getVelocityY(): number;
+    getVelocityY(): double;
     /**
      * Get the velocity of drag gesture.
      *
-     * @returns { number } - get velocity.
+     * @returns { double } - get velocity.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    getVelocity(): number;
+    getVelocity(): double;
     /**
      * Query the modifier key press state, support 'ctrl'|'alt'|'shift'
      *
@@ -5386,13 +5386,13 @@ export declare interface KeyEvent {
     /**
      * Key code of a key
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    keyCode: number;
+    keyCode: int;
     /**
      * Key value of a key.
      *
@@ -5412,34 +5412,34 @@ export declare interface KeyEvent {
     /**
      * Indicates the ID of the input device that triggers the current key.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    deviceId: number;
+    deviceId: int;
     /**
      * Indicates the status of the key when the key is pressed.
      * The value 1 indicates the pressed state, and the value 0 indicates the unpressed state.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    metaKey: number;
+    metaKey: int;
     /**
      * Timestamp when the key was pressed.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    timestamp: number;
+    timestamp: long;
     /**
      * Block event bubbling.
      *
@@ -5468,12 +5468,12 @@ export declare interface KeyEvent {
     /**
      * Unicode of a key
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    unicode?: number;
+    unicode?: long;
 }
 /**
  * Focus axis event object description.
@@ -5487,12 +5487,12 @@ export declare interface FocusAxisEvent extends BaseEvent {
     /**
      * The axis values of axis event.
      *
-     * @type { Map<AxisModel, number> }
+     * @type { Map<AxisModel, double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    axisMap: Map<AxisModel, number>;
+    axisMap: Map<AxisModel, double>;
     /**
      * The blocking event pops up.
      *
@@ -5514,30 +5514,30 @@ export declare interface CrownEvent {
     /**
      *The timestamp of the rotating crown event.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    timestamp: number;
+    timestamp: long;
     /**
      * The angular velocity of a rotating crown.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    angularVelocity: number;
+    angularVelocity: double;
     /**
      * The rotation angle of the rotating crown.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    degree: number;
+    degree: double;
     /**
      * The behavior of rotating crown.
      *
@@ -7930,63 +7930,63 @@ export declare class TouchTestInfo {
    /**
      * Get the X-coordinate relative to the window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    windowX: number;
+    windowX: double;
     /**
      * Get the Y-coordinate relative to the window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    windowY: number;
+    windowY: double;
     /**
      * Get the X-coordinate relative to the current component.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    parentX: number;
+    parentX: double;
     /**
      * Get the Y-coordinate relative to the current component.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    parentY: number;
+    parentY: double;
     /**
      * Get the X-coordinate relative to the sub component.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    x: number;
+    x: double;
     /**
      * Get the Y-coordinate relative to the sub component.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    y: number;
+    y: double;
     /**
      * Get the rectangle of sub component.
      *
@@ -8111,12 +8111,12 @@ export declare interface ClickEffect {
      * <br> If level is set to undefined or null (both of which evaluate to ClickEffectLevel.LIGHT), the default value is 0.90.
      * <br> If scale is set to undefined or null, the default zoom ratio for the set level will be used.
      * </p>
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20 static
      */
-    scale?: number;
+    scale?: double;
 }
 /**
  * Defines the fadingEdge options.
@@ -8487,14 +8487,14 @@ export declare interface DragPreviewOptions {
     /**
      * The flag for number showing.
      *
-     * @type { ?(boolean | number) }
+     * @type { ?(boolean | long) }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    numberBadge?: boolean | number;
+    numberBadge?: boolean | long;
     /**
     * Drag start animation effect from drag preview to the handle drag image.
     *
@@ -12515,24 +12515,24 @@ export declare interface VisibleAreaEventOptions {
     /**
      * Each number in ratios indicates the value of visibility ratio. Each number in the Array value range in [0, 1].
      *
-     * @type { Array<number> }
+     * @type { Array<double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    ratios: Array<number>;
+    ratios: Array<double>;
     /**
      * The value of expectedUpdateInterval indicates desired update period(ms).
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 1000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    expectedUpdateInterval?: number;
+    expectedUpdateInterval?: int;
 }
 /**
  * Defines the callback type used in VisibleAreaChange events.
@@ -12540,13 +12540,13 @@ export declare interface VisibleAreaEventOptions {
  * @typedef { function } VisibleAreaChangeCallback
  * @param { boolean } isExpanding - Indicates the ratio of the visible area to its own area compared to the last change.
  * It is true as the ratio increases and false as the ratio decreases.
- * @param { number } currentRatio - The value of currentRatio indicates the visibility ratio of the current component.
+ * @param { double } currentRatio - The value of currentRatio indicates the visibility ratio of the current component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 20 static
  */
-export type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: number) => void;
+export type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: double) => void;
 /**
  * Defines a UICommonEvent which is used to set different common event to target component.
  *
