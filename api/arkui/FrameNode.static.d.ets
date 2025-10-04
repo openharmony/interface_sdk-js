@@ -747,12 +747,6 @@ export declare namespace typeNode {
    * @since 20
    */
   overload createNode {
-    createTextNode,
-    createSearchNode,
-    createTextInputNode,
-    createTextAreaNode,
-    createSymbolGlyphNode,
-    createMarqueeNode,
     createSwiperNode,
     createListNode,
     createListItemNode,
@@ -772,12 +766,6 @@ export declare namespace typeNode {
     createDividerNode,
     createBlankNode,
     createImageNode,
-    createQRCodeNode,
-    createTextTimerNode,
-    createTextClockNode,
-    createLoadingProgressNode,
-    createProgressNode,
-    createBadgeNode,
     createXComponentNodeDefault,
     createXComponentNodeWithOptions,
     createXComponentNodeWithNativeParameters
@@ -1124,12 +1112,11 @@ export declare namespace typeNode {
    * Create a FrameNode of LoadingProgress type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'LoadingProgress' } nodeType - node type.
    * @returns { LoadingProgress } - Return LoadingProgress type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  export function createLoadingProgressNode(context: UIContext, nodeType: 'LoadingProgress'): LoadingProgress;
+  export function createLoadingProgressNode(context: UIContext): LoadingProgress;
 
   /**
    * Define the Blank type of FrameNode.
@@ -1379,12 +1366,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Progress type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Progress' } nodeType - node type.
    * @returns { Progress } - Return Progress type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  export function createProgressNode(context: UIContext, nodeType: 'Progress'): Progress;
+  export function createProgressNode(context: UIContext): Progress;
 
   /**
    * Define the Scroll type of FrameNode.
@@ -1457,12 +1443,11 @@ export declare namespace typeNode {
    * Create a FrameNode of TextClock type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'TextClock' } nodeType - node type.
    * @returns { TextClock } - Return TextClock type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  export function createTextClockNode(context: UIContext, nodeType: 'TextClock'): TextClock;
+  export function createTextClockNode(context: UIContext): TextClock;
 
   /**
    * Define the TextTimer type of FrameNode.
@@ -1496,12 +1481,11 @@ export declare namespace typeNode {
    * Create a FrameNode of TextTimer type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'TextTimer' } nodeType - node type.
    * @returns { TextTimer } - Return TextTimer type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  export function createTextTimerNode(context: UIContext, nodeType: 'TextTimer'): TextTimer;
+  export function createTextTimerNode(context: UIContext): TextTimer;
 
   /**
    * Define the Grid type of FrameNode.
@@ -1692,12 +1676,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Text type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Text' } nodeType - node type.
    * @returns { Text } - Return Text type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  export function createTextNode(context: UIContext, nodeType: 'Text'): Text;
+  export function createTextNode(context: UIContext): Text;
 
   /**
    * Define the Search type of FrameNode.
@@ -1731,12 +1714,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Search type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Search' } nodeType - node type.
    * @returns { Search } - Return Search type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  export function createSearchNode(context: UIContext, nodeType: 'Search'): Search;
+  export function createSearchNode(context: UIContext): Search;
 
   /**
    * Define the TextInput type of FrameNode.
@@ -1770,12 +1752,11 @@ export declare namespace typeNode {
    * Create a FrameNode of TextInput type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'TextInput' } nodeType - node type.
    * @returns { TextInput } - Return TextInput type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  export function createTextInputNode(context: UIContext, nodeType: 'TextInput'): TextInput;
+  export function createTextInputNode(context: UIContext): TextInput;
 
   /**
    * Define the TextArea type of FrameNode.
@@ -1809,12 +1790,11 @@ export declare namespace typeNode {
    * Create a FrameNode of TextArea type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'TextArea' } nodeType - node type.
    * @returns { TextArea } - Return TextArea type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  export function createTextAreaNode(context: UIContext, nodeType: 'TextArea'): TextArea;
+  export function createTextAreaNode(context: UIContext): TextArea;
 
   /**
    * Define the SymbolGlyph type of FrameNode.
@@ -1848,12 +1828,11 @@ export declare namespace typeNode {
    * Create a FrameNode of SymbolGlyph type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'SymbolGlyph' } nodeType - node type.
    * @returns { SymbolGlyph } - Return SymbolGlyph type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  export function createSymbolGlyphNode(context: UIContext, nodeType: 'SymbolGlyph'): SymbolGlyph;
+  export function createSymbolGlyphNode(context: UIContext): SymbolGlyph;
 
   /**
    * Define the QRCode type of FrameNode.
@@ -1887,12 +1866,11 @@ export declare namespace typeNode {
    * Create a FrameNode of QRCode type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'QRCode' } nodeType - node type.
    * @returns { QRCode } - Return QRCode type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  export function createQRCodeNode(context: UIContext, nodeType: 'QRCode'): QRCode;
+  export function createQRCodeNode(context: UIContext): QRCode;
 
   /**
    * Define the Badge type of FrameNode.
@@ -1936,12 +1914,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Badge type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Badge' } nodeType - node type.
    * @returns { Badge } - Return Badge type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  export function createBadgeNode(context: UIContext, nodeType: 'Badge'): Badge;
+  export function createBadgeNode(context: UIContext): Badge;
 
   /**
    * Define the Marquee type of FrameNode.
@@ -1975,12 +1952,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Marquee type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Marquee' } nodeType - node type.
    * @returns { Marquee } - Return Marquee type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  export function createMarqueeNode(context: UIContext, nodeType: 'Marquee'): Marquee;
+  export function createMarqueeNode(context: UIContext): Marquee;
 
   /**
    * Define the Swiper type of FrameNode.

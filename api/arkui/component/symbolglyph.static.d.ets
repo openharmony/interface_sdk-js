@@ -393,13 +393,32 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
     /**
      *  Define effect options for SymbolGlyph.
      *
-     * @param { SymbolEffect } [symbolEffect] - The symbol effect type
-     * @param { boolean | number } [triggerValue] - The trigger of the effect
+     * @param { SymbolEffect | undefined } symbolEffect - The symbol effect type
      * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default symbolEffect(symbolEffect: SymbolEffect | undefined, triggerValue?: boolean | number | undefined): this;
+    default symbolEffect(symbolEffect: SymbolEffect | undefined): this;
+    /**
+     *  Define effect options for SymbolGlyph.
+     *
+     * @param { SymbolEffect | undefined } symbolEffect - The symbol effect type
+     * @param { boolean | undefined } isActive - The active state of the effect
+     * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    default symbolEffect(symbolEffect: SymbolEffect | undefined, isActive: boolean | undefined): this;
+    /**
+     *  Define effect options for SymbolGlyph.
+     *
+     * @param { SymbolEffect | undefined } symbolEffect - The symbol effect type
+     * @param { int | undefined } triggerValue - The trigger of the effect
+     * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    default symbolEffect(symbolEffect: SymbolEffect | undefined, triggerValue: int | undefined): this;
     /**
      * Called when the minimum font scale of the font is set.
      *

@@ -370,12 +370,12 @@ export declare interface TextAreaAttribute extends CommonMethod {
     /**
      * Called when submitted.
      *
-     * @param { ((enterKey: EnterKeyType) => void) | TextAreaSubmitCallback | undefined } callback - callback of the listened event.
+     * @param { TextAreaSubmitCallback | undefined } callback - callback of the listened event.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default onSubmit(callback: ((enterKey: EnterKeyType) => void) | TextAreaSubmitCallback | undefined): this;
+    default onSubmit(callback: TextAreaSubmitCallback | undefined): this;
     /**
      * Called when the input changes.
      *

@@ -1097,11 +1097,11 @@ export declare class ImageAttachment {
     /**
      * constructor supported by AttachmentType.
      *
-     * @param { ImageAttachmentInterface | Optional<AttachmentType> } value - image attachment object.
+     * @param { AttachmentType | undefined } value - image attachment object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    constructor(value: ImageAttachmentInterface | Optional<AttachmentType>);
+    constructor(value: AttachmentType | undefined);
     /**
      * Get the image content of the StyledString.
      *
