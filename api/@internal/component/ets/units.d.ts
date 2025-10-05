@@ -3612,3 +3612,31 @@ declare interface ScrollBarMargin {
    */
   end?: LengthMetrics;
 }
+
+/**
+ * Define cache count information.
+ * @interface CacheCountInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 22
+ */
+declare interface CacheCountInfo {
+/**
+ * min cache count.
+ * 
+ * @type { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 22
+ */
+minCount: number;
+/**
+ * max cache count.
+ * 
+ * @type { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 22
+ */
+maxCount: number;
+}
