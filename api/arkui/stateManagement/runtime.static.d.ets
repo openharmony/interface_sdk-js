@@ -18,8 +18,7 @@
  * @kit ArkUI
  */
 
-import { LocalStorage } from '@ohos.arkui.stateManagement'
-import { StateContext } from '../runtime-api/@koalaui.runtime.states.State'
+import { __memo_context_type, __memo_id_type } from '../incremental/runtime/state';
 
 /**
  * Defined memo Annotation.
@@ -38,58 +37,6 @@ export declare @interface memo {};
  */
 @Retention({policy: "SOURCE"})
 export @interface ComponentBuilder {}
-
-export type __memo_context_type = StateContext;
-export type __memo_id_type = MemoCallSiteKey;
-
-export type MemoCallSiteKey = int;
-
-export interface Disposable {
-    readonly disposed: boolean;
-    dispose(): void;
-}
-
-interface State<T> {
-    readonly modified: boolean;
-    readonly value: T;
-}
-
-export interface MutableState<T> extends Disposable, State<T> {
-    value: T;
-}
-
-export type Equivalent<T> = (oldV: T, newV: T) => boolean;
-
-export interface InternalScope<Value> {
-    readonly unchanged: boolean;
-    readonly cached: Value;
-    recache(newValue?: Value): Value;
-    param<T>(index: int, value: T, equivalent?: Equivalent<T>, name?: string, contextLocal?: boolean): State<T>;
-}
-
-// export interface StateContext {
-//     scope<T>(id: MemoCallSiteKey, paramCount?: int): InternalScope<T>;
-// }
-
-// From Arkoala
-export declare function propState<T>(value?: T): SyncedProperty<T>;
-export declare function objectLinkState<T>(value?: T): SyncedProperty<T>;
-export declare function stateOf<T>(value: T): MutableState<T>;
-export declare function contextLocalStateOf<T>(value: string, key: () => T): MutableState<T>;
-export declare function contextLocal<T>(value: string): MutableState<T>;
-export declare function observableProxy<T>(value: T): T;
-export declare function StorageLinkState<T>(storage: LocalStorage, name: string, value: T): MutableState<T>
-export declare function AppStorageLinkState<T>(name: string, value: T): MutableState<T>;
-
-export declare class SyncedProperty<T> implements MutableState<T> {
-    constructor(value: T | undefined, deepCopyOnUpdate: boolean);
-    dispose(): void;
-    get disposed(): boolean;
-    get modified(): boolean;
-    get value(): T;
-    set value(value: T);
-    update(value?: T): void;
-}
 
 /**
  * Defining MemoSkip annotation.
