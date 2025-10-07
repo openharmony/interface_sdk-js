@@ -16,21 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { ComponentBuilder } from '@ohos.arkui.stateManagement'
-import { CustomBuilder } from '@ohos.arkui.component';
+import { memo } from './arkui/stateManagement/runtime'
 
 /**
 * Describe the options for the ParallelizeUI.
 *
 * @interface ParallelOption
 * @syscap SystemCapability.ArkUI.ArkUI.Full
-* @crossplatform
-* @atomicservice
-* @since 20
-* @arkts 1.2
+* @since 20 static
 */
 export interface ParallelOption {
 	/**
@@ -38,41 +33,40 @@ export interface ParallelOption {
 	*
 	* @type { ?boolean }
 	* @syscap SystemCapability.ArkUI.ArkUI.Full
-	* @crossplatform
-	* @atomicservice
-	* @since 20
-  	* @arkts 1.2
+	* @since 20 static
 	*/
 	enable?: boolean,
-}
-
-/**
-* Defines the ParallelizeUI attribute interface
-*
-* @interface UIParallelAttribute
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @crossplatform
-* @atomicservice
-* @since 20
-* @arkts 1.2
-*/
-export interface UIParallelAttribute {
 }
 
 /**
  * Define the constructor of ParallelizeUI.
  * 
  * @param { ParallelOption | undefined } [options] - ParallelizeUI Option
- * @param { CustomBuilder } [content] - tail closure for ParallelizeUI
- * @returns { UIParallelAttribute }
+ * @param { () => void } [content_] - Parallel creation of content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
-@ComponentBuilder
+@memo
 export declare function ParallelizeUI(
-  options?: ParallelOption | undefined,
-  content?: CustomBuilder,
-): UIParallelAttribute
+  options: ParallelOption | undefined,
+  @memo
+  content_: () => void,
+): void
+
+
+/**
+ * Define the constructor of ParallelizeUI.
+ *
+ * @param { ParallelOption | undefined } [options] - ParallelizeUI Option
+ * @param { () => T } [param] - ParallelizeUI parameter
+ * @param { (param: T) => void } [content_] - Parallel creation of content
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+@memo
+export declare function ParallelizeUI<T>(
+  options: ParallelOption | undefined,
+  param: () => T,
+  @memo
+  content_: (param: T) => void,
+): void
