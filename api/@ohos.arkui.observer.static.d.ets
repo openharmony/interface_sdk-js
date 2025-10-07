@@ -354,7 +354,7 @@ declare namespace uiObserver {
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        uniqueId: number;
+        uniqueId: int;
         /**
          * Changed ScrollEvent type.
          *
@@ -370,7 +370,7 @@ declare namespace uiObserver {
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        offset: number;
+        offset: double;
     }
     /**
      * TabContent info.

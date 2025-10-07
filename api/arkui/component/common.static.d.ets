@@ -12022,7 +12022,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
     /**
      * Sets the scrollbar color.
      *
-     * @param { Color | number | string | undefined } color - Scrollbar color.<br>Default value:
+     * @param { Color | int | string | undefined } color - Scrollbar color.<br>Default value:
      *     <em>'\#182431'</em> (40% opacity). A number value indicates a HEX color in RGB or ARGB
      *     format, for example, <em>0xffffff</em>. A string value indicates a color in RGB or ARGB
      *     format, for example, <em>'#ffffff'</em>.
@@ -12030,7 +12030,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    scrollBarColor(color: Color | number | string | undefined): this;
+    scrollBarColor(color: Color | int | string | undefined): this;
     /**
      * Sets the scrollbar width.
      *
@@ -12042,7 +12042,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    scrollBarWidth(value: number | string | undefined): this;
+    scrollBarWidth(value: double | string | undefined): this;
     /**
      * Sets the effect used when the scroll boundary is reached.
      *
@@ -12093,12 +12093,12 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
     /**
      * Sets the friction coefficient.
      *
-     * @param { number | Resource | undefined } value - Friction coefficient.
+     * @param { double | Resource | undefined } value - Friction coefficient.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    friction(value: number | Resource | undefined): this;
+    friction(value: double | Resource | undefined): this;
     /**
      * Triggered when the scrollable component reaches the start position.
      *
@@ -12140,7 +12140,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
     /**
      * Sets the maximum initial velocity at the start of the fling animation that occurs after gesture-driven scrolling ends.
      *
-     * @param { number | undefined } speedLimit - Maximum initial velocity at the start of the fling animation.
+     * @param { double | undefined } speedLimit - Maximum initial velocity at the start of the fling animation.
      *     <br>Default value: <em>9000</em>
      *     <br>Unit: vp/s
      *     <br>Value range: (0, +∞). If this parameter is set to a value less than or equal to 0, the default value is used.
@@ -12148,7 +12148,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    flingSpeedLimit(speedLimit: number | undefined): this;
+    flingSpeedLimit(speedLimit: double | undefined): this;
     /**
      * Sets the content clipping area for this scrollable component.
      *
@@ -12185,18 +12185,26 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
  */
 export declare class ScrollResult {
     /**
-     * Actual offset by which the scrollable scrolls in vp.
-     * @type { number }
+     * Get the actual offset by which the scrollable scrolls in vp.
+     * @returns { double } actual offset by which the scrollable scrolls in vp.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    offsetRemain: number;
+    get offsetRemain(): double;
+
+    /**
+     * Set the actual offset by which the scrollable scrolls in vp.
+     * @param { double } offsetRemain - actual offset by which the scrollable scrolls in vp.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    set offsetRemain(offsetRemain: double);
 }
 /**
  * Called before scroll to allow developer to control real offset the Scrollable can scroll.
  *
  * @typedef { function } OnWillScrollCallback
- * @param { number } scrollOffset - offset this frame will scroll, which may or may not be reached.
+ * @param { double } scrollOffset - offset this frame will scroll, which may or may not be reached.
  * @param { ScrollState } scrollState - current scroll state.
  * @param { ScrollSource } scrollSource - source of current scroll.
  * @returns { undefined | ScrollResult } the remain offset for the scrollable,
@@ -12204,38 +12212,38 @@ export declare class ScrollResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export type OnWillScrollCallback = (scrollOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => undefined | ScrollResult;
+export type OnWillScrollCallback = (scrollOffset: double, scrollState: ScrollState, scrollSource: ScrollSource) => undefined | ScrollResult;
 /**
   * On scroll callback using in scrollable onDidScroll.
   *
   * @typedef { function } OnScrollCallback
-  * @param { number } scrollOffset - offset this frame did scroll.
+  * @param { double } scrollOffset - offset this frame did scroll.
   * @param { ScrollState } scrollState - current scroll state.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @since 22 static
   */
-export type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
+export type OnScrollCallback = (scrollOffset: double, scrollState: ScrollState) => void;
 /**
   * Defines the callback type used in onItemDragStart.
   *
   * @typedef { function } OnItemDragStartCallback
   * @param { ItemDragInfo } event - Information about the dragged item.
-  * @param { number } itemIndex - The index number of the dragged item.
+  * @param { int } itemIndex - The index number of the dragged item.
   * @returns {CustomBuilder | undefined}
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @since 22 static
   */
-export type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: number) => CustomBuilder | undefined;
+export type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: int) => CustomBuilder | undefined;
 /**
  * Defines the onMove callback.
  *
  * @typedef { function } OnMoveHandler
- * @param { number } from - Index number for moving elements.
- * @param { number } to - Target index number for moving elements.
+ * @param { int } from - Index number for moving elements.
+ * @param { int } to - Target index number for moving elements.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export type OnMoveHandler = (from: number, to: number) => void;
+export type OnMoveHandler = (from: int, to: int) => void;
 /**
  * Define item drag event handler.
  *
@@ -12247,23 +12255,23 @@ export declare interface ItemDragEventHandler {
     /**
      * This callback is triggered when the item is long pressed.
      *
-     * @type { ?Callback<number> }
+     * @type { ?Callback<int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    onLongPress?: Callback<number>;
+    onLongPress?: Callback<int>;
     /**
      * This callback is triggered when the item is dragged.
      *
-     * @type { ?Callback<number> }
+     * @type { ?Callback<int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    onDragStart?: Callback<number>;
+    onDragStart?: Callback<int>;
     /**
      * This callback is triggered when an item is moved through other items.
      *
-     * @type { ?Callback<number> }
+     * @type { ?Callback<int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
@@ -12271,11 +12279,11 @@ export declare interface ItemDragEventHandler {
     /**
      * This callback is triggered when the item is dropped.
      *
-     * @type { ?Callback<number> }
+     * @type { ?Callback<int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    onDrop?: Callback<number>;
+    onDrop?: Callback<int>;
 }
 /**
 * Define DynamicNode.
@@ -12324,16 +12332,16 @@ export declare interface EdgeEffectOptions {
     /**
      * Set the effective edge of the edge effect.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    effectEdge?: number;
+    effectEdge?: int;
 }
 /**
  * Enumerates the effective edge of the edge effect.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -12363,7 +12371,7 @@ export declare class ChildrenMainSize {
     /**
      * Creates an instance of ChildrenMainSize.
      *
-     * @param { number } childDefaultSize - default main size, in vp. If the main axis is vertical, it indicates height.
+     * @param { double } childDefaultSize - default main size, in vp. If the main axis is vertical, it indicates height.
      * If the main axis is horizontal, it indicates width.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
@@ -12372,11 +12380,11 @@ export declare class ChildrenMainSize {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    constructor(childDefaultSize: number);
+    constructor(childDefaultSize: double);
     /**
      * Set default size.
      *
-     * @param { number } value - default main size, in vp. If the main axis is vertical, it indicates height.
+     * @param { double } value - default main size, in vp. If the main axis is vertical, it indicates height.
      * If the main axis is horizontal, it indicates width.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
@@ -12385,22 +12393,22 @@ export declare class ChildrenMainSize {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    set childDefaultSize(value: number);
+    set childDefaultSize(value: double);
     /**
      * Get default size
      *
-     * @returns { number } - default main size, in vp. If the main axis is vertical, it indicates height.
+     * @returns { double } - default main size, in vp. If the main axis is vertical, it indicates height.
      * If the main axis is horizontal, it indicates width.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    get childDefaultSize(): number;
+    get childDefaultSize(): double;
     /**
      * Changes children main size by removing or replacing existing elements and/or adding new elements in place.
      *
-     * @param { number } start - Zero-based index at which to start changing the children main size.
-     * @param { number } [deleteCount] - Indicating the number of children main size to remove from start.
-     * @param { Array<number> } [childrenSize] - Add the new children main size, beginning from start.
+     * @param { int } start - Zero-based index at which to start changing the children main size.
+     * @param { int } [deleteCount] - Indicating the number of children main size to remove from start.
+     * @param { Array<double> } [childrenSize] - Add the new children main size, beginning from start.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -12411,12 +12419,12 @@ export declare class ChildrenMainSize {
      * splice(1, 1), Delete the second child.
      * splice(1, 2, [100, 100]), Change the main size of the second and third children to 100vp.
      */
-    splice(start: number, deleteCount?: number, childrenSize?: Array<number>): void;
+    splice(start: int, deleteCount?: int, childrenSize?: Array<double>): void;
     /**
      * Updates main size for specified child.
      *
-     * @param { number } index - index of child to be updated.
-     * @param { number } childSize - new section options.
+     * @param { int } index - index of child to be updated.
+     * @param { double } childSize - new section options.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -12424,7 +12432,7 @@ export declare class ChildrenMainSize {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    update(index: number, childSize: number): void;
+    update(index: int, childSize: double): void;
 }
 /**
  * Define BackgroundBrightness Options.

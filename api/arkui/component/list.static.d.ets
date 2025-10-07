@@ -26,7 +26,7 @@ import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Declare scroll status
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -58,7 +58,7 @@ export declare enum ScrollState {
 /**
  * Declare list item alignment status
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -88,7 +88,7 @@ export declare enum ListItemAlign {
 /**
  * Declare list item group area
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -125,7 +125,7 @@ export declare enum ListItemGroupArea {
 /**
  * Declare item group sticky style.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -166,7 +166,7 @@ export declare enum StickyStyle {
 /**
  * Declare edge effect of chain animation.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 22 static
@@ -193,7 +193,7 @@ export declare enum ChainEdgeEffect {
 /**
  * Declare limited position when scroll end.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
@@ -272,23 +272,23 @@ export declare interface ChainAnimationOptions {
     /**
      * Conductivity of chain animation.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 0.7
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
-    conductivity?: number;
+    conductivity?: double;
     /**
      * Intensity of chain animation.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 0.3
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
-    intensity?: number;
+    intensity?: double;
     /**
      * Edge effect of chain animation.
      *
@@ -302,23 +302,23 @@ export declare interface ChainAnimationOptions {
     /**
      * Stiffness of chain spring.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 228
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
-    stiffness?: number;
+    stiffness?: double;
     /**
      * Damping of chain spring.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 30
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
-    damping?: number;
+    damping?: double;
 }
 /**
  * Defines the close swipe action options.
@@ -348,11 +348,11 @@ export declare interface VisibleListContentInfo {
     /**
      * Index of the list item or list item group in the list display area.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    index: number;
+    index: int;
     /**
      * Position of the top or bottom edge of the viewport in the
      * list item group to which the edge is located, if applicable.
@@ -366,11 +366,11 @@ export declare interface VisibleListContentInfo {
      * Index of the starting or ending list item in the list
      * item group to which the top or bottom edge of the viewport is located.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    itemIndexInGroup?: number;
+    itemIndexInGroup?: int;
 }
 /**
  * Called when a child component enters or leaves the list display area.
@@ -401,8 +401,8 @@ export declare class ListScroller extends Scroller {
      * <br>- When <em>index</em> or <em>indexInGroup</em> is set to an invalid value, the returned size and position are both <em>0</em>.
      * </p>
      *
-     * @param { number } index - Index of the list item group in the list.
-     * @param { number } indexInGroup - Index of the list item in the list item group.
+     * @param { int } index - Index of the list item group in the list.
+     * @param { int } indexInGroup - Index of the list item in the list item group.
      * @returns { RectResult } - Size of the list item in the list item group and its position relative to the list.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
@@ -412,15 +412,15 @@ export declare class ListScroller extends Scroller {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getItemRectInGroup(index: number, indexInGroup: number): RectResult;
+    getItemRectInGroup(index: int, indexInGroup: int): RectResult;
     /**
      * Scrolls to the specified list item in the specified list item group.
      *
-     * @param { number } index - Index of the target list item group in the current container.
+     * @param { int } index - Index of the target list item group in the current container.
      * <br><em>NOTE</em>
      * <br>If the value set is a negative value or greater than the maximum index of the items in the container,
      * the value is deemed abnormal, and no scrolling will be performed.
-     * @param { number } indexInGroup - Index of the target list item in the list item group specified by <em>index</em>.
+     * @param { int } indexInGroup - Index of the target list item in the list item group specified by <em>index</em>.
      * <br><em>NOTE</em>
      * <br>If the value set is a negative value or greater than the maximum index of the items in the list item group,
      * the value is deemed abnormal, and no scrolling will be performed.
@@ -435,7 +435,7 @@ export declare class ListScroller extends Scroller {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    scrollToItemInGroup(index: number, indexInGroup: number, smooth?: boolean, align?: ScrollAlign): void;
+    scrollToItemInGroup(index: int, indexInGroup: int, smooth?: boolean, align?: ScrollAlign): void;
     /**
      * Collapses the list items in the EXPANDED state and sets callback events.
      *
@@ -462,8 +462,8 @@ export declare class ListScroller extends Scroller {
      * and both <em>itemGroupArea</em> and <em>itemIndexInGroup</em> are <em>undefined</em>.
      * </p>
      *
-     * @param { number } x - X-coordinate, in vp.
-     * @param { number } y - Y-coordinate, in vp.
+     * @param { double } x - X-coordinate, in vp.
+     * @param { double } y - Y-coordinate, in vp.
      * @returns { VisibleListContentInfo } Index information of the child component at the specified coordinates.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
@@ -473,7 +473,7 @@ export declare class ListScroller extends Scroller {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    getVisibleListContentInfo(x: number, y: number): VisibleListContentInfo;
+    getVisibleListContentInfo(x: double, y: double): VisibleListContentInfo;
 }
 /**
  * Defines the options of the <em>List</em> component.
@@ -496,12 +496,12 @@ export interface ListOptions {
      * the value is invalid. In this case, the default value will be used.
      * </p>
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    initialIndex?: number;
+    initialIndex?: int;
     /**
      * Spacing between list items along the main axis.
      * Anonymous Object Rectification.
@@ -512,12 +512,12 @@ export interface ListOptions {
      * <br> Child components of <em>List</em> whose <em>visibility</em> attribute is set to <em>None</em> are not displayed, but the spacing above and below them still takes effect.
      * </p>
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    space?: number | string;
+    space?: double | string;
     /**
      * Scroller, which can be bound to scrollable components.
      * Anonymous Object Rectification.
@@ -594,13 +594,13 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * Sets the number of columns or rows in the list. If the value is set to the gutter type, it indicates the gap between columns.
      * It takes effect when the number of columns is greater than 1.
      *
-     * @param { number | LengthConstrain | undefined } value - Number of columns or rows in the list.<br>Default value: <em>1</em>
+     * @param { int | LengthConstrain | undefined } value - Number of columns or rows in the list.<br>Default value: <em>1</em>
      * @param { Dimension | undefined } [gutter] - Gap between columns.<br>Default value: <em>0</em>
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default lanes(value: number | LengthConstrain | undefined, gutter?: Dimension | undefined): this;
+    default lanes(value: int | LengthConstrain | undefined, gutter?: Dimension | undefined): this;
     /**
      * Alignment mode of list items along the cross axis when the cross-axis width of the list is greater
      * than the cross-axis width of list items multiplied by the value of lanes.
@@ -622,23 +622,23 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
     default listDirection(value: Axis | undefined): this;
     /**
      * Sets the offset from the start of the list content to the boundary of the list display area.
-     * @param { number | undefined } value - Offset from the start of the list content to the boundary of the list display
+     * @param { double | undefined } value - Offset from the start of the list content to the boundary of the list display
      * <br>Default value: <em>0</em>
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default contentStartOffset(value: number | undefined): this;
+    default contentStartOffset(value: double | undefined): this;
     /**
      * Sets the offset from the end of the list content to the boundary of the list display area.
      *
-     * @param { number | undefined } value - Offset from the end of the list content to the boundary of the list display area.
+     * @param { double | undefined } value - Offset from the end of the list content to the boundary of the list display area.
      * <br>Default value: <em>0</em>
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default contentEndOffset(value: number | undefined): this;
+    default contentEndOffset(value: double | undefined): this;
     /**
      * Sets the style of the divider for the list items. By default, there is no divider.
      * Anonymous Object Rectification.
@@ -663,18 +663,18 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
     /**
      * Called when the minimum number of list item caches is set for long list deferred loading.
      *
-     * @param { number | undefined } value - Number of list items to be preloaded.
+     * @param { int | undefined } value - Number of list items to be preloaded.
      * <br>Default value: number of nodes visible on the screen, with the maximum value of 16
      * <br>Value range: [0, +∞)
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default cachedCount(value: number | undefined): this;
+    default cachedCount(value: int | undefined): this;
     /**
      * Sets the number of list items or list item groups to be cached (preloaded) and specifies whether to display the preloaded nodes.
      *
-     * @param { number | undefined } count - Number of list items to be preloaded.
+     * @param { int | undefined } count - Number of list items to be preloaded.
      * <br>Default value: number of nodes visible on the screen, with the maximum value of 16
      * <br>Value range: [0, +∞)
      * @param { boolean | undefined } show - Whether to display the preloaded list items.<br> Default value: <em>false</em>
@@ -682,7 +682,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default cachedCount(count: number | undefined, show: boolean | undefined): this;
+    default cachedCount(count: int | undefined, show: boolean | undefined): this;
     /**
      * Sets whether to enable chained animations, which provide a visually connected,
      * or "chained," effect when the list is scrolled or its top or bottom edge is dragged.
@@ -787,7 +787,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default onScrollIndex(event: ((start: number, end: number, center: number) => void) | undefined): this;
+    default onScrollIndex(event: ((start: int, end: int, center: int) => void) | undefined): this;
     /**
      * Triggered when a child component enters or leaves the list display area.
      *
@@ -805,7 +805,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default onItemMove(event: ((from: number, to: number) => boolean) | undefined): this;
+    default onItemMove(event: ((from: int, to: int) => boolean) | undefined): this;
     /**
      * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
      * (To be triggered, press and hold for 170 milliseconds (ms))
@@ -833,7 +833,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default onItemDragMove(event: ((event: ItemDragInfo, itemIndex: number, insertIndex: number) => void) | undefined): this;
+    default onItemDragMove(event: ((event: ItemDragInfo, itemIndex: int, insertIndex: int) => void) | undefined): this;
     /**
      * Triggered when the dragged item leaves the drop target of the list.
      *
@@ -842,7 +842,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default onItemDragLeave(event: ((event: ItemDragInfo, itemIndex: number) => void) | undefined): this;
+    default onItemDragLeave(event: ((event: ItemDragInfo, itemIndex: int) => void) | undefined): this;
     /**
      * Triggered when the dragged item is dropped on the drop target of the list.
      *
@@ -851,7 +851,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default onItemDrop(event: ((event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void) | undefined): this;
+    default onItemDrop(event: ((event: ItemDragInfo, itemIndex: int, insertIndex: int, isSuccess: boolean) => void) | undefined): this;
     /**
      * Called when scrolling begin each frame.
      * Anonymous Object Rectification.
