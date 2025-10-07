@@ -3082,7 +3082,15 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 21 dynamic&static
      */
-    HDR_MODE = 'hdr_mode'
+    HDR_MODE = 'hdr_mode',
+    /**
+     * The unique key when an asset is on the cloud, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    CLOUD_ID = 'cloud_id'
   }
 
   /**
@@ -11460,7 +11468,15 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'14','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    RETAIN_FORCE = 0
+    RETAIN_FORCE = 0,
+    /**
+     * Deletes the local metadata and thumbnail of the original files from the hdc device.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    HDC_RETAIN_FORCE = 1
   }
 
   /**
