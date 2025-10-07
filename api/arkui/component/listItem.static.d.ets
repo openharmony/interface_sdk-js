@@ -26,7 +26,7 @@ import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Sliding effect
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
@@ -49,7 +49,7 @@ export declare enum SwipeEdgeEffect {
 /**
  * Declare enum SwipeActionState.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
@@ -191,12 +191,12 @@ export declare interface SwipeActionOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    onOffsetChange?: (offset: number) => void;
+    onOffsetChange?: (offset: double) => void;
 }
 /**
  * Defines the list item style.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */

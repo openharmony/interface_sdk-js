@@ -26,7 +26,7 @@ import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Enumerates the scrolling directions.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
@@ -56,7 +56,7 @@ export declare enum ScrollDirection {
 /**
  * Enumerates alignment modes.
  *
- * @enum { number } ScrollAlign
+ * @enum { int } ScrollAlign
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
@@ -101,19 +101,19 @@ export declare interface OffsetResult {
     /**
      * Horizontal scrolling offset.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    xOffset: number;
+    xOffset: double;
     /**
      * Vertical scrolling offset.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    yOffset: number;
+    yOffset: double;
 }
 /**
  * Provides parameters for scrolling to the edge of a scrollable container.
@@ -127,12 +127,12 @@ export declare interface ScrollEdgeOptions {
      * Fixed velocity for scrolling to the edge of the container.
      * If the value specified is less than or equal to 0, the parameter will not take effect.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 0vp/s
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    velocity?: number;
+    velocity?: double;
 }
 /**
  * Provides parameters for scrolling to a specific index.
@@ -166,12 +166,12 @@ export declare interface ScrollAnimationOptions {
      * <br>A value less than 0 evaluates to the default value.
      * </p>
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 1000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    duration?: number;
+    duration?: int;
     /**
      * Scrolling curve.
      *
@@ -268,7 +268,7 @@ export declare class Scroller {
     /**
      * Performs inertial scrolling based on the initial velocity passed in.
      *
-     * @param { number } velocity - Initial velocity of inertial scrolling. Unit: vp/s
+     * @param { double } velocity - Initial velocity of inertial scrolling. Unit: vp/s
      * <br><em>NOTE</em>
      * <br>If the value specified is 0, it is considered as invalid, and the scrolling for this instance will not take effect.
      * A positive value indicates scrolling towards the top, while a negative value indicates scrolling towards the bottom.
@@ -280,7 +280,7 @@ export declare class Scroller {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    fling(velocity: number): void;
+    fling(velocity: double): void;
     /**
      * Called when page turning mode is set.
      *
@@ -300,14 +300,14 @@ export declare class Scroller {
     /**
      * Scroll to the specified index.
      *
-     * @param { number } value - Index to jump to.
+     * @param { int } value - Index to jump to.
      * @param { boolean } [smooth] - If true, scroll to index item with animation. If false, scroll to index item without animation.
      * @param { ScrollAlign } [align] - Sets the alignment mode of a specified index.
      * @param { ScrollToIndexOptions } [options] - Sets the options of a specified index, such as extra offset.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    scrollToIndex(value: number, smooth?: boolean, align?: ScrollAlign, options?: ScrollToIndexOptions): void;
+    scrollToIndex(value: int, smooth?: boolean, align?: ScrollAlign, options?: ScrollToIndexOptions): void;
     /**
      * Called when the setting slides by offset.
      *
@@ -339,7 +339,7 @@ export declare class Scroller {
      * the value is considered invalid.
      * </p>
      *
-     * @param { number } index - Index of the target child component.
+     * @param { int } index - Index of the target child component.
      * @returns { RectResult } Returns the size and position.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
@@ -349,7 +349,7 @@ export declare class Scroller {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    getItemRect(index: number): RectResult;
+    getItemRect(index: int): RectResult;
     /**
      * Obtains the index of a child component based on coordinates.
      *
@@ -357,9 +357,9 @@ export declare class Scroller {
      * <br>The returned index is <em>-1</em> for invalid coordinates.
      * </p>
      *
-     * @param { number } x - X-coordinate, in vp.
-     * @param { number } y - Y-coordinate, in vp.
-     * @returns { number } Index of the item.
+     * @param { double } x - X-coordinate, in vp.
+     * @param { double } y - Y-coordinate, in vp.
+     * @returns { int } Index of the item.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
@@ -368,7 +368,7 @@ export declare class Scroller {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    getItemIndex(x: number, y: number): number;
+    getItemIndex(x: double, y: double): int;
 }
 /**
  * Provides parameters for scrolling to a specific position in a scrollable container.
@@ -390,11 +390,11 @@ export declare interface ScrollOptions {
      * <br>This parameter takes effect only when the scroll axis is the x-axis.
      * </p>
      *
-     * @type { number | string }
+     * @type { double | string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    xOffset: number | string;
+    xOffset: double | string;
     /**
      * Vertical scrolling offset.
      * Anonymous Object Rectification.
@@ -407,11 +407,11 @@ export declare interface ScrollOptions {
      * <br>This parameter takes effect only when the scroll axis is the y-axis.
      * </p>
      *
-     * @type { number | string }
+     * @type { double | string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    yOffset: number | string;
+    yOffset: double | string;
     /**
      * Animation configuration
      * Anonymous Object Rectification.
@@ -543,23 +543,23 @@ export interface OnScrollFrameBeginHandlerResult {
      * Actual scroll offset.
      * Anonymous Object Rectification.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    offsetRemain: number;
+    offsetRemain: double;
 }
 /**
  * Represents the callback triggered before each frame scrolling starts.
  *
  * @typedef { function } OnScrollFrameBeginCallback
- * @param { number } offset - Amount to scroll by, in vp.
+ * @param { double } offset - Amount to scroll by, in vp.
  * @param { ScrollState } state - Current scroll state.
  * @returns { OnScrollFrameBeginHandlerResult } data - the scroll data return by handler
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export type OnScrollFrameBeginCallback = (offset: number, state: ScrollState) => OnScrollFrameBeginHandlerResult;
+export type OnScrollFrameBeginCallback = (offset: double, state: ScrollState) => OnScrollFrameBeginHandlerResult;
 
 /**
  * The ScrollAttribute
@@ -671,21 +671,21 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
     /**
      * Sets the scrollbar color.
      *
-     * @param { Color | number | string | undefined } color - Scrollbar color.<br>Default value: <em>'\#182431'</em> (40% opacity)
+     * @param { Color | int | string | undefined } color - Scrollbar color.<br>Default value: <em>'\#182431'</em> (40% opacity)
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default scrollBarColor(color: Color | number | string | undefined): this;
+    default scrollBarColor(color: Color | int | string | undefined): this;
     /**
      * Sets the scrollbar width.
      *
-     * @param { number | string | undefined } value - Scrollbar width.<br>Default value: <em>4</em> <br>Unit: vp
+     * @param { double | string | undefined } value - Scrollbar width.<br>Default value: <em>4</em> <br>Unit: vp
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default scrollBarWidth(value: number | string | undefined): this;
+    default scrollBarWidth(value: double | string | undefined): this;
     /**
      * Sets the effect used when the scroll boundary is reached.
      *
@@ -735,7 +735,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * it affects only indirectly the scroll chaining during the inertial scrolling process.
      * If this attribute is set to a value less than or equal to 0, the default value is used.
      *
-     * @param { number | Resource | undefined } value - Friction coefficient.
+     * @param { double | Resource | undefined } value - Friction coefficient.
      * <br>Default value: <em>0.9</em> for wearable devices and <em>0.6</em> for non-wearable devices
      * <br>Since API version 11, the default value for non-wearable devices is <em>0.7</em>.
      * <br>Since API version 12, the default value for non-wearable devices is <em>0.75</em>.
@@ -743,7 +743,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default friction(value: number | Resource | undefined): this;
+    default friction(value: double | Resource | undefined): this;
     /**
      * Sets the scroll snapping mode.
      *
@@ -794,23 +794,23 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
  * </p>
  *
  * @typedef { function } ScrollOnScrollCallback
- * @param { number } xOffset - Horizontal offset per frame during scrolling. A positive offset indicates scrolling to the left,
+ * @param { double } xOffset - Horizontal offset per frame during scrolling. A positive offset indicates scrolling to the left,
  * and a negative offset indicates scrolling to the right.
  * <br>Unit: vp
- * @param { number } yOffset - Vertical offset per frame during scrolling.
+ * @param { double } yOffset - Vertical offset per frame during scrolling.
  * A positive offset indicates scrolling upward, and a negative offset indicates scrolling downward.
  * <br>Unit: vp
  * @param { ScrollState } scrollState - Current scrolling state.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export type ScrollOnScrollCallback = (xOffset: number, yOffset: number, scrollState: ScrollState) => void;
+export type ScrollOnScrollCallback = (xOffset: double, yOffset: double, scrollState: ScrollState) => void;
 /**
  * Called before scroll to allow developer to control real offset the Scroll can scroll.
  *
  * @typedef { function } ScrollOnWillScrollCallback
- * @param { number } xOffset - horizontal offset this frame will scroll, which may or may not be reached.
- * @param { number } yOffset - vertical offset this frame will scroll, which may or may not be reached.
+ * @param { double } xOffset - horizontal offset this frame will scroll, which may or may not be reached.
+ * @param { double } yOffset - vertical offset this frame will scroll, which may or may not be reached.
  * @param { ScrollState } scrollState - current scroll state.
  * @param { ScrollSource } scrollSource - source of current scroll.
  * @returns { undefined | OffsetResult } the remain offset for the Scroll,
@@ -818,7 +818,7 @@ export type ScrollOnScrollCallback = (xOffset: number, yOffset: number, scrollSt
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export type ScrollOnWillScrollCallback = (xOffset: number, yOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => undefined | OffsetResult;
+export type ScrollOnWillScrollCallback = (xOffset: double, yOffset: double, scrollState: ScrollState, scrollSource: ScrollSource) => undefined | OffsetResult;
 
 /**
  * Defines Scroll Component.
