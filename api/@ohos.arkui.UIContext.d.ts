@@ -2576,6 +2576,51 @@ export class OverlayManager {
 }
 
 /**
+ * Provides the method for magnifier capabilities.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
+export class Magnifier {
+  /**
+   * Bind magnifier to a component.
+   *
+   * @param { string } id - component id.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  bind(id: string): void;
+
+  /**
+   * Set the position of the magnified content.
+   *
+   * @param { number } x - the x position of the magnified content relative to the component.
+   *     The unit of x is vp.
+   * @param { number } y - the y position of the magnified content relative to the component.
+   *     The unit of y is vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  show(x: number, y: number): void;
+
+  /**
+   * Unbind the magnifier from its associated component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  unbind(): void;
+}
+
+/**
  * interface AtomicServiceBar
  * @interface AtomicServiceBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3682,6 +3727,17 @@ export class UIContext {
    * @since 12
    */
   getOverlayManager(): OverlayManager;
+
+  /**
+   * Obtains the Magnifier object.
+   *
+   * @returns { Magnifier } Magnifier instance obtained.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  getMagnifier(): Magnifier;
 
   /**
    * Init OverlayManager.

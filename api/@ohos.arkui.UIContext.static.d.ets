@@ -1860,6 +1860,43 @@ export declare class OverlayManager {
 }
 
 /**
+ * Provides the method for magnifier capabilities.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export declare class Magnifier {
+  /**
+   * Bind magnifier to a component.
+   *
+   * @param { string } id - component id.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  bind(id: string): void;
+
+  /**
+   * Set the position of the magnified content.
+   *
+   * @param { number } x - the x position of the magnified content relative to the component.
+   *     The unit of x is vp.
+   * @param { number } y - the y position of the magnified content relative to the component.
+   *     The unit of y is vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  show(x: number, y: number): void;
+
+  /**
+   * Unbind the magnifier from its associated component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  unbind(): void;
+}
+
+/**
  * interface AtomicServiceBar
  * @interface AtomicServiceBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2567,6 +2604,15 @@ export declare class UIContext {
    * @since 20
    */
   getOverlayManager(): OverlayManager;
+
+  /**
+   * Obtains the Magnifier object.
+   *
+   * @returns { Magnifier } Magnifier instance obtained.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  getMagnifier(): Magnifier;
 
   /**
    * Init OverlayManager.
