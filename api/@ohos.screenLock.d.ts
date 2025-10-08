@@ -26,7 +26,8 @@ import { Callback } from './@ohos.base';
  *
  * @namespace screenLock
  * @syscap SystemCapability.MiscServices.ScreenLock
- * @since 7
+ * @since 7 dynamic
+ * @since 20 static
  */
 declare namespace screenLock {
   /**
@@ -34,7 +35,7 @@ declare namespace screenLock {
    *
    * @param { AsyncCallback<boolean> } callback - the callback of isScreenLocked.
    * @syscap SystemCapability.MiscServices.ScreenLock
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   function isScreenLocked(callback: AsyncCallback<boolean>): void;
@@ -44,7 +45,7 @@ declare namespace screenLock {
    *
    * @returns { Promise<boolean> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.ScreenLock
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   function isScreenLocked(): Promise<boolean>;
@@ -56,7 +57,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   function isLocked(): boolean;
 
@@ -65,7 +67,7 @@ declare namespace screenLock {
    *
    * @param { AsyncCallback<boolean> } callback - the callback of isSecureMode.
    * @syscap SystemCapability.MiscServices.ScreenLock
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   function isSecureMode(callback: AsyncCallback<boolean>): void;
@@ -75,7 +77,7 @@ declare namespace screenLock {
    *
    * @returns { Promise<boolean> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.ScreenLock
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   function isSecureMode(): Promise<boolean>;
@@ -85,7 +87,7 @@ declare namespace screenLock {
    *
    * @param { AsyncCallback<void> } callback - the callback of unlockScreen.
    * @syscap SystemCapability.MiscServices.ScreenLock
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   function unlockScreen(callback: AsyncCallback<void>): void;
@@ -95,7 +97,7 @@ declare namespace screenLock {
    *
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.ScreenLock
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   function unlockScreen(): Promise<void>;
@@ -123,7 +125,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200003 - Invalid use.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   function unlock(callback: AsyncCallback<boolean>): void;
 
@@ -146,7 +149,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200003 - Invalid use.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   function unlock(): Promise<boolean>;
 
@@ -162,7 +166,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   function lock(callback: AsyncCallback<boolean>): void;
 
@@ -176,7 +181,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   function lock(): Promise<boolean>;
 
@@ -195,7 +201,8 @@ declare namespace screenLock {
    * | 'strongAuthChanged' | 'screenLockDisabledChanged')}
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   type EventType =
     'beginWakeUp'
@@ -218,10 +225,11 @@ declare namespace screenLock {
   /**
    * Indicates the strong authentication reason flags used to request.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   enum StrongAuthReasonFlags {
     /**
@@ -229,7 +237,8 @@ declare namespace screenLock {
      *
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     NONE = 0x00000000,
 
@@ -238,7 +247,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     AFTER_BOOT = 0x00000001,
 
@@ -247,7 +257,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     AFTER_TIMEOUT = 0x00000002,
  
@@ -256,7 +267,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     ACTIVE_REQUEST = 0x00000004,
 
@@ -265,7 +277,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     POLICY_RESTRICTION = 0x00000008
   }
@@ -273,10 +286,11 @@ declare namespace screenLock {
   /**
    * Indicates the screen lock authentication state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   enum AuthState {
     /**
@@ -284,7 +298,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     NOT_AUTHED = 0,
 
@@ -293,7 +308,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     PRE_AUTHED_BY_CREDENTIAL = 1,
 
@@ -302,7 +318,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     PRE_AUTHED_BY_FINGERPRINT = 2,
 
@@ -311,7 +328,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     PRE_AUTHED_BY_FACE = 3,
 
@@ -320,7 +338,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     AUTHED_BY_CREDENTIAL = 4,
 
@@ -329,7 +348,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     AUTHED_BY_FINGERPRINT = 5,
 
@@ -338,7 +358,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     AUTHED_BY_FACE = 6,
   }
@@ -349,25 +370,26 @@ declare namespace screenLock {
    * @typedef SystemEvent
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   interface SystemEvent {
     /**
      * Indicates the system event type related to the screenlock management service.
      *
-     * @type { EventType }
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     eventType: EventType;
     /**
      * Identifies the customized extended parameter of an event.
      *
-     * @type { string }
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     params: string;
   }
@@ -385,7 +407,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   function onSystemEvent(callback: Callback<SystemEvent>): boolean;
 
@@ -394,7 +417,7 @@ declare namespace screenLock {
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK_INNER
    * @param { String } event - event type.
-   * @param { number } parameter - operation result of the event.
+   * @param { int } parameter - operation result of the event.
    * @param { AsyncCallback<boolean> } callback - the callback of sendScreenLockEvent.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
@@ -403,16 +426,17 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
-  function sendScreenLockEvent(event: String, parameter: number, callback: AsyncCallback<boolean>): void;
+  function sendScreenLockEvent(event: String, parameter: int, callback: AsyncCallback<boolean>): void;
 
   /**
    * The screen lock app sends the event to the screen lock service.
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK_INNER
    * @param { String } event - event type.
-   * @param { number } parameter - operation result of the event.
+   * @param { int } parameter - operation result of the event.
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
@@ -421,16 +445,17 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
-  function sendScreenLockEvent(event: String, parameter: number): Promise<boolean>;
+  function sendScreenLockEvent(event: String, parameter: int): Promise<boolean>;
 
   /**
    * Request strong authentication for os account local userId.
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK
    * @param { StrongAuthReasonFlags } reasonFlag - The strong authentication reason flag.
-   * @param { number } userId - Os account local userId.
+   * @param { int } userId - Os account local userId.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
@@ -439,16 +464,17 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  function requestStrongAuth(reasonFlag: StrongAuthReasonFlags, userId: number): Promise<void>;
+  function requestStrongAuth(reasonFlag: StrongAuthReasonFlags, userId: int): Promise<void>;
 
   /**
    * Obtain strong authentication reason flags for os account local userId.
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK
-   * @param { number } userId - Os account local userId.
-   * @returns { number } the strong authentication reason flags.
+   * @param { int } userId - Os account local userId.
+   * @returns { int } the strong authentication reason flags.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
@@ -456,16 +482,17 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  function getStrongAuth(userId: number): number;
+  function getStrongAuth(userId: int): int;
 
   /**
    * Disable screen lock showing for os account local userId. This only becomes effective when there is no password.
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK
    * @param { boolean } disable - disable or enable screen lock showing.
-   * @param { number } userId - Os account local userId.
+   * @param { int } userId - Os account local userId.
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
@@ -474,15 +501,16 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  function setScreenLockDisabled(disable: boolean, userId: number): Promise<boolean>;
+  function setScreenLockDisabled(disable: boolean, userId: int): Promise<boolean>;
 
   /**
    * Check whether screen lock is disabled for os account local userId.
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK
-   * @param { number } userId - Os account local userId.
+   * @param { int } userId - Os account local userId.
    * @returns { boolean } whether screen lock is disabled.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
@@ -491,16 +519,17 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  function isScreenLockDisabled(userId: number): boolean;
+  function isScreenLockDisabled(userId: int): boolean;
 
   /**
    * Set the screen lock authentication state for os account local userId.
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK_INNER
    * @param { AuthState } state - the screen lock authentication state.
-   * @param { number } userId - Os account local userId.
+   * @param { int } userId - Os account local userId.
    * @param { Uint8Array } authToken - the authentication token for this state
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -510,15 +539,16 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  function setScreenLockAuthState(state: AuthState, userId: number, authToken: Uint8Array): Promise<boolean>;
+  function setScreenLockAuthState(state: AuthState, userId: int, authToken: Uint8Array): Promise<boolean>;
 
   /**
    * Obtain the screen lock authentication state for os account local userId.
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK
-   * @param { number } userId - Os account local userId.
+   * @param { int } userId - Os account local userId.
    * @returns { AuthState } the screen lock authentication state.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
@@ -527,23 +557,25 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  function getScreenLockAuthState(userId: number): AuthState;
+  function getScreenLockAuthState(userId: int): AuthState;
 
   /**
    * Check whether the device is currently locked and the screenlock requires an identity to authenticate and unlock.
    *
-   * @param { number } userId - Os account local userId.
+   * @param { int } userId - Os account local userId.
    * @returns { boolean } Whether the device is currently locked.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - The screenlock management service is abnormal.
    * @throws { BusinessError } 13200004 - The userId is not same as the caller, and is not allowed for the caller.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 20
+   * @since 20 dynamic
+   * @since 20 static
    */
-  function isDeviceLocked(userId: number): boolean;
+  function isDeviceLocked(userId: int): boolean;
 }
 
 export default screenLock;
