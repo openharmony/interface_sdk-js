@@ -2072,6 +2072,36 @@ declare enum KeyboardFluidLightMode {
 }
 
 /**
+ * Defines text direction.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare enum TextDirection {
+  /**
+   * Left to right.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  LTR = 0,
+  /**
+   * Right to left.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  RTL = 1
+}
+
+/**
  * Defines the keyboard appearance config.
  *
  * @interface KeyboardAppearanceConfig
