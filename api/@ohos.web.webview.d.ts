@@ -8919,6 +8919,20 @@ declare namespace webview {
   type SuspendPlayerFn = (type: SuspendType) => void;
 
   /**
+   * The function of the rect of video tag has changed.
+   *
+   * @typedef { function } UpdateRectFn
+   * @param { double } x - The x position of video tag in web component.
+   * @param { double } y - The y position of video tag in web component.
+   * @param { double } width - The width of video tag.
+   * @param { double } height - The height of video tag.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 20 static
+   */
+  type UpdateRectFn = (x: double, y: double, width: double, height: double) => void;
+
+  /**
    * The bridge between web core and native media player.
    * Apps should implements this interface, and pass an instance to web core.
    * Then web core can control native media player by this bridge.
@@ -8940,9 +8954,17 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     updateRect(x: double, y: double, width: double, height: double): void
+
+    /**
+     * Notify native media player that the rect of video tag has changed.
+     *
+     * @typedef { UpdateRectFn }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20 static
+     */
+    updateRect: UpdateRectFn;
 
     /**
      * Request to play.
@@ -8950,9 +8972,18 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     play(): void
+
+    /**
+     * Request to play.
+     *
+     * @typedef { ZeroParamFn<> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20 static
+     */
+    play: ZeroParamFn<>;
 
     /**
      * Request to pause.
@@ -8960,9 +8991,18 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     pause(): void
+
+    /**
+     * Request to pause.
+     *
+     * @typedef { ZeroParamFn<> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20 static
+     */
+    pause: ZeroParamFn<>;
 
     /**
      * Request to fast forward / back forward to targetTime.
@@ -8973,9 +9013,20 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     seek(targetTime: double): void
+
+    /**
+     * Request to fast forward / back forward to targetTime.
+     *  targetTime: float
+     *   value range: [0 - duration]
+     *
+     * @typedef { OneParamFn<double> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20 static
+     */
+    seek: OneParamFn<double>;
 
     /**
      * Request to change volume of native media player.
@@ -8986,9 +9037,20 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     setVolume(volume: double): void
+
+    /**
+     * Request to change volume of native media player.
+     *  volume: float
+     *   value range: [0 - 1.0]
+     *
+     * @typedef { OneParamFn<double> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20 static
+     */
+    setVolume: OneParamFn<double>;
 
     /**
      * Request to mute native media player.
@@ -8997,9 +9059,18 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     setMuted(muted: boolean): void
+
+    /**
+     * Request to mute native media player.
+     *
+     * @typedef { OneParamFn<boolean> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20 static
+     */
+    setMuted: OneParamFn<boolean>;
 
     /**
      * Request to change playback rate of native media player.
@@ -9010,9 +9081,20 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     setPlaybackRate(playbackRate: double): void
+
+    /**
+     * Request to change playback rate of native media player.
+     *  playbackRate: float
+     *   value range: [0 - 10.0]
+     *
+     * @typedef { OneParamFn<double> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20 static
+     */
+    setPlaybackRate: OneParamFn<double>;
 
     /**
      * Request to release native media player.
@@ -9020,9 +9102,18 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     release(): void
+
+    /**
+     * Request to release native media player.
+     *
+     * @typedef { ZeroParamFn<> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20 static
+     */
+    release: ZeroParamFn<>;
 
     /**
      * Request to enter fullscreen.
@@ -9030,9 +9121,18 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     enterFullscreen(): void
+
+    /**
+     * Request to enter fullscreen.
+     *
+     * @typedef { ZeroParamFn<> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20 static
+     */
+    enterFullscreen: ZeroParamFn<>;
 
     /**
      * Request to exit fullscreen.
@@ -9040,9 +9140,18 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     exitFullscreen(): void
+
+    /**
+     * Request to exit fullscreen.
+     *
+     * @typedef { ZeroParamFn<> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20 static
+     */
+    exitFullscreen: ZeroParamFn<>;
 
     /**
      * Resume the native media player.
