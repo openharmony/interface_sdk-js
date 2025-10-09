@@ -1209,9 +1209,24 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid type or owners.
      * @syscap SystemCapability.Account.AppAccount
      * @since 14 dynamic
-     * @since 20 static
      */
     on(type: 'accountChange', owners: Array<string>, callback: Callback<Array<AppAccountInfo>>): void;
+
+    /**
+     * Subscribes to the change events of accounts of the specified owners.
+     * <p>
+     * When the account owner updates the account, the subscriber will receive a notification
+     * about the account change event.
+     *
+     * @param { Array<string> } owners - Indicates the account owners, which are specified
+     *     by {@link AppAccount#AppAccount(String name, String owner)}.
+     * @param { Callback<Array<AppAccountInfo>> } callback - Asynchronous callback interface.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid owners.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 22 static
+     */
+    onAccountChange(owners: Array<string>, callback: Callback<Array<AppAccountInfo>>): void;
 
     /**
      * Unsubscribes from account events.
@@ -1236,9 +1251,18 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
      */
     off(type: 'accountChange', callback?: Callback<Array<AppAccountInfo>>): void;
+
+    /**
+     * Unsubscribes from account events.
+     *
+     * @param { Callback<Array<AppAccountInfo>> } [callback] - Asynchronous callback interface.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 22 static
+     */
+    offAccountChange(callback?: Callback<Array<AppAccountInfo>>): void;
 
     /**
      * Authenticates an application account to get an oauth token.
