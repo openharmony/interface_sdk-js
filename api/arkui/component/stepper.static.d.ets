@@ -33,11 +33,11 @@ export interface StepperOptions {
   /**
    * Set the stepper index.
    *
-   * @type { ?(number | Bindable<number>) }
+   * @type { ?(int | Bindable<int>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  index?: number | Bindable<number>;
+  index?: int | Bindable<int>;
 }
 
 /**
@@ -77,7 +77,7 @@ export declare interface StepperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  default onChange(callback: ((prevIndex: number, index: number) => void) | undefined): this;
+  default onChange(callback: ((prevIndex: int, index: int) => void) | undefined): this;
 
   /**
    * Callback when the next label is clicked.
@@ -87,7 +87,7 @@ export declare interface StepperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  default onNext(callback: ((index: number, pendingIndex: number) => void) | undefined): this;
+  default onNext(callback: ((index: int, pendingIndex: int) => void) | undefined): this;
 
   /**
    * Callback when the previous label is clicked.
@@ -97,7 +97,7 @@ export declare interface StepperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  default onPrevious(callback: ((index: number, pendingIndex: number) => void) | undefined): this;
+  default onPrevious(callback: ((index: int, pendingIndex: int) => void) | undefined): this;
 
   /**
    * Set the attribute modifier of stepper.

@@ -626,22 +626,22 @@ export declare class NavPathStack {
     /**
      * Remove the specified NavDestinations by indexes.
      *
-     * @param { Array<number> } indexes - Indicates the indexes of the NavDestinations to be removed.
-     * @returns { number } Returns the number of removed pages. Invalid indexes will be ignored.
+     * @param { Array<int> } indexes - Indicates the indexes of the NavDestinations to be removed.
+     * @returns { int } Returns the number of removed pages. Invalid indexes will be ignored.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    removeByIndexes(indexes: Array<number>): number;
+    removeByIndexes(indexes: Array<int>): int;
 
     /**
      * Remove the specified NavDestination by name.
      *
      * @param { string } name - Indicates the name of the NavDestination to be removed.
-     * @returns { number } Returns the number of removed NavDestinations.
+     * @returns { int } Returns the number of removed NavDestinations.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    removeByName(name: string): number;
+    removeByName(name: string): int;
 
     /**
      * Remove the specified NavDestination by its navDestinationId.
@@ -679,11 +679,11 @@ export declare class NavPathStack {
      *
      * @param { string } name - Indicates the name of the NavDestination to be popped.
      * @param { boolean } [animated] - Indicates whether the transition is animated.
-     * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
+     * @returns { int } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    popToName(name: string, animated?: boolean): number;
+    popToName(name: string, animated?: boolean): int;
 
     /**
      * Pops the specified NavDestination out of the stack.
@@ -691,53 +691,53 @@ export declare class NavPathStack {
      * @param { string } name - Indicates the name of the NavDestination to be popped.
      * @param { Object } result - The result of the NavDestination.
      * @param { boolean } [animated] - Indicates whether the transition is animated.
-     * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
+     * @returns { int } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    popToName(name: string, result: Object, animated?: boolean): number;
+    popToName(name: string, result: Object, animated?: boolean): int;
 
     /**
      * Pops the specified NavDestination out of the stack.
      *
-     * @param { number } index - Indicates the index of the NavDestination to be popped.
+     * @param { int } index - Indicates the index of the NavDestination to be popped.
      * @param { boolean } [animated] - Indicates whether the transition is animated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    popToIndex(index: number, animated?: boolean): void;
+    popToIndex(index: int, animated?: boolean): void;
 
     /**
      * Pops the specified NavDestination out of the stack.
      *
-     * @param { number } index - Indicates the index of the NavDestination to be popped.
+     * @param { int } index - Indicates the index of the NavDestination to be popped.
      * @param { Object } result - The result of the NavDestination.
      * @param { boolean } [animated] - Indicates whether the transition is animated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    popToIndex(index: number, result: Object, animated?: boolean): void;
+    popToIndex(index: int, result: Object, animated?: boolean): void;
 
     /**
      * Moves the specified NavDestination to stack top.
      *
      * @param { string } name - Indicates the name of the NavDestination to be moved to the top.
      * @param { boolean } [animated] - Indicates whether the transition is animated.
-     * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
+     * @returns { int } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    moveToTop(name: string, animated?: boolean): number;
+    moveToTop(name: string, animated?: boolean): int;
 
     /**
      * Moves the specified NavDestination to stack top.
      *
-     * @param { number } index - Indicates the index of the NavDestination to be moved to the top.
+     * @param { int } index - Indicates the index of the NavDestination to be moved to the top.
      * @param { boolean } [animated] - Indicates whether the transition is animated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    moveIndexToTop(index: number, animated?: boolean): void;
+    moveIndexToTop(index: int, animated?: boolean): void;
 
     /**
      * Clears the stack.
@@ -760,12 +760,12 @@ export declare class NavPathStack {
     /**
      * Obtains the param of the specified NavDestination.
      *
-     * @param { number } index - Indicates the index of the NavDestination.
+     * @param { int } index - Indicates the index of the NavDestination.
      * @returns { Object | null | undefined } Returns the detailed parameter of the NavDestination if it exists in the stack, otherwise returns undefined;
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    getParamByIndex(index: number): Object | null | undefined;
+    getParamByIndex(index: int): Object | null | undefined;
 
     /**
      * Obtains the param of the specified NavDestination.
@@ -781,11 +781,11 @@ export declare class NavPathStack {
      * Obtains the index of the specified NavDestination.
      *
      * @param { string } name - Indicates the name of the NavDestination.
-     * @returns { Array<number> } Returns the index of all the NavDestinations.
+     * @returns { Array<int> } Returns the index of all the NavDestinations.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    getIndexByName(name: string): Array<number>;
+    getIndexByName(name: string): Array<int>;
 
     /**
      * Obtains the parent of the current stack.
@@ -799,11 +799,11 @@ export declare class NavPathStack {
     /**
      * Obtains the size of the stack.
      *
-     * @returns { number } Returns the size of the stack.
+     * @returns { int } Returns the size of the stack.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    size(): number;
+    size(): int;
 
     /**
      * disable or enable all transition animation in this navigation stack.
@@ -1639,11 +1639,11 @@ export declare interface NavigationAnimatedTransition {
     /**
      * Define the limit duration of the transition animation.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    timeout?: number;
+    timeout?: int;
 
     /**
      * Indicates whether it is an interactive transition.
@@ -1732,11 +1732,11 @@ export declare interface NavigationTransitionProxy {
  * navigation update transition callback.
  *
  * @typedef { function } UpdateTransitionCallback
- * @param { number } progress - Indicates the process of transition
+ * @param { double } progress - Indicates the process of transition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export type UpdateTransitionCallback = (progress: number) => void;
+export type UpdateTransitionCallback = (progress: double) => void;
 
 /**
  * Navigation content info.
@@ -1758,11 +1758,11 @@ export declare interface NavContentInfo {
     /**
      * Navigation content index.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    index: number;
+    index: int;
 
     /**
      * Navigation content mode.

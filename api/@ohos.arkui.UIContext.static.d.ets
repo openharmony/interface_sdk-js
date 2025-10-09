@@ -286,12 +286,12 @@ export declare class Router {
   /**
    * Returns to the specified page.
    *
-   * @param { number } index - index of page.
+   * @param { int } index - index of page.
    * @param { Object } [params] - params of page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  back(index: number, params?: Object): void;
+  back(index: int, params?: Object): void;
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
