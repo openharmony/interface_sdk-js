@@ -156,7 +156,7 @@ export interface RaycastParameters {
  *
  * @interface RenderResourceFactory
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 20 dynamic&static&static
+ * @since 20 dynamic&static
  */
 export interface RenderResourceFactory {
   /**
