@@ -2145,12 +2145,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Button type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Button' } nodeType - node type.
    * @returns { Button } - Return Button type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  export function createButtonNode(context: UIContext, nodeType: 'Button'): Button;
+  export function createButtonNode(context: UIContext): Button;
 
   /**
    * Define the Checkbox type of FrameNode.
@@ -2184,12 +2183,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Checkbox type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Checkbox' } nodeType - node type.
    * @returns { Checkbox } - Return Checkbox type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  export function createCheckboxNode(context: UIContext, nodeType: 'Checkbox'): Checkbox;
+  export function createCheckboxNode(context: UIContext): Checkbox;
 
   /**
    * Define the CheckboxGroup type of FrameNode.
@@ -2223,12 +2221,11 @@ export declare namespace typeNode {
    * Create a FrameNode of CheckboxGroup type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'CheckboxGroup' } nodeType - node type.
    * @returns { CheckboxGroup } - Return CheckboxGroup type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  export function createCheckboxGroupNode(context: UIContext, nodeType: 'CheckboxGroup'): CheckboxGroup;
+  export function createCheckboxGroupNode(context: UIContext): CheckboxGroup;
 
   /**
    * Define the Radio type of FrameNode.
@@ -2262,12 +2259,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Radio type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Radio' } nodeType - node type.
    * @returns { Radio } - Return Radio type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  export function createRadioNode(context: UIContext, nodeType: 'Radio'): Radio;
+  export function createRadioNode(context: UIContext): Radio;
 
   /**
    * Define the Rating type of FrameNode.
@@ -2301,12 +2297,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Rating type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Rating' } nodeType - node type.
    * @returns { Rating } - Return Rating type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  export function createRatingNode(context: UIContext, nodeType: 'Rating'): Rating;
+  export function createRatingNode(context: UIContext): Rating;
 
   /**
    * Define the Select type of FrameNode.
@@ -2340,12 +2335,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Select type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Select' } nodeType - node type.
    * @returns { Select } - Return Select type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  export function createSelectNode(context: UIContext, nodeType: 'Select'): Select;
+  export function createSelectNode(context: UIContext): Select;
 
   /**
    * Define the Slider type of FrameNode.
@@ -2379,12 +2373,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Slider type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Slider' } nodeType - node type.
    * @returns { Slider } - Return Slider type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  export function createSliderNode(context: UIContext, nodeType: 'Slider'): Slider;
+  export function createSliderNode(context: UIContext): Slider;
 
   /**
    * Define the Toggle type of FrameNode.
@@ -2418,13 +2411,12 @@ export declare namespace typeNode {
    * Create a FrameNode of Toggle type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Toggle' } nodeType - node type.
    * @param { ToggleOptions } [options] - Toggle options
    * @returns { Toggle } - Return Toggle type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  export function createToggleNode(context: UIContext, nodeType: 'Toggle', options?: ToggleOptions): Toggle;
+  export function createToggleNode(context: UIContext, options?: ToggleOptions): Toggle;
 }
 
 /**
