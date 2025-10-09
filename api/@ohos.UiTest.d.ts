@@ -1309,7 +1309,7 @@ declare interface Rect {
    * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'21'}
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @arkts 1.1&1.2
    */
   displayId?: int;
@@ -1421,7 +1421,7 @@ declare interface WindowFilter {
    * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'21'}
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @arkts 1.1&1.2
    */
   displayId?: int;
@@ -2650,7 +2650,7 @@ declare class On {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'21'}
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
    * @arkts 1.1&1.2
    */
@@ -2725,7 +2725,7 @@ declare class On {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'21'}
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
    * @arkts 1.1&1.2
    */
@@ -2910,7 +2910,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'21'}
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
    * @arkts 1.1&1.2
    */
@@ -3738,7 +3738,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'21'}
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
    * @arkts 1.1&1.2
    */
@@ -4200,7 +4200,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'21'}
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
    * @arkts 1.1&1.2
    */
@@ -4426,7 +4426,7 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'21'}
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
    * @arkts 1.1&1.2
    */
@@ -4441,7 +4441,7 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'21'}
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
    * @arkts 1.1&1.2
    */
@@ -4457,7 +4457,7 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'21'}
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
    * @arkts 1.1&1.2
    */
@@ -4475,7 +4475,7 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'21'}
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
    * @arkts 1.1&1.2
    */
@@ -4495,7 +4495,7 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'21'}
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
    * @arkts 1.1&1.2
    */
@@ -4537,7 +4537,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'21'}
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
    * @arkts 1.1&1.2
    */
@@ -4600,7 +4600,7 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'21'}
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
    * @arkts 1.1&1.2
    */
@@ -4700,7 +4700,7 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'21'}
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
    * @arkts 1.1&1.2
    */
@@ -5140,7 +5140,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'21'}
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
    * @arkts 1.1&1.2
    */
@@ -5193,7 +5193,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'21'}
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
    * @arkts 1.1&1.2
    */
@@ -5339,7 +5339,7 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'21'}
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
    * @arkts 1.1&1.2
    */
@@ -5415,7 +5415,7 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'21','1.2':'21'}
+   * @since arkts {'1.1':'22','1.2':'22'}
    * @test
    * @arkts 1.1&1.2
    */
