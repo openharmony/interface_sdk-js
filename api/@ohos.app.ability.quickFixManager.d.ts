@@ -102,14 +102,14 @@ declare namespace quickFixManager {
     /**
      * The version number of the bundle.
      *
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readonly bundleVersionCode: number;
+    readonly bundleVersionCode: int;
 
     /**
      * The version name of the bundle.
@@ -126,14 +126,14 @@ declare namespace quickFixManager {
     /**
      * The version number of the quick fix.
      *
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readonly quickFixVersionCode: number;
+    readonly quickFixVersionCode: int;
 
     /**
      * The version name of the quick fix.
