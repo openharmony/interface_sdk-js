@@ -7494,6 +7494,74 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 12
      */
     setMetadata(key: HdrMetadataKey, value: HdrMetadataValue): Promise<void>;
+
+    /**
+     * Checks whether the pixelmap is released.
+     * 
+     * @returns { boolean } Returns true if the pixelmap is released; returns false otherwise.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 dynamic&static
+     */
+    isReleased(): boolean;
+
+    /**
+     * Gets the unique ID of the PixelMap
+     * 
+     * @returns { number } The unique ID of the PixelMap.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 62980115 - Parameter error. Possible causes: native pixelmap is nullptr.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 dynamic&static
+     */
+    getUniqueId(): number;
+
+    /**
+     * Creates a cropped and scaled PixelMap based on current PixelMap.
+     *
+     * @param { Region } region The region of the source pixelmap to be cropped.
+     * @param { number } x The scale ratio of width.
+     * @param { number } y The scale ratio of height.
+     * @param { AntiAliasingLevel } [level] The anti-aliasing algorithm to be used. The default value is AntiAliasingLevel.NONE.
+     * @returns { PixelMap } return the new cropped and scaled pixelmap. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 62980102 - Image malloc abnormal. This status code is thrown when an error occurs during the process of copying data.
+     * @throws { BusinessError } 62980103 - Image YUV And ASTC types are not supported.
+     * @throws { BusinessError } 62980104 - Image initialization abnormal.
+     *    This status code is thrown when an error occurs during the process of createing empty pixelmap.
+     * @throws { BusinessError } 62980106 - The image data is too large.This status code is thrown when an error occurs during the process of checking size.
+     * @throws { BusinessError } 62980109 - Failed to crop the image. Possible causes: 1. The input parameters are invalid.
+     *    2.The PixelMap properties is not valid.
+     * @throws { BusinessError } 62980115 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     *    2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 62980248 - Pixelmap not allow modify.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 dynamic&static
+     */
+    createCroppedAndScaledPixelMapSync(region: Region, x: double, y: double, level?: AntiAliasingLevel): PixelMap;
+
+    /**
+     * Creates a cropped and scaled PixelMap based on current PixelMap.
+     *
+     * @param { Region } region The region of the source pixelmap to be cropped.
+     * @param { number } x The scale ratio of width.
+     * @param { number } y The scale ratio of height.
+     * @param { AntiAliasingLevel } [level] The anti-aliasing algorithm to be used. The default value is AntiAliasingLevel.NONE.
+     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 62980102 - Image malloc abnormal. This status code is thrown when an error occurs during the process of copying data.
+     * @throws { BusinessError } 62980103 - Image YUV And ASTC types are not supported.
+     * @throws { BusinessError } 62980104 - Image initialization abnormal.
+     *    This status code is thrown when an error occurs during the process of createing empty pixelmap.
+     * @throws { BusinessError } 62980106 - The image data is too large.This status code is thrown when an error occurs during the process of checking size.
+     * @throws { BusinessError } 62980109 - Failed to crop the image. Possible causes: 1. The input parameters are invalid.
+     *    2.The PixelMap properties is not valid.
+     * @throws { BusinessError } 62980115 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     *    2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 62980248 - Pixelmap not allow modify.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 dynamic&static
+     */
+    createCroppedAndScaledPixelMap(region: Region, x: double, y: double, level?: AntiAliasingLevel): Promise<PixelMap>;
   }
 
   /**
