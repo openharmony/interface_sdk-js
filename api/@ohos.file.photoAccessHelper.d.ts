@@ -2200,11 +2200,11 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
      *    1. The original file does not exist locally in PhotoAsset;
-     *    2. The original file format is not within the supported rrange
+     *    2. The original file format is not within the supported range;
      *    3. The original file is a temporary file or is being editted;
-     * @throws { BusinessError } 23800301 - Internal systerm error.It is recommended to retry and check the
+     * @throws { BusinessError } 23800301 - Internal system error.It is recommended to retry and check the
      *    logs.Possible causes:
-     *    1. Database corrupted.2. The file system is abnorma1.3. The IPC request timed out.
+     *    1. Database corrupted.2. The file system is abnormal.3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21
@@ -6586,7 +6586,7 @@ declare namespace photoAccessHelper {
      * @returns { Promise<boolean> } - Returns the whether appplication supports compatible copies
      * @throws {BusinessError } 201 - Permission denied
      * @throws {BusinessError } 202 - Called by non-system aapplication
-     * @throws {BusinessError } 23800301 - Internal system eerror. It is recommended to retry and check the logs
+     * @throws {BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs
      *    <br>Possible causes: 1. The IPC request timed out. 2.system running error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
