@@ -19,7 +19,7 @@
  */
 import type { Callback, AsyncCallback } from './@ohos.base';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
-import { CustomValueType as _CustomValueType, ExtraConfig as _ExtraConfig } from './inputMethod/common/@ExtraConfig';
+import { CustomValueType as _CustomValueType, ExtraConfig as _ExtraConfig } from './@ExtraConfig';
 /*** if arkts 1.1 */
 import type { ElementName } from './bundleManager/ElementName';
 import type { PanelInfo } from './@ohos.inputMethod.Panel';

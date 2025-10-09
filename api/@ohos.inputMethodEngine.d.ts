@@ -19,7 +19,7 @@
  */
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent';
-import { CustomValueType as _CustomValueType, ExtraConfig as _ExtraConfig } from './inputMethod/common/@ExtraConfig';
+import { CustomValueType as _CustomValueType, ExtraConfig as _ExtraConfig } from './@ExtraConfig';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import BaseContext from './application/BaseContext';
 import window from './@ohos.window';
