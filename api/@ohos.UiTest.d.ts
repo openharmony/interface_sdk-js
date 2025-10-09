@@ -1306,12 +1306,13 @@ declare interface Rect {
   /**
    * The displayId to which the rect belongs, default is the displayId of the main screen.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'21'}
+   * @arkts 1.1&1.2
    */
-  displayId?: number;
+  displayId?: int;
 }
 
 /**
@@ -1417,12 +1418,13 @@ declare interface WindowFilter {
   /**
    * Find the window in the specified ID display. By default, it searches all displays.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'21'}
+   * @arkts 1.1&1.2
    */
-  displayId?: number;
+  displayId?: int;
 }
 
 /**
@@ -1565,7 +1567,8 @@ declare enum ComponentEventType {
  */
 declare interface WindowChangeOptions {
   /**
-   * Listening timeout in milliseconds, it is recommended that the value of timeout be greater than 500 to prevent listening failures casued by event notification delay, default is 10000.
+   * Listening timeout in milliseconds, it is recommended that the value of timeout be greater than 500
+   * to prevent listening failures casued by event notification delay, default is 10000.
    * @type { ?number }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -1595,7 +1598,8 @@ declare interface WindowChangeOptions {
  */
 declare interface ComponentEventOptions {
   /**
-   * Listening timeout in milliseconds, it is recommended that the value of timeout be greater than 500 to prevent listening failures casued by event notification delay, default is 10000.
+   * Listening timeout in milliseconds, it is recommended that the value of timeout be greater than 500
+   * to prevent listening failures casued by event notification delay, default is 10000.
    * @type { ?number }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -2641,15 +2645,16 @@ declare class On {
   /**
    * Specifies the displayId to which the target Component belongs.
    *
-   * @param { number } displayId - the Id of the specified display.
+   * @param { int } displayId - the Id of the specified display.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'21'}
    * @test
+   * @arkts 1.1&1.2
    */
-  belongingDisplay(displayId: number): On;
+  belongingDisplay(displayId: int): On;
 
   /**
    * Specifies the description for the target Component.
@@ -2720,8 +2725,9 @@ declare class On {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'21'}
    * @test
+   * @arkts 1.1&1.2
    */
   originalText(text: string, pattern?: MatchPattern): On;
 }
@@ -2899,15 +2905,16 @@ declare class Component {
   /**
    * Get the displayId to which the component belongs.
    *
-   * @returns { Promise<number> } the displayId value.
+   * @returns { Promise<int> } the displayId value.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'21'}
    * @test
+   * @arkts 1.1&1.2
    */
-  getDisplayId(): Promise<number>;
+  getDisplayId(): Promise<int>;
 
   /**
    * Get the text attribute value.
@@ -3731,8 +3738,9 @@ declare class Component {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'21'}
    * @test
+   * @arkts 1.1&1.2
    */
   getOriginalText(): Promise<string>;
 }
@@ -4183,19 +4191,20 @@ declare class Driver {
   /**
    * Press two or three key combinations on the specified display.
    *
-   * @param { number } key0 - the first keyCode.
-   * @param { number } key1 - the second keyCode.
-   * @param { number } [key2] - the third keyCode,set it default 0 if null or undefined.
-   * @param { number } [displayId] - the Id of the specified display, default is the displayId of the main screen.
+   * @param { int } key0 - the first keyCode.
+   * @param { int } key1 - the second keyCode.
+   * @param { int } [key2] - the third keyCode,set it default 0 if null or undefined.
+   * @param { int } [displayId] - the Id of the specified display, default is the displayId of the main screen.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'21'}
    * @test
+   * @arkts 1.1&1.2
    */
-  triggerCombineKeys(key0: number, key1: number, key2?: number, displayId?: number): Promise<void>;
+  triggerCombineKeys(key0: int, key1: int, key2?: int, displayId?: int): Promise<void>;
 
   /**
    * Click on the specified location on the screen.
@@ -4417,8 +4426,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'21'}
    * @test
+   * @arkts 1.1&1.2
    */
   clickAt(point: Point): Promise<void>;
 
@@ -4431,8 +4441,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'21'}
    * @test
+   * @arkts 1.1&1.2
    */
   doubleClickAt(point: Point): Promise<void>;
 
@@ -4440,49 +4451,55 @@ declare class Driver {
    * LongClick on the specified location on the screen, specifies the duration if necessary.
    *
    * @param { Point } point - the coordinate point where the finger touches the screen.
-   * @param { number } [duration] - duration of longClick in millisecond, the minimum and default are 1500.
+   * @param { int } [duration] - duration of longClick in millisecond, the minimum and default are 1500.
    * @returns { Promise<void> }
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'21'}
    * @test
+   * @arkts 1.1&1.2
    */
-  longClickAt(point: Point, duration?: number): Promise<void>;
+  longClickAt(point: Point, duration?: int): Promise<void>;
   
   /**
    * Swipe on the screen between the specified points.
    *
    * @param { Point } from - the coordinate point where the finger touches the screen.
    * @param { Point } to - the coordinate point where the finger leaves the screen.
-   * @param { number } [speed] - speed of swipe(pixels per second),the value ranges from 200 to 40000.Set it default 600 if out out of range or null or undefined.
+   * @param { int } [speed] - speed of swipe(pixels per second),the value ranges from 200 to 40000.
+   *                          Set it default 600 if out out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'21'}
    * @test
+   * @arkts 1.1&1.2
    */
-  swipeBetween(from: Point, to: Point, speed?: number): Promise<void>;
+  swipeBetween(from: Point, to: Point, speed?: int): Promise<void>;
 
   /**
    * Drag on the screen between the specified points.
    *
    * @param { Point } from - the coordinate point where the finger touches the screen.
    * @param { Point } to - the coordinate point where the finger leaves the screen.
-   * @param { number } [speed] - speed of drag(pixels per second),the value ranges from 200 to 40000.Set it default 600 if out out of range or null or undefined.   
-   * @param { number } [duration] - duration of longClick before drag in millisecond, the minimum and default values are 1500.
+   * @param { int } [speed] - speed of drag(pixels per second),the value ranges from 200 to 40000.
+   *                          Set it default 600 if out out of range or null or undefined.   
+   * @param { int } [duration] - duration of longClick before drag in millisecond,
+   *                             the minimum and default values are 1500.
    * @returns { Promise<void> }
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'21'}
    * @test
+   * @arkts 1.1&1.2
    */
-  dragBetween(from: Point, to: Point, speed?: number, duration?: number): Promise<void>;
+  dragBetween(from: Point, to: Point, speed?: int, duration?: int): Promise<void>;
 
   /**
    * Capture current screen and save as picture which PNG format.
@@ -4514,16 +4531,17 @@ declare class Driver {
    * Capture specified screen and save as picture which PNG format.
    *
    * @param { string } savePath - the path where to store the picture, must be in the application sandbox directory.
-   * @param { number } displayId - the Id of the specified display.
+   * @param { int } displayId - the Id of the specified display.
    * @returns { Promise<boolean> } true if screen-capturing and file-storing are completed successfully,false otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'21'}
    * @test
+   * @arkts 1.1&1.2
    */
-  screenCap(savePath: string, displayId: number): Promise<boolean>;
+  screenCap(savePath: string, displayId: int): Promise<boolean>;
 
   /**
    * Set the rotation of the device display.
@@ -4576,16 +4594,17 @@ declare class Driver {
   /**
    * Get the rotation of the specified device display.
    *
-   * @param { number } displayId - the Id of the specified display.
+   * @param { int } displayId - the Id of the specified display.
    * @returns { Promise<DisplayRotation> } the current display rotation.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'21'}
    * @test
+   * @arkts 1.1&1.2
    */
-  getDisplayRotation(displayId: number): Promise<DisplayRotation>;
+  getDisplayRotation(displayId: int): Promise<DisplayRotation>;
 
   /**
    * Enable/disable the rotation of device display.
@@ -4675,16 +4694,17 @@ declare class Driver {
   /**
    * Get the density of the specified device display.
    *
-   * @param { number } displayId - the Id of the specified display.
+   * @param { int } displayId - the Id of the specified display.
    * @returns { Promise<Point> } the density of the device display.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'21'}
    * @test
+   * @arkts 1.1&1.2
    */
-  getDisplayDensity(displayId: number): Promise<Point>;
+  getDisplayDensity(displayId: int): Promise<Point>;
 
   /**
    * Wake up the device display.
@@ -5112,18 +5132,19 @@ declare class Driver {
    *
    * @param { Point } p - the coordinate of the specified location.
    * @param { MouseButton } btnId - the button of Mouse.
-   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
-   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
-   * @param { number } [duration] - duration of mouse longClick in millisecond, the minimum and default are 1500.   
+   * @param { int } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { int } [key2] - the second keyCode,set it default 0 if null or undefined.
+   * @param { int } [duration] - duration of mouse longClick in millisecond, the minimum and default are 1500.   
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'21'}
    * @test
+   * @arkts 1.1&1.2
    */
-  mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number, duration?: number): Promise<void>;
+  mouseLongClick(p: Point, btnId: MouseButton, key1?: int, key2?: int, duration?: int): Promise<void>;
 
   /**
    * Swipe on the screen between the specified points with mouse.
@@ -5164,17 +5185,19 @@ declare class Driver {
    *
    * @param { Point } from - the starting point.
    * @param { Point } to - the ending point.
-   * @param { number } [speed] - speed of drag (pixels per second),the value ranges from 200 to 40000,Set it default 600 if out of range or null or undefined.
-   * @param { number } [duration] - duration of longClick before drag in millisecond, the minimum and default are 1500.
+   * @param { int } [speed] - speed of drag (pixels per second),the value ranges from 200 to 40000,
+   *                          Set it default 600 if out of range or null or undefined.
+   * @param { int } [duration] - duration of longClick before drag in millisecond, the minimum and default are 1500.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'21'}
    * @test
+   * @arkts 1.1&1.2
    */
-  mouseDrag(from: Point, to: Point, speed?: number, duration?: number): Promise<void>;
+  mouseDrag(from: Point, to: Point, speed?: int, duration?: int): Promise<void>;
 
   /**
    * Inject text on the specified location.
@@ -5306,18 +5329,133 @@ declare class Driver {
   /**
    * Inject a watch crown rotation event, specifies the rotation speed if necessary.
    *
-   * @param { number } d The number of cells that watch rotates.Positive value indicate clockwise rotation,negative value indicate counterclockwise rotation.
-   * @param { number } [speed] The speed of watch crown rotates(cells per second),ranges from 1 to 500.Set it default 20 if out of range or undefined or null.
+   * @param { int } d The number of cells that watch rotates.Positive value indicate clockwise rotation,
+   *                  negative value indicate counterclockwise rotation.
+   * @param { int } [speed] The speed of watch crown rotates(cells per second),ranges from 1 to 500.
+   *                        Set it default 20 if out of range or undefined or null.
    * @returns { Promise<void> }
    * @throws { BusinessError } 801 - Capability not support, function can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'21'}
+   * @test
+   * @arkts 1.1&1.2
+   */
+  crownRotate(d: int, speed?: int): Promise<void>;
+
+    /**
+   * Long click and check if the specified component exists concurrently. 
+   * If it exists, return true; otherwise, return false.
+   *
+   * @param { On } on - The attribute requirements of the target {@link Component}.
+   * @param { Point } point - The coordinate point where the finger touches the screen.
+   * @param { number } [duration] - Duration of longClick before drag in millisecond,
+   *                             the minimum and default values are 1500.
+   * @returns { Promise<Boolean> }
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
    * @test
    */
-  crownRotate(d: number, speed?: number): Promise<void>;
+  isComponentPresentWhenLongClick(on: On, point: Point, duration?: number): Promise<Boolean>;
+
+  /**
+   * Drag and check if the specified component exists concurrently. If it exists, return true; otherwise, return false.
+   *
+   * @param { On } on - The attribute requirements of the target {@link Component}.
+   * @param { Point } from - The coordinate point where the finger touches the screen.
+   * @param { Point } to - The coordinate point where the finger leaves the screen.
+   * @param { number } [speed] - Speed of drag(pixels per second), the value ranges from 200 to 40000.
+   *                          Set it default 600 if out out of range or null or undefined.   
+   * @param { number } [duration] - Duration of longClick before drag in millisecond,
+   *                             the minimum and default values are 1500.
+   * @returns { Promise<Boolean> }
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  isComponentPresentWhenDrag(on: On, from: Point, to: Point, speed?: number, duration?: number): Promise<Boolean>;
+
+  /**
+   * Swipe and check if the specified component exists concurrently. If it exists, return true; otherwise, return false.
+   *
+   * @param { On } on - The attribute requirements of the target {@link Component}.
+   * @param { Point } from - The coordinate point where the finger touches the screen.
+   * @param { Point } to - The coordinate point where the finger leaves the screen.
+   * @param { number } [speed] - Speed of swipe(pixels per second), the value ranges from 200 to 40000.
+   *                          Set it default 600 if out out of range or null or undefined.
+   * @returns { Promise<Boolean> }
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  isComponentPresentWhenSwipe(on: On, from: Point, to: Point, speed?: number): Promise<Boolean>;
+
+  /**
+   * Simulate touchpad two fingers scroll.
+   * @param { Point } point - The coordinate of the specified location.
+   * @param { UiDirection } direction - Direction of touchpad two fingers scroll.
+   * @param { int } d - The number of cells for two fingers scroll on the touchpad.
+   *                    Each cell will make the target point shift 120 pixels.
+   * @param { int } [speed] - The Speed of touchpad two fingers scroll(cells per second), ranges from 1 to 500.
+   *                          Set it default 20 if out of range or null or undefined.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000005 - This operation is not supported.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since arkts {'1.1':'21','1.2':'21'}
+   * @test
+   * @arkts 1.1&1.2
+   */
+  touchPadTwoFingersScroll(point: Point, direction: UiDirection, d: int, speed?: int): Promise<void>;
+
+  /**
+   * Simulate knuckle knock operation.
+   * @param { Array<Point> } pointers - Array of knuckle knock coordinate points.
+   *                                    The length of array ranges from 1 to 2.
+   * @param { int } times - The times of knuckle knock. The value ranges from 1 to 2,
+   *                        the interval between knock is 200ms.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000005 - This operation is not supported.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @test
+   * @arkts 1.1&1.2
+   */
+  knuckleKnock(pointers: Array<Point>, times: int): Promise<void>;
+
+  /**
+   * Inject multi-pointer knuckle action on the device display.
+   * @param { PointerMatrix } pointers - The two-dimensional array of pointers to inject.
+   *                                     The number of fingers in this method can only be 1.
+   * @param { int } [speed] - The speed of swipe (pixels per second), ranges from 200 to 40000.
+   *                          Set it default 600 if out of range or null or undefined.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000005 - This operation is not supported.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @test
+   * @arkts 1.1&1.2
+   */
+  injectKnucklePointerAction(pointers: PointerMatrix, speed?: int): Promise<void>;
 }
 
 /**
