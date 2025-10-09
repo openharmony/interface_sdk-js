@@ -4847,6 +4847,14 @@ export type Summary = unifiedDataChannel.Summary;
  */
 export type UniformDataType = uniformTypeDescriptor.UniformDataType;
 /**
+ * Import the DataLoadParams type object for ui component.
+ *
+ * @typedef { unifiedDataChannel.GetDataParams } GetDataParams
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export type DataSyncOptions = unifiedDataChannel.GetDataParams;
+/**
  * Enum for Drag Result.
  *
  * @enum { number }
@@ -5302,6 +5310,19 @@ export declare interface DragEvent {
      * @since 20 static
      */
     getModifierKeyState?: ModifierKeyStateGetter;
+    /**
+     * Request the drag data to be synchronized to caller, can be notified with the synchronization progress.
+     * Only can be used in onDrop event processing.
+     *
+     * @param { DataSyncOptions } options - the data sync options.
+     * @returns { string | undefined } The data key returned by system, which can be used as the identify of the request.
+     *     undefined will be returned if the internal runtime environment is broken.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 190003 - Operation not allowed for current phase.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    startDataLoading(options: DataSyncOptions): string | undefined;
     /**
      * Setup one drop animation execution callback, which will be triggered by system when user drops.
      * Use this way to implement the custom drop animation instead of doing it in onDrop, as the system
