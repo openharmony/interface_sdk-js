@@ -572,8 +572,7 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200004 - The userId is not same as the caller, and is not allowed for the caller.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 20 dynamic
-   * @since 20 static
+   * @since 20 dynamic&static
    */
   function isDeviceLocked(userId: int): boolean;
 }
