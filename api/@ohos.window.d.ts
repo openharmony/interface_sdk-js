@@ -7597,7 +7597,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}	
+     * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     on(type: 'windowEvent', callback: Callback<WindowEventType>): void;
@@ -7624,7 +7624,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}	
+     * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     off(type: 'windowEvent', callback?: Callback<WindowEventType>): void;
@@ -11947,11 +11947,10 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}	
+     * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     on(eventType: 'windowStageEvent', callback: Callback<WindowStageEventType>): void;
-
     /**
      * Window stage event callback off.
      *
@@ -11994,7 +11993,7 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}	
+     * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
