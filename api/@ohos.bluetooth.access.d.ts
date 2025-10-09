@@ -650,7 +650,8 @@ declare namespace access {
    * @typedef NotifyDialogResultParams
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface NotifyDialogResultParams {
     /**
@@ -659,7 +660,8 @@ declare namespace access {
      * @type { DialogType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     dialogType: DialogType;
     /**
@@ -669,7 +671,8 @@ declare namespace access {
      * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     dialogResult: boolean;
   }
@@ -680,7 +683,8 @@ declare namespace access {
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum DialogType {
     /**
@@ -688,7 +692,8 @@ declare namespace access {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     BLUETOOTH_SWITCH = 0
   }
