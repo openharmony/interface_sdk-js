@@ -101,5 +101,11 @@ export declare class SyncedProperty<T> implements MutableState<T> {
 @Retention({policy: "SOURCE"})
 export declare @interface MemoSkip {};
 
+/**
+ * Defining MemoIntrinsic.
+ * MemoIntrinsic.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface MemoIntrinsic {};
