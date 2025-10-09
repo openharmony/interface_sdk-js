@@ -299,19 +299,21 @@ declare namespace commonEventManager {
   ): void;
 
   /**
-   * Creates a subscriber. This API uses an asynchronous callback to return the result.
+   * Creates a CommonEventSubscriber for the SubscribeInfo.
    *
-   * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
-   * @param { AsyncCallback<CommonEventSubscriber|null> } callback - Callback used to return the result.
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
+   * @param { AsyncCallback<CommonEventSubscriber> } callback - The callback is used to return the
+   *     CommonEventSubscriber object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1500001 - Internal error.
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
-   * @since 20 static
+   * @since 22 static
    */
   function createSubscriber(
     subscribeInfo: CommonEventSubscribeInfo,
-    callback: AsyncCallback<CommonEventSubscriber|null>
+    callback: AsyncCallback<CommonEventSubscriber>
   ): void;
 
   /**
@@ -339,17 +341,18 @@ declare namespace commonEventManager {
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
   /**
-   * Creates a subscriber. This API uses a promise to return the result.
+   * Creates a CommonEventSubscriber for the SubscribeInfo.
    *
-   * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
-   * @returns { Promise<CommonEventSubscriber|null> } Promise used to return the result.
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
+   * @returns { Promise<CommonEventSubscriber> } Returns the CommonEventSubscriber object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1500001 - Internal error.
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
-   * @since 20 static
+   * @since 22 static
    */
-  function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber|null>;
+  function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
   /**
    * Creates a subscriber. The API returns the result synchronously.
@@ -375,16 +378,17 @@ declare namespace commonEventManager {
   function createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber;
 
   /**
-   * Creates a subscriber. The API returns the result synchronously.
+   * Creates a CommonEventSubscriber for the SubscribeInfo.
    *
-   * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
-   * @returns { CommonEventSubscriber|null } Promise used to return the subscriber object.
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
+   * @returns { CommonEventSubscriber } Returns the CommonEventSubscriber object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1500001 - Internal error.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 20 static
+   * @since 22 static
    */
-  function createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber|null;
+  function createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber;
 
   /**
    * Subscribes to a common event. This API uses an asynchronous callback to return the result.
