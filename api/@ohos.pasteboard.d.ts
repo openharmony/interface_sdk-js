@@ -649,30 +649,14 @@ declare namespace pasteboard {
      * @type { object }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 11 dynamic
-     */
-    data: {
-      [mimeType: string]: ArrayBuffer
-    }
-    /**
-     * Custom data in a record, mimeType indicates the MIME type of custom data, ArrayBuffer indicates the value of custom data.
-     * @type { object }
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * Custom data in a record, mimeType indicates the MIME type of custom data, ArrayBuffer indicates the value of custom data.
-     * @type { object }
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
      * @since 11
      */
     /**
-     * Custom data in a record, mimeType indicates the MIME type of custom data, ArrayBuffer indicates the value of custom data.
+     * Custom data in a record, string indicates the MIME type of custom data, ArrayBuffer indicates the value of custom data.
      * @type { Record<string, ArrayBuffer> }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 20 static
+     * @since 20 dynamic&static
      */
     data: Record<string, ArrayBuffer>;
 
