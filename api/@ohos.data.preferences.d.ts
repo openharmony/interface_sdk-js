@@ -150,7 +150,6 @@ declare namespace preferences {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   const MAX_VALUE_LENGTH: number;
 
@@ -161,7 +160,6 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   enum StorageType {
     /**
@@ -170,7 +168,6 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
      */
     XML = 0,
 
@@ -180,7 +177,6 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
      */
     GSKV
   }
@@ -249,7 +245,6 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
      */
     storageType?: StorageType | null | undefined;
   }
