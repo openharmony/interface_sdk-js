@@ -19,6 +19,7 @@
  */
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent';
+import { CustomValueType as _CustomValueType, ExtraConfig as _ExtraConfig } from './inputMethod/common/@ExtraConfig';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import BaseContext from './application/BaseContext';
 import window from './@ohos.window';
@@ -2552,6 +2553,16 @@ declare namespace inputMethodEngine {
      * @since 20
      */
     readonly fluidLightMode?: FluidLightMode;
+
+    /**
+     * Extra config of edit box.
+     *
+     * @type { ?ExtraConfig }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 21
+     */
+    readonly extraConfig?: ExtraConfig;
   }
 
   /**
@@ -3096,6 +3107,22 @@ declare namespace inputMethodEngine {
      */
     CHARACTERS
   }
+
+  /**
+   * Indicates the possible data types of the custom setting value.
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 21
+   */
+  export type CustomValueType = _CustomValueType;
+
+  /**
+   * The extra config of edit box.
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 21
+   */
+  export type ExtraConfig = _ExtraConfig;
 }
 
 export default inputMethodEngine;

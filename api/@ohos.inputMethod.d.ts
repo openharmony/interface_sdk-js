@@ -19,6 +19,7 @@
  */
 import type { Callback, AsyncCallback } from './@ohos.base';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
+import { CustomValueType as _CustomValueType, ExtraConfig as _ExtraConfig } from './inputMethod/common/@ExtraConfig';
 /*** if arkts 1.1 */
 import type { ElementName } from './bundleManager/ElementName';
 import type { PanelInfo } from './@ohos.inputMethod.Panel';
@@ -2541,6 +2542,22 @@ declare namespace inputMethod {
       */
     CHARACTERS
   }
+
+  /**
+   * Indicates the possible data types of the custom setting value.
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 21
+   */
+  export type CustomValueType = _CustomValueType;
+
+  /**
+   * The extra config of edit box.
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 21
+   */
+  export type ExtraConfig = _ExtraConfig;
 }
 
 export default inputMethod;
