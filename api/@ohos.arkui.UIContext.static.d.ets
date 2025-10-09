@@ -1768,6 +1768,129 @@ export declare class UIObserver {
    * @since 20 static
    */
   removeGlobalGestureListener(type: GestureListenerType, callback?: GestureListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called before panGesture onActionStart is called.
+   *
+   * @param { PanListenerCallback } callback - The callback function to be called
+   *     when the panGesture will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  onBeforePanStart(callback: PanListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called before panGesture onActionStart is called.
+   *
+   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  offBeforePanStart(callback?: PanListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called before panGesture onActionEnd is called.
+   *
+   * @param { PanListenerCallback } callback - The callback function to be called
+   *     when the panGesture will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  onBeforePanEnd(callback: PanListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called before panGesture onActionEnd is called.
+   *
+   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  offBeforePanEnd(callback?: PanListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called after panGesture onActionStart is called.
+   *
+   * @param { PanListenerCallback } callback - The callback function to be called
+   *     when the panGesture will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  onAfterPanStart(callback: PanListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called after panGesture onActionStart is called.
+   *
+   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  offAfterPanStart(callback?: PanListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called after panGesture onActionEnd is called.
+   *
+   * @param { PanListenerCallback } callback - The callback function to be called
+   *     when the panGesture will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  onAfterPanEnd(callback: PanListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called after panGesture onActionEnd is called.
+   *
+   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  offAfterPanEnd(callback?: PanListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called when the specific node's render state changed.
+   * This callback will be executed once immediately when the register is successful.
+   * [Notes]:
+   *  1. Be aware of the limit on the number of nodes:
+   *     For performance considerations, the system has imposed a limit on the number of
+   *     nodes that can be registered for monitoring in a single UI instance, exception will be thrown
+   *     if overmuch. Please use this interface with caution.
+   *  2. Understanding scenarios where notifications may not occur:
+   *     In general, within container components that have view or page switching functionality,
+   *     when a view or page within the screen is moved outside the screen, the components previously
+   *     within the screen should be removed from the render tree and should receive a RENDER_OUT
+   *     notification. However, this is not always the case, as some scenarios involve views or components
+   *     being moved outside the screen's display range without triggering a RENDER_OUT notification.
+   *     For example, some components with caching capabilities may affect this behavior, and swiper is one
+   *     such component. The cacheCount property of the swiper component allows you to force, via its second
+   *     parameter isShow, that even if the current page is moved outside the display range, it remains in the
+   *     render tree. This can be useful in scenarios where multiple pages are displayed on the screen simultaneously.
+   *     Another example is scrolling components like list or scroll, where their internal content remains in the
+   *     render tree even if it is scrolled outside the screen's display range, provided that lazyForEach/Repeat is
+   *     not used. As a result, there will be no changes to the render state. Once you understand the principles
+   *     behind the triggers for render state changes, these scenarios will become easier to comprehend.
+   *
+   * @param { NodeIdentity } nodeIdentity - The identity of the target node
+   * @param { NodeRenderStateChangeCallback } callback - The callback function to be called
+   *     when the clickEvent will be trigger or after.
+   * @throws { BusinessError } 161001 - The count of nodes monitoring render state is over the limitation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  onNodeRenderState(nodeIdentity: NodeIdentity, callback: NodeRenderStateChangeCallback): void;
+
+  /**
+   * Removes a callback function to be called before tapGesture is called.
+   *
+   * @param { NodeIdentity } nodeIdentity - The identity of the target node
+   * @param { NodeRenderStateChangeCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  offNodeRenderState(nodeIdentity: NodeIdentity, callback?: NodeRenderStateChangeCallback): void;
 }
 
 /**
