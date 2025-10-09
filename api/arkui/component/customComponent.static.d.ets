@@ -23,7 +23,7 @@ import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from "../
 import { ExtendableComponent } from './extendableComponent';
 import { GeometryInfo, Layoutable, Measurable, SizeResult } from './common'
 import { ConstraintSizeOptions } from './units'
-import { Builder } from './builder'
+import { Builder, WrappedBuilder } from './builder'
 import { LocalStorage } from './../stateManagement/storage/localStorage';
 import { CustomDialogController } from './customDialogController';
 
