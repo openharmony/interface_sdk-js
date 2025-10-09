@@ -189,7 +189,6 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onUpdateForm(formId: string, wantParams?: Record<string, Object>): void;
 
@@ -223,7 +222,6 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
    */
   onChangeFormVisibility(newStatus: Record<string, int>): void;
 

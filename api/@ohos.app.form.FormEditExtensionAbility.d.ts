@@ -37,7 +37,6 @@ declare class FormEditExtensionAbility extends UIExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 20 static
    */
 	context: FormEditExtensionContext;
 }
