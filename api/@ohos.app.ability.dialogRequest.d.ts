@@ -42,46 +42,46 @@ declare namespace dialogRequest {
     /**
      * The left position of WindowRect
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
     * @since arkts {'1.1':'10', '1.2':'20'}
     * @arkts 1.1&1.2
      */
-    left: number;
+    left: int;
 
     /**
      * The top position of WindowRect
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    top: number;
+    top: int;
 
     /**
      * The width of WindowRect
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: number;
+    width: int;
 
     /**
      * The height of WindowRect
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height: number;
+    height: int;
   }
   /**
    * Request info of a request.
