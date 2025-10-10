@@ -36,7 +36,7 @@ declare namespace print {
    * @interface PrintTask
    * @syscap SystemCapability.Print.PrintFramework
    * @since 10 dynamic
-   * @since 22 static
+   * @since 20 static
    */
   interface PrintTask {
     /**
