@@ -8157,6 +8157,24 @@ declare namespace window {
     on(type: 'windowWillClose', callback: Callback<void, Promise<boolean>>): void;
 
     /**
+     * Subscribes to the event indicating that the main window or child window will be closed.
+     * This event is triggered only when the user clicks the close button in the system-provided title bar to close the window.
+     * It is not triggered when the window is closed in other ways.
+     *
+     * @param { Callback<void, Promise<boolean>> } callback - Callback used to when the close button in the upper right corner of the window is clicked.
+     *    The internal logic of the callback function requires a return value of the Promise type.
+     *    In the returned Promise function, resolve(true) means not to close the window,
+     *    and resolve(false) or reject means to continue to close the window.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onWindowWillClose(callback: Callback<void, Promise<boolean>>): void;
+
+    /**
      * Unsubscribes from the event indicating that the main window or child window will be closed.
      *
      * @param { 'windowWillClose' } type - Event type. The value is fixed at 'windowWillClose', indicating the window close event.
@@ -8176,6 +8194,20 @@ declare namespace window {
      * @since 20 static
      */
     off(type: 'windowWillClose', callback?: Callback<void, Promise<boolean>>): void;
+
+    /**
+     * Unsubscribes from the event indicating that the main window or child window will be closed.
+     *
+     * @param { Callback<void, Promise<boolean>> } [callback] - Unregister the callback function.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offWindowWillClose(callback?: Callback<void, Promise<boolean>>): void;
 
     /**
      * Register the callback of window highlight state change
@@ -10915,6 +10947,18 @@ declare namespace window {
     on(type: 'windowTitleButtonRectChange', callback: Callback<TitleButtonRect>): void;
 
     /**
+     * Subscribes to the change event of the rectangle that holds the minimize, maximize, and close buttons on the title bar of the window.
+     *
+     * @param { Callback<TitleButtonRect> } callback - Callback used to return the new rectangle.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onWindowTitleButtonRectChange(callback: Callback<TitleButtonRect>): void;
+
+    /**
      * Unregister the callback of title buttons area change.
      *
      * @param { 'windowTitleButtonRectChange' } type - The value is fixed at 'windowTitleButtonRectChange', indicating the title buttons area change event.
@@ -10943,6 +10987,19 @@ declare namespace window {
      * @since 20 static
      */
     off(type: 'windowTitleButtonRectChange', callback?: Callback<TitleButtonRect>): void;
+
+    /**
+     * Unsubscribes from the change event of the rectangle that holds the minimize, maximize, and close buttons on the title bar of the window.
+     *
+     * @param { Callback<TitleButtonRect> } [callback] - Unregister the callback function.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offWindowTitleButtonRectChange(callback?: Callback<TitleButtonRect>): void;
 
     /**
      *  Set the window mask of window
@@ -12503,6 +12560,22 @@ declare namespace window {
     on(eventType: 'windowStageClose', callback: Callback<void>): void;
 
     /**
+     * Subscribes to the click event on the close button in the three-button navigation bar of the main window.
+     * This event is triggered when the close button in the three-button navigation bar of the main window is clicked.
+     *
+     * @param { Callback<void> } callback - Callback invoked when the close button in the upper right corner of the main window is clicked.
+     *    The return value determines whether to continue to close the main window.
+     *    The value true means not to close the main window, and false means to continue to close the main window.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 22 static
+     */
+    onWindowStageClose(callback: Callback<void>): void;
+
+    /**
      * Unsubscribes from the event indicating that the main window is closed.
      *
      * @param { 'windowStageClose' } eventType - Event type. The value is fixed at 'windowStageClose',
@@ -12522,6 +12595,20 @@ declare namespace window {
      * @since 20 static
      */
     off(eventType: 'windowStageClose', callback?: Callback<void>): void;
+
+    /**
+     * Unsubscribes from the event indicating that the main window is closed.
+     *
+     * @param { Callback<void> } [callback] - Unregister the callback function.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 22 static
+     */
+    offWindowStageClose(callback?: Callback<void>): void;
 
     /**
      * Disable window decoration. It must be called before loadContent.
