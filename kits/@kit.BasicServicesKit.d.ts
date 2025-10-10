@@ -97,9 +97,11 @@ import commonEventManager from '@ohos.commonEventManager';
 import emitter from '@ohos.events.emitter';
 import distributedAccount from '@ohos.account.distributedAccount';
 import osAccount from '@ohos.account.osAccount';
+import systemDateTime from '@ohos.systemDateTime';
+import systemTimer from '@ohos.systemTimer';
 
 export {
   configPolicy, customConfig, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, zlib, commonEventManager, emitter,
-  distributedAccount, osAccount
+  distributedAccount, osAccount, systemDateTime, systemTimer
 };
 /*** endif */
