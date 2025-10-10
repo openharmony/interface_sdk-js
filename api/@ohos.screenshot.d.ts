@@ -281,7 +281,7 @@ declare namespace screenshot {
     displayId?: long;
 
     /**
-     * The list of window ids that do not want to display on the screenshot.
+     * List of window ids excluded in the screenshot.
      *
      * @type { ?Array<int> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
