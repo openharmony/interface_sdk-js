@@ -34,12 +34,7 @@ import { ConnectOptions } from '../ability/connectOptions';
  * @since arkts {'1.1':'14', '1.2':'20'}
  * @arkts 1.1&1.2
  */
-/*** if arkts 1.1 */
-export default class UIServiceExtensionContext extends ExtensionContext {
-/*** endif */
-/*** if arkts 1.2 */
 declare class UIServiceExtensionContext extends ExtensionContext {
-/*** endif */
   /**
    * UI service extension uses this method to start a specific ability.If the caller application is in foreground,
    * you can use this method to start ability; If the caller application is in the background,
@@ -165,6 +160,4 @@ declare class UIServiceExtensionContext extends ExtensionContext {
   disconnectServiceExtensionAbility(connectionId: long): Promise<void>;
 }
 
-/*** if arkts 1.2 */
 export default UIServiceExtensionContext;
-/*** endif */
