@@ -428,8 +428,8 @@ declare class PlainArray<T> {
   /**
    * Queries the key at a specified index
    *
-   * @param { number } index - index index Target subscript for search
-   * @returns { number } the key of key-value pairs
+   * @param { int } index - index index Target subscript for search
+   * @returns { int } the key of key-value pairs
    * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -440,7 +440,7 @@ declare class PlainArray<T> {
    * @since 12 dynamic
    * @since 20 static
    */
-  getKeyAt(index: number): number;
+  getKeyAt(index: int):int;
   /**
    * Remove the key-value pair based on a specified key if it exists and return the value
    *
