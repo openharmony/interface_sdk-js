@@ -25,6 +25,7 @@
  * @systemapi Hide this for inner system use.
  * @StageModelOnly
  * @since 10 dynamic
+ * @since 20 static
  */
 declare class WallpaperExtensionAbility {
   /**
@@ -35,19 +36,21 @@ declare class WallpaperExtensionAbility {
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
    * @since 10 dynamic
+   * @since 20 static
    */
   onCreate(want: object): void;
 
   /**
    * The onWallpaperChange callback is triggered when the user modifies the wallpaper settings.
    *
-   * @param { number } wallpaperType - Indicates the wallpaper type.
+   * @param { int } wallpaperType - Indicates the wallpaper type.
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
    * @since 10 dynamic
+   * @since 20 static
    */
-  onWallpaperChange(wallpaperType: number): void;
+  onWallpaperChange(wallpaperType: int): void;
 
   /**
    * Called once to destroy the extension ability.
@@ -56,6 +59,7 @@ declare class WallpaperExtensionAbility {
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
    * @since 10 dynamic
+   * @since 20 static
    */
   onDestroy(): void;
 }
