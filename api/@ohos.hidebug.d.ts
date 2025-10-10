@@ -178,8 +178,7 @@ declare namespace hidebug {
    * directory of the application based on the specified file name.
    * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9
    */
   function startJsCpuProfiling(filename: string): void;
 
@@ -189,8 +188,7 @@ declare namespace hidebug {
    * methods repeatedly. Otherwise, an exception may occur. It takes effect only when the CPU profiler is turned on
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9
    */
   function stopJsCpuProfiling(): void;
 
@@ -952,8 +950,7 @@ declare namespace hidebug {
    *
    * @returns { boolean } true if the application is in the debugging state.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12 dynamic
-   * @since 20 static
+   * @since 12
    */
   function isDebugState(): boolean;
 
