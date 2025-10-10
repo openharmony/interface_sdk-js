@@ -31319,6 +31319,18 @@ declare abstract class TextContentControllerBase {
   addText(text: string, textOperationOptions?: TextContentControllerOptions): number;
 
   /**
+   * Set the styled placeholder.
+   *
+   * @param { StyledString } styledString - The styledString for placeholder.
+   *     If the parameter is invalid, this method will have no effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  setStyledPlaceholder(styledString: StyledString): void;
+
+  /**
    * Delete text in TextRange.
    *
    * @param { TextRange } [range] - range for deleting.
