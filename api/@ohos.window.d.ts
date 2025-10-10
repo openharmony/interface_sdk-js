@@ -7589,6 +7589,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 20 static
      */
     on(type: 'subWindowClose', callback: Callback<void>): void;
 
@@ -7610,6 +7611,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 20 static
      */
     off(type: 'subWindowClose', callback?: Callback<void>): void;
 
