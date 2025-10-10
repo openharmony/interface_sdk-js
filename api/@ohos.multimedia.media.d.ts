@@ -9670,7 +9670,7 @@ declare namespace media {
    */
   enum AacProfile {
     /**
-     * AAC_LC (Low Complexity) Profile.
+     * AAC LC (Low Complexity) Profile.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @atomicservice
      * @since 22
@@ -9695,6 +9695,7 @@ declare namespace media {
      * @arkts 1.1&1.2
      */
     AAC_HE_V2 = 2,
+
   }
 
   /**
@@ -9778,11 +9779,11 @@ declare namespace media {
     audioCodec?: CodecMimeType;
 
     /**
-     * AAC profile for AAC audio encoder . If not set, use AAC_LC profile as default .
+     * AAC profile for AAC audio encoder. If not set, use AAC_LC profile as default .
      * @type { ?AacProfile }
-     * syscap SystemCapability.Multimedia.Media.AVRecorder
-     * atomicservice
-     * since 22
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 22
      * @arkts 1.1&1.2
      */
     aacProfile?: AacProfile;
