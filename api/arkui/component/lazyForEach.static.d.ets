@@ -92,21 +92,21 @@ export interface DataAddOperation {
     /**
      * Index of added data.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    index: number;
+    index: int;
     /**
      * Count of added data in one operation
      * Only validate for ADD and DELETE.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    count?: number;
+    count?: int;
     /**
      * Key of added data.
      *
@@ -140,17 +140,17 @@ export interface DataDeleteOperation {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    index: number;
+    index: int;
     /**
      * Count of deleted data in one operation
      * Only validate for ADD and DELETE.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    count?: number;
+    count?: int;
 }
 
 /**
@@ -172,11 +172,11 @@ export interface DataChangeOperation {
     /**
      * Index of changed data.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    index: number;
+    index: int;
     /**
      * Key of changed data.
      *
@@ -198,19 +198,19 @@ export interface MoveIndex {
     /**
      * Index of moved data.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    from: number;
+    from: int;
     /**
      * Destination of moved data.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    to: number;
+    to: int;
 }
 
 /**
@@ -224,19 +224,19 @@ export interface ExchangeIndex {
     /**
      * Index of the first exchange data.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    start: number;
+    start: int;
     /**
      * Index of the second exchange data.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    end: number;
+    end: int;
 }
 
 /**
@@ -380,36 +380,36 @@ export interface DataChangeListener {
     /**
      * Data added.
      *
-     * @param { number } index
+     * @param { int } index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    onDataAdd(index: number): void;
+    onDataAdd(index: int): void;
     /**
      * Data moved.
      *
-     * @param { number } from
-     * @param { number } to
+     * @param { int } from
+     * @param { int } to
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    onDataMove(from: number, to: number): void;
+    onDataMove(from: int, to: int): void;
     /**
      * Data deleted.
      *
-     * @param { number } index
+     * @param { int } index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    onDataDelete(index: number): void;
+    onDataDelete(index: int): void;
     /**
      * Call when has data change.
      *
-     * @param { number } index
+     * @param { int } index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    onDataChange(index: number): void;
+    onDataChange(index: int): void;
     /**
      * Call when multiple data change.
      *
@@ -431,20 +431,20 @@ export interface IDataSource<T> {
     /**
      * Total data count.
      *
-     * @returns { number }
+     * @returns { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    totalCount(): number;
+    totalCount(): int;
     /**
      * Return the data of index.
      *
-     * @param { number } index
+     * @param { int } index
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    getData(index: number): T;
+    getData(index: int): T;
     /**
      * Register data change listener.
      *
@@ -479,24 +479,24 @@ export interface LazyForEachAttribute extends DynamicNode {}
  *
  * @typedef { function } ItemGeneratorFunc<T>
  * @param { T } item - item in an array
- * @param { number } index - index corresponding to an array item.
+ * @param { int } index - index corresponding to an array item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
 @Builder
-declare type ItemGeneratorFunc<T> = (item: T, index: number) => void;
+declare type ItemGeneratorFunc<T> = (item: T, index: int) => void;
 
 /**
  * Define key generator function.
  *
  * @typedef { function } KeyGeneratorFunc<T>
  * @param { T } item - item in an array
- * @param { number } index - index corresponding to an array item.
+ * @param { int } index - index corresponding to an array item.
  * @returns {string} Character string generated based on item and index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-declare type KeyGeneratorFunc<T> = (item: T, index: number) => string;
+declare type KeyGeneratorFunc<T> = (item: T, index: int) => string;
 
 /**
  * Enter the value to obtain the LazyForEach.
