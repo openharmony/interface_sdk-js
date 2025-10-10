@@ -2773,13 +2773,6 @@ export declare enum XComponentType {
    * @since 20 static
    */
   TEXTURE = 2,
-  /**
-   * Node type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
-   */
-  NODE = 3,
 }
 
 /**
