@@ -2051,37 +2051,45 @@ export declare namespace typeNode {
    * Create a FrameNode of XComponent type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'XComponent' } nodeType - node type.
    * @returns { XComponent } - Return XComponent type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  export function createXComponentNodeDefault(context: UIContext, nodeType: 'XComponent'): XComponent;
+  export function createXComponentNodeDefault(context: UIContext): XComponent;
 
   /**
    * Create a FrameNode of XComponent type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'XComponent' } nodeType - node type.
    * @param { XComponentOptions } value - initialization parameters.
    * @returns { XComponent } - Return XComponent type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  export function createXComponentNodeWithOptions(context: UIContext, nodeType: 'XComponent', value: XComponentOptions): XComponent;
+  export function createXComponentNodeWithOptions(context: UIContext, value: XComponentOptions): XComponent;
 
   /**
    * Create a FrameNode of XComponent type with options for native developing.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'XComponent' } nodeType - node type.
    * @param { NativeXComponentParameters } parameters - initialization parameters.
    * @returns { XComponent } - Return XComponent type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
   export function createXComponentNodeWithNativeParameters(
-    context: UIContext, nodeType: 'XComponent', parameters: NativeXComponentParameters): XComponent;
+    context: UIContext, parameters: NativeXComponentParameters): XComponent;
+  
+  /**
+   * Get the attribute instance of FrameNode which type is XComponent to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { XComponentAttribute | undefined } - Return the attribute instance of FrameNode,
+   *     and return undefined if it does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  export function getXComponentAttribute(node: FrameNode): XComponentAttribute | undefined;
 
   /**
    * Define the Button type of FrameNode.
