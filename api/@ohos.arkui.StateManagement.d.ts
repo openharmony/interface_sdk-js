@@ -394,24 +394,27 @@ export declare class UIUtils {
   static makeBinding<T>(getter: GetterCallback<T>, setter: SetterCallback<T>): MutableBinding<T>;
 
   /**
-   * Used to refresh the specified state variable synchronously, inlcude update Computed, execute
+   * Used to refresh the specified state variable synchronously, include update Computed, execute
    * Monitor function and rerender UINodes.
    * Calling applySync while executing task of another applySync executes the given task normally.
    *
    * @param { TaskCallback } task callback function to change state variable synchronously
    * @returns { T } the return value of the callback function
+   * @throws { BusinessError } 140001 - The function is not allowed to be called in @Computed
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  static applySync<T>(task : TaskCallback) : T;
+  static applySync<T>(task: TaskCallback) : T;
   /**
-   * Used to refresh the all state variable synchronously, inlcude update Computed, execute
+   * Used to refresh the all state variable synchronously, include update Computed, execute
    * Monitor function and rerender UINodes.
    * Calling flushUpdates() while exec applySync lambda has no effect.
    *
+   * @throws { BusinessError } 140001 - The function is not allowed to be called in @Computed
+   * @throws { BusinessError } 140002 - The function is not allowed to be called in @Monitor
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -424,6 +427,8 @@ export declare class UIUtils {
    * Used to update all UINode currently synchronously.
    * Calling flushUIUpdates() while exec applySync lambda has no effect.
    *
+   * @throws { BusinessError } 140001 - The function is not allowed to be called in @Computed
+   * @throws { BusinessError } 140002 - The function is not allowed to be called in @Monitor
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
