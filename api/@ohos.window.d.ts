@@ -7633,6 +7633,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
+     * @since 20 static
      */
     on(type: 'windowWillClose', callback: Callback<void, Promise<boolean>>): void;
 
@@ -7671,6 +7672,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
+     * @since 20 static
      */
     off(type: 'windowWillClose', callback?: Callback<void, Promise<boolean>>): void;
 
@@ -10394,6 +10396,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 20 static
      */
     on(type: 'windowTitleButtonRectChange', callback: Callback<TitleButtonRect>): void;
 
@@ -10435,6 +10438,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 20 static
      */
     off(type: 'windowTitleButtonRectChange', callback?: Callback<TitleButtonRect>): void;
 
@@ -11961,6 +11965,7 @@ declare namespace window {
      * @stagemodelonly
      * @atomicservice
      * @since 14 dynamic
+     * @since 20 static
      */
     on(eventType: 'windowStageClose', callback: Callback<void>): void;
 
@@ -11997,6 +12002,7 @@ declare namespace window {
      * @stagemodelonly
      * @atomicservice
      * @since 14 dynamic
+     * @since 20 static
      */
     off(eventType: 'windowStageClose', callback?: Callback<void>): void;
 
