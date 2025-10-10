@@ -10763,7 +10763,7 @@ declare enum AnimationPropertyType {
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 21
+ * @since 22
  */
 declare enum AxisType {
   /**
@@ -10772,7 +10772,7 @@ declare enum AxisType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 21
+   * @since 22
    */
   VERTICAL_AXIS = 0,
 
@@ -10782,7 +10782,7 @@ declare enum AxisType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 21
+   * @since 22
    */
   HORIZONTAL_AXIS = 1,
 
@@ -10791,7 +10791,7 @@ declare enum AxisType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 21
+   * @since 22
    */
   PINCH_AXIS = 2,
 }

@@ -8267,7 +8267,7 @@ declare enum SourceType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 22
    */
   KEY = 4,
 
@@ -8277,7 +8277,7 @@ declare enum SourceType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 22
    */
   JOYSTICK = 5,
 }
@@ -12587,7 +12587,7 @@ declare interface AxisEvent extends BaseEvent {
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 21
+   * @since 22
    */
   hasAxis(axisType: AxisType): boolean;
 }
@@ -25810,7 +25810,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 22 dynamic
    */
   allowDrop(value: Array<UniformDataType> | null | Array<string>): T;
 
