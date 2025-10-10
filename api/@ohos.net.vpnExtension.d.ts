@@ -226,6 +226,17 @@ declare namespace vpnExtension {
      * @since 20
      */
     destroy(vpnId: string): Promise<void>;
+
+    /**
+     * Protect all socket of the VPN process. After executing this function,
+     * all sockets subsequently created by the current process will be protected,
+     * while previously created sockets will not be protected.
+     *
+     * @returns { Promise<void>} The promise returned by the function.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 22 dynamic&static
+     */
+    protectProcessNet(): Promise<void>;  
   }
 
   /**
