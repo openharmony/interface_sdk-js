@@ -80,12 +80,11 @@ export declare class StyledString {
     /**
      * Get the length of the StyledString's characters.
      *
-     * @type { int } - the length of the StyledString's characters.
-     * @readonly
+     * @returns { int } - the length of the StyledString's characters.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    readonly length: int;
+    get length(): int;
     /**
     * Get the literal content of the StyledString.
     *

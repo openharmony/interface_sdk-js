@@ -54,9 +54,11 @@ export declare interface HyperlinkAttribute extends CommonMethod {
 /**
  * Defines Hyperlink Component.
  *
- * @param { string | Resource } address
- * @param { string | Resource } [content]
- * @param { function } [content_]
+ * @param { string | Resource | undefined } address - The link address of component.
+ *     The default value is an empty string.
+ *     Passing `undefined` resets it to the default value.
+ * @param { string | Resource } [content] - The title of the component.
+ * @param { function } [content_] - The node of component.
  * @returns { HyperlinkAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
@@ -65,7 +67,7 @@ export declare interface HyperlinkAttribute extends CommonMethod {
 @memo
 @ComponentBuilder
 export declare function Hyperlink(
-    address: string | Resource, content?: string | Resource, 
+    address: string | Resource | undefined, content?: string | Resource, 
     @memo
     content_?: () => void,
 ): HyperlinkAttribute
