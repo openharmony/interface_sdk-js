@@ -3046,31 +3046,6 @@ export declare enum ThemeColorMode {
 }
 
 /**
- * enum color mode of pointing popup
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
-export declare enum AnchoredColorMode {
-  /**
-   * Defines the mode which is follow up with system.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  FOLLOW_SYSTEM = 0,
-
-  /**
-   * Defines the mode which is follow up with target.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  FOLLOW_TARGET = 1
-}
-
-/**
  * Defines adaptive color
  *
  * @enum { number }
@@ -6718,52 +6693,6 @@ export declare interface PopupCommonOptions {
      * @since 20 static
      */
     followTransformOfTarget?: boolean;
-
-  /**
-   * Define the popup theme color mode.
-   *
-   * @type { ?AnchoredColorMode }
-   * @default AnchoredColorMode.SYSTEM
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  colorMode?: AnchoredColorMode;
-
-  /**
-   * Callback function when the popup disappears.
-   *
-   * @type { ?VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  onDidDisappear?: VoidCallback;
-
-  /**
-   * Callback function before the popup closeAnimation starts.
-   *
-   * @type { ?VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  onWillDisappear?: VoidCallback;
-
-  /**
-   * Callback function before the popup openAnimation starts.
-   *
-   * @type { ?VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  onWillAppear?: VoidCallback;
-
-  /**
-   * Callback function when the popup appears.
-   *
-   * @type { ?VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  onDidAppear?: VoidCallback;
 }
 /**
  * Defines the Tips options.
@@ -7096,52 +7025,6 @@ export declare interface PopupOptions {
      * @since 20 static
      */
     keyboardAvoidMode?: KeyboardAvoidMode;
-
-  /**
-   * Define the popup theme color mode.
-   *
-   * @type { ?AnchoredColorMode }
-   * @default AnchoredColorMode.SYSTEM
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  colorMode?: AnchoredColorMode;
-
-  /**
-   * Callback function before the popup closeAnimation starts.
-   *
-   * @type { ?VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  onWillDisappear?: VoidCallback;
-
-  /**
-   * Callback function when the popup appears.
-   *
-   * @type { ?VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  onDidAppear?: VoidCallback;
-
-  /**
-   * Callback function before the popup openAnimation starts.
-   *
-   * @type { ?VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  onWillAppear?: VoidCallback;
-
-  /**
-   * Callback function when the popup disappears.
-   *
-   * @type { ?VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  onDidDisappear?: VoidCallback;
 }
 /**
  * Defines the custom popup options.
@@ -7398,52 +7281,6 @@ export declare interface CustomPopupOptions {
      * @since 20 static
      */
     keyboardAvoidMode?: KeyboardAvoidMode;
-
-  /**
-   * Define the popup theme color mode.
-   *
-   * @type { ?AnchoredColorMode }
-   * @default AnchoredColorMode.SYSTEM
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  colorMode?: AnchoredColorMode;
-
-  /**
-   * Callback function when the popup appears.
-   *
-   * @type { ?VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  onDidAppear?: VoidCallback;
-
-  /**
-   * Callback function before the popup closeAnimation starts.
-   *
-   * @type { ?VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  onWillDisappear?: VoidCallback;
-
-  /**
-   * Callback function when the popup disappears.
-   *
-   * @type { ?VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  onDidDisappear?: VoidCallback;
-
-  /**
-   * Callback function before the popup openAnimation starts.
-   *
-   * @type { ?VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  onWillAppear?: VoidCallback;
 }
 
 /**
@@ -7833,25 +7670,6 @@ export declare interface ContextMenuOptions {
       */
     outlineWidth?: Dimension | EdgeOutlineWidths;
 
-  /**
-   * Defines the max height of menu.
-   *
-   * @type { ?LengthMetrics }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  maxHeight?: LengthMetrics;
-
-  /**
-   * Define the menu theme color mode.
-   *
-   * @type { ?AnchoredColorMode }
-   * @default AnchoredColorMode.SYSTEM
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  colorMode?: AnchoredColorMode;
-
     /**
      * Defines the haptic feedback mode of menu.
      *
@@ -7861,16 +7679,6 @@ export declare interface ContextMenuOptions {
      * @since 20 static
      */
     hapticFeedbackMode?: HapticFeedbackMode;
-
-  /**
-   * Determine if preview scale maintain aspect ratio.
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  maintainScaleEnabled?: boolean;
 }
 /**
  * Defines the menu options.
