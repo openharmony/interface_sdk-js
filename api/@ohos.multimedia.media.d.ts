@@ -9659,11 +9659,41 @@ declare namespace media {
     max: int;
   }
 
+  /**
+   * Enumerates (audio codec) AAC profile .
+   * 
+   * @enum {number}
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @atomicservice
+   * @since 22
+   * @arkts 1.1&1.2
+   */
   enum AacProfile {
+    /**
+     * AAC_LC (Low Complexity) Profile.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 22
+     * @arkts 1.1&1.2
+     */
     AAC_LC = 0,
 
+    /**
+     * HE (High Efficiency) AAC Profile.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 22
+     * @arkts 1.1&1.2
+     */
     AAC_HE = 1,
 
+    /**
+     * HE (High Efficiency with Parametric Stereo coding) AAC Profile.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 22
+     * @arkts 1.1&1.2
+     */
     AAC_HE_V2 = 2,
   }
 
@@ -9753,14 +9783,11 @@ declare namespace media {
      * @since 9
      */
     /**
-     * Audio encoding format. This parameter is mandatory for audio recording. Currently, AUDIO_AAC, AUDIO_MP3,
-     * AUDIO_G711MU, AUDIO_AMR_NB, and AUDIO_AMR_WB are supported.<br>**Atomic service API**: This API can be used in
-     * atomic services since API version 12.
-     * @type { ?CodecMimeType }
-     * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @crossplatform
-     * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * AAC profile for AAC audio encoder . If not set, use AAC_LC profile as default .
+     * @type { ?AacProfile }
+     * syscap SystemCapability.Multimedia.Media.AVRecorder
+     * atomicservice
+     * since 22
      * @arkts 1.1&1.2
      */
     aacProfile?: AacProfile;
