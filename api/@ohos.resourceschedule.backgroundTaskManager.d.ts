@@ -1617,14 +1617,6 @@ declare namespace backgroundTaskManager {
      * @since 20
      */
     SYSTEM_SUSPEND_SYSTEM_LOAD_WARNING = 12,
-
-    /**
-     * Not use voip when request voip mode.
-     * 
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
-     */
-    SYSTEM_SUSPEND_VOIP_NOT_USED = 13
   }
 }
 
