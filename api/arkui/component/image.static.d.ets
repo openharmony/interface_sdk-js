@@ -510,6 +510,15 @@ export declare interface ImageAttribute extends CommonMethod {
      */
     default dynamicRangeMode(value: DynamicRangeMode | undefined): this;
     /**
+     * Set hdrBrightness for Image.
+     *
+     * @param { double | undefined } brightness - Control the brightness of HDR Image, Default value is 1.0.
+     * @returns { ImageAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    default hdrBrightness(brightness: double | undefined): this;
+    /**
      * Sets the interpolation effect of the image, which can alleviate aliasing that occurs when the image is zoomed.
      *
      * <p><strong>NOTE</strong>:

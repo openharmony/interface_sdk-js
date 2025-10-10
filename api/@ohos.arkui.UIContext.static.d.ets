@@ -46,7 +46,7 @@ import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRou
 import { TimePickerDialogOptions } from '@ohos.arkui.component';
 import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, AlertDialogParamWithOptions } from '@ohos.arkui.component';
 import { ActionSheetOptions } from '@ohos.arkui.component';
-import { TextPickerDialogOptions } from '@ohos.arkui.component';
+import { TextPickerDialogOptions, TextPickerDialogOptionsExt } from '@ohos.arkui.component';
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 import { DatePickerDialogOptions } from '@ohos.arkui.component';
 import { TabsController } from '@ohos.arkui.component';
@@ -2809,11 +2809,11 @@ export declare class UIContext {
   /**
    * textPickerDialog display.
    *
-   * @param { TextPickerDialogOptions } options - Options.
+   * @param { TextPickerDialogOptions | TextPickerDialogOptionsExt } style - Dialog style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  showTextPickerDialog(options: TextPickerDialogOptions): void;
+  showTextPickerDialog(style: TextPickerDialogOptions | TextPickerDialogOptionsExt): void;
 
   /**
    * Set image cache capacity of decoded image count.
