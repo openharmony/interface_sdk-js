@@ -1205,7 +1205,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @stagemodelonly
    * @since 21
    */
-  startUIAbilitiesInSplitWindowMode(primaryWindowId: number, secondaryWant: Want): Promise<void>;
+  startUIAbilitiesInSplitWindowMode(primaryWindowId: int, secondaryWant: Want): Promise<void>;
 }
 
 export default UIExtensionContext;
