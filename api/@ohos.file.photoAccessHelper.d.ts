@@ -1778,8 +1778,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     getThumbnail(callback: AsyncCallback<image.PixelMap>): void;
     /**
@@ -1810,8 +1809,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     getThumbnail(size: image.Size, callback: AsyncCallback<image.PixelMap>): void;
     /**
@@ -1842,8 +1840,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     getThumbnail(size?: image.Size): Promise<image.PixelMap>;
     /**
