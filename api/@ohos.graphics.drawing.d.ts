@@ -8073,6 +8073,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     preConcat(matrix: Matrix): void;
 
@@ -8879,6 +8880,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     setEmpty(): void;
   }
@@ -9246,6 +9248,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static contains(rect: common2D.Rect, other: common2D.Rect): boolean;
 
@@ -9291,6 +9294,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static inset(rect: common2D.Rect, left: double, top: double, right: double, bottom: double): void;
 
