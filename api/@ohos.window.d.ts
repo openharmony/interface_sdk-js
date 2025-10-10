@@ -138,8 +138,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @FAModelOnly
-     * @since 7 dynamic
-     * @since 20 static
+     * @since 7
      */
     TYPE_APP = 0,
     /**
