@@ -24,6 +24,7 @@ import formBindingData from './@ohos.app.form.formBindingData';
 import formInfo from './@ohos.app.form.formInfo';
 /*** endif */
 import Want from './@ohos.app.ability.Want';
+import type UIAbilityContext from './application/UIAbilityContext';
 
 /**
  * Interface of formProvider.
@@ -592,5 +593,34 @@ declare namespace formProvider {
    * @since 20
    */
   function getFormRect(formId: string): Promise<formInfo.Rect>;
+
+  /**
+   * Request to update the forms of a specified type.
+   *
+   * @param { UIAbilityContext } context - Indicates the UIAbility context of the caller.
+   * @param { string } moduleName - Obtains the name of the application module to which this form belongs.
+   * @param { string } abilityName - Obtains the class name of the ability to which this form belongs.
+   * @param { string } formName - Obtains the name of this form.
+   * @returns { Promise<int> } Returns the number of forms to be updated.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  function reloadForms(context: UIAbilityContext, moduleName: string, abilityName: string, formName: string): Promise<int>;
+
+  /**
+   * Request to update all forms of this application.
+   *
+   * @param { UIAbilityContext } context - Indicates the UIAbility context of the caller.
+   * @returns { Promise<int> } Returns the number of forms to be updated.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  function reloadAllForms(context: UIAbilityContext): Promise<int>;
 }
 export default formProvider;
