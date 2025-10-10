@@ -20,6 +20,7 @@
 
 import type accessibility from './@ohos.accessibility';
 import type { KeyEvent } from './@ohos.multimodalInput.keyEvent';
+/*** if arkts dynamic */
 import type {
   AccessibilityElement as _AccessibilityElement,
   ElementAttributeValues as _ElementAttributeValues,
@@ -28,10 +29,15 @@ import type {
   WindowType as _WindowType,
   Rect as _Rect,
 } from './application/AccessibilityExtensionContext';
-/*** if arkts dynamic */
 import type * as _AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
 /*** endif */
 /*** if arkts static */
+import type {
+  AccessibilityElement as _AccessibilityElement,
+  FocusDirection as _FocusDirection,
+  WindowType as _WindowType,
+  Rect as _Rect,
+} from './application/AccessibilityExtensionContext';
 import AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
 /*** endif */
 import { AccessibilityEventType } from './@ohos.accessibility';
@@ -52,8 +58,7 @@ export type AccessibilityElement = _AccessibilityElement;
  *
  * @typedef {_ElementAttributeValues}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10 dynamic
- * @since 20 static
+ * @since 10 dynamiconly
  */
 export type ElementAttributeValues = _ElementAttributeValues;
 
@@ -72,8 +77,7 @@ export type FocusDirection = _FocusDirection;
  *
  * @typedef {keyof ElementAttributeValues}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10 dynamic
- * @since 20 static
+ * @since 10 dynamiconly
  */
 export type ElementAttributeKeys = keyof ElementAttributeValues;
 
@@ -82,8 +86,7 @@ export type ElementAttributeKeys = keyof ElementAttributeValues;
  *
  * @typedef {_FocusType}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10 dynamic
- * @since 20 static
+ * @since 10 dynamiconly
  */
 export type FocusType = _FocusType;
 
@@ -227,7 +230,7 @@ declare class AccessibilityExtensionAbility {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   onAccessibilityEventInfo(event: AccessibilityEventInfo): void;
 
@@ -255,7 +258,7 @@ export default AccessibilityExtensionAbility;
  * @typedef AccessibilityEventInfo
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 20 dynamic
+ * @since 20 dynamic&static
  */
 export declare interface AccessibilityEventInfo {
   /**
@@ -264,7 +267,7 @@ export declare interface AccessibilityEventInfo {
    * @type { AccessibilityEventType }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   eventType: AccessibilityEventType;
 
@@ -274,7 +277,7 @@ export declare interface AccessibilityEventInfo {
    * @type { ?AccessibilityElement }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   target?: AccessibilityElement;
 
@@ -284,7 +287,7 @@ export declare interface AccessibilityEventInfo {
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   timestamp?: long;
 
@@ -294,7 +297,7 @@ export declare interface AccessibilityEventInfo {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   extraInfo?: string;
 }
@@ -305,8 +308,7 @@ export declare interface AccessibilityEventInfo {
  *
  * @typedef AccessibilityEvent
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9 dynamic
- * @since 20 static
+ * @since 9 dynamiconly
  */
 export declare interface AccessibilityEvent {
   /**
@@ -314,8 +316,7 @@ export declare interface AccessibilityEvent {
    *
    * @type { accessibility.EventType | accessibility.WindowUpdateType | TouchGuideType | GestureType | PageUpdateType }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   eventType: accessibility.EventType | accessibility.WindowUpdateType | TouchGuideType | GestureType | PageUpdateType;
 
@@ -324,8 +325,7 @@ export declare interface AccessibilityEvent {
    *
    * @type { ?AccessibilityElement }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   target?: AccessibilityElement;
 
@@ -334,8 +334,7 @@ export declare interface AccessibilityEvent {
    *
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   timeStamp?: long;
 
@@ -344,8 +343,7 @@ export declare interface AccessibilityEvent {
    *
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 12 dynamic
-   * @since 20 static
+   * @since 12 dynamiconly
    */
   elementId?: long;
 
@@ -354,8 +352,7 @@ export declare interface AccessibilityEvent {
    *
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 12 dynamic
-   * @since 20 static
+   * @since 12 dynamiconly
    */
   textAnnouncedForAccessibility?: string;
 
@@ -364,7 +361,7 @@ export declare interface AccessibilityEvent {
    *
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 20 dynamic&static
+   * @since 20 dynamiconly
    */
   extraInfo?: string;
 }
@@ -392,8 +389,7 @@ export declare interface AccessibilityEvent {
  * 'fourFingerSwipeUp' | 'fourFingerSwipeDown' | 'fourFingerSwipeLeft' | 'fourFingerSwipeRight' }
 * @typedef {'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' | 'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' | 'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' | 'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp' | 'twoFingerSingleTap' | 'twoFingerDoubleTap' | 'twoFingerDoubleTapAndHold' | 'twoFingerTripleTap' | 'twoFingerTripleTapAndHold' | 'threeFingerSingleTap' | 'threeFingerDoubleTap' | 'threeFingerDoubleTapAndHold' | 'threeFingerTripleTap' | 'threeFingerTripleTapAndHold' | 'fourFingerSingleTap' | 'fourFingerDoubleTap' | 'fourFingerDoubleTapAndHold' | 'fourFingerTripleTap' | 'fourFingerTripleTapAndHold' | 'threeFingerSwipeUp' | 'threeFingerSwipeDown' | 'threeFingerSwipeLeft' | 'threeFingerSwipeRight' | 'fourFingerSwipeUp' | 'fourFingerSwipeDown' | 'fourFingerSwipeLeft' | 'fourFingerSwipeRight'}
 * @syscap SystemCapability.BarrierFree.Accessibility.Core
-* @since 11 dynamic
-* @since 20 static
+* @since 11 dynamiconly
 */
 type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
   'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
@@ -411,8 +407,7 @@ type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
  *
  * @typedef {'pageContentUpdate' | 'pageStateUpdate'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9 dynamic
- * @since 20 static
+ * @since 9 dynamiconly
  */
 type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate';
 
@@ -421,7 +416,6 @@ type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate';
  *
  * @typedef {'touchBegin' | 'touchEnd'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9 dynamic
- * @since 20 static
+ * @since 9 dynamiconly
  */
 type TouchGuideType = 'touchBegin' | 'touchEnd';

@@ -49,7 +49,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
    */
   setTargetBundleName(targetNames: Array<string>, callback: AsyncCallback<void>): void;
@@ -64,7 +64,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
    */
   setTargetBundleName(targetNames: Array<string>): Promise<void>;
@@ -260,7 +260,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 10 dynamic
+   * @since 10 dynamiconly
    * @deprecated since 12
    */
   injectGestureSync(gesturePath: GesturePath): void;
@@ -408,7 +408,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300006 - The target application failed to connect to accessibility service.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   getRootInActiveWindow(windowId?: int): Promise<AccessibilityElement>;
 
@@ -652,7 +652,7 @@ export declare interface AccessibilityElement {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
    */
   findElement(type: 'focusType', condition: FocusType, callback: AsyncCallback<AccessibilityElement>): void;
@@ -668,7 +668,7 @@ export declare interface AccessibilityElement {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
    */
   findElement(type: 'focusType', condition: FocusType): Promise<AccessibilityElement>;
@@ -1369,7 +1369,7 @@ export declare interface AccessibilityElement {
    * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   mainWindowId?: int;
 
@@ -1688,8 +1688,7 @@ export declare class Parameter {
  *
  * @typedef ElementAttributeValues
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 11 dynamic
- * @since 20 static
+ * @since 11 dynamiconly
  */
 export interface ElementAttributeValues {
   /**
@@ -1697,8 +1696,7 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   accessibilityFocused: boolean;
   /**
@@ -1706,8 +1704,7 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   bundleName: string;
   /**
@@ -1715,8 +1712,7 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   checkable: boolean;
   /**
@@ -1724,8 +1720,7 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   checked: boolean;
   /**
@@ -1733,8 +1728,7 @@ export interface ElementAttributeValues {
    *
    * @type {Array<AccessibilityElement>}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   children: Array<AccessibilityElement>;
   /**
@@ -1742,8 +1736,7 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   clickable: boolean;
   /**
@@ -1751,8 +1744,7 @@ export interface ElementAttributeValues {
    *
    * @type {long}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   componentId: long;
   /**
@@ -1760,8 +1752,7 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   componentType: string;
   /**
@@ -1769,8 +1760,7 @@ export interface ElementAttributeValues {
    *
    * @type {Array<string>}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   contents: Array<string>;
   /**
@@ -1778,8 +1768,7 @@ export interface ElementAttributeValues {
    *
    * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   currentIndex: int;
   /**
@@ -1787,8 +1776,7 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   description: string;
   /**
@@ -1796,8 +1784,7 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   editable: boolean;
   /**
@@ -1805,8 +1792,7 @@ export interface ElementAttributeValues {
    *
    * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   endIndex: int;
   /**
@@ -1814,8 +1800,7 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   error: string;
   /**
@@ -1823,8 +1808,7 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   focusable: boolean;
   /**
@@ -1832,8 +1816,7 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   hintText: string;
   /**
@@ -1841,8 +1824,7 @@ export interface ElementAttributeValues {
    *
    * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   inputType: int;
   /**
@@ -1850,8 +1832,7 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   inspectorKey: string;
   /**
@@ -1859,8 +1840,7 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   isActive: boolean;
   /**
@@ -1868,8 +1848,7 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   isEnable: boolean;
   /**
@@ -1877,8 +1856,7 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   isHint: boolean;
   /**
@@ -1886,8 +1864,7 @@ export interface ElementAttributeValues {
    * 
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   isFocused: boolean;
   /**
@@ -1895,8 +1872,7 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   isPassword: boolean;
   /**
@@ -1904,8 +1880,7 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   isVisible: boolean;
   /**
@@ -1913,8 +1888,7 @@ export interface ElementAttributeValues {
    *
    * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   itemCount: int;
   /**
@@ -1922,8 +1896,7 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   lastContent: string;
   /**
@@ -1931,8 +1904,7 @@ export interface ElementAttributeValues {
    *
    * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   layer: int;
   /**
@@ -1940,8 +1912,7 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   longClickable: boolean;
   /**
@@ -1949,8 +1920,7 @@ export interface ElementAttributeValues {
    *
    * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   pageId: int;
   /**
@@ -1958,8 +1928,7 @@ export interface ElementAttributeValues {
    *
    * @type {AccessibilityElement}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   parent: AccessibilityElement;
   /**
@@ -1967,8 +1936,7 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   pluralLineSupported: boolean;
   /**
@@ -1976,8 +1944,7 @@ export interface ElementAttributeValues {
    *
    * @type {Rect}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   rect: Rect;
   /**
@@ -1985,8 +1952,7 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   resourceName: string;
   /**
@@ -1994,8 +1960,7 @@ export interface ElementAttributeValues {
    *
    * @type {AccessibilityElement}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   rootElement: AccessibilityElement;
   /**
@@ -2003,8 +1968,7 @@ export interface ElementAttributeValues {
    *
    * @type {Rect}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   screenRect: Rect;
   /**
@@ -2012,8 +1976,7 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   scrollable: boolean;
   /**
@@ -2021,8 +1984,7 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   selected: boolean;
   /**
@@ -2030,8 +1992,7 @@ export interface ElementAttributeValues {
    *
    * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   startIndex: int;
   /**
@@ -2039,8 +2000,7 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   text: string;
   /**
@@ -2048,8 +2008,7 @@ export interface ElementAttributeValues {
    *
    * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   textLengthLimit: int;
   /**
@@ -2057,8 +2016,7 @@ export interface ElementAttributeValues {
    *
    * @type {accessibility.TextMoveUnit}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   textMoveUnit: accessibility.TextMoveUnit;
   /**
@@ -2066,8 +2024,7 @@ export interface ElementAttributeValues {
    *
    * @type {accessibility.Action}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   triggerAction: accessibility.Action;
   /**
@@ -2075,8 +2032,7 @@ export interface ElementAttributeValues {
    *
    * @type {WindowType}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   type: WindowType;
   /**
@@ -2084,8 +2040,7 @@ export interface ElementAttributeValues {
    *
    * @type {double}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   valueMax: double;
   /**
@@ -2093,8 +2048,7 @@ export interface ElementAttributeValues {
    *
    * @type {double}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   valueMin: double;
   /**
@@ -2102,8 +2056,7 @@ export interface ElementAttributeValues {
    * 
    * @type {double}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   valueNow: double;
   /**
@@ -2111,8 +2064,7 @@ export interface ElementAttributeValues {
    *
    * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 9 dynamiconly
    */
   windowId: int;
   /**
@@ -2120,8 +2072,7 @@ export interface ElementAttributeValues {
    *
    * @type {double}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 12 dynamic
-   * @since 20 static
+   * @since 12 dynamiconly
    */
   offset: double;
   /**
@@ -2129,8 +2080,7 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 12 dynamic
-   * @since 20 static
+   * @since 12 dynamiconly
    */
   textType: string;
   /**
@@ -2138,8 +2088,7 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 12 dynamic
-   * @since 20 static
+   * @since 12 dynamiconly
    */
   accessibilityText: string;
   /**
@@ -2147,16 +2096,14 @@ export interface ElementAttributeValues {
    *
    * @type {Rect}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 12 dynamic
-   * @since 20 static
+   * @since 12 dynamiconly
    */
   hotArea: Rect;
   /**
    * Indicates the component next accessibility focus id.
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18 dynamic
-   * @since 20 static
+   * @since 18 dynamiconly
    */
   accessibilityNextFocusId?: long;
   /**
@@ -2164,16 +2111,14 @@ export interface ElementAttributeValues {
    *
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18 dynamic
-   * @since 20 static
+   * @since 18 dynamiconly
    */
   customComponentType?: string;
   /**
    * Indicates the extra info of the element.
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18 dynamic
-   * @since 20 static
+   * @since 18 dynamiconly
    */
   extraInfo?: string;
   /**
@@ -2181,8 +2126,7 @@ export interface ElementAttributeValues {
    *
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18 dynamic
-   * @since 20 static
+   * @since 18 dynamiconly
    */
   accessibilityPreviousFocusId?: long;
   /**
@@ -2190,8 +2134,7 @@ export interface ElementAttributeValues {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18 dynamic
-   * @since 20 static
+   * @since 18 dynamiconly
    */
   accessibilityScrollable?: boolean;
 }
@@ -2211,8 +2154,7 @@ export type FocusDirection = 'up' | 'down' | 'left' | 'right' | 'forward' | 'bac
  *
  * @typedef {'accessibility' | 'normal'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9 dynamic
- * @since 20 static
+ * @since 9 dynamiconly
  */
 export type FocusType = 'accessibility' | 'normal';
 
