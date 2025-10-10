@@ -120,20 +120,20 @@ declare namespace componentUtils {
         
         /**
         * Defines the width property.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
-        width: number;
+        width: double;
         
         
         /**
         * Defines the height property.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
-        height: number;
+        height: double;
     }
     
     
@@ -148,20 +148,20 @@ declare namespace componentUtils {
         
         /**
         * Coordinate x of the Position.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
-        x: number;
+        x: double;
         
         
         /**
         * Coordinate y of the Position.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
-        y: number;
+        y: double;
     }
     
     
@@ -176,29 +176,29 @@ declare namespace componentUtils {
         
         /**
         * Indicates the translation distance of the x-axis, in vp.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
-        x: number;
+        x: double;
         
         
         /**
         * Indicates the translation distance of the y-axis, in vp.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
-        y: number;
+        y: double;
         
         
         /**
         * Indicates the translation distance of the z-axis, in vp.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
-        z: number;
+        z: double;
     }
     
     
@@ -213,47 +213,47 @@ declare namespace componentUtils {
         
         /**
         * Zoom factor of the x-axis.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
-        x: number;
+        x: double;
         
         
         /**
         * Zoom factor of the y-axis.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
-        y: number;
+        y: double;
         
         
         /**
         * Zoom factor of the z-axis.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
-        z: number;
+        z: double;
         
         
         /**
         * Transform the x-axis coordinate of the center point.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
-        centerX: number;
+        centerX: double;
         
         
         /**
         * Transform the y-axis coordinate of the center point.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
-        centerY: number;
+        centerY: double;
     }
     
     
@@ -268,11 +268,11 @@ declare namespace componentUtils {
         
         /**
         * Axis of rotation vector x coordinate.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
-        x: number;
+        x: double;
         
         
         /**
@@ -281,70 +281,70 @@ declare namespace componentUtils {
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
-        y: number;
+        y: double;
         
         
         /**
         * Axis of rotation vector z coordinate.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
-        z: number;
+        z: double;
         
         
         /**
         * Transform the x-axis coordinate of the center point.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
-        centerX: number;
+        centerX: double;
         
         
         /**
         * Transform the y-axis coordinate of the center point.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
-        centerY: number;
+        centerY: double;
         
         
         /**
         * Rotation angle.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
-        angle: number;
+        angle: double;
     }
     
     
     /**
     * The matrix is column-first fourth-order matrix.
-    * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number,
-    * number, number, number, number,] } Matrix4Result
+    *@typedef { [double, double, double, double, double, double, double, double, double, double, double, double,
+    * double, double, double, double,] } Matrix4Result
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 20 static
     */
     export type Matrix4Result = [
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double
     ];
 }
 export default componentUtils;
