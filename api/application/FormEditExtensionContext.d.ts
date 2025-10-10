@@ -45,7 +45,6 @@ declare class FormEditExtensionContext extends UIExtensionContext {
      * @syscap SystemCapability.Ability.Form
      * @stagemodelonly
      * @since 18 dynamic
-     * @since 20 static
      */
 	startSecondPage(want: Want): Promise<AbilityResult>;
 }
