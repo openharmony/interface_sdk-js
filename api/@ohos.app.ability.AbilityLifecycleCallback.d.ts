@@ -19,8 +19,154 @@
  */
 
 import UIAbility from './@ohos.app.ability.UIAbility';
-import dataAbility from './@ohos.data.dataAbility';
 import window from './@ohos.window';
+
+/**
+ * Defines a OnAbilityWillCreate function.
+ *
+ * @typedef {function} OnAbilityWillCreateFn
+ * @param { UIAbility } ability - Indicates the ability to register for listening.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @since 20
+ * @arkts 1.2
+ */
+type OnAbilityWillCreateFn = (ability: UIAbility) => void;
+
+/**
+ * Defines a onWindowStageWillCreate function.
+ *
+ * @typedef {function} OnWindowStageWillCreateFn
+ * @param { UIAbility } ability - Indicates the ability to register for listening.
+ * @param { window.WindowStage } windowStage - window stage to create
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @since 20
+ * @arkts 1.2
+ */
+type OnWindowStageWillCreateFn = (ability: UIAbility, windowStage: window.WindowStage) => void;
+
+/**
+ * Defines a onWillNewWant function.
+ *
+ * @typedef {function} OnWillNewWantFn
+ * @param { UIAbility } ability - Indicates the ability to register for listening.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @since 20
+ * @arkts 1.2
+ */
+type OnWillNewWantFn = (ability: UIAbility) => void;
+
+/**
+ * Defines a onNewWant function.
+ *
+ * @typedef {function} OnNewWantFn
+ * @param { UIAbility } ability - Indicates the ability to register for listening.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @since 20
+ * @arkts 1.2
+ */
+type OnNewWantFn = (ability: UIAbility) => void;
+
+/**
+ * Defines a onWindowStageWillDestroy function.
+ *
+ * @typedef {function} OnWindowStageWillDestroyFn
+ * @param { UIAbility } ability - Indicates the ability to register for listening.
+ * @param { window.WindowStage } windowStage - window stage to create
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @since 20
+ * @arkts 1.2
+ */
+type OnWindowStageWillDestroyFn = (ability: UIAbility, windowStage: window.WindowStage) => void;
+
+/**
+ * Defines a onAbilityWillDestroy function.
+ *
+ * @typedef {function} OnAbilityWillDestroyFn
+ * @param { UIAbility } ability - Indicates the ability to register for listening.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @since 20
+ * @arkts 1.2
+ */
+type OnAbilityWillDestroyFn = (ability: UIAbility) => void;
+
+/**
+ * Defines a onAbilityWillForeground function.
+ *
+ * @typedef {function} OnAbilityWillForegroundFn
+ * @param { UIAbility } ability - Indicates the ability to register for listening.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @since 20
+ * @arkts 1.2
+ */
+type OnAbilityWillForegroundFn = (ability: UIAbility) => void;
+
+/**
+ * Defines a onAbilityWillBackground function.
+ *
+ * @typedef {function} OnAbilityWillBackgroundFn
+ * @param { UIAbility } ability - Indicates the ability to register for listening.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @since 20
+ * @arkts 1.2
+ */
+type OnAbilityWillBackgroundFn = (ability: UIAbility) => void;
+
+/**
+ * Defines a onAbilityWillContinue function.
+ *
+ * @typedef {function} OnAbilityWillContinueFn
+ * @param { UIAbility } ability - Indicates the ability to register for listening.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @since 20
+ * @arkts 1.2
+ */
+type OnAbilityWillContinueFn = (ability: UIAbility) => void;
+
+/**
+ * Defines a onWindowStageWillRestore function.
+ *
+ * @typedef {function} OnWindowStageWillRestoreFn
+ * @param { UIAbility } ability - Indicates the ability to register for listening.
+ * @param { window.WindowStage } windowStage - window stage to create
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @since 20
+ * @arkts 1.2
+ */
+type OnWindowStageWillRestoreFn = (ability: UIAbility, windowStage: window.WindowStage) => void;
+
+/**
+ * Defines a onWindowStageRestore function.
+ *
+ * @typedef {function} OnWindowStageRestoreFn
+ * @param { UIAbility } ability - Indicates the ability to register for listening.
+ * @param { window.WindowStage } windowStage - window stage to create
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @since 20
+ * @arkts 1.2
+ */
+type OnWindowStageRestoreFn = (ability: UIAbility, windowStage: window.WindowStage) => void;
+
+/**
+ * Defines a onAbilityWillSaveState function.
+ *
+ * @typedef {function} OnAbilityWillSaveStateFn
+ * @param { UIAbility } ability - Indicates the ability to register for listening.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @since 20
+ * @arkts 1.2
+ */
+type OnAbilityWillSaveStateFn = (ability: UIAbility) => void;
+
+/**
+ * Defines a onAbilitySaveState function.
+ *
+ * @typedef {function} OnAbilitySaveStateFn
+ * @param { UIAbility } ability - Indicates the ability to register for listening.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @since 20
+ * @arkts 1.2
+ */
+type OnAbilitySaveStateFn = (ability: UIAbility) => void;
 
 /**
  * The ability lifecycle callback.
@@ -44,9 +190,10 @@ import window from './@ohos.window';
  * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts{ '1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class AbilityLifecycleCallback {
+declare class AbilityLifecycleCallback {
   /**
    * Called back when an ability is started for initialization.
    *
@@ -72,7 +219,8 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts{ '1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAbilityCreate(ability: UIAbility): void;
 
@@ -88,6 +236,17 @@ export default class AbilityLifecycleCallback {
   onAbilityWillCreate?(ability: UIAbility): void;
 
   /**
+   * Called back before an ability is started for initialization.
+   *
+   * @type { ?OnAbilityWillCreateFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onAbilityWillCreate?: OnAbilityWillCreateFn;
+
+  /**
    * Called back when a window stage is created.
    *
    * @param { UIAbility } ability - Indicates the ability to register for listening.
@@ -115,7 +274,8 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts{ '1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -132,6 +292,17 @@ export default class AbilityLifecycleCallback {
   onWindowStageWillCreate?(ability: UIAbility, windowStage: window.WindowStage): void;
 
   /**
+   * Called back before a window stage will create.
+   *
+   * @type { ?OnWindowStageWillCreateFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onWindowStageWillCreate?: OnWindowStageWillCreateFn;
+
+  /**
    * Called back before the UIAbility will called onNewWant.
    *
    * @param { UIAbility } ability - Indicates the ability to register for listening.
@@ -143,6 +314,17 @@ export default class AbilityLifecycleCallback {
   onWillNewWant?(ability: UIAbility): void;
 
   /**
+   * Called back before the UIAbility will called onNewWant.
+   *
+   * @type { ?OnWillNewWantFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onWillNewWant?: OnWillNewWantFn;
+
+  /**
    * Called back after the UIAbility called onNewWant.
    *
    * @param { UIAbility } ability - Indicates the ability to register for listening.
@@ -152,6 +334,17 @@ export default class AbilityLifecycleCallback {
    * @since 12
    */
   onNewWant?(ability: UIAbility): void;
+
+  /**
+   * Called back after the UIAbility called onNewWant.
+   *
+   * @type { ?OnNewWantFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onNewWant?: OnNewWantFn;
 
   /**
    * Called back when a window stage is active.
@@ -170,7 +363,8 @@ export default class AbilityLifecycleCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts{ '1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWindowStageActive(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -191,7 +385,8 @@ export default class AbilityLifecycleCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts{ '1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWindowStageInactive(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -223,7 +418,8 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts{ '1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -240,6 +436,17 @@ export default class AbilityLifecycleCallback {
   onWindowStageWillDestroy?(ability: UIAbility, windowStage: window.WindowStage): void;
 
   /**
+   * Called back before a window stage will destroy.
+   *
+   * @type { ?OnWindowStageWillDestroyFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onWindowStageWillDestroy?: OnWindowStageWillDestroyFn;
+
+  /**
    * Called back when an ability is destroyed.
    *
    * @param { UIAbility } ability - Indicates the ability to register for listening.
@@ -264,7 +471,8 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts{ '1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAbilityDestroy(ability: UIAbility): void;
 
@@ -280,6 +488,17 @@ export default class AbilityLifecycleCallback {
   onAbilityWillDestroy?(ability: UIAbility): void;
 
   /**
+   * Called back before an ability will destroy.
+   *
+   * @type { ?OnAbilityWillDestroyFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onAbilityWillDestroy?: OnAbilityWillDestroyFn;
+
+  /**
    * Called back when the state of an ability changes to foreground.
    *
    * @param { UIAbility } ability - Indicates the ability to register for listening.
@@ -304,7 +523,8 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts{ '1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAbilityForeground(ability: UIAbility): void;
 
@@ -320,6 +540,17 @@ export default class AbilityLifecycleCallback {
   onAbilityWillForeground?(ability: UIAbility): void;
 
   /**
+   * Called back before the state of an ability willl changes to foreground.
+   *
+   * @type { ?OnAbilityWillForegroundFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onAbilityWillForeground?: OnAbilityWillForegroundFn;
+
+  /**
    * Called back when the state of an ability changes to background.
    *
    * @param { UIAbility } ability - Indicates the ability to register for listening.
@@ -344,7 +575,8 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts{ '1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAbilityBackground(ability: UIAbility): void;
 
@@ -358,6 +590,17 @@ export default class AbilityLifecycleCallback {
    * @since 12
    */
   onAbilityWillBackground?(ability: UIAbility): void;
+
+  /**
+   * Called back before the state of an ability willl changes to background.
+   *
+   * @type { ?OnAbilityWillBackgroundFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onAbilityWillBackground?: OnAbilityWillBackgroundFn;
 
   /**
    * Called back when an ability prepares to continue.
@@ -402,6 +645,17 @@ export default class AbilityLifecycleCallback {
   onWindowStageWillRestore?(ability: UIAbility, windowStage: window.WindowStage): void;
 
   /**
+   * Called back when the ability prepares to call onWindowStageRestore.
+   *
+   * @type { ?OnWindowStageWillRestoreFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onWindowStageWillRestore?: OnWindowStageWillRestoreFn;
+
+  /**
    * Called back when the ability has called onWindowStageRestore.
    *
    * @param { UIAbility } ability - Indicates the ability to register for listening.
@@ -412,6 +666,17 @@ export default class AbilityLifecycleCallback {
    * @since 12
    */
   onWindowStageRestore?(ability: UIAbility, windowStage: window.WindowStage): void;
+
+  /**
+   * Called back when the ability has called onWindowStageRestore.
+   *
+   * @type { ?OnWindowStageRestoreFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onWindowStageRestore?: OnWindowStageRestoreFn;
 
   /**
    * Called back when the ability prepares to call onSaveState.
@@ -435,3 +700,5 @@ export default class AbilityLifecycleCallback {
    */
   onAbilitySaveState?(ability: UIAbility): void;
 }
+
+export default AbilityLifecycleCallback;

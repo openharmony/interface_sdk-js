@@ -30,8 +30,9 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @since 20
+ * @arkts 1.1&1.2
  */
-export default class AppServiceExtensionContext extends ExtensionContext {
+declare class AppServiceExtensionContext extends ExtensionContext {
   /**
   * Connects the current ability to a service extension ability.
    * If the target service extension ability is invisible,
@@ -40,7 +41,7 @@ export default class AppServiceExtensionContext extends ExtensionContext {
    *
    * @param { Want } want - The element name of the service ability
    * @param { ConnectOptions } callback - The callback for obtaining the connection result
-   * @returns { number } Returns the number code of the ability connected
+   * @returns { long } Returns the number code of the ability connected
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -52,21 +53,23 @@ export default class AppServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
-  connectServiceExtensionAbility(want: Want, callback: ConnectOptions): number;
+  connectServiceExtensionAbility(want: Want, callback: ConnectOptions): long;
 
   /**
    * Disconnect an ability from a service extension, in contrast to {@link connectServiceExtensionAbility}.
    *
-   * @param { number } connection - The number code of the ability connected
+   * @param { long } connection - The number code of the ability connected
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
-  disconnectServiceExtensionAbility(connection: number): Promise<void>;
+  disconnectServiceExtensionAbility(connection: long): Promise<void>;
 
   /**
    * Start a UIAbility.
@@ -102,6 +105,7 @@ export default class AppServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -115,6 +119,8 @@ export default class AppServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   terminateSelf(): Promise<void>;
 }
+export default AppServiceExtensionContext;

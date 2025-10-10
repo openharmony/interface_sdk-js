@@ -25,7 +25,8 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 14
+ * @since arkts {'1.1':'14', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default interface UIServiceHostProxy {
   /**
@@ -39,7 +40,8 @@ export default interface UIServiceHostProxy {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   sendData(data: Record<string, Object>): void;
 }
