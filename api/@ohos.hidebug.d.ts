@@ -482,7 +482,8 @@ declare namespace hidebug {
    *
    * @returns { Promise<NativeMemInfo> } Returns the memory information of the application process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getAppNativeMemInfoAsync(): Promise<NativeMemInfo>;
 
@@ -495,7 +496,8 @@ declare namespace hidebug {
    *     The default value is false.
    * @returns { NativeMemInfo } Returns the memory information of the application process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getAppNativeMemInfoWithCache(forceRefresh?: boolean): NativeMemInfo;
 
@@ -893,6 +895,7 @@ declare namespace hidebug {
    * @returns { bigint } Returns the memory usage of ArkTS objects, in KB.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 21 dynamic
+   * @since 22 static
    */
   function getAppVMObjectUsedSize(): bigint;
 
@@ -984,43 +987,47 @@ declare namespace hidebug {
    * @interface GraphicsMemorySummary
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
+   * @since 22 static
    */
   interface GraphicsMemorySummary {
     /**
      * GL memory
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @atomicservice
-     * @since 21
+     * @since 21 dynamic
+     * @since 22 static
      */
-    gl: number;
+    gl: int;
 
     /**
      * Graph memory
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @atomicservice
-     * @since 21
+     * @since 21 dynamic
+     * @since 22 static
      */
-    graph: number;
+    graph: int;
   }
 
   /**
    * Obtains the size of the GPU memory summary. This API uses a promise to return the result.
    *
-   * @param { number } [interval] If the cache of graphics memory is older than interval (unit: second), the latest
+   * @param { int } [interval] If the cache of graphics memory is older than interval (unit: second), the latest
    *     graphics memory data will be obtained. The interval value range is 2 seconds to
    *     3600 seconds, If interval is an invalid value, the default value is 300 seconds.
    * @returns { Promise<GraphicsMemorySummary> } Returns the size of the GPU memory summary, in KB.
    * @throws { BusinessError } 11400104 - Failed to get the application memory due to a remote exception.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
+   * @since 22 static
    */
-  function getGraphicsMemorySummary(interval?: number): Promise<GraphicsMemorySummary>;
+  function getGraphicsMemorySummary(interval?: int): Promise<GraphicsMemorySummary>;
 
   /**
    * Dumps the original heap snapshot of the VM for the current thread. The API uses a promise to return the path of the
