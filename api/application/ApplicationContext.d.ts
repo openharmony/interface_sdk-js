@@ -118,6 +118,20 @@ declare class ApplicationContext extends Context {
    */
   onAbilityLifecycle(callback: AbilityLifecycleCallback): int;
 
+  /**	
+   * Registers a listener to monitor the ability lifecycle of the application for interoperability.	
+   * 
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { InteropAbilityLifecycleCallback } callback - Callback used to be registered as the listener.	
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core	
+   * @stagemodelonly	
+   * @since 22 static
+   */	
+  onInteropAbilityLifecycle(callback: InteropAbilityLifecycleCallback): void;
+
   /**
    * Unregister ability lifecycle callback.
    *
