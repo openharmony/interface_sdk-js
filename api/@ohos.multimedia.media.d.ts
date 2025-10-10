@@ -9660,9 +9660,9 @@ declare namespace media {
   }
 
   /**
-   * Enumerates (audio codec) AAC profile .
-   * 
-   * @enum {number}
+   * Enumerates (audio codec) AAC profile.
+   *
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @atomicservice
    * @since 22
@@ -9679,7 +9679,7 @@ declare namespace media {
     AAC_LC = 0,
 
     /**
-     * HE (High Efficiency) AAC Profile.
+     * HE (High Efficiency) AAC profile.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @atomicservice
      * @since 22
@@ -9688,7 +9688,7 @@ declare namespace media {
     AAC_HE = 1,
 
     /**
-     * HE (High Efficiency with Parametric Stereo coding) AAC Profile.
+     * HE (High Efficiency with Parametric Stereo coding) AAC profile.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @atomicservice
      * @since 22
