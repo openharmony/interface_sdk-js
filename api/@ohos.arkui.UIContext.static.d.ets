@@ -2720,6 +2720,26 @@ export declare class UIContext {
   showTextPickerDialog(options: TextPickerDialogOptions): void;
 
   /**
+   * Set image cache capacity of decoded image count.
+   * if not set, the application will not cache any decoded image.
+   *
+   * @param { int } value - capacity of decoded image count.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  setImageCacheCount(value: int): void;
+
+  /**
+   * Set image cache capacity of raw image data size in bytes before decode.
+   * if not set, the application will not cache any raw image data.
+   *
+   * @param { int } value - capacity of raw image data size in bytes.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  setImageRawDataCacheSize(value: int): void;
+
+  /**
    * Run custom functions inside the UIContext scope.
    *
    * @param { function } callback - The function called through UIContext.
