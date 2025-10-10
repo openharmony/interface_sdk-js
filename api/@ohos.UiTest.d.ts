@@ -5353,7 +5353,7 @@ declare class Driver {
    * @param { Point } point - The coordinate point where the finger touches the screen.
    * @param { number } [duration] - Duration of longClick before drag in millisecond,
    *                             the minimum and default values are 1500.
-   * @returns { Promise<Boolean> }
+   * @returns { Promise<boolean> }
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -5361,7 +5361,7 @@ declare class Driver {
    * @since 22
    * @test
    */
-  isComponentPresentWhenLongClick(on: On, point: Point, duration?: number): Promise<Boolean>;
+  isComponentPresentWhenLongClick(on: On, point: Point, duration?: number): Promise<boolean>;
 
   /**
    * Drag and check if the specified component exists concurrently. If it exists, return true; otherwise, return false.
@@ -5373,7 +5373,7 @@ declare class Driver {
    *                          Set it default 600 if out out of range or null or undefined.   
    * @param { number } [duration] - Duration of longClick before drag in millisecond,
    *                             the minimum and default values are 1500.
-   * @returns { Promise<Boolean> }
+   * @returns { Promise<boolean> }
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -5381,7 +5381,7 @@ declare class Driver {
    * @since 22
    * @test
    */
-  isComponentPresentWhenDrag(on: On, from: Point, to: Point, speed?: number, duration?: number): Promise<Boolean>;
+  isComponentPresentWhenDrag(on: On, from: Point, to: Point, speed?: number, duration?: number): Promise<boolean>;
 
   /**
    * Swipe and check if the specified component exists concurrently. If it exists, return true; otherwise, return false.
@@ -5391,7 +5391,7 @@ declare class Driver {
    * @param { Point } to - The coordinate point where the finger leaves the screen.
    * @param { number } [speed] - Speed of swipe(pixels per second), the value ranges from 200 to 40000.
    *                          Set it default 600 if out out of range or null or undefined.
-   * @returns { Promise<Boolean> }
+   * @returns { Promise<boolean> }
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -5399,7 +5399,7 @@ declare class Driver {
    * @since 22
    * @test
    */
-  isComponentPresentWhenSwipe(on: On, from: Point, to: Point, speed?: number): Promise<Boolean>;
+  isComponentPresentWhenSwipe(on: On, from: Point, to: Point, speed?: number): Promise<boolean>;
 
   /**
    * Simulate touchpad two fingers scroll.
