@@ -2560,7 +2560,7 @@ declare namespace inputMethodEngine {
      * @type { ?ExtraConfig }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 21
+     * @since 22
      */
     readonly extraConfig?: ExtraConfig;
   }

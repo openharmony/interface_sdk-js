@@ -23,7 +23,7 @@
  *
  * @typedef { number | string | boolean }
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 21
+ * @since 22
  */
 export type CustomValueType = number | string | boolean;
 
@@ -32,7 +32,7 @@ export type CustomValueType = number | string | boolean;
  *
  * @typedef ExtraConfig
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 21
+ * @since 22
  */
 export interface ExtraConfig {
     /**
@@ -41,7 +41,7 @@ export interface ExtraConfig {
      *
      * @type { Record<string, CustomValueType> }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 21
+     * @since 22
      */
     customSettings: Record<string, CustomValueType>;
 }
