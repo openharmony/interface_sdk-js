@@ -2250,20 +2250,20 @@ export declare abstract class FrameCallback {
   /**
    * Call when a new display frame is being rendered.
    *
-   * @param { number } frameTimeInNano - The frame time in nanoseconds.
+   * @param { long } frameTimeInNano - The frame time in nanoseconds.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  onFrame(frameTimeInNano: number): void;
+  onFrame(frameTimeInNano: long): void;
 
   /**
    * Called at the end of the next idle frame. If there is no next frame, will request one automatically.
    *
-   * @param { number } timeLeftInNano - The remaining time from the deadline for this frame.
+   * @param { long } timeLeftInNano - The remaining time from the deadline for this frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  onIdle(timeLeftInNano: number): void;
+  onIdle(timeLeftInNano: long): void;
 }
 
 /**
@@ -2828,25 +2828,25 @@ export declare class UIContext {
   /**
    * Get page information of the frameNode with uniqueId.
    *
-   * @param { number } id - The uniqueId of the target FrameNode.
+   * @param { long } id - The uniqueId of the target FrameNode.
    * @returns { PageInfo } - The page information of the frameNode with the target uniqueId, includes
    * navDestination and router page information. If the frame node does not have navDestination and
    * router page information, it will return an empty object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getPageInfoByUniqueId(id: number): PageInfo;
+  getPageInfoByUniqueId(id: long): PageInfo;
 
   /**
    * Get navigation information of the frameNode with uniqueId.
    *
-   * @param { number } id - The uniqueId of the target FrameNode.
+   * @param { long } id - The uniqueId of the target FrameNode.
    * @returns { observer.NavigationInfo | undefined } - The navigation information of the frameNode with the
    * target uniqueId, or undefined if the frameNode is not existed or does not have navigation information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getNavigationInfoByUniqueId(id: number): observer.NavigationInfo | undefined;
+  getNavigationInfoByUniqueId(id: long): observer.NavigationInfo | undefined;
 
   /**
    * Dynamic dimming.
@@ -2888,57 +2888,57 @@ export declare class UIContext {
 
   /**
    * Converts a value in vp units to a value in px.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  vp2px(value: number): number;
+  vp2px(value: double): double;
 
   /**
    * Converts a value in px units to a value in vp.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  px2vp(value: number): number;
+  px2vp(value: double): double;
 
   /**
    * Converts a value in fp units to a value in px.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  fp2px(value: number): number;
+  fp2px(value: double): double;
 
   /**
    * Converts a value in px units to a value in fp.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  px2fp(value: number): number;
+  px2fp(value: double): double;
 
   /**
    * Converts a value in lpx units to a value in px.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  lpx2px(value: number): number;
+  lpx2px(value: double): double;
 
   /**
    * Converts a value in px units to a value in lpx.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  px2lpx(value: number): number;
+  px2lpx(value: double): double;
 
   /**
    * Get current LocalStorage shared from stage.
@@ -3059,11 +3059,11 @@ export declare class UIContext {
    * Post a frame callback to run on the next frame after the specified delay.
    *
    * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
-   * @param { number } delayTime - The delay time in milliseconds,
+   * @param { long } delayTime - The delay time in milliseconds,
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  postDelayedFrameCallback(frameCallback: FrameCallback, delayTime: number): void;
+  postDelayedFrameCallback(frameCallback: FrameCallback, delayTime: long): void;
 
   /**
    * Require DynamicSyncScene by id.
@@ -3194,14 +3194,14 @@ export declare class UIContext {
   /**
    * Sets the component freezing flag based on the component uniqueId to prevent the
    * UI component from marking and updating dirty areas.
-   * @param { number } uniqueId - Unique Id of the frame node.
+   * @param { long } uniqueId - Unique Id of the frame node.
    * @param { boolean } isFrozen - whether the component is frozen.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 20 static
    */
-  freezeUINode(uniqueId: number, isFrozen: boolean): void;
+  freezeUINode(uniqueId: long, isFrozen: boolean): void;
 
   /**
    * Get object text menu controller.
