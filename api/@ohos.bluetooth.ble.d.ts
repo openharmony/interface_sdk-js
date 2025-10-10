@@ -1303,6 +1303,23 @@ declare namespace ble {
     sendResponse(serverResponse: ServerResponse): void;
 
     /**
+     * Get the connection state of a specific device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @returns { ProfileConnectionState } Connection state.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    getConnectedState(deviceId: string): ProfileConnectionState;
+
+    /**
      * Subscribe characteristic read event.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -3148,6 +3165,40 @@ declare namespace ble {
      * @since 20
      */
     setCharacteristicChangeIndication(characteristic: BLECharacteristic, enable: boolean): Promise<void>;
+
+    /**
+     * Get the connection status of a specific device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @returns { ProfileConnectionState } Connection state.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    getConnectedState(): ProfileConnectionState;
+
+    /**
+     * Update the connection parameters of the current GATT link to save power or improve transmission performance.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { ConnectionParam } param - GATT connection parameters.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2901003 - The connection is not established.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    updateConnectionParam(param: ConnectionParam): Promise<void>;
 
     /**
      * Subscribe characteristic value changed event.
@@ -6896,6 +6947,41 @@ declare namespace ble {
      * @arkts 1.1&1.2
      */
     GATT_SERVER = 3
+  }
+
+  /**
+   * GATT connection parameters.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 22 dynamic
+   */
+  enum ConnectionParam {
+    /**
+     * low power mode.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    LOW_POWER = 1,
+    /**
+     * balanced power mode.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    BALANCED = 2,
+    /**
+     * Use the highest connection parameters.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    HIGH = 3
   }
 
   /**
