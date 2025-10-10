@@ -9659,6 +9659,14 @@ declare namespace media {
     max: int;
   }
 
+  enum AacProfile {
+    AAC_LC = 0,
+
+    AAC_HE = 1,
+
+    AAC_HE_V2 = 2,
+  }
+
   /**
    * Provides the media recorder profile definitions.
    *
@@ -9738,6 +9746,24 @@ declare namespace media {
      * @arkts 1.1&1.2
      */
     audioCodec?: CodecMimeType;
+
+    /**
+     * Indicates the audio encoding format.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 9
+     */
+    /**
+     * Audio encoding format. This parameter is mandatory for audio recording. Currently, AUDIO_AAC, AUDIO_MP3,
+     * AUDIO_G711MU, AUDIO_AMR_NB, and AUDIO_AMR_WB are supported.<br>**Atomic service API**: This API can be used in
+     * atomic services since API version 12.
+     * @type { ?CodecMimeType }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @crossplatform
+     * @atomicservice
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    aacProfile?: AacProfile;
 
     /**
      * Indicates the audio sampling rate.
