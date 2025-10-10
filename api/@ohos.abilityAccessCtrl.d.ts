@@ -741,6 +741,25 @@ declare namespace abilityAccessCtrl {
      * @arkts 1.1&1.2
      */
     revokePermission(tokenID: int, permissionName: Permissions, permissionFlags: int): Promise<void>;
+
+    /**
+     * Prompts users to grant the required permissions on the Settings screen.
+     *
+     * @param { Context } context The context that initiates the permission request.
+     *     <br> The context must belong to the Stage model and only supports UIAbilityContext and
+     *     UIExtensionContext.
+     * @param { Permissions } permission Indicates permission to open on setting.
+     * @returns { Promise<SelectedResult> } Returns result of user selection.
+     * @throws { BusinessError } 12100001 - Invalid parameter. Possible causes: 1. The context is invalid
+     *     because it does not belong to the application itself; 2. The permission is invalid or not
+     *     declared in the module.json file.
+     * @throws { BusinessError } 12100014 - Unexpected permission. The permission is not a manual_settings
+     *     permission.
+     * @syscap SystemCapability.Security.AccessToken
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    openPermissionOnSetting(context: Context, permission: Permissions): Promise<SelectedResult>;
   }
 
   /**
@@ -997,6 +1016,37 @@ declare namespace abilityAccessCtrl {
        */
       LOCATION = 2,
     }
+
+  /**
+   * SelectedResult.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.AccessToken
+   * @since 22 dynamic&static
+   */
+  export enum SelectedResult {
+    /**
+     * Rejected by user.
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @since 22 dynamic&static
+     */
+    REJECTED = -1,
+    /**
+     * Open the setting.
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @since 22 dynamic&static
+     */
+    OPENED = 0,
+    /**
+     * Permission has been granted.
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @since 22 dynamic&static
+     */
+    GRANTED = 1
+  }
 }
 
 export default abilityAccessCtrl;
