@@ -87,6 +87,18 @@ declare namespace avSession {
   function createAVSession(context: Context, tag: string, type: AVSessionType): Promise<AVSession>;
 
   /**
+   * Get an AVSession instance if already created.
+   * @param { Context } context - The context of application
+   * @returns { Promise<AVSession> } Promise for AVSession
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600102 - The session does not exist.
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 21
+   */
+  function getAVSession(context: Context): Promise<AVSession>;
+
+  /**
    * Get all avsession descriptors of the system
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { AsyncCallback<Array<Readonly<AVSessionDescriptor>>> } callback - async callback for an array of AVSessionDescriptors.
@@ -1182,6 +1194,16 @@ declare namespace avSession {
      * @arkts 1.1&1.2
      */
     readonly sessionType: AVSessionType;
+
+    /**
+     * Current session tag.
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 21
+     */
+    readonly sessionTag: string;
 
     /**
      * Set the metadata of this session.
