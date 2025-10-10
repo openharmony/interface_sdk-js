@@ -257,11 +257,11 @@ declare namespace uiObserver {
         /**
          * NavDestination index.
          *
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        index: number;
+        index: int;
         /**
          * The detailed parameter of NavDestination.
          *
@@ -282,11 +282,11 @@ declare namespace uiObserver {
         /**
          * NavDestination uniqueId.
          *
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        uniqueId?: number;
+        uniqueId?: int;
 
         /**
          * NavDestination mode.
@@ -466,11 +466,11 @@ declare namespace uiObserver {
         /**
          * The index of the changed router page in router stack.
          *
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        index: number;
+        index: int;
         
         /**
          * The name of the changed router page.

@@ -368,11 +368,11 @@ export declare interface NavDestinationTransition {
     /**
      * Define the limit duration of the transition animation.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    duration?: number;
+    duration?: int;
 
     /**
      * Define the curve of the transition animation.
@@ -386,11 +386,11 @@ export declare interface NavDestinationTransition {
     /**
      * Define the delay of the transition animation.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    delay?: number;
+    delay?: int;
 
     /**
      * Configure the custom transition event.

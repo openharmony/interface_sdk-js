@@ -57,14 +57,14 @@ export declare class IndicatorComponentController {
   /**
    * Controlling IndicatorComponent to change to the specified subcomponent.
    *
-   * @param { number | undefined } index - The index of item to be redirected, default value is 0.
+   * @param { int | undefined } index - The index of item to be redirected, default value is 0.
    *      undefined means set to default value.
    * @param { boolean } [useAnimation] - If true, swipe to index item with animation. If false, swipe to index item without animation.
    *      The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  changeIndex(index: number | undefined, useAnimation?: boolean): void;
+  changeIndex(index: int | undefined, useAnimation?: boolean): void;
 }
 
 /**
@@ -79,22 +79,22 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
   /**
    * Called when the index value of the displayed subcomponent is set in the container.
    *
-   * @param { number | undefined } index
+   * @param { int | undefined } index
    * @returns { IndicatorComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  initialIndex(index: number | undefined): this;
+  initialIndex(index: int | undefined): this;
 
   /**
    * Sets the total number of indicator.
    *
-   * @param { number | undefined } totalCount
+   * @param { int | undefined } totalCount
    * @returns { IndicatorComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  count(totalCount: number | undefined): this;
+  count(totalCount: int | undefined): this;
 
   /**
    * Sets the indicator style.
@@ -129,12 +129,12 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
   /**
    * Called when the index value changes.
    *
-   * @param { Callback<number> | undefined } event
+   * @param { Callback<int> | undefined } event
    * @returns { IndicatorComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  onChange(event: Callback<number> | undefined): this;
+  onChange(event: Callback<int> | undefined): this;
 }
 
 /**
