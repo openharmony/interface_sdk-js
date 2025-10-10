@@ -1000,6 +1000,14 @@ declare namespace bundleManager {
     FAULT_LOG = 33,
 
     /**
+     * Indicates extension info with type of the notification subscriber
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 22 dynamic&static
+     */
+    NOTIFICATION_SUBSCRIBER = 34,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
