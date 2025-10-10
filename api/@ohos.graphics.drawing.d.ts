@@ -1931,6 +1931,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     isRect(rect: common2D.Rect | null): boolean;
 
@@ -9152,6 +9153,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   class RectUtils {
     /**
@@ -9199,6 +9201,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static getWidth(rect: common2D.Rect): double;
 
@@ -9211,6 +9214,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static getHeight(rect: common2D.Rect): double;
 
@@ -9310,6 +9314,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static intersect(rect: common2D.Rect, other: common2D.Rect): boolean;
 
@@ -9348,6 +9353,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static isEmpty(rect: common2D.Rect): boolean;
 
@@ -9362,6 +9368,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static offset(rect: common2D.Rect, dx: double, dy: double): void;
 
@@ -9424,6 +9431,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static sort(rect: common2D.Rect): void;
 
@@ -9438,6 +9446,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static isEqual(rect: common2D.Rect, other: common2D.Rect): boolean;
   }
