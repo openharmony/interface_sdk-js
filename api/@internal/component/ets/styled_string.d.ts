@@ -1053,6 +1053,18 @@ declare class ParagraphStyle {
      * @since 19
      */
     readonly paragraphSpacing?: number;
+
+    /**
+     * Get the leading margin span of the StyledString.
+     *
+     * @type { ?LeadingMarginSpan } - the leading margin span of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    readonly leadingMarginSpan?: LeadingMarginSpan;
 }
 
 /**
@@ -1152,6 +1164,17 @@ declare interface ParagraphStyleInterface {
      * @since 19
      */
     paragraphSpacing?: LengthMetrics;
+
+    /**
+     * Leading margin span.
+     *
+     * @type { ?LeadingMarginSpan }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    leadingMarginSpan?: LeadingMarginSpan;
 }
 
 /**
@@ -2051,6 +2074,107 @@ declare interface CustomSpanMeasureInfo {
 }
 
 /**
+ * Defines the LeadingMarginSpanDrawInfo interface.
+ *
+ * @interface LeadingMarginSpanDrawInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare interface LeadingMarginSpanDrawInfo {
+    /**
+     * The x offset of the line.
+     * The unit is px.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    x: number;
+
+    /**
+     * The top position of the line.
+     * The unit is px.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    top: number;
+
+    /**
+     * The bottom position of the line.
+     * The unit is px.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    bottom: number;
+
+    /**
+     * The baseline offset of the line.
+     * The unit is px.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    baseline: number;
+
+    /**
+     * The direction of text.
+     *
+     * @type { TextDirection }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 dynamic
+     */
+    direction: TextDirection;
+
+    /**
+     * The start index of the first character in the current line relative to the component text content.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    start: number;
+
+    /**
+     * The end index of the first character in the current line relative to the component text content.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    end: number;
+
+    /**
+     * Whether current line is first line of a paragraph.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    first: boolean;
+}
+
+/**
  * Defines CustomSpan.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2103,3 +2227,35 @@ declare abstract class CustomSpan {
  * @since 12
  */
 declare abstract class UserDataSpan {}
+
+/**
+ * Defines LeadingMarginSpan.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare abstract class LeadingMarginSpan {
+    /**
+     * Draw the leading margin span.
+     *
+     * @param { DrawContext } context
+     * @param { LeadingMarginSpanDrawInfo } drawInfo
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    abstract onDraw(context: DrawContext, drawInfo: LeadingMarginSpanDrawInfo): void;
+    /**
+     * Get the amount by which to adjust the leading margin.
+     *
+     * @returns { LengthMetrics } - the literal content of the StyledString
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    abstract getLeadingMargin(): LengthMetrics;
+}
