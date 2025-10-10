@@ -319,29 +319,11 @@ export declare class SubTabBarStyle {
   /**
    * constructor.
    *
-   * @param { ResourceStr } content - indicates the content of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
-   */
-  constructor(content: ResourceStr);
-  /**
-   * constructor.
-   *
    * @param { ResourceStr | ComponentContent } content - indicates the content of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
   constructor(content: ResourceStr | ComponentContent);
-  /**
-   * Static constructor used to create a SubTabBarStyle instance.
-   *
-   * @param { ResourceStr } content - indicates the content of the sub tab bar
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
-   */
-  static of(content: ResourceStr): SubTabBarStyle;
   /**
    * Static constructor used to create a SubTabBarStyle instance. You can set custom content with ComponentContent.
    *
