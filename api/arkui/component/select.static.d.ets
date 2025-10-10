@@ -32,6 +32,7 @@ import { AttributeModifier, CommonMethod } from './common';
  * @interface SelectOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare interface SelectOption {
     /**
@@ -177,6 +178,7 @@ export declare interface MenuOutlineOptions {
  * @interface SelectAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare interface SelectAttribute extends CommonMethod {
     /**
@@ -362,6 +364,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @returns { SelectAttribute } the attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
+     * @noninterop
      */
     default menuItemContentModifier(modifier: ContentModifier<MenuItemConfiguration> | undefined): this;
     /**
@@ -454,6 +457,7 @@ export declare interface SelectAttribute extends CommonMethod {
  * @interface MenuItemConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConfiguration> {
     /**
@@ -514,6 +518,7 @@ export declare interface MenuItemConfiguration extends CommonConfiguration<MenuI
  * @returns { SelectAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 @memo
 @ComponentBuilder

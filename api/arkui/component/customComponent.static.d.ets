@@ -198,6 +198,7 @@ export declare abstract class EntryPoint {
  * @crossplatform
  * @atomicservice
  * @since 20 static
+ * @noninterop
  */
 @Retention({policy: "SOURCE"})
 export @interface CustomDialog {}

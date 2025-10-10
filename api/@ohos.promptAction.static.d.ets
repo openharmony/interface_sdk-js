@@ -747,6 +747,7 @@ declare namespace promptAction {
         * @type { ?Callback<DismissDialogAction> }
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 staticonly
+        * @noninterop
         */
         onWillDismiss?: Callback<DismissDialogAction>;
         /**

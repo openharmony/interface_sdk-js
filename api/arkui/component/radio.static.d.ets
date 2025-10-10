@@ -145,6 +145,7 @@ export type OnRadioChangeCallback = (isChecked: boolean) => void;
  * @interface RadioAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare interface RadioAttribute extends CommonMethod {
     /**
@@ -237,6 +238,7 @@ export declare interface RadioConfiguration extends CommonConfiguration<RadioCon
  * @returns { RadioAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 @memo
 @ComponentBuilder
