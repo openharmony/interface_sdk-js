@@ -10644,10 +10644,11 @@ export declare interface CommonMethod {
      * @param { VisibleAreaEventOptions | undefined } options - The options for the visibility event.
      * @param { VisibleAreaChangeCallback | undefined } event - The callback will be triggered when the visibleArea of component changed and get close to any number in ratios defined by options.
      *     If set undefined will reset the target callback.
+     * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 20
      */
-    default onVisibleAreaApproximateChange(options: VisibleAreaEventOptions | undefined, event: VisibleAreaChangeCallback | undefined): void;
+    default onVisibleAreaApproximateChange(options: VisibleAreaEventOptions | undefined, event: VisibleAreaChangeCallback | undefined): this;
     /**
      * Applies a spherical effect to the component.
      *
