@@ -9779,7 +9779,7 @@ declare namespace media {
     audioCodec?: CodecMimeType;
 
     /**
-     * AAC profile for AAC audio encoder. If not set, use AAC_LC profile as default .
+     * AAC profile for AAC audio encoder. If not set, use AAC_LC profile as default.
      * @type { ?AacProfile }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @atomicservice
