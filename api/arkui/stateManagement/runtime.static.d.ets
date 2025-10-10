@@ -100,3 +100,6 @@ export declare class SyncedProperty<T> implements MutableState<T> {
  */
 @Retention({policy: "SOURCE"})
 export declare @interface MemoSkip {};
+
+@Retention({policy: "SOURCE"})
+export declare @interface MemoIntrinsic {};

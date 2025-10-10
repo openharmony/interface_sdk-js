@@ -20,7 +20,7 @@
 
 import { memo, ComponentBuilder } from "../stateManagement/runtime";
 import { ExtendableComponent } from './extendableComponent';
-import { GeometryInfo, Layoutable, Measurable, SizeResult } from './common'
+import { CommonAttribute, GeometryInfo, Layoutable, Measurable, SizeResult } from './common'
 import { ConstraintSizeOptions } from './units'
 import { Builder, WrappedBuilder } from './builder'
 import { LocalStorage } from './../stateManagement/storage/localStorage';
@@ -250,7 +250,7 @@ export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_O
  * @atomicservice
  * @since 20 static
  */
-export declare abstract class BaseCustomComponent extends ExtendableComponent {
+export declare abstract class BaseCustomComponent extends ExtendableComponent implements CommonAttribute {
     /**
      * aboutToRecycle Method.
      *
