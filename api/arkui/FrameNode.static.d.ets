@@ -1145,7 +1145,7 @@ export declare namespace typeNode {
    * @param { UIContext } context - uiContext used to create the FrameNode.
    * @returns { Blank } - Return Blank type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   export function createBlankNode(context: UIContext): Blank;
 
