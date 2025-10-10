@@ -8927,7 +8927,6 @@ declare namespace webview {
    * @param { double } width - The width of video tag.
    * @param { double } height - The height of video tag.
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
    * @since 20 static
    */
   type UpdateRectFn = (x: double, y: double, width: double, height: double) => void;
@@ -8980,7 +8979,6 @@ declare namespace webview {
      *
      * @typedef { ZeroParamFn<> }
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
      * @since 20 static
      */
     play: ZeroParamFn<>;
@@ -8999,7 +8997,6 @@ declare namespace webview {
      *
      * @typedef { ZeroParamFn<> }
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
      * @since 20 static
      */
     pause: ZeroParamFn<>;
@@ -9023,7 +9020,6 @@ declare namespace webview {
      *
      * @typedef { OneParamFn<double> }
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
      * @since 20 static
      */
     seek: OneParamFn<double>;
@@ -9047,7 +9043,6 @@ declare namespace webview {
      *
      * @typedef { OneParamFn<double> }
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
      * @since 20 static
      */
     setVolume: OneParamFn<double>;
@@ -9067,7 +9062,6 @@ declare namespace webview {
      *
      * @typedef { OneParamFn<boolean> }
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
      * @since 20 static
      */
     setMuted: OneParamFn<boolean>;
@@ -9091,7 +9085,6 @@ declare namespace webview {
      *
      * @typedef { OneParamFn<double> }
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
      * @since 20 static
      */
     setPlaybackRate: OneParamFn<double>;
@@ -9110,7 +9103,6 @@ declare namespace webview {
      *
      * @typedef { ZeroParamFn<> }
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
      * @since 20 static
      */
     release: ZeroParamFn<>;
@@ -9129,7 +9121,6 @@ declare namespace webview {
      *
      * @typedef { ZeroParamFn<> }
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
      * @since 20 static
      */
     enterFullscreen: ZeroParamFn<>;
@@ -9148,7 +9139,6 @@ declare namespace webview {
      *
      * @typedef { ZeroParamFn<> }
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
      * @since 20 static
      */
     exitFullscreen: ZeroParamFn<>;
