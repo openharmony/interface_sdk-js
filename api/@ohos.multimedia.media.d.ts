@@ -9778,11 +9778,6 @@ declare namespace media {
     audioCodec?: CodecMimeType;
 
     /**
-     * Indicates the audio encoding format.
-     * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 9
-     */
-    /**
      * AAC profile for AAC audio encoder . If not set, use AAC_LC profile as default .
      * @type { ?AacProfile }
      * syscap SystemCapability.Multimedia.Media.AVRecorder
