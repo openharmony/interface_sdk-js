@@ -347,9 +347,22 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
    */
   function on(type: 'netStatsChange', callback: Callback<NetStatsChangeInfo>): void;
+
+  /**
+   * Register notifications of network traffic updates.
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { Callback<NetStatsChangeInfo> } callback - The callback of on.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function onNetStatsChange(callback: Callback<NetStatsChangeInfo>): void;
 
   /**
    * Unregister notifications of network traffic updates.
@@ -378,9 +391,22 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
    */
   function off(type: 'netStatsChange', callback?: Callback<NetStatsChangeInfo>): void;
+
+  /**
+   * Unregister notifications of network traffic updates.
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { Callback<NetStatsChangeInfo> } [callback] - The callback of off.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function offNetStatsChange(callback?: Callback<NetStatsChangeInfo>): void;
 
   /**
    * Get the traffic usage details of the network interface in the specified time period.
