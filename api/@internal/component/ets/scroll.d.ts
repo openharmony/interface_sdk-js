@@ -823,6 +823,18 @@ declare class Scroller {
    * @since 14
    */
   getItemIndex(x: number, y: number): number;
+
+  /**
+   * Obtains the content size.
+   *
+   * @returns { SizeResult } Returns the content size.
+   * @throws { BusinessError } 100004 - Controller not bound to a component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  contentSize() : SizeResult;
 }
 
 /**
