@@ -19,6 +19,7 @@
  */
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent';
+import { ExtraConfig } from './@ohos.inputMethod.ExtraConfig';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import BaseContext from './application/BaseContext';
 import window from './@ohos.window';
@@ -2552,6 +2553,16 @@ declare namespace inputMethodEngine {
      * @since 20
      */
     readonly fluidLightMode?: FluidLightMode;
+
+    /**
+     * Extra config of edit box.
+     *
+     * @type { ?ExtraConfig }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 22
+     */
+    readonly extraConfig?: ExtraConfig;
   }
 
   /**
