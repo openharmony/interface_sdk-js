@@ -109,6 +109,36 @@ declare namespace socket {
   function getDeviceId(clientSocket: number): string;
 
   /**
+   * Obtain the maximum data size that can be received through this socket channel.
+   *
+   * @param { int } clientSocket - Indicates the client socket ID, returned by {@link sppAccept} or {@link sppConnect}.
+   * @returns { int } Maximum received data size
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 22 dynamic
+   */
+  function getMaxReceiveDataSize(clientSocket: int): int;
+
+  /**
+   * Obtain the maximum data size that can be transmitted through this socket channel.
+   *
+   * @param { int } clientSocket - Indicates the client socket ID, returned by {@link sppAccept} or {@link sppConnect}.
+   * @returns { int } Maximum transmitted data size
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 22 dynamic
+   */
+  function getMaxTransmitDataSize(clientSocket: int): int;
+
+  /**
+   * Check whether the current socket connection has been established.
+   *
+   * @param { int } clientSocket - Indicates client socket.
+   * @returns { boolean } Indicates whether or not it is connected.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 22 dynamic
+   */
+  function isConnected(clientSocket: int): boolean;
+
+  /**
    * Disables an spp server socket and releases related resources.
    *
    * @param { number } socket - Indicates the server socket ID, returned by {@link sppListen}.
