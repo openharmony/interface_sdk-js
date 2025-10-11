@@ -472,6 +472,7 @@ declare class LinkedList<T> {
    * @returns { T | undefined } the T type, if the index is
    * out of bounds (greater than or equal to length or less than 0), throw an exception
    * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= ${length}.
+   * @throws { BusinessError } 10200010 - Container is empty.
    * Received value is: ${index}
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -657,25 +658,15 @@ declare class LinkedList<T> {
    * Obtains the first element in this container.
    *
    * @returns { T } the T type ,returns undefined if linkedList is empty
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  getFirst(): T;
-
-  /**
-   * Obtains the first element in this container.
-   *
-   * @returns { T } the T type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
    * @since 20 static
    */
   getFirst(): T;
-
   /**
    * Returns the Last element (the item at index length-1) of this linkedlist.
    * or returns undefined if linkedlist is empty
@@ -699,21 +690,12 @@ declare class LinkedList<T> {
    * Obtains the last element in this container.
    *
    * @returns { T } the T type ,returns undefined if linkedList is empty
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  getLast(): T;
-
-  /**
-   * Obtains the last element in this container.
-   *
-   * @returns { T } the T type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
    * @since 20 static
    */
   getLast(): T;
@@ -757,6 +739,7 @@ declare class LinkedList<T> {
    * @returns { T } the T type ,returns undefined if linkedList is empty
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types;
