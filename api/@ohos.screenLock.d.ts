@@ -467,6 +467,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
+   * @since 20 static
    */
   function requestStrongAuth(reasonFlag: StrongAuthReasonFlags, userId: int): Promise<void>;
 
