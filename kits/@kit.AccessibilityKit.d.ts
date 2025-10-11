@@ -35,8 +35,7 @@ import { AccessibilityAction, AccessibilityEventType } from '@ohos.accessibility
 import config from '@ohos.accessibility.config';
 import accessibility from '@ohos.accessibility';
 import AccessibilityExtensionAbility, {
-  AccessibilityElement, AccessibilityExtensionContext, ElementAttributeKeys,
-  ElementAttributeValues, FocusDirection, FocusType, Rect, WindowType, AccessibilityEvent
+  AccessibilityElement, AccessibilityExtensionContext, FocusDirection, Rect, WindowType, AccessibilityEventInfo
 } from '@ohos.application.AccessibilityExtensionAbility';
 /*** endif */
 
@@ -51,8 +50,7 @@ export {
 
 /*** if arkts static */
 export {
-  AccessibilityElement, AccessibilityExtensionAbility, AccessibilityExtensionContext,
-  ElementAttributeKeys, ElementAttributeValues, FocusDirection, FocusType,
-  Rect, WindowType, accessibility, config, AccessibilityEvent
+  AccessibilityElement, AccessibilityExtensionAbility, AccessibilityExtensionContext, FocusDirection, Rect,
+  WindowType, accessibility, config, AccessibilityEventInfo
 };
 /*** endif */

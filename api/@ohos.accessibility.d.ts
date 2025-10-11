@@ -887,8 +887,7 @@ declare namespace accessibility {
    *
    *{ 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7
    */
   /**
    * The type of the Ability app.
