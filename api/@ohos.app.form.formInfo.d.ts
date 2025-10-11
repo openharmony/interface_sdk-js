@@ -2330,42 +2330,42 @@ declare namespace formInfo {
     /**
      * The left position of rect
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20
      */
-    left: double;
+    left: number;
 
     /**
      * The top position of rect
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20
      */
-    top: double;
+    top: number;
 
     /**
      * The width of rect
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20
      */
-    width: double;
+    width: number;
 
     /**
      * The height of rect
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20
      */
-    height: double;
+    height: number;
   }
 
   /**
