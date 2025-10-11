@@ -1089,6 +1089,40 @@ declare namespace ble {
     removeService(serviceUuid: string): void;
 
     /**
+     * Obtain a specific GATT service by using a UUID.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } serviceUuid - Indicates the UUID of the service.
+     * @returns { GattService } The GATT service has been obtained.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2901008 - Gatt service is not found.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    getService(serviceUuid: string): GattService;
+
+    /**
+     * Obtain the list of GATT services registered by the application.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @returns { GattService[] } The list of GATT service has been obtained.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    getServices(): GattService[];
+
+    /**
      * Closes this {@code GattServer} object and unregisters its callbacks.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -5244,7 +5278,7 @@ declare namespace ble {
 
   /**
    * Describes the contents of the scan report.
-   * 
+   *
    * @typedef ScanReport
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
@@ -6807,7 +6841,7 @@ declare namespace ble {
 
   /**
    * Report mode used during scan.
-   * 
+   *
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
@@ -6978,7 +7012,7 @@ declare namespace ble {
      */
     CONN_UNKNOWN = 4
   }
-  
+
   /**
    * Describes the permission of a att attribute item.
    *
