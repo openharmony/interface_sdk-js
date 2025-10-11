@@ -20,8 +20,9 @@ import { Resource } from '../../global/resource';
 import { ImageAIOptions, ImageAnalyzerConfig } from "./imageCommon";
 import { ImageFit } from "./enums";
 import { CommonMethod, Callback, PixelMap, AttributeModifier } from "./common";
-import { VoidCallback } from "./units";
+import { VoidCallback, ColorMetrics } from "./units";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ErrorCallback } from '../../@ohos.base'
 
 /**
  * Seek mode.
@@ -288,30 +289,14 @@ export declare class VideoController {
      */
     exitFullscreen(): void;
     /**
-     * Provide the progress method of video playback without SeekMode.
-     *
-     * @param { double } value
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    setCurrentTimeDefault(value: double): void;
-    /**
      * Provide the progress method of video playback with SeekMode.
      *
      * @param { double } value
-     * @param { SeekMode } seekMode
+     * @param { SeekMode } [seekMode]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    setCurrentTimeWithMode(value: double, seekMode: SeekMode): void;
-    /**
-     * Provide the progress method of video playback.
-     *
-     * @overload { setCurrentTimeDefault, setCurrentTimeWithMode }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    overload setCurrentTime { setCurrentTimeDefault, setCurrentTimeWithMode };
+    setCurrentTime(value: double, seekMode?: SeekMode): void;
     /**
      * Provide the reset method of video playback.
      *
@@ -451,12 +436,12 @@ export declare interface VideoAttribute extends CommonMethod {
     /**
      * Called when playback fails.
      *
-     * @param { (() => void) | undefined } event
+     * @param { VoidCallback | ErrorCallback | undefined } event
      * @returns { VideoAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default onError(event: (() => void) | undefined): this;
+    default onError(event: VoidCallback | ErrorCallback | undefined): this;
     /**
      * Called when the video is stopped.
      *
@@ -497,6 +482,17 @@ export declare interface VideoAttribute extends CommonMethod {
      * @since 20 static
      */
     default enableShortcutKey(enabled: boolean | undefined): this;
+    /**
+     * Set background color of the surface holden by Video(only support Color.Black and Color.Transparent).
+     *
+     * @param { ColorMetrics | undefined } color - The surface background color.
+     *     Default value is Color.Black, `undefined` means setting to the default value.
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 20 static
+     */
+    default surfaceBackgroundColor(color: ColorMetrics | undefined): this;
     /**
      * Call attributeModifier.
      *

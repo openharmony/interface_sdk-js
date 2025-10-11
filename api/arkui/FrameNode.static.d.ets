@@ -238,31 +238,31 @@ export declare class FrameNode {
   /**
    * Get a child of the current FrameNode by index.
    *
-   * @param { number } index - The index of the desired node in the children of FrameNode.
+   * @param { int } index - The index of the desired node in the children of FrameNode.
    * @param { ExpandMode | undefined } [expandMode] - The expand mode. Default value is ExpandMode.EXPAND.
    * @returns { FrameNode | null } - Returns a FrameNode. When the required node does not exist, returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getChild(index: number, expandMode?: ExpandMode | undefined): FrameNode | null;
+  getChild(index: int, expandMode?: ExpandMode | undefined): FrameNode | null;
 
   /**
    * Get the index of the current FrameNode's first child node which is on the tree.
    *
-   * @returns { number } - Returns the index of the current FrameNode's first child node which is on the tree.
+   * @returns { int } - Returns the index of the current FrameNode's first child node which is on the tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getFirstChildIndexWithoutExpand(): number;
+  getFirstChildIndexWithoutExpand(): int;
 
   /**
    * Get the index of the current FrameNode's last child node which is on the tree.
    *
-   * @returns { number } - Returns the index of the current FrameNode's last child node which is on the tree.
+   * @returns { int } - Returns the index of the current FrameNode's last child node which is on the tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getLastChildIndexWithoutExpand(): number;
+  getLastChildIndexWithoutExpand(): int;
 
   /**
    * Get the first child of the current FrameNode.
@@ -307,23 +307,23 @@ export declare class FrameNode {
   /**
    * Get the children count of the current FrameNode.
    *
-   * @returns { number } - Returns the number of the children of the current FrameNode.
+   * @returns { int } - Returns the number of the children of the current FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getChildrenCount(): number;
+  getChildrenCount(): int;
 
   /**
    * Move node to the target Framenode as child.
    *
    * @param { FrameNode } targetParent - The target parent node.
-   * @param { number } [index] - The index which the node is moved to. If the value is a negative number or invalid,
+   * @param { int } [index] - The index which the node is moved to. If the value is a negative number or invalid,
    * the node is moved to the end of the target parent node. Moves to the end of the target parent node by default.
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  moveTo(targetParent: FrameNode, index?: number): void;
+  moveTo(targetParent: FrameNode, index?: int): void;
 
   /**
    * Dispose the FrameNode immediately.
@@ -426,11 +426,11 @@ export declare class FrameNode {
   /**
    * Get the unique id of the FrameNode.
    *
-   * @returns { number } - Returns the unique id of the FrameNode.
+   * @returns { long } - Returns the unique id of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getUniqueId(): number;
+  getUniqueId(): long;
 
   /**
    * Get the type of the FrameNode. The type is the name of component, for example, the nodeType of Button is "Button",
@@ -445,11 +445,11 @@ export declare class FrameNode {
   /**
    * Get the opacity of the FrameNode.
    *
-   * @returns { number } - Returns the opacity of the FrameNode.
+   * @returns { double } - Returns the opacity of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getOpacity(): number;
+  getOpacity(): double;
 
   /**
    * Get if the FrameNode is visible.
@@ -1257,12 +1257,11 @@ export declare namespace typeNode {
    * Create a FrameNode of List type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'List' } nodeType - node type.
    * @returns { List } - Return List type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  export function createListNode(context: UIContext, nodeType: 'List'): List;
+  export function createListNode(context: UIContext): List;
 
   /**
    * Define the ListItem type of FrameNode.
@@ -1296,12 +1295,11 @@ export declare namespace typeNode {
    * Create a FrameNode of ListItem type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'ListItem' } nodeType - node type.
    * @returns { ListItem } - Return ListItem type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  export function createListItemNode(context: UIContext, nodeType: 'ListItem'): ListItem;
+  export function createListItemNode(context: UIContext): ListItem;
 
   /**
    * Define the ListItemGroup type of FrameNode.
@@ -1335,12 +1333,11 @@ export declare namespace typeNode {
    * Create a FrameNode of ListItemGroup type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'ListItemGroup' } nodeType - node type.
    * @returns { ListItemGroup } - Return ListItemGroup type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  export function createListItemGroupNode(context: UIContext, nodeType: 'ListItemGroup'): ListItemGroup;
+  export function createListItemGroupNode(context: UIContext): ListItemGroup;
 
   /**
    * Define the Progress type of FrameNode.
@@ -1412,12 +1409,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Scroll type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Scroll' } nodeType - node type.
    * @returns { Scroll } - Return Scroll type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  export function createScrollNode(context: UIContext, nodeType: 'Scroll'): Scroll;
+  export function createScrollNode(context: UIContext): Scroll;
 
   /**
    * Define the TextClock type of FrameNode.
@@ -1528,12 +1524,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Grid type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Grid' } nodeType - node type.
    * @returns { Grid } - Return Grid type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  export function createGridNode(context: UIContext, nodeType: 'Grid'): Grid;
+  export function createGridNode(context: UIContext): Grid;
 
   /**
    * Define the GridItem type of FrameNode.
@@ -1567,12 +1562,11 @@ export declare namespace typeNode {
    * Create a FrameNode of GridItem type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'GridItem' } nodeType - node type.
    * @returns { GridItem } - Return GridItem type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  export function createGridItemNode(context: UIContext, nodeType: 'GridItem'): GridItem;
+  export function createGridItemNode(context: UIContext): GridItem;
 
   /**
    * Define the WaterFlow type of FrameNode.
@@ -1606,12 +1600,11 @@ export declare namespace typeNode {
    * Create a FrameNode of WaterFlow type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'WaterFlow' } nodeType - node type.
    * @returns { WaterFlow } - Return WaterFlow type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  export function createWaterFlowNode(context: UIContext, nodeType: 'WaterFlow'): WaterFlow;
+  export function createWaterFlowNode(context: UIContext): WaterFlow;
 
   /**
    * Define the FlowItem type of FrameNode.
@@ -1644,12 +1637,11 @@ export declare namespace typeNode {
    * Create a FrameNode of FlowItem type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'FlowItem' } nodeType - node type.
    * @returns { FlowItem } - Return FlowItem type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  export function createFlowItemNode(context: UIContext, nodeType: 'FlowItem'): FlowItem;
+  export function createFlowItemNode(context: UIContext): FlowItem;
 
   /**
    * Define the Text type of FrameNode.
@@ -2059,37 +2051,45 @@ export declare namespace typeNode {
    * Create a FrameNode of XComponent type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'XComponent' } nodeType - node type.
    * @returns { XComponent } - Return XComponent type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  export function createXComponentNodeDefault(context: UIContext, nodeType: 'XComponent'): XComponent;
+  export function createXComponentNodeDefault(context: UIContext): XComponent;
 
   /**
    * Create a FrameNode of XComponent type with options.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'XComponent' } nodeType - node type.
    * @param { XComponentOptions } value - initialization parameters.
    * @returns { XComponent } - Return XComponent type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  export function createXComponentNodeWithOptions(context: UIContext, nodeType: 'XComponent', value: XComponentOptions): XComponent;
+  export function createXComponentNodeWithOptions(context: UIContext, value: XComponentOptions): XComponent;
 
   /**
    * Create a FrameNode of XComponent type with options for native developing.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'XComponent' } nodeType - node type.
    * @param { NativeXComponentParameters } parameters - initialization parameters.
    * @returns { XComponent } - Return XComponent type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
   export function createXComponentNodeWithNativeParameters(
-    context: UIContext, nodeType: 'XComponent', parameters: NativeXComponentParameters): XComponent;
+    context: UIContext, parameters: NativeXComponentParameters): XComponent;
+  
+  /**
+   * Get the attribute instance of FrameNode which type is XComponent to set attributes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @returns { XComponentAttribute | undefined } - Return the attribute instance of FrameNode,
+   *     and return undefined if it does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  export function getXComponentAttribute(node: FrameNode): XComponentAttribute | undefined;
 
   /**
    * Define the Button type of FrameNode.
@@ -2450,19 +2450,19 @@ export declare class NodeAdapter {
   /**
    * Set the total number of node count.
    *
-   * @param { number } count - The total number of node count.
+   * @param { int } count - The total number of node count.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  set totalNodeCount(count: number);
+  set totalNodeCount(count: int);
   /**
    * Get the total number of node count.
    *
-   * @returns { number } - Return the total number of node count.
+   * @returns { int } - Return the total number of node count.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  get totalNodeCount(): number;
+  get totalNodeCount(): int;
   /**
    * Define the operation of reloading all data.
    *
@@ -2473,39 +2473,39 @@ export declare class NodeAdapter {
   /**
    * Define the data reload operation.Reload a specified amount of data starting from the index value.
    *
-   * @param { number } start - Start loading index values for data.
-   * @param { number } count - Load the number of data.
+   * @param { int } start - Start loading index values for data.
+   * @param { int } count - Load the number of data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  reloadItem(start: number, count: number): void;
+  reloadItem(start: int, count: int): void;
   /**
    * Define data deletion operations.Delete a specified amount of data starting from the index value.
    *
-   * @param { number } start - Start deleting index values for data.
-   * @param { number } count - Delete the number of data.
+   * @param { int } start - Start deleting index values for data.
+   * @param { int } count - Delete the number of data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  removeItem(start: number, count: number): void;
+  removeItem(start: int, count: int): void;
   /**
    * Define data insertion operations.Insert a specified amount of data starting from the index value.
    *
-   * @param { number } start - Start Insert index values for data.
-   * @param { number } count - Insert the number of data.
+   * @param { int } start - Start Insert index values for data.
+   * @param { int } count - Insert the number of data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  insertItem(start: number, count: number): void;
+  insertItem(start: int, count: int): void;
   /**
    * Define data movement operations. Move data from the starting index to the ending index.
    *
-   * @param { number } from - Starting index value.
-   * @param { number } to - End index value.
+   * @param { int } from - Starting index value.
+   * @param { int } to - End index value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  moveItem(from: number, to: number): void;
+  moveItem(from: int, to: int): void;
   /**
    * Obtain all data results.
    *
@@ -2533,39 +2533,39 @@ export declare class NodeAdapter {
      * Call this callback when loading for the first time or when a new node slides in.Used to generate custom IDs,
      * developers need to ensure the uniqueness of the IDs themselves.
      *
-     * @param { number } index - Load the index value of the data.
-     * @returns { number } - Returning the developer's custom ID requires the developer to ensure its uniqueness.
+     * @param { int } index - Load the index value of the data.
+     * @returns { int } - Returning the developer's custom ID requires the developer to ensure its uniqueness.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    onGetChildId(index: number): number;
+    onGetChildId(index: int): int;
     /**
      * Call this callback when loading for the first time or when a new node slides in.
      *
-     * @param { number } index - Load the index value of the data.
+     * @param { int } index - Load the index value of the data.
      * @returns { FrameNode } - Returns the FrameNode node that loads the node.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    onCreateChild(index: number): FrameNode;
+    onCreateChild(index: int): FrameNode;
     /**
      * Called when the child node is about to be destroyed.
      *
-     * @param { number } id - The child node ID that is about to be destroyed.
+     * @param { int } id - The child node ID that is about to be destroyed.
      * @param { FrameNode } node - The FrameNode node that is about to be destroyed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    onDisposeChild(id: number, node: FrameNode): void;
+    onDisposeChild(id: int, node: FrameNode): void;
   /**
    * Call this callback when reloading or reusing.
    *
-   * @param { number } id - The child node ID that is about to be reloaded.
+   * @param { int } id - The child node ID that is about to be reloaded.
    * @param { FrameNode } node - Reused FrameNode nodes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  onUpdateChild(id: number, node: FrameNode): void;
+  onUpdateChild(id: int, node: FrameNode): void;
   /**
    * Add a NodeAdapter to bind to the node.A node can only be bound to one NodeAdapter. Binding failure returns false.
    *

@@ -286,12 +286,12 @@ export declare class Router {
   /**
    * Returns to the specified page.
    *
-   * @param { number } index - index of page.
+   * @param { int } index - index of page.
    * @param { Object } [params] - params of page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  back(index: number, params?: Object): void;
+  back(index: int, params?: Object): void;
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
@@ -1282,52 +1282,46 @@ export declare class UIObserver {
   off(type: 'navDestinationUpdate', callback?: Callback<observer.NavDestinationInfo>): void;
 
   /**
-   * Registers a callback function to be called when the scroll event start or stop.
+   * Registers a callback function to be called when the scroll event starts or stops.
    *
-   * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
    * @param { observer.ObserverOptions } options - The options object.
    * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event
    * start or stop.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  on(type: 'scrollEvent', options: observer.ObserverOptions, callback: Callback<observer.ScrollEventInfo>): void;
+  onScrollEvent(options: observer.ObserverOptions, callback: Callback<observer.ScrollEventInfo>): void;
 
   /**
-   * Removes a callback function that was previously registered with `on()`.
+   * Removes a callback function that was previously registered with `onScrollEvent()`.
    *
-   * @param { 'scrollEvent' } type - The type of event to remove the listener for. Must be 'scrollEvent'.
    * @param { observer.ObserverOptions } options - The options object.
-   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to remove. If not provided, all
-   * callbacks for the given event type and
-   *                                                    scroll ID will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
-   */
-  off(type: 'scrollEvent', options: observer.ObserverOptions, callback?: Callback<observer.ScrollEventInfo>): void;
-
-  /**
-   * Registers a callback function to be called when the scroll event start or stop.
-   *
-   * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
-   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event
-   * start or stop.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
-   */
-  on(type: 'scrollEvent', callback: Callback<observer.ScrollEventInfo>): void;
-
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'scrollEvent'} type - The type of event to remove the listener for. Must be 'scrollEvent'.
    * @param { Callback<observer.ScrollEventInfo> } [callback] - The callback function to remove. If not provided, all
-   * callbacks for the given event type
-   *                                                      will be removed.
+   * callbacks for the given event type and scroll ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  off(type: 'scrollEvent', callback?: Callback<observer.ScrollEventInfo>): void;
+  offScrollEvent(options: observer.ObserverOptions, callback?: Callback<observer.ScrollEventInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the scroll event starts or stops.
+   *
+   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event
+   * start or stop.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  onScrollEvent(callback: Callback<observer.ScrollEventInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `onScrollEvent()`.
+   *
+   * @param { Callback<observer.ScrollEventInfo> } [callback] - The callback function to remove. If not provided, all
+   * callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  offScrollEvent(callback?: Callback<observer.ScrollEventInfo>): void;
 
   /**
    * Registers a callback function to be called when the router page in a ui context is updated.
@@ -1768,6 +1762,129 @@ export declare class UIObserver {
    * @since 20 static
    */
   removeGlobalGestureListener(type: GestureListenerType, callback?: GestureListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called before panGesture onActionStart is called.
+   *
+   * @param { PanListenerCallback } callback - The callback function to be called
+   *     when the panGesture will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  onBeforePanStart(callback: PanListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called before panGesture onActionStart is called.
+   *
+   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  offBeforePanStart(callback?: PanListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called before panGesture onActionEnd is called.
+   *
+   * @param { PanListenerCallback } callback - The callback function to be called
+   *     when the panGesture will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  onBeforePanEnd(callback: PanListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called before panGesture onActionEnd is called.
+   *
+   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  offBeforePanEnd(callback?: PanListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called after panGesture onActionStart is called.
+   *
+   * @param { PanListenerCallback } callback - The callback function to be called
+   *     when the panGesture will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  onAfterPanStart(callback: PanListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called after panGesture onActionStart is called.
+   *
+   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  offAfterPanStart(callback?: PanListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called after panGesture onActionEnd is called.
+   *
+   * @param { PanListenerCallback } callback - The callback function to be called
+   *     when the panGesture will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  onAfterPanEnd(callback: PanListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called after panGesture onActionEnd is called.
+   *
+   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  offAfterPanEnd(callback?: PanListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called when the specific node's render state changed.
+   * This callback will be executed once immediately when the register is successful.
+   * [Notes]:
+   *  1. Be aware of the limit on the number of nodes:
+   *     For performance considerations, the system has imposed a limit on the number of
+   *     nodes that can be registered for monitoring in a single UI instance, exception will be thrown
+   *     if overmuch. Please use this interface with caution.
+   *  2. Understanding scenarios where notifications may not occur:
+   *     In general, within container components that have view or page switching functionality,
+   *     when a view or page within the screen is moved outside the screen, the components previously
+   *     within the screen should be removed from the render tree and should receive a RENDER_OUT
+   *     notification. However, this is not always the case, as some scenarios involve views or components
+   *     being moved outside the screen's display range without triggering a RENDER_OUT notification.
+   *     For example, some components with caching capabilities may affect this behavior, and swiper is one
+   *     such component. The cacheCount property of the swiper component allows you to force, via its second
+   *     parameter isShow, that even if the current page is moved outside the display range, it remains in the
+   *     render tree. This can be useful in scenarios where multiple pages are displayed on the screen simultaneously.
+   *     Another example is scrolling components like list or scroll, where their internal content remains in the
+   *     render tree even if it is scrolled outside the screen's display range, provided that lazyForEach/Repeat is
+   *     not used. As a result, there will be no changes to the render state. Once you understand the principles
+   *     behind the triggers for render state changes, these scenarios will become easier to comprehend.
+   *
+   * @param { NodeIdentity } nodeIdentity - The identity of the target node
+   * @param { NodeRenderStateChangeCallback } callback - The callback function to be called
+   *     when the clickEvent will be trigger or after.
+   * @throws { BusinessError } 161001 - The count of nodes monitoring render state is over the limitation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  onNodeRenderState(nodeIdentity: NodeIdentity, callback: NodeRenderStateChangeCallback): void;
+
+  /**
+   * Removes a callback function to be called before tapGesture is called.
+   *
+   * @param { NodeIdentity } nodeIdentity - The identity of the target node
+   * @param { NodeRenderStateChangeCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  offNodeRenderState(nodeIdentity: NodeIdentity, callback?: NodeRenderStateChangeCallback): void;
 }
 
 /**
@@ -2250,20 +2367,20 @@ export declare abstract class FrameCallback {
   /**
    * Call when a new display frame is being rendered.
    *
-   * @param { number } frameTimeInNano - The frame time in nanoseconds.
+   * @param { long } frameTimeInNano - The frame time in nanoseconds.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  onFrame(frameTimeInNano: number): void;
+  onFrame(frameTimeInNano: long): void;
 
   /**
    * Called at the end of the next idle frame. If there is no next frame, will request one automatically.
    *
-   * @param { number } timeLeftInNano - The remaining time from the deadline for this frame.
+   * @param { long } timeLeftInNano - The remaining time from the deadline for this frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  onIdle(timeLeftInNano: number): void;
+  onIdle(timeLeftInNano: long): void;
 }
 
 /**
@@ -2828,25 +2945,25 @@ export declare class UIContext {
   /**
    * Get page information of the frameNode with uniqueId.
    *
-   * @param { number } id - The uniqueId of the target FrameNode.
+   * @param { long } id - The uniqueId of the target FrameNode.
    * @returns { PageInfo } - The page information of the frameNode with the target uniqueId, includes
    * navDestination and router page information. If the frame node does not have navDestination and
    * router page information, it will return an empty object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getPageInfoByUniqueId(id: number): PageInfo;
+  getPageInfoByUniqueId(id: long): PageInfo;
 
   /**
    * Get navigation information of the frameNode with uniqueId.
    *
-   * @param { number } id - The uniqueId of the target FrameNode.
+   * @param { long } id - The uniqueId of the target FrameNode.
    * @returns { observer.NavigationInfo | undefined } - The navigation information of the frameNode with the
    * target uniqueId, or undefined if the frameNode is not existed or does not have navigation information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getNavigationInfoByUniqueId(id: number): observer.NavigationInfo | undefined;
+  getNavigationInfoByUniqueId(id: long): observer.NavigationInfo | undefined;
 
   /**
    * Dynamic dimming.
@@ -2888,57 +3005,57 @@ export declare class UIContext {
 
   /**
    * Converts a value in vp units to a value in px.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  vp2px(value: number): number;
+  vp2px(value: double): double;
 
   /**
    * Converts a value in px units to a value in vp.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  px2vp(value: number): number;
+  px2vp(value: double): double;
 
   /**
    * Converts a value in fp units to a value in px.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  fp2px(value: number): number;
+  fp2px(value: double): double;
 
   /**
    * Converts a value in px units to a value in fp.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  px2fp(value: number): number;
+  px2fp(value: double): double;
 
   /**
    * Converts a value in lpx units to a value in px.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  lpx2px(value: number): number;
+  lpx2px(value: double): double;
 
   /**
    * Converts a value in px units to a value in lpx.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  px2lpx(value: number): number;
+  px2lpx(value: double): double;
 
   /**
    * Get current LocalStorage shared from stage.
@@ -3059,11 +3176,11 @@ export declare class UIContext {
    * Post a frame callback to run on the next frame after the specified delay.
    *
    * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
-   * @param { number } delayTime - The delay time in milliseconds,
+   * @param { long } delayTime - The delay time in milliseconds,
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  postDelayedFrameCallback(frameCallback: FrameCallback, delayTime: number): void;
+  postDelayedFrameCallback(frameCallback: FrameCallback, delayTime: long): void;
 
   /**
    * Require DynamicSyncScene by id.
@@ -3194,14 +3311,14 @@ export declare class UIContext {
   /**
    * Sets the component freezing flag based on the component uniqueId to prevent the
    * UI component from marking and updating dirty areas.
-   * @param { number } uniqueId - Unique Id of the frame node.
+   * @param { long } uniqueId - Unique Id of the frame node.
    * @param { boolean } isFrozen - whether the component is frozen.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 20 static
    */
-  freezeUINode(uniqueId: number, isFrozen: boolean): void;
+  freezeUINode(uniqueId: long, isFrozen: boolean): void;
 
   /**
    * Get object text menu controller.

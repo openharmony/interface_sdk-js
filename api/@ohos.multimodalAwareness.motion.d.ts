@@ -69,7 +69,7 @@ declare namespace motion {
    */
   export enum HoldingHandStatus {
     /**
-     * indicates no helding has been detected.
+     * indicates no holding has been detected.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20
