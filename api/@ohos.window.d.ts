@@ -10087,6 +10087,27 @@ declare namespace window {
     maximize(presentation?: MaximizePresentation): Promise<void>;
 
     /**
+     * Maximizes the main window.
+     *
+     * @param { MaximizePresentation } [presentation] - Layout when the window is maximized.
+     *     The default value is window.MaximizePresentation.ENTER_IMMERSIVE,
+     *     indicating that the window enters the immersive layout when maximized.
+     * @param { boolean } [acrossDisplay] - Parameter controls the waterfall mode of main windows in the half-folded state.
+     *     The value true Indicates that the window could enter the waterfall mode directly,
+     *     and maintains the waterfall mode when the device is half-folded.
+     *     The default value is false.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Function maximize can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    maximize(presentation?: MaximizePresentation, acrossDisplay?: boolean): Promise<void>;
+
+    /**
      * Set whether to enable a window to resize by drag.
      *
      * @param { boolean } enable - Disable window to resize by drag if false.
