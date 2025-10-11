@@ -50,7 +50,8 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
    * @throws { BusinessError } 16000019 - No matching ability is found.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
+   *     2. The system service failed to communicate with dependency module.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16000071 - App clone is not supported.
    * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
@@ -72,7 +73,8 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
+   *     2. The system service failed to communicate with dependency module.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21
@@ -86,7 +88,8 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
+   *     2. The system service failed to communicate with dependency module.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21
