@@ -574,7 +574,6 @@ declare namespace statistics {
    * Detailed information of statistics.
    * @interface NetStatsInfo
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @systemapi Hide this for inner system use.
    * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
@@ -583,7 +582,6 @@ declare namespace statistics {
      * Bytes of received.
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @systemapi Hide this for inner system use.
      * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -593,7 +591,6 @@ declare namespace statistics {
      * Bytes of send.
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @systemapi Hide this for inner system use.
      * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -603,7 +600,6 @@ declare namespace statistics {
      * Packets of received.
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @systemapi Hide this for inner system use.
      * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -613,7 +609,6 @@ declare namespace statistics {
      * Packets of send.
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @systemapi Hide this for inner system use.
      * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -699,7 +694,6 @@ declare namespace statistics {
    * Parameters for obtaining detailed information on specified network traffic usage.
    * @interface NetworkInfo
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @systemapi Hide this for inner system use.
    * @since arkts{'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
@@ -708,7 +702,6 @@ declare namespace statistics {
      * Network type for querying traffic.
      * @type { NetBearType }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @systemapi Hide this for inner system use.
      * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -717,7 +710,6 @@ declare namespace statistics {
      * Start time for querying traffic.
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @systemapi Hide this for inner system use.
      * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -726,7 +718,6 @@ declare namespace statistics {
      * End time for querying traffic.
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @systemapi Hide this for inner system use.
      * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -735,7 +726,6 @@ declare namespace statistics {
      * SIM card id for querying traffic.
      * @type { ?int }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @systemapi Hide this for inner system use.
      * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -777,6 +767,21 @@ declare namespace statistics {
    * @since 12
    */
   function getTrafficStatsByUidNetwork(uid: int, networkInfo: NetworkInfo): Promise<NetStatsInfoSequence>;
+
+  /**
+   * Get the traffic usage details of the specified network of the calling application
+   *     in the specified time period and the specified networktype.
+   * @param { NetworkInfo } networkInfo - Information about the network to be queried.
+   * @returns { Promise<NetStatsInfo> } The statistics of the calling application.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103017 - Failed to read the database.
+   * @throws { BusinessError } 2103019 - The timestamp in param is invalid.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 22 dynamic&static
+   */
+  function getSelfTrafficStats(networkInfo: NetworkInfo): Promise<NetStatsInfo>;
 }
 
 export default statistics;
