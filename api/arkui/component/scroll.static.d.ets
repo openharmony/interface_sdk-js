@@ -297,7 +297,7 @@ export declare class Scroller {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    currentOffset(): OffsetResult;
+    currentOffset(): OffsetResult | undefined;
     /**
      * Scroll to the specified index.
      *
