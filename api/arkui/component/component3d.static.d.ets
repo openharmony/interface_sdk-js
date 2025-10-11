@@ -76,9 +76,13 @@ export declare interface SceneOptions {
 }
 
 /**
- * @extends CommonMethod<Component3DAttribute>
+ * The Component3DAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface Component3DAttribute
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 static
+ * @noninterop
  */
 export declare interface Component3DAttribute extends CommonMethod {
   /**
@@ -171,6 +175,7 @@ export declare interface Component3DAttribute extends CommonMethod {
  * @returns { Component3DAttribute }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 static
+ * @noninterop
  */
 @memo
 @ComponentBuilder
