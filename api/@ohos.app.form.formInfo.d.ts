@@ -2215,6 +2215,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface OverflowInfo {
     /**
@@ -2224,18 +2225,20 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     area: Rect;
 
     /**
      * The overflow animation duration
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
-    duration: number;
+    duration: int;
 
     /**
      * Whether use default animation, default is true
@@ -2244,6 +2247,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     useDefaultAnimation?: boolean;
   }
@@ -2255,6 +2259,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface OverflowRequest {
     /**
@@ -2264,6 +2269,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     formId: string;
 
@@ -2274,6 +2280,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     isOverflow: boolean;
 
@@ -2284,6 +2291,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     overflowInfo?: OverflowInfo;
   }
@@ -2295,6 +2303,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface ChangeSceneAnimationStateRequest {
     /**
@@ -2304,18 +2313,20 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     formId: string;
 
     /**
      * The state of scene animation.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
-    state: number;
+    state: int;
   }
 
   /**
@@ -2325,47 +2336,52 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface Rect {
     /**
      * The left position of rect
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
-    left: number;
+    left: double;
 
     /**
      * The top position of rect
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
-    top: number;
+    top: double;
 
     /**
      * The width of rect
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
-    width: number;
+    width: double;
 
     /**
      * The height of rect
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
-    height: number;
+    height: double;
   }
 
   /**
@@ -2375,6 +2391,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface FunInteractionParams {
     /**
@@ -2384,6 +2401,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     abilityName?: string;
 
@@ -2394,6 +2412,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     targetBundleName: string;
 
@@ -2404,18 +2423,20 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     subBundleName: string;
 
     /**
      * The duration of the fun interaction form will be paused if not operate, default is 10s
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
-    keepStateDuration? :number;
+    keepStateDuration? :int;
   }
 
   /**
@@ -2425,6 +2446,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface SceneAnimationParams {
     /**
@@ -2434,6 +2456,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     abilityName: string;
 
@@ -2444,6 +2467,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     disabledDesktopBehaviors?: string;
   }
@@ -2451,45 +2475,28 @@ declare namespace formInfo {
   /**
    * Get form rect info callback
    *
-   * @typedef GetFormRectInfoCallback
+   * @typedef { function } GetFormRectInfoCallback
+   * @param { string } formId
+   * @returns { Promise<formInfo.Rect> } form rect info
+   * @throws { BusinessError } 202 - The application must be system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
-  interface GetFormRectInfoCallback {
-    /**
-     * Get form rect info
-     *
-     * @param { string } formId
-     * @returns { Promise<formInfo.Rect> }
-     *
-     * @throws { BusinessError } 202 - The application is not a system application.
-     * @syscap SystemCapability.Ability.Form
-     * @systemapi
-     * @since 20
-     */
-    (formId: string): Promise<formInfo.Rect>;
-  }
+  type GetFormRectInfoCallback = (formId: string) => Promise<formInfo.Rect>;
 
   /**
    * Get live form status info callback
    *
-   * @typedef GetLiveFormStatusCallback
+   * @typedef { function } GetLiveFormStatusCallback
+   * @returns { Record<string, string> } form status info, the key is formId, value is one of "INACTIVE" "PAUSE" "ACTIVE".
+   * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
-  interface GetLiveFormStatusCallback {
-    /**
-     * Get all live form status Record
-     *
-     * @returns { Record<string, string> }
-     * @throws { BusinessError } 202 - The application is not a system application.
-     * @syscap SystemCapability.Ability.Form
-     * @systemapi
-     * @since 20
-     */
-    (): Record<string, string>;
-  }
+  type GetLiveFormStatusCallback = () => Record<string, string>;
 }
 export default formInfo;
