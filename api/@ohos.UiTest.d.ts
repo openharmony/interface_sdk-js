@@ -19,7 +19,7 @@
  */
 
 import { Callback } from './@ohos.base';
-
+ 
 /**
  * Enumerates the string value match pattern.
  *
@@ -38,7 +38,7 @@ import { Callback } from './@ohos.base';
 /**
  * Enumerates the string value match pattern.
  *
- * @enum {number}
+ * @enum {int}
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform
  * @atomicservice
@@ -692,7 +692,7 @@ declare class UiDriver {
 /**
  * Enumerates the window mode of the tested window.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
@@ -779,7 +779,7 @@ declare enum WindowMode {
 /**
  * Enumerates the resize direction for the window.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
@@ -934,7 +934,7 @@ declare enum ResizeDirection {
 /**
  * Enumerates the rotation of the device display.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
@@ -1430,10 +1430,11 @@ declare interface WindowFilter {
 /**
  * Enumerates the window change types that can be listened on.
  *
- * @enum { number }
+ * @enum {int}
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 22
+ * @since arkts {'1.1':'22','1.2':'22'}
+ * @arkts 1.1&1.2
  */
 declare enum WindowChangeType {
   /**
@@ -1441,7 +1442,8 @@ declare enum WindowChangeType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2 
    * @test
    */
   WINDOW_UNDEFINED = 0,
@@ -1450,7 +1452,8 @@ declare enum WindowChangeType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   WINDOW_ADDED = 1,
@@ -1459,7 +1462,8 @@ declare enum WindowChangeType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   WINDOW_REMOVED = 2,
@@ -1468,7 +1472,8 @@ declare enum WindowChangeType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   WINDOW_BOUNDS_CHANGED = 3,
@@ -1477,10 +1482,11 @@ declare enum WindowChangeType {
 /**
  * Enumerates the component event types that can be listened on.
  *
- * @enum { number }
+ * @enum {int}
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 22
+ * @since arkts {'1.1':'22','1.2':'22'}
+ * @arkts 1.1&1.2
  */
 declare enum ComponentEventType {
   /**
@@ -1488,7 +1494,8 @@ declare enum ComponentEventType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   COMPONENT_UNDEFINED = 0,
@@ -1497,7 +1504,8 @@ declare enum ComponentEventType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   COMPONENT_CLICKED = 1,
@@ -1506,7 +1514,8 @@ declare enum ComponentEventType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   COMPONENT_LONG_CLICKED = 2,
@@ -1515,7 +1524,8 @@ declare enum ComponentEventType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   COMPONENT_SCROLL_START = 3,
@@ -1524,7 +1534,8 @@ declare enum ComponentEventType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   COMPONENT_SCROLL_END = 4,
@@ -1533,7 +1544,8 @@ declare enum ComponentEventType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   COMPONENT_TEXT_CHANGED = 5,
@@ -1542,7 +1554,8 @@ declare enum ComponentEventType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   COMPONENT_HOVER_ENTER = 6,
@@ -1551,18 +1564,21 @@ declare enum ComponentEventType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   COMPONENT_HOVER_EXIT = 7,
 }
+
 /**
  * Additional listening options of window change.
  * 
  * @typedef WindowChangeOptions
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 22
+ * @since arkts {'1.1':'22','1.2':'22'}
+ * @arkts 1.1&1.2
  * @test
  */
 declare interface WindowChangeOptions {
@@ -1572,7 +1588,8 @@ declare interface WindowChangeOptions {
    * @type { ?number }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   timeout?: number;
@@ -1581,7 +1598,8 @@ declare interface WindowChangeOptions {
    * @type { ?string }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   bundleName?: string;
@@ -1593,7 +1611,8 @@ declare interface WindowChangeOptions {
  * @typedef ComponentEventOptions
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 22
+ * @since arkts {'1.1':'22','1.2':'22'}
+ * @arkts 1.1&1.2
  * @test
  */
 declare interface ComponentEventOptions {
@@ -1603,7 +1622,8 @@ declare interface ComponentEventOptions {
    * @type { ?number }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   timeout?: number;
@@ -1612,7 +1632,8 @@ declare interface ComponentEventOptions {
    * @type { ?On }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   on?: On;
@@ -1700,7 +1721,8 @@ declare interface UIElementInfo {
    * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   readonly windowChangeType?: WindowChangeType;
@@ -1710,7 +1732,8 @@ declare interface UIElementInfo {
    * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   readonly componentEventType?: ComponentEventType;
@@ -1720,7 +1743,8 @@ declare interface UIElementInfo {
    * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   readonly windowId?: number;
@@ -1730,7 +1754,8 @@ declare interface UIElementInfo {
    * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   readonly componentId?: string;
@@ -1740,7 +1765,8 @@ declare interface UIElementInfo {
    * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   readonly componentRect?: Rect;
@@ -1783,11 +1809,22 @@ declare interface UIEventObserver {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11
    * @test
-   * @arkts 1.1&1.2
    */
   once(type: 'toastShow', callback: Callback<UIElementInfo>): void;
+  
+  /**
+   * Listen for toast show once
+   * 
+   * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22
+   * @test
+   * @arkts 1.2
+   */
+  onceToastShow(callback: Callback<UIElementInfo>): void;
 
   /**
    * Listen for dialog show once
@@ -1807,12 +1844,23 @@ declare interface UIEventObserver {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11
    * @test
-   * @arkts 1.1&1.2
    */
   once(type: 'dialogShow', callback: Callback<UIElementInfo>): void;
-
+  
+  /**
+   * Listen for dialog show once
+   * 
+   * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22
+   * @test
+   * @arkts 1.2
+   */
+  onceDialogShow(callback: Callback<UIElementInfo>): void;
+  
   /**
    * Listen on window change once, additional listening options can be set.
    * 
@@ -1828,6 +1876,21 @@ declare interface UIEventObserver {
    * @test
    */
   once(type: 'windowChange', windowChangeType: WindowChangeType, options: WindowChangeOptions, callback: Callback<UIElementInfo>): void;
+  
+  /**
+   * Listen on window change once, additional listening options can be set.
+   * 
+   * @param { WindowChangeType } windowChangeType - Window change type to be listened on.
+   * @param { WindowChangeOptions } options - Additional listening options of window change.
+   * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
+   * @throws { BusinessError } 17000005 - This operation is not supported.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22
+   * @test
+   * @arkts 1.2
+   */
+  onceWindowChange(windowChangeType: WindowChangeType, options: WindowChangeOptions, callback: Callback<UIElementInfo>): void;
 
   /**
    * Listen on component event once, additional listening options can be set.
@@ -1844,6 +1907,21 @@ declare interface UIEventObserver {
    * @test
    */
   once(type: 'componentEventOccur', componentEventType: ComponentEventType, options: ComponentEventOptions, callback: Callback<UIElementInfo>): void;
+
+  /**
+   * Listen on component event once, additional listening options can be set.
+   * 
+   * @param { ComponentEventType } componentEventType - Component event type to be listened on.
+   * @param { ComponentEventOptions } options - Additional listening options of component event.
+   * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
+   * @throws { BusinessError } 17000005 - This operation is not supported.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22
+   * @test
+   * @arkts 1.2
+   */
+  onceComponentEventOccur(componentEventType: ComponentEventType, options: ComponentEventOptions, callback: Callback<UIElementInfo>): void;
 }
 
 /**
@@ -1864,7 +1942,7 @@ declare interface UIEventObserver {
 /**
  * Enumerates the direction for the UI operation .
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform
  * @atomicservice
@@ -1988,7 +2066,7 @@ declare enum UiDirection {
 /**
  * Enumerates the id of the button on the mouse.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
@@ -3654,21 +3732,6 @@ declare class Component {
     */
    pinchIn(scale: double): Promise<void>;
 
-
-   /**
-    * Scroll on this {@link Component}to find matched {@link Component},applicable to scrollable one.
-    *
-    * @param { On } on - the attribute requirements of the target {@link Component}.
-    * @returns { Promise<Component | null> } the found result, or null if not found.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-    * @throws { BusinessError } 17000002 - The async function is not called with await.
-    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
-    * @syscap SystemCapability.Test.UiTest
-    * @since 20
-    * @test
-    * @arkts 1.2
-    */
-   scrollSearch(on: On): Promise<Component | null>;
   /**
    * Get the description attribute value.
    *
@@ -5015,9 +5078,8 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11
    * @test
-   * @arkts 1.1&1.2
    */
   mouseScroll(p: Point, down: boolean, d: int, key1?: int, key2?: int): Promise<void>;
 
@@ -5121,11 +5183,10 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11
    * @test
-   * @arkts 1.1&1.2
    */
-  mouseLongClick(p: Point, btnId: MouseButton, key1?: int, key2?: int): Promise<void>;
+  mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
 
   /**
    * Long click on the specified location on the screen with the specified mouse button, and press the specified key simultaneously if necessary.
@@ -5174,11 +5235,10 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 20
    * @test
-   * @arkts 1.1&1.2
    */
-  mouseDrag(from: Point, to: Point, speed?: int): Promise<void>;
+  mouseDrag(from: Point, to: Point, speed?: number): Promise<void>;
 
   /**
    * Hold down the left mouse button and drag on the screen between the specified points.
@@ -5358,8 +5418,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   isComponentPresentWhenLongClick(on: On, point: Point, duration?: number): Promise<boolean>;
 
@@ -5378,8 +5439,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   isComponentPresentWhenDrag(on: On, from: Point, to: Point, speed?: number, duration?: number): Promise<boolean>;
 
@@ -5396,8 +5458,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22
+   * @since arkts {'1.1':'22','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   isComponentPresentWhenSwipe(on: On, from: Point, to: Point, speed?: number): Promise<boolean>;
 
