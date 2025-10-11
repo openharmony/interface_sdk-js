@@ -11150,8 +11150,8 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
-   * @since arkts {'1.1':'20', '1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum WindowStageLifecycleEventType {
     /**
@@ -11159,8 +11159,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since arkts {'1.1':'20', '1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     SHOWN = 1,
     /**
@@ -11168,8 +11168,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since arkts {'1.1':'20', '1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     RESUMED = 2,
     /**
@@ -11177,8 +11177,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since arkts {'1.1':'20', '1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     PAUSED = 3,
     /**
@@ -11186,8 +11186,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since arkts {'1.1':'20', '1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     HIDDEN = 4
   }
