@@ -1530,6 +1530,34 @@ declare namespace huks {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Initializes a session for a key operation. This API uses an asynchronous callback to return the
+   * result. huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { string } keyAlias - Alias of the key involved in the initSession operation.
+   * @param { HuksOptions } options - Parameter set used for the initSession operation.
+   * @param { AsyncCallback<HuksSessionHandle> } callback - Callback used to return a session handle for subsequent
+   * operations.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000010 - the number of sessions has reached limit
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the input parameter is invalid
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 22
+   */
   function initSession(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksSessionHandle>): void;
 
   /**
@@ -1582,6 +1610,33 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Initializes a session for a key operation. This API uses a promise to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { string } keyAlias - Alias of the key involved in the initSession operation.
+   * @param { HuksOptions } options - Parameter set used for the initSession operation.
+   * @returns { Promise<HuksSessionHandle> } Promise used to return a session handle for subsequent operations.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000010 - the number of sessions has reached limit
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the input parameter is invalid
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 22
    */
   function initSession(keyAlias: string, options: HuksOptions): Promise<HuksSessionHandle>;
 
@@ -6259,6 +6314,13 @@ declare namespace huks {
      * @since 20
      */
     HUKS_TAG_KEY_OVERRIDE = HuksTagType.HUKS_TAG_TYPE_BOOL | 520,
+    /**
+     * The tag indicates the length of AEAD for CCM mode.
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 22
+    */
+    HUKS_TAG_AE_TAG_LEN = HuksTagType.HUKS_TAG_TYPE_UINT | 521,
 
     /*
      * Other reserved TAG: 601 - 1000
