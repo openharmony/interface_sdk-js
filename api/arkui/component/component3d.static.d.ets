@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { Scene } from './../../../api/@ohos.graphics.scene';
+import { Scene } from './../../@ohos.graphics.scene';
 import { ResourceStr, Dimension } from './units';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
