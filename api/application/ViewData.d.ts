@@ -18,8 +18,14 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import type PageNodeInfo from './PageNodeInfo';
 import type AutoFillRect from './AutoFillRect';
+/*** endif */
+/*** if arkts 1.2 */
+import PageNodeInfo from './PageNodeInfo';
+import AutoFillRect from './AutoFillRect';
+/*** endif */
 
 /**
  * View data for automatic filling.
@@ -28,7 +34,8 @@ import type AutoFillRect from './AutoFillRect';
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default interface ViewData {
   /**
@@ -38,7 +45,8 @@ export default interface ViewData {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleName: string;
 
@@ -49,7 +57,8 @@ export default interface ViewData {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   moduleName: string;
 
@@ -60,7 +69,8 @@ export default interface ViewData {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   abilityName: string;
 
@@ -71,7 +81,8 @@ export default interface ViewData {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pageUrl: string;
 
@@ -82,7 +93,8 @@ export default interface ViewData {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pageNodeInfos: Array<PageNodeInfo>;
 
@@ -93,7 +105,8 @@ export default interface ViewData {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pageRect: AutoFillRect;
 
@@ -104,7 +117,8 @@ export default interface ViewData {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isUserSelected: boolean;
 
@@ -115,7 +129,8 @@ export default interface ViewData {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isOtherAccount: boolean;
 }
