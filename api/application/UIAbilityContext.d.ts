@@ -3905,7 +3905,6 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   restoreWindowStage(localStorage: LocalStorage): void;
 
@@ -4928,7 +4927,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000200 - The caller is not in the appIdentifierAllowList of the target application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   startAppServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -4950,7 +4949,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000200 - The caller is not in the appIdentifierAllowList of the target application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   stopAppServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -4974,7 +4973,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000201 - The target service has not been started yet.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   connectAppServiceExtensionAbility(want: Want, callback: ConnectOptions): long;
 
@@ -4988,7 +4987,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   disconnectAppServiceExtensionAbility(connection: long): Promise<void>;
 }
