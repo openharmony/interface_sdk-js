@@ -18,18 +18,12 @@
  * @kit ArkUI
  */
 
-/*** if arkts static */
-import { Scene } from './../../../api/@ohos.graphics.scene';
-import { ResourceStr, Dimension } from './units';
-import { CommonMethod } from './common';
-/*** endif */
-
 /**
- * Provides methods for controlling the 3d scene 
+ * Provides methods for controlling the 3d scene
  *
  * @typedef { import('../api/@ohos.graphics.scene').Scene }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @atomicservice 
+ * @atomicservice
  * @since 12 dynamic
  */
 declare type Scene = import('../api/@ohos.graphics.scene').Scene;
@@ -40,7 +34,6 @@ declare type Scene = import('../api/@ohos.graphics.scene').Scene;
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare enum ModelType {
   /**
@@ -49,7 +42,6 @@ declare enum ModelType {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   TEXTURE = 0,
 
@@ -59,19 +51,17 @@ declare enum ModelType {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   SURFACE = 1,
 }
 
 /**
- * Scene options used by 3D scene control 
+ * Scene options used by 3D scene control
  *
  * @interface SceneOptions
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface SceneOptions {
   /**
@@ -81,7 +71,6 @@ declare interface SceneOptions {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   scene?: ResourceStr | Scene;
 
@@ -89,35 +78,32 @@ declare interface SceneOptions {
    * Scene type when 3D rendering
    *
    * @type { ?ModelType }
-   * @default ModelType.SURFACE 
+   * @default ModelType.SURFACE
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  modelType?: ModelType; 
+  modelType?: ModelType;
 }
 
 /**
- * Defines Component3D. 
+ * Defines Component3D.
  *
  * @interface Component3DInterface
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  * @noninterop
  */
 interface Component3DInterface {
   /**
-   * SceneOptions used by constructor 
+   * SceneOptions used by constructor
    *
    * @param { SceneOptions } sceneOptions - The 3D scene controller
    * @returns { Component3DAttribute }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   (sceneOptions?: SceneOptions): Component3DAttribute;
 }
@@ -127,7 +113,6 @@ interface Component3DInterface {
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  * @noninterop
  */
 declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
@@ -139,7 +124,6 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   environment(uri: ResourceStr): Component3DAttribute;
 
@@ -152,43 +136,39 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   customRender(uri: ResourceStr, selfRenderUpdate: boolean): Component3DAttribute;
 
   /**
-   * Load shader uri. 
+   * Load shader uri.
    *
    * @param { ResourceStr } uri - The path of custom shader
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   shader(uri: ResourceStr): Component3DAttribute;
 
   /**
-   * Load shader texture uri. 
+   * Load shader texture uri.
    *
    * @param { ResourceStr } uri - The path of texture used by shader
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   shaderImageTexture(uri: ResourceStr): Component3DAttribute;
-  
+
   /**
-   * Buffer input for shader animation 
+   * Buffer input for shader animation
    *
    * @param { Array<number> } buffer - The uniform buffer of shader input
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   shaderInputBuffer(buffer: Array<number>): Component3DAttribute;
 
@@ -200,25 +180,23 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   renderWidth(value: Dimension): Component3DAttribute;
 
   /**
-   * Set render height resolution. 
+   * Set render height resolution.
    *
    * @param { Dimension } value - Height of gpu render target, target would upscale or downscale to view's height.
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   renderHeight(value: Dimension): Component3DAttribute;
 }
 
 /**
- * Defines Component3D component. 
+ * Defines Component3D component.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
