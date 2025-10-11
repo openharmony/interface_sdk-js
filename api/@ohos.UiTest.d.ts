@@ -5235,7 +5235,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since 11
    * @test
    */
   mouseDrag(from: Point, to: Point, speed?: number): Promise<void>;
