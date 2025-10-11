@@ -36,7 +36,7 @@ declare namespace print {
    * @interface PrintTask
    * @syscap SystemCapability.Print.PrintFramework
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface PrintTask {
     /**
@@ -273,7 +273,8 @@ declare namespace print {
      * @param { string } jobId - Indicates print job id.
      * @param { PrintDocumentAdapterState } state - Indicates job changes to this state.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
      * @since 20 static
@@ -2183,7 +2184,7 @@ declare namespace print {
   function off(type: 'printerStateChange', callback?: Callback<boolean>): void;
 
   /**
-   * Register event callback for the state change of printer.
+   * Unregister event callback for the state change of printer.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Callback<boolean> } [callback] - The callback function for state change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -2212,7 +2213,7 @@ declare namespace print {
   function on(type: 'jobStateChange', callback: (state: PrintJobState, job: PrintJob) => void): void;
 
   /**
-   * Register event callback for the state change of printer.
+   * Register event callback for the state change of print job.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Callback<PrintJobState, PrintJob> } callback - The callback function for state change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -2241,7 +2242,7 @@ declare namespace print {
   function off(type: 'jobStateChange', callback?: Callback<boolean>): void;
 
   /**
-   * Register event callback for the state change of printer.
+   * Unregister event callback for the state change of print job.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Callback<boolean> } [callback] - The callback function for state change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -2270,7 +2271,7 @@ declare namespace print {
   function on(type: 'extInfoChange', callback: (extensionId: string, info: string) => void): void;
 
   /**
-   * Register event callback for the state change of printer.
+   * Register event callback for the information change of print extension.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Callback<string, string> } callback - The callback function for information change of print extension.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -2299,7 +2300,7 @@ declare namespace print {
   function off(type: 'extInfoChange', callback?: Callback<boolean>): void;
 
   /**
-   * Register event callback for the state change of printer.
+   * Unregister event callback for the information change of print extension.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Callback<boolean> } [callback] - The callback function for state change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -2644,7 +2645,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 22 static
    */
-  function notifyPrintServiceSpoolerCloserForCancelled(jobId: string, callback: AsyncCallback<void>): void;
+  function notifyPrintServiceSpoolerCloseForCancelled(jobId: string, callback: AsyncCallback<void>): void;
 
   /**
    * Notify print service the information.
@@ -2659,7 +2660,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 22 static
    */
-  function notifyPrintServiceSpoolerCloserForStarted(jobId: string, callback: AsyncCallback<void>): void;
+  function notifyPrintServiceSpoolerCloseForStarted(jobId: string, callback: AsyncCallback<void>): void;
 
   /**
    * Notify print service the information.
