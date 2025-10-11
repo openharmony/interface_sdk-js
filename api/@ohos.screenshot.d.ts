@@ -279,6 +279,16 @@ declare namespace screenshot {
      * @since 14
      */
     displayId?: long;
+
+    /**
+     * List of window ids excluded in the screenshot.
+     *
+     * @type { ?Array<int> }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 21 dynamic&static
+     */
+    blackWindowIds?: Array<int>;
   }
 
   /**
