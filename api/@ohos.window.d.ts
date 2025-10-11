@@ -11426,7 +11426,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     outlineEnabled?: boolean;
 
