@@ -54,11 +54,12 @@ export interface CompatibleComponentInfo {
  * Defines the callback for initializing compatible custom component.
  *
  * @typedef { function } CompatibleInitCallback
+ * @param { ESValue } parent - the parent of compatible custom component
  * @returns { CompatibleComponentInfo } the info of compatible custom component
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export type CompatibleInitCallback = () => CompatibleComponentInfo;
+export type CompatibleInitCallback = (parent: ESValue) => CompatibleComponentInfo;
 
 /**
  * Defines the callback for updating compatible custom component.
