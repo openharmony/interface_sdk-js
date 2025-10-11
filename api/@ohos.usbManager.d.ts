@@ -41,6 +41,7 @@ declare namespace usbManager {
    *
    * @returns { Array<Readonly<USBDevice>> } USB device list.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in.
    * @syscap SystemCapability.USB.USBManager
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -69,6 +70,8 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
+   * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in.
+   * @throws { BusinessError } 14400012 Transmission I/O error.
    * @syscap SystemCapability.USB.USBManager
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -379,12 +382,27 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   function getStringFromFunctions(funcs: FunctionType): string;
 
   /**
+   * Converts the numeric mask combination of a given USB function list to a string descriptor.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @param { int } funcs - numeric mask combination of the function list.
+   * @returns { string } - descriptor of the supported function list.
+   * @throws { BusinessError } 201 Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  function getStringFromFunctions(funcs: int): string;
+
+  /**
    * Sets the current USB function list in Device mode.
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
@@ -416,10 +434,27 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400006 - Unsupported operation. The function is not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   function setDeviceFunctions(funcs: FunctionType): Promise<void>;
+
+  /**
+   * Sets the current USB function list in Device mode.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @param { int } funcs - numeric mask combination of the supported function list.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14400002 - Permission denied. The HDC is disabled by the system.
+   * @throws { BusinessError } 14400006 - Unsupported operation. The function is not supported.
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  function setDeviceFunctions(funcs: int): Promise<void>;
 
   /**
    * Obtains the numeric mask combination for the current USB function list in Device mode.
@@ -441,10 +476,26 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   function getDeviceFunctions(): FunctionType;
+
+  /**
+   * Obtains the numeric mask combination for the current USB function list in Device mode.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @returns { int } the numeric mask combination for the current USB function list in FunctionType.
+   * @throws { BusinessError } 201 Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in.
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  function getDeviceFunctions(): int;
+
   /**
    * Obtains the USBPort list.
    *
@@ -463,6 +514,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since arkts {'1.1':'18', '1.2':'20'}
@@ -716,6 +768,8 @@ declare namespace usbManager {
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14400001 Access right denied. Call requestRight to get the USBDevicePipe access right first.
+   * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in.
    * @syscap SystemCapability.USB.USBManager
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
