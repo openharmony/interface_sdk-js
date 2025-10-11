@@ -37,7 +37,6 @@ export function apiCheckPlugin(): Plugins {
     name: 'api-check-plugins',
     checked: apiCheckCallback,
     clean(): void {
-      console.info('[API_CHECK_PLUGIN] CLEAN');
       WrapperApi.arktsGlobal.clearContext();
     }
   };
@@ -49,7 +48,6 @@ export function apiCheckPlugin(): Plugins {
  * @param { PluginContext } this PluginContext对象
  */
 function apiCheckCallback(this: PluginContext): void {
-  console.info('[API_CHECK_PLUGIN] AFTER CHECKED ENTER');
   try {
     const currentProjectConfig: ProjectConfig | undefined = this.getProjectConfig() as ProjectConfig | undefined;
     if (currentProjectConfig) {
@@ -68,7 +66,6 @@ function apiCheckCallback(this: PluginContext): void {
       console.error(`[API_CHECK_PLUGIN] ${error}`);
     }
   }
-  console.info('[API_CHECK_PLUGIN] AFTER CHECKED EXIT');
 }
 
 /**
