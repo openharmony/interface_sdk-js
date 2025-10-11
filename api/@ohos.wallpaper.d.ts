@@ -27,6 +27,7 @@ import image from './@ohos.multimedia.image';
  * @namespace wallpaper
  * @syscap SystemCapability.MiscServices.Wallpaper
  * @since 7 dynamic
+ * @since 20 static
  */
 declare namespace wallpaper {
   /**
@@ -82,6 +83,7 @@ declare namespace wallpaper {
    * @enum { number } WallpaperType
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamic
+   * @since 20 static
    */
   enum WallpaperType {
     /**
@@ -89,6 +91,7 @@ declare namespace wallpaper {
      *
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @since 7 dynamic
+     * @since 20 static
      */
     WALLPAPER_SYSTEM,
     /**
@@ -96,6 +99,7 @@ declare namespace wallpaper {
      *
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @since 7 dynamic
+     * @since 20 static
      */
     WALLPAPER_LOCKSCREEN
   }
@@ -107,6 +111,7 @@ declare namespace wallpaper {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 14 dynamic
+   * @since 20 static
    */
   interface WallpaperInfo {
     /**
@@ -116,6 +121,7 @@ declare namespace wallpaper {
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
+     * @since 20 static
      */
     foldState: FoldState;
     /**
@@ -125,6 +131,7 @@ declare namespace wallpaper {
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
+     * @since 20 static
      */
     rotateState: RotateState;
     /**
@@ -134,6 +141,7 @@ declare namespace wallpaper {
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
+     * @since 20 static
      */
     source: string;
   }
@@ -145,6 +153,7 @@ declare namespace wallpaper {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 14 dynamic
+   * @since 20 static
    */
   enum FoldState {
     /**
@@ -153,6 +162,7 @@ declare namespace wallpaper {
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
+     * @since 20 static
      */
     NORMAL = 0,
     /**
@@ -161,6 +171,7 @@ declare namespace wallpaper {
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
+     * @since 20 static
      */
     UNFOLD_ONCE_STATE = 1,
     /**
@@ -169,6 +180,7 @@ declare namespace wallpaper {
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
+     * @since 20 static
      */
     UNFOLD_TWICE_STATE = 2
   }
@@ -180,6 +192,7 @@ declare namespace wallpaper {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 14 dynamic
+   * @since 20 static
    */
   enum RotateState {
     /**
@@ -188,6 +201,7 @@ declare namespace wallpaper {
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
+     * @since 20 static
      */
     PORTRAIT = 0,
     /**
@@ -196,6 +210,7 @@ declare namespace wallpaper {
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
+     * @since 20 static
      */
     LANDSCAPE = 1
   }
@@ -203,10 +218,11 @@ declare namespace wallpaper {
   /**
    * Indicates the resource type of the wallpaper.
    *
-   * @enum { number } WallpaperResourceType
+   * @enum { int } WallpaperResourceType
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 20 static
    */
   enum WallpaperResourceType {
     /**
@@ -215,6 +231,7 @@ declare namespace wallpaper {
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 20 static
      */
     DEFAULT,
     /**
@@ -223,6 +240,7 @@ declare namespace wallpaper {
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 20 static
      */
     PICTURE,
     /**
@@ -231,6 +249,7 @@ declare namespace wallpaper {
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 20 static
      */
     VIDEO,
     /**
@@ -239,6 +258,7 @@ declare namespace wallpaper {
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 20 static
      */
     PACKAGE
   }
@@ -276,6 +296,7 @@ declare namespace wallpaper {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 20 static
    */
   function getColorsSync(wallpaperType: WallpaperType): Array<RgbaColor>;
 
@@ -352,13 +373,14 @@ declare namespace wallpaper {
   /**
    * Obtains the minimum height of the wallpaper. in pixels. returns 0 if no wallpaper has been set.
    *
-   * @returns { number } the number returned by the function.
+   * @returns { int } the number returned by the function.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 20 static
    */
-  function getMinHeightSync(): number;
+  function getMinHeightSync(): int;
 
   /**
    * Obtains the minimum width of the wallpaper. in pixels. returns 0 if no wallpaper has been set.
@@ -383,13 +405,14 @@ declare namespace wallpaper {
   /**
    * Obtains the minimum width of the wallpaper. in pixels. returns 0 if no wallpaper has been set.
    *
-   * @returns { number } the number returned by the function.
+   * @returns { int } the number returned by the function.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 20 static
    */
-  function getMinWidthSync(): number;
+  function getMinWidthSync(): int;
 
   /**
    * Checks whether to allow the application to change the wallpaper for the current user.
@@ -472,6 +495,7 @@ declare namespace wallpaper {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 20 static
    */
   function restore(wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
 
@@ -488,6 +512,7 @@ declare namespace wallpaper {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 20 static
    */
   function restore(wallpaperType: WallpaperType): Promise<void>;
 
@@ -535,6 +560,7 @@ declare namespace wallpaper {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 20 static
    */
   function setImage(source: string | image.PixelMap, wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
 
@@ -552,6 +578,7 @@ declare namespace wallpaper {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 20 static
    */
   function setImage(source: string | image.PixelMap, wallpaperType: WallpaperType): Promise<void>;
 
@@ -594,6 +621,7 @@ declare namespace wallpaper {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 20 static
    */
   function getImage(wallpaperType: WallpaperType, callback: AsyncCallback<image.PixelMap>): void;
 
@@ -610,6 +638,7 @@ declare namespace wallpaper {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 20 static
    */
   function getImage(wallpaperType: WallpaperType): Promise<image.PixelMap>;
 
@@ -627,6 +656,7 @@ declare namespace wallpaper {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 20 static
    */
   function setVideo(source: string, wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
 
@@ -644,6 +674,7 @@ declare namespace wallpaper {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 20 static
    */
   function setVideo(source: string, wallpaperType: WallpaperType): Promise<void>;
 
@@ -661,6 +692,7 @@ declare namespace wallpaper {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 20 static
    */
   function setCustomWallpaper(source: string, wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
 
@@ -678,6 +710,7 @@ declare namespace wallpaper {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 20 static
    */
   function setCustomWallpaper(source: string, wallpaperType: WallpaperType): Promise<void>;
 
@@ -691,6 +724,18 @@ declare namespace wallpaper {
    * @deprecated since 9
    */
   function on(type: 'colorChange', callback: (colors: Array<RgbaColor>, wallpaperType: WallpaperType) => void): void;
+
+  /**
+   * Defines a callback used to return wallpaper change.
+     *
+   * @typedef { function } WallpaperChangeObserver
+   * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
+   * @param { WallpaperResourceType } resourceType - indicates the resource type of the wallpaper.
+   * @param { string } [uri] - indicates the wallpaper resource address.
+   * @syscap SystemCapability.MiscServices.Wallpaper
+   * @since 22
+   */
+  type WallpaperChangeObserver = (wallpaperType: WallpaperType, resourceType: WallpaperResourceType, uri?: string) => void;
 
   /**
    * Registers a listener for wallpaper changes to receive notifications about the changes.
@@ -710,6 +755,18 @@ declare namespace wallpaper {
     type: 'wallpaperChange',
     callback: (wallpaperType: WallpaperType, resourceType: WallpaperResourceType, uri?: string) => void
   ): void;
+
+  /**
+   * Registers a listener for wallpaper changes to receive notifications about the changes.
+   *
+   * @param { WallpaperChangeObserver } callback - The observer of wallpaper change.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses
+   *     system API.
+   * @syscap SystemCapability.MiscServices.Wallpaper
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function onWallpaperChange(callback: WallpaperChangeObserver): void;
 
   /**
    * Unregisters a listener for wallpaper color changes.
@@ -735,11 +792,24 @@ declare namespace wallpaper {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 20 static
    */
   function off(
     type: 'wallpaperChange',
     callback?: (wallpaperType: WallpaperType, resourceType: WallpaperResourceType, uri?: string) => void
   ): void;
+
+  /**
+   * Unregisters a listener for wallpaper changes.
+   *
+   * @param { WallpaperChangeObserver } [callback] - The observer of wallpaper change.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses 
+   *     system API.
+   * @syscap SystemCapability.MiscServices.Wallpaper
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function offWallpaperChange(callback?: WallpaperChangeObserver): void;
 
   /**
  * Set wallpapers for all forms of devices.
@@ -758,6 +828,7 @@ declare namespace wallpaper {
  * @syscap SystemCapability.MiscServices.Wallpaper
  * @systemapi Hide this for inner system use.
  * @since 14 dynamic
+ * @since 20 static
  */
   function setAllWallpapers(wallpaperInfos: Array<WallpaperInfo>, wallpaperType: WallpaperType): Promise<void>;
 
@@ -779,6 +850,7 @@ declare namespace wallpaper {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 14 dynamic
+   * @since 20 static
    */
   function getWallpaperByState(wallpaperType: WallpaperType, foldState: FoldState, rotateState: RotateState): Promise<image.PixelMap>;
 }
