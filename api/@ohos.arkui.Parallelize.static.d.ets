@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { memo, ComponentBuilder } from './arkui/stateManagement/runtime'
+import { memo } from './arkui/stateManagement/runtime'
 
 /**
 * Describe the options for the ParallelizeUI.
@@ -39,27 +39,52 @@ export interface ParallelOption {
 }
 
 /**
-* Defines the ParallelizeUI attribute interface
-*
-* @interface UIParallelAttribute
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 20 static
-*/
-export interface UIParallelAttribute {
-}
-
-/**
  * Define the constructor of ParallelizeUI.
  * 
  * @param { ParallelOption | undefined } [options] - ParallelizeUI Option
- * @param { () => void } [content_] - tail closure for ParallelizeUI
- * @returns { UIParallelAttribute }
+ * @param { () => void } [content_] - Parallel creation of content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-@ComponentBuilder
+@memo
 export declare function ParallelizeUI(
-  options?: ParallelOption | undefined,
+  options: ParallelOption | undefined,
   @memo
-  content_?: () => void,
-): UIParallelAttribute
+  content_: () => void,
+): void
+
+/**
+ * Define the constructor of ParallelizeUI.
+ *
+ * @param { ParallelOption | undefined } [options] - ParallelizeUI Option
+ * @param { () => T } [param] - ParallelizeUI parameter
+ * @param { (param: T) => void } [content_] - Parallel creation of content
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+@memo
+export declare function ParallelizeUI<T>(
+  options: ParallelOption | undefined,
+  param: () => T,
+  @memo
+  content_: (param: T) => void,
+): void
+
+/**
+ * Define the constructor of ParallelizeUI for loop-based item creation.
+ *
+ * @param { ParallelOption | undefined } [options] - ParallelizeUI Option
+ * @param { Array<V> } [arr] - The array collection to be used in UI
+ * @param { (item: V, index: int) => T } [param] - Define item generator function
+ * @param { (param: T) => void } [content_] - Parallel creation of content
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+@memo
+export declare function ParallelizeUI<V, T>(
+  options: ParallelOption | undefined,
+  arr: Array<V>,
+  param: (item: V, index: int) => T,
+  @memo
+  content_: (param: T) => void
+): void
