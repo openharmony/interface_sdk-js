@@ -362,13 +362,13 @@ declare namespace restrictions {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
+   *     The admin must have the corresponding permission.
    * @param { string } feature - feature indicates the specific feature to be disallowed or allowed,
-   *                             the supported device features are as follows:
-   *                             modifyDateTime, bluetooth, printer, hdc, microphone, fingerprint, usb, wifi, tethering, inactiveUserFreeze, camera,
-   *                             mtpClient, mtpServer, globalDrag, externalSdCard, backupAndRestore, notification, mms, sms, remoteDiagnosis, remoteDesk,
-   *                             nfc, privateSpace, vpn, airplaneMode, mobileData, maintenanceMode, sambaClient, sambaServer, appClone,
-   *                             externalStorageCard, randomMac, muteDevice.
+   *     the supported device features are as follows:
+   *     modifyDateTime, bluetooth, printer, hdc, microphone, fingerprint, usb, wifi, tethering, inactiveUserFreeze, camera,
+   *     mtpClient, mtpServer, globalDrag, externalSdCard, backupAndRestore, notification, mms, sms, remoteDiagnosis, remoteDesk,
+   *     nfc, privateSpace, vpn, airplaneMode, mobileData, maintenanceMode, sambaClient, sambaServer, appClone,
+   *     externalStorageCard, randomMac, unmuteDevice.
    * @param { boolean } disallow - true if disallow the specific feature of device, otherwise false.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -460,13 +460,13 @@ declare namespace restrictions {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
    * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
-   *                         If the admin is not empty, it must have the corresponding permission.
+   *     If the admin is not empty, it must have the corresponding permission.
    * @param { string } feature - feature indicates the specific feature to be queried,
-   *                             the supported device features are as follows:
-   *                             modifyDateTime, bluetooth, printer, hdc, microphone, fingerprint, usb, wifi, tethering, inactiveUserFreeze, camera,
-   *                             mtpClient, mtpServer, globalDrag, externalSdCard, backupAndRestore, notification, mms, sms, remoteDiagnosis, remoteDesk,
-   *                             nfc, privateSpace, vpn, airplaneMode, mobileData, maintenanceMode, sambaClient, sambaServer, appClone, externalStorageCard,
-   *                             randomMac, muteDevice.
+   *     the supported device features are as follows:
+   *     modifyDateTime, bluetooth, printer, hdc, microphone, fingerprint, usb, wifi, tethering, inactiveUserFreeze, camera,
+   *     mtpClient, mtpServer, globalDrag, externalSdCard, backupAndRestore, notification, mms, sms, remoteDiagnosis, remoteDesk,
+   *     nfc, privateSpace, vpn, airplaneMode, mobileData, maintenanceMode, sambaClient, sambaServer, appClone, externalStorageCard,
+   *     randomMac, unmuteDevice.
    * @returns { boolean } true if the specific feature of device is disallowed, otherwise false.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
