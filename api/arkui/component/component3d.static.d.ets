@@ -44,7 +44,7 @@ export declare enum ModelType {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 static
    */
-  SURFACE = 1,
+  SURFACE = 1
 }
 
 /**
@@ -79,7 +79,6 @@ export declare interface SceneOptions {
  * @extends CommonMethod<Component3DAttribute>
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 static
- * @noninterop
  */
 export declare interface Component3DAttribute extends CommonMethod {
   /**
@@ -151,7 +150,7 @@ export declare interface Component3DAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 static
    */
-  default enderHeight(value: Dimension | undefined): this;
+  default renderHeight(value: Dimension | undefined): this;
 
   /**
    * Set the attribute modifier
@@ -172,11 +171,10 @@ export declare interface Component3DAttribute extends CommonMethod {
  * @returns { Component3DAttribute }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 static
- * @noninterop
  */
 @memo
 @ComponentBuilder
-export declare function Component3D (
+export declare function Component3D(
     sceneOptions?: SceneOptions,
     @memo
     content_?: () => void,
