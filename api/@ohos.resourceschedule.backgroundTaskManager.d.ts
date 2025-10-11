@@ -80,7 +80,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21
      */
-    combinedTaskNotification?: boolean = false;
+    combinedTaskNotification?: boolean;
 
     /**
      * The continuous task id, default -1.
@@ -89,7 +89,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21
      */
-    continuousTaskId?: number = -1;
+    continuousTaskId?: number;
 
     /**
      * Whether the modes of continuous task are supported.
