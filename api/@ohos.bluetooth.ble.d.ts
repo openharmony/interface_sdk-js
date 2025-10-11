@@ -3382,6 +3382,35 @@ declare namespace ble {
      * @since 13
      */
     off(type: 'BLEMtuChange', callback?: Callback<number>): void;
+
+    /**
+     * Subscribe to GATT service changed event. Receiving this event indicates that
+     * the peer GATT database has been refreshed, and it is necessary to re-fetch the GATT service list.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'serviceChange' } type - Type of the service changed event to listen for.
+     * @param { Callback<void> } callback - Callback used to listen for the service changed event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    on(type: 'serviceChange', callback: Callback<void>): void;
+
+    /**
+     * Unsubscribe to GATT service changed event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'serviceChange' } type - Type of the service changed event to listen for.
+     * @param { Callback<void> } [callback] - Callback used to listen for the service changed event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    off(type: 'serviceChange', callback?: Callback<void>): void;
   }
 
   /**
