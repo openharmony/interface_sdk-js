@@ -27,5 +27,6 @@ import { RatingAttribute } from './component/rating';
  * @implements { RatingAttribute, AttributeModifier<RatingAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare class RatingModifier implements RatingAttribute, AttributeModifier<RatingAttribute> {}

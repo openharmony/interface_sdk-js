@@ -140,6 +140,7 @@ interface SheetInfo {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 declare interface DismissDialogAction {
   /**

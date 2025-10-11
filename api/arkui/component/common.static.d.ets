@@ -7996,6 +7996,7 @@ export declare interface NestedScrollOptions {
  * @interface MenuElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare interface MenuElement {
     /**

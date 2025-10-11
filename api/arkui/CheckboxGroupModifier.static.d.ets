@@ -27,5 +27,6 @@ import { CheckboxGroupAttribute } from './component/checkboxgroup';
  * @implements { CheckboxGroupAttribute, AttributeModifier<CheckboxGroupAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare class CheckboxGroupModifier implements CheckboxGroupAttribute, AttributeModifier<CheckboxGroupAttribute> {}

@@ -29,6 +29,7 @@ import { AttributeModifier, CommonMethod } from './common';
  * @interface MenuItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare interface MenuItemOptions {
     /**
@@ -95,6 +96,7 @@ export declare interface MenuItemOptions {
  * @interface MenuItemAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare interface MenuItemAttribute extends CommonMethod {
     /**
@@ -187,6 +189,7 @@ export declare interface MenuItemAttribute extends CommonMethod {
  * @returns { MenuItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 @memo
 @ComponentBuilder

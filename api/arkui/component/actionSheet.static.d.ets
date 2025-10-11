@@ -65,6 +65,7 @@ export interface SheetInfo {
  * @interface DismissDialogAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare interface DismissDialogAction {
     /**
@@ -351,6 +352,7 @@ export interface ActionSheetOptions {
      * @type { ?Callback<DismissDialogAction> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
+     * @noninterop
      */
     onWillDismiss?: Callback<DismissDialogAction>;
     /**

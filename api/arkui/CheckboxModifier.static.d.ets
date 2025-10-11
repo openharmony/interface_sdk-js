@@ -27,5 +27,6 @@ import { CheckboxAttribute } from '@ohos.arkui.component';
  * @implements { CheckboxAttribute, AttributeModifier<CheckboxAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare class CheckboxModifier implements CheckboxAttribute, AttributeModifier<CheckboxAttribute> {}
