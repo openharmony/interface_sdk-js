@@ -25,3 +25,5 @@ export { promptAction, ComponentContent };
 export * from '@ohos.arkui.component';
 export * from '@ohos.arkui.stateManagement';
 export { GETINSPECTORBYKEY as getInspectorByKey, GETINSPECTORTREE as getInspectorTree , SENDEVENTBYKEY as sendEventByKey } from '@ohos.arkui.inspector';
+
+export * from '@ohos.arkui.advanced.SegmentButton';
