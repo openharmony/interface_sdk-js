@@ -44,6 +44,7 @@ import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 /*** if arkts 1.2 */
 import _UIAbilityContext from './application/UIAbilityContext';
 import _UIExtensionContext from './application/UIExtensionContext';
+import _AutoFillExtensionContext from './application/AutoFillExtensionContext';
 import _UIServiceExtensionContext from './application/UIServiceExtensionContext';
 import _AbilityStageContext from './application/AbilityStageContext';
 import _ApplicationContext from './application/ApplicationContext';
@@ -488,6 +489,19 @@ declare namespace common {
    * @since 11
    */
   export type AutoFillExtensionContext = _AutoFillExtensionContext.default;
+
+  /**
+   * The context of auto fill extension. It allows access to
+   * AutoFillExtension-specific resources.
+   *
+   * @typedef { _AutoFillExtensionContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AutoFillExtensionContext = _AutoFillExtensionContext;
 
   /**
    * The function Called when some error occurred except disconnected from UIAbility or UIExtensionAbility
