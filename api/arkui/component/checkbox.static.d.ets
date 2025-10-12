@@ -107,7 +107,6 @@ export type OnCheckboxChangeCallback = (value: boolean) => void;
  * @interface CheckboxAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
- * @noninterop
  */
 export declare interface CheckboxAttribute extends CommonMethod {
     /**
@@ -195,7 +194,6 @@ export declare interface CheckboxAttribute extends CommonMethod {
  * @returns { CheckboxAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
- * @noninterop
  */
 @memo
 @ComponentBuilder

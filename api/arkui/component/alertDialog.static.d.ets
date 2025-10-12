@@ -381,7 +381,6 @@ export declare interface AlertDialogParam {
      * @type { ?Callback<DismissDialogAction> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
-     * @noninterop
      */
     onWillDismiss?: Callback<DismissDialogAction>;
     /**

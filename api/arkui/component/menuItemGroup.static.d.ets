@@ -55,7 +55,6 @@ export declare interface MenuItemGroupOptions {
  * @interface MenuItemGroupAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
- * @noninterop
  */
 export declare interface MenuItemGroupAttribute extends CommonMethod {
     /**
@@ -78,7 +77,6 @@ export declare interface MenuItemGroupAttribute extends CommonMethod {
  * @returns { MenuItemGroupAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
- * @noninterop
  */
 @memo
 @ComponentBuilder

@@ -238,7 +238,6 @@ export declare interface ButtonOptions {
  * @interface ButtonLabelStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
- * @noninterop
  */
 export declare interface ButtonLabelStyle {
     /**
@@ -298,7 +297,6 @@ export declare interface ButtonLabelStyle {
  * @interface ButtonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
- * @noninterop
  */
 export declare interface ButtonAttribute extends CommonMethod {
     /**
@@ -407,7 +405,6 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
-     * @noninterop
      */
     default labelStyle(value: ButtonLabelStyle | undefined): this;
     /**
@@ -449,7 +446,6 @@ export declare interface ButtonAttribute extends CommonMethod {
  * @returns { ButtonAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
- * @noninterop
  */
 @memo
 @ComponentBuilder
