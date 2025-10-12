@@ -2389,6 +2389,25 @@ declare namespace inputMethodEngine {
     getSystemPanelCurrentInsets(displayId: number): Promise<SystemPanelInsets>;
 
     /**
+     * Set current panel's shadow.
+     * It cannot be used for SOFT_KEYBOARD panel with FLG_FIXED.
+     *
+     * @param { double } radius - the radius of the shadow, unit is px.
+     * @param { string } color - the color of the shadow,
+     *     the value range is [#00000000, #FFFFFFFF] or [#000000, #FFFFFF].
+     * @param { double } offsetX - the offset of the shadow on the x-axis, unit is px.
+     * @param { double } offsetY - the offset of the shadow on the y-axis, unit is px.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
+     *     Possible causes: Panel's flag is FLG_FIXED.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    setShadow(radius: double, color: string, offsetX: double, offsetY: double): void;
+
+    /**
      * Set current panel function key color and background color.
      * It is only used for function key with raised areas of the panel.
      *

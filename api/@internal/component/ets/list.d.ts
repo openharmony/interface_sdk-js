@@ -1524,6 +1524,22 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   lanes(value: number | LengthConstrain, gutter?: Dimension): ListAttribute;
 
   /**
+   * Sets the number of columns or rows in the list. If the value is set to the gutter type, it indicates the gap
+   * between columns. It takes effect when the number of columns is greater than 1.
+   *
+   * @param { number | LengthConstrain | ItemFillPolicy } value - Number of columns or rows in the list.
+   *     <br>Default value: <em>1</em>
+   * @param { Dimension } [gutter] - Gap between columns.<br>Default value: <em>0</em>
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22
+   */
+  lanes(value: number | LengthConstrain | ItemFillPolicy, gutter?: Dimension): ListAttribute;
+
+  /**
    * Called when need to decide how to align lanes in the direction of the cross axis.
    *
    * @param { ListItemAlign } value

@@ -4963,6 +4963,35 @@ declare class UIAbilityContext extends Context {
    * @since 20
    */
   setOnNewWantSkipScenarios(scenarios: number): Promise<void>;
+
+  /**
+  * Launch the application's own UIAbility in the current process.
+  * If the launchMode of UIAbility is specified, you can set specified flag.
+  *
+  * @param { Want } want - Indicates the ability to start.
+  * @param { string } specifiedFlag - If the launchType of target UIAbility is specified,
+  *     you can set specifiedFlag by this param, and system will not call onAcceptWant.
+  * @param { StartOptions } [options] - Indicates the start options.
+  * @returns { Promise<void> } The promise returned by the function.
+  * @throws { BusinessError } 801 - Capability not supported.
+  * @throws { BusinessError } 16000001 - The specified ability does not exist.
+  * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+  * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+  * @throws { BusinessError } 16000011 - The context does not exist.
+  * @throws { BusinessError } 16000050 - Internal error. Connect to system service failed.
+  * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+  * @throws { BusinessError } 16000122 - The target component is blocked by the system module and
+  *     does not support startup.
+  * @throws { BusinessError } 16000123 - Implicit startup is not supported.
+  * @throws { BusinessError } 16000124 - Starting a remote UIAbility is not supported.
+  * @throws { BusinessError } 16000130 - The UIAbility not belong to caller.
+  * @throws { BusinessError } 16000131 - The UIAbility is already exist, can not start again.
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @stagemodelonly
+  * @since 21
+  * @arkts 1.1&1.2
+  */
+  startSelfUIAbilityInCurrentProcess(want: Want, specifiedFlag: string, options?: StartOptions): Promise<void>;
 }
 
 export default UIAbilityContext;

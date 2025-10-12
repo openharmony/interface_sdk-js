@@ -1060,7 +1060,8 @@ declare namespace hidebug {
    *
    * @interface GwpAsanOptions
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface GwpAsanOptions {
     /**
@@ -1068,7 +1069,8 @@ declare namespace hidebug {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     alwaysEnabled?: boolean;
     /**
@@ -1076,7 +1078,8 @@ declare namespace hidebug {
      *
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     sampleRate?: int;
     /**
@@ -1084,7 +1087,8 @@ declare namespace hidebug {
      *
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     maxSimutaneousAllocations?: int;
   }
@@ -1095,7 +1099,8 @@ declare namespace hidebug {
    * @param { int } [duration] - The duration days of GWP-ASAN grayscale.
    * @throws { BusinessError } 11400114 - The number of GWP-ASAN applications of this device overflowed after last boot.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function enableGwpAsanGrayscale(options?: GwpAsanOptions, duration?: int): void;
 
@@ -1103,7 +1108,8 @@ declare namespace hidebug {
    * Disable the GWP-ASAN grayscale of your application.
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function disableGwpAsanGrayscale(): void;
 
@@ -1112,7 +1118,8 @@ declare namespace hidebug {
    *
    * @returns { int } The remaining days of GWP-ASan grayscale.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getGwpAsanGrayscaleState(): int;
 

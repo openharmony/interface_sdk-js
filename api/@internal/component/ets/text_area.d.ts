@@ -2038,6 +2038,19 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 20
    */
   enableAutoSpacing(enabled: Optional<boolean>): TextAreaAttribute;
+
+  /**
+   * Called before the text input component attach the InputMethod.
+   *
+   * @param { Callback<IMEClient> | undefined } callback - The triggered function before attach the InputMethod.
+   *     If `undefined` is passed, the existing registered event will be removed.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  onWillAttachIME(callback: Callback<IMEClient> | undefined): TextAreaAttribute;
 }
 
 /**
