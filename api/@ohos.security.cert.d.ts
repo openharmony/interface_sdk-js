@@ -5952,6 +5952,19 @@ declare namespace cert {
      * @atomicservice
      * @since 22
      */
+    REVOCATION_CHECK_OPTION_CHECK_INTERMEDIATE_CA_ONLINE = 4,
+
+    /**
+     * When performing online OCSL or online CRL verification of certificate revocation status, it will also attempt to
+     * perform online revocation status checks on intermediate CA certificates. The OCSP address will be obtained from
+     * the AIA extension of the intermediate CA certificate, and the CRL address will be obtained from the CDP
+     * extension. If the address does not exist, it will be skipped.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     REVOCATION_CHECK_OPTION_LOCAL_CRL_ONLY_CHECK_END_ENTITY_CERT = 5
   }
 
