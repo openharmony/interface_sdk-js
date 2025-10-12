@@ -157,7 +157,6 @@ declare namespace uiExtension {
      * @param { Callback<window.Size> } [callback] - Unregister the callback function.
      *     If not provided, all callbacks for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
      * @since 22 static
      */
     offWindowSizeChange(callback?: Callback<window.Size>): void;
