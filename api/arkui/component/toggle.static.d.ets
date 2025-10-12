@@ -161,7 +161,6 @@ export declare interface ToggleOptions {
  * @interface ToggleAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
- * @noninterop
  */
 export declare interface ToggleAttribute extends CommonMethod {
     /**
@@ -229,7 +228,6 @@ export declare interface ToggleAttribute extends CommonMethod {
  * @returns { ToggleAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
- * @noninterop
  */
 @memo
 @ComponentBuilder

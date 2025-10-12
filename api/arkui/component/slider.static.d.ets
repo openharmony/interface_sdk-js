@@ -278,7 +278,6 @@ export declare enum SliderBlockType {
  * @interface SliderBlockStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
- * @noninterop
  */
 export declare interface SliderBlockStyle {
     /**
@@ -376,7 +375,6 @@ export declare interface SliderConfiguration extends CommonConfiguration<SliderC
  * @interface SliderAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
- * @noninterop
  */
 export declare interface SliderAttribute extends CommonMethod {
     /**
@@ -511,7 +509,6 @@ export declare interface SliderAttribute extends CommonMethod {
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
-     * @noninterop
      */
     default blockStyle(value: SliderBlockStyle | undefined): this;
     /**
@@ -599,7 +596,6 @@ export declare interface SliderAttribute extends CommonMethod {
  * @returns { SliderAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
- * @noninterop
  */
 @memo
 @ComponentBuilder
