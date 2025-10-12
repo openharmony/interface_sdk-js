@@ -2406,6 +2406,20 @@ declare namespace inputMethodEngine {
      * @since 22 dynamic&static
      */
     setShadow(radius: double, color: string, offsetX: double, offsetY: double): void;
+
+    /**
+     * Set current panel function key color and background color.
+     * It is only used for function key with raised areas of the panel.
+     *
+     * @param { string | undefined } fillColor - the color of the function key,
+     *     the value range is [#00000000, #FFFFFFFF] or [#000000, #FFFFFF].
+     * @param { string | undefined } backgroundColor - the background color of the function key,
+     *     the value range is [#00000000, #FFFFFFFF] or [#000000, #FFFFFF].
+     * @returns { Promise<void> } the promise returned by the function.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 22 dynamic&static
+     */
+    setSystemPanelButtonColor(fillColor: string | undefined, backgroundColor: string | undefined): Promise<void>;
   }
 
   /** 
