@@ -19,7 +19,8 @@
  */
 
 /*** if arkts static */
-import { SceneResource } from './SceneResources';
+import { SceneResource, Morpher } from './SceneResources';
+import { RaycastParameters, RaycastResult } from './Scene';
 /*** endif */
 /*** if arkts dynamic */
 import { SceneResource, Mesh, Morpher, Effect } from './SceneResources';
@@ -297,6 +298,7 @@ export interface Node extends SceneResource {
  * @interface Geometry
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
+ * @since 20 static
  */
 export interface Geometry extends Node {
   /**
@@ -316,6 +318,7 @@ export interface Geometry extends Node {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
+   * @since 20 static
    */
   readonly morpher?: Morpher;
 }
@@ -527,6 +530,7 @@ export interface Camera extends Node {
    * @returns { Promise<RaycastResult[]> } - Promise used to return an array of hit results, sorted from the closest to the farthest. The array may be empty.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
+   * @since 20 static
    */
   raycast(viewPosition: Vec2, params: RaycastParameters): Promise<RaycastResult[]>;
 }

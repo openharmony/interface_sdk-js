@@ -45,13 +45,22 @@ export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
 /*** if arkts static */
 import { ToneMappingType, ToneMappingSettings, PostProcessSettings,
   Vec2, Vec3, Vec4, Color, Rect, Quaternion, Position3, Scale3,
-  SceneResource, Animation, EnvironmentBackgroundType, Environment,
-  NodeType, Node, LightType, Light, DirectionalLight, Camera,
-  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters, RenderResourceFactory } from '@ohos.graphics.scene';
+  GeometryType, GeometryDefinition, PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry,
+  SceneResource, Shader, MaterialType, Material,
+  Animation, EnvironmentBackgroundType, Environment, Image, MeshResource,
+  NodeType, Node, Geometry, LightType, Light, DirectionalLight, Camera,
+  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
+  RaycastResult, RaycastParameters, CullMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
+  Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext
+} from '@ohos.graphics.scene';
 
 export { ToneMappingType, ToneMappingSettings, PostProcessSettings,
   Vec2, Vec3, Vec4, Color, Rect, Quaternion, Position3, Scale3,
-  SceneResource, Animation, EnvironmentBackgroundType, Environment,
-  NodeType, Node, LightType, Light, DirectionalLight, Camera,
-  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters, RenderResourceFactory };
+  GeometryType, GeometryDefinition, PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry,
+  SceneResource, Shader, MaterialType, Material,
+  Animation, EnvironmentBackgroundType, Environment, Image, MeshResource,
+  NodeType, Node, Geometry, LightType, Light, DirectionalLight, Camera,
+  SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
+  RaycastResult, RaycastParameters, CullMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
+  Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext };
 /*** endif */

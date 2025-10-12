@@ -319,6 +319,7 @@ export interface Rect {
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
+ * @since 20 static
  */
 export enum GeometryType {
   /**
@@ -326,6 +327,7 @@ export enum GeometryType {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   CUSTOM = 0,
 
@@ -334,6 +336,7 @@ export enum GeometryType {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   CUBE = 1,
 
@@ -342,6 +345,7 @@ export enum GeometryType {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   PLANE = 2,
 
@@ -350,6 +354,7 @@ export enum GeometryType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   SPHERE = 3
 }
@@ -387,6 +392,7 @@ export enum RenderingPipelineType {
  * 
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
+ * @since 20 static
  */
 export declare abstract class GeometryDefinition {
   /**
@@ -396,6 +402,7 @@ export declare abstract class GeometryDefinition {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   readonly geometryType: GeometryType;
 }
@@ -406,6 +413,7 @@ export declare abstract class GeometryDefinition {
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
+ * @since 20 static
  */
 export enum PrimitiveTopology {
   /**
@@ -413,6 +421,7 @@ export enum PrimitiveTopology {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   TRIANGLE_LIST = 0,
 
@@ -421,6 +430,7 @@ export enum PrimitiveTopology {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   TRIANGLE_STRIP = 1
 }
@@ -431,6 +441,7 @@ export enum PrimitiveTopology {
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
+ * @since 20 static
  */
 export declare class CustomGeometry extends GeometryDefinition {
   /**
@@ -469,6 +480,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * @return { Vec3[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   get vertices(): Vec3[];
 
@@ -478,6 +490,7 @@ export declare class CustomGeometry extends GeometryDefinition {
    * @param { Vec3[] } value
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   set vertices(value: Vec3[]);
 
@@ -626,6 +639,7 @@ export declare class CustomGeometry extends GeometryDefinition {
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
+ * @since 20 static
  */
 export declare class CubeGeometry extends GeometryDefinition {
   /**
@@ -634,6 +648,7 @@ export declare class CubeGeometry extends GeometryDefinition {
    * @return { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   get size(): Vec3;
 
@@ -643,6 +658,7 @@ export declare class CubeGeometry extends GeometryDefinition {
    * @param { Vec3 } value
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   set size(value: Vec3);
 }
@@ -653,6 +669,7 @@ export declare class CubeGeometry extends GeometryDefinition {
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
+ * @since 20 static
  */
 export declare class PlaneGeometry extends GeometryDefinition {
   /**
@@ -661,6 +678,7 @@ export declare class PlaneGeometry extends GeometryDefinition {
    * @return { Vec2 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   get size(): Vec2;
 
@@ -670,6 +688,7 @@ export declare class PlaneGeometry extends GeometryDefinition {
    * @param { Vec2 } value
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   set size(value: Vec2);
 }
@@ -680,6 +699,7 @@ export declare class PlaneGeometry extends GeometryDefinition {
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
+ * @since 20 static
  */
 export declare class SphereGeometry extends GeometryDefinition {
   /**
@@ -688,6 +708,7 @@ export declare class SphereGeometry extends GeometryDefinition {
    * @return { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   get radius(): double;
 
@@ -697,6 +718,7 @@ export declare class SphereGeometry extends GeometryDefinition {
    * @param { double } value
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   set radius(value: double);
 
@@ -706,6 +728,7 @@ export declare class SphereGeometry extends GeometryDefinition {
    * @return { int }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   get segmentCount(): int;
 
@@ -715,6 +738,7 @@ export declare class SphereGeometry extends GeometryDefinition {
    * @param { int } value
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   set segmentCount(value: int);
 }
