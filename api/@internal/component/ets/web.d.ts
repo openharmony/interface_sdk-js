@@ -25,6 +25,7 @@ import { CommonMethod, Callback, TouchEvent, MouseEvent, NestedScrollOptions, Ke
 import { CustomBuilder } from './builder'
 import { Resource } from '../../global/resource';
 import { Position, ResourceStr } from './units';
+import { PreviewMenuOptions } from './richEditor';
 import { MenuType, EditMenuOptions, TextDataDetectorConfig } from './textCommon';
 import { CopyOptions, NestedScrollMode } from './enums';
 /*** endif */
@@ -8015,8 +8016,7 @@ declare enum PdfLoadResult {
  *
  * @interface PreviewMenuOptions
  * @syscap SystemCapability.Web.Webview.Core
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamiconly
  */
 declare interface PreviewMenuOptions {
   /**
@@ -8026,8 +8026,7 @@ declare interface PreviewMenuOptions {
    * @type { ?HapticFeedbackMode }
    * @default HapticFeedbackMode.DISABLED
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamiconly
    */
   hapticFeedbackMode?: HapticFeedbackMode;
 }
