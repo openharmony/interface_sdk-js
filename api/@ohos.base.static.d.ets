@@ -78,7 +78,7 @@
    * A constructor used to create a BusinessError object
    * @param { int } code
    * @param { string } message
-   * @param { T? } [data]
+   * @param { T } [data]
    * @syscap SystemCapability.Base
    * @since 20 static
    */
@@ -98,7 +98,7 @@
   * of attributes per level are uncertain, you can use RecordData for initialization.
   * @typedef RecordData
   * @syscap SystemCapability.Base
-  * @since 20 static
+  * @since 20 staticonly
   * @example
   * import { RecordData } from '@kit.BasicServiceKit';
   * const param: RecordData = {
