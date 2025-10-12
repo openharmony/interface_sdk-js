@@ -30,18 +30,18 @@ import { Position, ResourceColor, Length, SizeOptions } from '@ohos.arkui.compon
 export interface ShapeSize {
     /**
      * Defines the width of Shape.
-     * @type { ? (number | string) }
+     * @type { ? (double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    width?: number | string;
+    width?: double | string;
     /**
      * Defines the height of Shape.
-     * @type { ? (number | string) }
+     * @type { ? (double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    height?: number | string;
+    height?: double | string;
 }
 /**
  * Interface for RectShape constructor parameters.
@@ -54,11 +54,11 @@ export interface ShapeSize {
 export interface RectShapeOptions extends ShapeSize {
     /**
      * Defines the corner radius of the RectShape.
-     * @type { ? (number | string | Array<number | string>) }
+     * @type { ? (double | string | Array<double | string>) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    radius?: number | string | Array<number | string>;
+    radius?: double | string | Array<double | string>;
 }
 /**
  * Interface for RectShape constructor parameters with separate radius values.
@@ -71,18 +71,18 @@ export interface RectShapeOptions extends ShapeSize {
 export interface RoundRectShapeOptions extends ShapeSize {
     /**
      * Defines the width of the corner radius for RectShape.
-     * @type { ? (number | string) }
+     * @type { ? (double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    radiusWidth?: number | string;
+    radiusWidth?: double | string;
     /**
      * Defines the height of the corner radius for RectShape.
-     * @type { ? (number | string) }
+     * @type { ? (double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    radiusHeight?: number | string;
+    radiusHeight?: double | string;
 }
 /**
  * Interface for PathShape constructor parameters.
