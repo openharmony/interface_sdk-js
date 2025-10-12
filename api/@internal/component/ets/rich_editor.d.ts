@@ -4051,6 +4051,19 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   onCopy(callback: Callback<CopyEvent>): RichEditorAttribute;
 
   /**
+   * Called before the RichEditor component attach the InputMethod.
+   *
+   * @param { Callback<IMEClient> | undefined } callback - The triggered function before attach the InputMethod.
+   *     If `undefined` is passed, the existing registered event will be removed.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  onWillAttachIME(callback: Callback<IMEClient> | undefined): RichEditorAttribute;
+
+  /**
    * Set the custom text menu.
    *
    * @param { EditMenuOptions } editMenu - Customize text menu options.
