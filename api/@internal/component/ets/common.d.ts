@@ -18,57 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import OriginalContext from '../../application/Context';
-import { Resource } from '../../global/resource';
-import pointer from '../../@ohos.multimodalInput.pointer';
-import image from '../../@ohos.multimedia.image';
-import unifiedDataChannel from '../../@ohos.data.unifiedDataChannel';
-import promptAction from '../../@ohos.promptAction';
-import uniformTypeDescriptor from '../../@ohos.data.uniformTypeDescriptor';
-import Want from '../../@ohos.app.ability.Want';
-import { IntentionCode } from '../../@ohos.multimodalInput.intentionCode';
-import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
-import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';
-import uiObserver from '../../@ohos.arkui.observer';
-import { UIContext } from '../../@ohos.arkui.UIContext';
-import { DrawContext, LengthMetrics } from '../../arkui/Graphics';
-import uiEffect from '../../@ohos.graphics.uiEffect';
-import { FocusBoxStyle, FocusPriority } from './focus';
-import { ComponentContent } from '../../arkui/ComponentContent';
-import { ResizableOptions } from './image';
-import { Theme } from '../../@ohos.arkui.theme';
-import intl from '../../@ohos.intl';
-import { ButtonType, ButtonStyleMode, ButtonRole } from './button';
-import {
-  Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors,
-  LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias,
-  EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin,
-  BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition,
-  AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback
- } from './units';
-import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureType,
-  GestureMask, GestureHandler, GesturePriority, GestureInfo
- } from './gesture';
-import { ScrollState } from './list';
-import {
-  AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle,
-  HorizontalAlign, VerticalAlign, MouseButton, MouseAction, TransitionType, FontWeight, TouchType,
-  FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode,
-  Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey,
-  ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, IlluminatedType, TextDecorationType,
-  TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisModel, CrownAction,
-  FocusDrawLevel, CrownSensitivity
-} from './enums';
-import { TextRange } from './textCommon';
-import { StyledString } from './styledString';
-import { CircleAttribute } from './circle';
-import { RectAttribute } from './rect';
-import { PathAttribute } from './path';
-import { EllipseAttribute } from './ellipse';
-import { LocalStorage } from '../stateManagement/storages/localStorage';
-import { CustomBuilder } from './builder';
-/*** endif */
 
 /**
  * The type for SpringLoadingContext, see the detailed description in dragController.
@@ -89,6 +38,7 @@ declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').
  * @since 20
  */
 declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration;
+
 
 /**
  * Defines the options of Component ClassDecorator.
@@ -149,8 +99,7 @@ declare interface ComponentOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface InputCounterOptions {
   /**
@@ -183,8 +132,7 @@ declare interface InputCounterOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   thresholdPercentage?: number;
 
@@ -215,10 +163,31 @@ declare interface InputCounterOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   highlightBorder?: boolean;
+
+  /**
+   * It is the color of counter when textField hasn't wanted to exceed the maximum character count.
+   *
+   * @type { ?ColorMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  counterTextColor?: ColorMetrics;
+
+  /**
+   * It is the color of counter when textField wants exceed the maximum character count.
+   *
+   * @type { ?ColorMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  counterTextOverflowColor?: ColorMetrics;
 }
 
 /**
@@ -228,8 +197,7 @@ declare interface InputCounterOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface TextDecorationOptions {
   /**
@@ -239,8 +207,7 @@ declare interface TextDecorationOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   type: TextDecorationType;
 
@@ -251,8 +218,7 @@ declare interface TextDecorationOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   color?: ResourceColor;
 
@@ -263,8 +229,7 @@ declare interface TextDecorationOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   style?: TextDecorationStyle;
 }
@@ -377,69 +342,9 @@ declare interface EntryOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   useSharedStorage? : boolean,
-}
-
-/**
- * Provides an interface for the style of an divider including stroke width, color, start margin
- * and end margin
- *
- * @interface DividerStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare interface DividerStyle {
-  /**
-   * Define the stroke width of the divider
-   *
-   * @type { Length }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  strokeWidth: Length;
-
-  /**
-   * Define the color of the divider
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  color?: ResourceColor;
-
-  /**
-   * Define the start margin of the divider
-   *
-   * @type { ?Length }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  startMargin?: Length;
-
-  /**
-   * Define the end margin of the divider
-   *
-   * @type { ?Length }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  endMargin?: Length;
 }
 
 /**
@@ -860,6 +765,46 @@ declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => 
 declare const Provider: (aliasName?: string) => PropertyDecorator;
 
 /**
+ * Define Env Decorator type
+ * @typedef { function } EnvDecorator
+ * @param { string } value - key value input by the user
+ * @returns { PropertyDecorator } Env decorator
+ * @throws { BusinessError } 140000 - Invalid key for @Env
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare type EnvDecorator = (value: string) => PropertyDecorator;
+
+/**
+ * Defining Env PropertyDecorator.
+ * @type { EnvDecorator }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare const Env: EnvDecorator;
+
+/**
+ * Defining Environment variable enumeration value.
+ * 
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare enum SystemProperties {
+ /**
+  * System environmental breakpoin key that is used to obtain the width and height breakpoint value of the window.
+  * 
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 22 dynamic
+  */
+  BREAK_POINT = 'system.arkui.breakpoint'
+};
+
+/**
  * Defining Consume PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1243,8 +1188,7 @@ declare interface IMonitorValue<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
  declare interface AnimatableArithmetic<T> {
   /**
@@ -1264,8 +1208,7 @@ declare interface IMonitorValue<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    plus(rhs: AnimatableArithmetic<T>): AnimatableArithmetic<T>;
 
@@ -1286,8 +1229,7 @@ declare interface IMonitorValue<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    subtract(rhs: AnimatableArithmetic<T>): AnimatableArithmetic<T>;
 
@@ -1308,8 +1250,7 @@ declare interface IMonitorValue<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    multiply(scale: number): AnimatableArithmetic<T>;
 
@@ -1330,8 +1271,7 @@ declare interface IMonitorValue<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   equals(rhs: AnimatableArithmetic<T>): boolean;
 }
@@ -1536,8 +1476,7 @@ declare const ReusableV2: ClassDecorator;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
  declare type ReuseIdCallback = () => string;
 
@@ -1548,8 +1487,7 @@ declare const ReusableV2: ClassDecorator;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface ReuseOptions {
   /**
@@ -1559,8 +1497,7 @@ declare interface ReuseOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   reuseId? : ReuseIdCallback;
 }
@@ -1594,19 +1531,6 @@ declare interface ReuseOptions {
 declare type Context = import('../api/application/Context').default;
 
 /**
- * Export Context.
- *
- * @typedef { OriginalContext } Context
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type Context = OriginalContext;
-
-/**
  * Post Card Action.
  *
  * @param { Object } component - indicate the card entry component.
@@ -1637,8 +1561,7 @@ export type Context = OriginalContext;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare function postCardAction(component: Object, action: Object): void;
 
@@ -1674,8 +1597,7 @@ declare function postCardAction(component: Object, action: Object): void;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface Configuration {
   /**
@@ -1714,8 +1636,7 @@ declare interface Configuration {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   readonly colorMode: string;
 
@@ -1755,8 +1676,7 @@ declare interface Configuration {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   readonly fontScale: number;
 }
@@ -1793,8 +1713,7 @@ declare interface Configuration {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface Rectangle {
   /**
@@ -1829,8 +1748,7 @@ declare interface Rectangle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   x?: Length;
 
@@ -1866,8 +1784,7 @@ declare interface Rectangle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   y?: Length;
 
@@ -1903,8 +1820,7 @@ declare interface Rectangle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   width?: Length;
 
@@ -1940,8 +1856,7 @@ declare interface Rectangle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   height?: Length;
 }
@@ -1968,8 +1883,7 @@ declare interface Rectangle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19
  */
 declare interface ExpectedFrameRateRange {
   /**
@@ -1994,8 +1908,7 @@ declare interface ExpectedFrameRateRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   min: number,
   /**
@@ -2020,8 +1933,7 @@ declare interface ExpectedFrameRateRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   max: number,
   /**
@@ -2052,8 +1964,7 @@ declare interface ExpectedFrameRateRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   expected: number,
 }
@@ -2123,21 +2034,6 @@ declare interface ExpectedFrameRateRange {
 declare function $r(value: string, ...params: any[]): Resource;
 
 /**
- * global $r function
- *
- * @param { string } value
- * @param { (Object | null | undefined)[] } params
- * @returns { Resource }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare function $r(value: string, ...params: (Object | null | undefined)[]): Resource;
-
-/**
  * global $rawfile function
  *
  * @param { string } value
@@ -2189,8 +2085,7 @@ declare function $r(value: string, ...params: (Object | null | undefined)[]): Re
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare function $rawfile(value: string): Resource;
 /**
@@ -2200,8 +2095,7 @@ declare function $rawfile(value: string): Resource;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare enum AccessibilitySamePageMode {
   /**
@@ -2211,8 +2105,7 @@ declare enum AccessibilitySamePageMode {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   SEMI_SILENT = 0,
  /**
@@ -2221,8 +2114,7 @@ declare enum AccessibilitySamePageMode {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   FULL_SILENT = 1,
 }
@@ -2233,8 +2125,7 @@ declare enum AccessibilitySamePageMode {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare enum AccessibilityRoleType {
   /**
@@ -2243,8 +2134,7 @@ declare enum AccessibilityRoleType {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   ACTION_SHEET = 0,
   /**
@@ -2253,8 +2143,7 @@ declare enum AccessibilityRoleType {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   ALERT_DIALOG = 1,
   /**
@@ -2263,8 +2152,7 @@ declare enum AccessibilityRoleType {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   INDEXER_COMPONENT = 2,
   /**
@@ -2273,8 +2161,7 @@ declare enum AccessibilityRoleType {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   BADGE_COMPONENT = 3,
   /**
@@ -2283,8 +2170,7 @@ declare enum AccessibilityRoleType {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   BLANK = 4,
   /**
@@ -2293,8 +2179,7 @@ declare enum AccessibilityRoleType {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   BUTTON = 5,
   /**
@@ -2303,8 +2188,7 @@ declare enum AccessibilityRoleType {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   BACK_BUTTON = 6,
   /**
@@ -2313,8 +2197,7 @@ declare enum AccessibilityRoleType {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   SHEET_DRAG_BAR = 7,
   /**
@@ -2323,8 +2206,7 @@ declare enum AccessibilityRoleType {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   CALENDAR_PICKER = 8,
   /**
@@ -2333,8 +2215,7 @@ declare enum AccessibilityRoleType {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   CALENDAR = 9,
   /**
@@ -2343,8 +2224,7 @@ declare enum AccessibilityRoleType {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   CANVAS = 10,
   /**
@@ -2353,8 +2233,7 @@ declare enum AccessibilityRoleType {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   CANVAS_GRADIENT = 11,
   /**
@@ -2363,8 +2242,7 @@ declare enum AccessibilityRoleType {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   CANVAS_PATTERN = 12,
   /**
@@ -2373,8 +2251,7 @@ declare enum AccessibilityRoleType {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   CHECKBOX = 13,
   /**
@@ -2383,8 +2260,7 @@ declare enum AccessibilityRoleType {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   CHECKBOX_GROUP = 14,
   /**
@@ -2393,8 +2269,7 @@ declare enum AccessibilityRoleType {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   CIRCLE = 15,
   /**
@@ -2403,1090 +2278,981 @@ declare enum AccessibilityRoleType {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   COLUMN_SPLIT = 16,
   /**
-  * column component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * column component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   COLUMN = 17,
   /**
-  * canvas rendering context 2d component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * canvas rendering context 2d component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   CANVAS_RENDERING_CONTEXT_2D = 18,
   /**
-  * chart component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * chart component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   CHART = 19,
   /**
-  * counter component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * counter component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   COUNTER = 20,
   /**
-  * counter modal component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * counter modal component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   CONTAINER_MODAL = 21,
   /**
-  * data panel component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * data panel component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   DATA_PANEL = 22,
   /**
-  * data picker component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * data picker component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   DATE_PICKER = 23,
   /**
-  * dialog component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * dialog component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   DIALOG = 24,
   /**
-  * divider component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * divider component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   DIVIDER = 25,
   /**
-  * drag bar component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * drag bar component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   DRAG_BAR = 26,
   /**
-  * effect component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * effect component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   EFFECT_COMPONENT = 27,
   /**
-  * ellipse component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * ellipse component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   ELLIPSE = 28,
   /**
-  * flex component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * flex component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   FLEX = 29,
   /**
-  * flow item component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * flow item component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   FLOW_ITEM = 30,
   /**
-  * form component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * form component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   FORM_COMPONENT = 31,
   /**
-  * form link component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * form link component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   FORM_LINK = 32,
   /**
-  * gauge component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * gauge component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   GAUGE = 33,
   /**
-  * grid component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * grid component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   GRID = 34,
   /**
-  * grid col component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * grid col component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   GRID_COL = 35,
   /**
-  * grid container component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * grid container component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   GRID_CONTAINER = 36,
   /**
-  * grid item component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * grid item component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   GRID_ITEM = 37,
   /**
-  * grid row component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * grid row component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   GRID_ROW = 38,
   /**
-  * hyperlink component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * hyperlink component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   HYPERLINK = 39,
   /**
-  * image component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * image component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   IMAGE = 40,
   /**
-  * image animator component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * image animator component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   IMAGE_ANIMATOR = 41,
   /**
-  * image bitmap component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * image bitmap component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   IMAGE_BITMAP = 42,
   /**
-  * image data component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * image data component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   IMAGE_DATA = 43,
   /**
-  * image span component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * image span component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   IMAGE_SPAN = 44,
   /**
-  * label component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * label component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   LABEL = 45,
   /**
-  * line component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * line component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   LINE = 46,
   /**
-  * list component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * list component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   LIST = 47,
   /**
-  * list item component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * list item component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   LIST_ITEM = 48,
   /**
-  * list item group component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * list item group component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   LIST_ITEM_GROUP = 49,
   /**
-  * loading progress component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * loading progress component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   LOADING_PROGRESS = 50,
   /**
-  * marquee component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * marquee component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   MARQUEE = 51,
   /**
-  * matrix2d component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * matrix2d component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   MATRIX2D = 52,
   /**
-  * menu component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * menu component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   MENU = 53,
   /**
-  * menu item component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * menu item component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   MENU_ITEM = 54,
   /**
-  * menu item group component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * menu item group component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   MENU_ITEM_GROUP = 55,
   /**
-  * navdestination component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * navdestination component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   NAV_DESTINATION = 56,
   /**
-  * navrouter component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * navrouter component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   NAV_ROUTER = 57,
   /**
-  * navigation component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * navigation component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   NAVIGATION = 58,
   /**
-  * navigation bar component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * navigation bar component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   NAVIGATION_BAR = 59,
   /**
-  * navigation menu component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * navigation menu component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   NAVIGATION_MENU = 60,
   /**
-  * navigator component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * navigator component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   NAVIGATOR = 61,
   /**
-  * offscreen canvas component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * offscreen canvas component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   OFFSCREEN_CANVAS = 62,
   /**
-  * offscreen canvas rendering context2d component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * offscreen canvas rendering context2d component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   OFFSCREEN_CANVAS_RENDERING_CONTEXT2D = 63,
   /**
-  * option component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * option component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   OPTION = 64,
   /**
-  * panel component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * panel component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   PANEL = 65,
   /**
-  * paper page component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * paper page component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   PAPER_PAGE = 66,
   /**
-  * path component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * path component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   PATH = 67,
   /**
-  * path 2d component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * path 2d component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   PATH2D = 68,
   /**
-  * pattern lock component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * pattern lock component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   PATTERN_LOCK = 69,
   /**
-  * picker component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * picker component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   PICKER = 70,
   /**
-  * picker view component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * picker view component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   PICKER_VIEW = 71,
   /**
-  * plugin component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * plugin component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   PLUGIN_COMPONENT = 72,
   /**
-  * polygon component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * polygon component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   POLYGON = 73,
   /**
-  * polyline component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * polyline component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   POLYLINE = 74,
   /**
-  * pop up component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * pop up component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   POPUP = 75,
   /**
-  * progress component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * progress component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   PROGRESS = 76,
   /**
-  * qr code component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * qr code component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   QRCODE = 77,
   /**
-  * radio component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * radio component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   RADIO = 78,
   /**
-  * rating component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * rating component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   RATING = 79,
   /**
-  * rect component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * rect component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   RECT = 80,
   /**
-  * refresh component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * refresh component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   REFRESH = 81,
   /**
-  * relative container component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * relative container component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   RELATIVE_CONTAINER = 82,
   /**
-  * remote window component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * remote window component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   REMOTE_WINDOW = 83,
   /**
-  * rich editor component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * rich editor component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   RICH_EDITOR = 84,
   /**
-  * rich text component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * rich text component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   RICH_TEXT = 85,
   /**
-  * rolepager component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * rolepager component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   ROLE_PAGER = 86,
   /**
-  * row component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * row component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   ROW = 87,
   /**
-  * row split component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * row split component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   ROW_SPLIT = 88,
   /**
-  * scroll component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * scroll component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   SCROLL = 89,
   /**
-  * scroll bar component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * scroll bar component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   SCROLL_BAR = 90,
   /**
-  * search component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * search component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   SEARCH = 91,
   /**
-  * search field component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * search field component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   SEARCH_FIELD = 92,
   /**
-  * select component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * select component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   SELECT = 93,
   /**
-  * shape component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * shape component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   SHAPE = 94,
   /**
-  * sidebar container component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * sidebar container component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   SIDEBAR_CONTAINER = 95,
   /**
-  * slider component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * slider component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   SLIDER = 96,
   /**
-  * span component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * span component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   SPAN = 97,
   /**
-  * stack component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * stack component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   STACK = 98,
   /**
-  * stepper component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * stepper component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   STEPPER = 99,
   /**
-  * stepper item component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * stepper item component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   STEPPER_ITEM = 100,
   /**
-  * swiper component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * swiper component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   SWIPER = 101,
   /**
-  * swiper indicator component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * swiper indicator component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   SWIPER_INDICATOR = 102,
   /**
-  * switch component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * switch component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   SWITCH = 103,
   /**
-  * symbol glyph component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * symbol glyph component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   SYMBOL_GLYPH = 104,
   /**
-  * tab content component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * tab content component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   TAB_CONTENT = 105,
   /**
-  * tab bar component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * tab bar component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   TAB_BAR = 106,
   /**
-  * tabs component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * tabs component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   TABS = 107,
   /**
-  * text component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * text component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   TEXT = 108,
   /**
-  * text clock component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * text clock component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   TEXT_CLOCK = 109,
   /**
-  * text entry component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * text entry component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   TEXT_ENTRY = 110,
   /**
-  * text input component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * text input component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   TEXT_INPUT = 111,
   /**
-  * text picker component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * text picker component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   TEXT_PICKER = 112,
   /**
-  * text timer component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * text timer component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   TEXT_TIMER = 113,
   /**
-  * text area component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * text area component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   TEXT_AREA = 114,
   /**
-  * text field component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * text field component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   TEXT_FIELD = 115,
   /**
-  * time picker component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * time picker component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   TIME_PICKER = 116,
   /**
-  * title bar component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * title bar component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   TITLE_BAR = 117,
   /**
-  * toggler component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * toggler component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   TOGGLER = 118,
   /**
-  * uiextensioncomponent component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * uiextensioncomponent component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   UI_EXTENSION_COMPONENT = 119,
   /**
-  * video component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * video component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   VIDEO = 120,
   /**
-  * water flow component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * water flow component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   WATER_FLOW = 121,
   /**
-  * web component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * web component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   WEB = 122,
   /**
-  * xcomponent component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * xcomponent component type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   XCOMPONENT = 123,
   /**
-  * none component type: screen reader will not broadcast the component type.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
-  ROLE_NONE = 124,
+   * none component type: screen reader will not broadcast the component type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  ROLE_NONE = 124
 }
 
 /**
@@ -3497,8 +3263,7 @@ declare enum AccessibilityRoleType {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare type AccessibilityFocusCallback = (isFocus: boolean) => void;
 
@@ -3519,8 +3284,7 @@ declare type AccessibilityFocusCallback = (isFocus: boolean) => void;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum FinishCallbackType {
   /**
@@ -3538,8 +3302,7 @@ declare enum FinishCallbackType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   REMOVED = 0,
   /**
@@ -3558,10 +3321,9 @@ declare enum FinishCallbackType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
-  LOGICALLY = 1,
+   * @since 12
+   */
+  LOGICALLY = 1
 }
 
 /**
@@ -3581,8 +3343,7 @@ declare enum FinishCallbackType {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum TouchTestStrategy {
   /**
@@ -3600,8 +3361,7 @@ declare enum TouchTestStrategy {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   DEFAULT = 0,
 
@@ -3621,8 +3381,7 @@ declare enum TouchTestStrategy {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   FORWARD_COMPETITION = 1,
 
@@ -3642,8 +3401,7 @@ declare enum TouchTestStrategy {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   FORWARD = 2
 }
@@ -3680,8 +3438,7 @@ declare enum TouchTestStrategy {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface AnimateParam {
   /**
@@ -3720,8 +3477,7 @@ declare interface AnimateParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   duration?: number;
   /**
@@ -3754,8 +3510,7 @@ declare interface AnimateParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   tempo?: number;
   /**
@@ -3794,8 +3549,7 @@ declare interface AnimateParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   curve?: Curve | string | ICurve;
 
@@ -3824,8 +3578,7 @@ declare interface AnimateParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   delay?: number;
 
@@ -3860,8 +3613,7 @@ declare interface AnimateParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   iterations?: number;
 
@@ -3901,8 +3653,7 @@ declare interface AnimateParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   playMode?: PlayMode;
 
@@ -3938,8 +3689,7 @@ declare interface AnimateParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onFinish?: () => void;
 
@@ -3961,8 +3711,7 @@ declare interface AnimateParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   finishCallbackType?: FinishCallbackType;
 
@@ -3979,8 +3728,7 @@ declare interface AnimateParam {
    * @type { ?ExpectedFrameRateRange }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   expectedFrameRateRange?: ExpectedFrameRateRange;
 }
@@ -4010,8 +3758,7 @@ declare interface AnimateParam {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface ICurve {
   /**
@@ -4051,8 +3798,7 @@ interface ICurve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interpolate(fraction: number): number;
 }
@@ -4079,8 +3825,7 @@ interface ICurve {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface MotionPathOptions {
   /**
@@ -4117,8 +3862,7 @@ declare interface MotionPathOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   path: string;
 
@@ -4153,8 +3897,7 @@ declare interface MotionPathOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   from?: number;
 
@@ -4192,8 +3935,7 @@ declare interface MotionPathOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   to?: number;
 
@@ -4222,8 +3964,7 @@ declare interface MotionPathOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   rotatable?: boolean;
 }
@@ -4250,8 +3991,7 @@ declare interface MotionPathOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface sharedTransitionOptions {
   /**
@@ -4285,8 +4025,7 @@ declare interface sharedTransitionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   duration?: number;
 
@@ -4320,8 +4059,7 @@ declare interface sharedTransitionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   curve?: Curve | string | ICurve;
 
@@ -4350,8 +4088,7 @@ declare interface sharedTransitionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   delay?: number;
 
@@ -4377,8 +4114,7 @@ declare interface sharedTransitionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   motionPath?: MotionPathOptions;
 
@@ -4404,8 +4140,7 @@ declare interface sharedTransitionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   zIndex?: number;
 
@@ -4434,8 +4169,7 @@ declare interface sharedTransitionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   type?: SharedTransitionEffectType;
 }
@@ -4455,8 +4189,7 @@ declare interface sharedTransitionOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface GeometryTransitionOptions {
   /**
@@ -4476,8 +4209,7 @@ declare interface GeometryTransitionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   follow?: boolean;
   /**
@@ -4497,8 +4229,7 @@ declare interface GeometryTransitionOptions {
    * @default TransitionHierarchyStrategy.ADAPTIVE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   hierarchyStrategy?: TransitionHierarchyStrategy
 }
@@ -4511,8 +4242,7 @@ declare interface GeometryTransitionOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface LinearGradientOptions {
   /**
@@ -4569,8 +4299,7 @@ declare interface LinearGradientOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   angle?: number | string;
 
@@ -4628,8 +4357,7 @@ declare interface LinearGradientOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   direction?: GradientDirection;
 
@@ -4686,8 +4414,7 @@ declare interface LinearGradientOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   colors: Array<[ResourceColor, number]>;
 
@@ -4745,8 +4472,7 @@ declare interface LinearGradientOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   repeating?: boolean;
 }
@@ -4759,8 +4485,7 @@ declare interface LinearGradientOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface SweepGradientOptions {
   /**
@@ -4816,8 +4541,7 @@ declare interface SweepGradientOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   center: [Length, Length];
 
@@ -4876,8 +4600,7 @@ declare interface SweepGradientOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   start?: number | string;
 
@@ -4934,8 +4657,7 @@ declare interface SweepGradientOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   end?: number | string;
 
@@ -4993,8 +4715,7 @@ declare interface SweepGradientOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   rotation?: number | string;
 
@@ -5051,8 +4772,7 @@ declare interface SweepGradientOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   colors: Array<[ResourceColor, number]>;
   
@@ -5122,8 +4842,7 @@ declare interface SweepGradientOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   repeating?: boolean;
 }
@@ -5136,8 +4855,7 @@ declare interface SweepGradientOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface RadialGradientOptions {
   /**
@@ -5193,8 +4911,7 @@ declare interface RadialGradientOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   center: [Length, Length];
 
@@ -5251,8 +4968,7 @@ declare interface RadialGradientOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   radius: Length;
 
@@ -5309,8 +5025,7 @@ declare interface RadialGradientOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   colors: Array<[ResourceColor, number]>;
 
@@ -5368,8 +5083,7 @@ declare interface RadialGradientOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   repeating?: boolean;
 }
@@ -5395,8 +5109,7 @@ declare interface RadialGradientOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'13','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 13
  */
 declare enum TransitionHierarchyStrategy {
   /**
@@ -5414,8 +5127,7 @@ declare enum TransitionHierarchyStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   NONE = 0,
 
@@ -5436,8 +5148,7 @@ declare enum TransitionHierarchyStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   ADAPTIVE = 1,
 }
@@ -5474,8 +5185,7 @@ declare enum TransitionHierarchyStrategy {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface TranslateOptions {
   /**
@@ -5518,8 +5228,7 @@ declare interface TranslateOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   x?: number | string;
 
@@ -5563,8 +5272,7 @@ declare interface TranslateOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   y?: number | string;
 
@@ -5604,8 +5312,7 @@ declare interface TranslateOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   z?: number | string;
 }
@@ -5642,8 +5349,7 @@ declare interface TranslateOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface ScaleOptions {
   /**
@@ -5690,8 +5396,7 @@ declare interface ScaleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   x?: number;
 
@@ -5739,8 +5444,7 @@ declare interface ScaleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   y?: number;
 
@@ -5784,8 +5488,7 @@ declare interface ScaleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   z?: number;
 
@@ -5821,8 +5524,7 @@ declare interface ScaleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   centerX?: number | string;
 
@@ -5858,155 +5560,10 @@ declare interface ScaleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   centerY?: number | string;
 }
-
-/**
- * Defines the align rule options of relative container.
- *
- * @interface AlignRuleParam
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare interface AlignRuleParam<T> {
-  /**
-   * The param of anchor.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  anchor: string;
-  /**
-   * The param of align.
-   *
-   * @type { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  align: T
-}
-
-/**
- * Defines the align rule options of relative container.
- *
- * @interface AlignRuleOption
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare interface AlignRuleOption {
-  /**
-   * The param of left align.
-   *
-   * @type { ?AlignRuleParam<HorizontalAlign> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  left?:AlignRuleParam<HorizontalAlign>;
-
-  /**
-   * The param of right align.
-   *
-   * @type { ?AlignRuleParam<HorizontalAlign> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  right?: AlignRuleParam<HorizontalAlign>;
-
-  /**
-   * The param of middle align.
-   *
-   * @type { ?AlignRuleParam<HorizontalAlign> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  middle?: AlignRuleParam<HorizontalAlign>;
-
-  /**
-   * The param of top align.
-   *
-   * @type { ?AlignRuleParam<VerticalAlign> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  top?: AlignRuleParam<VerticalAlign>;
-
-  /**
-   * The param of bottom align.
-   *
-   * @type { ?AlignRuleParam<VerticalAlign> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  bottom?: AlignRuleParam<VerticalAlign>;
-
-  /**
-   * The param of center align.
-   *
-   * @type { ?AlignRuleParam<VerticalAlign> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  center?: AlignRuleParam<VerticalAlign>;
-
-  /**
-   * Defines the bias ratio in horizontal and vertical direction.
-   *
-   * @type { ?Bias }
-   * @default {horizontal:0.5,vertical:0.5}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  bias?: Bias;
-}
-
-
 /**
  * Defines the align rule options of relative container.
  *
@@ -6251,8 +5808,7 @@ declare interface AlignRuleOption {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface LocalizedHorizontalAlignParam {
   /**
@@ -6262,8 +5818,7 @@ declare interface LocalizedHorizontalAlignParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   anchor: string;
 
@@ -6274,8 +5829,7 @@ declare interface LocalizedHorizontalAlignParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   align: HorizontalAlign;
 }
@@ -6287,8 +5841,7 @@ declare interface LocalizedHorizontalAlignParam {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface LocalizedVerticalAlignParam {
   /**
@@ -6298,8 +5851,7 @@ declare interface LocalizedVerticalAlignParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   anchor: string;
 
@@ -6310,8 +5862,7 @@ declare interface LocalizedVerticalAlignParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   align: VerticalAlign;
 }
@@ -6323,8 +5874,7 @@ declare interface LocalizedVerticalAlignParam {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface LocalizedAlignRuleOptions {
   /**
@@ -6334,8 +5884,7 @@ declare interface LocalizedAlignRuleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   start?: LocalizedHorizontalAlignParam;
 
@@ -6346,8 +5895,7 @@ declare interface LocalizedAlignRuleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   end?: LocalizedHorizontalAlignParam;
 
@@ -6358,8 +5906,7 @@ declare interface LocalizedAlignRuleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   middle?: LocalizedHorizontalAlignParam;
 
@@ -6370,8 +5917,7 @@ declare interface LocalizedAlignRuleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   top?: LocalizedVerticalAlignParam;
 
@@ -6382,8 +5928,7 @@ declare interface LocalizedAlignRuleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   bottom?: LocalizedVerticalAlignParam;
 
@@ -6394,8 +5939,7 @@ declare interface LocalizedAlignRuleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   center?: LocalizedVerticalAlignParam;
 
@@ -6408,8 +5952,7 @@ declare interface LocalizedAlignRuleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   bias?: Bias;
 }
@@ -6421,8 +5964,7 @@ declare interface LocalizedAlignRuleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum ChainStyle {
   /**
@@ -6431,8 +5973,7 @@ declare enum ChainStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   SPREAD,
 
@@ -6442,8 +5983,7 @@ declare enum ChainStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   SPREAD_INSIDE,
 
@@ -6453,8 +5993,7 @@ declare enum ChainStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PACKED,
 }
@@ -6491,8 +6030,7 @@ declare enum ChainStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface RotateOptions {
   /**
@@ -6527,8 +6065,7 @@ declare interface RotateOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   x?: number;
 
@@ -6564,8 +6101,7 @@ declare interface RotateOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   y?: number;
 
@@ -6601,8 +6137,7 @@ declare interface RotateOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   z?: number;
 
@@ -6638,8 +6173,7 @@ declare interface RotateOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   centerX?: number | string;
 
@@ -6674,8 +6208,7 @@ declare interface RotateOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   centerY?: number | string;
 
@@ -6698,8 +6231,7 @@ declare interface RotateOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   centerZ?: number;
 
@@ -6726,8 +6258,7 @@ declare interface RotateOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   perspective?: number;
 
@@ -6763,8 +6294,7 @@ declare interface RotateOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   angle: number | string;
 }
@@ -6968,8 +6498,7 @@ declare interface TransitionOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum TransitionEdge {
   /**
@@ -6987,10 +6516,9 @@ declare enum TransitionEdge {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  TOP,
+  TOP = 0,
 
   /**
    * Bottom edge of the window.
@@ -7007,10 +6535,9 @@ declare enum TransitionEdge {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  BOTTOM,
+  BOTTOM = 1,
 
   /**
    * Start edge of the window, which is the left edge for left-to-right
@@ -7029,10 +6556,9 @@ declare enum TransitionEdge {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  START,
+  START = 2,
 
   /**
    * End edge of the window, which is the right edge for left-to-right scripts
@@ -7051,10 +6577,9 @@ declare enum TransitionEdge {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  END
+  END = 3
 }
 
 /**
@@ -7091,53 +6616,13 @@ declare type TransitionEffects = {
 };
 
 /**
- * Defines the option of asymmetric transition.
- *
- * @interface AsymmetricTransitionOption
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare interface AsymmetricTransitionOption {
-  /**
-   * TransitionEffect used for appearing
-   *
-   * @type { TransitionEffect }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  appear: TransitionEffect;
-
-  /**
-   * TransitionEffect used for disappearing
-   *
-   * @type { TransitionEffect }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  disappear: TransitionEffect;
-}
-
-/**
  * Defined the draw modifier of node. Provides draw callbacks for the associated Node.
  * Each DrawModifier instance can be set for only one component. Repeated setting is not allowed.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class DrawModifier {
   /**
@@ -7152,18 +6637,6 @@ declare class DrawModifier {
   drawBehind?(drawContext: DrawContext): void;
 
   /**
-   * drawBehind Method. Executed before drawing associated Node.
-   *
-   * @param { DrawContext } drawContext - The drawContext used to draw.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  drawBehind(drawContext: DrawContext): void;
-
-  /**
    * drawContent Method. Executed when associated Node is drawing, the default drawContent method will be replaced
    * if this method is set.
    *
@@ -7174,20 +6647,6 @@ declare class DrawModifier {
    * @since 12
    */
   drawContent?(drawContext: DrawContext): void;
-
-  /**
-   * drawContent Method. Executed when associated Node is drawing, the default drawContent method will be replaced
-   * if this method is set.
-   *
-   * @param { DrawContext } drawContext - The drawContext used to draw.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  drawContent(drawContext: DrawContext): void;
-
 
   /**
    * drawFront Method. Executed after drawing associated Node.
@@ -7211,20 +6670,7 @@ declare class DrawModifier {
    * @atomicservice
    * @since 20
    */
-  drawForeground(drawContext: DrawContext): void;
-  /**
-   * drawforeground Method. This method is executed after drawing associated Node and its children.
-   * It allows you to perform additional drawing operations on top of the already rendered content.
-   * This can be useful for adding visual elements that should appear above the main content.
-   *
-   * @param { DrawContext } drawContext - The drawContext used to draw.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  drawFront(drawContext: DrawContext): void;
+  drawForeground?(drawContext: DrawContext): void;
 
   /**
    * Invalidate the component, which will cause a re-render of the component.
@@ -7233,8 +6679,7 @@ declare class DrawModifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   invalidate(): void;
 }
@@ -7646,309 +7091,6 @@ declare class TransitionEffect<
    * @since 10
    */
   /**
-   * Combination of transition effects.
-   *
-   * @param { TransitionEffect } transitionEffect - transition effect which is be combined
-   * @returns { TransitionEffect } combined transition effect
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  combine(transitionEffect: TransitionEffect): TransitionEffect;
-}
-
-/**
- * Defines the transition effect
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare class TransitionEffect {
-
-  /**
-   * Disables the transition effect
-   *
-   * @type { TransitionEffect }
-   * @readonly
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  static readonly IDENTITY: TransitionEffect;
-
-  /**
-   * Specifies a transition effect with transparency of 0, which is equivalent to TransitionEffect.opacity(0).
-   *
-   * @type { TransitionEffect }
-   * @readonly
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  static readonly OPACITY: TransitionEffect;
-
-  /**
-   * Defines a slide transition effect
-   *
-   * @type { TransitionEffect }
-   * @readonly
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  static readonly SLIDE: TransitionEffect;
-
-  /**
-   * Specify a transition effect where the element enters by shrinking first and then expanding as it slides in from the right,
-   * and exits by shrinking first and then expanding as it slides out to the left, with a minimum scale ratio of 0.8.
-   * It comes with default animation parameters, which can also be overridden.
-   * The default animation duration is set to 600ms, and the specified animation curve is cubicBezierCurve(0.24, 0.0, 0.50, 1.0).
-   *
-   * @type { TransitionEffect }
-   * @readonly
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  static readonly SLIDE_SWITCH: TransitionEffect;
-
-  /**
-   * Creates a translate transition effect
-   *
-   * @param { TranslateOptions } options - translate options
-   * @returns { TransitionEffect }
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  static translate(options: TranslateOptions): TransitionEffect;
-
-  /**
-   * Creates a rotation transition effect
-   *
-   * @param { RotateOptions } options - rotate options
-   * Set the rotation effect for component transitions when inserting and deleting.
-   * The value represents the starting rotation point for the inserting animation and the ending rotation point for the deleting animation.
-   * -x: Horizontal component of the rotational vector.
-   * -y: Vertical component of the rotational vector.
-   * -z: Vertical component of the rotational vector.
-   * -centerX, centerY specify the rotation center point, with default values of "50%",
-   * meaning that the default rotation center point is the center point of the component.
-   * -The center point of (0, 0) represents the upper-left corner of the component.
-   * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
-   * -perspective indicates the visual distance. The perspective property does not support transition animation.
-   * @returns { TransitionEffect }
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  static rotate(options: RotateOptions): TransitionEffect;
-
-  /**
-   * Creates a scale transition effect
-   *
-   * @param { ScaleOptions } options - scale options
-   * @returns { TransitionEffect }
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  static scale(options: ScaleOptions): TransitionEffect;
-
-  /**
-   * Creates an opacity transition effect with alpha value
-   *
-   * @param { number } alpha - opacity alpha value, value range [0, 1].
-   * Illegal values less than 0 are treated as 0, and illegal values greater than 1 are treated as 1.
-   * @returns { TransitionEffect }
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  static opacity(alpha: number): TransitionEffect;
-
-  /**
-   * Creates a move transition effect
-   *
-   * @param { TransitionEdge } edge - the edge that component will move to
-   * @returns { TransitionEffect }
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  static move(edge: TransitionEdge): TransitionEffect;
-
-  /**
-   * Creates an asymmetric transition effect
-   *
-   * @param { TransitionEffect } appear - the transition which will be attached when the component is appear
-   * @param { TransitionEffect } disappear - the transition which will be attached when the component is disappear
-   * @returns { TransitionEffect }
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  static asymmetric(appear: TransitionEffect, disappear: TransitionEffect): TransitionEffect;
-
-  /**
-   * identity or slideSwitch TransitionEffect constructor
-   *
-   * @param { 'identity' | 'slideSwitch' } type - transition type
-   * @param { undefined } effect - transition options
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  constructor(type: 'identity' | 'slideSwitch', effect: undefined);
-
-  /**
-   * opacity TransitionEffect constructor
-   *
-   * @param { 'opacity' } type - transition type
-   * @param { number } effect - transition options
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  constructor(type: 'opacity', effect: number);
-
-  /**
-   * move TransitionEffect constructor
-   *
-   * @param { 'move' } type - transition type
-   * @param { TransitionEdge } effect - transition options
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  constructor(type: 'move', effect: TransitionEdge);
-
-  /**
-   * translate TransitionEffect constructor
-   *
-   * @param { 'translate' } type - transition type
-   * @param { TranslateOptions } effect - transition options
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  constructor(type: 'translate', effect:TranslateOptions);
-
-  /**
-   * rotate TransitionEffect constructor
-   *
-   * @param { 'rotate' } type - transition type
-   * @param { RotateOptions } effect - transition options
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  constructor(type: 'rotate', effect: RotateOptions);
-
-  /**
-   * scale TransitionEffect constructor
-   *
-   * @param { 'scale' } type - transition type
-   * @param { ScaleOptions } effect - transition options
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  constructor(type: 'scale', effect: ScaleOptions);
-
-  /**
-   * asymmetric TransitionEffect constructor
-   *
-   * @param { 'asymmetric' } type - transition type
-   * @param { AsymmetricTransitionOption } effect - transition options
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  constructor(type: 'asymmetric', effect: AsymmetricTransitionOption);
-
-  /**
-   * Set the animation of current transition effect
-   *
-   * @param { AnimateParam } value - animation parameters
-   * @returns { TransitionEffect }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  animation(value: AnimateParam): TransitionEffect;
-
-  /**
    * Combines another transition effect
    *
    * @param { TransitionEffect } transitionEffect - transition effect which is be combined
@@ -7957,8 +7099,7 @@ declare class TransitionEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 11
    */
   combine(transitionEffect: TransitionEffect): TransitionEffect;
 }
@@ -8180,8 +7321,7 @@ interface PreviewParams {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface ItemDragInfo {
   /**
@@ -8206,8 +7346,7 @@ declare interface ItemDragInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   x: number;
 
@@ -8233,8 +7372,7 @@ declare interface ItemDragInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   y: number;
 }
@@ -8245,8 +7383,7 @@ declare interface ItemDragInfo {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 declare enum EffectType {
   /**
@@ -8254,8 +7391,7 @@ declare enum EffectType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   DEFAULT = 0,
   /**
@@ -8263,10 +7399,9 @@ declare enum EffectType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
-  WINDOW_EFFECT = 1,
+  WINDOW_EFFECT = 1
 }
 
 /**
@@ -8275,8 +7410,7 @@ declare enum EffectType {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum PreDragStatus {
   /**
@@ -8284,8 +7418,7 @@ declare enum PreDragStatus {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   ACTION_DETECTING_STATUS = 0,
 
@@ -8294,8 +7427,7 @@ declare enum PreDragStatus {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   READY_TO_TRIGGER_DRAG_ACTION = 1,
 
@@ -8304,8 +7436,7 @@ declare enum PreDragStatus {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PREVIEW_LIFT_STARTED = 2,
 
@@ -8314,8 +7445,7 @@ declare enum PreDragStatus {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PREVIEW_LIFT_FINISHED = 3,
 
@@ -8324,8 +7454,7 @@ declare enum PreDragStatus {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PREVIEW_LANDING_STARTED = 4,
 
@@ -8334,8 +7463,7 @@ declare enum PreDragStatus {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PREVIEW_LANDING_FINISHED = 5,
 
@@ -8344,8 +7472,7 @@ declare enum PreDragStatus {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   ACTION_CANCELED_BEFORE_DRAG = 6,
 
@@ -8354,10 +7481,9 @@ declare enum PreDragStatus {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
-  PREPARING_FOR_DRAG_DETECTION = 7,
+  PREPARING_FOR_DRAG_DETECTION = 7
 }
 
 /**
@@ -8382,8 +7508,7 @@ declare enum PreDragStatus {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 declare interface DragItemInfo {
   /**
@@ -8408,8 +7533,7 @@ declare interface DragItemInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts{'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   pixelMap?: PixelMap;
 
@@ -8435,8 +7559,7 @@ declare interface DragItemInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   builder?: CustomBuilder;
 
@@ -8462,8 +7585,7 @@ declare interface DragItemInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   extraInfo?: string;
 }
@@ -8504,8 +7626,7 @@ declare interface DragItemInfo {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @deprecated since 18
  * @useinstead ohos.arkui.UIContext.UIContext#animateTo
  */
@@ -8521,8 +7642,7 @@ declare function animateTo(value: AnimateParam, event: () => void): void;
  * and the system will automatically insert transition animations for state changes caused by the closure function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare function animateToImmediately(value: AnimateParam, event: () => void): void;
 
@@ -8578,8 +7698,7 @@ declare function animateToImmediately(value: AnimateParam, event: () => void): v
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @deprecated since 18
  * @useinstead ohos.arkui.UIContext.UIContext#vp2px
  */
@@ -8637,8 +7756,7 @@ declare function vp2px(value: number): number;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @deprecated since 18
  * @useinstead ohos.arkui.UIContext.UIContext#px2vp
  */
@@ -8861,8 +7979,7 @@ declare function px2lpx(value: number): number;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare namespace focusControl {
   /**
@@ -8890,8 +8007,7 @@ declare namespace focusControl {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function requestFocus(value: string): boolean;
 }
@@ -8914,17 +8030,6 @@ declare namespace focusControl {
 declare type PointerStyle = import('../api/@ohos.multimodalInput.pointer').default.PointerStyle;
 
 /**
- * Import the PointerStyle type object for setCursor.
- *
- * @typedef { pointer.PointerStyle } PointerStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type PointerStyle = pointer.PointerStyle;
-
-/**
  * CursorControl
  *
  * @namespace cursorControl
@@ -8937,8 +8042,7 @@ declare type PointerStyle = pointer.PointerStyle;
  * @namespace cursorControl
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare namespace cursorControl {
 
@@ -8957,8 +8061,7 @@ declare namespace cursorControl {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function setCursor(value: PointerStyle): void;
 
@@ -8975,8 +8078,7 @@ declare namespace cursorControl {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function restoreDefault(): void;
 }
@@ -9013,8 +8115,7 @@ declare namespace cursorControl {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface EventTarget {
   /**
@@ -9049,8 +8150,7 @@ declare interface EventTarget {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   area: Area;
 
@@ -9062,8 +8162,7 @@ declare interface EventTarget {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   id?: string;
 }
@@ -9090,8 +8189,7 @@ declare interface EventTarget {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum SourceType {
   /**
@@ -9113,8 +8211,7 @@ declare enum SourceType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Unknown,
 
@@ -9137,8 +8234,7 @@ declare enum SourceType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Mouse,
 
@@ -9161,8 +8257,7 @@ declare enum SourceType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   TouchScreen,
 
@@ -9209,8 +8304,7 @@ declare enum SourceType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum SourceTool {
   /**
@@ -9232,8 +8326,7 @@ declare enum SourceTool {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Unknown,
 
@@ -9256,8 +8349,7 @@ declare enum SourceTool {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Finger,
 
@@ -9280,8 +8372,7 @@ declare enum SourceTool {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Pen,
 
@@ -9291,10 +8382,9 @@ declare enum SourceTool {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  MOUSE,
+  MOUSE = 3,
 
   /**
    * The touchpad type.
@@ -9302,10 +8392,9 @@ declare enum SourceTool {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  TOUCHPAD,
+  TOUCHPAD = 4,
 
   /**
    * The joystick type.
@@ -9313,10 +8402,9 @@ declare enum SourceTool {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  JOYSTICK,
+  JOYSTICK = 5
 }
 
 /**
@@ -9344,8 +8432,7 @@ declare enum SourceTool {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum RepeatMode {
   /**
@@ -9370,8 +8457,7 @@ declare enum RepeatMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Repeat,
 
@@ -9397,8 +8483,7 @@ declare enum RepeatMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Stretch,
 
@@ -9424,8 +8509,7 @@ declare enum RepeatMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Round,
 
@@ -9451,8 +8535,7 @@ declare enum RepeatMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Space,
 }
@@ -9482,8 +8565,7 @@ declare enum RepeatMode {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum BlurStyle {
   /**
@@ -9508,8 +8590,7 @@ declare enum BlurStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Thin,
 
@@ -9535,8 +8616,7 @@ declare enum BlurStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Regular,
 
@@ -9562,8 +8642,7 @@ declare enum BlurStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Thick,
 
@@ -9581,10 +8660,9 @@ declare enum BlurStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  BACKGROUND_THIN,
+  BACKGROUND_THIN = 3,
 
   /**
    * Material that creates a medium shallow depth of field effect.
@@ -9600,10 +8678,9 @@ declare enum BlurStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  BACKGROUND_REGULAR,
+  BACKGROUND_REGULAR = 4,
 
   /**
    * Material that creates a high shallow depth of field effect.
@@ -9619,10 +8696,9 @@ declare enum BlurStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  BACKGROUND_THICK,
+  BACKGROUND_THICK = 5,
 
   /**
    * Material that creates the maximum depth of field effect.
@@ -9638,10 +8714,9 @@ declare enum BlurStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  BACKGROUND_ULTRA_THICK,
+  BACKGROUND_ULTRA_THICK = 6,
 
   /**
    * No blur.
@@ -9658,10 +8733,9 @@ declare enum BlurStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  NONE,
+  NONE = 7,
 
   /**
    * Component ultra-thin material.
@@ -9678,8 +8752,7 @@ declare enum BlurStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   COMPONENT_ULTRA_THIN = 8,
 
@@ -9698,8 +8771,7 @@ declare enum BlurStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   COMPONENT_THIN = 9,
 
@@ -9718,8 +8790,7 @@ declare enum BlurStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   COMPONENT_REGULAR = 10,
 
@@ -9738,8 +8809,7 @@ declare enum BlurStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   COMPONENT_THICK = 11,
 
@@ -9758,10 +8828,9 @@ declare enum BlurStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  COMPONENT_ULTRA_THICK = 12,
+  COMPONENT_ULTRA_THICK = 12
 }
 
 /**
@@ -9771,8 +8840,7 @@ declare enum BlurStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 declare enum BlurStyleActivePolicy {
   /**
@@ -9781,8 +8849,7 @@ declare enum BlurStyleActivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   FOLLOWS_WINDOW_ACTIVE_STATE = 0,
 
@@ -9792,8 +8859,7 @@ declare enum BlurStyleActivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   ALWAYS_ACTIVE = 1,
 
@@ -9803,10 +8869,9 @@ declare enum BlurStyleActivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
-  ALWAYS_INACTIVE = 2,
+  ALWAYS_INACTIVE = 2
 }
 
 /**
@@ -9824,8 +8889,7 @@ declare enum BlurStyleActivePolicy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ThemeColorMode {
   /**
@@ -9841,10 +8905,9 @@ declare enum ThemeColorMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  SYSTEM,
+  SYSTEM = 0,
 
   /**
    * Defines the light mode.
@@ -9859,10 +8922,9 @@ declare enum ThemeColorMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  LIGHT,
+  LIGHT = 1,
 
   /**
    * Defines the dark mode.
@@ -9877,10 +8939,9 @@ declare enum ThemeColorMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  DARK,
+  DARK = 2
 }
 
 /**
@@ -9898,8 +8959,7 @@ declare enum ThemeColorMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum AdaptiveColor {
   /**
@@ -9917,10 +8977,9 @@ declare enum AdaptiveColor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  DEFAULT,
+  DEFAULT = 0,
 
   /**
    * Adaptive color mode is used. The average color value of the color picking area is used as the mask color.
@@ -9935,10 +8994,9 @@ declare enum AdaptiveColor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  AVERAGE,
+  AVERAGE = 1
 }
 
 /**
@@ -9956,8 +9014,7 @@ declare enum AdaptiveColor {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ModalTransition {
   /**
@@ -9975,10 +9032,9 @@ declare enum ModalTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  DEFAULT,
+  DEFAULT = 0,
 
   /**
    * No transition animation for the modal.
@@ -9993,10 +9049,9 @@ declare enum ModalTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  NONE,
+  NONE = 1,
 
   /**
    * Opacity gradient animation for the modal.
@@ -10011,10 +9066,9 @@ declare enum ModalTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  ALPHA,
+  ALPHA = 2
 }
 
 /**
@@ -10034,8 +9088,7 @@ declare enum ModalTransition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
   /**
@@ -10046,8 +9099,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   policy?: BlurStyleActivePolicy;
 
@@ -10059,8 +9111,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   inactiveColor?: ResourceColor;
 }
@@ -10082,8 +9133,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {}
 
@@ -10103,8 +9153,7 @@ declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface BlurOptions {
   /**
@@ -10120,8 +9169,7 @@ declare interface BlurOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   grayscale: [number, number];
 }
@@ -10134,8 +9182,7 @@ declare interface BlurOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19
  */
 declare interface SystemAdaptiveOptions {
   /**
@@ -10146,8 +9193,7 @@ declare interface SystemAdaptiveOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   disableSystemAdaptation?: boolean;
 }
@@ -10167,8 +9213,7 @@ declare interface SystemAdaptiveOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface BlurStyleOptions {
   /**
@@ -10189,8 +9234,7 @@ declare interface BlurStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   colorMode?: ThemeColorMode;
 
@@ -10212,8 +9256,7 @@ declare interface BlurStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   adaptiveColor?: AdaptiveColor;
 
@@ -10226,8 +9269,7 @@ declare interface BlurStyleOptions {
    * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   scale?: number;
 
@@ -10248,8 +9290,7 @@ declare interface BlurStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   blurOptions?: BlurOptions;
 }
@@ -10269,8 +9310,7 @@ declare interface BlurStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface BackgroundEffectOptions {
 
@@ -10293,8 +9333,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   radius: number;
 
@@ -10319,8 +9358,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   saturation?: number;
 
@@ -10345,8 +9383,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   brightness?: number;
 
@@ -10367,8 +9404,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   color?: ResourceColor;
 
@@ -10389,8 +9425,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   adaptiveColor?: AdaptiveColor;
 
@@ -10411,8 +9446,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   blurOptions?: BlurOptions;
 
@@ -10424,8 +9458,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   policy?: BlurStyleActivePolicy;
 
@@ -10437,8 +9470,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   inactiveColor?: ResourceColor;
 }
@@ -10450,8 +9482,7 @@ declare interface BackgroundEffectOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface ForegroundEffectOptions {
 
@@ -10462,8 +9493,7 @@ declare interface ForegroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
  radius: number;
 }
@@ -10483,8 +9513,7 @@ declare interface ForegroundEffectOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface PickerTextStyle {
   /**
@@ -10502,8 +9531,7 @@ declare interface PickerTextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   color?: ResourceColor;
 
@@ -10523,8 +9551,7 @@ declare interface PickerTextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   font?: Font;
 }
@@ -10536,8 +9563,7 @@ declare interface PickerTextStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface PickerDialogButtonStyle {
   /**
@@ -10547,8 +9573,7 @@ declare interface PickerDialogButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   type?: ButtonType;
 
@@ -10559,8 +9584,7 @@ declare interface PickerDialogButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   style?: ButtonStyleMode;
 
@@ -10571,8 +9595,7 @@ declare interface PickerDialogButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   role?: ButtonRole;
 
@@ -10583,8 +9606,7 @@ declare interface PickerDialogButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fontSize?: Length;
 
@@ -10595,8 +9617,7 @@ declare interface PickerDialogButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fontColor?: ResourceColor;
 
@@ -10607,8 +9628,7 @@ declare interface PickerDialogButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fontWeight?: FontWeight | number | string;
 
@@ -10619,8 +9639,7 @@ declare interface PickerDialogButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fontStyle?: FontStyle;
 
@@ -10631,8 +9650,7 @@ declare interface PickerDialogButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fontFamily?: Resource | string;
 
@@ -10643,8 +9661,7 @@ declare interface PickerDialogButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   backgroundColor?: ResourceColor;
 
@@ -10655,8 +9672,7 @@ declare interface PickerDialogButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   borderRadius?: Length | BorderRadiuses;
 
@@ -10667,8 +9683,7 @@ declare interface PickerDialogButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   primary?: boolean;
 }
@@ -10688,8 +9703,7 @@ declare interface PickerDialogButtonStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ShadowType {
   /**
@@ -10705,10 +9719,9 @@ declare enum ShadowType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  COLOR,
+  COLOR = 0,
 
   /**
    * Blur.
@@ -10723,10 +9736,9 @@ declare enum ShadowType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  BLUR,
+  BLUR = 1
 }
 
 /**
@@ -10761,8 +9773,7 @@ declare enum ShadowType {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface ShadowOptions {
   /**
@@ -10797,8 +9808,7 @@ declare interface ShadowOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   radius: number | Resource;
 
@@ -10821,8 +9831,7 @@ declare interface ShadowOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   type?: ShadowType;
 
@@ -10858,8 +9867,7 @@ declare interface ShadowOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   color?: Color | string | Resource | ColoringStrategy;
 
@@ -10895,8 +9903,7 @@ declare interface ShadowOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   offsetX?: number | Resource;
 
@@ -10932,8 +9939,7 @@ declare interface ShadowOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   offsetY?: number | Resource;
 
@@ -10962,8 +9968,7 @@ declare interface ShadowOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fill?: boolean;
 }
@@ -10983,8 +9988,7 @@ declare interface ShadowOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ShadowStyle {
   /**
@@ -11000,10 +10004,9 @@ declare enum ShadowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  OUTER_DEFAULT_XS,
+  OUTER_DEFAULT_XS = 0,
 
   /**
    * Defines the small default shadow style.
@@ -11018,10 +10021,9 @@ declare enum ShadowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  OUTER_DEFAULT_SM,
+  OUTER_DEFAULT_SM = 1,
 
   /**
    * Medium shadow.
@@ -11036,10 +10038,9 @@ declare enum ShadowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  OUTER_DEFAULT_MD,
+  OUTER_DEFAULT_MD = 2,
 
   /**
    * Large shadow.
@@ -11054,10 +10055,9 @@ declare enum ShadowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  OUTER_DEFAULT_LG,
+  OUTER_DEFAULT_LG = 3,
 
   /**
    * Floating medium shadow.
@@ -11072,10 +10072,9 @@ declare enum ShadowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  OUTER_FLOATING_SM,
+  OUTER_FLOATING_SM = 4,
 
   /**
    * Defines the medium floating shadow style.
@@ -11090,10 +10089,9 @@ declare enum ShadowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  OUTER_FLOATING_MD,
+  OUTER_FLOATING_MD = 5
 }
 
 /**
@@ -11111,8 +10109,7 @@ declare enum ShadowStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface MultiShadowOptions {
   /**
@@ -11140,8 +10137,7 @@ declare interface MultiShadowOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   radius?: number | Resource;
 
@@ -11164,8 +10160,7 @@ declare interface MultiShadowOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   offsetX?: number | Resource;
 
@@ -11188,8 +10183,7 @@ declare interface MultiShadowOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   offsetY?: number | Resource;
 }
@@ -11208,8 +10202,7 @@ declare interface MultiShadowOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum SafeAreaType {
   /**
@@ -11224,10 +10217,9 @@ declare enum SafeAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  SYSTEM,
+  SYSTEM = 0,
 
   /**
    * Notch or punch hole.
@@ -11241,10 +10233,9 @@ declare enum SafeAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  CUTOUT,
+  CUTOUT = 1,
 
   /**
    * Soft keyboard area.
@@ -11258,10 +10249,9 @@ declare enum SafeAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  KEYBOARD
+  KEYBOARD = 2
 }
 
 /**
@@ -11278,8 +10268,7 @@ declare enum SafeAreaType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum SafeAreaEdge {
   /**
@@ -11294,10 +10283,9 @@ declare enum SafeAreaEdge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  TOP,
+  TOP = 0,
 
   /**
    * Bottom edge of the safe area.
@@ -11311,10 +10299,9 @@ declare enum SafeAreaEdge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  BOTTOM,
+  BOTTOM = 1,
 
   /**
    * Start edge of the safe area.
@@ -11328,10 +10315,9 @@ declare enum SafeAreaEdge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  START,
+  START = 2,
 
   /**
    * End edge of the safe area.
@@ -11345,10 +10331,9 @@ declare enum SafeAreaEdge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  END
+  END = 3
 }
 
 /**
@@ -11358,8 +10343,7 @@ declare enum SafeAreaEdge {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum LayoutSafeAreaType {
   /**
@@ -11368,8 +10352,7 @@ declare enum LayoutSafeAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   SYSTEM = 0,
 }
@@ -11381,8 +10364,7 @@ declare enum LayoutSafeAreaType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum LayoutSafeAreaEdge {
   /**
@@ -11391,8 +10373,7 @@ declare enum LayoutSafeAreaEdge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   TOP = 0,
 
@@ -11402,8 +10383,7 @@ declare enum LayoutSafeAreaEdge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   BOTTOM = 1,
 
@@ -11473,8 +10453,7 @@ declare enum LayoutSafeAreaEdge {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum SheetSize {
   /**
@@ -11490,10 +10469,9 @@ declare enum SheetSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  MEDIUM,
+  MEDIUM = 0,
 
   /**
    * The sheet height is almost the screen height.
@@ -11508,10 +10486,9 @@ declare enum SheetSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  LARGE,
+  LARGE = 1,
 
   /**
    * The sheet height automatically adapts to the content.
@@ -11526,25 +10503,10 @@ declare enum SheetSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  FIT_CONTENT = 2,
+  FIT_CONTENT = 2
 }
-
-/**
- * The modifier key state query function block.
- *
- * @typedef { function } ModifierKeyStateGetter
- * @param { Array<string> } keys - Indicate the modifier keys to query.
- * @returns { boolean } - the query result
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type ModifierKeyStateGetter = (keys: Array<string>) => boolean;
 
 /**
  * Defines the base event.
@@ -11578,8 +10540,7 @@ declare type ModifierKeyStateGetter = (keys: Array<string>) => boolean;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface BaseEvent {
   /**
@@ -11614,8 +10575,7 @@ declare interface BaseEvent {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   target: EventTarget;
 
@@ -11651,8 +10611,7 @@ declare interface BaseEvent {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   timestamp: number;
 
@@ -11688,8 +10647,7 @@ declare interface BaseEvent {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   source: SourceType;
 
@@ -11701,8 +10659,7 @@ declare interface BaseEvent {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   axisHorizontal?: number;
 
@@ -11714,8 +10671,7 @@ declare interface BaseEvent {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   axisVertical?: number;
 
@@ -11756,8 +10712,7 @@ declare interface BaseEvent {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   pressure: number;
 
@@ -11786,8 +10741,7 @@ declare interface BaseEvent {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   tiltX: number;
 
@@ -11816,8 +10770,7 @@ declare interface BaseEvent {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   tiltY: number;
 
@@ -11829,8 +10782,7 @@ declare interface BaseEvent {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   rollAngle?: number;
 
@@ -11859,8 +10811,7 @@ declare interface BaseEvent {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   sourceTool: SourceTool;
 
@@ -11878,26 +10829,13 @@ declare interface BaseEvent {
   getModifierKeyState?(keys: Array<string>): boolean;
 
   /**
-   * Query the modifier key press state, support 'ctrl'|'alt'|'shift'
-   *
-   * @type { ?ModifierKeyStateGetter }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getModifierKeyState?: ModifierKeyStateGetter;
-
-  /**
    * Indicates the ID of the input device that triggers the current event.
    *
    * @type { ?number } [deviceId] The ID of the input device that triggers the current event
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   deviceId?: number;
 
@@ -11908,8 +10846,7 @@ declare interface BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   targetDisplayId?: number;
 }
@@ -11939,8 +10876,7 @@ declare interface BaseEvent {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface BorderImageOption {
   /**
@@ -11980,8 +10916,7 @@ declare interface BorderImageOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   slice?: Length | EdgeWidths | LocalizedEdgeWidths,
 
@@ -12011,8 +10946,7 @@ declare interface BorderImageOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   repeat?: RepeatMode,
 
@@ -12052,19 +10986,6 @@ declare interface BorderImageOption {
   source?: string | Resource | LinearGradient,
 
   /**
-   * Border image source
-   *
-   * @type { ?(string | Resource | LinearGradientOptions) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  source?: string | Resource | LinearGradientOptions,
-
-  /**
    * Border image width
    *
    * @type { ?(Length | EdgeWidths) }
@@ -12100,8 +11021,7 @@ declare interface BorderImageOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   width?: Length | EdgeWidths | LocalizedEdgeWidths,
 
@@ -12141,8 +11061,7 @@ declare interface BorderImageOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   outset?: Length | EdgeWidths | LocalizedEdgeWidths,
 
@@ -12174,10 +11093,9 @@ declare interface BorderImageOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  fill?: boolean
+  fill?: boolean;
 }
 
 /**
@@ -12187,8 +11105,7 @@ declare interface BorderImageOption {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare class LayoutPolicy {
   /**
@@ -12201,8 +11118,7 @@ declare class LayoutPolicy {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   static readonly matchParent: LayoutPolicy;
   /**
@@ -12269,8 +11185,7 @@ declare class LayoutPolicy {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface ClickEvent extends BaseEvent {
   /**
@@ -12310,8 +11225,7 @@ declare interface ClickEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   displayX: number;
 
@@ -12330,8 +11244,7 @@ declare interface ClickEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   displayY: number;
 
@@ -12350,8 +11263,7 @@ declare interface ClickEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   windowX: number;
 
@@ -12370,8 +11282,7 @@ declare interface ClickEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   windowY: number;
 
@@ -12429,8 +11340,7 @@ declare interface ClickEvent extends BaseEvent {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   x: number;
 
@@ -12466,8 +11376,7 @@ declare interface ClickEvent extends BaseEvent {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   y: number;
 
@@ -12478,8 +11387,7 @@ declare interface ClickEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   hand?: InteractionHand;
 
@@ -12491,8 +11399,7 @@ declare interface ClickEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   preventDefault: () => void;
 }
@@ -12512,8 +11419,7 @@ declare interface ClickEvent extends BaseEvent {
  * @interface HoverEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface HoverEvent extends BaseEvent {
   /**
@@ -12522,8 +11428,7 @@ declare interface HoverEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   x?: number;
 
@@ -12533,8 +11438,7 @@ declare interface HoverEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   y?: number;
 
@@ -12544,8 +11448,7 @@ declare interface HoverEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   windowX?: number;
 
@@ -12555,8 +11458,7 @@ declare interface HoverEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   windowY?: number;
 
@@ -12566,8 +11468,7 @@ declare interface HoverEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   displayX?: number;
 
@@ -12577,8 +11478,7 @@ declare interface HoverEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   displayY?: number;
 
@@ -12615,8 +11515,7 @@ declare interface HoverEvent extends BaseEvent {
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   stopPropagation: () => void;
 }
@@ -12636,8 +11535,7 @@ declare interface HoverEvent extends BaseEvent {
  * @interface MouseEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface MouseEvent extends BaseEvent {
   /**
@@ -12653,8 +11551,7 @@ declare interface MouseEvent extends BaseEvent {
    * @type { MouseButton }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   button: MouseButton;
 
@@ -12671,8 +11568,7 @@ declare interface MouseEvent extends BaseEvent {
    * @type { MouseAction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   action: MouseAction;
 
@@ -12709,8 +11605,7 @@ declare interface MouseEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   displayX: number;
 
@@ -12727,8 +11622,7 @@ declare interface MouseEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   displayY: number;
 
@@ -12745,8 +11639,7 @@ declare interface MouseEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   windowX: number;
 
@@ -12763,8 +11656,7 @@ declare interface MouseEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   windowY: number;
 
@@ -12803,8 +11695,7 @@ declare interface MouseEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   x: number;
 
@@ -12821,8 +11712,7 @@ declare interface MouseEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   y: number;
 
@@ -12839,8 +11729,7 @@ declare interface MouseEvent extends BaseEvent {
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   stopPropagation: () => void;
 
@@ -12851,8 +11740,7 @@ declare interface MouseEvent extends BaseEvent {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   rawDeltaX?: number;
 
@@ -12863,8 +11751,7 @@ declare interface MouseEvent extends BaseEvent {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   rawDeltaY?: number;
 
@@ -12874,8 +11761,7 @@ declare interface MouseEvent extends BaseEvent {
    * @type { ?MouseButton[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   pressedButtons?: MouseButton[];
 }
@@ -12887,8 +11773,7 @@ declare interface MouseEvent extends BaseEvent {
  * @typedef AccessibilityHoverEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface AccessibilityHoverEvent extends BaseEvent {
   /**
@@ -12897,8 +11782,7 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
    * @type { AccessibilityHoverType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   type: AccessibilityHoverType;
 
@@ -12908,8 +11792,7 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   x: number;
 
@@ -12919,8 +11802,7 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   y: number;
 
@@ -12930,8 +11812,7 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   displayX: number;
 
@@ -12941,8 +11822,7 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   displayY: number;
 
@@ -12952,8 +11832,7 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   windowX: number;
 
@@ -12963,8 +11842,7 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   windowY: number;
 
@@ -13011,8 +11889,7 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface TouchObject {
   /**
@@ -13037,8 +11914,7 @@ declare interface TouchObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   type: TouchType;
 
@@ -13064,8 +11940,7 @@ declare interface TouchObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   id: number;
 
@@ -13106,8 +11981,7 @@ declare interface TouchObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   displayX: number;
 
@@ -13126,8 +12000,7 @@ declare interface TouchObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   displayY: number;
 
@@ -13146,8 +12019,7 @@ declare interface TouchObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   windowX: number;
 
@@ -13166,8 +12038,7 @@ declare interface TouchObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   windowY: number;
 
@@ -13215,8 +12086,7 @@ declare interface TouchObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   x: number;
 
@@ -13242,8 +12112,7 @@ declare interface TouchObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   y: number;
 
@@ -13254,8 +12123,7 @@ declare interface TouchObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
     hand?: InteractionHand;
 
@@ -13266,8 +12134,7 @@ declare interface TouchObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   pressedTime?: number;
   /**
@@ -13277,8 +12144,7 @@ declare interface TouchObject {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
   pressure?: number;
 
@@ -13289,8 +12155,7 @@ declare interface TouchObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   width?: number;
 
@@ -13301,8 +12166,7 @@ declare interface TouchObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   height?: number;
 }
@@ -13322,8 +12186,7 @@ declare interface TouchObject {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface HistoricalPoint {
   /**
@@ -13341,8 +12204,7 @@ declare interface HistoricalPoint {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   touchObject: TouchObject;
 
@@ -13361,8 +12223,7 @@ declare interface HistoricalPoint {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   size: number;
 
@@ -13381,8 +12242,7 @@ declare interface HistoricalPoint {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   force: number;
 
@@ -13401,8 +12261,7 @@ declare interface HistoricalPoint {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   timestamp: number;
 }
@@ -13432,8 +12291,7 @@ declare interface HistoricalPoint {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface TouchEvent extends BaseEvent {
   /**
@@ -13458,8 +12316,7 @@ declare interface TouchEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   type: TouchType;
 
@@ -13485,8 +12342,7 @@ declare interface TouchEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   touches: TouchObject[];
 
@@ -13512,8 +12368,7 @@ declare interface TouchEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   changedTouches: TouchObject[];
 
@@ -13539,8 +12394,7 @@ declare interface TouchEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   stopPropagation: () => void;
 
@@ -13559,8 +12413,7 @@ declare interface TouchEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getHistoricalPoints(): Array<HistoricalPoint>;
 
@@ -13572,8 +12425,7 @@ declare interface TouchEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   preventDefault: () => void;
 }
@@ -13585,8 +12437,7 @@ declare interface TouchEvent extends BaseEvent {
  * @interface AxisEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'17','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 17
  */
 declare interface AxisEvent extends BaseEvent {
   /**
@@ -13595,8 +12446,7 @@ declare interface AxisEvent extends BaseEvent {
    * @type { AxisAction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   action: AxisAction;
 
@@ -13626,8 +12476,7 @@ declare interface AxisEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   displayX: number;
 
@@ -13637,8 +12486,7 @@ declare interface AxisEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   displayY: number;
 
@@ -13648,8 +12496,7 @@ declare interface AxisEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   windowX: number;
 
@@ -13659,8 +12506,7 @@ declare interface AxisEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   windowY: number;
 
@@ -13670,8 +12516,7 @@ declare interface AxisEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   x: number;
 
@@ -13681,8 +12526,7 @@ declare interface AxisEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   y: number;
 
@@ -13692,8 +12536,7 @@ declare interface AxisEvent extends BaseEvent {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   scrollStep?: number;
 
@@ -13703,8 +12546,7 @@ declare interface AxisEvent extends BaseEvent {
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   propagation: Callback<void>;
 
@@ -13714,8 +12556,7 @@ declare interface AxisEvent extends BaseEvent {
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   getHorizontalAxisValue(): number;
 
@@ -13725,8 +12566,7 @@ declare interface AxisEvent extends BaseEvent {
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   getVerticalAxisValue(): number;
 
@@ -13739,6 +12579,17 @@ declare interface AxisEvent extends BaseEvent {
    * @since 21
    */
   getPinchAxisScaleValue(): number;
+
+  /**
+   * Checks whether this event contains a specified axis type.
+   *
+   * @param { AxisType } axisType - Indicates the axis type.
+   * @returns { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 21
+   */
+  hasAxis(axisType: AxisType): boolean;
 }
 
 /**
@@ -13751,8 +12602,7 @@ declare interface AxisEvent extends BaseEvent {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions) => void;
 
@@ -13787,22 +12637,6 @@ declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, cur
   touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
 
 /**
- * Defines the callback type used in onGestureRecognizerJudgeBegin.
- *
- * @typedef { function } GestureRecognizerJudgeBeginCallback
- * @param { BaseGestureEvent } event - the event information
- * @param { GestureRecognizer } current - the current gesture recognizer of the component
- * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
- * @returns { GestureJudgeResult } the gesture judge result
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>) => GestureJudgeResult;
-
-/**
  * Defines the callback type used in shouldBuiltInRecognizerParallelWith.
  *
  * @typedef { function } ShouldBuiltInRecognizerParallelWithCallback
@@ -13812,8 +12646,7 @@ declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, cur
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureRecognizer, others: Array<GestureRecognizer>) => GestureRecognizer;
 
@@ -13826,8 +12659,7 @@ declare type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureReco
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare type TransitionFinishCallback = (transitionIn: boolean) => void;
 
@@ -13872,25 +12704,12 @@ declare type TouchTestDoneCallback = (event: BaseGestureEvent, recognizers: Arra
 declare type PixelMap = import('../api/@ohos.multimedia.image').default.PixelMap;
 
 /**
- * Defines the PixelMap type object for ui component.
- *
- * @typedef { image.PixelMap } PixelMap
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type PixelMap = image.PixelMap;
-
-/**
  * pixelmap object with release function.
  *
  * @interface PixelMapMock
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'7','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7
  */
 declare interface PixelMapMock {
   /**
@@ -13898,8 +12717,7 @@ declare interface PixelMapMock {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7
    */
   release(): void;
 }
@@ -13930,8 +12748,7 @@ declare interface PixelMapMock {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare enum DragBehavior {
   /**
@@ -13953,10 +12770,9 @@ declare enum DragBehavior {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
-  COPY,
+  COPY = 0,
   /**
    * If drag use move event, then set DragBehavior.MOVE.
    *
@@ -13976,10 +12792,9 @@ declare enum DragBehavior {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
-  MOVE
+  MOVE = 1
 }
 
 /**
@@ -14002,18 +12817,6 @@ declare enum DragBehavior {
 declare type UnifiedData = import('../api/@ohos.data.unifiedDataChannel').default.UnifiedData;
 
 /**
- * Import the UnifiedData type object for ui component.
- *
- * @typedef { unifiedDataChannel.UnifiedData } UnifiedData
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type UnifiedData = unifiedDataChannel.UnifiedData;
-
-/**
  * Import the Summary type object for ui component.
  *
  * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.Summary } Summary
@@ -14029,17 +12832,6 @@ declare type UnifiedData = unifiedDataChannel.UnifiedData;
  * @since 11
  */
 declare type Summary = import('../api/@ohos.data.unifiedDataChannel').default.Summary;
-
-/**
- * Import the Summary type object for ui component.
- *
- * @typedef { unifiedDataChannel.Summary } Summary
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type Summary = unifiedDataChannel.Summary;
 
 /**
  * Import the UniformDataType type object for ui component.
@@ -14068,17 +12860,6 @@ declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor')
  * @since 15
  */
 declare type DataSyncOptions = import('../api/@ohos.data.unifiedDataChannel').default.GetDataParams;
-
-/**
- * Import the UniformDataType type object for ui component.
- *
- * @typedef { uniformTypeDescriptor.UniformDataType } UniformDataType
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type UniformDataType = uniformTypeDescriptor.UniformDataType;
 
 /**
  * Import the DataLoadParams type object for ui component.
@@ -14113,20 +12894,9 @@ declare type DataLoadParams = import('../api/@ohos.data.unifiedDataChannel').def
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 declare enum DragResult {
-  /**
-   * If the drag is not finished and the result is not set by receiver, return DragResult.UNKNOWN.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  UNKNOWN = -1,
   /**
    * If the drag is successful, return DragResult.DRAG_SUCCESSFUL.
    *
@@ -14146,8 +12916,7 @@ declare enum DragResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   DRAG_SUCCESSFUL = 0,
   /**
@@ -14169,8 +12938,7 @@ declare enum DragResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   DRAG_FAILED = 1,
   /**
@@ -14184,8 +12952,7 @@ declare enum DragResult {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   DRAG_CANCELED = 2,
   /**
@@ -14199,8 +12966,7 @@ declare enum DragResult {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   DROP_ENABLED = 3,
   /**
@@ -14214,8 +12980,7 @@ declare enum DragResult {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   DROP_DISABLED = 4
 }
@@ -14243,8 +13008,7 @@ declare enum DragResult {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum BlendMode {
   /**
@@ -14262,8 +13026,7 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   NONE = 0,
   /**
@@ -14281,8 +13044,7 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   CLEAR = 1,
   /**
@@ -14300,9 +13062,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   SRC = 2,
   /**
    * r = d
@@ -14319,9 +13080,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   DST = 3,
   /**
    * r = s + (1 - sa) * d: The source pixels are blended based on opacity and cover the target pixels.
@@ -14338,8 +13098,7 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   SRC_OVER = 4,
   /**
@@ -14357,9 +13116,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   DST_OVER = 5,
   /**
    * r = s * da: Only the part of the source pixels that overlap with the target pixels is displayed.
@@ -14376,8 +13134,7 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   SRC_IN = 6,
   /**
@@ -14395,9 +13152,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   DST_IN = 7,
   /**
    * r = s * (1 - da)
@@ -14414,9 +13170,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   SRC_OUT = 8,
   /**
    * r = d * (1 - sa)
@@ -14433,9 +13188,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   DST_OUT = 9,
   /**
    * r = s * da + d * (1 - sa): The part of the source pixels that overlap with the target pixels is displayed
@@ -14454,9 +13208,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   SRC_ATOP = 10,
   /**
    * r = d * sa + s * (1 - da)
@@ -14474,9 +13227,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   DST_ATOP = 11,
   /**
    * r = s * (1 - da) + d * (1 - sa)
@@ -14493,9 +13245,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   XOR = 12,
   /**
    * r = min(s + d, 1)
@@ -14513,9 +13264,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   PLUS = 13,
   /**
    * r = s * d
@@ -14532,9 +13282,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   MODULATE = 14,
   /**
    * r = s + d - s * d
@@ -14551,9 +13300,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   SCREEN = 15,
   /**
    * multiply or screen, depending on destination
@@ -14570,9 +13318,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   OVERLAY = 16,
   /**
    * rc = s + d - max(s * da, d * sa), ra = kSrcOver
@@ -14589,9 +13336,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   DARKEN = 17,
   /**
    * rc = s + d - min(s * da, d * sa), ra = kSrcOver
@@ -14608,9 +13354,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   LIGHTEN = 18,
   /**
    * brighten destination to reflect source
@@ -14627,9 +13372,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   COLOR_DODGE = 19,
   /**
    * darken destination to reflect source
@@ -14646,9 +13390,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   COLOR_BURN = 20,
   /**
    * multiply or screen, depending on source
@@ -14665,9 +13408,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   HARD_LIGHT = 21,
   /**
    * The LIGHTEN or DARKEN mode is used, depending on the source pixels.
@@ -14684,9 +13426,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   SOFT_LIGHT = 22,
   /**
    * rc = s + d - 2 * (min(s * da, d * sa)), ra = kSrcOver
@@ -14704,9 +13445,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   DIFFERENCE = 23,
   /**
    * rc = s + d - two(s * d), ra = kSrcOver
@@ -14723,9 +13463,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   EXCLUSION = 24,
   /**
    * r = s * (1 - da) + d * (1 - sa) + s * d:
@@ -14744,9 +13483,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   MULTIPLY = 25,
   /**
    * hue of source with saturation and luminosity of destination
@@ -14763,9 +13501,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   HUE = 26,
   /**
    * saturation of source with hue and luminosity of destination
@@ -14782,9 +13519,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   SATURATION = 27,
   /**
    * hue and saturation of source with luminosity of destination
@@ -14801,9 +13537,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   COLOR = 28,
   /**
    * luminosity of source with hue and saturation of destination
@@ -14820,9 +13555,8 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   LUMINOSITY = 29
 }
 
@@ -14847,8 +13581,7 @@ declare enum BlendMode {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum BlendApplyType {
   /**
@@ -14866,8 +13599,7 @@ declare enum BlendApplyType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FAST = 0,
 
@@ -14888,10 +13620,9 @@ declare enum BlendApplyType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  OFFSCREEN = 1,
+  OFFSCREEN = 1
 }
 
 /**
@@ -14916,8 +13647,7 @@ declare enum BlendApplyType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 declare interface DragEvent {
   /**
@@ -14962,8 +13692,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   getDisplayX(): number;
 
@@ -14989,8 +13718,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   getDisplayY(): number;
 
@@ -15016,8 +13744,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   getWindowX(): number;
 
@@ -15043,8 +13770,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   getWindowY(): number;
 
@@ -15086,15 +13812,14 @@ declare interface DragEvent {
    * @since 11
    */
   /**
-  * If copy is COPY, this DragEvent is a copy event.
-  * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
-  * @default COPY
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * If copy is COPY, this DragEvent is a copy event.
+   * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
+   * @default COPY
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   dragBehavior: DragBehavior;
 
   /**
@@ -15110,8 +13835,7 @@ declare interface DragEvent {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   useCustomDropAnimation: boolean;
 
@@ -15130,8 +13854,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   setData(unifiedData: UnifiedData): void;
 
@@ -15154,8 +13877,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getData(): UnifiedData;
 
@@ -15174,8 +13896,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getSummary(): Summary;
 
@@ -15201,8 +13922,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   setResult(dragResult: DragResult): void;
 
@@ -15228,8 +13948,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   getResult(): DragResult;
 
@@ -15255,8 +13974,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   getPreviewRect(): Rectangle;
 
@@ -15275,8 +13993,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getVelocityX(): number;
 
@@ -15295,8 +14012,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getVelocityY(): number;
 
@@ -15315,8 +14031,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getVelocity(): number;
 
@@ -15344,18 +14059,6 @@ declare interface DragEvent {
   getModifierKeyState?(keys: Array<string>): boolean;
 
   /**
-   * Query the modifier key press state, support 'ctrl'|'alt'|'shift'
-   *
-   * @type { ?ModifierKeyStateGetter }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getModifierKeyState?: ModifierKeyStateGetter;
-
-  /**
    * Setup one drop animation execution callback, which will be triggered by system when user drops.
    * Use this way to implement the custom drop animation instead of doing it in onDrop, as the system
    * will decide when to trigger the callback during the drop handling.
@@ -15367,8 +14070,7 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   executeDropAnimation(customDropAnimation: Callback<void>): void;
 
@@ -15458,8 +14160,7 @@ declare interface DragEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare type OnDragEventCallback = (event: DragEvent, extraParams?: string) => void;
 
@@ -15470,8 +14171,7 @@ declare type OnDragEventCallback = (event: DragEvent, extraParams?: string) => v
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare interface DropOptions {
 
@@ -15489,8 +14189,7 @@ declare interface DropOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   disableDataPrefetch?: boolean;
 }
@@ -15534,8 +14233,7 @@ declare type IntentionCode = import('../api/@ohos.multimodalInput.intentionCode'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface KeyEvent {
   /**
@@ -15560,8 +14258,7 @@ declare interface KeyEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   type: KeyType;
 
@@ -15587,8 +14284,7 @@ declare interface KeyEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   keyCode: number;
 
@@ -15614,8 +14310,7 @@ declare interface KeyEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   keyText: string;
 
@@ -15641,8 +14336,7 @@ declare interface KeyEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   keySource: KeySource;
 
@@ -15668,8 +14362,7 @@ declare interface KeyEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   deviceId: number;
 
@@ -15698,8 +14391,7 @@ declare interface KeyEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   metaKey: number;
 
@@ -15725,8 +14417,7 @@ declare interface KeyEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   timestamp: number;
 
@@ -15752,8 +14443,7 @@ declare interface KeyEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   stopPropagation: () => void;
 
@@ -15772,8 +14462,7 @@ declare interface KeyEvent {
    * @default IntentionCode.INTENTION_UNKNOWN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   intentionCode: IntentionCode;
 
@@ -15801,25 +14490,12 @@ declare interface KeyEvent {
   getModifierKeyState?(keys: Array<string>): boolean;
 
   /**
-   * Query the modifier key press state, support 'ctrl'|'alt'|'shift'
-   *
-   * @type { ?ModifierKeyStateGetter }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getModifierKeyState?: ModifierKeyStateGetter;
-
-  /**
    * Unicode of a key
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   unicode?: number;
 
@@ -15861,8 +14537,7 @@ declare interface KeyEvent {
  * @interface FocusAxisEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare interface FocusAxisEvent extends BaseEvent {
   /**
@@ -15871,8 +14546,7 @@ declare interface FocusAxisEvent extends BaseEvent {
    * @type { Map<AxisModel, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   axisMap: Map<AxisModel, number>;
 
@@ -15882,8 +14556,7 @@ declare interface FocusAxisEvent extends BaseEvent {
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   stopPropagation: Callback<void>;
 }
@@ -15894,8 +14567,7 @@ declare interface FocusAxisEvent extends BaseEvent {
  * @interface CrownEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface CrownEvent {
   /**
@@ -15904,8 +14576,7 @@ declare interface CrownEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   timestamp: number;
 
@@ -15915,8 +14586,7 @@ declare interface CrownEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   angularVelocity: number;
 
@@ -15926,8 +14596,7 @@ declare interface CrownEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   degree: number;
 
@@ -15937,8 +14606,7 @@ declare interface CrownEvent {
    * @type { CrownAction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   action: CrownAction;
 
@@ -15948,8 +14616,7 @@ declare interface CrownEvent {
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   stopPropagation: Callback<void>;
 }
@@ -15969,8 +14636,7 @@ declare interface CrownEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface BindOptions {
   /**
@@ -15990,8 +14656,7 @@ declare interface BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   backgroundColor?: ResourceColor;
 
@@ -16010,8 +14675,7 @@ declare interface BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onAppear?: () => void;
 
@@ -16030,8 +14694,7 @@ declare interface BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onDisappear?: () => void;
 
@@ -16042,8 +14705,7 @@ declare interface BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onWillAppear?: () => void;
 
@@ -16054,8 +14716,7 @@ declare interface BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onWillDisappear?: () => void;
 }
@@ -16094,42 +14755,6 @@ declare interface DismissContentCoverAction {
 }
 
 /**
- * Component content cover dismiss
- *
- * @interface DismissContentCoverAction
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @arkts 1.2
- * @since 20
- */
-declare interface DismissContentCoverAction {
-  /**
-   * Defines content cover dismiss function
-   *
-   * @type { VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @arkts 1.2
-   * @since 20
-   */
-  dismiss: VoidCallback;
-
-  /**
-   * Defines content cover dismiss reason
-   *
-   * @type { DismissReason }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @arkts 1.2
-   * @since 20
-   */
-  reason: DismissReason;
-}
-
-/**
  * Component content cover options
  *
  * @extends BindOptions
@@ -16146,8 +14771,7 @@ declare interface DismissContentCoverAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface ContentCoverOptions extends BindOptions {
   /**
@@ -16167,10 +14791,9 @@ declare interface ContentCoverOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  modalTransition?: ModalTransition,
+  modalTransition?: ModalTransition;
 
   /**
    * Callback function when the content cover interactive dismiss
@@ -16179,8 +14802,7 @@ declare interface ContentCoverOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onWillDismiss?: Callback<DismissContentCoverAction>;
 
@@ -16191,8 +14813,7 @@ declare interface ContentCoverOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   transition?: TransitionEffect;
 
@@ -16224,8 +14845,7 @@ declare interface ContentCoverOptions extends BindOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface SheetTitleOptions {
   /**
@@ -16243,8 +14863,7 @@ declare interface SheetTitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   title: ResourceStr;
 
@@ -16263,8 +14882,7 @@ declare interface SheetTitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   subtitle?: ResourceStr;
 }
@@ -16284,8 +14902,7 @@ declare interface SheetTitleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum SheetType {
   /**
@@ -16301,8 +14918,7 @@ declare enum SheetType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   BOTTOM = 0,
 
@@ -16319,8 +14935,7 @@ declare enum SheetType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   CENTER = 1,
 
@@ -16337,8 +14952,7 @@ declare enum SheetType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   POPUP = 2,
 
@@ -16370,8 +14984,7 @@ declare enum SheetType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum SheetMode {
   /**
@@ -16381,8 +14994,7 @@ declare enum SheetMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   OVERLAY = 0,
 
@@ -16401,10 +15013,9 @@ declare enum SheetMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  EMBEDDED = 1,
+  EMBEDDED = 1
 }
 
 /**
@@ -16414,8 +15025,7 @@ declare enum SheetMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum ScrollSizeMode {
   /**
@@ -16424,8 +15034,7 @@ declare enum ScrollSizeMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FOLLOW_DETENT = 0,
 
@@ -16435,10 +15044,9 @@ declare enum ScrollSizeMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  CONTINUOUS = 1,
+  CONTINUOUS = 1
 }
 
 /**
@@ -16448,8 +15056,7 @@ declare enum ScrollSizeMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'13','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 13
  */
 declare enum SheetKeyboardAvoidMode {
   /**
@@ -16458,8 +15065,7 @@ declare enum SheetKeyboardAvoidMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   NONE = 0,
 
@@ -16470,8 +15076,7 @@ declare enum SheetKeyboardAvoidMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   TRANSLATE_AND_RESIZE = 1,
 
@@ -16481,8 +15086,7 @@ declare enum SheetKeyboardAvoidMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   RESIZE_ONLY = 2,
 
@@ -16493,8 +15097,7 @@ declare enum SheetKeyboardAvoidMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   TRANSLATE_AND_SCROLL = 3,
 
@@ -16506,7 +15109,7 @@ declare enum SheetKeyboardAvoidMode {
    * @atomicservice
    * @since 20
    */
-  POPUP_SHEET = 4,
+  POPUP_SHEET = 4
 }
 
 /**
@@ -16550,30 +15153,6 @@ declare interface SheetDismiss {
 /**
  * Component sheet dismiss
  *
- * @interface SheetDismiss
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare interface SheetDismiss {
-  /**
-   * Defines sheet dismiss function
-   *
-   * @type { VoidCallback  }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  dismiss: VoidCallback;
-}
-
-/**
- * Component sheet dismiss
- *
  * @interface DismissSheetAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -16606,43 +15185,6 @@ declare interface DismissSheetAction {
 }
 
 /**
- * Component sheet dismiss
- *
- * @interface DismissSheetAction
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare interface DismissSheetAction {
-
-  /**
-   * Defines sheet dismiss function
-   *
-   * @type { VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  dismiss: VoidCallback;
-
-  /**
-   * Dismiss reason type.
-   *
-   * @type { DismissReason }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  reason: DismissReason;
-}
-
-/**
  * Defines sheet spring back action
  *
  * @interface SpringBackAction
@@ -16665,67 +15207,6 @@ declare interface SpringBackAction {
 }
 
 /**
- * Defines sheet spring back action
- *
- * @interface SpringBackAction
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare interface SpringBackAction {
-  /**
-   * Defines spring back function
-   *
-   * @type { VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  springBack: VoidCallback;
-}
-
-
-/**
- * Defines the detent array of a single length.
- *
- * @typedef { [SheetSize | Length] } SingleLengthDetent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type SingleLengthDetent = [SheetSize | Length];
-
-/**
- * Defines the detent array of a two-length.
- *
- * @typedef { [(SheetSize | Length), SheetSize | Length | undefined] } DoubleLengthDetents
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type DoubleLengthDetents = [(SheetSize | Length), SheetSize | Length | undefined];
-
-/**
- * Defines the detent array of a three-length.
- *
- * @typedef { [(SheetSize | Length), SheetSize | Length | undefined, SheetSize | Length | undefined] } TripleLengthDetents
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type TripleLengthDetents = [(SheetSize | Length), SheetSize | Length | undefined, SheetSize | Length | undefined];
-
-/**
  * Component sheet options
  *
  * @extends BindOptions
@@ -16742,8 +15223,7 @@ declare type TripleLengthDetents = [(SheetSize | Length), SheetSize | Length | u
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface SheetOptions extends BindOptions {
   /**
@@ -16763,8 +15243,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   height?: SheetSize | Length;
 
@@ -16789,8 +15268,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   dragBar?: boolean;
 
@@ -16833,8 +15311,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   maskColor?: ResourceColor;
 
@@ -16872,18 +15349,6 @@ declare interface SheetOptions extends BindOptions {
   detents?: [(SheetSize | Length), (SheetSize | Length)?, (SheetSize | Length)?];
 
   /**
-   * Defines sheet detents
-   *
-   * @type { ?(SingleLengthDetent | DoubleLengthDetents | TripleLengthDetents) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  detents?: SingleLengthDetent | DoubleLengthDetents | TripleLengthDetents;
-
-  /**
    * Background blur of the sheet. By default, there is no background blur.
    *
    * @type { ?BlurStyle }
@@ -16900,8 +15365,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   blurStyle?: BlurStyle;
 
@@ -16922,8 +15386,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   showClose?: boolean | Resource;
 
@@ -16950,8 +15413,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   preferType?: SheetType;
 
@@ -16970,8 +15432,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   title?: SheetTitleOptions | CustomBuilder;
 
@@ -17000,8 +15461,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   shouldDismiss?: (sheetDismiss: SheetDismiss) => void;
 
@@ -17023,8 +15483,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onWillDismiss?: Callback<DismissSheetAction>;
 
@@ -17043,8 +15502,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onWillSpringBackWhenDismiss?: Callback<SpringBackAction>;
 
@@ -17075,8 +15533,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enableOutsideInteractive?: boolean;
 
@@ -17088,8 +15545,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   width?: Dimension;
 
@@ -17109,8 +15565,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
 
@@ -17126,8 +15581,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
 
@@ -17138,8 +15592,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   borderStyle?: BorderStyle | EdgeStyles;
 
@@ -17151,8 +15604,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
 
@@ -17170,8 +15622,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onHeightDidChange?: Callback<number>;
 
@@ -17183,8 +15634,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   mode?: SheetMode;
 
@@ -17196,8 +15646,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
     scrollSizeMode?: ScrollSizeMode;
 
@@ -17212,8 +15661,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onDetentsDidChange?: Callback<number>;
 
@@ -17224,8 +15672,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onWidthDidChange?: Callback<number>;
 
@@ -17236,8 +15683,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onTypeDidChange?: Callback<SheetType>;
 
@@ -17248,8 +15694,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   uiContext?: UIContext;
 
@@ -17261,8 +15706,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   keyboardAvoidMode?: SheetKeyboardAvoidMode;
 
@@ -17274,8 +15718,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   enableHoverMode?: boolean;
 
@@ -17287,8 +15730,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
 
@@ -17298,23 +15740,21 @@ declare interface SheetOptions extends BindOptions {
    * @type { ?Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
-    offset?: Position
+  offset?: Position;
 
-    /**
-     * Sets whether the sheet edge has spring effect.
-     *
-     * @type { ?number }
-     * @default 3
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
-     */
-    effectEdge?: number
+  /**
+   * Sets whether the sheet edge has spring effect.
+   *
+   * @type { ?number }
+   * @default 3
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  effectEdge?: number;
 
   /**
    * Defines sheet radius
@@ -17323,8 +15763,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   radius?: LengthMetrics | BorderRadiuses | LocalizedBorderRadiuses;
 
@@ -17336,8 +15775,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   detentSelection?: SheetSize | Length;
 
@@ -17349,8 +15787,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   showInSubWindow?: boolean;
 
@@ -17363,8 +15800,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   placement?: Placement;
 
@@ -17376,24 +15812,10 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   placementOnTarget?: boolean;
 }
-
-/**
- * The custom styles function block.
- *
- * @typedef { function } CustomStyles
- * @param { CommonMethod } instance - The component instance which can be used to set common attributes.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type CustomStyles = (instance: CommonMethod) => void;
 
 /**
  * Component State Styles.
@@ -17427,8 +15849,7 @@ declare type CustomStyles = (instance: CommonMethod) => void;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface StateStyles {
   /**
@@ -17467,20 +15888,6 @@ declare interface StateStyles {
    */
   normal?: any;
 
-
-  /**
-   * Defines normal state styles.
-   *
-   * @type { ?CustomStyles }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  normal?: CustomStyles;
-
   /**
    * Defines pressed state styles.
    *
@@ -17516,19 +15923,6 @@ declare interface StateStyles {
    * @since 11
    */
   pressed?: any;
-
-  /**
-   * Defines pressed state styles.
-   *
-   * @type { ?CustomStyles }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  pressed?: CustomStyles;
 
   /**
    * Defines disabled state styles.
@@ -17567,19 +15961,6 @@ declare interface StateStyles {
   disabled?: any;
 
   /**
-   * Defines disabled state styles.
-   *
-   * @type { ?CustomStyles }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  disabled?: CustomStyles;
-
-  /**
    * Defines focused state styles.
    *
    * @type { ?any }
@@ -17614,19 +15995,6 @@ declare interface StateStyles {
    * @since 11
    */
   focused?: any;
-
-  /**
-   * Defines focused state styles.
-   *
-   * @type { ?CustomStyles }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  focused?: CustomStyles;
 
   /**
    * Defines clicked state styles.
@@ -17665,19 +16033,6 @@ declare interface StateStyles {
   clicked?: any;
 
   /**
-   * Defines clicked state styles.
-   *
-   * @type { ?CustomStyles }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  clicked?: CustomStyles;
-
-  /**
    * Defines selected state styles.
    *
    * @type { ?object }
@@ -17697,20 +16052,6 @@ declare interface StateStyles {
    * @since 11
    */
   selected?: object;
-
-  /**
-   * Defines selected state styles.
-   *
-   * @type { ?CustomStyles }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  selected?: CustomStyles;
-
 }
 
 /**
@@ -17728,8 +16069,7 @@ declare interface StateStyles {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface PopupMessageOptions {
   /**
@@ -17747,8 +16087,7 @@ declare interface PopupMessageOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   textColor?: ResourceColor;
 
@@ -17767,8 +16106,7 @@ declare interface PopupMessageOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   font?: Font;
 }
@@ -17780,8 +16118,7 @@ declare interface PopupMessageOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum DismissReason {
   /**
@@ -17790,8 +16127,7 @@ declare enum DismissReason {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   PRESS_BACK = 0,
 
@@ -17801,8 +16137,7 @@ declare enum DismissReason {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   TOUCH_OUTSIDE = 1,
 
@@ -17812,8 +16147,7 @@ declare enum DismissReason {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   CLOSE_BUTTON = 2,
 
@@ -17826,8 +16160,7 @@ declare enum DismissReason {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   SLIDE_DOWN = 3,
 
@@ -17851,8 +16184,7 @@ declare enum DismissReason {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface DismissPopupAction {
   /**
@@ -17862,8 +16194,7 @@ declare interface DismissPopupAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   dismiss: Callback<void>;
 
@@ -17874,8 +16205,7 @@ declare interface DismissPopupAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   reason: DismissReason;
 }
@@ -17887,8 +16217,7 @@ declare interface DismissPopupAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface PopupStateChangeParam {
   /**
@@ -17899,8 +16228,7 @@ declare interface PopupStateChangeParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   isVisible: boolean;
 }
@@ -17913,8 +16241,7 @@ declare interface PopupStateChangeParam {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 
@@ -17925,8 +16252,7 @@ declare type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface PopupMaskType {
   /**
@@ -17937,8 +16263,7 @@ declare interface PopupMaskType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   color: ResourceColor;
 }
@@ -17984,8 +16309,7 @@ declare interface PopupBorderLinearGradient {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface PopupCommonOptions {
   /**
@@ -17996,8 +16320,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   placement?: Placement;
 
@@ -18008,8 +16331,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   popupColor?: ResourceColor;
 
@@ -18021,8 +16343,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   enableArrow?: boolean;
 
@@ -18034,20 +16355,18 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   autoCancel?: boolean;
 
   /**
    * on State Change
    *
-   * @type { ?function }
+   * @type { ?PopupStateChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onStateChange?: PopupStateChangeCallback;
 
@@ -18058,8 +16377,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   arrowOffset?: Length;
 
@@ -18071,8 +16389,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   showInSubWindow?: boolean;
 
@@ -18085,8 +16402,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   mask?: boolean | PopupMaskType;
 
@@ -18097,8 +16413,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   targetSpace?: Length;
 
@@ -18110,8 +16425,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   offset?: Position;
 
@@ -18122,8 +16436,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   width?: Dimension;
 
@@ -18134,8 +16447,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   arrowPointPosition?: ArrowPointPosition;
 
@@ -18147,8 +16459,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   arrowWidth?: Dimension;
 
@@ -18160,8 +16471,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   arrowHeight?: Dimension;
 
@@ -18173,8 +16483,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   radius?: Dimension;
 
@@ -18186,8 +16495,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   shadow?: ShadowOptions | ShadowStyle;
 
@@ -18199,8 +16507,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   backgroundBlurStyle?: BlurStyle;
 
@@ -18212,8 +16519,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   focusable?: boolean;
 
@@ -18224,8 +16530,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   transition?: TransitionEffect;
 
@@ -18237,9 +16542,8 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 18
+   */
   onWillDismiss?: boolean | Callback<DismissPopupAction>;
 
   /**
@@ -18250,8 +16554,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   enableHoverMode?: boolean;
 
@@ -18263,8 +16566,7 @@ declare interface PopupCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   followTransformOfTarget?: boolean;
 
@@ -18332,8 +16634,7 @@ declare interface PopupCommonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19
  */
 declare interface TipsOptions {
 
@@ -18344,8 +16645,7 @@ declare interface TipsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   appearingTime?: number;
 
@@ -18356,8 +16656,7 @@ declare interface TipsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   disappearingTime?: number;
 
@@ -18368,8 +16667,7 @@ declare interface TipsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   appearingTimeWithContinuousOperation?: number;
 
@@ -18380,8 +16678,7 @@ declare interface TipsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   disappearingTimeWithContinuousOperation?: number;
 
@@ -18393,8 +16690,7 @@ declare interface TipsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   enableArrow?: boolean;
 
@@ -18405,8 +16701,7 @@ declare interface TipsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   arrowPointPosition?: ArrowPointPosition;
 
@@ -18418,8 +16713,7 @@ declare interface TipsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   arrowWidth?: Dimension;
 
@@ -18431,8 +16725,7 @@ declare interface TipsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   arrowHeight?: Dimension;
 
@@ -18446,43 +16739,6 @@ declare interface TipsOptions {
    * @since 20
    */
   showAtAnchor?: TipsAnchorType;
-}
-
-/**
- * Defines the popup button.
- *
- * @interface PopupButton
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare interface PopupButton {
-
-  /**
-   * Button text value
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  value: string;
-
-  /**
-   * action
-   *
-   * @type { VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  action: VoidCallback;
 }
 
 /**
@@ -18507,8 +16763,7 @@ declare interface PopupButton {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface PopupOptions {
   /**
@@ -18533,8 +16788,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   message: string;
 
@@ -18568,8 +16822,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   placement?: Placement;
 
@@ -18652,17 +16905,6 @@ declare interface PopupOptions {
   };
 
   /**
-   * The first button.
-   *
-   * @type { ?PopupButton }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  primaryButton?: PopupButton;
-  /**
    * The second button.
    *
    * @type { ?object }
@@ -18741,18 +16983,6 @@ declare interface PopupOptions {
   };
 
   /**
-   * The second button.
-   *
-   * @type { ?PopupButton }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  secondaryButton?:PopupButton
-
-  /**
    * on State Change
    *
    * @type { ?function }
@@ -18798,18 +17028,6 @@ declare interface PopupOptions {
   }) => void;
 
   /**
-   * on State Change
-   *
-   * @type { ?PopupStateChangeCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onStateChange?: PopupStateChangeCallback;
-
-  /**
    * The offset of the sharp corner of popup.
    *
    * @type { ?Length }
@@ -18831,8 +17049,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   arrowOffset?: Length;
 
@@ -18859,8 +17076,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   showInSubWindow?: boolean;
 
@@ -18888,20 +17104,6 @@ declare interface PopupOptions {
   mask?: boolean | { color: ResourceColor };
 
   /**
-   * The mask to block gesture events of popup.
-   * When mask is set false, gesture events are not blocked.
-   * When mask is set true, gesture events are blocked and mask color is transparent.
-   *
-   * @type { ?(boolean | PopupMaskType) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  mask?: boolean | PopupMaskType;
-
-  /**
    * Sets the options of popup message.
    *
    * @type { ?PopupMessageOptions }
@@ -18916,10 +17118,9 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  messageOptions?: PopupMessageOptions
+  messageOptions?: PopupMessageOptions;
 
   /**
    * Sets the space of between the popup and target.
@@ -18936,10 +17137,9 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  targetSpace?: Length
+  targetSpace?: Length;
 
   /**
    * whether show arrow
@@ -18957,8 +17157,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   enableArrow?: boolean;
   /**
@@ -18977,10 +17176,9 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  offset?: Position
+  offset?: Position;
 
   /**
    * Set the background color of the popup.
@@ -18997,8 +17195,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   popupColor?: Color | string | Resource | number;
 
@@ -19019,8 +17216,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   autoCancel?: boolean;
 
@@ -19039,8 +17235,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   width?: Dimension;
 
@@ -19059,8 +17254,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   arrowPointPosition?: ArrowPointPosition;
 
@@ -19081,8 +17275,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   arrowWidth?: Dimension;
 
@@ -19103,8 +17296,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   arrowHeight?: Dimension;
 
@@ -19125,8 +17317,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   radius?: Dimension;
 
@@ -19147,8 +17338,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
 
@@ -19169,8 +17359,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   backgroundBlurStyle?: BlurStyle;
 
@@ -19181,8 +17370,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   transition?: TransitionEffect;
 
@@ -19193,8 +17381,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onWillDismiss?: boolean | Callback<DismissPopupAction>;
 
@@ -19206,8 +17393,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   enableHoverMode?: boolean;
 
@@ -19219,8 +17405,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   followTransformOfTarget?: boolean;
 
@@ -19232,8 +17417,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   keyboardAvoidMode?: KeyboardAvoidMode;
 
@@ -19316,8 +17500,7 @@ declare interface PopupOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface CustomPopupOptions {
   /**
@@ -19350,8 +17533,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   builder: CustomBuilder;
 
@@ -19381,8 +17563,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   placement?: Placement;
 
@@ -19421,8 +17602,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   popupColor?: Color | string | Resource | number;
 
@@ -19449,8 +17629,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   enableArrow?: boolean;
 
@@ -19482,8 +17661,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   autoCancel?: boolean;
 
@@ -19533,18 +17711,6 @@ declare interface CustomPopupOptions {
   }) => void;
 
   /**
-   * on State Change
-   *
-   * @type { ?PopupStateChangeCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onStateChange?: PopupStateChangeCallback;
-
-  /**
    * The offset of the sharp corner of popup.
    *
    * @type { ?Length }
@@ -19573,8 +17739,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   arrowOffset?: Length;
 
@@ -19601,8 +17766,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   showInSubWindow?: boolean;
 
@@ -19630,20 +17794,6 @@ declare interface CustomPopupOptions {
   mask?: boolean | { color: ResourceColor };
 
   /**
-   * The mask to block gesture events of popup.
-   * When mask is set false, gesture events are not blocked.
-   * When mask is set true, gesture events are blocked and mask color is transparent.
-   *
-   * @type { ?(boolean | PopupMaskType) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  mask?: boolean | PopupMaskType;
-
-  /**
    * Sets the space of between the popup and target.
    *
    * @type { ?Length }
@@ -19658,10 +17808,9 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  targetSpace?: Length
+  targetSpace?: Length;
 
   /**
    * Sets the position offset of the popup.
@@ -19679,10 +17828,9 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  offset?: Position
+  offset?: Position;
 
   /**
    * Set the width of the popup.
@@ -19699,8 +17847,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   width?: Dimension;
 
@@ -19720,8 +17867,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   arrowPointPosition?: ArrowPointPosition;
 
@@ -19747,8 +17893,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   arrowWidth?: Dimension;
 
@@ -19773,8 +17918,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   arrowHeight?: Dimension;
 
@@ -19795,8 +17939,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   radius?: Dimension;
 
@@ -19817,8 +17960,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
 
@@ -19839,8 +17981,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   backgroundBlurStyle?: BlurStyle;
 
@@ -19861,8 +18002,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   focusable?: boolean;
 
@@ -19873,8 +18013,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   transition?: TransitionEffect;
 
@@ -19895,9 +18034,8 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
+   * @since 12
+   */
   onWillDismiss?: boolean | Callback<DismissPopupAction>;
 
  /**
@@ -19908,8 +18046,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   enableHoverMode?: boolean;
 
@@ -19921,8 +18058,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   followTransformOfTarget?: boolean;
 
@@ -19934,8 +18070,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   keyboardAvoidMode?: KeyboardAvoidMode;
 
@@ -20011,8 +18146,7 @@ declare interface CustomPopupOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum MenuPreviewMode {
   /**
@@ -20028,8 +18162,7 @@ declare enum MenuPreviewMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   NONE = 0,
   /**
@@ -20045,8 +18178,7 @@ declare enum MenuPreviewMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   IMAGE = 1
 }
@@ -20071,18 +18203,6 @@ declare enum MenuPreviewMode {
 declare type AnimationRange<T> = [from: T, to: T];
 
 /**
- * Defines the animator range of start and end property.
- *
- * @typedef { [number, number] } AnimationNumberRange
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type AnimationNumberRange = [number, number];
-
-/**
  * Defines the ContextMenu's preview animator options.
  *
  * @interface ContextMenuAnimationOptions
@@ -20097,8 +18217,7 @@ declare type AnimationNumberRange = [number, number];
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 interface ContextMenuAnimationOptions {
   /**
@@ -20120,18 +18239,7 @@ interface ContextMenuAnimationOptions {
    * @since 12
    */
   scale?: AnimationRange<number>;
-  /**
-   * Sets the start animator scale and end animator scale.
-   *
-   * @type { ?AnimationNumberRange }
-   * @default -
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  scale?: AnimationNumberRange;
+
   /**
    * Defines the transition effect of menu preview opening and closing.
    *
@@ -20139,8 +18247,7 @@ interface ContextMenuAnimationOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   transition?: TransitionEffect;
 
@@ -20156,18 +18263,6 @@ interface ContextMenuAnimationOptions {
   hoverScale?: AnimationRange<number>;
 
   /**
-   * Sets the scale start and end animator of the image displayed before the custom builder preview is displayed.
-   *
-   * @type { ?AnimationNumberRange }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  hoverScale?: AnimationNumberRange;
-
-  /**
    * Sets whether support to interrupt the process of hover scale.
    *
    * @type { ?boolean }
@@ -20181,15 +18276,14 @@ interface ContextMenuAnimationOptions {
 }
 
 /**
-   * Defines the type of border radius.
-   *
-   * @typedef { Length | BorderRadiuses | LocalizedBorderRadiuses }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
+ * Defines the type of border radius.
+ *
+ * @typedef { Length | BorderRadiuses | LocalizedBorderRadiuses }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 19
+ */
 type BorderRadiusType = Length | BorderRadiuses | LocalizedBorderRadiuses;
 
 /**
@@ -20199,8 +18293,7 @@ type BorderRadiusType = Length | BorderRadiuses | LocalizedBorderRadiuses;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare enum HapticFeedbackMode {
   /**
@@ -20209,8 +18302,7 @@ declare enum HapticFeedbackMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   DISABLED = 0,
   /**
@@ -20219,8 +18311,7 @@ declare enum HapticFeedbackMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   ENABLED = 1,
   /**
@@ -20229,8 +18320,7 @@ declare enum HapticFeedbackMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   AUTO = 2
 }
@@ -20502,8 +18592,7 @@ declare class ContentTransitionEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface ContextMenuOptions {
   /**
@@ -20539,8 +18628,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   offset?: Position;
 
@@ -20566,8 +18654,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   placement?: Placement;
 
@@ -20594,8 +18681,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   enableArrow?: boolean;
 
@@ -20636,8 +18722,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   arrowOffset?: Length;
 
@@ -20665,8 +18750,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   preview?: MenuPreviewMode | CustomBuilder;
 
@@ -20678,8 +18762,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   previewBorderRadius?: BorderRadiusType;
 
@@ -20697,8 +18780,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   borderRadius?: Length | BorderRadiuses | LocalizedBorderRadiuses;
 
@@ -20717,8 +18799,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onAppear?: () => void;
 
@@ -20737,8 +18818,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onDisappear?: () => void;
 
@@ -20757,8 +18837,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   aboutToAppear?: () => void;
 
@@ -20777,8 +18856,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   aboutToDisappear?: () => void;
 
@@ -20790,8 +18868,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   layoutRegionMargin?: Margin;
 
@@ -20811,8 +18888,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   previewAnimationOptions?: ContextMenuAnimationOptions;
 
@@ -20833,8 +18909,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   backgroundColor?: ResourceColor;
 
@@ -20855,8 +18930,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   backgroundBlurStyle?: BlurStyle;
 
@@ -20867,8 +18941,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -20879,8 +18952,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   backgroundEffect?: BackgroundEffectOptions;
 
@@ -20891,8 +18963,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   transition?: TransitionEffect;
 
@@ -20904,8 +18975,7 @@ declare interface ContextMenuOptions {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 18
     */
   enableHoverMode?: boolean;
 
@@ -20918,7 +18988,6 @@ declare interface ContextMenuOptions {
     * @crossplatform
     * @atomicservice
     * @since 20
-    * @arkts 1.1&1.2
     */
   outlineColor?: ResourceColor | EdgeColors;
 
@@ -20932,7 +19001,6 @@ declare interface ContextMenuOptions {
     * @crossplatform
     * @atomicservice
     * @since 20
-    * @arkts 1.1&1.2
     */
   outlineWidth?: Dimension | EdgeOutlineWidths;
 
@@ -20944,8 +19012,7 @@ declare interface ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   hapticFeedbackMode?: HapticFeedbackMode;
 
@@ -21070,8 +19137,7 @@ declare interface ContextMenuOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface MenuOptions extends ContextMenuOptions {
   /**
@@ -21089,8 +19155,7 @@ declare interface MenuOptions extends ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   title?: ResourceStr;
 
@@ -21110,8 +19175,7 @@ declare interface MenuOptions extends ContextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   showInSubWindow?: boolean;
 }
@@ -21129,8 +19193,7 @@ declare interface MenuOptions extends ContextMenuOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class ProgressMask {
   /**
@@ -21152,8 +19215,7 @@ declare class ProgressMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   constructor(value: number, total: number, color: ResourceColor);
 
@@ -21172,8 +19234,7 @@ declare class ProgressMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   updateProgress(value: number): void;
 
@@ -21192,8 +19253,7 @@ declare class ProgressMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   updateColor(value: ResourceColor): void;
 
@@ -21204,8 +19264,7 @@ declare class ProgressMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enableBreathingAnimation(value: boolean): void;
 }
@@ -21223,8 +19282,7 @@ declare class ProgressMask {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class TouchTestInfo {
   /**
@@ -21242,8 +19300,7 @@ declare class TouchTestInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   windowX: number;
 
@@ -21262,8 +19319,7 @@ declare class TouchTestInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   windowY: number;
 
@@ -21282,8 +19338,7 @@ declare class TouchTestInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   parentX: number;
 
@@ -21302,8 +19357,7 @@ declare class TouchTestInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   parentY: number;
 
@@ -21322,8 +19376,7 @@ declare class TouchTestInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   x: number;
 
@@ -21342,8 +19395,7 @@ declare class TouchTestInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   y: number;
 
@@ -21362,8 +19414,7 @@ declare class TouchTestInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   rect: RectResult;
 
@@ -21382,8 +19433,7 @@ declare class TouchTestInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   id: string;
 }
@@ -21401,8 +19451,7 @@ declare class TouchTestInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class TouchResult {
   /**
@@ -21420,8 +19469,7 @@ declare class TouchResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   strategy: TouchTestStrategy;
 
@@ -21440,8 +19488,7 @@ declare class TouchResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   id?: string;
 }
@@ -21463,8 +19510,7 @@ declare class TouchResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface PixelStretchEffectOptions {
   /**
@@ -21486,8 +19532,7 @@ declare interface PixelStretchEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   top?: Length;
 
@@ -21510,8 +19555,7 @@ declare interface PixelStretchEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   bottom?: Length;
 
@@ -21534,8 +19578,7 @@ declare interface PixelStretchEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   left?: Length;
 
@@ -21558,8 +19601,7 @@ declare interface PixelStretchEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   right?: Length;
 }
@@ -21579,8 +19621,7 @@ declare interface PixelStretchEffectOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface ClickEffect {
   /**
@@ -21598,8 +19639,7 @@ declare interface ClickEffect {
    * @default ClickEffectLevel.Light
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   level: ClickEffectLevel;
 
@@ -21625,8 +19665,7 @@ declare interface ClickEffect {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   scale?: number;
 }
@@ -21638,8 +19677,7 @@ declare interface ClickEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 declare interface FadingEdgeOptions {
   /**
@@ -21650,8 +19688,7 @@ declare interface FadingEdgeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   fadingEdgeLength?: LengthMetrics;
 }
@@ -21669,8 +19706,16 @@ declare interface FadingEdgeOptions {
  * @interface NestedScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
+ */
+/**
+ * Define nested scroll options
+ *
+ * @interface NestedScrollOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
  */
 declare interface NestedScrollOptions {
   /**
@@ -21687,8 +19732,7 @@ declare interface NestedScrollOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   scrollForward: NestedScrollMode;
 
@@ -21706,8 +19750,7 @@ declare interface NestedScrollOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   scrollBackward: NestedScrollMode;
 }
@@ -21734,8 +19777,7 @@ declare interface NestedScrollOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface MenuElement {
   /**
@@ -21760,8 +19802,7 @@ declare interface MenuElement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   value: ResourceStr;
 
@@ -21780,8 +19821,7 @@ declare interface MenuElement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   icon?: ResourceStr;
 
@@ -21801,7 +19841,6 @@ declare interface MenuElement {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   symbolIcon?: SymbolGlyphModifier;
 
@@ -21824,8 +19863,7 @@ declare interface MenuElement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enabled?: boolean;
 
@@ -21851,8 +19889,7 @@ declare interface MenuElement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   action: () => void;
 }
@@ -21973,85 +20010,13 @@ declare interface AttributeModifier<T> {
 }
 
 /**
- * Defines the attribute modifier.
- *
- * @interface AttributeModifier<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare interface AttributeModifier<T> {
-
-
-  /**
-   * Defines the normal update attribute function.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyNormalAttribute?:(instance: T) => void;
-
-
-  /**
-   * Defines the pressed update attribute function.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyPressedAttribute?:(instance: T) => void;
-
-  /**
-   * Defines the focused update attribute function.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyFocusedAttribute?:(instance: T) => void;
-
-
-  /**
-   * Defines the disabled update attribute function.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyDisabledAttribute?:(instance: T) => void;
-
-
-  /**
-   * Defines the selected update attribute function.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applySelectedAttribute?:(instance: T) => void;
-}
-/**
  * Defines the content modifier.
  *
  * @interface ContentModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface ContentModifier<T> {
 
@@ -22067,19 +20032,7 @@ declare interface ContentModifier<T> {
    * @atomicservice
    * @since 12
    */
-  applyContent(): WrappedBuilder<[T]>
-
-  /**
-   * Defining applyContent function.
-   *
-   * @returns { WrappedBuilder<[T]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  applyContent(): WrappedBuilder<Array<Object>>
+  applyContent(): WrappedBuilder<[T]>;
 }
 
 /**
@@ -22089,8 +20042,7 @@ declare interface ContentModifier<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface CommonConfiguration<T> {
 
@@ -22102,8 +20054,7 @@ declare interface CommonConfiguration<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enabled: boolean,
 
@@ -22114,10 +20065,9 @@ declare interface CommonConfiguration<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  contentModifier: ContentModifier<T>
+  contentModifier: ContentModifier<T>;
 }
 
 /**
@@ -22137,8 +20087,7 @@ declare interface CommonConfiguration<T> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum OutlineStyle {
   /**
@@ -22156,8 +20105,7 @@ declare enum OutlineStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   SOLID = 0,
 
@@ -22176,8 +20124,7 @@ declare enum OutlineStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DASHED = 1,
 
@@ -22196,10 +20143,9 @@ declare enum OutlineStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  DOTTED = 2,
+  DOTTED = 2
 }
 
 /**
@@ -22224,8 +20170,7 @@ declare enum OutlineStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare enum DragPreviewMode {
   /**
@@ -22247,8 +20192,7 @@ declare enum DragPreviewMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   AUTO = 1,
   /**
@@ -22270,8 +20214,7 @@ declare enum DragPreviewMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   DISABLE_SCALE = 2,
   /**
@@ -22287,8 +20230,7 @@ declare enum DragPreviewMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   ENABLE_DEFAULT_SHADOW = 3,
   /**
@@ -22304,8 +20246,7 @@ declare enum DragPreviewMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   ENABLE_DEFAULT_RADIUS = 4,
   /**
@@ -22313,8 +20254,7 @@ declare enum DragPreviewMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   ENABLE_DRAG_ITEM_GRAY_EFFECT = 5,
   /**
@@ -22322,8 +20262,7 @@ declare enum DragPreviewMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   ENABLE_MULTI_TILE_EFFECT = 6,
   /**
@@ -22331,8 +20270,7 @@ declare enum DragPreviewMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   ENABLE_TOUCH_POINT_CALCULATION_BASED_ON_FINAL_PREVIEW = 7,
 }
@@ -22344,8 +20282,7 @@ declare enum DragPreviewMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum MenuPolicy {
   /**
@@ -22354,8 +20291,7 @@ declare enum MenuPolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DEFAULT = 0,
 
@@ -22365,8 +20301,7 @@ declare enum MenuPolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   HIDE = 1,
 
@@ -22376,10 +20311,9 @@ declare enum MenuPolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  SHOW = 2,
+  SHOW = 2
 }
 
 /**
@@ -22434,8 +20368,7 @@ declare type SymbolGlyphModifier = import('../api/arkui/SymbolGlyphModifier').Sy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface DragPreviewOptions {
   /**
@@ -22461,8 +20394,7 @@ declare interface DragPreviewOptions {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   mode?: DragPreviewMode | Array<DragPreviewMode>;
 
@@ -22501,8 +20433,7 @@ declare interface DragPreviewOptions {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   numberBadge?: boolean | number;
 
@@ -22513,8 +20444,7 @@ declare interface DragPreviewOptions {
   * @default DraggingSizeChangeEffect.DEFAULT
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
-  * @since arkts {'1.1':'19','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 19
   */
   sizeChangeEffect?: DraggingSizeChangeEffect;
 }
@@ -22525,8 +20455,7 @@ declare interface DragPreviewOptions {
  * @interface DragInteractionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface DragInteractionOptions {
   /**
@@ -22536,8 +20465,7 @@ declare interface DragInteractionOptions {
   * @default false
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   isMultiSelectionEnabled?: boolean;
 
@@ -22548,8 +20476,7 @@ declare interface DragInteractionOptions {
   * @default false
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   defaultAnimationBeforeLifting?: boolean;
 
@@ -22560,8 +20487,7 @@ declare interface DragInteractionOptions {
   * @default false
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   enableHapticFeedback?: boolean;
 
@@ -22572,8 +20498,7 @@ declare interface DragInteractionOptions {
   * @default true
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   enableEdgeAutoScroll?: boolean;
 
@@ -22584,8 +20509,7 @@ declare interface DragInteractionOptions {
   * @default false
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
-  * @since arkts {'1.1':'15','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 15
   */
   isLiftingDisabled?: boolean;
 }
@@ -22596,32 +20520,29 @@ declare interface DragInteractionOptions {
  * @interface PreviewConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare interface PreviewConfiguration {
   /**
-  * Define whether to only use for lifting.
-  *
-  * @type { ?boolean }
-  * @default false
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @atomicservice
-  * @since arkts {'1.1':'15','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * Define whether to only use for lifting.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
   onlyForLifting?: boolean;
 
   /**
-  * Define whether to delay create builder.
-  *
-  * @type { ?boolean }
-  * @default false
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @atomicservice
-  * @since arkts {'1.1':'15','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * Define whether to delay create builder.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
   delayCreating?: boolean;
 }
 
@@ -22638,8 +20559,7 @@ declare interface PreviewConfiguration {
  * @interface InvertOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface InvertOptions {
 
@@ -22658,29 +20578,27 @@ declare interface InvertOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   low: number;
 
   /**
-  * Defines the high value of threshold
-  *
-  * @type { number }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 11
-  */
- /**
-  * Defines the high value of threshold
-  *
-  * @type { number }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * Defines the high value of threshold
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  /**
+   * Defines the high value of threshold
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   high: number;
 
   /**
@@ -22698,8 +20616,7 @@ declare interface InvertOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   threshold: number;
 
@@ -22718,8 +20635,7 @@ declare interface InvertOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   thresholdRange: number;
 }
@@ -22780,8 +20696,7 @@ declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare type Optional<T> = T | undefined;
 
@@ -22792,8 +20707,7 @@ declare type Optional<T> = T | undefined;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19
  */
 declare type TipsMessageType = ResourceStr | StyledString;
 
@@ -22816,8 +20730,7 @@ declare type Matrix4Transit = import('../api/@ohos.matrix4').default.Matrix4Tran
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 interface BackgroundImageOptions {
   /**
@@ -22830,8 +20743,7 @@ interface BackgroundImageOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   syncLoad?: boolean;
   /**
@@ -22843,8 +20755,7 @@ interface BackgroundImageOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   repeat?: ImageRepeat;
 }
@@ -22857,7 +20768,6 @@ interface BackgroundImageOptions {
  * @crossplatform
  * @atomicservice
  * @since 20
- * @arkts 1.1&1.2
  */
 declare interface BackgroundOptions {
   /**
@@ -22887,7 +20797,6 @@ declare interface BackgroundOptions {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   align?: Alignment;
   /**
@@ -22930,8 +20839,7 @@ declare interface BackgroundOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class CommonMethod<T> {
   /**
@@ -22947,8 +20855,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   constructor();
 
@@ -22990,8 +20897,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   width(value: Length): T;
   /**
@@ -23006,8 +20912,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   width(widthValue: Length | LayoutPolicy): T;
 
@@ -23049,8 +20954,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   height(value: Length): T;
   /**
@@ -23065,8 +20969,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   height(heightValue: Length | LayoutPolicy): T;
 
@@ -23080,8 +20983,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   drawModifier(modifier: DrawModifier | undefined): T;
 
@@ -23095,8 +20997,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   customProperty(name: string, value: Optional<Object>): T;
 
@@ -23121,8 +21022,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   expandSafeArea(types?: Array<SafeAreaType>, edges?: Array<SafeAreaEdge>): T;
 
@@ -23175,8 +21075,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   responseRegion(value: Array<Rectangle> | Rectangle): T;
 
@@ -23197,8 +21096,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   mouseResponseRegion(value: Array<Rectangle> | Rectangle): T;
 
@@ -23238,8 +21136,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   size(value: SizeOptions): T;
 
@@ -23283,8 +21180,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   constraintSize(value: ConstraintSizeOptions): T;
 
@@ -23327,8 +21223,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   hitTestBehavior(value: HitTestMode): T;
 
@@ -23349,8 +21244,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onChildTouchTest(event: (value: Array<TouchTestInfo>) => TouchResult): T;
 
@@ -23392,8 +21286,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   layoutWeight(value: number | string): T;
 
@@ -23406,8 +21299,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   chainWeight(chainWeight: ChainWeightOptions): T;
 
@@ -23459,8 +21351,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   padding(value: Padding | Length | LocalizedPadding): T;
 
@@ -23475,8 +21366,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   safeAreaPadding(paddingValue: Padding | LengthMetrics | LocalizedPadding): T;
 
@@ -23528,8 +21418,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   margin(value: Margin | Length | LocalizedMargin): T;
 
@@ -23573,21 +21462,6 @@ declare class CommonMethod<T> {
   background(content: CustomBuilder | ResourceColor, options?: BackgroundOptions): T;
 
   /**
-   * Add a background for the component.
-   *
-   * Anonymous Object Rectification.
-   * @param { CustomBuilder } builder
-   * @param { BackgroundOptions } options
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  background(builder: CustomBuilder, options?: BackgroundOptions): T;
-
-  /**
    * Background color
    *
    * @param { ResourceColor } value
@@ -23623,8 +21497,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   backgroundColor(value: ResourceColor): T;
 
@@ -23637,8 +21510,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   backgroundColor(color: Optional<ResourceColor>): T;
 
@@ -23665,8 +21537,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   pixelRound(value: PixelRoundPolicy): T;
 
@@ -23727,8 +21598,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   backgroundImage(src: ResourceStr | PixelMap, repeat?: ImageRepeat): T;
 
@@ -23742,8 +21612,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   backgroundImage(src: ResourceStr | PixelMap, options?: BackgroundImageOptions): T;
 
@@ -23783,8 +21652,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   backgroundImageSize(value: SizeOptions | ImageSize): T;
 
@@ -23828,8 +21696,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   backgroundImagePosition(value: Position | Alignment): T;
 
@@ -23873,8 +21740,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
 
@@ -23910,8 +21776,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   backgroundEffect(options: BackgroundEffectOptions): T;
 
@@ -23925,8 +21790,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   backgroundEffect(options: Optional<BackgroundEffectOptions>, sysOptions?: SystemAdaptiveOptions): T;
 
@@ -23939,8 +21803,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   backgroundImageResizable(value: ResizableOptions): T;
 
@@ -23952,8 +21815,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   foregroundEffect(options: ForegroundEffectOptions): T;
 
@@ -23965,8 +21827,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   visualEffect(effect: VisualEffect): T;
 
@@ -23978,8 +21839,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   backgroundFilter(filter: Filter): T;
 
@@ -23991,8 +21851,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   foregroundFilter(filter: Filter): T;
 
@@ -24004,8 +21863,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   compositingFilter(filter: Filter): T;
 
@@ -24028,8 +21886,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   foregroundBlurStyle(value: BlurStyle, options?: ForegroundBlurStyleOptions): T;
 
@@ -24083,8 +21940,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   opacity(value: number | Resource): T;
 
@@ -24097,8 +21953,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   opacity(opacity: Optional<number | Resource>): T;
 
@@ -24141,8 +21996,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   border(value: BorderOptions): T;
 
@@ -24183,8 +22037,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   borderStyle(value: BorderStyle | EdgeStyles): T;
 
@@ -24236,8 +22089,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   borderWidth(value: Length | EdgeWidths | LocalizedEdgeWidths): T;
 
@@ -24288,8 +22140,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   borderColor(value: ResourceColor | EdgeColors | LocalizedEdgeColors): T;
 
@@ -24341,8 +22192,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses): T;
 
@@ -24374,8 +22224,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   borderImage(value: BorderImageOption): T;
 
@@ -24398,8 +22247,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   outline(value: OutlineOptions): T;
 
@@ -24414,8 +22262,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   outline(options: Optional<OutlineOptions>): T;
 
@@ -24440,8 +22287,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   outlineStyle(value: OutlineStyle | EdgeOutlineStyles): T;
 
@@ -24458,8 +22304,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   outlineStyle(style: Optional<OutlineStyle | EdgeOutlineStyles>): T;
 
@@ -24486,8 +22331,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   outlineWidth(value: Dimension | EdgeOutlineWidths): T;
 
@@ -24503,8 +22347,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   outlineWidth(width: Optional<Dimension | EdgeOutlineWidths>): T;
 
@@ -24529,8 +22372,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   outlineColor(value: ResourceColor | EdgeColors | LocalizedEdgeColors): T;
 
@@ -24547,8 +22389,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   outlineColor(color: Optional<ResourceColor | EdgeColors | LocalizedEdgeColors>): T;
 
@@ -24577,8 +22418,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   outlineRadius(value: Dimension | OutlineRadiuses): T;
 
@@ -24597,8 +22437,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   outlineRadius(radius: Optional<Dimension | OutlineRadiuses>): T;
 
@@ -24623,8 +22462,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   foregroundColor(value: ResourceColor | ColoringStrategy): T;
 
@@ -24640,8 +22478,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   foregroundColor(color: Optional<ResourceColor | ColoringStrategy>): T;
 
@@ -24686,8 +22523,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onClick(event: (event: ClickEvent) => void): T;
 
@@ -24708,8 +22544,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onClick(event: Callback<ClickEvent>, distanceThreshold: number): T;
 
@@ -24729,8 +22564,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onHover(event: (isHover: boolean, event: HoverEvent) => void): T;
 
@@ -24742,8 +22576,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onAccessibilityHover(callback: AccessibilityCallback): T;
 
@@ -24785,8 +22618,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   hoverEffect(value: HoverEffect): T;
 
@@ -24805,8 +22637,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onMouse(event: (event: MouseEvent) => void): T;
 
@@ -24835,8 +22666,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onTouch(event: (event: TouchEvent) => void): T;
 
@@ -24865,8 +22695,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onKeyEvent(event: (event: KeyEvent) => void): T;
 
@@ -24878,8 +22707,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   onKeyEvent(event: Callback<KeyEvent, boolean>): T;
 
@@ -24890,8 +22718,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onDigitalCrown(handler: Optional<Callback<CrownEvent>>): T;
 
@@ -24903,8 +22730,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onKeyPreIme(event: Callback<KeyEvent, boolean>): T;
 
@@ -24916,8 +22742,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   onKeyEventDispatch(event: Callback<KeyEvent, boolean>): T;
 
@@ -24928,8 +22753,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   onFocusAxisEvent(event: Callback<FocusAxisEvent>): T;
 
@@ -24940,8 +22764,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   onAxisEvent(event: Callback<AxisEvent>): T;
 
@@ -24973,8 +22796,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   focusable(value: boolean): T;
 
@@ -24986,8 +22808,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   nextFocus(nextStep: Optional<FocusMovement>): T;
 
@@ -24999,8 +22820,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   tabStop(isTabStop: boolean): T;
 
@@ -25029,8 +22849,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onFocus(event: () => void): T;
 
@@ -25059,8 +22878,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onBlur(event: () => void): T;
 
@@ -25089,8 +22907,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   tabIndex(index: number): T;
 
@@ -25119,8 +22936,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   defaultFocus(value: boolean): T;
 
@@ -25150,8 +22966,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   groupDefaultFocus(value: boolean): T;
 
@@ -25180,8 +22995,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   focusOnTouch(value: boolean): T;
 
@@ -25193,53 +23007,49 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   focusBox(style: FocusBoxStyle): T;
 
   /**
-  * Set container as a focus group with a specific identifier.
-  *
-  * @param { string } id - focus scope identifier.
-  * @param { boolean } [isGroup] - whether this scope is a focus group, the default value is false
-  * @returns { T }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
- focusScopeId(id: string, isGroup?: boolean): T;
+   * Set container as a focus group with a specific identifier.
+   *
+   * @param { string } id - focus scope identifier.
+   * @param { boolean } [isGroup] - whether this scope is a focus group, the default value is false
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  focusScopeId(id: string, isGroup?: boolean): T;
   /**
-  * Set container as a focus group with a specific identifier.
-  *
-  * @param { string } id - focus scope identifier.
-  * @param { boolean } [isGroup] - whether this scope is a focus group, the default value is false.
-  * @param { boolean } [arrowStepOut] - whether the arrow keys can move focus from inside the focus group to outside,
-  * only effective when isGroup is true, the default value is true.
-  * @returns { T }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @atomicservice
-  * @since arkts {'1.1':'14','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
- focusScopeId(id: string, isGroup?: boolean, arrowStepOut?: boolean): T;
+   * Set container as a focus group with a specific identifier.
+   *
+   * @param { string } id - focus scope identifier.
+   * @param { boolean } [isGroup] - whether this scope is a focus group, the default value is false.
+   * @param { boolean } [arrowStepOut] - whether the arrow keys can move focus from inside the focus group to outside,
+   * only effective when isGroup is true, the default value is true.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  focusScopeId(id: string, isGroup?: boolean, arrowStepOut?: boolean): T;
 
   /**
-  * Set the focus priority of component in a specific focus scope.
-  *
-  * @param { string } scopeId
-  * @param { FocusPriority } [priority] - the default value is AUTO
-  * @returns { T }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
- focusScopePriority(scopeId: string, priority?: FocusPriority): T;
+   * Set the focus priority of component in a specific focus scope.
+   *
+   * @param { string } scopeId
+   * @param { FocusPriority } [priority] - the default value is AUTO
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  focusScopePriority(scopeId: string, priority?: FocusPriority): T;
 
   /**
    * animation
@@ -25277,8 +23087,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   animation(value: AnimateParam): T;
 
@@ -25329,20 +23138,6 @@ declare class CommonMethod<T> {
   /**
    * Set the transition effect of component when it appears and disappears.
    *
-   * @param { TransitionEffect } value - transition effect
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  transition(value: TransitionEffect): T;
-
-  /**
-   * Set the transition effect of component when it appears and disappears.
-   *
    * @param { TransitionEffect } effect - transition effect
    * @param { Optional<TransitionFinishCallback> } onFinish - transition finish callback.
    * @returns { T }
@@ -25350,8 +23145,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   transition(effect: TransitionEffect, onFinish: Optional<TransitionFinishCallback>): T;
 
@@ -25386,8 +23180,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   gesture(gesture: GestureType, mask?: GestureMask): T;
 
@@ -25422,8 +23215,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   priorityGesture(gesture: GestureType, mask?: GestureMask): T;
 
@@ -25458,8 +23250,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   parallelGesture(gesture: GestureType, mask?: GestureMask): T;
 
@@ -25508,8 +23299,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   blur(value: number, options?: BlurOptions): T;
 
@@ -25538,8 +23328,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   linearGradientBlur(value: number, options: LinearGradientBlurOptions): T;
 
@@ -25552,8 +23341,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   linearGradientBlur(blurRadius: Optional<number>, options: Optional<LinearGradientBlurOptions>): T;
 
@@ -25577,8 +23365,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   motionBlur(value: MotionBlurOptions):T;
 
@@ -25590,8 +23377,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   motionBlur(motionBlur: Optional<MotionBlurOptions>):T;
 
@@ -25659,8 +23445,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   brightness(value: number): T;
 
@@ -25683,8 +23468,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   brightness(brightness: Optional<number>): T;
 
@@ -25756,8 +23540,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   contrast(value: number): T;
 
@@ -25780,8 +23563,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   contrast(contrast: Optional<number>): T;
 
@@ -25857,8 +23639,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   grayscale(value: number): T;
 
@@ -25881,8 +23662,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   grayscale(grayscale: Optional<number>): T;
 
@@ -25922,8 +23702,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   colorBlend(value: Color | string | Resource): T;
 
@@ -25938,8 +23717,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   colorBlend(color: Optional<Color | string | Resource>): T;
 
@@ -26011,8 +23789,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   saturate(value: number): T;
 
@@ -26035,8 +23812,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   saturate(saturate: Optional<number>): T;
 
@@ -26084,8 +23860,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   sepia(value: number): T;
 
@@ -26102,8 +23877,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   sepia(sepia: Optional<number>): T;
 
@@ -26147,8 +23921,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   invert(value: number | InvertOptions): T;
 
@@ -26172,8 +23945,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   invert(options: Optional<number | InvertOptions>): T;
 
@@ -26183,8 +23955,7 @@ declare class CommonMethod<T> {
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   systemBarEffect(): T;
 
@@ -26236,8 +24007,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   hueRotate(value: number | string): T;
 
@@ -26251,8 +24021,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   hueRotate(rotation: Optional<number | string>): T;
 
@@ -26293,8 +24062,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   useShadowBatching(value: boolean): T;
 
@@ -26319,8 +24087,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   useShadowBatching(use: Optional<boolean>): T;
 
@@ -26339,8 +24106,7 @@ declare class CommonMethod<T> {
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   useEffect(useEffect: boolean, effectType: EffectType): T;
 
@@ -26362,8 +24128,7 @@ declare class CommonMethod<T> {
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   useEffect(useEffect: Optional<boolean>, effectType?: EffectType): T;
 
@@ -26377,8 +24142,7 @@ declare class CommonMethod<T> {
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   useEffect(value: boolean): T;
 
@@ -26427,8 +24191,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   backdropBlur(value: number, options?: BlurOptions): T;
 
@@ -26493,8 +24256,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   renderGroup(value: boolean): T;
 
@@ -26514,8 +24276,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   renderGroup(isGroup: Optional<boolean>): T;
 
@@ -26532,8 +24293,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   freeze(value: boolean): T;
 
@@ -26552,8 +24312,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   freeze(freeze: Optional<boolean>): T;
 
@@ -26597,8 +24356,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   translate(value: TranslateOptions): T;
 
@@ -26616,8 +24374,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   translate(translate: Optional<TranslateOptions>): T;
 
@@ -26665,8 +24422,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   scale(value: ScaleOptions): T;
 
@@ -26683,8 +24439,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   scale(options: Optional<ScaleOptions>): T;
 
@@ -26792,8 +24547,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   rotate(value: RotateOptions): T;
 
@@ -26806,8 +24560,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   rotate(options: Optional<RotateOptions>): T;
 
@@ -26849,8 +24602,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   transform(value: object): T;
 
@@ -26864,8 +24616,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   transform(transform: Optional<object>): T;
 
@@ -26918,8 +24669,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onAppear(event: () => void): T;
 
@@ -26959,8 +24709,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onDisAppear(event: () => void): T;
 
@@ -26977,19 +24726,6 @@ declare class CommonMethod<T> {
   onAttach(callback: Callback<void>): T;
 
   /**
-   * This callback is triggered when a component mounts to view tree.
-   *
-   * @param { VoidCallback } callback
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onAttach(callback: VoidCallback): T;
-
-  /**
    * This callback is triggered when a component is detached from view tree.
    *
    * @param { Callback<void> } callback
@@ -27000,19 +24736,6 @@ declare class CommonMethod<T> {
    * @since 12
    */
   onDetach(callback: Callback<void>): T;
-
-  /**
-   * This callback is triggered when a component is detached from view tree.
-   *
-   * @param { VoidCallback } callback
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onDetach(callback: VoidCallback): T;
 
   /**
    * This callback is triggered when the size or position of this component change finished.
@@ -27039,8 +24762,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onAreaChange(event: (oldValue: Area, newValue: Area) => void): T;
 
@@ -27080,8 +24802,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   visibility(value: Visibility): T;
 
@@ -27122,8 +24843,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   flexGrow(value: number): T;
 
@@ -27164,8 +24884,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   flexShrink(value: number): T;
 
@@ -27206,8 +24925,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   flexBasis(value: number | string): T;
 
@@ -27248,8 +24966,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   alignSelf(value: ItemAlign): T;
 
@@ -27303,8 +25020,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   displayPriority(value: number): T;
 
@@ -27344,8 +25060,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   zIndex(value: number): T;
 
@@ -27395,8 +25110,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   sharedTransition(id: string, options?: sharedTransitionOptions): T;
 
@@ -27437,8 +25151,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   direction(value: Direction): T;
 
@@ -27479,8 +25192,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   align(value: Alignment): T;
 
@@ -27545,8 +25257,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   position(value: Position | Edges | LocalizedEdges): T;
 
@@ -27598,8 +25309,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   markAnchor(value: Position | LocalizedPosition): T;
 
@@ -27656,8 +25366,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   offset(value: Position | Edges | LocalizedEdges): T;
 
@@ -27701,8 +25410,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   enabled(value: boolean): T;
 
@@ -27752,8 +25460,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   alignRules(value: AlignRuleOption): T;
 
@@ -27770,8 +25477,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   alignRules(alignRule: LocalizedAlignRuleOptions): T;
 
@@ -27788,8 +25494,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   chainMode(direction: Axis, style: ChainStyle): T;
 
@@ -27834,8 +25539,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   aspectRatio(value: number): T;
 
@@ -27856,8 +25560,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   clickEffect(value: ClickEffect | null): T;
 
@@ -27869,8 +25572,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   clickEffect(effect: Optional<ClickEffect | null>): T;
 
@@ -27905,8 +25607,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   onDragStart(event: (event: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo): T;
 
@@ -27935,8 +25636,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   onDragEnter(event: (event: DragEvent, extraParams?: string) => void): T;
 
@@ -27965,8 +25665,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   onDragMove(event: (event: DragEvent, extraParams?: string) => void): T;
 
@@ -27995,8 +25694,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   onDragLeave(event: (event: DragEvent, extraParams?: string) => void): T;
 
@@ -28028,8 +25726,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   onDrop(event: (event: DragEvent, extraParams?: string) => void): T;
 
@@ -28043,8 +25740,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   onDrop(eventCallback: OnDragEventCallback, dropOptions?: DropOptions): T;
 
@@ -28073,8 +25769,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   onDragEnd(event: (event: DragEvent, extraParams?: string) => void): T;
 
@@ -28105,10 +25800,19 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  allowDrop(value: Array<UniformDataType> | null): T;
+  /**
+   * Allowed drop uniformData type for this node.
+   *
+   * @param { Array<UniformDataType> | null | Array<string> } value - the uniformData type for this node.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  allowDrop(value: Array<UniformDataType> | null | Array<string>): T;
 
   /**
    * Enable the selectable area can be dragged.
@@ -28127,8 +25831,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   draggable(value: boolean): T;
 
@@ -28147,8 +25850,7 @@ declare class CommonMethod<T> {
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   dragPreview(value: CustomBuilder | DragItemInfo | string): T;
 
@@ -28160,8 +25862,7 @@ declare class CommonMethod<T> {
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   dragPreview(preview: CustomBuilder | DragItemInfo | string, config?: PreviewConfiguration): T;
 
@@ -28181,8 +25882,7 @@ declare class CommonMethod<T> {
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   dragPreviewOptions(value: DragPreviewOptions, options?: DragInteractionOptions): T;
 
@@ -28193,8 +25893,7 @@ declare class CommonMethod<T> {
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onPreDrag(callback: Callback<PreDragStatus>): T;
 
@@ -28250,8 +25949,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   overlay(value: string | CustomBuilder | ComponentContent, options?: OverlayOptions): T;
 
@@ -28349,8 +26047,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   linearGradient(value: LinearGradientOptions): T;
 
@@ -28368,8 +26065,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   linearGradient(options: Optional<LinearGradientOptions>): T;
 
@@ -28539,8 +26235,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   sweepGradient(value: SweepGradientOptions): T;
 
@@ -28555,8 +26250,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   sweepGradient(options: Optional<SweepGradientOptions>): T;
 
@@ -28679,8 +26373,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   radialGradient(value: RadialGradientOptions): T;
 
@@ -28695,8 +26388,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   radialGradient(options: Optional<RadialGradientOptions>): T;
 
@@ -28725,8 +26417,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   motionPath(value: MotionPathOptions): T;
 
@@ -28776,8 +26467,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   shadow(value: ShadowOptions | ShadowStyle): T;
 
@@ -28795,8 +26485,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   shadow(options: Optional<ShadowOptions | ShadowStyle>): T;
 
@@ -28847,8 +26536,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   blendMode(value: BlendMode, type?: BlendApplyType): T;
 
@@ -28879,8 +26567,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   blendMode(mode: Optional<BlendMode>, type?: BlendApplyType): T;
 
@@ -28894,8 +26581,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   advancedBlendMode(effect: BlendMode | Blender, type?: BlendApplyType): T;
 
@@ -28913,8 +26599,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   clip(value: boolean): T;
 
@@ -28933,8 +26618,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   clip(clip: Optional<boolean>): T;
 
@@ -29018,8 +26702,7 @@ declare class CommonMethod<T> {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   clipShape(value: CircleShape | EllipseShape | PathShape | RectShape): T;
 
@@ -29036,8 +26719,7 @@ declare class CommonMethod<T> {
   * @crossplatform
   * @form
   * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 18
   */
   clipShape(shape: Optional<CircleShape | EllipseShape | PathShape | RectShape>): T;
 
@@ -29050,8 +26732,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   mask(value: ProgressMask): T;
 
@@ -29066,8 +26747,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   mask(mask: Optional<ProgressMask>): T;
 
@@ -29123,8 +26803,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   maskShape(value: CircleShape | EllipseShape | PathShape | RectShape): T;
 
@@ -29139,8 +26818,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   maskShape(shape: Optional<CircleShape | EllipseShape | PathShape | RectShape>): T;
 
@@ -29151,9 +26829,8 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 12
    * @test
-   * @arkts 1.1&1.2
    */
   key(value: string): T;
 
@@ -29193,8 +26870,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   id(value: string): T;
 
@@ -29223,8 +26899,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   geometryTransition(id: string): T;
   /**
@@ -29246,8 +26921,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   geometryTransition(id: string, options?: GeometryTransitionOptions): T;
 
@@ -29282,8 +26956,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T;
 
@@ -29317,8 +26990,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   bindMenu(content: Array<MenuElement> | CustomBuilder, options?: MenuOptions): T;
 
@@ -29343,8 +27015,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   bindMenu(isShow: boolean, content: Array<MenuElement> | CustomBuilder, options?: MenuOptions): T;
 
@@ -29381,8 +27052,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions): T;
 
@@ -29402,8 +27072,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions): T;
 
@@ -29428,8 +27097,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;
 
@@ -29454,8 +27122,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   bindContentCover(isShow: boolean, builder: CustomBuilder, options?: ContentCoverOptions): T;
 
@@ -29480,8 +27147,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   bindSheet(isShow: boolean, builder: CustomBuilder, options?: SheetOptions): T;
 
@@ -29521,8 +27187,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   stateStyles(value: StateStyles): T;
 
@@ -29542,8 +27207,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   restoreId(value: number): T;
 
@@ -29587,11 +27251,28 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback): T;
 
+  /**
+   * Trigger a visible area change event.
+   *
+   * @param { Array<number> } ratios - Threshold array. Each threshold represents a ratio of the component's visible area to the component's total area.
+   * The value range of the threshold is [0.0, 1.0].
+   * @param { VisibleAreaChangeCallback } event - Callback for visible area changes of the component.
+   * @param { boolean } measureFromViewport - When this parameter is set to true, the parts of the component
+   *      that exceed the parent component's area wil also be included in the visible area calculation. However, this
+   *      only applies if the parent component does not explicitly set the clip property to true. If the parent
+   *      component sets clip to ture, regardless of the value of this parameter, the parts that exceed the parent
+   *      component's area will still be treated as invisible in the visible area calculation.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback, measureFromViewport: boolean): T;
 
   /**
    * Set or reset the callback which is triggered when the visibleArea of component changed.
@@ -29603,10 +27284,9 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
-  onVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): void;
+  onVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): T;
 
   /**
    * Applies a spherical effect to the component.
@@ -29626,8 +27306,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   sphericalEffect(value: number): T;
 
@@ -29649,8 +27328,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   sphericalEffect(effect: Optional<number>): T;
 
@@ -29667,8 +27345,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   lightUpEffect(value: number): T;
 
@@ -29687,8 +27364,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   lightUpEffect(degree: Optional<number>): T;
 
@@ -29717,8 +27393,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   pixelStretchEffect(options: PixelStretchEffectOptions): T;
 
@@ -29748,8 +27423,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   pixelStretchEffect(options: Optional<PixelStretchEffectOptions>): T;
 
@@ -29774,8 +27448,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: () => void): T;
 
@@ -29812,8 +27485,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   accessibilityGroup(value: boolean): T;
 
@@ -29838,8 +27510,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   accessibilityGroup(isGroup: boolean, accessibilityOptions: AccessibilityOptions): T;
 
@@ -29873,8 +27544,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   accessibilityText(value: string): T;
 
@@ -29886,8 +27556,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   accessibilityNextFocusId(nextId: string): T;
 
@@ -29899,8 +27568,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   accessibilityDefaultFocus(focus: boolean): T;
 
@@ -29912,8 +27580,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   accessibilityUseSamePage(pageMode: AccessibilitySamePageMode): T;
 
@@ -29931,8 +27598,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   accessibilityText(text: Resource): T;
 
@@ -29944,8 +27610,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   accessibilityRole(role: AccessibilityRoleType): T;
 
@@ -29957,8 +27622,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onAccessibilityFocus(callback: AccessibilityFocusCallback): T;
 
@@ -29971,8 +27635,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   accessibilityTextHint(value: string): T;
 
@@ -30004,8 +27667,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   accessibilityDescription(value: string): T;
 
@@ -30027,8 +27689,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   accessibilityDescription(description: Resource): T;
 
@@ -30076,8 +27737,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   accessibilityLevel(value: string): T;
 
@@ -30100,8 +27760,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   accessibilityVirtualNode(builder: CustomBuilder): T;
 
@@ -30114,8 +27773,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   accessibilityChecked(isCheck: boolean): T;
 
@@ -30128,8 +27786,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   accessibilitySelected(isSelect: boolean): T;
 
@@ -30150,8 +27807,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   obscured(reasons: Array<ObscuredReasons>): T;
 
@@ -30172,8 +27828,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   reuseId(id: string): T;
 
@@ -30185,8 +27840,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
    reuse(options: ReuseOptions): T;
 
@@ -30224,8 +27878,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   renderFit(fitMode: RenderFit): T;
 
@@ -30242,8 +27895,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   renderFit(fitMode: Optional<RenderFit>): T;
 
@@ -30278,8 +27930,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   gestureModifier(modifier: GestureModifier): T;
 
@@ -30290,8 +27941,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   backgroundBrightness(params: BackgroundBrightnessOptions): T;
 
@@ -30304,8 +27954,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   backgroundBrightness(options: Optional<BackgroundBrightnessOptions>): T;
 
@@ -30326,8 +27975,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onGestureJudgeBegin(callback: (gestureInfo: GestureInfo, event: BaseGestureEvent) => GestureJudgeResult): T;
 
@@ -30339,8 +27987,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback): T;
 
@@ -30361,8 +28008,8 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   *
+   * @since 13
    */
   onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback, exposeInnerGesture: boolean): T;
 
@@ -30374,8 +28021,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   shouldBuiltInRecognizerParallelWith(callback: ShouldBuiltInRecognizerParallelWithCallback): T;
 
@@ -30398,8 +28044,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   monopolizeEvents(monopolize: boolean): T;
 
@@ -30411,8 +28056,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onTouchIntercept(callback: Callback<TouchEvent, HitTestMode>): T;
 
@@ -30441,8 +28085,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onSizeChange(event: SizeChangeCallback): T;
 
@@ -30455,8 +28098,7 @@ declare class CommonMethod<T> {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':'19','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 19
   */
   bindTips(message: TipsMessageType, options?: TipsOptions): T;
 
@@ -30468,8 +28110,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   onHoverMove(event: Callback<HoverEvent>): T;
 
@@ -30481,8 +28122,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   accessibilityScrollTriggerable(isTriggerable: boolean): T;
 
@@ -30517,8 +28157,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   blur(blurRadius: Optional<number>, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): T;
 
@@ -30531,8 +28170,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   accessibilityFocusDrawLevel(drawLevel: FocusDrawLevel): T;
 
@@ -30578,8 +28216,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   backgroundBlurStyle(style: Optional<BlurStyle>, options?: BackgroundBlurStyleOptions, sysOptions?: SystemAdaptiveOptions): T;
 
@@ -30595,8 +28232,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   backdropBlur(radius: Optional<number>, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): T;
 
@@ -30612,8 +28248,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   foregroundBlurStyle(style: Optional<BlurStyle>, options?: ForegroundBlurStyleOptions, sysOptions?: SystemAdaptiveOptions): T;
 
@@ -30678,18 +28313,6 @@ declare class CommonMethod<T> {
  */
 declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
 
-/**
- * CommonAttribute for ide.
- *
- * @typedef  { CommonMethod } CommonAttribute
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type CommonAttribute = CommonMethod
 /**
  * CommonInterface for ide.
  *
@@ -30874,8 +28497,7 @@ declare type CustomBuilder = (() => any) | void;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface OverlayOptions {
   /**
@@ -30911,8 +28533,7 @@ declare interface OverlayOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   align?: Alignment;
 
@@ -30949,8 +28570,7 @@ declare interface OverlayOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   offset?: OverlayOffset;
 }
@@ -30963,8 +28583,7 @@ declare interface OverlayOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface OverlayOffset {
   /**
@@ -30999,8 +28618,7 @@ declare interface OverlayOffset {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   x?: number;
   /**
@@ -31035,8 +28653,7 @@ declare interface OverlayOffset {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   y?: number;
 }
@@ -31051,8 +28668,7 @@ declare interface OverlayOffset {
  * @typedef { [ number, number ] } FractionStop
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare type FractionStop = [ number, number ];
 
@@ -31088,8 +28704,7 @@ declare type FractionStop = [ number, number ];
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
@@ -31105,8 +28720,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @form
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   constructor();
 
@@ -31154,8 +28768,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   stroke(value: ResourceColor): T;
 
@@ -31203,8 +28816,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   fill(value: ResourceColor): T;
 
@@ -31256,8 +28868,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   strokeDashOffset(value: number | string): T;
 
@@ -31297,8 +28908,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   strokeLineCap(value: LineCapStyle): T;
 
@@ -31342,8 +28952,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   strokeLineJoin(value: LineJoinStyle): T;
 
@@ -31383,8 +28992,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   strokeMiterLimit(value: number | string): T;
 
@@ -31436,8 +29044,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   strokeOpacity(value: number | string | Resource): T;
 
@@ -31489,8 +29096,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   fillOpacity(value: number | string | Resource): T;
 
@@ -31550,8 +29156,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   strokeWidth(value: Length): T;
 
@@ -31603,8 +29208,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   antiAlias(value: boolean): T;
 
@@ -31659,20 +29263,6 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @since 11
    */
   strokeDashArray(value: Array<any>): T;
-
-  /**
-   * Sets the gap for the border.
-   *
-   * @param { Array<Length> } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  strokeDashArray(value: Array<Length>): T;
 }
 
 /**
@@ -31819,8 +29409,7 @@ declare interface LinearGradient {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface PixelRoundPolicy {
   /**
@@ -31832,8 +29421,7 @@ declare interface PixelRoundPolicy {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   start?: PixelRoundCalcPolicy;
 
@@ -31846,8 +29434,7 @@ declare interface PixelRoundPolicy {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   top?: PixelRoundCalcPolicy;
 
@@ -31860,8 +29447,7 @@ declare interface PixelRoundPolicy {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   end?: PixelRoundCalcPolicy;
 
@@ -31874,8 +29460,7 @@ declare interface PixelRoundPolicy {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   bottom?: PixelRoundCalcPolicy;
 }
@@ -31886,8 +29471,7 @@ declare interface PixelRoundPolicy {
  * @interface LinearGradientBlurOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface LinearGradientBlurOptions {
   /**
@@ -31896,8 +29480,7 @@ declare interface LinearGradientBlurOptions {
    * @type { FractionStop[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fractionStops: FractionStop[];
   /**
@@ -31906,8 +29489,7 @@ declare interface LinearGradientBlurOptions {
    * @type { GradientDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   direction: GradientDirection;
 }
@@ -31919,8 +29501,7 @@ declare interface LinearGradientBlurOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface MotionBlurAnchor {
   /**
@@ -31929,8 +29510,7 @@ declare interface MotionBlurAnchor {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   x: number;
   /**
@@ -31939,8 +29519,7 @@ declare interface MotionBlurAnchor {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   y: number;
 }
@@ -31952,8 +29531,7 @@ declare interface MotionBlurAnchor {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface MotionBlurOptions {
   /**
@@ -31962,8 +29540,7 @@ declare interface MotionBlurOptions {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   radius: number;
   /**
@@ -31972,8 +29549,7 @@ declare interface MotionBlurOptions {
    * @type { MotionBlurAnchor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   anchor: MotionBlurAnchor;
 }
@@ -32129,7 +29705,7 @@ declare interface LayoutChild {
    * @since 9
    * @deprecated since 10
    */
-  measure(childConstraint: ConstraintSizeOptions),
+  measure(childConstraint: ConstraintSizeOptions);
 
   /**
    * Call this layout method in onLayout callback to assign layout info to sub component.
@@ -32140,7 +29716,7 @@ declare interface LayoutChild {
    * @since 9
    * @deprecated since 10
    */
-  layout(childLayoutInfo: LayoutInfo),
+  layout(childLayoutInfo: LayoutInfo);
 }
 
 /**
@@ -32160,8 +29736,7 @@ declare interface LayoutChild {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface GeometryInfo extends SizeResult {
   /**
@@ -32179,8 +29754,7 @@ declare interface GeometryInfo extends SizeResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   borderWidth: EdgeWidth;
 
@@ -32199,8 +29773,7 @@ declare interface GeometryInfo extends SizeResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   margin: Margin,
 
@@ -32219,8 +29792,7 @@ declare interface GeometryInfo extends SizeResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   padding: Padding,
 }
@@ -32240,8 +29812,7 @@ declare interface GeometryInfo extends SizeResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface Layoutable {
   /**
@@ -32259,8 +29830,7 @@ declare interface Layoutable {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   measureResult: MeasureResult,
 
@@ -32271,8 +29841,7 @@ declare interface Layoutable {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   uniqueId?: number;
 
@@ -32291,8 +29860,7 @@ declare interface Layoutable {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   layout(position: Position): void,
 
@@ -32303,10 +29871,9 @@ declare interface Layoutable {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  getMargin() : DirectionalEdgesT<number>,
+  getMargin() : DirectionalEdgesT<number>;
 
   /**
    * Call this method to get the padding of sub component.
@@ -32315,8 +29882,7 @@ declare interface Layoutable {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getPadding() : DirectionalEdgesT<number>,
 
@@ -32327,10 +29893,9 @@ declare interface Layoutable {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  getBorderWidth() : DirectionalEdgesT<number>,
+  getBorderWidth() : DirectionalEdgesT<number>;
 }
 
 /**
@@ -32348,8 +29913,7 @@ declare interface Layoutable {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface Measurable {
   /**
@@ -32359,8 +29923,7 @@ declare interface Measurable {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   uniqueId?: number;
 
@@ -32381,8 +29944,7 @@ declare interface Measurable {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   measure(constraint: ConstraintSizeOptions) : MeasureResult,
 
@@ -32393,10 +29955,9 @@ declare interface Measurable {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  getMargin() : DirectionalEdgesT<number>,
+  getMargin() : DirectionalEdgesT<number>;
 
   /**
    * Obtains the padding of the sub component.
@@ -32405,10 +29966,9 @@ declare interface Measurable {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  getPadding() : DirectionalEdgesT<number>,
+  getPadding() : DirectionalEdgesT<number>;
 
   /**
    * Obtains the border width of the sub component.
@@ -32417,10 +29977,9 @@ declare interface Measurable {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  getBorderWidth() : DirectionalEdgesT<number>,
+  getBorderWidth() : DirectionalEdgesT<number>;
 }
 
 /**
@@ -32438,8 +29997,7 @@ declare interface Measurable {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface SizeResult {
   /**
@@ -32457,8 +30015,7 @@ declare interface SizeResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   width: number,
 
@@ -32477,8 +30034,7 @@ declare interface SizeResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   height: number,
 }
@@ -32500,8 +30056,7 @@ declare interface SizeResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface MeasureResult extends SizeResult {
 
@@ -32525,30 +30080,6 @@ declare interface MeasureResult extends SizeResult {
  */
 declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.NavDestinationInfo;
 
-
-/**
- * The navigation destination information.
- *
- * @typedef {uiObserver.NavDestinationInfo} NavDestinationInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type NavDestinationInfo = uiObserver.NavDestinationInfo;
-/**
- * The navigation information.
- *
- * @typedef {  uiObserver.NavigationInfo } NavigationInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type NavigationInfo = uiObserver.NavigationInfo;
-
 /**
  * The navigation information.
  *
@@ -32570,18 +30101,6 @@ declare type NavigationInfo = import('../api/@ohos.arkui.observer').default.Navi
  * @since 12
  */
 declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
-
-/**
- * The router page information.
- *
- * @typedef {uiObserver.RouterPageInfo} RouterPageInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type RouterPageInfo = uiObserver.RouterPageInfo;
 
 /**
  * UIContext
@@ -32624,19 +30143,6 @@ declare type DrawContext = import('../api/arkui/Graphics').DrawContext;
 declare type VisualEffect = import('../api/@ohos.graphics.uiEffect').default.VisualEffect;
 
 /**
- * VisualEffect
- *
- * @typedef { import('../api/@ohos.graphics.uiEffect').default.VisualEffect } VisualEffect
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type VisualEffect = uiEffect.VisualEffect;
-
-
-/**
  * Filter
  *
  * @typedef { import('../api/@ohos.graphics.uiEffect').default.Filter } Filter
@@ -32647,17 +30153,6 @@ declare type VisualEffect = uiEffect.VisualEffect;
  */
 declare type Filter = import('../api/@ohos.graphics.uiEffect').default.Filter;
 
-/**
- * Filter
- *
- * @typedef { import('../api/@ohos.graphics.uiEffect').default.Filter } Filter
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type Filter = uiEffect.Filter;
 
 /**
  * Blender
@@ -32669,18 +30164,6 @@ declare type Filter = uiEffect.Filter;
  * @since 13
  */
 declare type Blender = import('../api/@ohos.graphics.uiEffect').default.Blender;
-
-/**
- * Blender
- *
- * @typedef { import('../api/@ohos.graphics.uiEffect').default.Blender } Blender
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @form
- * @since 20
- * @arkts 1.2
- */
-declare type Blender = uiEffect.Blender;
 
 /**
  * ComponentContent.
@@ -32713,17 +30196,6 @@ declare type Theme = import('../api/@ohos.arkui.theme').Theme;
  * @since 18
  */
 declare type PromptActionDialogController = import('../api/@ohos.promptAction').promptAction.DialogController;
-
-/**
- * Import the DialogController type from promptAction.
- *
- * @typedef { promptAction.DialogController } PromptActionDialogController
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type PromptActionDialogController = promptAction.DialogController;
 
 /**
  * Custom Component
@@ -33260,8 +30732,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onFormRecover?(statusData: string): void;
 
@@ -33356,8 +30827,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   pageTransition?(): void;
 
@@ -33593,8 +31063,7 @@ declare class View {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface RectResult {
   /**
@@ -33611,8 +31080,7 @@ declare interface RectResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   x: number;
 
@@ -33630,8 +31098,7 @@ declare interface RectResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   y: number;
 
@@ -33649,8 +31116,7 @@ declare interface RectResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   width: number;
 
@@ -33668,8 +31134,7 @@ declare interface RectResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   height: number;
 }
@@ -33689,8 +31154,7 @@ declare interface RectResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface CaretOffset {
   /**
@@ -33706,8 +31170,7 @@ declare interface CaretOffset {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   index: number;
 
@@ -33724,8 +31187,7 @@ declare interface CaretOffset {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   x: number;
 
@@ -33742,8 +31204,7 @@ declare interface CaretOffset {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   y: number;
 }
@@ -33755,8 +31216,7 @@ declare interface CaretOffset {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare interface TextContentControllerOptions {
   /**
@@ -33766,8 +31226,7 @@ declare interface TextContentControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   offset?: number;
 }
@@ -33785,8 +31244,7 @@ declare interface TextContentControllerOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare abstract class TextContentControllerBase {
   /**
@@ -33813,8 +31271,7 @@ declare abstract class TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getCaretOffset() : CaretOffset;
 
@@ -33841,8 +31298,7 @@ declare abstract class TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getTextContentRect() : RectResult;
 
@@ -33862,8 +31318,7 @@ declare abstract class TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getTextContentLineCount() : number;
 
@@ -33876,10 +31331,21 @@ declare abstract class TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   addText(text: string, textOperationOptions?: TextContentControllerOptions): number;
+
+  /**
+   * Set the styled placeholder.
+   *
+   * @param { StyledString } styledString - The styledString for placeholder.
+   *     If the parameter is invalid, this method will have no effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  setStyledPlaceholder(styledString: StyledString): void;
 
   /**
    * Delete text in TextRange.
@@ -33888,8 +31354,7 @@ declare abstract class TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   deleteText(range?: TextRange): void;
 
@@ -33900,8 +31365,7 @@ declare abstract class TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   getSelection(): TextRange;
 
@@ -33910,8 +31374,7 @@ declare abstract class TextContentControllerBase {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   clearPreviewText(): void;
 
@@ -33923,8 +31386,7 @@ declare abstract class TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   getText(range?: TextRange): string;
 }
@@ -33936,8 +31398,7 @@ declare abstract class TextContentControllerBase {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 declare enum ContentClipMode {
   /**
@@ -33946,8 +31407,7 @@ declare enum ContentClipMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   CONTENT_ONLY = 0,
 
@@ -33957,8 +31417,7 @@ declare enum ContentClipMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   BOUNDARY = 1,
 
@@ -33968,10 +31427,9 @@ declare enum ContentClipMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
-  SAFE_AREA = 2,
+  SAFE_AREA = 2
 }
 
 /**
@@ -33991,8 +31449,7 @@ declare enum ContentClipMode {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
@@ -34004,8 +31461,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   scrollBar(barState: BarState): T;
 
@@ -34019,10 +31475,24 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   scrollBarColor(color: Color | number | string): T;
+
+  /**
+   * Sets the scrollbar color.
+   *
+   * @param { Color | number | string | Resource } color - Scrollbar color.<br>Default value: <em>'\#182431'</em> (40% opacity)
+
+   * <br>A number value indicates a HEX color in RGB or ARGB format, for example, <em>0xffffff</em>.
+   * A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  scrollBarColor(color: Color | number | string | Resource): T;
 
   /**
    * Sets the scrollbar width.
@@ -34035,8 +31505,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   scrollBarWidth(value: number | string): T;
 
@@ -34065,8 +31534,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions): T;
 
@@ -34079,8 +31547,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   fadingEdge(enabled: Optional<boolean>, options?: FadingEdgeOptions): T;
 
@@ -34092,8 +31559,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   nestedScroll(value: NestedScrollOptions): T;
 
@@ -34105,8 +31571,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   enableScrollInteraction(value: boolean): T;
 
@@ -34118,8 +31583,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   friction(value: number | Resource): T;
 
@@ -34202,7 +31666,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 22
+   * @since 21
    */
   onWillStartDragging(handler: VoidCallback): T;
 
@@ -34228,7 +31692,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 22
+   * @since 21
    */
   onDidStopDragging(handler: OnDidStopDraggingCallback): T;
 
@@ -34241,7 +31705,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 22
+   * @since 21
    */
   onWillStartFling(handler: VoidCallback): T;
 
@@ -34254,7 +31718,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 22
+   * @since 21
    */
   onDidStopFling(handler: VoidCallback): T;
 
@@ -34266,8 +31730,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onReachStart(event: () => void): T;
 
@@ -34279,8 +31742,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onReachEnd(event: () => void): T;
 
@@ -34292,8 +31754,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onScrollStart(event: () => void): T;
 
@@ -34305,8 +31766,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onScrollStop(event: () => void): T;
 
@@ -34321,8 +31781,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   flingSpeedLimit(speedLimit: number): T;
 
@@ -34334,8 +31793,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   clipContent(clip: ContentClipMode | RectShape): T;
 
@@ -34347,8 +31805,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): T;
 
@@ -34361,8 +31818,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   backToTop(backToTop: boolean): T;
 }
@@ -34372,8 +31828,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class ScrollResult {
   /**
@@ -34382,8 +31837,7 @@ declare class ScrollResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   offsetRemain: number;
 }
@@ -34406,63 +31860,30 @@ declare type OnWillScrollCallback =
 (scrollOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => void | ScrollResult;
 
 /**
- * Called before scroll to allow developer to control real offset the Scrollable can scroll.
+ * On scroll callback using in scrollable onDidScroll.
  *
- * @typedef { function } OnWillScrollCallback
- * @param { number } scrollOffset - offset this frame will scroll, which may or may not be reached.
+ * @typedef { function } OnScrollCallback
+ * @param { number } scrollOffset - offset this frame did scroll.
  * @param { ScrollState } scrollState - current scroll state.
- * @param { ScrollSource } scrollSource - source of current scroll.
- * @returns { void | ScrollResult } the remain offset for the scrollable,
- *     same as scrollOffset when no ScrollResult is returned.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 12
  */
-declare type OnWillScrollCallback =
-(scrollOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => undefined | ScrollResult;
-
-/**
-  * On scroll callback using in scrollable onDidScroll.
-  *
-  * @typedef { function } OnScrollCallback
-  * @param { number } scrollOffset - offset this frame did scroll.
-  * @param { ScrollState } scrollState - current scroll state.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
 declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
 
 /**
-  * Defines the callback type used in onItemDragStart.
-  *
-  * @typedef { function } OnItemDragStartCallback
-  * @param { ItemDragInfo } event - Information about the dragged item.
-  * @param { number } itemIndex - The index number of the dragged item.
-  * @returns {CustomBuilder | undefined}
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @atomicservice
-  * @since 20
-  * @arkts 1.2
-  */
-declare type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: number) => CustomBuilder | undefined;
-
-/**
-  * On scroll callback using in scrollable onWillStopDragging.
-  *
-  * @typedef { function } OnWillStopDraggingCallback
-  * @param { number } velocity - The velocity of the scroll view at the moment the touch was released.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 20
-  */
+ * On scroll callback using in scrollable onWillStopDragging.
+ *
+ * @typedef { function } OnWillStopDraggingCallback
+ * @param { number } velocity - The veolicity of the scroll view at the moment the touch was released.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 declare type OnWillStopDraggingCallback = (velocity: number) => void;
 
 /**
@@ -34474,7 +31895,7 @@ declare type OnWillStopDraggingCallback = (velocity: number) => void;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 22
+ * @since 21
  */
 declare type OnDidStopDraggingCallback = (willFling: boolean) => void;
 
@@ -34487,8 +31908,7 @@ declare type OnDidStopDraggingCallback = (willFling: boolean) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare type OnMoveHandler = (from: number, to: number) => void;
 
@@ -34500,7 +31920,6 @@ declare type OnMoveHandler = (from: number, to: number) => void;
  * @crossplatform
  * @atomicservice
  * @since 20
- * @arkts 1.1&1.2
  */
 declare interface ItemDragEventHandler {
   /**
@@ -34511,7 +31930,6 @@ declare interface ItemDragEventHandler {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   onLongPress?: Callback<number>;
 
@@ -34523,7 +31941,6 @@ declare interface ItemDragEventHandler {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   onDragStart?: Callback<number>;
 
@@ -34535,7 +31952,6 @@ declare interface ItemDragEventHandler {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   onMoveThrough?: OnMoveHandler;
 
@@ -34547,7 +31963,6 @@ declare interface ItemDragEventHandler {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   onDrop?: Callback<number>;
 }
@@ -34588,46 +32003,7 @@ declare class DynamicNode<T> {
    * @since 20
    */
   onMove(handler: Optional<OnMoveHandler>, eventHandler: ItemDragEventHandler): T;
-}
-
-/**
- * Define DynamicNode.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare interface DynamicNode {
-  /**
-   * Set the move action.
-   *
-   * @param { Optional<OnMoveHandler> } handler
-   * @returns { this }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onMove(handler: Optional<OnMoveHandler>): this;
-
-  /**
-   * Set the move action.
-   *
-   * @param { Optional<OnMoveHandler> } handler
-   * @param { ItemDragEventHandler } eventHandler
-   * @returns { this }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onMove(handler: Optional<OnMoveHandler>, eventHandler: ItemDragEventHandler): this;
-}
-
+  
 /**
  * Define EdgeEffect Options.
  *
@@ -34643,8 +32019,7 @@ declare interface DynamicNode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface EdgeEffectOptions {
   /**
@@ -34662,8 +32037,7 @@ declare interface EdgeEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   alwaysEnabled: boolean;
 
@@ -34674,8 +32048,7 @@ declare interface EdgeEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   effectEdge?: number;
 }
@@ -34687,8 +32060,7 @@ declare interface EdgeEffectOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare enum EffectEdge {
 
@@ -34698,8 +32070,7 @@ declare enum EffectEdge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   START = 1,
 
@@ -34709,8 +32080,7 @@ declare enum EffectEdge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   END = 2,
 }
@@ -34721,8 +32091,7 @@ declare enum EffectEdge {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class ChildrenMainSize {
   /**
@@ -34737,8 +32106,7 @@ declare class ChildrenMainSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   constructor(childDefaultSize: number);
 
@@ -34754,8 +32122,7 @@ declare class ChildrenMainSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   set childDefaultSize(value: number);
 
@@ -34767,8 +32134,7 @@ declare class ChildrenMainSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   get childDefaultSize(): number;
 
@@ -34785,11 +32151,10 @@ declare class ChildrenMainSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 12
    * @example splice(1, 0, [100]), Insert a child after first child, the child's main size is 100vp.
    * splice(1, 1), Delete the second child.
    * splice(1, 2, [100, 100]), Change the main size of the second and third children to 100vp.
-   * @arkts 1.1&1.2
    */
   splice(start: number, deleteCount?: number, childrenSize?: Array<number>): void;
 
@@ -34805,8 +32170,7 @@ declare class ChildrenMainSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   update(index: number, childSize: number): void;
 }
@@ -34817,8 +32181,7 @@ declare class ChildrenMainSize {
  * @interface BackgroundBrightnessOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface BackgroundBrightnessOptions {
 
@@ -34829,8 +32192,7 @@ declare interface BackgroundBrightnessOptions {
    * @type { number } - The default value is 0.0, value range: (0.0, +∞).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   rate: number;
 
@@ -34840,8 +32202,7 @@ declare interface BackgroundBrightnessOptions {
    * @type { number } - The default value is 0.0, value range: [-1.0, 1.0].
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   lightUpDegree: number;
 }
@@ -34852,8 +32213,7 @@ declare interface BackgroundBrightnessOptions {
  * @interface PointLightStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface PointLightStyle {
   /**
@@ -34863,8 +32223,7 @@ declare interface PointLightStyle {
    * @default undefined
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   lightSource?: LightSource;
   /**
@@ -34874,8 +32233,7 @@ declare interface PointLightStyle {
    * @default IlluminatedType.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   illuminated?: IlluminatedType;
   /**
@@ -34885,8 +32243,7 @@ declare interface PointLightStyle {
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   bloom?: number;
 }
@@ -34897,8 +32254,7 @@ declare interface PointLightStyle {
  * @interface LightSource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface LightSource {
   /**
@@ -34907,8 +32263,7 @@ declare interface LightSource {
    * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   positionX: Dimension;
   /**
@@ -34917,8 +32272,7 @@ declare interface LightSource {
    * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   positionY: Dimension;
   /**
@@ -34927,8 +32281,7 @@ declare interface LightSource {
    * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   positionZ: Dimension;
   /**
@@ -34937,8 +32290,7 @@ declare interface LightSource {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   intensity: number;
   /**
@@ -34947,8 +32299,7 @@ declare interface LightSource {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
     color?: ResourceColor;
 }
@@ -34975,17 +32326,29 @@ declare interface LightSource {
  * @since 12
  */
 declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => void): WrappedBuilder<Args>;
+
 /**
- * Defining wrapBuilder function.
- * @param { function } builder
- * @returns { WrappedBuilder<Args> }
+ * Defines the callback type used in mutableBuilder.
+ *
+ * @typedef { function } BuilderCallback
+ * @param { Args } args - The parameter of MutableBuilder.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 22 dynamiconly
  */
-declare function wrapBuilder<Args extends Array<Object>>(builder: (args: Args) => void): WrappedBuilder<Args>;
+declare type BuilderCallback = (...args: Args) => void
+
+/**
+ * Defining mutableBuilder function.
+ * @param { BuilderCallback } builder
+ * @returns { MutableBuilder<Args> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamiconly
+ */
+declare function mutableBuilder<Args extends Object[]>(builder: BuilderCallback): MutableBuilder<Args>;
 
 /**
  * The WrappedBuilder object is also a template class.
@@ -35034,39 +32397,16 @@ declare class WrappedBuilder<Args extends Object[]> {
   constructor(builder: (...args: Args) => void);
 }
 
-
-
 /**
- * Defines the WrappedBuilder class.
+ * Defines the MutableBuilder class.
+ * @extends WrappedBuilder<Args>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 22 dynamiconly
  */
-declare class WrappedBuilder<Args extends Array<Object>> {
-
-  /**
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  builder: (args: Args) => void;
-
-  /**
-   * @param { function } builder
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  constructor(builder: (args: Args) => void);
+declare class MutableBuilder<Args extends Object[]> extends WrappedBuilder<Args> {
 }
-
 
 /**
  * Defines the overall animation parameters of the keyframe animation.
@@ -35083,8 +32423,7 @@ declare class WrappedBuilder<Args extends Array<Object>> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface KeyframeAnimateParam {
   /**
@@ -35104,8 +32443,7 @@ declare interface KeyframeAnimateParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   delay?: number;
 
@@ -35126,8 +32464,7 @@ declare interface KeyframeAnimateParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   iterations?: number;
 
@@ -35146,8 +32483,7 @@ declare interface KeyframeAnimateParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onFinish?: () => void;
 
@@ -35159,8 +32495,7 @@ declare interface KeyframeAnimateParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   expectedFrameRateRange?: ExpectedFrameRateRange;
 }
@@ -35180,8 +32515,7 @@ declare interface KeyframeAnimateParam {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface KeyframeState {
   /**
@@ -35199,8 +32533,7 @@ declare interface KeyframeState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   duration: number;
 
@@ -35221,8 +32554,7 @@ declare interface KeyframeState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   curve?: Curve | string | ICurve;
 
@@ -35241,8 +32573,7 @@ declare interface KeyframeState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   event: () => void;
 }
@@ -35272,20 +32603,6 @@ declare interface Callback<T, V = void> {
 }
 
 /**
- * Defines the callback
- *
- * @typedef { function } Callback<T, V = void>
- * @param { T } data
- * @returns { V }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type Callback<T, V = void> = (data: T) => V;
-
-/**
  * Defines the callback type used in hover events.
  * The value of isHover indicates whether the mouse is hovering over the component.
  * The value of event contains information about HoverEvent.
@@ -35296,8 +32613,7 @@ export type Callback<T, V = void> = (data: T) => V;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void;
 
@@ -35312,8 +32628,7 @@ declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHoverEvent) => void;
 
@@ -35327,7 +32642,7 @@ declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHove
  * @atomicservice
  * @since 20
  */
-declare type AccessibilityTransparentCallback = (event: TouchEvent) => void
+declare type AccessibilityTransparentCallback = (event: TouchEvent) => void;
 
 /**
  * Defines the options about VisibleAreaEvent.
@@ -35336,8 +32651,7 @@ declare type AccessibilityTransparentCallback = (event: TouchEvent) => void
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface VisibleAreaEventOptions {
   /**
@@ -35347,8 +32661,7 @@ declare interface VisibleAreaEventOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   ratios: Array<number>;
 
@@ -35360,10 +32673,25 @@ declare interface VisibleAreaEventOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   expectedUpdateInterval?: number;
+
+  /**
+   * When this parameter is set to true, the parts of the component that exceed the parent component's area will also
+   * be included in the visible area calculation. However, this only applies if the parent component does not
+   * explicitly set the clip property to true. If the parent component sets clip to true, regardless of the value
+   * of this parameter, the parts that exceed the parent component's area will still be treated as invisible in the
+   * visible area calculation.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  measureFromViewport?: boolean;
 }
 
 /**
@@ -35388,8 +32716,7 @@ declare interface VisibleAreaEventOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'13','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 13
  */
 declare type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: number) => void;
 
@@ -35400,8 +32727,7 @@ declare type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: nu
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface UICommonEvent {
   /**
@@ -35411,8 +32737,7 @@ declare interface UICommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setOnClick(callback: Callback<ClickEvent> | undefined): void;
 
@@ -35423,8 +32748,7 @@ declare interface UICommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setOnTouch(callback: Callback<TouchEvent> | undefined): void;
 
@@ -35435,8 +32759,7 @@ declare interface UICommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setOnAppear(callback: Callback<void> | undefined): void;
 
@@ -35447,8 +32770,7 @@ declare interface UICommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setOnDisappear(callback: Callback<void> | undefined): void;
 
@@ -35460,8 +32782,7 @@ declare interface UICommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setOnKeyEvent(callback: Callback<KeyEvent> | undefined): void;
 
@@ -35472,8 +32793,7 @@ declare interface UICommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setOnFocus(callback: Callback<void> | undefined): void;
 
@@ -35484,8 +32804,7 @@ declare interface UICommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setOnBlur(callback: Callback<void> | undefined): void;
 
@@ -35496,21 +32815,19 @@ declare interface UICommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setOnHover(callback: HoverCallback | undefined): void;
 
   /**
-  * Set or reset the callback which is triggered when has a mouse event.
-  *
-  * @param { Callback<MouseEvent> | undefined } callback - The callback will be triggered when has mouse input. If set undefined will reset the target callback.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
+   * Set or reset the callback which is triggered when has a mouse event.
+   *
+   * @param { Callback<MouseEvent> | undefined } callback - The callback will be triggered when has mouse input. If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   setOnMouse(callback: Callback<MouseEvent> | undefined): void;
 
   /**
@@ -35520,8 +32837,7 @@ declare interface UICommonEvent {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   setOnSizeChange(callback: SizeChangeCallback | undefined): void;
 
@@ -35534,8 +32850,7 @@ declare interface UICommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setOnVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): void;
 }
@@ -35617,8 +32932,7 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface UIGestureEvent {
   /**
@@ -35635,21 +32949,7 @@ declare interface UIGestureEvent {
   addGesture<T>(gesture: GestureHandler<T>, priority?: GesturePriority, mask?: GestureMask): void;
 
   /**
-   * Add a gesture bound to the component.
-   *
-   * @param { GestureHandler<T> } gesture - gesture indicates the gesture bound to a component.
-   * @param { GesturePriority } priority - priority indicates the gesture's priority.
-   * @param { GestureMask } mask - mask indicates the gesture's GestureMask value.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  addGesture(gesture: GestureHandler, priority?: GesturePriority, mask?: GestureMask): void;
-
-  /**
-   * Adds a gesture that can be recognized at once by the component and its child component.
+   * Add a parallel gesture bound to the component.
    *
    * @param { GestureHandler<T> } gesture - gesture indicates the gesture bound to a component.
    * @param { GestureMask } mask - mask indicates the gesture's GestureMask value.
@@ -35659,18 +32959,6 @@ declare interface UIGestureEvent {
    * @since 12
    */
   addParallelGesture<T>(gesture: GestureHandler<T>, mask?: GestureMask): void;
-  /**
-   * Add a parallel gesture bound to the component.
-   *
-   * @param { GestureHandler<T> } gesture - gesture indicates the gesture bound to a component.
-   * @param { GestureMask } mask - mask indicates the gesture's GestureMask value.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  addParallelGesture(gesture: GestureHandler, mask?: GestureMask): void;
 
   /**
    * Remove a gesture from a component that has been bound with a specific tag through a modifier.
@@ -35679,8 +32967,7 @@ declare interface UIGestureEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   removeGestureByTag(tag: string): void;
 
@@ -35690,8 +32977,7 @@ declare interface UIGestureEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   clearGestures(): void;
 }
@@ -35703,8 +32989,7 @@ declare interface UIGestureEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface GestureModifier {
   /**
@@ -35714,8 +32999,7 @@ declare interface GestureModifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   applyGesture(event: UIGestureEvent): void;
 }
@@ -35727,8 +33011,7 @@ declare interface GestureModifier {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface SelectionOptions {
   /**
@@ -35738,8 +33021,7 @@ declare interface SelectionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   menuPolicy?: MenuPolicy;
 }
@@ -35751,8 +33033,7 @@ declare interface SelectionOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface FocusMovement {
   /**
@@ -35762,8 +33043,7 @@ declare interface FocusMovement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   forward?: string;
   /**
@@ -35773,8 +33053,7 @@ declare interface FocusMovement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   backward?: string;
   /**
@@ -35784,8 +33063,7 @@ declare interface FocusMovement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   up?: string;
   /**
@@ -35795,8 +33073,7 @@ declare interface FocusMovement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   down?: string;
   /**
@@ -35806,8 +33083,7 @@ declare interface FocusMovement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   left?: string;
   /**
@@ -35817,8 +33093,7 @@ declare interface FocusMovement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   right?: string;
 }
@@ -35830,8 +33105,7 @@ declare interface FocusMovement {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum KeyboardAvoidMode {
   /**
@@ -35840,8 +33114,7 @@ declare enum KeyboardAvoidMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DEFAULT = 0,
 
@@ -35851,10 +33124,9 @@ declare enum KeyboardAvoidMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  NONE = 1,
+  NONE = 1
 }
 
 /**
@@ -35864,8 +33136,7 @@ declare enum KeyboardAvoidMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 declare enum HoverModeAreaType {
 
@@ -35875,8 +33146,7 @@ declare enum HoverModeAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   TOP_SCREEN = 0,
 
@@ -35886,10 +33156,9 @@ declare enum HoverModeAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
-  BOTTOM_SCREEN = 1,
+  BOTTOM_SCREEN = 1
 }
 
 /**
@@ -35899,8 +33168,7 @@ declare enum HoverModeAreaType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19
  */
 declare interface DateRange {
   /**
@@ -35910,8 +33178,7 @@ declare interface DateRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   start?: Date;
 
@@ -35922,8 +33189,7 @@ declare interface DateRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   end?: Date;
 }
@@ -35934,8 +33200,7 @@ declare interface DateRange {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19
  */
 declare enum DraggingSizeChangeEffect {
   /**
@@ -35943,8 +33208,7 @@ declare enum DraggingSizeChangeEffect {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   DEFAULT = 0,
 
@@ -35953,8 +33217,7 @@ declare enum DraggingSizeChangeEffect {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   SIZE_TRANSITION = 1,
 
@@ -35963,94 +33226,7 @@ declare enum DraggingSizeChangeEffect {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   SIZE_CONTENT_TRANSITION = 2,
 }
-
-/**
- * Indicates the information when the provider of the embedded UI is terminated.
- *
- * @interface TerminationInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- * @arkts 1.2
- */
-declare interface TerminationInfo {
-  /**
-   * Defines the termination code.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   * @arkts 1.2
-   */
-  code: number;
-   
-  /**
-   * Defines the additional termination information.
-   *
-   * @type { ?Want }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   * @arkts 1.2
-   */
-  want?: Want;
-}
-
-/**
- * Defines the format for displaying dates and times.
- *
- * @typedef { intl.DateTimeOptions } DateTimeOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type DateTimeOptions = intl.DateTimeOptions;
-
-/**
- * Defines a bindable property
- * @interface Bindable<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export declare interface Bindable<T> {
-  /**
-   * Defines value of the bindable property.
-   * @type { T }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  readonly value: T;
-
-  /**
-   * Defines the callback of the bindable property which will be invork when the property is changed..
-   * @type { Callback<T> }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   * @arkts 1.2
-   */
-  readonly onChange: Callback<T>;
-}
-
-/**
- * Convert to a bindable property.
- *
- * @param { T } value - indicate the value of a state property.
- * @returns { Bindable<T> }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- * @arkts 1.2
- */
-export declare function $$<T>(value: T): Bindable<T>;

@@ -912,6 +912,13 @@ declare namespace dlpPermission {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
+  /**
+   * Represents the authorized user information.
+   *
+   * @interface AuthUser
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 21
+   */
   export interface AuthUser {
     /**
      * Authorized account of the DLP file.
@@ -920,6 +927,13 @@ declare namespace dlpPermission {
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
+     */
+    /**
+     * Authorized account of the DLP file.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 21
      */
     authAccount: string;
 
@@ -931,6 +945,13 @@ declare namespace dlpPermission {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    /**
+     * Type of the authorized account.
+     *
+     * @type { AccountType }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 21
+     */
     authAccountType: AccountType;
 
     /**
@@ -941,6 +962,13 @@ declare namespace dlpPermission {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    /**
+     * Authorized permission for the DLP file.
+     *
+     * @type { DLPFileAccess }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 21
+     */
     dlpFileAccess: DLPFileAccess;
 
     /**
@@ -950,6 +978,13 @@ declare namespace dlpPermission {
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
+     */
+    /**
+     * Authorization expiration time of the DLP file.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 21
      */
     permExpiryTime: number;
   }
@@ -1132,6 +1167,14 @@ declare namespace dlpPermission {
      * @since 21
      */
     fileId?: string;
+
+    /**
+     * Defines the number of times the DLP file can be opened.
+     * @type { ?number }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 21
+     */
+    allowedOpenCount?: number;
   }
 
   /**
@@ -1590,12 +1633,23 @@ declare namespace dlpPermission {
    * @systemapi Hide this for inner system use.
    * @since 20
    */
+  /**
+   * Enumerates the action types when exceed expiry time.
+   * @enum { number } Valuable
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 21
+   */
   export enum ActionType {
     /**
      * NOT_OPEN, which not allows DLP files to be opened exceed expiry time.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 20
+     */
+    /**
+     * NOT_OPEN, which not allows DLP files to be opened exceed expiry time.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 21
      */
     NOT_OPEN = 0,
 
@@ -1604,6 +1658,11 @@ declare namespace dlpPermission {
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 20
+     */
+    /**
+     * OPEN, which allows DLP files to be opened exceed expiry time.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 21
      */
     OPEN = 1
   }

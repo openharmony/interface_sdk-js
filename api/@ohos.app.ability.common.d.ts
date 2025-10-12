@@ -30,9 +30,6 @@ import * as _ExtensionContext from './application/ExtensionContext';
 import * as _FormExtensionContext from './application/FormExtensionContext';
 import * as _ServiceExtensionContext from './application/ServiceExtensionContext';
 import * as _EventHub from './application/EventHub';
-import { PacMap as _PacMap } from './ability/dataAbilityHelper';
-import type _AbilityStartCallback from './application/AbilityStartCallback';
-import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
 import type * as _VpnExtensionContext from './application/VpnExtensionContext';
 import type { AutoStartupCallback as _AutoStartupCallback } from './application/AutoStartupCallback';
 import type { AutoStartupInfo as _AutoStartupInfo } from './application/AutoStartupInfo';
@@ -42,19 +39,28 @@ import * as _UIServiceExtensionContext from './application/UIServiceExtensionCon
 import * as _UIServiceProxy from './application/UIServiceProxy';
 import * as _UIServiceHostProxy from './application/UIServiceHostProxy';
 import * as _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
-import * as _AppServiceExtensionContext from './application/AppServiceExtensionContext';
+import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 /*** endif */
-import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 /*** if arkts 1.2 */
 import _UIAbilityContext from './application/UIAbilityContext';
-import type _UIExtensionContext from './application/UIExtensionContext';
+import _UIExtensionContext from './application/UIExtensionContext';
+import _AutoFillExtensionContext from './application/AutoFillExtensionContext';
+import _UIServiceExtensionContext from './application/UIServiceExtensionContext';
 import _AbilityStageContext from './application/AbilityStageContext';
 import _ApplicationContext from './application/ApplicationContext';
+import _AppServiceExtensionContext from './application/AppServiceExtensionContext';
+import _BaseContext from './application/BaseContext';
 import _Context from './application/Context';
 import _ExtensionContext from './application/ExtensionContext';
+import _FormExtensionContext from './application/FormExtensionContext';
 import _ServiceExtensionContext from './application/ServiceExtensionContext';
+import _UIServiceProxy from './application/UIServiceProxy';
+import _UIServiceHostProxy from './application/UIServiceHostProxy';
+import _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
 /*** endif */
-
+import { AbilityResult as _AbilityResult } from './ability/abilityResult';
+import type _AbilityStartCallback from './application/AbilityStartCallback';
+import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
 /**
  * This module provides application context classes and common data structures.
  *
@@ -229,6 +235,18 @@ declare namespace common {
    * @since 11
    */
   export type BaseContext = _BaseContext.default;
+  
+  /**
+   * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
+   *
+   * @typedef { _BaseContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  export type BaseContext = _BaseContext;
 
   /**
    * The base context of an ability or an application. It allows access to
@@ -325,6 +343,20 @@ declare namespace common {
   export type FormExtensionContext = _FormExtensionContext.default;
 
   /**
+   * The context of form extension. It allows access to
+   * formExtension-specific resources.
+   *
+   * @typedef { _FormExtensionContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type FormExtensionContext = _FormExtensionContext;
+
+
+  /**
    * The context of service extension. It allows access to
    * serviceExtension-specific resources.
    *
@@ -418,7 +450,8 @@ declare namespace common {
    * @typedef { _ConnectOptions }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type ConnectOptions = _ConnectOptions;
 
@@ -458,13 +491,27 @@ declare namespace common {
   export type AutoFillExtensionContext = _AutoFillExtensionContext.default;
 
   /**
+   * The context of auto fill extension. It allows access to
+   * AutoFillExtension-specific resources.
+   *
+   * @typedef { _AutoFillExtensionContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AutoFillExtensionContext = _AutoFillExtensionContext;
+
+  /**
    * The function Called when some error occurred except disconnected from UIAbility or UIExtensionAbility
    *
    * @typedef { _AbilityStartCallback }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type AbilityStartCallback = _AbilityStartCallback;
 
@@ -535,6 +582,18 @@ declare namespace common {
   export type UIServiceExtensionContext = _UIServiceExtensionContext.default;
 
   /**
+   * The context of a UI service ability.
+   *
+   * @typedef { _UIServiceExtensionContext.default }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  export type UIServiceExtensionContext = _UIServiceExtensionContext;
+
+  /**
    * The UI service proxy.
    *
    * @typedef { _UIServiceProxy.default }
@@ -544,6 +603,18 @@ declare namespace common {
    * @since 14
    */
   export type UIServiceProxy = _UIServiceProxy.default;
+
+  /**
+   * The UI service proxy.
+   *
+   * @typedef { _UIServiceProxy }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type UIServiceProxy = _UIServiceProxy;
 
   /**
    * The UI service host proxy.
@@ -557,6 +628,18 @@ declare namespace common {
   export type UIServiceHostProxy = _UIServiceHostProxy.default;
 
   /**
+   * The UI service host proxy.
+   *
+   * @typedef { _UIServiceHostProxy }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  export type UIServiceHostProxy = _UIServiceHostProxy;
+
+  /**
    * The UI service extension connect callback.
    *
    * @typedef { _UIServiceExtensionConnectCallback.default }
@@ -568,6 +651,18 @@ declare namespace common {
   export type UIServiceExtensionConnectCallback = _UIServiceExtensionConnectCallback.default;
 
   /**
+   * The UI service extension connect callback.
+   *
+   * @typedef { _UIServiceExtensionConnectCallback}
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type UIServiceExtensionConnectCallback = _UIServiceExtensionConnectCallback;
+
+  /**
    * The context of app service extension. It allows access to
    * appServiceExtension-specific resources.
    *
@@ -577,6 +672,18 @@ declare namespace common {
    * @since 20
    */
   export type AppServiceExtensionContext = _AppServiceExtensionContext.default;
+
+  /**
+   * The context of app service extension. It allows access to
+   * appServiceExtension-specific resources.
+   *
+   * @typedef { _AppServiceExtensionContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AppServiceExtensionContext = _AppServiceExtensionContext;
 }
 
 export default common;

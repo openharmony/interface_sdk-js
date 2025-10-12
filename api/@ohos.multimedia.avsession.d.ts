@@ -19,7 +19,7 @@
  */
 
 import type { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
-import { WantAgent } from './@ohos.wantAgent';
+import { WantAgent } from './@ohos.app.ability.wantAgent';
 import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 import { ElementName } from './bundleManager/ElementName';
 import image from './@ohos.multimedia.image';
@@ -38,7 +38,8 @@ import type hdrCapability from './@ohos.graphics.hdrCapability';
  * @namespace avSession
  * @syscap SystemCapability.Multimedia.AVSession.Core
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 
 declare namespace avSession {
@@ -52,7 +53,8 @@ declare namespace avSession {
    * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createAVSession(context: Context, tag: string, type: AVSessionType, callback: AsyncCallback<AVSession>): void;
 
@@ -79,9 +81,22 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createAVSession(context: Context, tag: string, type: AVSessionType): Promise<AVSession>;
+
+  /**
+   * Get an AVSession instance if already created.
+   * @param { Context } context - The context of application
+   * @returns { Promise<AVSession> } Promise for AVSession
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600102 - The session does not exist.
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 21
+   */
+  function getAVSession(context: Context): Promise<AVSession>;
 
   /**
    * Get all avsession descriptors of the system
@@ -92,7 +107,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllSessionDescriptors(callback: AsyncCallback<Array<Readonly<AVSessionDescriptor>>>): void;
   
@@ -105,14 +121,15 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllSessionDescriptors(): Promise<Array<Readonly<AVSessionDescriptor>>>;
 
   /**
    * Get history avsession records. These sessions have been destroyed.
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @param { number } maxSize - Specifies the maximum size of the returned value array.
+   * @param { int } maxSize - Specifies the maximum size of the returned value array.
    * @param { AsyncCallback<Array<Readonly<AVSessionDescriptor>>> } callback - async callback for an array of AVSessionDescriptors.
    * If provided '0' or not provided, the maximum value is determined by the system.
    * @throws { BusinessError } 201 - permission denied
@@ -122,14 +139,15 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi Hide this for inner system use
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getHistoricalSessionDescriptors(maxSize: number, callback: AsyncCallback<Array<Readonly<AVSessionDescriptor>>>): void;
+  function getHistoricalSessionDescriptors(maxSize: int, callback: AsyncCallback<Array<Readonly<AVSessionDescriptor>>>): void;
 
   /**
    * Get history avsession records. These sessions have been destroyed.
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @param { number } maxSize - Specifies the maximum size of the returned value array.
+   * @param { int } maxSize - Specifies the maximum size of the returned value array.
    * If provided '0' or not provided, the maximum value is determined by the system.
    * @returns { Promise<Array<Readonly<AVSessionDescriptor>>> } Promise for an array of AVSessionDescriptors
    * @throws { BusinessError } 201 - permission denied
@@ -139,15 +157,16 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi Hide this for inner system use
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getHistoricalSessionDescriptors(maxSize?: number): Promise<Array<Readonly<AVSessionDescriptor>>>;
+  function getHistoricalSessionDescriptors(maxSize?: int): Promise<Array<Readonly<AVSessionDescriptor>>>;
 
   /**
    * Get history play list information records.
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @param { number } maxSize - Specifies the maximum size of the returned value array.
-   * @param { number } maxAppSize - Specifies the maximum app size of the returned value array.
+   * @param { int } maxSize - Specifies the maximum size of the returned value array.
+   * @param { int } maxAppSize - Specifies the maximum app size of the returned value array.
    * @param { AsyncCallback<Array<Readonly<AVQueueInfo>>> } callback - async callback for an array of AVQueueInfo.
    * If provided '0' or not provided, the maximum value is determined by the system.
    * @throws { BusinessError } 201 - permission denied
@@ -157,24 +176,26 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi Hide this for inner system use
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getHistoricalAVQueueInfos(maxSize: number, maxAppSize: number, callback: AsyncCallback<Array<Readonly<AVQueueInfo>>>): void;
+  function getHistoricalAVQueueInfos(maxSize: int, maxAppSize: int, callback: AsyncCallback<Array<Readonly<AVQueueInfo>>>): void;
 
   /**
    * Get history play list information records.
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @param { number } maxSize - Specifies the maximum size of the returned value array.
-   * @param { number } maxAppSize - Specifies the maximum app size of the returned value array.
+   * @param { int } maxSize - Specifies the maximum size of the returned value array.
+   * @param { int } maxAppSize - Specifies the maximum app size of the returned value array.
    * @returns { Promise<Array<Readonly<AVQueueInfo>>> } Promise for an array of AVQueueInfo
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi Hide this for inner system use
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getHistoricalAVQueueInfos(maxSize: number, maxAppSize: number): Promise<Array<Readonly<AVQueueInfo>>>;
+  function getHistoricalAVQueueInfos(maxSize: int, maxAppSize: int): Promise<Array<Readonly<AVQueueInfo>>>;
 
   /**
    * Create an avsession controller
@@ -190,7 +211,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600102 - The session does not exist.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createController(sessionId: string, callback: AsyncCallback<AVSessionController>): void;
 
@@ -208,7 +230,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600102 - The session does not exist.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createController(sessionId: string): Promise<AVSessionController>;
 
@@ -228,7 +251,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600104 - The remote session connection failed.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function castAudio(session: SessionToken | 'all', audioDevices: Array<audio.AudioDeviceDescriptor>, callback: AsyncCallback<void>): void;
 
@@ -248,7 +272,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600104 - The remote session  connection failed.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function castAudio(session: SessionToken | 'all', audioDevices: Array<audio.AudioDeviceDescriptor>): Promise<void>;
 
@@ -265,7 +290,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startAVPlayback(bundleName: string, assetId: string): Promise<void>;
 
@@ -280,7 +306,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600109 - The remote connection is not established.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDistributedSessionController(distributedSessionType: DistributedSessionType): Promise<Array<AVSessionController>>;
 
@@ -289,7 +316,8 @@ declare namespace avSession {
    * @typedef SessionToken
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SessionToken {
     /**
@@ -298,31 +326,33 @@ declare namespace avSession {
      * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sessionId: string;
 
     /**
      * Process id of session
      * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    pid?: number;
+    pid?: long;
 
     /**
      * User id
      * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    uid?: number;
+    uid?: long;
   }
-
   /**
    * Register session create callback
    * @param { 'sessionCreate' } type - Registration Type, 'sessionCreate'
@@ -333,7 +363,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'sessionCreate', callback: (session: AVSessionDescriptor) => void): void;
 
@@ -347,7 +378,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'sessionDestroy', callback: (session: AVSessionDescriptor) => void): void;
 
@@ -361,7 +393,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'topSessionChange', callback: (session: AVSessionDescriptor) => void): void;
 
@@ -375,7 +408,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'sessionCreate', callback?: (session: AVSessionDescriptor) => void): void;
 
@@ -389,7 +423,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'sessionDestroy', callback?: (session: AVSessionDescriptor) => void): void;
 
@@ -403,7 +438,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'topSessionChange', callback?: (session: AVSessionDescriptor) => void): void;
 
@@ -417,7 +453,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'sessionServiceDie', callback: () => void): void;
 
@@ -431,7 +468,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'sessionServiceDie', callback?: () => void): void;
 
@@ -444,7 +482,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'distributedSessionChange', distributedSessionType: DistributedSessionType, callback: Callback<Array<AVSessionController>>): void;
 
@@ -457,7 +496,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'distributedSessionChange', distributedSessionType: DistributedSessionType, callback?: Callback<Array<AVSessionController>>): void;
 
@@ -474,7 +514,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600105 - Invalid session command.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function sendSystemAVKeyEvent(event: KeyEvent, callback: AsyncCallback<void>): void;
 
@@ -491,7 +532,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600105 - Invalid session command.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function sendSystemAVKeyEvent(event: KeyEvent): Promise<void>;
 
@@ -509,7 +551,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600107 - Too many commands or events.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function sendSystemControlCommand(command: AVControlCommand, callback: AsyncCallback<void>): void;
 
@@ -527,36 +570,39 @@ declare namespace avSession {
    * @throws { BusinessError } 6600107 - Too many commands or events.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function sendSystemControlCommand(command: AVControlCommand): Promise<void>;
 
   /**
    * Define different protocol capability
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @since 11
    */
   /**
    * Define different protocol capability
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ProtocolType {
     /**
-     * The default cast type "local", media can be routed on the same device, 
+     * The default cast type "local", media can be routed on the same device,
      * including internal speakers or audio jack on the device itself, A2DP devices.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 11
      */
     /**
-     * The default cast type "local", media can be routed on the same device, 
+     * The default cast type "local", media can be routed on the same device,
      * including internal speakers or audio jack on the device itself, A2DP devices.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_LOCAL = 0,
 
@@ -564,7 +610,8 @@ declare namespace avSession {
      * Cast+ mirror capability
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_CAST_PLUS_MIRROR = 1,
 
@@ -579,7 +626,8 @@ declare namespace avSession {
      * the application need get an AVCastController to control remote playback.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_CAST_PLUS_STREAM = 2,
 
@@ -588,7 +636,8 @@ declare namespace avSession {
      * the application needs to get an AVCastController to control remote playback.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_DLNA = 4,
 
@@ -603,17 +652,19 @@ declare namespace avSession {
 
   /**
    * Define different distributed session type
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DistributedSessionType {
     /**
      * Remote session sensed from remote device.
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_SESSION_REMOTE = 0,
 
@@ -621,7 +672,8 @@ declare namespace avSession {
      * Migrated session from remote device to this device.
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_SESSION_MIGRATE_IN = 1,
 
@@ -629,7 +681,8 @@ declare namespace avSession {
      * Migrated session from this device to remote device.
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_SESSION_MIGRATE_OUT = 2,
   }
@@ -640,22 +693,24 @@ declare namespace avSession {
    * @throws { BusinessError } 202 - Not System App.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startCastDeviceDiscovery(callback: AsyncCallback<void>): void;
 
   /**
    * Start device discovery.
-   * @param { number } filter device filter when discovering, can be an union of {@link ProtocolType}
+   * @param { int } filter device filter when discovering, can be an union of {@link ProtocolType}
    * @param { AsyncCallback<void> } callback a callback function
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function startCastDeviceDiscovery(filter: number, callback: AsyncCallback<void>): void;
+  function startCastDeviceDiscovery(filter: int, callback: AsyncCallback<void>): void;
 
   /**
    * Start device discovery.
@@ -669,7 +724,7 @@ declare namespace avSession {
    */
   /**
    * Start device discovery.
-   * @param { number } [filter] - device filter when discovering, can be an union of {@link ProtocolType}
+   * @param { int } [filter] - device filter when discovering, can be an union of {@link ProtocolType}
    * @param { Array<string> } [drmSchemes] - filter drm-enabled devices which are represented by uuid.
    * It is effective when protocol type is TYPE_CAST_PLUS_STREAM.
    * @returns { Promise<void> } Promise for the result
@@ -678,9 +733,10 @@ declare namespace avSession {
    * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function startCastDeviceDiscovery(filter?: number, drmSchemes?: Array<string>): Promise<void>;
+  function startCastDeviceDiscovery(filter?: int, drmSchemes?: Array<string>): Promise<void>;
 
   /**
    * Stop device discovery.
@@ -688,7 +744,8 @@ declare namespace avSession {
    * @throws { BusinessError } 202 - Not System App.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopCastDeviceDiscovery(callback: AsyncCallback<void>): void;
 
@@ -698,7 +755,8 @@ declare namespace avSession {
    * @throws { BusinessError } 202 - Not System App.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopCastDeviceDiscovery(): Promise<void>;
 
@@ -711,7 +769,8 @@ declare namespace avSession {
    * 2.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDiscoverable(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -724,7 +783,8 @@ declare namespace avSession {
    * 2.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDiscoverable(enable: boolean): Promise<void>;
 
@@ -737,7 +797,8 @@ declare namespace avSession {
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'deviceAvailable', callback: (device: OutputDeviceInfo) => void): void;
 
@@ -750,7 +811,8 @@ declare namespace avSession {
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'deviceAvailable', callback?: (device: OutputDeviceInfo) => void): void;
 
@@ -763,7 +825,8 @@ declare namespace avSession {
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'deviceOffline', callback: (deviceId: string) => void): void;
 
@@ -776,7 +839,8 @@ declare namespace avSession {
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'deviceOffline', callback?: (deviceId: string) => void): void;
 
@@ -794,7 +858,8 @@ declare namespace avSession {
    * @throws {BusinessError} 6600102 - session does not exist
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAVCastController(sessionId: string, callback: AsyncCallback<AVCastController>): void;
 
@@ -812,7 +877,8 @@ declare namespace avSession {
    * @throws {BusinessError} 6600102 - session does not exist
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAVCastController(sessionId: string): Promise<AVCastController>;
 
@@ -830,7 +896,8 @@ declare namespace avSession {
    * @throws {BusinessError} 6600108 - Device connecting failed
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startCasting(session: SessionToken, device: OutputDeviceInfo, callback: AsyncCallback<void>): void;
 
@@ -848,7 +915,8 @@ declare namespace avSession {
    * @throws {BusinessError} 6600108 - Device connecting failed
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startCasting(session: SessionToken, device: OutputDeviceInfo): Promise<void>;
 
@@ -862,7 +930,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600109 - The remote connection is not established
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopCasting(session: SessionToken, callback: AsyncCallback<void>): void;
 
@@ -876,7 +945,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600109 - The remote connection is not established
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopCasting(session: SessionToken): Promise<void>;
 
@@ -884,7 +954,7 @@ declare namespace avSession {
    * Begin to write device logs into a file descriptor for the purpose of problem locating.
    * If the logs exceed max file size, no logs will be written and DEVICE_LOG_FULL event will be omitted.
    * @param { string } url - The file descriptor to be written.
-   * @param { number } maxSize - The max size to be written in kilobyte.
+   * @param { int } maxSize - The max size to be written in kilobyte.
    * if not set, then written process will exit when there is no space to write.
    * @returns { Promise<void> } Promise for the result
    * @throws { BusinessError } 202 - Not System App.
@@ -894,9 +964,10 @@ declare namespace avSession {
    * @throws { BusinessError } 6600102 - The session does not exist.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function startDeviceLogging(url: string, maxSize?: number): Promise<void>;
+  function startDeviceLogging(url: string, maxSize?: int): Promise<void>;
 
   /**
    * Stop the current device written even the discovery is ongoing.
@@ -906,7 +977,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600102 - The session does not exist.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopDeviceLogging(): Promise<void>;
 
@@ -921,7 +993,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600102 - The session does not exist.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'deviceLogEvent', callback: Callback<DeviceLogEventCode>): void;
 
@@ -936,32 +1009,36 @@ declare namespace avSession {
    * @throws { BusinessError } 6600102 - The session does not exist.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'deviceLogEvent', callback?: Callback<DeviceLogEventCode>): void;
 
   /**
    * Enumerates device log event code.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DeviceLogEventCode {
     /**
-      * Log is full.
-      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-      * @systemapi
-      * @since 13
-      */
+     * Log is full.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
+     */
     DEVICE_LOG_FULL = 1,
 
     /**
-      * Log is written with exception, such as the fd cannot be written and so on.
-      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-      * @systemapi
-      * @since 13
-      */
+     * Log is written with exception, such as the fd cannot be written and so on.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
+     */
     DEVICE_LOG_EXCEPTION = 2,
   }
 
@@ -971,6 +1048,7 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface DeviceState {
     /**
@@ -980,38 +1058,42 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     readonly deviceId: string;
 
     /**
      * Device connection state.
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
-    readonly deviceState: number;
+    readonly deviceState: int;
 
     /**
      * Reason for connection failure, for example, user cancellation and timeout.
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
-    readonly reasonCode: number;
+    readonly reasonCode: int;
 
     /**
      * System radar error code returned by cast+services.
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
-    readonly radarErrorCode: number;
+    readonly radarErrorCode: int;
   }
 
   /**
@@ -1025,6 +1107,7 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   function on(type: 'deviceStateChanged', callback: Callback<DeviceState>): void;
 
@@ -1038,6 +1121,7 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   function off(type: 'deviceStateChanged', callback?: Callback<DeviceState>): void;
 
@@ -1058,7 +1142,8 @@ declare namespace avSession {
    * @typedef { 'audio' | 'video' | 'voice_call' | 'video_call' } AVSessionType
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type AVSessionType = 'audio' | 'video' | 'voice_call' | 'video_call';
 
@@ -1073,7 +1158,8 @@ declare namespace avSession {
    * @interface AVSession
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVSession {
     /**
@@ -1087,7 +1173,8 @@ declare namespace avSession {
      * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly sessionId: string;
 
@@ -1103,9 +1190,20 @@ declare namespace avSession {
      * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly sessionType: AVSessionType;
+
+    /**
+     * Current session tag.
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 21
+     */
+    readonly sessionTag: string;
 
     /**
      * Set the metadata of this session.
@@ -1117,7 +1215,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAVMetadata(data: AVMetadata, callback: AsyncCallback<void>): void;
 
@@ -1144,7 +1243,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAVMetadata(data: AVMetadata): Promise<void>;
 
@@ -1157,7 +1257,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setCallMetadata(data: CallMetadata, callback: AsyncCallback<void>): void;
 
@@ -1170,7 +1271,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setCallMetadata(data: CallMetadata): Promise<void>;
 
@@ -1183,7 +1285,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAVPlaybackState(state: AVPlaybackState, callback: AsyncCallback<void>): void;
 
@@ -1208,7 +1311,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAVPlaybackState(state: AVPlaybackState): Promise<void>;
 
@@ -1221,7 +1325,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAVCallState(state: AVCallState, callback: AsyncCallback<void>): void;
 
@@ -1234,7 +1339,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAVCallState(state: AVCallState): Promise<void>;
 
@@ -1247,7 +1353,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setLaunchAbility(ability: WantAgent, callback: AsyncCallback<void>): void;
 
@@ -1272,7 +1379,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setLaunchAbility(ability: WantAgent): Promise<void>;
 
@@ -1282,13 +1390,24 @@ declare namespace avSession {
      * @param { object } args - The parameters of session event
      * @param { AsyncCallback<void>} callback - The asyncCallback triggered when the command is executed successfully
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    dispatchSessionEvent(event: string, args: {[key: string]: Object}, callback: AsyncCallback<void>): void;
+    /**
+     * Dispatch the session event of this session.
+     * @param { string } event - Session event name to dispatch
+     * @param { Record<string, Object> } args - The parameters of session event
+     * @param { AsyncCallback<void>} callback - The asyncCallback triggered when the command is executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    dispatchSessionEvent(event: string, args: Record<string, Object>, callback: AsyncCallback<void>): void;
 
     /**
      * Dispatch the session event of this session.
@@ -1296,7 +1415,7 @@ declare namespace avSession {
      * @param { object } args - The parameters of session event
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1308,14 +1427,26 @@ declare namespace avSession {
      * @param { object } args - The parameters of session event
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
      */
-    dispatchSessionEvent(event: string, args: {[key: string]: Object}): Promise<void>;
+    /**
+     * Dispatch the session event of this session.
+     * @param { string } event - Session event name to dispatch
+     * @param { Record<string, Object> } args - The parameters of session event
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    dispatchSessionEvent(event: string, args: Record<string, Object>): Promise<void>;
 
     /**
      * Set the playlist of queueItem. Identifies the content of the playlist presented by this session.
@@ -1326,7 +1457,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAVQueueItems(items: Array<AVQueueItem>, callback: AsyncCallback<void>): void;
 
@@ -1351,7 +1483,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAVQueueItems(items: Array<AVQueueItem>): Promise<void>;
 
@@ -1364,7 +1497,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAVQueueTitle(title: string, callback: AsyncCallback<void>): void;
 
@@ -1389,7 +1523,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAVQueueTitle(title: string): Promise<void>;
 
@@ -1398,20 +1533,30 @@ declare namespace avSession {
      * @param { object } extras - The custom media packets
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Parameter verification failed.
+     *     2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    setExtras(extras: {[key: string]: Object}, callback: AsyncCallback<void>): void;
+    /**
+     * Set the custom media packets for this session.
+     * @param { Record<string, Object> } extras - The custom media packets
+     * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    setExtras(extras: Record<string, Object>, callback: AsyncCallback<void>): void;
 
     /**
      * Set the custom media packets for this session.
      * @param { object } extras - The custom media packets
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Parameter verification failed.
+     *     2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1422,14 +1567,25 @@ declare namespace avSession {
      * @param { object } extras - The custom media packets
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Parameter verification failed.
+     *     2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
      */
-    setExtras(extras: {[key: string]: Object}): Promise<void>;
+    /**
+     * Set the custom media packets for this session.
+     * @param { Record<string, Object> } extras - The custom media packets
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    setExtras(extras: Record<string, Object>): Promise<void>;
 
     /**
      * Get the current session's own controller
@@ -1437,7 +1593,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getController(callback: AsyncCallback<AVSessionController>): void;
 
@@ -1456,7 +1613,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getController(): Promise<AVSessionController>;
 
@@ -1467,7 +1625,8 @@ declare namespace avSession {
      * @throws {BusinessError} 6600102 - The session does not exist
      * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAVCastController(callback: AsyncCallback<AVCastController>): void;
 
@@ -1488,7 +1647,8 @@ declare namespace avSession {
      * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAVCastController(): Promise<AVCastController>;
 
@@ -1498,7 +1658,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getOutputDevice(callback: AsyncCallback<OutputDeviceInfo>): void;
 
@@ -1517,7 +1678,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getOutputDevice(): Promise<OutputDeviceInfo>;
 
@@ -1536,7 +1698,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getOutputDeviceSync(): OutputDeviceInfo;
 
@@ -1547,7 +1710,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAllCastDisplays(): Promise<Array<CastDisplayInfo>>;
 
@@ -1582,7 +1746,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'play', callback: () => void): void;
 
@@ -1617,7 +1782,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'pause', callback: () => void): void;
 
@@ -1652,7 +1818,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'stop', callback: () => void): void;
 
@@ -1687,7 +1854,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'playNext', callback: () => void): void;
 
@@ -1722,7 +1890,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'playPrevious', callback: () => void): void;
 
@@ -1757,9 +1926,10 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'fastForward', callback: (time ?: number) => void): void;
+    on(type: 'fastForward', callback: (time ?: long) => void): void;
 
     /**
      * Register rewind command callback.
@@ -1792,9 +1962,10 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'rewind', callback: (time ?: number) => void): void;
+    on(type: 'rewind', callback: (time ?: long) => void): void;
 
     /**
      * Unregister play command callback.
@@ -1819,7 +1990,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'play', callback?: () => void): void;
 
@@ -1846,7 +2018,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'pause', callback?: () => void): void;
 
@@ -1873,7 +2046,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'stop', callback?: () => void): void;
 
@@ -1900,7 +2074,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'playNext', callback?: () => void): void;
 
@@ -1927,7 +2102,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'playPrevious', callback?: () => void): void;
 
@@ -1954,7 +2130,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'fastForward', callback?: () => void): void;
 
@@ -1981,7 +2158,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'rewind', callback?: () => void): void;
 
@@ -2094,9 +2272,10 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'seek', callback: (time: number) => void): void;
+    on(type: 'seek', callback: (time: long) => void): void;
 
     /**
      * Unregister seek command callback
@@ -2119,9 +2298,10 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    off(type: 'seek', callback?: (time: number) => void): void;
+    off(type: 'seek', callback?: (time: long) => void): void;
 
     /**
      * Register setSpeed command callback
@@ -2144,9 +2324,10 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'setSpeed', callback: (speed: number) => void): void;
+    on(type: 'setSpeed', callback: (speed: double) => void): void;
 
     /**
      * Unregister setSpeed command callback
@@ -2169,9 +2350,10 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    off(type: 'setSpeed', callback?: (speed: number) => void): void;
+    off(type: 'setSpeed', callback?: (speed: double) => void): void;
 
     /**
      * Register setLoopMode command callback
@@ -2194,7 +2376,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'setLoopMode', callback: (mode: LoopMode) => void): void;
 
@@ -2219,7 +2402,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'setLoopMode', callback?: (mode: LoopMode) => void): void;
 
@@ -2271,7 +2455,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'toggleFavorite', callback: (assetId: string) => void): void;
 
@@ -2298,7 +2483,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'toggleFavorite', callback?: (assetId: string) => void): void;
 
@@ -2323,7 +2509,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'handleKeyEvent', callback: (event: KeyEvent) => void): void;
 
@@ -2348,7 +2535,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'handleKeyEvent', callback?: (event: KeyEvent) => void): void;
 
@@ -2375,7 +2563,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'outputDeviceChange', callback: (state: ConnectionState, device: OutputDeviceInfo) => void): void;
 
@@ -2402,7 +2591,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'outputDeviceChange', callback?: (state: ConnectionState, device: OutputDeviceInfo) => void): void;
 
@@ -2410,9 +2600,9 @@ declare namespace avSession {
      * Register session custom command change callback
      * @param { 'commonCommand' } type - Registration Type 'commonCommand'
      * @param { function } callback - Used to handle event when the common command is received
-     * The callback provide the command name and command args
+     *     The callback provide the command name and command args
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2422,24 +2612,36 @@ declare namespace avSession {
      * Register session custom command change callback
      * @param { 'commonCommand' } type - Registration Type 'commonCommand'
      * @param { function } callback - Used to handle event when the common command is received
-     * The callback provide the command name and command args
+     *     The callback provide the command name and command args
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
      */
-    on(type: 'commonCommand', callback: (command: string, args: {[key: string]: Object}) => void): void;
+    /**
+     * Register session custom command change callback
+     * @param { 'commonCommand' } type - Registration Type 'commonCommand'
+     * @param { function } callback - Used to handle event when the common command is received
+     *     The callback provide the command name and command args
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    on(type: 'commonCommand', callback: (command: string, args: Record<string, Object>) => void): void;
 
     /**
      * Unregister session custom command change callback
      * @param { 'commonCommand' } type - Registration Type 'commonCommand'
      * @param { function } callback - Used to cancel a specific listener
-     * The callback provide the command name and command args
+     *     The callback provide the command name and command args
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2449,16 +2651,28 @@ declare namespace avSession {
      * Unregister session custom command change callback
      * @param { 'commonCommand' } type - Registration Type 'commonCommand'
      * @param { function } callback - Used to cancel a specific listener
-     * The callback provide the command name and command args
+     *     The callback provide the command name and command args
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
      */
-    off(type: 'commonCommand', callback?: (command: string, args: {[key: string]: Object}) => void): void;
+    /**
+     * Unregister session custom command change callback
+     * @param { 'commonCommand' } type - Registration Type 'commonCommand'
+     * @param { function } callback - Used to cancel a specific listener
+     *     The callback provide the command name and command args
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    off(type: 'commonCommand', callback?: (command: string, args: Record<string, Object>) => void): void;
 
     /**
      * Register the item to play from the playlist change callback
@@ -2483,9 +2697,10 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'skipToQueueItem', callback: (itemId: number) => void): void;
+    on(type: 'skipToQueueItem', callback: (itemId: int) => void): void;
 
     /**
      * Unregister the item to play from the playlist change callback
@@ -2510,9 +2725,10 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    off(type: 'skipToQueueItem', callback?: (itemId: number) => void): void;
+    off(type: 'skipToQueueItem', callback?: (itemId: int) => void): void;
 
     /**
      * Register answer command callback.
@@ -2539,7 +2755,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'answer', callback: Callback<void>): void;
 
@@ -2564,7 +2781,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'answer', callback?: Callback<void>): void;
 
@@ -2593,7 +2811,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'hangUp', callback: Callback<void>): void;
 
@@ -2618,7 +2837,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'hangUp', callback?: Callback<void>): void;
 
@@ -2647,7 +2867,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'toggleCallMute', callback: Callback<void>): void;
 
@@ -2670,7 +2891,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'toggleCallMute', callback?: Callback<void>): void;
 
@@ -2684,7 +2906,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'castDisplayChange', callback: Callback<CastDisplayInfo>): void;
 
@@ -2698,7 +2921,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'castDisplayChange', callback?: Callback<CastDisplayInfo>): void;
 
@@ -2746,24 +2970,26 @@ declare namespace avSession {
      * @param { AsyncCallback<void> } callback A callback instance used to return when cast stopped completed.
      * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     stopCasting(callback: AsyncCallback<void>): void;
 
     /**
      * Stop current cast and disconnect device connection.
-     * @returns { Promise<void> } void result promise when executed successfully 
+     * @returns { Promise<void> } void result promise when executed successfully
      * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
     /**
      * Stop current cast and disconnect device connection.
-     * @returns { Promise<void> } void result promise when executed successfully 
+     * @returns { Promise<void> } void result promise when executed successfully
      * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     stopCasting(): Promise<void>;
 
@@ -2773,7 +2999,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     activate(callback: AsyncCallback<void>): void;
 
@@ -2792,7 +3019,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     activate(): Promise<void>;
 
@@ -2802,7 +3030,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deactivate(callback: AsyncCallback<void>): void;
 
@@ -2821,7 +3050,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deactivate(): Promise<void>;
 
@@ -2831,7 +3061,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     destroy(callback: AsyncCallback<void>): void;
 
@@ -2850,7 +3081,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     destroy(): Promise<void>;
   }
@@ -2868,7 +3100,8 @@ declare namespace avSession {
    *     'setVolume' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'toggleMute' } AVCastControlCommandType
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type AVCastControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
   'seek' | 'setVolume' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'toggleMute';
@@ -2884,12 +3117,13 @@ declare namespace avSession {
    * @interface AVCastControlCommand
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVCastControlCommand {
     /**
      * The command value {@link AVCastControlCommandType}
-     * 
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -2898,7 +3132,8 @@ declare namespace avSession {
      * @type { AVCastControlCommandType }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     command: AVCastControlCommandType;
 
@@ -2910,7 +3145,7 @@ declare namespace avSession {
      * The setSpeed command must carry the {@link #media.PlaybackSpeed} parameter.
      * The setLoopMode command must carry the {@link LoopMode} parameter.
      * Other commands do not need to carry parameters.
-     * @type { ?(media.PlaybackSpeed | number | string | LoopMode) }
+     * @type { ?(media.PlaybackSpeed | double | string | LoopMode) }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -2922,12 +3157,13 @@ declare namespace avSession {
      * The setSpeed command must carry the {@link #media.PlaybackSpeed} parameter.
      * The setLoopMode command must carry the {@link LoopMode} parameter.
      * Other commands do not need to carry parameters.
-     * @type { ?(media.PlaybackSpeed | number | string | LoopMode) }
+     * @type { ?(media.PlaybackSpeed | double | string | LoopMode) }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    parameter?: media.PlaybackSpeed | number | string | LoopMode;
+    parameter?: media.PlaybackSpeed | double | string | LoopMode;
   }
 
   /**
@@ -2941,7 +3177,8 @@ declare namespace avSession {
    * @interface AVCastController
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVCastController {
     /**
@@ -2954,7 +3191,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setDisplaySurface(surfaceId: string, callback: AsyncCallback<void>): void;
 
@@ -2968,7 +3206,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setDisplaySurface(surfaceId: string): Promise<void>;
 
@@ -2977,7 +3216,8 @@ declare namespace avSession {
      * @param { AsyncCallback<AVPlaybackState> } callback - The triggered asyncCallback when (getAVPlaybackState).
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAVPlaybackState(callback: AsyncCallback<AVPlaybackState>): void;
 
@@ -2994,7 +3234,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAVPlaybackState(): Promise<AVPlaybackState>;
 
@@ -3004,7 +3245,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSupportedDecoders(): Promise<Array<DecoderType>>;
 
@@ -3015,7 +3257,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRecommendedResolutionLevel(decoderType: DecoderType): Promise<ResolutionLevel>;
 
@@ -3025,19 +3268,21 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSupportedHdrCapabilities(): Promise<Array<hdrCapability.HDRFormat>>;
 
     /**
      * Get supported speed of remote player.
-     * @returns { Promise<Array<number>> } supported speed returned through promise
+     * @returns { Promise<Array<double>> } supported speed returned through promise
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getSupportedPlaySpeeds(): Promise<Array<number>>;
+    getSupportedPlaySpeeds(): Promise<Array<double>>;
 
     /**
      * Send control commands to remote player
@@ -3049,7 +3294,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600105 - Invalid session command
      * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sendControlCommand(command: AVCastControlCommand, callback: AsyncCallback<void>): void;
 
@@ -3065,7 +3311,7 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
-     /**
+    /**
      * Send control commands to remote player
      * @param { AVCastControlCommand } command The command to be send.
      * @returns { Promise<void> } Promise used to return the result.
@@ -3076,7 +3322,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sendControlCommand(command: AVCastControlCommand): Promise<void>;
 
@@ -3089,7 +3336,8 @@ declare namespace avSession {
      * @throws {BusinessError} 6600101 - Session service exception
      * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     start(item: AVQueueItem, callback: AsyncCallback<void>): void;
 
@@ -3114,7 +3362,8 @@ declare namespace avSession {
      * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     start(item: AVQueueItem): Promise<void>;
 
@@ -3127,7 +3376,8 @@ declare namespace avSession {
      * @throws {BusinessError} 6600101 - Session service exception
      * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     prepare(item: AVQueueItem, callback: AsyncCallback<void>): void;
 
@@ -3152,7 +3402,8 @@ declare namespace avSession {
      * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     prepare(item: AVQueueItem): Promise<void>;
 
@@ -3161,7 +3412,8 @@ declare namespace avSession {
      * @param { AsyncCallback<AVQueueItem> } callback - The triggered asyncCallback.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCurrentItem(callback: AsyncCallback<AVQueueItem>): void;
 
@@ -3178,7 +3430,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCurrentItem(): Promise<AVQueueItem>;
 
@@ -3187,7 +3440,8 @@ declare namespace avSession {
      * @param { AsyncCallback<Array<AVCastControlCommandType>> } callback - The triggered asyncCallback when (getValidCommands).
      * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getValidCommands(callback: AsyncCallback<Array<AVCastControlCommandType>>): void;
 
@@ -3196,7 +3450,8 @@ declare namespace avSession {
      * @returns { Promise<Array<AVCastControlCommandType>> } array of AVCastControlCommandType promise
      * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getValidCommands(): Promise<Array<AVCastControlCommandType>>;
 
@@ -3210,7 +3465,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     processMediaKeyResponse(assetId: string, response: Uint8Array): Promise<void>;
 
@@ -3231,7 +3487,8 @@ declare namespace avSession {
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -3248,14 +3505,15 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
 
     /**
      * Register playback state changed callback
      * @param { 'playbackStateChange' } type
-     * @param { Array<keyof AVPlaybackState> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
+     * @param { Array<string> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
      * @param { function } callback - The callback used to handle playback state changed event.
      * The callback function provides the {@link AVPlaybackState} parameter.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -3267,7 +3525,7 @@ declare namespace avSession {
     /**
      * Register playback state changed callback
      * @param { 'playbackStateChange' } type
-     * @param { Array<keyof AVPlaybackState> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
+     * @param { Array<string> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
      * @param { function } callback - The callback used to handle playback state changed event.
      * The callback function provides the {@link AVPlaybackState} parameter.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -3275,9 +3533,10 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'playbackStateChange', filter: Array<keyof AVPlaybackState> | 'all', callback: (state: AVPlaybackState) => void): void;
+    on(type: 'playbackStateChange', filter: Array<string> | 'all', callback: (state: AVPlaybackState) => void): void;
 
     /**
      * Unregister playback state changed callback
@@ -3300,7 +3559,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'playbackStateChange', callback?: (state: AVPlaybackState) => void): void;
 
@@ -3323,7 +3583,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'mediaItemChange', callback: Callback<AVQueueItem>): void;
 
@@ -3344,7 +3605,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'mediaItemChange'): void;
 
@@ -3369,7 +3631,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'playNext', callback: Callback<void>): void;
 
@@ -3392,7 +3655,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'playNext'): void;
 
@@ -3417,7 +3681,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'playPrevious', callback: Callback<void>): void;
 
@@ -3440,7 +3705,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'playPrevious'): void;
 
@@ -3453,7 +3719,8 @@ declare namespace avSession {
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'requestPlay', callback: Callback<AVQueueItem>): void;
 
@@ -3465,7 +3732,8 @@ declare namespace avSession {
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'requestPlay', callback?: Callback<AVQueueItem>): void;
 
@@ -3478,7 +3746,8 @@ declare namespace avSession {
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'endOfStream', callback: Callback<void>): void;
 
@@ -3490,14 +3759,15 @@ declare namespace avSession {
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'endOfStream', callback?: Callback<void>): void;
 
     /**
      * Register listens for playback events.
      * @param { 'seekDone' } type - Type of the 'seekDone' to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback seekDone event.
+     * @param { Callback<int> } callback - Callback used to listen for the playback seekDone event.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
@@ -3507,15 +3777,16 @@ declare namespace avSession {
     /**
      * Register listens for playback events.
      * @param { 'seekDone' } type - Type of the 'seekDone' to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the playback seekDone event.
+     * @param { Callback<int> } callback - Callback used to listen for the playback seekDone event.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'seekDone', callback: Callback<number>): void;
+    on(type: 'seekDone', callback: Callback<int>): void;
 
     /**
      * Unregister listens for playback events.
@@ -3534,7 +3805,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'seekDone'): void;
 
@@ -3550,7 +3822,18 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 11
      */
-    on(type: 'validCommandChange', callback: Callback<Array<AVCastControlCommandType>>);
+    /**
+     * Register the valid commands of the casted session changed callback
+     * @param { 'validCommandChange' } type - 'validCommandChange'
+     * @param { Callback<Array<AVCastControlCommandType>> } callback - The callback used to handle the changes.
+     * The callback function provides an array of AVCastControlCommandType.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    on(type: 'validCommandChange', callback: Callback<Array<AVCastControlCommandType>>): void;
 
     /**
      * Unregister the valid commands of the casted session changed callback
@@ -3564,7 +3847,18 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 11
      */
-    off(type: 'validCommandChange', callback?: Callback<Array<AVCastControlCommandType>>);
+    /**
+     * Unregister the valid commands of the casted session changed callback
+     * @param { 'validCommandChange' } type - 'validCommandChange'
+     * @param { Callback<Array<AVCastControlCommandType>> } callback - The callback used to handle the changes.
+     * The callback function provides an array of AVCastControlCommandType.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    off(type: 'validCommandChange', callback?: Callback<Array<AVCastControlCommandType>>): void;
 
     /**
      * Register listener for video size change event, used at remote side.
@@ -3574,9 +3868,10 @@ declare namespace avSession {
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'videoSizeChange', callback: (width: number, height: number) => void): void;
+    on(type: 'videoSizeChange', callback: (width: int, height: int) => void): void;
 
     /**
      * Unregister listener for video size change event, used at remote side.
@@ -3585,7 +3880,8 @@ declare namespace avSession {
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'videoSizeChange'): void;
 
@@ -3620,7 +3916,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -3653,7 +3950,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'error'): void;
 
@@ -3680,7 +3978,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6611108 - Operation is not allowed.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'castControlGenericError', callback: ErrorCallback): void;
 
@@ -3692,7 +3991,8 @@ declare namespace avSession {
      * 2. Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'castControlGenericError', callback?: ErrorCallback): void;
 
@@ -3721,7 +4021,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6612107 - An error occurs when sending packet from source device to sink device.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'castControlIoError', callback: ErrorCallback): void;
 
@@ -3733,7 +4034,8 @@ declare namespace avSession {
      * 2. Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'castControlIoError', callback?: ErrorCallback): void;
 
@@ -3751,7 +4053,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6613004 - Unsupported feature in the media manifest.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'castControlParsingError', callback: ErrorCallback): void;
 
@@ -3763,7 +4066,8 @@ declare namespace avSession {
      * 2. Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'castControlParsingError', callback?: ErrorCallback): void;
 
@@ -3781,7 +4085,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6614005 - The format of the content to decode is not supported.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'castControlDecodingError', callback: ErrorCallback): void;
 
@@ -3793,7 +4098,8 @@ declare namespace avSession {
      * 2. Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'castControlDecodingError', callback?: ErrorCallback): void;
 
@@ -3808,7 +4114,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6615002 - The audio renderer fails to write data.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'castControlAudioRendererError', callback: ErrorCallback): void;
 
@@ -3820,7 +4127,8 @@ declare namespace avSession {
      * 2. Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'castControlAudioRendererError', callback?: ErrorCallback): void;
 
@@ -3842,7 +4150,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6616100 - An error occurs when the DRM processes the key response.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'castControlDrmError', callback: ErrorCallback): void;
 
@@ -3854,7 +4163,8 @@ declare namespace avSession {
      * 2. Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'castControlDrmError', callback?: ErrorCallback): void;
 
@@ -3867,7 +4177,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'keyRequest', callback: KeyRequestCallback): void;
 
@@ -3880,7 +4191,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'keyRequest', callback?: KeyRequestCallback): void;
 
@@ -3914,7 +4226,8 @@ declare namespace avSession {
    *
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class AVCastPickerHelper {
     /**
@@ -3926,7 +4239,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(context: Context);
 
@@ -3939,7 +4253,8 @@ declare namespace avSession {
      * 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     select(options?: AVCastPickerOptions): Promise<void>;
 
@@ -3964,7 +4279,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'pickerStateChange', callback: Callback<AVCastPickerState>) : void;
 
@@ -3977,7 +4293,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'pickerStateChange', callback?: Callback<AVCastPickerState>) : void;
   }
@@ -4008,7 +4325,8 @@ declare namespace avSession {
    * @typedef AVCastPickerOptions
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVCastPickerOptions {
     /**
@@ -4018,7 +4336,8 @@ declare namespace avSession {
      * @type { ? AVSessionType }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sessionType?: AVSessionType;
   }
@@ -4031,17 +4350,19 @@ declare namespace avSession {
    * @param { Uint8Array } requestData - media key request data sent to media key server
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type KeyRequestCallback = (assetId: string, requestData: Uint8Array) => void;
 
   /**
    * Enumerates the cast display states.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum CastDisplayState {
     /**
@@ -4049,7 +4370,8 @@ declare namespace avSession {
      *
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_OFF = 1,
 
@@ -4058,7 +4380,8 @@ declare namespace avSession {
      *
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_ON = 2,
   }
@@ -4068,25 +4391,28 @@ declare namespace avSession {
    * @typedef CastDisplayInfo
    * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CastDisplayInfo {
     /**
      * Display ID.
      * The application can get more display information based on the same id from display interface.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    id: number;
+    id: long;
 
     /**
      * Display name.
      * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -4095,41 +4421,45 @@ declare namespace avSession {
      * @type { CastDisplayState }
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     state: CastDisplayState;
 
     /**
      * Display width, in pixels.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    width: number;
+    width: int;
 
     /**
      * Display height, in pixels.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    height: number;
+    height: int;
   }
 
   /**
    * Define the device connection state.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
   /**
    * Define the device connection state.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ConnectionState {
     /**
@@ -4141,7 +4471,8 @@ declare namespace avSession {
      * A connection state indicating the device is in the process of connecting.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_CONNECTING = 0,
 
@@ -4154,7 +4485,8 @@ declare namespace avSession {
      * A connection state indicating the device is connected.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_CONNECTED = 1,
 
@@ -4167,24 +4499,27 @@ declare namespace avSession {
      * The default connection state indicating the device is disconnected.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    STATE_DISCONNECTED = 6,
+    STATE_DISCONNECTED = 6
   }
 
   /**
    * The pre-defined display tag by system.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.Core
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DisplayTag {
     /**
      * Indicate the AUDIO VIVID property of current media resource.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    TAG_AUDIO_VIVID = 1,
+    TAG_AUDIO_VIVID = 1
   }
 
   /**
@@ -4192,14 +4527,16 @@ declare namespace avSession {
    * @enum { string }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DecoderType {
     /**
      * Defination of avc codec type.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OH_AVCODEC_MIMETYPE_VIDEO_AVC = 'video/avc',
 
@@ -4207,7 +4544,8 @@ declare namespace avSession {
      * Defination of hevc codec type.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OH_AVCODEC_MIMETYPE_VIDEO_HEVC = 'video/hevc',
 
@@ -4215,24 +4553,27 @@ declare namespace avSession {
      * Defination of audio vivid codec type.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    OH_AVCODEC_MIMETYPE_AUDIO_VIVID = 'audio/av3a',
+    OH_AVCODEC_MIMETYPE_AUDIO_VIVID = 'audio/av3a'
   }
 
   /**
    * The defination of suggested resolution.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ResolutionLevel {
     /**
      * Defination of 480P which typically resolution is 640*480.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESOLUTION_480P = 0,
 
@@ -4240,7 +4581,8 @@ declare namespace avSession {
      * Defination of 720P which typically resolution is 1280*720.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESOLUTION_720P = 1,
 
@@ -4248,7 +4590,8 @@ declare namespace avSession {
      * Defination of 1080P which typically resolution is 1920*1080.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESOLUTION_1080P = 2,
 
@@ -4256,7 +4599,8 @@ declare namespace avSession {
      * Defination of 2K which typically resolution is 2560*1440.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESOLUTION_2K = 3,
 
@@ -4264,9 +4608,10 @@ declare namespace avSession {
      * Defination of 4K which typically resolution is 4096*3840.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    RESOLUTION_4K = 4,
+    RESOLUTION_4K = 4
   }
 
   /**
@@ -4274,7 +4619,8 @@ declare namespace avSession {
    * @interface AVQueueInfo
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVQueueInfo {
     /**
@@ -4282,7 +4628,8 @@ declare namespace avSession {
      * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bundleName: string;
 
@@ -4291,7 +4638,8 @@ declare namespace avSession {
      * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     avQueueName: string;
 
@@ -4300,7 +4648,8 @@ declare namespace avSession {
      * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     avQueueId: string;
 
@@ -4309,19 +4658,21 @@ declare namespace avSession {
      * @type { image.PixelMap | string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     avQueueImage: image.PixelMap | string;
 
     /**
      * The time when the user last played the playlist.
      * The time format can be system, such as 1611081385000, it means 2021-01-20 02:36:25.
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    lastPlayedTime?: number;
+    lastPlayedTime?: long;
   }
 
   /**
@@ -4335,7 +4686,8 @@ declare namespace avSession {
    * @interface AVMetadata
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVMetadata {
     /**
@@ -4349,7 +4701,8 @@ declare namespace avSession {
      * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     assetId: string;
 
@@ -4364,7 +4717,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     title?: string;
 
@@ -4379,7 +4733,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     artist?: string;
 
@@ -4394,7 +4749,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     author?: string;
 
@@ -4402,7 +4758,8 @@ declare namespace avSession {
      * The name of play list which current media belongs to
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     avQueueName?: string;
 
@@ -4410,7 +4767,8 @@ declare namespace avSession {
      * The id of play list which current media belongs to, it should be an unique identifier in the application.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     avQueueId?: string;
 
@@ -4418,7 +4776,8 @@ declare namespace avSession {
      * The artwork of play list as a {@link PixelMap} or an uri formatted String,
      * @type { ?(image.PixelMap | string) }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     avQueueImage?: image.PixelMap | string;
 
@@ -4433,7 +4792,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     album?: string;
 
@@ -4448,7 +4808,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     writer?: string;
 
@@ -4456,24 +4817,26 @@ declare namespace avSession {
      * The composer of this media
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     composer?: string;
 
     /**
      * The duration of this media, used to automatically calculate playback position
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * The duration of this media, used to automatically calculate playback position
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    duration?: number;
+    duration?: long;
 
     /**
      * The image of the media as a {@link PixelMap} or an uri formatted String,
@@ -4488,7 +4851,8 @@ declare namespace avSession {
      * @type { ?(image.PixelMap | string) }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     mediaImage?: image.PixelMap | string;
 
@@ -4497,7 +4861,8 @@ declare namespace avSession {
      * @type { ?image.PixelMap }
      * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly bundleIcon?: image.PixelMap;
 
@@ -4505,7 +4870,8 @@ declare namespace avSession {
      * The publishDate of the media
      * @type { ?Date }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     publishDate?: Date;
 
@@ -4520,7 +4886,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     subtitle?: string;
 
@@ -4535,7 +4902,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     description?: string;
 
@@ -4543,7 +4911,8 @@ declare namespace avSession {
      * The lyric of the media, it should be in standard lyric format
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     lyric?: string;
 
@@ -4552,7 +4921,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 17
+     * @since arkts {'1.1':'17','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     singleLyricText?: string;
 
@@ -4569,7 +4939,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     previousAssetId?: string;
 
@@ -4586,32 +4957,35 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     nextAssetId?: string;
 
     /**
      * The protocols supported by this session, if not set, the default is {@link TYPE_CAST_PLUS_STREAM}.
      * See {@link ProtocolType}
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11
      */
     /**
      * The protocols supported by this session, if not set, the default is {@link TYPE_CAST_PLUS_STREAM}.
      * See {@link ProtocolType}
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    filter?: number;
+    filter?: int;
 
     /**
      * The drm schemes supported by this session which are represented by uuid.
      * @type { ?Array<string> }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     drmSchemes?: Array<string>;
 
@@ -4620,17 +4994,19 @@ declare namespace avSession {
      * See {@link SkipIntervals}
      * @type { ?SkipIntervals }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     skipIntervals?: SkipIntervals;
 
     /**
      * The display tags supported by application to be displayed on media center
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    displayTags?: number;
+    displayTags?: int;
   }
 
   /**
@@ -4644,7 +5020,8 @@ declare namespace avSession {
    * @interface AVMediaDescription
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVMediaDescription {
     /**
@@ -4658,7 +5035,8 @@ declare namespace avSession {
      * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     assetId: string;
     /**
@@ -4672,7 +5050,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     title?: string;
 
@@ -4687,7 +5066,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     subtitle?: string;
 
@@ -4702,7 +5082,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     description?: string;
 
@@ -4719,7 +5100,8 @@ declare namespace avSession {
      * @type { ?(image.PixelMap | string) }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     mediaImage?: image.PixelMap | string;
     /**
@@ -4728,7 +5110,14 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    extras?: {[key: string]: Object};
+    /**
+     * Any additional attributes that can be represented as key-value pairs
+     * @type { ?Record<string, Object> }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    extras?: Record<string, Object>;
 
     /**
      * The type of this media, such as video, audio and so on.
@@ -4741,24 +5130,26 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     mediaType?: string;
 
     /**
      * The size of this media.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * The size of this media.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    mediaSize?: number;
+    mediaSize?: int;
 
     /**
      * The album title of this media
@@ -4771,7 +5162,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     albumTitle?: string;
 
@@ -4786,7 +5178,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     albumCoverUri?: string;
 
@@ -4801,7 +5194,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     lyricContent?: string;
 
@@ -4816,7 +5210,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     lyricUri?: string;
 
@@ -4831,7 +5226,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     artist?: string;
 
@@ -4846,7 +5242,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     mediaUri?: string;
 
@@ -4861,7 +5258,8 @@ declare namespace avSession {
      * @type { ?media.AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fdSrc?: media.AVFileDescriptor;
 
@@ -4869,7 +5267,8 @@ declare namespace avSession {
      * DataSource descriptor. The caller ensures the fileSize and callback are valid.
      * @type { ?media.AVDataSrcDescriptor }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     dataSrc?: media.AVDataSrcDescriptor;
 
@@ -4887,54 +5286,58 @@ declare namespace avSession {
      * The drm scheme supported by this resource which is represented by uuid.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     drmScheme?: string;
 
     /**
      * The duration of this media
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * The duration of this media
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    duration?: number;
+    duration?: int;
 
     /**
      * Media start position, described by milliseconds.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * Media start position, described by milliseconds.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    startPosition?: number;
+    startPosition?: int;
 
     /**
      * Media credits position, described by milliseconds.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * Media credits position, described by milliseconds.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    creditsPosition?: number;
+    creditsPosition?: int;
 
     /**
      * Application name.
@@ -4947,24 +5350,26 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     appName?: string;
 
     /**
      * The display tags supported by application to be displayed on media center
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11
      */
     /**
      * The display tags supported by application to be displayed on media center
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    displayTags?: number;
+    displayTags?: int;
 
     /**
      * Custom data sent by the application to the receiver during casting.
@@ -4987,23 +5392,25 @@ declare namespace avSession {
    * @interface AVQueueItem
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVQueueItem {
     /**
      * Sequence number of the item in the playlist.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * Sequence number of the item in the playlist.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    itemId: number;
+    itemId: int;
 
     /**
      * The media description of the item in the playlist.
@@ -5016,7 +5423,8 @@ declare namespace avSession {
      * @type { ?AVMediaDescription }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     description?: AVMediaDescription;
   }
@@ -5034,7 +5442,8 @@ declare namespace avSession {
    * @interface AVPlaybackState
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVPlaybackState {
     /**
@@ -5048,24 +5457,26 @@ declare namespace avSession {
      * @type { ?PlaybackState }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     state?: PlaybackState;
 
     /**
      * Current playback speed
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * Current playback speed
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    speed?: number;
+    speed?: double;
 
     /**
      * Current playback position of this media. See {@link PlaybackPosition}
@@ -5078,24 +5489,26 @@ declare namespace avSession {
      * @type { ?PlaybackPosition }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     position?: PlaybackPosition;
 
     /**
      * The current buffered time, the maximum playable position
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * The current buffered time, the maximum playable position
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    bufferedTime?: number;
+    bufferedTime?: long;
 
     /**
      * Current playback loop mode. See {@link LoopMode}
@@ -5108,7 +5521,8 @@ declare namespace avSession {
      * @type { ?LoopMode }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loopMode?: LoopMode;
 
@@ -5123,54 +5537,58 @@ declare namespace avSession {
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isFavorite?: boolean;
 
     /**
      * Current active item id
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * Current active item id
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    activeItemId?: number;
+    activeItemId?: int;
 
     /**
      * Current player volume
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * Current player volume
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    volume?: number;
+    volume?: int;
 
     /**
      * maximum  volume
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11
      */
     /**
      * maximum  volume
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    maxVolume?: number;
+    maxVolume?: int;
 
     /**
      * Current muted status
@@ -5183,47 +5601,51 @@ declare namespace avSession {
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     muted?: boolean;
 
     /**
      * The duration of this media asset.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    duration?: number;
+    duration?: int;
 
     /**
      * The video width of this media asset.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11
      */
     /**
      * The video width of this media asset.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    videoWidth?: number;
+    videoWidth?: int;
 
     /**
      * The video height of this media asset.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11
      */
     /**
      * The video height of this media asset.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    videoHeight?: number;
+    videoHeight?: int;
 
     /**
      * Current custom media packets
@@ -5238,7 +5660,15 @@ declare namespace avSession {
      * @atomicservice
      * @since 12
      */
-    extras?: {[key: string]: Object};
+    /**
+     * Current custom media packets
+     * @type { ?Record<string, Object> }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    extras?: Record<string, Object>;
   }
 
   /**
@@ -5252,38 +5682,41 @@ declare namespace avSession {
    * @interface PlaybackPosition
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface PlaybackPosition {
     /**
      * Elapsed time(position) of this media set by the app.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * Elapsed time(position) of this media set by the app.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    elapsedTime: number;
+    elapsedTime: long;
 
     /**
      * Record the system time when elapsedTime is set.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     /**
      * Record the system time when elapsedTime is set.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    updateTime: number;
+    updateTime: long;
   }
 
   /**
@@ -5297,7 +5730,8 @@ declare namespace avSession {
    * @typedef CallMetadata
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CallMetadata {
     /**
@@ -5311,7 +5745,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name?: string;
 
@@ -5326,7 +5761,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     phoneNumber?: string;
 
@@ -5341,7 +5777,8 @@ declare namespace avSession {
      * @type { ?image.PixelMap }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     avatar?: image.PixelMap;
   }
@@ -5357,7 +5794,8 @@ declare namespace avSession {
    * @typedef AVCallState
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVCallState {
     /**
@@ -5371,7 +5809,8 @@ declare namespace avSession {
      * @type { CallState }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     state: CallState;
 
@@ -5386,23 +5825,25 @@ declare namespace avSession {
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     muted: boolean;
   }
 
   /**
    * Enumeration of current call state
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 11
    */
   /**
    * Enumeration of current call state
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum CallState {
     /**
@@ -5414,7 +5855,8 @@ declare namespace avSession {
      * Idle state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_STATE_IDLE = 0,
 
@@ -5427,7 +5869,8 @@ declare namespace avSession {
      * Incoming state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_STATE_INCOMING = 1,
 
@@ -5440,7 +5883,8 @@ declare namespace avSession {
      * Active state in calling.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_STATE_ACTIVE = 2,
 
@@ -5453,7 +5897,8 @@ declare namespace avSession {
      * Dialing state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_STATE_DIALING = 3,
 
@@ -5466,7 +5911,8 @@ declare namespace avSession {
      * Waiting state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_STATE_WAITING = 4,
 
@@ -5479,7 +5925,8 @@ declare namespace avSession {
      * Holding state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_STATE_HOLDING = 5,
 
@@ -5492,37 +5939,40 @@ declare namespace avSession {
      * Disconnecting state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_STATE_DISCONNECTING = 6,
   }
 
   /**
    * cast category indicating different playback scenes
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @since 10
    */
   /**
    * cast category indicating different playback scenes
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AVCastCategory {
     /**
-     * The default cast type "local", media can be routed on the same device, 
+     * The default cast type "local", media can be routed on the same device,
      * including internal speakers or audio jack on the device itself, A2DP devices.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
     /**
-     * The default cast type "local", media can be routed on the same device, 
+     * The default cast type "local", media can be routed on the same device,
      * including internal speakers or audio jack on the device itself, A2DP devices.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CATEGORY_LOCAL = 0,
 
@@ -5537,22 +5987,24 @@ declare namespace avSession {
      * the application needs to get an AVCastController to control remote playback.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CATEGORY_REMOTE = 1,
   }
   /**
    * Device type definition
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
   /**
    * Device type definition
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DeviceType {
     /**
@@ -5564,7 +6016,8 @@ declare namespace avSession {
      * A device type indicating the route is on internal speakers or audio jack on the device itself.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEVICE_TYPE_LOCAL = 0,
 
@@ -5577,7 +6030,8 @@ declare namespace avSession {
      * A device type indicating the route is on a TV.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEVICE_TYPE_TV = 2,
 
@@ -5590,7 +6044,8 @@ declare namespace avSession {
      * A device type indicating the route is on a smart speaker.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEVICE_TYPE_SMART_SPEAKER = 3,
 
@@ -5603,7 +6058,8 @@ declare namespace avSession {
      * A device type indicating the route is on a bluetooth device.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEVICE_TYPE_BLUETOOTH = 10,
   }
@@ -5619,7 +6075,8 @@ declare namespace avSession {
    * @interface DeviceInfo
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DeviceInfo {
     /**
@@ -5633,7 +6090,8 @@ declare namespace avSession {
      * @type { AVCastCategory }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     castCategory: AVCastCategory;
     /**
@@ -5649,7 +6107,8 @@ declare namespace avSession {
      * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceId: string;
 
@@ -5666,7 +6125,8 @@ declare namespace avSession {
      * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceName: string;
 
@@ -5681,7 +6141,8 @@ declare namespace avSession {
      * @type { DeviceType }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceType: DeviceType;
 
@@ -5690,7 +6151,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     manufacturer?: string;
 
@@ -5699,7 +6161,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     modelName?: string;
 
@@ -5708,7 +6171,8 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     networkId?: string;
 
@@ -5717,40 +6181,44 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ipAddress?: string;
 
     /**
      * device provider which supplies the route capability.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    providerId?: number;
+    providerId?: int;
 
     /**
      * The protocols supported by current device, can be union of {@link ProtocolType}.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 11
      */
     /**
      * The protocols supported by current device, can be union of {@link ProtocolType}.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    supportedProtocols?: number;
+    supportedProtocols?: int;
 
     /**
      * The drm capability supported by current device, each drm is represented by uuid.
      * @type { ?Array<string> }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     supportedDrmCapabilities?: Array<string>;
 
@@ -5767,19 +6235,21 @@ declare namespace avSession {
      * Define different authentication status.
      * 0: Device not authenticated.
      * 1: Device already authenticated.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    authenticationStatus?: number;
+    authenticationStatus?: int;
 
     /**
      * Indicates the current device is legacy or not.
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isLegacy?: boolean;
 
@@ -5787,12 +6257,13 @@ declare namespace avSession {
      * Medium types used to discover devices.
      * 1: BLE
      * 2: COAP
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    mediumTypes?: number;
+    mediumTypes?: int;
 
     /**
      * Audio capabilities supported by the device.
@@ -5815,7 +6286,8 @@ declare namespace avSession {
    * @interface OutputDeviceInfo
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface OutputDeviceInfo {
     /**
@@ -5829,23 +6301,25 @@ declare namespace avSession {
      * @type { Array<DeviceInfo> }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     devices: Array<DeviceInfo>;
   }
 
   /**
    * Loop Play Mode Definition
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
   /**
    * Loop Play Mode Definition
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum LoopMode {
     /**
@@ -5857,7 +6331,8 @@ declare namespace avSession {
      * The default mode is sequential playback
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOOP_MODE_SEQUENCE = 0,
 
@@ -5870,7 +6345,8 @@ declare namespace avSession {
      * Single loop mode
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOOP_MODE_SINGLE = 1,
 
@@ -5883,7 +6359,8 @@ declare namespace avSession {
      * List loop mode
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOOP_MODE_LIST = 2,
 
@@ -5896,7 +6373,8 @@ declare namespace avSession {
      * Shuffle playback mode
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOOP_MODE_SHUFFLE = 3,
 
@@ -5909,50 +6387,56 @@ declare namespace avSession {
      * Custom playback mode supported by application
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    LOOP_MODE_CUSTOM = 4,
+    LOOP_MODE_CUSTOM = 4
   }
 
   /**
    * Supported skip intervals definition
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.Core
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum SkipIntervals {
     /**
      * 10 seconds
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SECONDS_10 = 10,
     /**
      * 15 seconds
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SECONDS_15 = 15,
     /**
      * 30 seconds
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SECONDS_30 = 30,
   }
 
   /**
    * Definition of current playback state
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
   /**
    * Definition of current playback state
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum PlaybackState {
     /**
@@ -5964,7 +6448,8 @@ declare namespace avSession {
      * Initial state. The initial state of media file
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_INITIAL = 0,
 
@@ -5979,7 +6464,8 @@ declare namespace avSession {
      * the media is loading or buffering
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_PREPARE = 1,
 
@@ -5992,7 +6478,8 @@ declare namespace avSession {
      * Playing state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_PLAY = 2,
 
@@ -6005,7 +6492,8 @@ declare namespace avSession {
      * Paused state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_PAUSE = 3,
 
@@ -6018,7 +6506,8 @@ declare namespace avSession {
      * Fast forwarding state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_FAST_FORWARD = 4,
 
@@ -6031,7 +6520,8 @@ declare namespace avSession {
      * Rewinding state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_REWIND = 5,
 
@@ -6044,7 +6534,8 @@ declare namespace avSession {
      * Stopped state.The server will clear the media playback position and other information.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_STOP = 6,
 
@@ -6057,7 +6548,8 @@ declare namespace avSession {
      * Completed state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_COMPLETED = 7,
 
@@ -6070,7 +6562,8 @@ declare namespace avSession {
      * Released state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_RELEASED = 8,
 
@@ -6083,7 +6576,8 @@ declare namespace avSession {
      * error state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_ERROR = 9,
 
@@ -6096,7 +6590,8 @@ declare namespace avSession {
      * Idle state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLAYBACK_STATE_IDLE = 10,
 
@@ -6109,9 +6604,10 @@ declare namespace avSession {
      * Buffering state.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    PLAYBACK_STATE_BUFFERING = 11,
+    PLAYBACK_STATE_BUFFERING = 11
   }
 
   /**
@@ -6119,7 +6615,8 @@ declare namespace avSession {
    * @interface AVSessionDescriptor
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVSessionDescriptor {
     /**
@@ -6127,7 +6624,8 @@ declare namespace avSession {
      * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sessionId: string;
 
@@ -6136,7 +6634,8 @@ declare namespace avSession {
      * @type { AVSessionType }
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: AVSessionType;
 
@@ -6145,7 +6644,8 @@ declare namespace avSession {
      * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sessionTag: string;
 
@@ -6154,7 +6654,8 @@ declare namespace avSession {
      * @type { ElementName }
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     elementName: ElementName;
 
@@ -6163,7 +6664,8 @@ declare namespace avSession {
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isActive: boolean;
 
@@ -6172,7 +6674,8 @@ declare namespace avSession {
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isTopSession: boolean;
 
@@ -6182,7 +6685,8 @@ declare namespace avSession {
      * @type { OutputDeviceInfo }
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     outputDevice: OutputDeviceInfo;
   }
@@ -6190,11 +6694,12 @@ declare namespace avSession {
   /**
    * The extra info object.
    *
-   * @typedef { object } ExtraInfo
+   * @typedef { Record<string, Object> } ExtraInfo
    * @syscap SystemCapability.Multimedia.AVSession.Core
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  type ExtraInfo = { [key: string]: Object; };
+  type ExtraInfo = Record<string, Object>;
 
   /**
    * Session controller,used to control media playback and get media information
@@ -6207,7 +6712,8 @@ declare namespace avSession {
    * @typedef AVSessionController
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVSessionController {
     /**
@@ -6222,7 +6728,8 @@ declare namespace avSession {
      * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly sessionId: string;
 
@@ -6233,7 +6740,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAVPlaybackState(callback: AsyncCallback<AVPlaybackState>): void;
 
@@ -6254,7 +6762,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAVPlaybackState(): Promise<AVPlaybackState>;
 
@@ -6275,7 +6784,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAVPlaybackStateSync(): AVPlaybackState;
 
@@ -6286,7 +6796,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAVMetadata(callback: AsyncCallback<AVMetadata>): void;
 
@@ -6307,7 +6818,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAVMetadata(): Promise<AVMetadata>;
 
@@ -6328,7 +6840,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAVMetadataSync(): AVMetadata;
 
@@ -6339,7 +6852,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAVCallState(callback: AsyncCallback<AVCallState>): void;
 
@@ -6350,7 +6864,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAVCallState(): Promise<AVCallState>;
 
@@ -6361,7 +6876,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCallMetadata(callback: AsyncCallback<CallMetadata>): void;
 
@@ -6372,7 +6888,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCallMetadata(): Promise<CallMetadata>;
 
@@ -6383,7 +6900,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAVQueueTitle(callback: AsyncCallback<string>): void;
 
@@ -6404,7 +6922,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAVQueueTitle(): Promise<string>;
 
@@ -6425,7 +6944,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAVQueueTitleSync(): string;
 
@@ -6436,7 +6956,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAVQueueItems(callback: AsyncCallback<Array<AVQueueItem>>): void;
 
@@ -6457,7 +6978,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAVQueueItems(): Promise<Array<AVQueueItem>>;
 
@@ -6478,13 +7000,14 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAVQueueItemsSync(): Array<AVQueueItem>;
 
     /**
      * Set the item in the playlist to be played
-     * @param { number } itemId - The serial number of the item to be played
+     * @param { int } itemId - The serial number of the item to be played
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Parameter verification failed.
@@ -6492,9 +7015,10 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    skipToQueueItem(itemId: number, callback: AsyncCallback<void>): void;
+    skipToQueueItem(itemId: int, callback: AsyncCallback<void>): void;
 
     /**
      * Set the item in the playlist to be played
@@ -6510,7 +7034,7 @@ declare namespace avSession {
      */
     /**
      * Set the item in the playlist to be played
-     * @param { number } itemId - The serial number of the item to be played
+     * @param { int } itemId - The serial number of the item to be played
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Parameter verification failed.
@@ -6519,9 +7043,10 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    skipToQueueItem(itemId: number): Promise<void>;
+    skipToQueueItem(itemId: int): Promise<void>;
 
     /**
      * Get output device information
@@ -6529,7 +7054,8 @@ declare namespace avSession {
      * @throws { BusinessError } 600101 - Session service exception.
      * @throws { BusinessError } 600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getOutputDevice(callback: AsyncCallback<OutputDeviceInfo>): void;
 
@@ -6548,7 +7074,8 @@ declare namespace avSession {
      * @throws { BusinessError } 600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getOutputDevice(): Promise<OutputDeviceInfo>;
 
@@ -6567,7 +7094,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getOutputDeviceSync(): OutputDeviceInfo;
 
@@ -6583,7 +7111,8 @@ declare namespace avSession {
      * @throws { BusinessError } 600105 - Invalid session command.
      * @throws { BusinessError } 600106 - The session is not activated.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sendAVKeyEvent(event: KeyEvent, callback: AsyncCallback<void>): void;
 
@@ -6614,7 +7143,8 @@ declare namespace avSession {
      * @throws { BusinessError } 600106 - The session is not activated.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sendAVKeyEvent(event: KeyEvent): Promise<void>;
 
@@ -6625,7 +7155,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getLaunchAbility(callback: AsyncCallback<WantAgent>): void;
 
@@ -6646,7 +7177,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getLaunchAbility(): Promise<WantAgent>;
 
@@ -6662,14 +7194,15 @@ declare namespace avSession {
     /**
      * Get the adjusted playback position. The time automatically calculated by the system
      * taking into account factors such as playback status, playback speed, and application update time.
-     * @returns { number } current playback position in ms.Note that the returns value of each call will be different.
+     * @returns { long } current playback position in ms.Note that the returns value of each call will be different.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getRealPlaybackPositionSync(): number;
+    getRealPlaybackPositionSync(): long;
 
     /**
      * Check if the current session is active
@@ -6678,7 +7211,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isActive(callback: AsyncCallback<boolean>): void;
 
@@ -6699,7 +7233,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isActive(): Promise<boolean>;
 
@@ -6720,7 +7255,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isActiveSync(): boolean;
 
@@ -6730,7 +7266,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     destroy(callback: AsyncCallback<void>): void;
 
@@ -6749,7 +7286,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     destroy(): Promise<void>;
 
@@ -6760,7 +7298,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getValidCommands(callback: AsyncCallback<Array<AVControlCommandType>>): void;
 
@@ -6781,7 +7320,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getValidCommands(): Promise<Array<AVControlCommandType>>;
 
@@ -6802,7 +7342,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getValidCommandsSync(): Array<AVControlCommandType>;
 
@@ -6819,7 +7360,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600106 - The session is not activated.
      * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sendControlCommand(command: AVControlCommand, callback: AsyncCallback<void>): void;
 
@@ -6852,7 +7394,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sendControlCommand(command: AVControlCommand): Promise<void>;
 
@@ -6862,7 +7405,7 @@ declare namespace avSession {
      * @param { object } args - The parameters of session event
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Parameter verification failed.
+     *     2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -6872,7 +7415,22 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    sendCommonCommand(command: string, args: {[key: string]: Object}, callback: AsyncCallback<void>): void;
+    /**
+     * Send common commands to this session
+     * @param { string } command - The command name to be sent.
+     * @param { Record<string, Object> } args - The parameters of session event
+     * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600105 - Invalid session command.
+     * @throws { BusinessError } 6600106 - The session is not activated.
+     * @throws { BusinessError } 6600107 - Too many commands or events.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    sendCommonCommand(command: string, args: Record<string, Object>, callback: AsyncCallback<void>): void;
 
     /**
      * Send common commands to this session
@@ -6880,7 +7438,7 @@ declare namespace avSession {
      * @param { object } args - The parameters of session event
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Parameter verification failed.
+     *     2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -6896,7 +7454,7 @@ declare namespace avSession {
      * @param { object } args - The parameters of session event
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Parameter verification failed.
+     *     2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -6907,13 +7465,29 @@ declare namespace avSession {
      * @atomicservice
      * @since 12
      */
-    sendCommonCommand(command: string, args: {[key: string]: Object}): Promise<void>;
+    /**
+     * Send common commands to this session
+     * @param { string } command - The command name to be sent.
+     * @param { Record<string, Object> } args - The parameters of session event
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600105 - Invalid session command.
+     * @throws { BusinessError } 6600106 - The session is not activated.
+     * @throws { BusinessError } 6600107 - Too many commands or events.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    sendCommonCommand(command: string, args: Record<string, Object>): Promise<void>;
 
     /**
      * Get custom media packets provided by the corresponding session
      * @param { AsyncCallback<{[key: string]: Object}> } callback - The triggered asyncCallback when (getExtras).
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -6922,13 +7496,25 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    getExtras(callback: AsyncCallback<{[key: string]: Object}>): void;
+    /**
+     * Get custom media packets provided by the corresponding session
+     * @param { AsyncCallback<Record<string, Object>> } callback - The triggered asyncCallback when (getExtras).
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600105 - Invalid session command.
+     * @throws { BusinessError } 6600107 - Too many commands or events.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    getExtras(callback: AsyncCallback<Record<string, Object>>): void;
 
     /**
      * Get custom media packets provided by the corresponding session
      * @returns { Promise<{[key: string]: Object}> } the parameters of extras
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -6941,7 +7527,7 @@ declare namespace avSession {
      * Get custom media packets provided by the corresponding session
      * @returns { Promise<{[key: string]: Object}> } the parameters of extras
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -6951,7 +7537,20 @@ declare namespace avSession {
      * @atomicservice
      * @since 12
      */
-    getExtras(): Promise<{[key: string]: Object}>;
+    /**
+     * Get custom media packets provided by the corresponding session
+     * @returns { Promise<Record<string, Object>> } the parameters of extras
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600105 - Invalid session command.
+     * @throws { BusinessError } 6600107 - Too many commands or events.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    getExtras(): Promise<Record<string, Object>>;
 
     /**
      * Get extra information for remote device, such as volume level, connected devices.
@@ -6962,19 +7561,20 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @throws { BusinessError } 6600105 - Invalid session command.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getExtrasWithEvent(extraEvent: string): Promise<ExtraInfo>;
 
     /**
      * Register metadata changed callback
-     * @param { 'metadataChange' } type 
+     * @param { 'metadataChange' } type
      * @param { Array<keyof AVMetadata> | 'all' } filter - The properties of {@link AVMetadata} that you cared about
      * @param { function } callback - The callback used to handle metadata changed event.
-     * The callback function provides the {@link AVMetadata} parameter.
-     * It only contains the properties set in the filter.
+     *     The callback function provides the {@link AVMetadata} parameter.
+     *     It only contains the properties set in the filter.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -6982,20 +7582,34 @@ declare namespace avSession {
      */
     /**
      * Register metadata changed callback
-     * @param { 'metadataChange' } type 
+     * @param { 'metadataChange' } type
      * @param { Array<keyof AVMetadata> | 'all' } filter - The properties of {@link AVMetadata} that you cared about
      * @param { function } callback - The callback used to handle metadata changed event.
-     * The callback function provides the {@link AVMetadata} parameter.
-     * It only contains the properties set in the filter.
+     *     The callback function provides the {@link AVMetadata} parameter.
+     *     It only contains the properties set in the filter.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
      */
-    on(type: 'metadataChange', filter: Array<keyof AVMetadata> | 'all', callback: (data: AVMetadata) => void);
+    /**
+     * Register metadata changed callback
+     * @param { 'metadataChange' } type
+     * @param { Array<string> | 'all' } filter - The properties of {@link AVMetadata} that you cared about
+     * @param { function } callback - The callback used to handle metadata changed event.
+     *     The callback function provides the {@link AVMetadata} parameter.
+     *     It only contains the properties set in the filter.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    on(type: 'metadataChange', filter: Array<string> | 'all', callback: (data: AVMetadata) => void): void;
 
     /**
      * Unregister metadata changed callback
@@ -7024,16 +7638,30 @@ declare namespace avSession {
      * @atomicservice
      * @since 12
      */
-    off(type: 'metadataChange', callback?: (data: AVMetadata) => void);
+    /**
+     * Unregister metadata changed callback
+     * @param { 'metadataChange' } type
+     * @param { function } callback - The callback used to handle metadata changed event.
+     * The callback function provides the {@link AVMetadata} parameter.
+     * It only contains the properties set in the filter.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    off(type: 'metadataChange', callback?: (data: AVMetadata) => void): void;
 
     /**
      * Register playback state changed callback
      * @param { 'playbackStateChange' } type
-     * @param { Array<keyof AVPlaybackState> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
+     * @param { Array<keyof AVPlaybackState> | 'all' } filter - The properties of {@link AVPlaybackState}
+     *     that you cared about
      * @param { function } callback - The callback used to handle playback state changed event.
-     * The callback function provides the {@link AVPlaybackState} parameter.
+     *     The callback function provides the {@link AVPlaybackState} parameter.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -7042,18 +7670,33 @@ declare namespace avSession {
     /**
      * Register playback state changed callback
      * @param { 'playbackStateChange' } type
-     * @param { Array<keyof AVPlaybackState> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
+     * @param { Array<keyof AVPlaybackState> | 'all' } filter - The properties of {@link AVPlaybackState}
+     *     that you cared about
      * @param { function } callback - The callback used to handle playback state changed event.
-     * The callback function provides the {@link AVPlaybackState} parameter.
+     *     The callback function provides the {@link AVPlaybackState} parameter.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
      */
-    on(type: 'playbackStateChange', filter: Array<keyof AVPlaybackState> | 'all', callback: (state: AVPlaybackState) => void);
+    /**
+     * Register playback state changed callback
+     * @param { 'playbackStateChange' } type
+     * @param { Array<string> | 'all' } filter - The properties of {@link AVPlaybackState}
+     *     that you cared about
+     * @param { function } callback - The callback used to handle playback state changed event.
+     *     The callback function provides the {@link AVPlaybackState} parameter.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    on(type: 'playbackStateChange', filter: Array<string> | 'all', callback: (state: AVPlaybackState) => void): void;
 
     /**
      * Unregister playback state changed callback
@@ -7080,7 +7723,19 @@ declare namespace avSession {
      * @atomicservice
      * @since 12
      */
-    off(type: 'playbackStateChange', callback?: (state: AVPlaybackState) => void);
+    /**
+     * Unregister playback state changed callback
+     * @param { 'playbackStateChange' } type
+     * @param { function } callback - The callback used to handle playback state changed event.
+     * The callback function provides the {@link AVPlaybackState} parameter.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    off(type: 'playbackStateChange', callback?: (state: AVPlaybackState) => void): void;
 
     /**
      * Register call metadata changed callback
@@ -7099,7 +7754,7 @@ declare namespace avSession {
     /**
      * Register call metadata changed callback
      * @param { 'callMetadataChange' } type - 'callMetadataChange'
-     * @param { Array<keyof CallMetadata> | 'all' } filter - The properties of {@link CallMetadata} that you cared about
+     * @param { Array<string> | 'all' } filter - The properties of {@link CallMetadata} that you cared about
      * @param { Callback<CallMetadata> } callback - The callback used to handle call metadata changed event.
      * The callback function provides the {@link CallMetadata} parameter.
      * It only contains the properties set in the filter.
@@ -7109,18 +7764,19 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'callMetadataChange', filter: Array<keyof CallMetadata> | 'all', callback: Callback<CallMetadata>): void;
+    on(type: 'callMetadataChange', filter: Array<string> | 'all', callback: Callback<CallMetadata>): void;
 
     /**
      * Unregister call metadata changed callback
      * @param { 'callMetadataChange' } type - 'callMetadataChange'
      * @param { Callback<CallMetadata> } callback - The callback used to handle call metadata changed event.
-     * The callback function provides the {@link CallMetadata} parameter.
+     *     The callback function provides the {@link CallMetadata} parameter.
      * It only contains the properties set in the filter.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -7130,7 +7786,7 @@ declare namespace avSession {
      * Unregister call metadata changed callback
      * @param { 'callMetadataChange' } type - 'callMetadataChange'
      * @param { Callback<CallMetadata> } callback - The callback used to handle call metadata changed event.
-     * The callback function provides the {@link CallMetadata} parameter.
+     *     The callback function provides the {@link CallMetadata} parameter.
      * It only contains the properties set in the filter.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types.
@@ -7138,7 +7794,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'callMetadataChange', callback?: Callback<CallMetadata>): void;
 
@@ -7147,9 +7804,9 @@ declare namespace avSession {
      * @param { 'callStateChange' } type - 'callStateChange'
      * @param { Array<keyof AVCallState> | 'all' } filter - The properties of {@link AVCallState} that you cared about
      * @param { Callback<AVCallState> } callback - The callback used to handle call state changed event.
-     * The callback function provides the {@link AVCallState} parameter.
+     *     The callback function provides the {@link AVCallState} parameter.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -7158,18 +7815,19 @@ declare namespace avSession {
     /**
      * Register call state changed callback
      * @param { 'callStateChange' } type - 'callStateChange'
-     * @param { Array<keyof AVCallState> | 'all' } filter - The properties of {@link AVCallState} that you cared about
+     * @param { Array<string> | 'all' } filter - The properties of {@link AVCallState} that you cared about
      * @param { Callback<AVCallState> } callback - The callback used to handle call state changed event.
-     * The callback function provides the {@link AVCallState} parameter.
+     *     The callback function provides the {@link AVCallState} parameter.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since 20
+     * @arkts 1.1&1.2
      */
-    on(type: 'callStateChange', filter: Array<keyof AVCallState> | 'all', callback: Callback<AVCallState>): void;
+    on(type: 'callStateChange', filter: Array<string> | 'all', callback: Callback<AVCallState>): void;
 
     /**
      * Unregister playback state changed callback
@@ -7194,7 +7852,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'callStateChange', callback?: Callback<AVCallState>): void;
 
@@ -7221,7 +7880,18 @@ declare namespace avSession {
      * @atomicservice
      * @since 12
      */
-    on(type: 'sessionDestroy', callback: () => void);
+    /**
+     * Register current session destroyed callback
+     * @param { 'sessionDestroy' } type
+     * @param { function } callback - The callback used to handle current session destroyed event.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    on(type: 'sessionDestroy', callback: () => void): void;
 
     /**
      * Unregister current session destroyed callback
@@ -7246,7 +7916,18 @@ declare namespace avSession {
      * @atomicservice
      * @since 12
      */
-    off(type: 'sessionDestroy', callback?: () => void);
+    /**
+     * Unregister current session destroyed callback
+     * @param { 'sessionDestroy' } type - 'sessionDestroy'
+     * @param { function } callback - The callback used to handle current session destroyed event.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    off(type: 'sessionDestroy', callback?: () => void): void;
 
     /**
      * Register the active state of this session changed callback
@@ -7273,15 +7954,27 @@ declare namespace avSession {
      * @atomicservice
      * @since 12
      */
-    on(type: 'activeStateChange', callback: (isActive: boolean) => void);
+    /**
+     * Register the active state of this session changed callback
+     * @param { 'activeStateChange' } type - 'activeStateChange'
+     * @param { function } callback - The callback used to handle the active state of this session changed event.
+     * The callback function provides the changed session state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    on(type: 'activeStateChange', callback: (isActive: boolean) => void): void;
 
     /**
      * Unregister the active state of this session changed callback
      * @param { 'activeStateChange' } type - 'activeStateChange'
      * @param { function } callback - The callback used to handle the active state of this session changed event.
-     * The callback function provides the changed session state.
+     *     The callback function provides the changed session state.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -7291,16 +7984,28 @@ declare namespace avSession {
      * Unregister the active state of this session changed callback
      * @param { 'activeStateChange' } type - 'activeStateChange'
      * @param { function } callback - The callback used to handle the active state of this session changed event.
-     * The callback function provides the changed session state.
+     *     The callback function provides the changed session state.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
      */
-    off(type: 'activeStateChange', callback?: (isActive: boolean) => void);
+    /**
+     * Unregister the active state of this session changed callback
+     * @param { 'activeStateChange' } type - 'activeStateChange'
+     * @param { function } callback - The callback used to handle the active state of this session changed event.
+     *     The callback function provides the changed session state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    off(type: 'activeStateChange', callback?: (isActive: boolean) => void): void;
 
     /**
      * Register the valid commands of the session changed callback
@@ -7327,7 +8032,19 @@ declare namespace avSession {
      * @atomicservice
      * @since 12
      */
-    on(type: 'validCommandChange', callback: (commands: Array<AVControlCommandType>) => void);
+    /**
+     * Register the valid commands of the session changed callback
+     * @param { 'validCommandChange' } type - 'validCommandChange'
+     * @param { function } callback - The callback used to handle the changes.
+     * The callback function provides an array of AVControlCommandType.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    on(type: 'validCommandChange', callback: (commands: Array<AVControlCommandType>) => void): void;
 
     /**
      * Unregister the valid commands of the session changed callback
@@ -7354,7 +8071,19 @@ declare namespace avSession {
      * @atomicservice
      * @since 12
      */
-    off(type: 'validCommandChange', callback?: (commands: Array<AVControlCommandType>) => void);
+    /**
+     * Unregister the valid commands of the session changed callback
+     * @param { 'validCommandChange' } type - 'validCommandChange'
+     * @param { function } callback - The callback used to handle the changes.
+     * The callback function provides an array of AVControlCommandType.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    off(type: 'validCommandChange', callback?: (commands: Array<AVControlCommandType>) => void): void;
 
     /**
      * Register session output device change callback
@@ -7379,7 +8108,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'outputDeviceChange', callback: (state: ConnectionState, device: OutputDeviceInfo) => void): void;
 
@@ -7406,7 +8136,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'outputDeviceChange', callback?: (state: ConnectionState, device: OutputDeviceInfo) => void): void;
 
@@ -7414,9 +8145,9 @@ declare namespace avSession {
      * Register session event callback
      * @param { 'sessionEvent' } type - 'sessionEvent'
      * @param { function } callback - The callback used to handle session event changed event.
-     * The callback function provides the event string and key-value pair parameters.
+     *     The callback function provides the event string and key-value pair parameters.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -7426,24 +8157,36 @@ declare namespace avSession {
      * Register session event callback
      * @param { 'sessionEvent' } type - 'sessionEvent'
      * @param { function } callback - The callback used to handle session event changed event.
-     * The callback function provides the event string and key-value pair parameters.
+     *     The callback function provides the event string and key-value pair parameters.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
      */
-    on(type: 'sessionEvent', callback: (sessionEvent: string, args: {[key: string]: Object}) => void): void;
+    /**
+     * Register session event callback
+     * @param { 'sessionEvent' } type - 'sessionEvent'
+     * @param { function } callback - The callback used to handle session event changed event.
+     *     The callback function provides the event string and key-value pair parameters.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    on(type: 'sessionEvent', callback: (sessionEvent: string, args: Record<String, Object>) => void): void;
 
     /**
      * Unregister session event callback
      * @param { 'sessionEvent' } type - 'sessionEvent'
      * @param { function } callback - Used to cancel a specific listener
-     * The callback function provides the event string and key-value pair parameters.
+     *     The callback function provides the event string and key-value pair parameters.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -7453,16 +8196,28 @@ declare namespace avSession {
      * Unregister session event callback
      * @param { 'sessionEvent' } type - 'sessionEvent'
      * @param { function } callback - Used to cancel a specific listener
-     * The callback function provides the event string and key-value pair parameters.
+     *     The callback function provides the event string and key-value pair parameters.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
      */
-    off(type: 'sessionEvent', callback?: (sessionEvent: string, args: {[key: string]: Object}) => void): void;
+    /**
+     * Unregister session event callback
+     * @param { 'sessionEvent' } type - 'sessionEvent'
+     * @param { function } callback - Used to cancel a specific listener
+     *     The callback function provides the event string and key-value pair parameters.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    off(type: 'sessionEvent', callback?: (sessionEvent: string, args: Record<String, Object>) => void): void;
 
     /**
      * Register session playlist change callback
@@ -7487,7 +8242,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'queueItemsChange', callback: (items: Array<AVQueueItem>) => void): void;
 
@@ -7514,7 +8270,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'queueItemsChange', callback?: (items: Array<AVQueueItem>) => void): void;
 
@@ -7541,7 +8298,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'queueTitleChange', callback: (title: string) => void): void;
 
@@ -7568,7 +8326,8 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'queueTitleChange', callback?: (title: string) => void): void;
 
@@ -7576,9 +8335,9 @@ declare namespace avSession {
      * Register the custom media packets change callback
      * @param { 'extrasChange' } type - Registration Type 'extrasChange'
      * @param { function } callback - Used to handle custom media packets changed.
-     * The callback provides the new media packets.
+     *     The callback provides the new media packets.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -7588,24 +8347,36 @@ declare namespace avSession {
      * Register the custom media packets change callback
      * @param { 'extrasChange' } type - Registration Type 'extrasChange'
      * @param { function } callback - Used to handle custom media packets changed.
-     * The callback provides the new media packets.
+     *     The callback provides the new media packets.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
      */
-    on(type: 'extrasChange', callback: (extras: {[key: string]: Object}) => void): void;
+    /**
+     * Register the custom media packets change callback
+     * @param { 'extrasChange' } type - Registration Type 'extrasChange'
+     * @param { function } callback - Used to handle custom media packets changed.
+     *     The callback provides the new media packets.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    on(type: 'extrasChange', callback: (extras: Record<string, Object>) => void): void;
 
     /**
      * Unregister the custom media packets change callback
      * @param { 'extrasChange' } type - Registration Type 'extrasChange'
      * @param { function } callback - Used to handle custom media packets changed.
-     * The callback provides the new media packets.
+     *     The callback provides the new media packets.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -7615,16 +8386,28 @@ declare namespace avSession {
      * Unregister the custom media packets change callback
      * @param { 'extrasChange' } type - Registration Type 'extrasChange'
      * @param { function } callback - Used to handle custom media packets changed.
-     * The callback provides the new media packets.
+     *     The callback provides the new media packets.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
      */
-    off(type: 'extrasChange', callback?: (extras: {[key: string]: Object}) => void): void;
+    /**
+     * Unregister the custom media packets change callback
+     * @param { 'extrasChange' } type - Registration Type 'extrasChange'
+     * @param { function } callback - Used to handle custom media packets changed.
+     *     The callback provides the new media packets.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    off(type: 'extrasChange', callback?: (extras: Record<string, Object>) => void): void;
 
     /**
      * Send custom data to this avsession.
@@ -7703,12 +8486,13 @@ declare namespace avSession {
   /**
    * The type of control command, add new support 'playWithAssetId'
    * @typedef { 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' | 'seek' |
-  *     'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'playWithAssetId' | 'answer' | 'hangUp' |
-  *     'toggleCallMute' | 'setTargetLoopMode' } AVControlCommandType
-  * @syscap SystemCapability.Multimedia.AVSession.Core
-  * @atomicservice
-  * @since 20
-  */
+   *     'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'playWithAssetId' | 'answer' | 'hangUp' |
+   *     'toggleCallMute' | 'setTargetLoopMode'} AVControlCommandType
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
   'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'playWithAssetId' | 'answer' | 'hangUp' | 'toggleCallMute' | 'setTargetLoopMode';
 
@@ -7723,7 +8507,8 @@ declare namespace avSession {
    * @typedef AVControlCommand
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVControlCommand {
     /**
@@ -7737,7 +8522,8 @@ declare namespace avSession {
      * @type { AVControlCommandType }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     command: AVControlCommandType;
 
@@ -7759,26 +8545,28 @@ declare namespace avSession {
      * setLoopMode command requires a {@link LoopMode} parameter.
      * toggleFavorite command requires assetId {@link AVMetadata.assetId} parameter
      * other commands need no parameter
-     * @type { ?(LoopMode | string | number) }
+     * @type { ?(LoopMode | string | double) }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    parameter?: LoopMode | string | number;
+    parameter?: LoopMode | string | double;
   }
 
   /**
    * Enumerates ErrorCode types, returns in BusinessError.code.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
   /**
    * Enumerates ErrorCode types, returns in BusinessError.code.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AVSessionErrorCode {
     /**
@@ -7790,7 +8578,8 @@ declare namespace avSession {
      * Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_SERVICE_EXCEPTION = 6600101,
 
@@ -7803,7 +8592,8 @@ declare namespace avSession {
      * The session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_SESSION_NOT_EXIST = 6600102,
 
@@ -7816,7 +8606,8 @@ declare namespace avSession {
      * The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CONTROLLER_NOT_EXIST = 6600103,
 
@@ -7829,7 +8620,8 @@ declare namespace avSession {
      * The remote session connection failed.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_REMOTE_CONNECTION_ERR = 6600104,
 
@@ -7842,7 +8634,8 @@ declare namespace avSession {
      * Invalid session command.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_COMMAND_INVALID = 6600105,
 
@@ -7855,7 +8648,8 @@ declare namespace avSession {
      * The session is not activated.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_SESSION_INACTIVE = 6600106,
 
@@ -7868,7 +8662,8 @@ declare namespace avSession {
      * Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_MESSAGE_OVERLOAD = 6600107,
 
@@ -7881,7 +8676,8 @@ declare namespace avSession {
      * Device connecting failed.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_DEVICE_CONNECTION_FAILED = 6600108,
 
@@ -7894,7 +8690,8 @@ declare namespace avSession {
      * The remote connection is not established.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_REMOTE_CONNECTION_NOT_EXIST = 6600109,
 
@@ -7902,7 +8699,8 @@ declare namespace avSession {
      * The error code for cast control is unspecified.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_UNSPECIFIED = 6611000,
 
@@ -7910,7 +8708,8 @@ declare namespace avSession {
      * An unspecified error occurs in the remote player.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_REMOTE_ERROR = 6611001,
 
@@ -7918,7 +8717,8 @@ declare namespace avSession {
      * The playback position falls behind the live window.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_BEHIND_LIVE_WINDOW = 6611002,
 
@@ -7926,7 +8726,8 @@ declare namespace avSession {
      * The process of cast control times out.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_TIMEOUT = 6611003,
 
@@ -7934,7 +8735,8 @@ declare namespace avSession {
      * The runtime check failed.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_RUNTIME_CHECK_FAILED = 6611004,
 
@@ -7942,7 +8744,8 @@ declare namespace avSession {
      * Cross-device data transmission is locked.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_PLAYER_NOT_WORKING = 6611100,
 
@@ -7950,7 +8753,8 @@ declare namespace avSession {
      * The specified seek mode is not supported.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_SEEK_MODE_UNSUPPORTED = 6611101,
 
@@ -7958,7 +8762,8 @@ declare namespace avSession {
      * The position to seek to is out of the range of the media asset or the specified seek mode is not supported.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_ILLEGAL_SEEK_TARGET = 6611102,
 
@@ -7966,7 +8771,8 @@ declare namespace avSession {
      * The specified playback mode is not supported.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_PLAY_MODE_UNSUPPORTED = 6611103,
 
@@ -7974,7 +8780,8 @@ declare namespace avSession {
      * The specified playback speed is not supported.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_PLAY_SPEED_UNSUPPORTED = 6611104,
 
@@ -7982,7 +8789,8 @@ declare namespace avSession {
      * The action failed because either the media source device or the media sink device has been revoked.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_DEVICE_MISSING = 6611105,
 
@@ -7990,7 +8798,8 @@ declare namespace avSession {
      * The parameter is invalid, for example, the url is illegal to play.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_INVALID_PARAM = 6611106,
 
@@ -7998,7 +8807,8 @@ declare namespace avSession {
      * Allocation of memory failed.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_NO_MEMORY = 6611107,
 
@@ -8006,7 +8816,8 @@ declare namespace avSession {
      * Operation is not allowed.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_OPERATION_NOT_ALLOWED = 6611108,
 
@@ -8014,7 +8825,8 @@ declare namespace avSession {
      * An unspecified input/output error occurs.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_IO_UNSPECIFIED = 6612000,
 
@@ -8022,7 +8834,8 @@ declare namespace avSession {
      * Network connection failure.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_IO_NETWORK_CONNECTION_FAILED = 6612001,
 
@@ -8030,7 +8843,8 @@ declare namespace avSession {
      * Network timeout.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_IO_NETWORK_CONNECTION_TIMEOUT = 6612002,
 
@@ -8038,7 +8852,8 @@ declare namespace avSession {
      * Invalid "Content-Type" HTTP header.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_IO_INVALID_HTTP_CONTENT_TYPE = 6612003,
 
@@ -8046,7 +8861,8 @@ declare namespace avSession {
      * The HTTP server returns an unexpected HTTP response status code.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_IO_BAD_HTTP_STATUS = 6612004,
 
@@ -8054,7 +8870,8 @@ declare namespace avSession {
      * The file does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_IO_FILE_NOT_FOUND = 6612005,
 
@@ -8062,7 +8879,8 @@ declare namespace avSession {
      * No permission is granted to perform the IO operation.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_IO_NO_PERMISSION = 6612006,
 
@@ -8070,7 +8888,8 @@ declare namespace avSession {
      * Access to cleartext HTTP traffic is not allowed by the app's network security configuration.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_IO_CLEARTEXT_NOT_PERMITTED = 6612007,
 
@@ -8078,7 +8897,8 @@ declare namespace avSession {
      * Reading data out of the data bound.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_IO_READ_POSITION_OUT_OF_RANGE = 6612008,
 
@@ -8086,7 +8906,8 @@ declare namespace avSession {
      * The media does not contain any contents that can be played.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_IO_NO_CONTENTS = 6612100,
 
@@ -8094,7 +8915,8 @@ declare namespace avSession {
      * The media cannot be read, for example, because of dust or scratches.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_IO_READ_ERROR = 6612101,
 
@@ -8102,7 +8924,8 @@ declare namespace avSession {
      * This resource is already in use.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_IO_CONTENT_BUSY = 6612102,
 
@@ -8110,7 +8933,8 @@ declare namespace avSession {
      * The content using the validity interval has expired.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_IO_CONTENT_EXPIRED = 6612103,
 
@@ -8118,7 +8942,8 @@ declare namespace avSession {
      * Using the requested content to play is not allowed.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_IO_USE_FORBIDDEN = 6612104,
 
@@ -8126,7 +8951,8 @@ declare namespace avSession {
      * The use of the allowed content cannot be verified.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_IO_NOT_VERIFIED = 6612105,
 
@@ -8134,7 +8960,8 @@ declare namespace avSession {
      * The number of times this content has been used as requested has reached the maximum allowed number of uses.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_IO_EXHAUSTED_ALLOWED_USES = 6612106,
 
@@ -8142,7 +8969,8 @@ declare namespace avSession {
      * An error occurs when sending packet from source device to sink device.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_IO_NETWORK_PACKET_SENDING_FAILED = 6612107,
 
@@ -8150,7 +8978,8 @@ declare namespace avSession {
      * Unspecified error related to content parsing.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_PARSING_UNSPECIFIED = 6613000,
 
@@ -8158,7 +8987,8 @@ declare namespace avSession {
      * Parsing error associated with media container format bit streams.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_PARSING_CONTAINER_MALFORMED = 6613001,
 
@@ -8166,7 +8996,8 @@ declare namespace avSession {
      * Parsing error associated with the media manifest.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_PARSING_MANIFEST_MALFORMED = 6613002,
 
@@ -8175,7 +9006,8 @@ declare namespace avSession {
      * or an unsupported media container feature.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_PARSING_CONTAINER_UNSUPPORTED = 6613003,
 
@@ -8183,7 +9015,8 @@ declare namespace avSession {
      * Unsupported feature in the media manifest.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_PARSING_MANIFEST_UNSUPPORTED = 6613004,
 
@@ -8191,7 +9024,8 @@ declare namespace avSession {
      * Unspecified decoding error.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_DECODING_UNSPECIFIED = 6614000,
 
@@ -8199,7 +9033,8 @@ declare namespace avSession {
      * Decoder initialization failed.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_DECODING_INIT_FAILED = 6614001,
 
@@ -8207,7 +9042,8 @@ declare namespace avSession {
      * Decoder query failed.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_DECODING_QUERY_FAILED = 6614002,
 
@@ -8215,7 +9051,8 @@ declare namespace avSession {
      * Decoding the media samples failed.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_DECODING_FAILED = 6614003,
 
@@ -8223,7 +9060,8 @@ declare namespace avSession {
      * The format of the content to decode exceeds the capabilities of the device.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_DECODING_FORMAT_EXCEEDS_CAPABILITIES = 6614004,
 
@@ -8231,7 +9069,8 @@ declare namespace avSession {
      * The format of the content to decode is not supported.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_DECODING_FORMAT_UNSUPPORTED = 6614005,
 
@@ -8239,7 +9078,8 @@ declare namespace avSession {
      * Unspecified errors related to the audio renderer.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_AUDIO_RENDERER_UNSPECIFIED = 6615000,
 
@@ -8247,7 +9087,8 @@ declare namespace avSession {
      * Initializing the audio renderer failed.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_AUDIO_RENDERER_INIT_FAILED = 6615001,
 
@@ -8255,7 +9096,8 @@ declare namespace avSession {
      * The audio renderer fails to write data.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_AUDIO_RENDERER_WRITE_FAILED = 6615002,
 
@@ -8263,7 +9105,8 @@ declare namespace avSession {
      * Unspecified error related to DRM.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_DRM_UNSPECIFIED = 6616000,
 
@@ -8271,7 +9114,8 @@ declare namespace avSession {
      * The chosen DRM protection scheme is not supported by the device.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_DRM_SCHEME_UNSUPPORTED = 6616001,
 
@@ -8279,7 +9123,8 @@ declare namespace avSession {
      * Device provisioning failed.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_DRM_PROVISIONING_FAILED = 6616002,
 
@@ -8287,7 +9132,8 @@ declare namespace avSession {
      * The DRM-protected content to play is incompatible.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_DRM_CONTENT_ERROR = 6616003,
 
@@ -8295,7 +9141,8 @@ declare namespace avSession {
      * Failed to obtain a license.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_DRM_LICENSE_ACQUISITION_FAILED = 6616004,
 
@@ -8303,7 +9150,8 @@ declare namespace avSession {
      * The operation is disallowed by the license policy.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_DRM_DISALLOWED_OPERATION = 6616005,
 
@@ -8311,7 +9159,8 @@ declare namespace avSession {
      * An error occurs in the DRM system.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_DRM_SYSTEM_ERROR = 6616006,
 
@@ -8319,7 +9168,8 @@ declare namespace avSession {
      * The device has revoked DRM privileges.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_DRM_DEVICE_REVOKED = 6616007,
 
@@ -8327,7 +9177,8 @@ declare namespace avSession {
      * The DRM license being loaded into the open DRM session has expired.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_DRM_LICENSE_EXPIRED = 6616008,
 
@@ -8335,7 +9186,8 @@ declare namespace avSession {
      * An error occurs when the DRM processes the key response.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERR_CODE_CAST_CONTROL_DRM_PROVIDE_KEY_RESPONSE_ERROR = 6616100,
   }

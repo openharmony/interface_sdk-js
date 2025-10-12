@@ -182,6 +182,15 @@ declare namespace workScheduler {
      * @since 9
      */
     parameters?: Record<string, number | string | boolean>;
+    /**
+     * From now on, the earliest time work can be triggered.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
+     * @since 22
+     */
+    earliestStartTime?: number;
   }
 
   /**
@@ -270,6 +279,7 @@ declare namespace workScheduler {
    * @StageModelOnly
    * @since 9
    * @deprecated since 10
+   * @useinstead ohos.resourceschedule.workScheduler#obtainAllWorks
    */
   function obtainAllWorks(callback: AsyncCallback<void>): Array<WorkInfo>;
 
@@ -336,6 +346,7 @@ declare namespace workScheduler {
    * @StageModelOnly
    * @since 9
    * @deprecated since 10
+   * @useinstead ohos.resourceschedule.workScheduler#isLastWorkTimeOut
    */
   function isLastWorkTimeOut(workId: number, callback: AsyncCallback<void>): boolean;
 

@@ -18,8 +18,10 @@
  * @kit AbilityKit
  */
 
+/*** if arkts dynamic */
 import type { AutoStartupCallback } from './application/AutoStartupCallback';
 import type { AutoStartupInfo } from './application/AutoStartupInfo';
+/*** endif */
 import type { AsyncCallback } from './@ohos.base';
 
 /**

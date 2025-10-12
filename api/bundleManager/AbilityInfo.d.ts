@@ -189,7 +189,7 @@ export interface AbilityInfo {
   /**
    * Indicates the label id of the ability
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -197,7 +197,7 @@ export interface AbilityInfo {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly labelId: number;
+  readonly labelId: long;
 
   /**
    * Indicates the ability
@@ -249,7 +249,7 @@ export interface AbilityInfo {
   /**
    * Indicates the description id of the ability
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -257,7 +257,7 @@ export interface AbilityInfo {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly descriptionId: number;
+  readonly descriptionId: long;
 
   /**
    * Indicates the icon of the ability
@@ -309,7 +309,7 @@ export interface AbilityInfo {
   /**
    * Indicates the icon id of the ability
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -317,7 +317,7 @@ export interface AbilityInfo {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly iconId: number;
+  readonly iconId: long;
 
   /**
    * Process of ability, if user do not set it, the value equal application process
@@ -568,10 +568,21 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   readonly applicationInfo: ApplicationInfo;
+
+  /**
+   * Obtains configuration information about an application
+   *
+   * @type { ApplicationInfo | null }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  readonly applicationInfo: ApplicationInfo | null;
 
   /**
    * Indicates the metadata of ability
@@ -720,25 +731,25 @@ export interface AbilityInfo {
   /**
    * Indicates the appIndex of application, only work in clone app mode
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly appIndex: number;
+  readonly appIndex: int;
 
   /**
    * Indicates the orientation id of the ability
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly orientationId: number;
+  readonly orientationId: long;
 }
 
 /**
@@ -787,7 +798,7 @@ export interface WindowSize {
   /**
    * Indicates maximum ratio of width over height of window under free window status.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -795,7 +806,7 @@ export interface WindowSize {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly maxWindowRatio: number;
+  readonly maxWindowRatio: double;
 
   /**
    * Indicates minimum ratio of width over height of window under free window status.
@@ -817,7 +828,7 @@ export interface WindowSize {
   /**
    * Indicates minimum ratio of width over height of window under free window status.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -825,7 +836,7 @@ export interface WindowSize {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly minWindowRatio: number;
+  readonly minWindowRatio: double;
 
   /**
    * Indicates maximum width of window under free window status.
@@ -847,7 +858,7 @@ export interface WindowSize {
   /**
    * Indicates maximum width of window under free window status.
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -855,7 +866,7 @@ export interface WindowSize {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly maxWindowWidth: number;
+  readonly maxWindowWidth: long;
 
   /**
    * Indicates minimum width of window under free window status.
@@ -877,7 +888,7 @@ export interface WindowSize {
   /**
    * Indicates minimum width of window under free window status.
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -885,7 +896,7 @@ export interface WindowSize {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly minWindowWidth: number;
+  readonly minWindowWidth: long;
 
   /**
    * Indicates maximum height of window under free window status.
@@ -907,7 +918,7 @@ export interface WindowSize {
   /**
    * Indicates maximum height of window under free window status.
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -915,7 +926,7 @@ export interface WindowSize {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly maxWindowHeight: number;
+  readonly maxWindowHeight: long;
 
   /**
    * Indicates minimum height of window under free window status.
@@ -937,7 +948,7 @@ export interface WindowSize {
   /**
    * Indicates minimum height of window under free window status.
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -945,5 +956,5 @@ export interface WindowSize {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly minWindowHeight: number;
+  readonly minWindowHeight: long;
 }

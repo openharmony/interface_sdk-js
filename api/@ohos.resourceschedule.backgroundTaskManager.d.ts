@@ -40,6 +40,71 @@ import type notificationManager from './@ohos.notificationManager';
  */
 declare namespace backgroundTaskManager {
   /**
+   * The request object of continuous task.
+   *
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 21
+   */
+  export class ContinuousTaskRequest {
+    /**
+     * Modes of continuous task.
+     *
+     * @type { BackgroundTaskMode[] }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    backgroundTaskModes: BackgroundTaskMode[];
+
+    /**
+     * Submodes of continuous task.
+     *
+     * @type { BackgroundTaskSubmode[] }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    backgroundTaskSubmodes: BackgroundTaskSubmode[];
+
+    /**
+     * Indicates which ability to start when user click the notification bar.
+     *
+     * @type { WantAgent }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    wantAgent: WantAgent;
+
+    /**
+     * Indicates whether to merge notifications, default is not to merge.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    combinedTaskNotification?: boolean = false;
+
+    /**
+     * The continuous task id, default -1.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    continuousTaskId?: number = -1;
+
+    /**
+     * Whether the modes of continuous task are supported.
+     *
+     * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+     * @returns { boolean } Whether the modes of continuous task are supported.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 9800005 - Continuous task verification failed.
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    isModeSupported(): boolean;
+  }
+
+  /**
    * The info of delay suspend.
    *
    * @interface DelaySuspendInfo
@@ -608,6 +673,26 @@ declare namespace backgroundTaskManager {
   function startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent): Promise<ContinuousTaskNotification>;
 
   /**
+   * UIAbility uses this method to request start running in background,
+   *     a UIAbility can request multi continuous task at a time.
+   *     System will publish a notification related to the UIAbility.
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { Context } context - App running context.
+   * @param { ContinuousTaskRequest } request - The continuous task request.
+   * @returns { Promise<ContinuousTaskNotification> } The continuous task notification.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 9800001 - Memory operation failed.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
+   * @throws { BusinessError } 9800007 - Continuous task storage failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 21
+   */
+  function startBackgroundRunning(context: Context, request: ContinuousTaskRequest): Promise<ContinuousTaskNotification>;
+
+  /**
    * UIAbility uses this method to update background mode.
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
@@ -630,6 +715,24 @@ declare namespace backgroundTaskManager {
    * @since 12
    */
   function updateBackgroundRunning(context: Context, bgModes: string[]): Promise<ContinuousTaskNotification>;
+
+  /**
+   * UIAbility uses this method to update background mode, support update acording to continuous task id.
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { Context } context - App running context.
+   * @param { ContinuousTaskRequest } request - Indicates which background mode to request.
+   * @returns { Promise<ContinuousTaskNotification> } The continuous task notification.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 9800001 - Memory operation failed.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
+   * @throws { BusinessError } 9800007 - Continuous task storage failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 21
+   */
+  function updateBackgroundRunning(context: Context, request: ContinuousTaskRequest): Promise<ContinuousTaskNotification>;
 
   /**
    * Service ability uses this method to request stop running in background.
@@ -740,6 +843,22 @@ declare namespace backgroundTaskManager {
    * @since 19
    */
   function stopBackgroundRunning(context: Context): Promise<void>;
+
+  /**
+   * UI ability uses this method to request stop running in background acording to continuous task id.
+   *
+   * @param { Context } context - App running context.
+   * @param { number } continuousTaskId - continuousTaskId.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 9800001 - Memory operation failed.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
+   * @throws { BusinessError } 9800007 - Continuous task storage failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 21
+   */
+  function stopBackgroundRunning(context: Context, continuousTaskId: number): Promise<void>;
 
   /**
    * Obtains all the continuous tasks before an application enters the suspended state,
@@ -1011,6 +1130,122 @@ declare namespace backgroundTaskManager {
      * @since 9
      */
     TASK_KEEPING = 9,
+  }
+
+  /**
+   * Supported Continuous task mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 21
+   */
+  export enum BackgroundTaskMode {
+    /**
+     * data transfer mode
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    MODE_DATA_TRANSFER = 1,
+
+    /**
+     * audio playback mode
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    MODE_AUDIO_PLAYBACK = 2,
+
+    /**
+     * audio recording mode
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    MODE_AUDIO_RECORDING = 3,
+
+    /**
+     * share location mode
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    MODE_LOCATION = 4,
+
+    /**
+     * bluetooth interaction mode
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    MODE_BLUETOOTH_INTERACTION = 5,
+
+    /**
+     * multi-device connection mode
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    MODE_MULTI_DEVICE_CONNECTION = 6,
+
+    /**
+     * allow wifi aware mode
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi Hide this for inner system use.
+     * @since 21
+     */
+    MODE_ALLOW_WIFI_AWARE = 7,
+
+    /**
+     * Voice over Internet Phone mode
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    MODE_VOIP = 8,
+
+    /**
+     * background continuous calculate mode, for example 3D render.
+     * only supported in particular device
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    MODE_TASK_KEEPING = 9,
+  }
+
+  /**
+   * Supported Continuous task submode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 21
+   */
+  export enum BackgroundTaskSubmode {
+    /**
+     * submode of 'MODE_BLUETOOTH_INTERACTION'.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    SUBMODE_CAR_KEY_NORMAL_NOTIFICATION = 1,
+
+    /**
+     * normal notification submode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    SUBMODE_NORMAL_NOTIFICATION = 2,
+
+    /**
+     * obvious notification submode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    SUBMODE_LIVE_VIEW_NOTIFICATION = 3,
   }
 
   /**
@@ -1382,6 +1617,14 @@ declare namespace backgroundTaskManager {
      * @since 20
      */
     SYSTEM_SUSPEND_SYSTEM_LOAD_WARNING = 12,
+
+    /**
+     * Not use voip when request voip mode.
+     * 
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    SYSTEM_SUSPEND_VOIP_NOT_USED = 13
   }
 }
 

@@ -73,14 +73,14 @@ export interface CommonEventPublishData {
   /**
    * Common event data transferred by the publisher. The default value is 0.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  code?: number;
+  code?: int;
 
   /**
    * Common event data transferred by the publisher. The data size cannot exceed 64 KB.

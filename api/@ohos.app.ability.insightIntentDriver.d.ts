@@ -120,14 +120,14 @@ declare namespace insightIntentDriver {
     /**
      * Indicates the display Id, only works when executeMode is UIAbility foreground.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    displayId?: number;
+    displayId?: long;
 
     /**
      * Indicates the URIs will be authorized to the insight intent executor.
@@ -148,14 +148,14 @@ declare namespace insightIntentDriver {
      * {@link wantConstant#Flags#FLAG_AUTH_READ_URI_PERMISSION}|
      * {@link wantConstant#Flags#FLAG_AUTH_WRITE_URI_PERMISSION}.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    flags?: number;
+    flags?: int;
   }
 
   /**

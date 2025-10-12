@@ -32,7 +32,7 @@ declare namespace cloudSync {
   /**
    * Describes the Sync state type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
@@ -91,7 +91,7 @@ declare namespace cloudSync {
   /**
    * Describes the Sync Error type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
@@ -338,7 +338,7 @@ declare namespace cloudSync {
   /**
    * Describes the State type of download.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since arkts{ '1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
@@ -381,7 +381,7 @@ declare namespace cloudSync {
   /**
    * Describes the download Error type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since arkts{ '1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
@@ -458,21 +458,21 @@ declare namespace cloudSync {
     /**
      * The processed data size for current file.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since arkts{ '1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    processed: number;
+    processed: long;
     /**
      * The size of current file.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since arkts{ '1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    size: number;
+    size: long;
     /**
      * The uri of current file.
      *
@@ -495,7 +495,7 @@ declare namespace cloudSync {
 
   /**
    * Describes the download file type.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 20
    * @arkts 1.1&1.2
@@ -567,52 +567,52 @@ declare namespace cloudSync {
     state: State;
     /**
      * The download ID of the batch files.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
      * @arkts 1.1&1.2
      */
-    taskId: number;
+    taskId: long;
     /**
      * The number of files that downloaded successfully
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
      * @arkts 1.1&1.2
      */
-    successfulCount: number;
+    successfulCount: int;
     /**
      * The number of files that fail to be downloaded.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
      * @arkts 1.1&1.2
      */
-    failedCount: number;
+    failedCount: int;
     /**
      * Total number of the batch files.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
      * @arkts 1.1&1.2
      */
-    totalCount: number;
+    totalCount: int;
     /**
      * Total size of downloaded files.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
      * @arkts 1.1&1.2
      */
-    downloadedSize: number;
+    downloadedSize: long;
     /**
      * Total size of the batch files.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
      * @arkts 1.1&1.2
      */
-    totalSize: number;
+    totalSize: long;
     /**
      * The error type of download.
      * @type { DownloadErrorType }
@@ -892,18 +892,18 @@ declare namespace cloudSync {
     /**
      * Get the last synchronization time.
      *
-     * @returns { Promise<number> } - Return the date of last synchronization.
+     * @returns { Promise<long> } - Return the date of last synchronization.
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getLastSyncTime(): Promise<number>;
+    getLastSyncTime(): Promise<long>;
     /**
      * Get the last synchronization time.
      *
-     * @param { AsyncCallback<number> } callback - Callback function.
+     * @param { AsyncCallback<long> } callback - Callback function.
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
@@ -911,7 +911,7 @@ declare namespace cloudSync {
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getLastSyncTime(callback: AsyncCallback<number>): void;
+    getLastSyncTime(callback: AsyncCallback<long>): void;
   }
   /**
    * CloudFileCache object.
@@ -1023,7 +1023,7 @@ declare namespace cloudSync {
      *
      * @param { Array<string> } uris - The list of uri of file.
      * @param { DownloadFileType } [fileType] - download file type.
-     * @returns { Promise<number> } - Return the downloadId in Promise mode.
+     * @returns { Promise<long> } - Return the downloadId in Promise mode.
      * @throws { BusinessError } 13600001 - IPC error. Possible causes:
      *     <br>1.IPC failed or timed out. 2.Failed to load the service.
      * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
@@ -1037,7 +1037,7 @@ declare namespace cloudSync {
      * @since 20
      * @arkts 1.1&1.2
      */
-    startBatch(uris: Array<string>, fileType?: DownloadFileType): Promise<number>;
+    startBatch(uris: Array<string>, fileType?: DownloadFileType): Promise<long>;
     /**
      * Stop the cloud file cache download task.
      *
@@ -1085,7 +1085,7 @@ declare namespace cloudSync {
     /**
      * Batch stop the cloud file caches download task.
      *
-     * @param { number } downloadId - The download ID of a batch of file cache.
+     * @param { long } downloadId - The download ID of a batch of file cache.
      * @param { boolean } [needClean] - whether to delete the file that already downloaded.
      * @returns { Promise<void> } - Return Promise.
      * @throws { BusinessError } 13600001 - IPC error. Possible causes:
@@ -1099,7 +1099,7 @@ declare namespace cloudSync {
      * @since 20
      * @arkts 1.1&1.2
      */
-    stopBatch(downloadId: number, needClean?: boolean): Promise<void>;
+    stopBatch(downloadId: long, needClean?: boolean): Promise<void>;
     /**
      * Clean the local file cache.
      *
@@ -1135,58 +1135,66 @@ declare namespace cloudSync {
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
      cleanFileCache(uri: string): void;
   }
 
   /**
    * Describes the external sync state of file.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
    enum FileState {
     /**
      * Indicates the initial state after a file is downloaded from the cloud to the local host.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     INITIAL_AFTER_DOWNLOAD = 0,
     /**
      * Indicates that the file is uploading now.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     UPLOADING = 1,
     /**
      * Indicates that the file sync task stopped.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     STOPPED = 2,
     /**
      * Indicates that the file is waiting for upload.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     TO_BE_UPLOADED = 3,
     /**
      * Indicates that the file has been already uploaded successfully.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     UPLOAD_SUCCESS = 4,
     /**
      * Indicates that the file upload failure
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     UPLOAD_FAILURE = 5
   }
   /**
    * Describes the sync state of file.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since arkts{ '1.1':'11','1.2':'20'}
@@ -1297,6 +1305,7 @@ declare namespace cloudSync {
    *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
    function getCoreFileSyncState(uri: string): FileState;
   /**
@@ -1375,7 +1384,7 @@ declare namespace cloudSync {
   /**
    * Enumeration types of data change.
    *
-   * @enum { number } NotifyType
+   * @enum { int } NotifyType
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
@@ -1507,7 +1516,7 @@ declare namespace cloudSync {
 
   /**
    * Describes the state type of optimize space task.
-   * @enum { number } OptimizeState
+   * @enum { int } OptimizeState
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since arkts{ '1.1':'17','1.2':'20'}
@@ -1576,13 +1585,13 @@ declare namespace cloudSync {
     /**
      * The percentage of clearing files.
      * @permission ohos.permission.CLOUDFILE_SYNC
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since arkts{ '1.1':'17','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    progress: number;
+    progress: int;
   }
 
   /**
@@ -1598,24 +1607,24 @@ declare namespace cloudSync {
     /**
      * The total size(Unit:byte) of clean space.
      * @permission ohos.permission.CLOUDFILE_SYNC
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since arkts{ '1.1':'17','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    totalSize: number;
+    totalSize: long;
 
     /**
      * Clean files that are not accessed agingDays(unit:day) ago.
      * @permission ohos.permission.CLOUDFILE_SYNC
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since arkts{ '1.1':'17','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    agingDays: number;
+    agingDays: int;
   }
 
   /**
@@ -1628,20 +1637,20 @@ declare namespace cloudSync {
   interface HistoryVersion {
     /**
      * The time when the content of this version file is edited.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
      * @arkts 1.1&1.2
      */
-    editedTime: number;
+    editedTime: long;
     /**
      * The size of this history version file.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
      * @arkts 1.1&1.2
      */
-    fileSize: number;
+    fileSize: long;
     /**
      * The version ID of this version.
      * @type { string }
@@ -1694,12 +1703,12 @@ declare namespace cloudSync {
     state: State;
     /**
      * The percentage of downloaded files.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
      * @arkts 1.1&1.2
      */
-    progress: number;
+    progress: int;
     /**
      * The error type of download.
      * @type { DownloadErrorType }
@@ -1732,7 +1741,7 @@ declare namespace cloudSync {
      * Get the specified number of most recent historical versions of the file specified by the URI.
      *
      * @param { string } uri - uri of file.
-     * @param { number } versionNumLimit - Maximum number of historical versions you want to obtained.
+     * @param { int } versionNumLimit - Maximum number of historical versions you want to obtained.
      * @returns { Promise<Array<HistoryVersion>> } - Return the most recent history version list of the specified file.
      * @throws { BusinessError } 13600001 - IPC error. Possible causes:
      *     <br>1.IPC failed or timed out. 2.Failed to load the service.
@@ -1750,7 +1759,7 @@ declare namespace cloudSync {
      * @since 20
      * @arkts 1.1&1.2
      */
-    getHistoryVersionList(uri: string, versionNumLimit: number): Promise<Array<HistoryVersion>>;
+    getHistoryVersionList(uri: string, versionNumLimit: int): Promise<Array<HistoryVersion>>;
     /**
      * Download the content of the specified history version to the specified temporary directory.
      *

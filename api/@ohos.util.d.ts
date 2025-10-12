@@ -4945,5 +4945,49 @@ declare namespace util {
      */
     end(chunk?: string | Uint8Array): string;
   }
+  /**
+   * Provides an interface that can be implemented for releasing a resource
+   * which is managed by developers through a developer-defined callback.
+   *
+   * @interface AutoFinalizer
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  interface AutoFinalizer<T> {
+    /**
+     * The developer-defined callback used to release resources.
+     *
+     * @param { T } heldValue - The value to pass to the finalizer.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    onFinalization(heldValue: T): void;
+  }
+  /**
+   * A cleaner for releasing resources managed by developers through a developer-defined callback.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  class AutoFinalizerCleaner<T> {
+    /**
+     * Register objects that release resources managed by developers.
+     *
+     * @param { AutoFinalizer<T> } obj - The object is registered to the cleaner.
+     * @param { T } heldValue - The value to pass to the finalizer.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    static register<T>(obj: AutoFinalizer<T>, heldValue: T): void;
+  }
 }
 export default util;

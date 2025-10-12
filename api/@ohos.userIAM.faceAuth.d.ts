@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit UserAuthenticationKit
- * @arkts 1.1&1.2
  */
 
 /**
@@ -24,8 +23,8 @@
  *
  * @namespace faceAuth
  * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
- * @since arkts {'1.1':'9','1.2':'22'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 22 static
  */
 declare namespace faceAuth {
   /**
@@ -33,8 +32,8 @@ declare namespace faceAuth {
    *
    * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   class FaceAuthManager {
     /**
@@ -42,8 +41,8 @@ declare namespace faceAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     constructor();
 
@@ -57,8 +56,8 @@ declare namespace faceAuth {
      * @throws { BusinessError } 12700001 - The service is unavailable.
      * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     setSurfaceId(surfaceId: string): void;
   }

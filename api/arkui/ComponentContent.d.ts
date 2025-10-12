@@ -18,19 +18,10 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.1 */
 import { BuildOptions } from './BuilderNode';
 import { Content } from './Content';
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { WrappedBuilder } from 'wrappedBuilderObject';
-/*** endif */
-
-/*** if arkts 1.2 */
-import { BuildOptions } from './BuilderNode';
-import { Content } from './Content';
-import { UIContext } from '../@ohos.arkui.UIContext';
-import { WrappedBuilder, CustomBuilder, CustomBuilderT } from './component/builder';
-/*** endif */
 
 /**
  * Defines ComponentContent.
@@ -135,9 +126,11 @@ export class ComponentContent<T extends Object> extends Content {
   updateConfiguration(): void;
 
   /**
-   * Set if the ComponentContent inherits the freezing policy of the parent CustomComponent, ComponentContent, or BuilderNode.
+   * Set if the ComponentContent inherits the freezing policy of the parent CustomComponent, ComponentContent,
+   * or BuilderNode.
    *
-   * @param { boolean } enabled - If the ComponentContent inherits the freezing policy of the parent CustomComponent, ComponentContent, or BuilderNode.
+   * @param { boolean } enabled - If the ComponentContent inherits the freezing policy of the parent CustomComponent,
+   * ComponentContent, or BuilderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -158,112 +151,91 @@ export class ComponentContent<T extends Object> extends Content {
 }
 
 /**
- * Defines ComponentContent.
+ * Defines ReactiveComponentContent.
  *
  * @extends Content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 22
  */
-export declare class ComponentContent<T = undefined> extends Content {
-  /**
-   * Constructor.
-   *
-   * @param { UIContext } uiContext - uiContext used to create the ComponentContent
-   * @param { WrappedBuilder<CustomBuilder> } builder - Defined the builder will be called to build ComponentContent.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  constructor(uiContext: UIContext, builder: WrappedBuilder<CustomBuilder>);
-
-  /**
-   * Constructor.
-   *
-   * @param { UIContext } uiContext - uiContext used to create the ComponentContent
-   * @param { WrappedBuilder<CustomBuilderT<T>> } builder - Defined the builder will be called to build ComponentContent.
-   * @param { T } args - Parameters used to update the ComponentContent.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  constructor(uiContext: UIContext, builder: WrappedBuilder<CustomBuilderT<T>>, args: T);
-
-  /**
-   * Constructor.
-   *
-   * @param { UIContext } uiContext - uiContext used to create the ComponentContent
-   * @param { WrappedBuilder<CustomBuilderT<T>> } builder - Defined the builder will be called to build ComponentContent.
-   * @param { T } args - Parameters used to update the ComponentContent.
-   * @param { BuildOptions } options - Defined the options will be used when build.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  constructor(uiContext: UIContext, builder: WrappedBuilder<CustomBuilderT<T>>, args: T, options: BuildOptions);
-
-  /**
-   * Update the ComponentContent based on the provided parameters.
-   *
-   * @param { T } args - Parameters used to update the ComponentContent, which must match the types required by the builder bound to the ComponentContent.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  update(args: T): void;
-
-  /**
-   * Reuse the ComponentContent based on the provided parameters.
-   *
-   * @param { Record<string, NullishType> } [param] - Parameters for reusing ComponentContent.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  reuse(param?: Record<string, NullishType>): void;
-
-  /**
-   * Recycle the ComponentContent.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  recycle(): void;
-
-  /**
-   * Dispose the ComponentContent immediately.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  dispose(): void;
-
-  /**
-   * Notify ComponentContent to update the configuration to trigger a reload of the ComponentContent.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  updateConfiguration(): void;
+export class ReactiveComponentContent<T extends Object[]> extends Content {
+   /**
+    * Constructor.
+    *
+    * @param { UIContext } uiContext - uiContext used to create the ReactiveComponentContent
+    * @param { WrappedBuilder<T> } builder - Defined the builder will be called to build ReactiveComponentContent.
+    * @param { BuildOptions } config - Defined the options will be used when build.
+    * @param { T } args - Parameters used to update the ComponentContentEx.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 22
+    */
+     constructor(uiContext: UIContext, builder: WrappedBuilder<T>, config: BuildOptions, ...args: T);
+   /**
+    * Reuse the ReactiveComponentContent based on the provided parameters.
+    *
+    * @param { Object } [param] - Parameters for reusing ReactiveComponentContent.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 22
+    */
+   reuse(param?: Object): void;
+  
+   /**
+    * Recycle the ReactiveComponentContent.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 22
+    */
+   recycle(): void;
+  
+   /**
+    * Dispose the ReactiveComponentContent immediately.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 22
+    */
+   dispose(): void;
+  
+   /**
+    * Notify ReactiveComponentContent to update the configuration to trigger a reload of the ReactiveComponentContent.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 22
+    */
+   updateConfiguration(): void;
+  
+   /**
+    * Set if the ReactiveComponentContent inherits the freezing policy of the parent CustomComponent, ComponentContent,
+    * ReactiveComponentContent, BuilderNode, or ReactiveBuilderNode.
+    *
+    * @param { boolean } enabled - If the ReactiveComponentContent inherits the freezing policy of the parent
+    *     CustomComponent, ComponentContent, ComponentContent, ReactiveComponentContent, BuilderNode, or
+    *     ReactiveBuilderNode.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 22
+    */
+   inheritFreezeOptions(enabled: boolean): void;
+  
+   /**
+    * Get if the ReactiveComponentContent is disposed.
+    *
+    * @returns { boolean } - Returns true if the ReactiveComponentContent is disposed, false otherwise.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 22
+    */
+   isDisposed(): boolean;
 }

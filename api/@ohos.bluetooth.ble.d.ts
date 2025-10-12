@@ -1089,6 +1089,40 @@ declare namespace ble {
     removeService(serviceUuid: string): void;
 
     /**
+     * Obtain a specific GATT service by using a UUID.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } serviceUuid - Indicates the UUID of the service.
+     * @returns { GattService } The GATT service has been obtained.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2901008 - Gatt service is not found.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    getService(serviceUuid: string): GattService;
+
+    /**
+     * Obtain the list of GATT services registered by the application.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @returns { GattService[] } The list of GATT service has been obtained.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    getServices(): GattService[];
+
+    /**
      * Closes this {@code GattServer} object and unregisters its callbacks.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -1301,6 +1335,23 @@ declare namespace ble {
      * @since 13
      */
     sendResponse(serverResponse: ServerResponse): void;
+
+    /**
+     * Get the connection state of a specific device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @returns { ProfileConnectionState } Connection state.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    getConnectedState(deviceId: string): ProfileConnectionState;
 
     /**
      * Subscribe characteristic read event.
@@ -2898,7 +2949,7 @@ declare namespace ble {
      * Set the mtu size of a BLE peripheral device.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { number } mtu - The maximum transmission unit.
+     * @param { int } mtu - The maximum transmission unit.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -2911,7 +2962,7 @@ declare namespace ble {
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    setBLEMtuSize(mtu: number): void;
+    setBLEMtuSize(mtu: int): void;
 
     /**
      * Enables or disables notification of a characteristic when value changed.
@@ -3150,6 +3201,40 @@ declare namespace ble {
     setCharacteristicChangeIndication(characteristic: BLECharacteristic, enable: boolean): Promise<void>;
 
     /**
+     * Get the connection status of a specific device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @returns { ProfileConnectionState } Connection state.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    getConnectedState(): ProfileConnectionState;
+
+    /**
+     * Update the connection parameters of the current GATT link to save power or improve transmission performance.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { ConnectionParam } param - GATT connection parameters.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2901003 - The connection is not established.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    updateConnectionParam(param: ConnectionParam): Promise<void>;
+
+    /**
      * Subscribe characteristic value changed event.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -3382,6 +3467,35 @@ declare namespace ble {
      * @since 13
      */
     off(type: 'BLEMtuChange', callback?: Callback<number>): void;
+
+    /**
+     * Subscribe to GATT service changed event. Receiving this event indicates that
+     * the peer GATT database has been refreshed, and it is necessary to re-fetch the GATT service list.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'serviceChange' } type - Type of the service changed event to listen for.
+     * @param { Callback<void> } callback - Callback used to listen for the service changed event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    on(type: 'serviceChange', callback: Callback<void>): void;
+
+    /**
+     * Unsubscribe to GATT service changed event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'serviceChange' } type - Type of the service changed event to listen for.
+     * @param { Callback<void> } [callback] - Callback used to listen for the service changed event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    off(type: 'serviceChange', callback?: Callback<void>): void;
   }
 
   /**
@@ -4124,14 +4238,14 @@ declare namespace ble {
     /**
      * The Id of the read request
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    transId: number;
+    transId: int;
     /**
      * Indicates the byte offset of the start position for reading characteristic value
      *
@@ -4142,13 +4256,13 @@ declare namespace ble {
     /**
      * Indicates the byte offset of the start position for reading characteristic value
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    offset: number;
+    offset: int;
     /**
      * The UUID of a CharacteristicReadRequest instance
      *
@@ -4273,14 +4387,14 @@ declare namespace ble {
     /**
      * The Id of the write request
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    transId: number;
+    transId: int;
     /**
      * Indicates the byte offset of the start position for writing characteristic value
      *
@@ -4291,13 +4405,13 @@ declare namespace ble {
     /**
      * Indicates the byte offset of the start position for writing characteristic value
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    offset: number;
+    offset: int;
     /**
      * Whether this request should be pending for later operation
      *
@@ -4480,14 +4594,14 @@ declare namespace ble {
     /**
      * The Id of the read request
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    transId: number;
+    transId: int;
     /**
      * Indicates the byte offset of the start position for reading characteristic value
      *
@@ -4498,13 +4612,13 @@ declare namespace ble {
     /**
      * Indicates the byte offset of the start position for reading characteristic value
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    offset: number;
+    offset: int;
     /**
      * The UUID of a DescriptorReadRequest instance
      *
@@ -4655,14 +4769,14 @@ declare namespace ble {
     /**
      * The Id of the write request
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    transId: number;
+    transId: int;
     /**
      * Indicates the byte offset of the start position for writing characteristic value
      *
@@ -4673,13 +4787,13 @@ declare namespace ble {
     /**
      * Indicates the byte offset of the start position for writing characteristic value
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    offset: number;
+    offset: int;
     /**
      * Whether this request should be pending for later operation
      *
@@ -4888,14 +5002,14 @@ declare namespace ble {
     /**
      * The Id of the write request
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    transId: number;
+    transId: int;
     /**
      * Indicates the status of the read or write request, set this parameter to '0' in normal cases
      *
@@ -4914,14 +5028,14 @@ declare namespace ble {
     /**
      * Indicates the status of the read or write request, set this parameter to '0' in normal cases
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    status: number;
+    status: int;
     /**
      * Indicates the byte offset of the start position for reading or writing operation
      *
@@ -4932,13 +5046,13 @@ declare namespace ble {
     /**
      * Indicates the byte offset of the start position for reading or writing operation
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    offset: number;
+    offset: int;
     /**
      * Indicates the value to be sent
      *
@@ -5215,7 +5329,7 @@ declare namespace ble {
 
   /**
    * Describes the contents of the scan report.
-   * 
+   *
    * @typedef ScanReport
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
@@ -5286,13 +5400,13 @@ declare namespace ble {
      * Maximum slot value for the advertising interval, which is {@code 16777215} (10485.759375s)
      * Default slot value for the advertising interval, which is {@code 1600} (1s)
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    interval?: number;
+    interval?: int;
     /**
      * Minimum transmission power level for advertising, which is {@code -127}
      * Maximum transmission power level for advertising, which is {@code 1}
@@ -5307,13 +5421,13 @@ declare namespace ble {
      * Maximum transmission power level for advertising, which is {@code 1}
      * Default transmission power level for advertising, which is {@code -7}
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    txPower?: number;
+    txPower?: int;
     /**
      * Indicates whether the BLE is connectable, default is {@code true}
      *
@@ -5556,12 +5670,12 @@ declare namespace ble {
      * The duration, in 10ms unit. Valid range is from 1 (10ms) to 65535 (655,350 ms).
      * If this parameter is not specified or is set to 0, advertisement is continuously sent.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    duration?: number;
+    duration?: int;
   }
 
   /**
@@ -5585,12 +5699,12 @@ declare namespace ble {
      * The duration, in 10ms unit. Valid range is from 1 (10ms) to 65535 (655,350 ms).
      * If this parameter is not specified or is set to 0, advertise is continuously sent.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    duration?: number;
+    duration?: int;
   }
 
   /**
@@ -6181,14 +6295,14 @@ declare namespace ble {
     /**
      * Time of delay for reporting the scan result
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    interval?: number;
+    interval?: int;
     /**
      * Bluetooth LE scan mode
      *
@@ -6459,7 +6573,7 @@ declare namespace ble {
   /**
    * The enum of gatt characteristic write type
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
@@ -6533,7 +6647,7 @@ declare namespace ble {
   /**
    * The enum of scan duty.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
@@ -6620,7 +6734,7 @@ declare namespace ble {
   /**
    * The enum of BLE match mode.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
@@ -6778,7 +6892,7 @@ declare namespace ble {
 
   /**
    * Report mode used during scan.
-   * 
+   *
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
@@ -6899,6 +7013,41 @@ declare namespace ble {
   }
 
   /**
+   * GATT connection parameters.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 22 dynamic
+   */
+  enum ConnectionParam {
+    /**
+     * low power mode.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    LOW_POWER = 1,
+    /**
+     * balanced power mode.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    BALANCED = 2,
+    /**
+     * Use the highest connection parameters.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    HIGH = 3
+  }
+
+  /**
    * The enum of gatt disconnection reasons.
    *
    * @enum { number }
@@ -6949,7 +7098,7 @@ declare namespace ble {
      */
     CONN_UNKNOWN = 4
   }
-  
+
   /**
    * Describes the permission of a att attribute item.
    *

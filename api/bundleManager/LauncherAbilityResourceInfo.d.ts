@@ -18,9 +18,7 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import { DrawableDescriptor } from './../@ohos.arkui.drawableDescriptor';
-/*** endif */
 
 /**
  * Obtains resource information about a launcher ability
@@ -104,14 +102,26 @@ export interface LauncherAbilityResourceInfo {
   readonly drawableDescriptor: DrawableDescriptor;
 
   /**
+   * Indicates the drawable descriptor of this ability icon
+   *
+   * @type { DrawableDescriptor | null }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  readonly drawableDescriptor: DrawableDescriptor | null;
+
+  /**
    * Indicates the index of the bundle
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly appIndex: number;
+  readonly appIndex: int;
 }

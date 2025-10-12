@@ -52,24 +52,24 @@ declare namespace logLibrary {
     /**
      * File modification time, expressed by the number of seconds elapsed from 1970-01-01
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    mtime: number;
+    mtime: long;
 
     /**
      * Log file size, byte
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    size: number;
+    size: long;
   }
 
   /**

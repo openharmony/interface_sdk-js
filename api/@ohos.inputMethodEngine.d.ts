@@ -19,6 +19,7 @@
  */
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent';
+import { ExtraConfig } from './@ohos.inputMethod.ExtraConfig';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import BaseContext from './application/BaseContext';
 import window from './@ohos.window';
@@ -419,6 +420,7 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<void> } callback - indicates the callback function of hide.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -430,6 +432,7 @@ declare namespace inputMethodEngine {
      * @returns { Promise<void> } the promise returned by the function
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -954,6 +957,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -968,6 +972,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -984,6 +989,7 @@ declare namespace inputMethodEngine {
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1000,6 +1006,7 @@ declare namespace inputMethodEngine {
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1015,6 +1022,7 @@ declare namespace inputMethodEngine {
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1031,6 +1039,7 @@ declare namespace inputMethodEngine {
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1047,6 +1056,7 @@ declare namespace inputMethodEngine {
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1062,6 +1072,7 @@ declare namespace inputMethodEngine {
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1078,6 +1089,7 @@ declare namespace inputMethodEngine {
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1094,6 +1106,7 @@ declare namespace inputMethodEngine {
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1109,6 +1122,7 @@ declare namespace inputMethodEngine {
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1123,6 +1137,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
      *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1139,6 +1154,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
      *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1155,6 +1171,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
      *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1171,6 +1188,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
      *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1187,6 +1205,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
      *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1203,6 +1222,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
      *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1216,6 +1236,7 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<EditorAttribute> } callback - the callback of getEditorAttribute.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1227,6 +1248,7 @@ declare namespace inputMethodEngine {
      * @returns { Promise<EditorAttribute> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1238,6 +1260,7 @@ declare namespace inputMethodEngine {
      * @returns { EditorAttribute } the attribute of editor.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1252,6 +1275,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1266,6 +1290,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1279,6 +1304,7 @@ declare namespace inputMethodEngine {
      *    1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1293,6 +1319,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1307,6 +1334,7 @@ declare namespace inputMethodEngine {
      *    1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1320,6 +1348,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1334,6 +1363,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1348,6 +1378,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1361,6 +1392,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1373,6 +1405,7 @@ declare namespace inputMethodEngine {
      *        number of text at cursor.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
      *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1387,6 +1420,7 @@ declare namespace inputMethodEngine {
      *          at cursor.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
      *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1400,6 +1434,7 @@ declare namespace inputMethodEngine {
      * @returns { number } the index number of text at cursor.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
      *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1416,6 +1451,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
      *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1432,6 +1468,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
      *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1448,6 +1485,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
@@ -1460,6 +1498,7 @@ declare namespace inputMethodEngine {
      * @returns { Promise<WindowInfo> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800012 - the input method panel does not exist.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1477,6 +1516,7 @@ declare namespace inputMethodEngine {
      *    1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
@@ -1492,6 +1532,7 @@ declare namespace inputMethodEngine {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
@@ -1504,6 +1545,7 @@ declare namespace inputMethodEngine {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
@@ -1515,6 +1557,7 @@ declare namespace inputMethodEngine {
      *
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
@@ -1531,6 +1574,7 @@ declare namespace inputMethodEngine {
      *     1. Incorrect parameter types. 2. Incorrect parameter length.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @throws { BusinessError } 12800014 - the input method is in basic mode.
      * @throws { BusinessError } 12800015 - the other side does not accept the request.
@@ -2343,6 +2387,39 @@ declare namespace inputMethodEngine {
      * @since 21
      */
     getSystemPanelCurrentInsets(displayId: number): Promise<SystemPanelInsets>;
+
+    /**
+     * Set current panel's shadow.
+     * It cannot be used for SOFT_KEYBOARD panel with FLG_FIXED.
+     *
+     * @param { double } radius - the radius of the shadow, unit is px.
+     * @param { string } color - the color of the shadow,
+     *     the value range is [#00000000, #FFFFFFFF] or [#000000, #FFFFFF].
+     * @param { double } offsetX - the offset of the shadow on the x-axis, unit is px.
+     * @param { double } offsetY - the offset of the shadow on the y-axis, unit is px.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
+     *     Possible causes: Panel's flag is FLG_FIXED.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    setShadow(radius: double, color: string, offsetX: double, offsetY: double): void;
+
+    /**
+     * Set current panel function key color and background color.
+     * It is only used for function key with raised areas of the panel.
+     *
+     * @param { string | undefined } fillColor - the color of the function key,
+     *     the value range is [#00000000, #FFFFFFFF] or [#000000, #FFFFFF].
+     * @param { string | undefined } backgroundColor - the background color of the function key,
+     *     the value range is [#00000000, #FFFFFFFF] or [#000000, #FFFFFF].
+     * @returns { Promise<void> } the promise returned by the function.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 22 dynamic&static
+     */
+    setSystemPanelButtonColor(fillColor: string | undefined, backgroundColor: string | undefined): Promise<void>;
   }
 
   /** 
@@ -2509,6 +2586,16 @@ declare namespace inputMethodEngine {
      * @since 20
      */
     readonly fluidLightMode?: FluidLightMode;
+
+    /**
+     * Extra config of edit box.
+     *
+     * @type { ?ExtraConfig }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 22
+     */
+    readonly extraConfig?: ExtraConfig;
   }
 
   /**

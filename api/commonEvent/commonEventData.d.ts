@@ -86,14 +86,14 @@ export interface CommonEventData {
    * Common event data received by the subscriber. The value of this field is the same as that of the code field in
    * CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event. The default value is 0.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  code?: number;
+  code?: int;
 
   /**
    * Common event data received by the subscriber. The value of this field is the same as that of the data field in

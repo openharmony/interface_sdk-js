@@ -27,7 +27,8 @@ import type image from './@ohos.multimedia.image';
  *
  * @namespace call
  * @syscap SystemCapability.Telephony.CallManager
- * @since 6
+ * @since arkts {'1.1':'6','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 /**
  * Provides methods related to call management.
@@ -169,7 +170,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Applications.Contacts
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Go to the dial screen and the called number is displayed.
@@ -201,7 +203,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Applications.Contacts
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Go to the dial screen and the called number is displayed.
@@ -4182,6 +4185,71 @@ declare namespace call {
   }
 
   /**
+   * Indicates the states of telCall.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Telephony.CallManager
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  export enum TelCallState {
+    /**
+     * Indicates an invalid state, which is used when the call state fails to be obtained.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    TEL_CALL_STATE_UNKNOWN = -1,
+
+    /**
+     * Indicates that there is no ongoing call.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    TEL_CALL_STATE_IDLE = 0,
+
+    /**
+     * Indicates that an incoming call is ringing or waiting.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    TEL_CALL_STATE_RINGING = 1,
+
+    /**
+     * Indicates that a least one call is in the dialing, and there is no new
+     * incoming call ringing or waiting.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    TEL_CALL_STATE_OFFHOOK = 2,
+
+    /**
+     * Indicates that call is answered
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    TEL_CALL_STATE_ANSWERED = 3,
+
+    /**
+     * Indicates that call is connected
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    TEL_CALL_STATE_CONNECTED = 4
+  }
+
+  /**
    * Indicates the options of placing a call.
    *
    * @interface DialOptions
@@ -4420,6 +4488,17 @@ declare namespace call {
      * @since 8
      */
     number: string;
+
+    /**
+     * Indicates the phone number of call forwarding.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 22
+     * @arkts 1.2
+     */
+    teleNumber: string;
 
     /**
      * Indicates the start time hours of call forwarding.

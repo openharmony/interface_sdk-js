@@ -18,13 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { IndicatorComponentController } from './indicatorcomponent';
-import { CommonMethod, Callback, ICurve, Optional } from './common';
-import { EdgeEffect, Curve, PageFlipMode } from './enums';
-import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font } from './units';
-/*** endif */
-
 /**
  * Provides methods for switching components.
  *
@@ -46,8 +39,7 @@ import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font } from './
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class SwiperController {
   /**
@@ -71,8 +63,7 @@ declare class SwiperController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   constructor();
 
@@ -102,18 +93,6 @@ declare class SwiperController {
   showNext();
 
   /**
-   * Called when the next child component is displayed.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  showNext(): void;
-
-  /**
    * Called when the previous subcomponent is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -137,18 +116,6 @@ declare class SwiperController {
    * @since 11
    */
   showPrevious();
-
-  /**
-   * Called when the previous subcomponent is displayed.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  showPrevious(): void;
 
   /**
    * Controlling Swiper to change to the specified subcomponent.
@@ -177,21 +144,6 @@ declare class SwiperController {
    * @since 15
    */
   changeIndex(index: number, animationMode?: SwiperAnimationMode | boolean);
-
-  /**
-   * Controlling Swiper to change to the specified subcomponent.
-   *
-   * @param { number } index - the index of item to be redirected.
-   * @param { SwiperAnimationMode | boolean } [animationMode] - animation mode for changeIndex,
-   * true is equivalent to SwiperAnimationMode.DEFAULT_ANIMATION, false is equivalent to SwiperAnimationMode.NO_ANIMATION
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  changeIndex(index: number, animationMode?: SwiperAnimationMode | boolean): void;
 
   /**
    * Called when need to stop the swiper animation.
@@ -233,19 +185,6 @@ declare class SwiperController {
   finishAnimation(callback?: VoidCallback);
 
   /**
-   * Called when need to stop the swiper animation.
-   *
-   * @param { ?VoidCallback } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  finishAnimation(callback?: VoidCallback): void;
-
-  /**
    * Called when need to preload specified child.
    *
    * @param { Optional<Array<number>> } indices - Indices of swiper child to be preloaded.
@@ -259,8 +198,7 @@ declare class SwiperController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   preloadItems(indices: Optional<Array<number>>): Promise<void>;
 }
@@ -280,8 +218,7 @@ declare class SwiperController {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class Indicator<T> {
   /**
@@ -303,8 +240,7 @@ declare class Indicator<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   left(value: Length): T;
 
@@ -327,8 +263,7 @@ declare class Indicator<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   top(value: Length): T;
 
@@ -352,8 +287,7 @@ declare class Indicator<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   right(value: Length): T;
 
@@ -377,8 +311,7 @@ declare class Indicator<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   bottom(value: Length): T;
 
@@ -408,8 +341,7 @@ declare class Indicator<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   start(value: LengthMetrics): T;
 
@@ -424,8 +356,7 @@ declare class Indicator<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   end(value: LengthMetrics): T;   
 
@@ -448,8 +379,7 @@ declare class Indicator<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   static dot(): DotIndicator;
 
@@ -472,8 +402,7 @@ declare class Indicator<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   static digit(): DigitIndicator;
 }
@@ -495,8 +424,7 @@ declare class Indicator<T> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class DotIndicator extends Indicator<DotIndicator> {
   /**
@@ -514,8 +442,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   constructor();
 
@@ -539,8 +466,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   itemWidth(value: Length): DotIndicator;
 
@@ -564,8 +490,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   itemHeight(value: Length): DotIndicator;
 
@@ -589,8 +514,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   selectedItemWidth(value: Length): DotIndicator;
 
@@ -614,8 +538,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   selectedItemHeight(value: Length): DotIndicator;
 
@@ -639,8 +562,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   mask(value: boolean): DotIndicator;
 
@@ -664,8 +586,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   color(value: ResourceColor): DotIndicator;
 
@@ -689,8 +610,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   selectedColor(value: ResourceColor): DotIndicator;
 
@@ -703,8 +623,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   maxDisplayCount(maxDisplayCount: number): DotIndicator;
 
@@ -717,8 +636,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   space(space: LengthMetrics): DotIndicator;
 }
@@ -747,8 +665,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface SwiperAutoFill {
   /**
@@ -764,8 +681,7 @@ declare interface SwiperAutoFill {
    * @type { VP } - Minimum width of the element.Default value: 0.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    * @form
    */
   minSize: VP;
@@ -788,8 +704,7 @@ declare interface SwiperAutoFill {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class DigitIndicator extends Indicator<DigitIndicator> {
   /**
@@ -807,8 +722,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   constructor();
 
@@ -831,8 +745,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   fontColor(value: ResourceColor): DigitIndicator;
 
@@ -856,8 +769,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   selectedFontColor(value: ResourceColor): DigitIndicator;
 
@@ -886,8 +798,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   digitFont(value: Font): DigitIndicator;
 
@@ -911,8 +822,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   selectedDigitFont(value: Font): DigitIndicator;
 }
@@ -931,8 +841,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface ArrowStyle {
   /**
@@ -951,8 +860,7 @@ declare interface ArrowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   showBackground?: boolean;
 
@@ -974,8 +882,7 @@ declare interface ArrowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   isSidebarMiddle?: boolean;
 
@@ -997,8 +904,7 @@ declare interface ArrowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   backgroundSize?: Length;
 
@@ -1018,8 +924,7 @@ declare interface ArrowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   backgroundColor?: ResourceColor;
 
@@ -1043,8 +948,7 @@ declare interface ArrowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   arrowSize?: Length;
 
@@ -1064,8 +968,7 @@ declare interface ArrowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   arrowColor?: ResourceColor;
 }
@@ -1094,8 +997,7 @@ declare interface ArrowStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum SwiperDisplayMode {
   /**
@@ -1135,8 +1037,7 @@ declare enum SwiperDisplayMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   STRETCH,
 
@@ -1186,8 +1087,7 @@ declare enum SwiperDisplayMode {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface SwiperInterface {
   /**
@@ -1217,8 +1117,7 @@ interface SwiperInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   (controller?: SwiperController): SwiperAttribute;
 }
@@ -1328,8 +1227,7 @@ declare interface IndicatorStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface SwiperAnimationEvent {
   /**
@@ -1348,8 +1246,7 @@ declare interface SwiperAnimationEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   currentOffset: number;
 
@@ -1369,8 +1266,7 @@ declare interface SwiperAnimationEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   targetOffset: number;
 
@@ -1390,8 +1286,7 @@ declare interface SwiperAnimationEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   velocity: number;
 }
@@ -1404,8 +1299,7 @@ declare interface SwiperAnimationEvent {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface AutoPlayOptions {
   /**
@@ -1417,8 +1311,7 @@ declare interface AutoPlayOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   stopWhenTouched: boolean;
 }
@@ -1429,8 +1322,7 @@ declare interface AutoPlayOptions {
  * @enum { number } SwiperNestedScrollMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum SwiperNestedScrollMode {
   /**
@@ -1439,8 +1331,7 @@ declare enum SwiperNestedScrollMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   SELF_ONLY = 0,
 
@@ -1449,8 +1340,7 @@ declare enum SwiperNestedScrollMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   SELF_FIRST = 1,
 }
@@ -1463,8 +1353,7 @@ declare enum SwiperNestedScrollMode {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare enum SwiperAnimationMode {
   /**
@@ -1474,8 +1363,7 @@ declare enum SwiperAnimationMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   NO_ANIMATION = 0,
 
@@ -1486,8 +1374,7 @@ declare enum SwiperAnimationMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   DEFAULT_ANIMATION = 1,
 
@@ -1499,8 +1386,7 @@ declare enum SwiperAnimationMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   FAST_ANIMATION = 2,
 }
@@ -1516,8 +1402,7 @@ declare enum SwiperAnimationMode {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare type OnSwiperAnimationStartCallback = (index: number, targetIndex: number, extraInfo: SwiperAnimationEvent) => void;
 
@@ -1531,8 +1416,7 @@ declare type OnSwiperAnimationStartCallback = (index: number, targetIndex: numbe
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare type OnSwiperAnimationEndCallback = (index: number, extraInfo: SwiperAnimationEvent) => void;
 
@@ -1545,8 +1429,7 @@ declare type OnSwiperAnimationEndCallback = (index: number, extraInfo: SwiperAni
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare type OnSwiperGestureSwipeCallback = (index: number, extraInfo: SwiperAnimationEvent) => void;
 
@@ -1574,8 +1457,7 @@ declare type OnSwiperGestureSwipeCallback = (index: number, extraInfo: SwiperAni
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
@@ -1607,8 +1489,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   index(value: number): SwiperAttribute;
 
@@ -1669,8 +1550,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   autoPlay(autoPlay: boolean, options: AutoPlayOptions): SwiperAttribute;
 
@@ -1702,8 +1582,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interval(value: number): SwiperAttribute;
 
@@ -1749,8 +1628,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   indicator(indicator: IndicatorComponentController | DotIndicator | DigitIndicator | boolean): SwiperAttribute;
 
@@ -1773,8 +1651,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   displayArrow(value: ArrowStyle | boolean, isHoverShow?: boolean): SwiperAttribute;
 
@@ -1805,8 +1682,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   loop(value: boolean): SwiperAttribute;
 
@@ -1836,8 +1712,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   duration(value: number): SwiperAttribute;
 
@@ -1868,8 +1743,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   vertical(value: boolean): SwiperAttribute;
 
@@ -1907,8 +1781,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   itemSpace(value: number | string): SwiperAttribute;
 
@@ -1941,8 +1814,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   displayMode(value: SwiperDisplayMode): SwiperAttribute;
 
@@ -1979,8 +1851,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   cachedCount(value: number): SwiperAttribute;
 
@@ -1996,8 +1867,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   cachedCount(count: number, isShown: boolean): SwiperAttribute;
 
@@ -2036,10 +1906,31 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   displayCount(value: number | string | SwiperAutoFill, swipeByGroup?: boolean): SwiperAttribute;
+
+  /**
+   * Sets the number of elements to display per page.
+   *
+   * If swipeByGroup is set to true:
+   * 1、All sub-items are grouped from index 0.
+   * 2、The number of sub-items in each group is the value of displayCount.
+   * 3、If the number of sub-items in the last group is less than displayCount, placeholder items are added to supplement
+   * the number of last group.
+   * 4、Placeholder items do not display any content and are only used as placeholders.
+   * 5、When turning pages, turn pages by group.
+   *
+   * @param { number | string | SwiperAutoFill | ItemFillPolicy } value
+   * @param { boolean } [swipeByGroup] - if swipe by group.
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22
+   */
+  displayCount(value: number | string | SwiperAutoFill | ItemFillPolicy, swipeByGroup?: boolean): SwiperAttribute;
 
   /**
    * Invoked when setting the sliding effect
@@ -2073,8 +1964,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   effectMode(value: EdgeEffect): SwiperAttribute;
 
@@ -2105,8 +1995,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   disableSwipe(value: boolean): SwiperAttribute;
 
@@ -2142,8 +2031,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   curve(value: Curve | string | ICurve): SwiperAttribute;
 
@@ -2186,8 +2074,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onChange(event: Callback<number>): SwiperAttribute;
 
@@ -2200,8 +2087,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onSelected(event: Callback<number>): SwiperAttribute;
 
@@ -2256,8 +2142,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   prevMargin(value: Length, ignoreBlank?: boolean): SwiperAttribute;
 
@@ -2301,8 +2186,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   nextMargin(value: Length, ignoreBlank?: boolean): SwiperAttribute;
 
@@ -2315,8 +2199,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onUnselected(event: Callback<number>): SwiperAttribute;
 
@@ -2378,8 +2261,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onAnimationStart(event: OnSwiperAnimationStartCallback): SwiperAttribute;
 
@@ -2426,8 +2308,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onAnimationEnd(event: OnSwiperAnimationEndCallback): SwiperAttribute;
 
@@ -2463,8 +2344,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onGestureSwipe(event: OnSwiperGestureSwipeCallback): SwiperAttribute;
 
@@ -2483,8 +2363,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   nestedScroll(value: SwiperNestedScrollMode): SwiperAttribute;
 
@@ -2505,8 +2384,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   customContentTransition(transition: SwiperContentAnimatedTransition): SwiperAttribute;
 
@@ -2531,8 +2409,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onContentDidScroll(handler: ContentDidScrollCallback): SwiperAttribute;
 
@@ -2544,8 +2421,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   indicatorInteractive(value: boolean): SwiperAttribute;
 
@@ -2558,8 +2434,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   pageFlipMode(mode: Optional<PageFlipMode>): SwiperAttribute;
 
@@ -2572,8 +2447,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   onContentWillScroll(handler: ContentWillScrollCallback): SwiperAttribute;
 
@@ -2599,8 +2473,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface SwiperContentAnimatedTransition {
   /**
@@ -2612,8 +2485,7 @@ declare interface SwiperContentAnimatedTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   timeout?: number;
 
@@ -2624,8 +2496,7 @@ declare interface SwiperContentAnimatedTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   transition: Callback<SwiperContentTransitionProxy>;
 }
@@ -2637,8 +2508,7 @@ declare interface SwiperContentAnimatedTransition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface SwiperContentTransitionProxy {
   /**
@@ -2648,8 +2518,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   selectedIndex: number;
 
@@ -2660,8 +2529,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   index: number;
 
@@ -2672,8 +2540,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   position: number;
 
@@ -2684,8 +2551,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   mainAxisLength: number;
 
@@ -2695,8 +2561,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   finishTransition(): void;
 }
@@ -2709,8 +2574,7 @@ declare interface SwiperContentTransitionProxy {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare interface SwiperContentWillScrollResult {
   /**
@@ -2721,8 +2585,7 @@ declare interface SwiperContentWillScrollResult {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   currentIndex: number;
 
@@ -2734,8 +2597,7 @@ declare interface SwiperContentWillScrollResult {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   comingIndex: number;
 
@@ -2748,8 +2610,7 @@ declare interface SwiperContentWillScrollResult {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   offset: number;
 }
@@ -2765,8 +2626,7 @@ declare interface SwiperContentWillScrollResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare type ContentDidScrollCallback = (selectedIndex: number, index: number, position: number, mainAxisLength: number) => void;
 
@@ -2780,8 +2640,7 @@ declare type ContentDidScrollCallback = (selectedIndex: number, index: number, p
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare type ContentWillScrollCallback = (result: SwiperContentWillScrollResult) => boolean;
 

@@ -182,6 +182,7 @@
     "SystemCapability.Communication.WiFi.Core",
     "SystemCapability.Location.Location.Core",
     "SystemCapability.Location.Location.Gnss",
+    "SystemCapability.Location.Location.Geocoder",
     "SystemCapability.Test.UiTest",
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
     "SystemCapability.ArkUi.Graphics3D",
@@ -189,6 +190,12 @@
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.ResourceSchedule.SystemLoad",
     "SystemCapability.ArkUI.ArkUI.Lite",
-    "SystemCapability.Communication.IPC.Core"
+    "SystemCapability.Communication.IPC.Core",
+    "SystemCapability.Tee.TeeClient",
+    "SystemCapability.Base",
+    "SystemCapability.Startup.SystemInfo",
+    "SystemCapability.Multimedia.Media.Core",
+    "SystemCapability.Communication.SoftBus.Core",
+    "SystemCapability.Security.CertificateManager"
   ]
 }

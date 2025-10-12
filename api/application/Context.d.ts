@@ -18,12 +18,10 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
-import type { AsyncCallback } from '../@ohos.base';
 import EventHub from './EventHub';
-/*** endif */
 import { ApplicationInfo } from '../bundleManager/ApplicationInfo';
 import ApplicationContext from './ApplicationContext';
+import type { AsyncCallback } from '../@ohos.base';
 import BaseContext from './BaseContext';
 import resmgr from '../@ohos.resourceManager';
 import contextConstant from '../@ohos.app.ability.contextConstant';
@@ -289,7 +287,7 @@ declare class Context extends BaseContext {
    */
   /**
    * Bundle code directory.
-   * 
+   *
    * <p>**NOTE**:
    * <br>Do not access resource files using concatenated paths. Use @ohos.resourceManager instead.
    * </p>
@@ -299,7 +297,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleCodeDir: string;
 
@@ -318,13 +317,14 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   distributedFilesDir: string;
 
   /**
    * Resource directory.
-   * 
+   *
    * <p>**NOTE**:
    * <br>You are required to manually create the resfile directory in <code><module-name>\resource</code>. The resfile
    * directory can be accessed only in read-only mode.
@@ -335,7 +335,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   resourceDir: string;
 
@@ -346,9 +347,21 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   cloudFileDir: string;
+
+  /**
+   * Get log file directory.
+   *
+   * @returns { string } Returns the log file directory.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  get logFileDir(): string;
 
   /**
    * Indicates event hub.
@@ -375,7 +388,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   eventHub: EventHub;
 
@@ -430,13 +444,14 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   processName: string;
 
   /**
    * Creates the context based on the bundle name.
-   * 
+   *
    * <p>**NOTE**:
    * <br>If there are multiple modules in the stage model, resource ID conflicts may occur. You are advised to
    * use application.createModuleContext instead.
@@ -482,7 +497,7 @@ declare class Context extends BaseContext {
    */
   /**
    * Creates the context based on the module name.
-   * 
+   *
    * <p>**NOTE**:
    * <br>This API is deprecated since API version 12. You are advised to use application.createModuleContext instead.
    * </p>
@@ -503,7 +518,7 @@ declare class Context extends BaseContext {
 
   /**
    * Creates the context based on the bundle name and module name.
-   * 
+   *
    * <p>**NOTE**:
    * <br>This API is deprecated since API version 12. You are advised to use application.createModuleContext instead.
    * </p>
@@ -596,7 +611,8 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getGroupDir(dataGroupID: string, callback: AsyncCallback<string>): void;
 
@@ -624,7 +640,8 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getGroupDir(dataGroupID: string): Promise<string>;
 
@@ -657,7 +674,8 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   createAreaModeContext(areaMode: contextConstant.AreaMode): Context;
 
@@ -665,16 +683,17 @@ declare class Context extends BaseContext {
    * Creates the context based on the specified display ID, so as to obtain and use other application contexts with
    * screen information (including ScreenDensity and Direction).
    *
-   * @param { number } displayId - Display ID.
+   * @param { long } displayId - Display ID.
    * @returns { Context } 	Context with the specified screen information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  createDisplayContext(displayId: number): Context;
+  createDisplayContext(displayId: long): Context;
 }
 
 export default Context;

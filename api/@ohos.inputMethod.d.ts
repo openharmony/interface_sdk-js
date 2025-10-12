@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,16 +18,23 @@
  * @kit IMEKit
  */
 import type { Callback, AsyncCallback } from './@ohos.base';
-import type { ElementName } from './bundleManager/ElementName';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
+/*** if arkts 1.1 */
+import type { ElementName } from './bundleManager/ElementName';
 import type { PanelInfo } from './@ohos.inputMethod.Panel';
+/*** endif */
+/*** if arkts 1.2 */
+import { ElementName } from './bundleManager/ElementName';
+import { PanelInfo } from './@ohos.inputMethod.Panel';
+/*** endif */
 
 /**
  * Input method
  *
  * @namespace inputMethod
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 6
+ * @since arkts {'1.1':'6', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace inputMethod {
   /**
@@ -67,7 +74,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 12800007 - input method setter error. Possible cause:
    *     create InputMethodSetting object failed.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSetting(): InputMethodSetting;
 
@@ -78,7 +86,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
    *     create InputMethodController object failed.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getController(): InputMethodController;
 
@@ -89,7 +98,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDefaultInputMethod(): InputMethodProperty;
 
@@ -100,7 +110,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSystemInputMethodConfigAbility(): ElementName;
 
@@ -130,7 +141,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function switchInputMethod(target: InputMethodProperty, callback: AsyncCallback<boolean>): void;
 
@@ -160,7 +172,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function switchInputMethod(target: InputMethodProperty): Promise<boolean>;
 
@@ -169,7 +182,8 @@ declare namespace inputMethod {
    *
    * @returns { InputMethodProperty } the property of current inputmethod.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCurrentInputMethod(): InputMethodProperty;
 
@@ -214,7 +228,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function switchCurrentInputMethodSubtype(target: InputMethodSubtype, callback: AsyncCallback<boolean>): void;
 
@@ -259,7 +274,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function switchCurrentInputMethodSubtype(target: InputMethodSubtype): Promise<boolean>;
 
@@ -268,7 +284,8 @@ declare namespace inputMethod {
    *
    * @returns { InputMethodSubtype } the subtype of the current input method.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCurrentInputMethodSubtype(): InputMethodSubtype;
 
@@ -360,7 +377,8 @@ declare namespace inputMethod {
    *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function switchInputMethod(bundleName: string, subtypeId?: string): Promise<void>;
 
@@ -376,7 +394,8 @@ declare namespace inputMethod {
   /**
    * @interface InputMethodSetting
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface InputMethodSetting {
     /**
@@ -385,7 +404,8 @@ declare namespace inputMethod {
      * @param { 'imeChange' } type - Indicates the event type.
      * @param { function } callback - the callback of 'imeChange'
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(
       type: 'imeChange',
@@ -399,7 +419,8 @@ declare namespace inputMethod {
      * @param { function } [callback] - the callback of 'imeChange',
      *        when subscriber unsubscribes all callback functions of event 'imeChange', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(
       type: 'imeChange',
@@ -414,7 +435,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 202 - not system application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'imeShow', callback: (info: Array<InputWindowInfo>) => void): void;
 
@@ -426,7 +448,8 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'imeShow', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'imeShow', callback?: (info: Array<InputWindowInfo>) => void): void;
 
@@ -438,7 +461,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 202 - not system application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'imeHide', callback: (info: Array<InputWindowInfo>) => void): void;
 
@@ -450,7 +474,8 @@ declare namespace inputMethod {
      *        when subscriber unsubscribes all callback functions of event 'imeHide', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'imeHide', callback?: (info: Array<InputWindowInfo>) => void): void;
 
@@ -468,7 +493,8 @@ declare namespace inputMethod {
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isPanelShown(panelInfo: PanelInfo): boolean;
 
@@ -483,7 +509,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     listInputMethodSubtype(
       inputMethodProperty: InputMethodProperty,
@@ -501,7 +528,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     listInputMethodSubtype(inputMethodProperty: InputMethodProperty): Promise<Array<InputMethodSubtype>>;
 
@@ -513,7 +541,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     listCurrentInputMethodSubtype(callback: AsyncCallback<Array<InputMethodSubtype>>): void;
 
@@ -525,7 +554,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     listCurrentInputMethodSubtype(): Promise<Array<InputMethodSubtype>>;
 
@@ -542,7 +572,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getInputMethods(enable: boolean, callback: AsyncCallback<Array<InputMethodProperty>>): void;
 
@@ -559,7 +590,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getInputMethods(enable: boolean): Promise<Array<InputMethodProperty>>;
 
@@ -576,7 +608,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getInputMethodsSync(enable: boolean): Array<InputMethodProperty>;
 
@@ -588,7 +621,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAllInputMethods(callback: AsyncCallback<Array<InputMethodProperty>>): void;
 
@@ -600,7 +634,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAllInputMethods(): Promise<Array<InputMethodProperty>>;
 
@@ -612,7 +647,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAllInputMethodsSync(): Array<InputMethodProperty>;
 
@@ -713,7 +749,8 @@ declare namespace inputMethod {
   /**
    * @interface InputMethodController
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 6
+   * @since arkts {'1.1':'6', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface InputMethodController {
     /**
@@ -726,10 +763,12 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     attach(showKeyboard: boolean, textConfig: TextConfig, callback: AsyncCallback<void>): void;
     /**
@@ -742,10 +781,12 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     attach(showKeyboard: boolean, textConfig: TextConfig): Promise<void>;
     /**
@@ -759,10 +800,12 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     attach(showKeyboard: boolean, textConfig: TextConfig, requestKeyboardReason: RequestKeyboardReason): Promise<void>;
 
@@ -772,6 +815,7 @@ declare namespace inputMethod {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @throws { BusinessError } 12800015 - the other side does not accept the request.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -785,11 +829,13 @@ declare namespace inputMethod {
      * @param { AsyncCallback<void> } callback - the callback of showTextInput.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     showTextInput(callback: AsyncCallback<void>): void;
     /**
@@ -798,11 +844,13 @@ declare namespace inputMethod {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     showTextInput(): Promise<void>;
     /**
@@ -812,11 +860,13 @@ declare namespace inputMethod {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     showTextInput(requestKeyboardReason: RequestKeyboardReason): Promise<void>;
     /**
@@ -825,11 +875,13 @@ declare namespace inputMethod {
      * @param { AsyncCallback<void> } callback - the callback of hideTextInput.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hideTextInput(callback: AsyncCallback<void>): void;
 
@@ -839,11 +891,13 @@ declare namespace inputMethod {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hideTextInput(): Promise<void>;
 
@@ -853,10 +907,12 @@ declare namespace inputMethod {
      * @param { AsyncCallback<void> } callback - the callback of detach.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     detach(callback: AsyncCallback<void>): void;
 
@@ -866,10 +922,12 @@ declare namespace inputMethod {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     detach(): Promise<void>;
 
@@ -883,6 +941,7 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
@@ -901,6 +960,7 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
@@ -918,6 +978,7 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
@@ -935,6 +996,7 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
@@ -954,6 +1016,7 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
@@ -973,6 +1036,7 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
@@ -990,6 +1054,7 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
@@ -1007,6 +1072,7 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
@@ -1020,6 +1086,7 @@ declare namespace inputMethod {
      * @param { AsyncCallback<boolean> } callback - the callback of stopInputSession.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1033,6 +1100,7 @@ declare namespace inputMethod {
      * @returns { Promise<boolean> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1071,6 +1139,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 201 - permissions check fails.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1087,6 +1156,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 201 - permissions check fails.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1103,10 +1173,12 @@ declare namespace inputMethod {
      * @throws { BusinessError } 201 - permissions check fails.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hideSoftKeyboard(callback: AsyncCallback<void>): void;
 
@@ -1119,10 +1191,12 @@ declare namespace inputMethod {
      * @throws { BusinessError } 201 - permissions check fails.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hideSoftKeyboard(): Promise<void>;
 
@@ -1136,6 +1210,7 @@ declare namespace inputMethod {
      *     1. Incorrect parameter types. 2. Incorrect parameter length.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     *     3.ipc failed due to the large amount of data transferred or other reasons.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @throws { BusinessError } 12800014 - the input method is in basic mode.
      * @throws { BusinessError } 12800015 - the other side does not accept the request.
@@ -1166,7 +1241,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'selectByRange', callback: Callback<Range>): void;
 
@@ -1177,7 +1253,8 @@ declare namespace inputMethod {
      * @param { Callback<Range> } [callback] - the callback of 'selectByRange',
      *        when subscriber unsubscribes all callback functions of event 'selectByRange', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'selectByRange', callback?: Callback<Range>): void;
 
@@ -1192,7 +1269,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'selectByMovement', callback: Callback<Movement>): void;
 
@@ -1203,7 +1281,8 @@ declare namespace inputMethod {
      * @param { Callback<Movement> } [callback] - the callback of 'selectByMovement',
      *        when subscriber unsubscribes all callback functions of event 'selectByMovement', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'selectByMovement', callback?: Callback<Movement>): void;
 
@@ -1217,7 +1296,8 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'insertText', callback: (text: string) => void): void;
 
@@ -1228,7 +1308,8 @@ declare namespace inputMethod {
      * @param { function } [callback] - the callback of 'insertText',
      *        when subscriber unsubscribes all callback functions of event 'insertText', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'insertText', callback?: (text: string) => void): void;
 
@@ -1244,9 +1325,10 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'deleteLeft', callback: (length: number) => void): void;
+    on(type: 'deleteLeft', callback: (length: int) => void): void;
 
     /**
      * Unregister the callback of deleteLeft.
@@ -1255,9 +1337,10 @@ declare namespace inputMethod {
      * @param { function } [callback] - the callback of 'deleteLeft',
      *        when subscriber unsubscribes all callback functions of event 'deleteLeft', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    off(type: 'deleteLeft', callback?: (length: number) => void): void;
+    off(type: 'deleteLeft', callback?: (length: int) => void): void;
 
     /**
      * Register a callback and when IME sends delete right event with length,
@@ -1271,9 +1354,10 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'deleteRight', callback: (length: number) => void): void;
+    on(type: 'deleteRight', callback: (length: int) => void): void;
 
     /**
      * Unregister the callback of deleteRight.
@@ -1282,9 +1366,10 @@ declare namespace inputMethod {
      * @param { function } [callback] - the callback of 'deleteRight',
      *        when subscriber unsubscribes all callback functions of event 'deleteRight', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    off(type: 'deleteRight', callback?: (length: number) => void): void;
+    off(type: 'deleteRight', callback?: (length: int) => void): void;
 
     /**
      * Register a callback and when IME sends keyboard status, the callback will be invoked.
@@ -1296,7 +1381,8 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'sendKeyboardStatus', callback: (keyboardStatus: KeyboardStatus) => void): void;
 
@@ -1307,7 +1393,8 @@ declare namespace inputMethod {
      * @param { function } [callback] - the callback of 'sendKeyboardStatus',
      *        when subscriber unsubscribes all callback functions of event 'sendKeyboardStatus', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'sendKeyboardStatus', callback?: (keyboardStatus: KeyboardStatus) => void): void;
 
@@ -1322,7 +1409,8 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'sendFunctionKey', callback: (functionKey: FunctionKey) => void): void;
 
@@ -1333,7 +1421,8 @@ declare namespace inputMethod {
      * @param { function } [callback] - the callback of 'sendFunctionKey',
      *        when subscriber unsubscribes all callback functions of event 'sendFunctionKey', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'sendFunctionKey', callback?: (functionKey: FunctionKey) => void): void;
 
@@ -1348,7 +1437,8 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'moveCursor', callback: (direction: Direction) => void): void;
 
@@ -1359,7 +1449,8 @@ declare namespace inputMethod {
      * @param { function } [callback] - the callback of 'moveCursor',
      *        when subscriber unsubscribes all callback functions of event 'moveCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'moveCursor', callback?: (direction: Direction) => void): void;
 
@@ -1373,7 +1464,8 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'handleExtendAction', callback: (action: ExtendAction) => void): void;
 
@@ -1384,7 +1476,8 @@ declare namespace inputMethod {
      * @param { function } [callback] - the callback of 'handleExtendAction',
      *        when subscriber unsubscribes all callback functions of event 'handleExtendAction', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'handleExtendAction', callback?: (action: ExtendAction) => void): void;
 
@@ -1398,9 +1491,10 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'getLeftTextOfCursor', callback: (length: number) => string): void;
+    on(type: 'getLeftTextOfCursor', callback: (length: int) => string): void;
 
     /**
      * Unregister the callback of getLeftTextOfCursor event.
@@ -1409,9 +1503,10 @@ declare namespace inputMethod {
      * @param { function } [callback] - the callback of 'getLeftTextOfCursor',
      *     when subscriber unsubscribes all callback functions of event 'getLeftTextOfCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    off(type: 'getLeftTextOfCursor', callback?: (length: number) => string): void;
+    off(type: 'getLeftTextOfCursor', callback?: (length: int) => string): void;
 
     /**
      * Register a callback and when input method ability gets right text of cursor, the callback will be invoked.
@@ -1423,9 +1518,10 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'getRightTextOfCursor', callback: (length: number) => string): void;
+    on(type: 'getRightTextOfCursor', callback: (length: int) => string): void;
 
     /**
      * Unregister the callback of getRightTextOfCursor event.
@@ -1434,9 +1530,10 @@ declare namespace inputMethod {
      * @param { function } [callback] - the callback of 'getRightTextOfCursor',
      *     when subscriber unsubscribes all callback functions of event 'getRightTextOfCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    off(type: 'getRightTextOfCursor', callback?: (length: number) => string): void;
+    off(type: 'getRightTextOfCursor', callback?: (length: int) => string): void;
 
     /**
      * Register a callback and when input method ability gets the text index at cursor, the callback will be invoked.
@@ -1448,9 +1545,10 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'getTextIndexAtCursor', callback: () => number): void;
+    on(type: 'getTextIndexAtCursor', callback: () => int): void;
 
     /**
      * Unregister the callback of getTextIndexAtCursor.
@@ -1459,9 +1557,10 @@ declare namespace inputMethod {
      * @param { function } [callback] - the callback of 'getTextIndexAtCursor',
      *     when subscriber unsubscribes all callback functions of event 'getTextIndexAtCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    off(type: 'getTextIndexAtCursor', callback?: () => number): void;
+    off(type: 'getTextIndexAtCursor', callback?: () => int): void;
 
     /**
      * <p>Subscribe 'setPreviewText' event.</p>
@@ -1515,7 +1614,8 @@ declare namespace inputMethod {
    *
    * @interface InputMethodProperty
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface InputMethodProperty {
     /**
@@ -1546,7 +1646,8 @@ declare namespace inputMethod {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly name: string;
 
@@ -1556,7 +1657,8 @@ declare namespace inputMethod {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly id: string;
 
@@ -1566,19 +1668,21 @@ declare namespace inputMethod {
      * @type { ?string }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly label?: string;
 
     /**
      * The label id of input method
      *
-     * @type { ?number }
+     * @type { ?long }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly labelId?: number;
+    readonly labelId?: long;
 
     /**
      * The icon of input method
@@ -1586,19 +1690,21 @@ declare namespace inputMethod {
      * @type { ?string }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly icon?: string;
 
     /**
      * The icon id of input method
      *
-     * @type { ?number }
+     * @type { ?long }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly iconId?: number;
+    readonly iconId?: long;
 
     /**
      * The enabledState of input method
@@ -1630,16 +1736,18 @@ declare namespace inputMethod {
   /**
    * Enumerates the moving direction of cursor
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum Direction {
     /**
      * Cursor moves up
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CURSOR_UP = 1,
 
@@ -1647,7 +1755,8 @@ declare namespace inputMethod {
      * Cursor moves down
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CURSOR_DOWN,
 
@@ -1655,7 +1764,8 @@ declare namespace inputMethod {
      * Cursor moves left
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CURSOR_LEFT,
 
@@ -1663,7 +1773,8 @@ declare namespace inputMethod {
      * Cursor moves right
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CURSOR_RIGHT
   }
@@ -1673,26 +1784,29 @@ declare namespace inputMethod {
    *
    * @typedef Range
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface Range {
     /**
      * Indicates the index of the first character of the selected text.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    start: number;
+    start: int;
 
     /**
      * Indicates the index of the last character of the selected text.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    end: number;
+    end: int;
   }
 
   /**
@@ -1700,7 +1814,8 @@ declare namespace inputMethod {
    *
    * @typedef Movement
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface Movement {
     /**
@@ -1708,7 +1823,8 @@ declare namespace inputMethod {
      *
      * @type { Direction }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     direction: Direction;
   }
@@ -1716,16 +1832,18 @@ declare namespace inputMethod {
   /**
    * Enumerates the text input type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum TextInputType {
     /**
      * The text input type is NONE.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE = -1,
 
@@ -1733,7 +1851,8 @@ declare namespace inputMethod {
      * The text input type is TEXT.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TEXT = 0,
 
@@ -1741,7 +1860,8 @@ declare namespace inputMethod {
      * The text input type is MULTILINE.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MULTILINE,
 
@@ -1749,7 +1869,8 @@ declare namespace inputMethod {
      * The text input type is NUMBER.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NUMBER,
 
@@ -1757,7 +1878,8 @@ declare namespace inputMethod {
      * The text input type is PHONE.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PHONE,
 
@@ -1765,7 +1887,8 @@ declare namespace inputMethod {
      * The text input type is DATETIME.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DATETIME,
 
@@ -1773,7 +1896,8 @@ declare namespace inputMethod {
      * The text input type is EMAIL_ADDRESS.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EMAIL_ADDRESS,
 
@@ -1781,7 +1905,8 @@ declare namespace inputMethod {
      * The text input type is URL.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     URL,
 
@@ -1789,7 +1914,8 @@ declare namespace inputMethod {
      * The text input type is VISIBLE_PASSWORD.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VISIBLE_PASSWORD,
 
@@ -1797,7 +1923,8 @@ declare namespace inputMethod {
      * The text input type is NUMBER_PASSWORD.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NUMBER_PASSWORD,
 
@@ -1845,16 +1972,18 @@ declare namespace inputMethod {
   /**
    * Enumerates the enter key type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum EnterKeyType {
     /**
      * The enter key type is UNSPECIFIED.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNSPECIFIED = 0,
 
@@ -1862,7 +1991,8 @@ declare namespace inputMethod {
      * The enter key type is NONE.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE,
 
@@ -1870,7 +2000,8 @@ declare namespace inputMethod {
      * The enter key type is GO.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GO,
 
@@ -1878,7 +2009,8 @@ declare namespace inputMethod {
      * The enter key type is SEARCH.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SEARCH,
 
@@ -1886,7 +2018,8 @@ declare namespace inputMethod {
      * The enter key type is SEND.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SEND,
 
@@ -1894,7 +2027,8 @@ declare namespace inputMethod {
      * The enter key type is NEXT.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NEXT,
 
@@ -1902,7 +2036,8 @@ declare namespace inputMethod {
      * The enter key type is DONE.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DONE,
 
@@ -1910,7 +2045,8 @@ declare namespace inputMethod {
      * The enter key type is PREVIOUS.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PREVIOUS,
 
@@ -1918,7 +2054,8 @@ declare namespace inputMethod {
      * The enter key type is NEWLINE.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NEWLINE
   }
@@ -1926,16 +2063,18 @@ declare namespace inputMethod {
   /**
    * Enumerates the keyboard status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum KeyboardStatus {
     /**
      * The keyboard status is none.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE = 0,
 
@@ -1943,7 +2082,8 @@ declare namespace inputMethod {
      * The keyboard status is hide.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HIDE = 1,
 
@@ -1951,7 +2091,8 @@ declare namespace inputMethod {
      * The keyboard status is show.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHOW = 2
   }
@@ -1961,7 +2102,8 @@ declare namespace inputMethod {
    *
    * @typedef InputAttribute
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface InputAttribute {
     /**
@@ -1969,7 +2111,8 @@ declare namespace inputMethod {
      *
      * @type { TextInputType }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     textInputType: TextInputType;
 
@@ -1978,7 +2121,8 @@ declare namespace inputMethod {
      *
      * @type { EnterKeyType }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enterKeyType: EnterKeyType;
 
@@ -2006,7 +2150,8 @@ declare namespace inputMethod {
    *
    * @typedef FunctionKey
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface FunctionKey {
     /**
@@ -2014,7 +2159,8 @@ declare namespace inputMethod {
      *
      * @type { EnterKeyType }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enterKeyType: EnterKeyType;
   }
@@ -2024,44 +2170,49 @@ declare namespace inputMethod {
    *
    * @typedef CursorInfo
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CursorInfo {
     /**
      * Indicates the left point of the cursor info and must be absolute coordinate of the physical screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    left: number;
+    left: double;
 
     /**
      * Indicates the top point of the cursor info and must be absolute coordinate of the physical screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    top: number;
+    top: double;
 
     /**
      * Indicates the width point of the cursor info.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    width: number;
+    width: double;
 
     /**
      * Indicates the height point of the cursor info.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    height: number;
+    height: double;
   }
 
   /**
@@ -2069,7 +2220,8 @@ declare namespace inputMethod {
    *
    * @typedef TextConfig
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface TextConfig {
     /**
@@ -2077,7 +2229,8 @@ declare namespace inputMethod {
      *
      * @type { InputAttribute }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     inputAttribute: InputAttribute;
 
@@ -2086,7 +2239,8 @@ declare namespace inputMethod {
      *
      * @type { ?CursorInfo }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cursorInfo?: CursorInfo;
 
@@ -2095,18 +2249,20 @@ declare namespace inputMethod {
      *
      * @type { ?Range }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     selection?: Range;
 
     /**
      * The window ID of the application currently bound to the input method.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    windowId?: number;
+    windowId?: int;
 
     /**
      *Indicates that this is a new edit box.
@@ -2131,16 +2287,18 @@ declare namespace inputMethod {
   /**
    * Enumerates the extend action.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ExtendAction {
     /**
      * Select all text.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SELECT_ALL = 0,
 
@@ -2148,7 +2306,8 @@ declare namespace inputMethod {
      * Cut selecting text.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CUT = 3,
 
@@ -2156,7 +2315,8 @@ declare namespace inputMethod {
      * Copy selecting text.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COPY = 4,
 
@@ -2164,7 +2324,8 @@ declare namespace inputMethod {
      * Paste from paste board.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PASTE = 5
   }
@@ -2174,7 +2335,8 @@ declare namespace inputMethod {
    *
    * @typedef InputWindowInfo
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface InputWindowInfo {
     /**
@@ -2182,45 +2344,50 @@ declare namespace inputMethod {
      *
      * @type { string }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
     /**
      * Indicates the abscissa of the upper-left vertex of input window.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    left: number;
+    left: int;
 
     /**
      * Indicates the ordinate of the upper-left vertex of input window.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    top: number;
+    top: int;
 
     /**
      * Indicates the width of the input window.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    width: number;
+    width: long;
 
     /**
      * Indicates the height of the input window.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    height: number;
+    height: long;
   }
 
   /**
@@ -2287,33 +2454,38 @@ declare namespace inputMethod {
   /**
    *  requestKeyboardReason of input click 
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum RequestKeyboardReason {
     /**
       * The request keyboard reason is NONE.
       * @syscap SystemCapability.MiscServices.InputMethodFramework
-      * @since 15
+      * @since arkts {'1.1':'15', '1.2':'20'}
+      * @arkts 1.1&1.2
       */
     NONE = 0,
     /**
      * The request keyboard reason is MOUSE.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MOUSE = 1,
     /**
      * The request keyboard reason is TOUCH.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TOUCH = 2,
     /**
      * The request keyboard reason is OTHER.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OTHER = 20
   }

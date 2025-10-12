@@ -55,6 +55,22 @@ declare namespace selectionManager {
   function off(type: 'selectionCompleted', callback?: Callback<SelectionInfo>): void;
 
   /**
+   * Obtains the selected content.
+   * @returns { Promise<string> } Promise used to return the selected content.
+   * @throws { BusinessError } 202 Permission denied. Called by non-system application.
+   * @throws { BusinessError } 33600001 Selection service exception.
+   * @throws { BusinessError } 33600004 The interface is called too frequently.
+   * @throws { BusinessError } 33600005 The interface is called at the wrong time.
+   * @throws { BusinessError } 33600006 The current application is prohibited from accessing content.
+   * @throws { BusinessError } 33600007 The length of selected content is out of range.
+   * @throws { BusinessError } 33600008 Getting the selected content times out.
+   * @syscap SystemCapability.SelectionInput.Selection
+   * @systemapi
+   * @since 22
+   */
+  function getSelectionContent(): Promise<string>;
+
+  /**
    * Creates a word selection panel.
    * @param { Context } ctx Context on which the word selection panel depends.
    * @param { PanelInfo } info Information about the word selection panel.
@@ -86,15 +102,6 @@ declare namespace selectionManager {
    * @since 20
    */
   interface SelectionInfo {
-    /**
-     * Selected text.
-     * @type { string }
-     * @syscap SystemCapability.SelectionInput.Selection
-     * @systemapi
-     * @since 20
-     */
-    text: string;
-
     /**
      * Operation for selecting words.
      * @type { SelectionType }

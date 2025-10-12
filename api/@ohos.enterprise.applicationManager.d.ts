@@ -75,7 +75,7 @@ declare namespace applicationManager {
    *                           2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -85,8 +85,8 @@ declare namespace applicationManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle are disallowed to run. The size of the array after setting
-   *                                   cannot be greater than 200.
+   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle are disallowed to run.
+   *                                   The size of the array after setting cannot be greater than 200.
    * @param { AsyncCallback<void> } callback - the callback of addDisallowedRunningBundles.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -121,7 +121,7 @@ declare namespace applicationManager {
    *                           2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -131,8 +131,8 @@ declare namespace applicationManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle are disallowed to run. The size of the array after setting
-   *                                   cannot be greater than 200.
+   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle are disallowed to run.
+   *                                   The size of the array after setting cannot be greater than 200.
    * @param { number } userId - userId indicates the user ID.
    * @param { AsyncCallback<void> } callback - the callback of addDisallowedRunningBundles.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -168,7 +168,7 @@ declare namespace applicationManager {
    *                           2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
     /**
@@ -178,8 +178,8 @@ declare namespace applicationManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle are disallowed to run. The size of the array after setting
-   *                                   cannot be greater than 200.
+   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle are disallowed to run.
+   *                                   The size of the array after setting cannot be greater than 200.
    * @param { number } userId - userId indicates the user ID.
    * @returns { Promise<void> } the promise returned by the addDisallowedRunningBundles.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -212,7 +212,7 @@ declare namespace applicationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                           2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   /**
@@ -222,8 +222,8 @@ declare namespace applicationManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle are disallowed to run. The size of the array after setting
-   *                                   cannot be greater than 200.
+   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle are disallowed to run.
+   *                                   The size of the array after setting cannot be greater than 200.
    * @param { number } [accountId] - accountId indicates the account ID.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -255,8 +255,29 @@ declare namespace applicationManager {
    *                           2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
+   */
+  /**
+   * Remove appid list of bundles that is disallowed to run in the device.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle are disallowed to run.
+   *                                   The size of the array after setting cannot be greater than 200.
+   * @param { AsyncCallback<void> } callback - the callback of removeDisallowedRunningBundles.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                           2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 21
    */
   function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -279,8 +300,30 @@ declare namespace applicationManager {
    *                           2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
+   */
+  /**
+   * Remove appid list of bundles that is disallowed to run in the device.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle are disallowed to run.
+   *                                   The size of the array after setting cannot be greater than 200.
+   * @param { number } userId - userId indicates the user ID.
+   * @param { AsyncCallback<void> } callback - the callback of removeDisallowedRunningBundles.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                           2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 21
    */
   function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
@@ -303,8 +346,30 @@ declare namespace applicationManager {
    *                           2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
+   */
+  /**
+   * Remove appid list of bundles that is disallowed to run in the device.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle are disallowed to run.
+   *                                   The size of the array after setting cannot be greater than 200.
+   * @param { number } userId - userId indicates the user ID.
+   * @returns { Promise<void> } the promise returned by the removeDisallowedRunningBundles.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                           2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 21
    */
   function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
@@ -324,8 +389,27 @@ declare namespace applicationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                           2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
+   */
+  /**
+   * Remove appid list of bundles that is disallowed to run in the device.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle are disallowed to run.
+   *                                   The size of the array after setting cannot be greater than 200.
+   * @param { number } [accountId] - accountId indicates the user ID.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                           2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 21
    */
   function removeDisallowedRunningBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void;
 
@@ -345,8 +429,27 @@ declare namespace applicationManager {
    *                           2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
+   */
+  /**
+   * Get appIds or appIdentifiers list of bundles that is disallowed to run in the device.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { AsyncCallback<Array<string>> } callback - the callback of getDisallowedRunningBundles.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                           2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 21
    */
   function getDisallowedRunningBundles(admin: Want, callback: AsyncCallback<Array<string>>): void;
 
@@ -367,8 +470,28 @@ declare namespace applicationManager {
    *                           2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
+   */
+  /**
+   * Get appIds or appIdentifiers list of bundles that is disallowed to run in the device.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { number } userId - userId indicates the user ID.
+   * @param { AsyncCallback<Array<string>> } callback - the callback of getDisallowedRunningBundles.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                           2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 21
    */
   function getDisallowedRunningBundles(admin: Want, userId: number, callback: AsyncCallback<Array<string>>): void;
 
@@ -389,8 +512,28 @@ declare namespace applicationManager {
    *                           2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
+   */
+  /**
+   * Get appIds or appIdentifiers list of bundles that is disallowed to run in the device.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { number } userId - userId indicates the user ID.
+   * @returns { Promise<Array<string>> } the promise returned by the getDisallowedRunningBundles.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                           2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 21
    */
   function getDisallowedRunningBundles(admin: Want, userId?: number): Promise<Array<string>>;
 
@@ -409,8 +552,26 @@ declare namespace applicationManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                           2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
+   */
+  /**
+   * Get appIds or appIdentifiers list of bundles that is disallowed to run in the device.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { number } [accountId] - accountId indicates the user ID.
+   * @returns { Array<string> } ids of the bundle are disallowed to run.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                           2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 21
    */
   function getDisallowedRunningBundlesSync(admin: Want, accountId?: number): Array<string>;
 

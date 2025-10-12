@@ -101,14 +101,14 @@ declare class Deque<T> {
     /**
    * Gets the element number of the Deque.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  get length(): number;
+  get length(): int;
   /**
    * Inserts an element into the deque header.
    *
@@ -419,39 +419,29 @@ declare class Deque<T> {
   /**
    * Iterates over elements in a generic Deque (double-ended queue) and executes a callback function for each element.
    *
-   * @param { DequeCbFnforEach<T> } callbackFn - A callback function to execute for each element.
+   * @param { DequeForEachCb<T> } callbackFn - A callback function to execute for each element.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  forEach(callbackFn: DequeCbFnforEach<T>): void;
-  /**
-   * Returns the byte at the specified index.
-   *
-   * @param { number } index - The zero-based index of the desired code unit.
-   * @returns { T } The element in the deque matching the given index.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  $_get(index: number): T;
+  forEach(callbackFn: DequeForEachCb<T>): void;
 
-  /**
-   * Sets the byte at the specified index.
-   *
-   * @param { number } index – The index of the element to set.
-   * @param { T } value – The value to set at the specified index.
+   /**
+   * Returns the item at that index.
+   * 
+   * @param { int } index - The zero-based index of the desired code unit.
+   *     Throws error if index < 0 or index >= deque.length.
+   * @returns { T } The element in the deque matching the given index. 
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  $_set(index: number, value: T): void;
+  [index: int]: T;
 
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
@@ -495,19 +485,19 @@ declare class Deque<T> {
   $_iterator(): IterableIterator<T>;
 }
 
-  /**
-   * The type of Deque forEach callback function.
-   *
-   * @typedef { function } DequeCbFnforEach
-   * @param { T } value - The current element being processed
-   * @param { number } index - The index of the current element
-   * @param { Deque<T> } deque - The Deque instance being traversed
-   * @returns { void } This callback does not return a value
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  type DequeCbFnforEach<T> = (value: T, index: number, deque: Deque<T>) => void;
+/**
+ * The type of Deque forEach callback function.
+ *
+ * @typedef { function } DequeForEachCb
+ * @param { T } value - The current element being processed
+ * @param { int } index - The index of the current element
+ * @param { Deque<T> } deque - The Deque instance being traversed
+ * @returns { void } This callback does not return a value
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type DequeForEachCb<T> = (value: T, index: int, deque: Deque<T>) => void;
 
 export default Deque;

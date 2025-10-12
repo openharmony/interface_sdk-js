@@ -18,13 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { ChildrenMainSize, ItemDragInfo, RectResult, ScrollableCommonMethod, Optional,
-  OnWillScrollCallback, OnScrollCallback, OnItemDragStartCallback } from './common';
-import { Axis } from './enums';
-import { OnScrollFrameBeginCallback, ScrollAlign, Scroller } from './scroll';
-import { Dimension, Length, LengthConstrain, ResourceColor } from './units';
-/*** endif */
 
 /**
  * Declare scroll status
@@ -58,8 +51,7 @@ import { Dimension, Length, LengthConstrain, ResourceColor } from './units';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ScrollState {
   /**
@@ -91,8 +83,7 @@ declare enum ScrollState {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Idle,
 
@@ -125,8 +116,7 @@ declare enum ScrollState {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Scroll,
 
@@ -158,8 +148,7 @@ declare enum ScrollState {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Fling,
 }
@@ -189,8 +178,7 @@ declare enum ScrollState {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ListItemAlign {
   /**
@@ -215,8 +203,7 @@ declare enum ListItemAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Start,
 
@@ -242,8 +229,7 @@ declare enum ListItemAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Center,
 
@@ -269,8 +255,7 @@ declare enum ListItemAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   End,
 }
@@ -282,8 +267,7 @@ declare enum ListItemAlign {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum ListItemGroupArea {
   /**
@@ -292,8 +276,7 @@ declare enum ListItemGroupArea {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   NONE = 0,
 
@@ -303,8 +286,7 @@ declare enum ListItemGroupArea {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   IN_LIST_ITEM_AREA = 1,
 
@@ -314,8 +296,7 @@ declare enum ListItemGroupArea {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   IN_HEADER_AREA = 2,
 
@@ -325,8 +306,7 @@ declare enum ListItemGroupArea {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   IN_FOOTER_AREA = 3,
 }
@@ -356,8 +336,7 @@ declare enum ListItemGroupArea {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum StickyStyle {
   /**
@@ -383,8 +362,7 @@ declare enum StickyStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   None = 0,
 
@@ -411,8 +389,7 @@ declare enum StickyStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Header = 1,
 
@@ -439,8 +416,7 @@ declare enum StickyStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Footer = 2,
   /**
@@ -462,8 +438,7 @@ declare enum StickyStyle {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10
  */
 declare enum ChainEdgeEffect {
   /**
@@ -472,8 +447,7 @@ declare enum ChainEdgeEffect {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   DEFAULT,
 
@@ -482,8 +456,7 @@ declare enum ChainEdgeEffect {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   STRETCH,
 }
@@ -502,8 +475,7 @@ declare enum ChainEdgeEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ScrollSnapAlign {
   /**
@@ -519,8 +491,7 @@ declare enum ScrollSnapAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   NONE = 0,
 
@@ -541,8 +512,7 @@ declare enum ScrollSnapAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   START = 1,
 
@@ -563,8 +533,7 @@ declare enum ScrollSnapAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   CENTER = 2,
 
@@ -585,8 +554,7 @@ declare enum ScrollSnapAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   END = 3,
 }
@@ -597,8 +565,7 @@ declare enum ScrollSnapAlign {
  * @interface ChainAnimationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10
  */
 declare interface ChainAnimationOptions {
   /**
@@ -607,8 +574,7 @@ declare interface ChainAnimationOptions {
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   minSpace: Length;
 
@@ -618,8 +584,7 @@ declare interface ChainAnimationOptions {
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   maxSpace: Length;
 
@@ -630,8 +595,7 @@ declare interface ChainAnimationOptions {
    * @default 0.7
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   conductivity?: number;
 
@@ -642,8 +606,7 @@ declare interface ChainAnimationOptions {
    * @default 0.3
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   intensity?: number;
 
@@ -654,8 +617,7 @@ declare interface ChainAnimationOptions {
    * @default ChainEdgeEffect.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   edgeEffect?: ChainEdgeEffect;
 
@@ -666,8 +628,7 @@ declare interface ChainAnimationOptions {
    * @default 228
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   stiffness?: number;
 
@@ -678,8 +639,7 @@ declare interface ChainAnimationOptions {
    * @default 30
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   damping?: number;
 }
@@ -757,8 +717,7 @@ declare interface UIListEvent extends UIScrollableCommonEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface CloseSwipeActionOptions {
   /**
@@ -776,8 +735,7 @@ declare interface CloseSwipeActionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onFinish?: ()=>void
 }
@@ -789,8 +747,7 @@ declare interface CloseSwipeActionOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface VisibleListContentInfo {
   /**
@@ -800,8 +757,7 @@ declare interface VisibleListContentInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   index: number
 
@@ -813,8 +769,7 @@ declare interface VisibleListContentInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   itemGroupArea?: ListItemGroupArea
 
@@ -826,8 +781,7 @@ declare interface VisibleListContentInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   itemIndexInGroup?: number
 }
@@ -841,8 +795,7 @@ declare interface VisibleListContentInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare type OnScrollVisibleContentChangeCallback = (start: VisibleListContentInfo, end: VisibleListContentInfo) => void;
 
@@ -872,8 +825,7 @@ declare type OnListScrollIndexCallback = (start: number, end: number, center: nu
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class ListScroller extends Scroller {
   /**
@@ -915,8 +867,7 @@ declare class ListScroller extends Scroller {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getItemRectInGroup(index: number, indexInGroup: number): RectResult;
 
@@ -958,8 +909,7 @@ declare class ListScroller extends Scroller {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   scrollToItemInGroup(index: number, indexInGroup:number, smooth?: boolean, align?: ScrollAlign): void;
 
@@ -992,8 +942,7 @@ declare class ListScroller extends Scroller {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   closeAllSwipeActions(options?: CloseSwipeActionOptions): void;
   
@@ -1017,8 +966,7 @@ declare class ListScroller extends Scroller {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   getVisibleListContentInfo(x: number, y: number): VisibleListContentInfo;
 }
@@ -1035,8 +983,7 @@ declare class ListScroller extends Scroller {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 interface ListOptions {
   /**
@@ -1088,8 +1035,7 @@ interface ListOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   initialIndex?: number;
   /**
@@ -1143,8 +1089,7 @@ interface ListOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   space?: number | string;
   /**
@@ -1194,12 +1139,40 @@ interface ListOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   scroller?: Scroller;
 }
 
+/**
+ * Declare the speed scroll snap animation.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22
+ */
+declare enum ScrollSnapAnimationSpeed {
+  /**
+   * The speed of scroll snap animation is normal.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  NORMAL = 0,
+  /**
+   * The speed of scroll snap animation slow.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  SLOW = 1,
+}
 /**
  * The list interface is extended.
  *
@@ -1232,8 +1205,7 @@ interface ListOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface ListInterface {
   /**
@@ -1284,8 +1256,7 @@ interface ListInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   (options?: ListOptions): ListAttribute;
 }
@@ -1298,8 +1269,7 @@ interface ListInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface ListDividerOptions {
   /**
@@ -1345,8 +1315,7 @@ declare interface ListDividerOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   strokeWidth: Length;
   /**
@@ -1393,8 +1362,7 @@ declare interface ListDividerOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   color?: ResourceColor;
   /**
@@ -1441,8 +1409,7 @@ declare interface ListDividerOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   startMargin?: Length;
   /**
@@ -1489,8 +1456,7 @@ declare interface ListDividerOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   endMargin?: Length;
 }
@@ -1519,8 +1485,7 @@ declare interface ListDividerOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   /**
@@ -1554,10 +1519,25 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   lanes(value: number | LengthConstrain, gutter?: Dimension): ListAttribute;
+
+  /**
+   * Sets the number of columns or rows in the list. If the value is set to the gutter type, it indicates the gap
+   * between columns. It takes effect when the number of columns is greater than 1.
+   *
+   * @param { number | LengthConstrain | ItemFillPolicy } value - Number of columns or rows in the list.
+   *     <br>Default value: <em>1</em>
+   * @param { Dimension } [gutter] - Gap between columns.<br>Default value: <em>0</em>
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22
+   */
+  lanes(value: number | LengthConstrain | ItemFillPolicy, gutter?: Dimension): ListAttribute;
 
   /**
    * Called when need to decide how to align lanes in the direction of the cross axis.
@@ -1588,8 +1568,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   alignListItem(value: ListItemAlign): ListAttribute;
 
@@ -1629,8 +1608,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   listDirection(value: Axis): ListAttribute;
 
@@ -1743,8 +1721,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   contentStartOffset(value: number): ListAttribute;
 
@@ -1780,8 +1757,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   contentEndOffset(value: number): ListAttribute;
 
@@ -1848,8 +1824,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   divider(
     value: ListDividerOptions | null,
@@ -1904,8 +1879,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   multiSelectable(value: boolean): ListAttribute;
 
@@ -1947,8 +1921,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   cachedCount(value: number): ListAttribute;
 
@@ -1964,10 +1937,28 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   cachedCount(count: number, show: boolean): ListAttribute;
+
+  /**
+   * Sets the number of list items or list item groups to be cached (preloaded) and specifies whether to display
+   * the preloaded nodes.
+   * 
+   * @param { number | CacheCountInfo } count - If the parameter type is number, it indicates number of list items
+   * to be preloaded. If the parameter type is CacheCountInfo, it indicates the range of list items to be preloaded.
+   * <br>Default value: number of nodes visible on the screen, with the maximum value of 16
+   * <br>Value range for number type: [0, +∞)
+   * @param { boolean } show - Whether to display the preloaded list items.
+   * Default value: false
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22
+   */
+  cachedCount(count: number | CacheCountInfo, show: boolean): ListAttribute;
 
   /**
    * Called when setting whether to enable chain linkage dynamic effect.
@@ -2008,8 +1999,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   chainAnimation(value: boolean): ListAttribute;
 
@@ -2020,8 +2010,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   chainAnimationOptions(value: ChainAnimationOptions): ListAttribute;
 
@@ -2059,8 +2048,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   sticky(value: StickyStyle): ListAttribute;
 
@@ -2081,8 +2069,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   scrollSnapAlign(value: ScrollSnapAlign): ListAttribute;
 
@@ -2163,8 +2150,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   childrenMainSize(value: ChildrenMainSize): ListAttribute;
 
@@ -2188,8 +2174,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   maintainVisibleContentPosition(enabled: boolean): ListAttribute;
 
@@ -2211,8 +2196,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   stackFromEnd(enabled: boolean): ListAttribute;
 
@@ -2240,6 +2224,19 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 20
    */
   syncLoad(enable: boolean): ListAttribute;
+
+  /**
+   * Sets the speed of scroll snap animation.
+   *
+   * @param { ScrollSnapAnimationSpeed } speed - Speed of scroll snap animation.
+   *     <br>Default value: <em>ScrollSnapAnimationSpeed.NORMAL</em>
+   * @returns { ListAttribute } The attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  scrollSnapAnimationSpeed(speed: ScrollSnapAnimationSpeed): ListAttribute;
 
   /**
    * Called when the offset and status callback of the slide are set.
@@ -2319,8 +2316,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onScrollIndex(event: (start: number, end: number, center: number) => void): ListAttribute;
 
@@ -2332,8 +2328,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onScrollVisibleContentChange(handler: OnScrollVisibleContentChangeCallback): ListAttribute;
 
@@ -2527,8 +2522,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onItemMove(event: (from: number, to: number) => boolean): ListAttribute;
 
@@ -2564,19 +2558,6 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => ((() => any) | void)): ListAttribute;
 
   /**
-   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
-   * (To be triggered, press and hold for 170 milliseconds (ms))
-   *
-   * @param { OnItemDragStartCallback } event - callback function, triggered when the item drag start.
-   * @returns { ListAttribute } Returns the instance of the ListAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onItemDragStart(event: OnItemDragStartCallback): ListAttribute;
-
-  /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
    *
    * @param { function } event
@@ -2601,8 +2582,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onItemDragEnter(event: (event: ItemDragInfo) => void): ListAttribute;
 
@@ -2631,8 +2611,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onItemDragMove(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void): ListAttribute;
 
@@ -2661,8 +2640,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onItemDragLeave(event: (event: ItemDragInfo, itemIndex: number) => void): ListAttribute;
 
@@ -2693,8 +2671,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onItemDrop(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void): ListAttribute;
 
@@ -2757,35 +2734,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.2
    */
    onScrollFrameBegin(event: OnScrollFrameBeginCallback): ListAttribute;
-
-   /**
-   * Called when the scrollable will scroll.
-   *
-   * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onWillScroll(handler: Optional<OnWillScrollCallback>): ListAttribute;
-  
-  /**
-   * Called when the scrollable did scroll.
-   *
-   * @param { OnScrollCallback } handler - callback of scrollable,
-   * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-   onDidScroll(handler: OnScrollCallback): ListAttribute;
 }
 
 /**

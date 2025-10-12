@@ -690,4 +690,14 @@ declare class SecurityComponentMethod<T> {
    * @since 18
    */
   enabled(respond: boolean): T;
+  /**
+   * Set the focusBox style.
+   *
+   * @param { FocusBoxStyle } style FocusBox style.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  focusBox(style:FocusBoxStyle):T;
 }

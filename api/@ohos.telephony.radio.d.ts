@@ -27,7 +27,8 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace radio
  * @syscap SystemCapability.Telephony.CoreService
- * @since 6
+ * @since arkts{ '1.1':'6','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace radio {
   /**
@@ -185,7 +186,7 @@ declare namespace radio {
    * Obtains the network state of the registered network.
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<NetworkState> } callback - Indicates the callback for getting network registration state.
    * @throws { BusinessError } 201 - Permission denied.
@@ -196,15 +197,16 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since arkts{ '1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getNetworkState(slotId: number, callback: AsyncCallback<NetworkState>): void;
+  function getNetworkState(slotId: int, callback: AsyncCallback<NetworkState>): void;
 
   /**
    * Obtains the network state of the registered network.
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * if no slotId is provided, the default slotId is 0.
    * @returns { Promise<NetworkState> } Returns the NetworkState object.
@@ -216,9 +218,10 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since arkts{ '1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getNetworkState(slotId?: number): Promise<NetworkState>;
+  function getNetworkState(slotId?: int): Promise<NetworkState>;
 
   /**
    * Obtains the network state of the registered network.
@@ -233,7 +236,8 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since arkts{ '1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getNetworkState(callback: AsyncCallback<NetworkState>): void;
 
@@ -804,7 +808,7 @@ declare namespace radio {
    *
    * The primary card is the SIM card inserted in the card slot that uses data services by default.
    *
-   * @param { AsyncCallback<number> } callback - Indicates the callback for getting the index number of
+   * @param { AsyncCallback<int> } callback - Indicates the callback for getting the index number of
    * the primary card slot.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -813,23 +817,25 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since arkts{ '1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getPrimarySlotId(callback: AsyncCallback<number>): void;
+  function getPrimarySlotId(callback: AsyncCallback<int>): void;
 
   /**
    * Obtains the index number of the card slot where the primary card is located if multiple SIM cards are inserted.
    *
    * The primary card is the SIM card inserted in the card slot that uses data services by default.
    *
-   * @returns { Promise<number> } Returns the index number of the primary card slot.
+   * @returns { Promise<int> } Returns the index number of the primary card slot.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since arkts{ '1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getPrimarySlotId(): Promise<number>;
+  function getPrimarySlotId(): Promise<int>;
 
   /**
    * Set the index number of the main SIM card slot.
@@ -878,7 +884,7 @@ declare namespace radio {
   /**
    * Obtains the list of signal strength information of the registered network corresponding to a specified SIM card.
    *
-   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
+   * @param { int } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
    * index number supported by the device.
    * @param { AsyncCallback<Array<SignalInformation>> } callback - Indicates the callback for getting
    * the instance list of the child classes derived from {@link SignalInformation}.
@@ -889,14 +895,15 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since arkts{ '1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getSignalInformation(slotId: number, callback: AsyncCallback<Array<SignalInformation>>): void;
+  function getSignalInformation(slotId: int, callback: AsyncCallback<Array<SignalInformation>>): void;
 
   /**
    * Obtains the list of signal strength information of the registered network corresponding to a specified SIM card.
    *
-   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
+   * @param { int } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
    * index number supported by the device.
    * @returns { Promise<Array<SignalInformation>> } Returns the callback for getting the instance list of
    * the child classes derived from {@link SignalInformation}.
@@ -907,9 +914,10 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since arkts{ '1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getSignalInformation(slotId: number): Promise<Array<SignalInformation>>;
+  function getSignalInformation(slotId: int): Promise<Array<SignalInformation>>;
 
   /**
    * Obtains the list of signal strength information of the registered network corresponding to a specified SIM card.
@@ -952,20 +960,22 @@ declare namespace radio {
    *
    * @returns { boolean } Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNRSupported(): boolean;
 
   /**
    * Checks whether the device supports 5G New Radio (NR) by according card slot.
    *
-   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
+   * @param { int } slotId - Indicates the card slot index int, ranging from 0 to the maximum card slot
    * index number supported by the device.
    * @returns { boolean } Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function isNRSupported(slotId: number): boolean;
+  function isNRSupported(slotId: int): boolean;
 
   /**
    * Checks whether the radio service is enabled.
@@ -1282,7 +1292,7 @@ declare namespace radio {
    * Get the IMS registration state info of specified IMS service type.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.
    * @param { AsyncCallback<ImsRegInfo> } callback - Indicates an instance of the {@link ImsRegInfo} class.
@@ -1295,15 +1305,16 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getImsRegInfo(slotId: number, imsType: ImsServiceType, callback: AsyncCallback<ImsRegInfo>): void;
+  function getImsRegInfo(slotId: int, imsType: ImsServiceType, callback: AsyncCallback<ImsRegInfo>): void;
 
   /**
    * Get the IMS registration state info of specified IMS service type.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.
    * @returns { Promise<ImsRegInfo> } Returns an instance of the {@link ImsRegInfo} class.
@@ -1316,9 +1327,10 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getImsRegInfo(slotId: number, imsType: ImsServiceType): Promise<ImsRegInfo>;
+  function getImsRegInfo(slotId: int, imsType: ImsServiceType): Promise<ImsRegInfo>;
 
   /**
    * Called when the IMS registration state of specified IMS service type corresponding to
@@ -1947,7 +1959,8 @@ declare namespace radio {
    *
    * @interface NetworkRadioTech
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 11
+   * @since arkts{ '1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface NetworkRadioTech {
     /**
@@ -1955,7 +1968,8 @@ declare namespace radio {
      *
      * @type { RadioTechnology }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 11
+     * @since arkts{ '1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     psRadioTech: RadioTechnology;
 
@@ -1972,16 +1986,18 @@ declare namespace radio {
   /**
    * Describes the radio access technology.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since arkts{ '1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum RadioTechnology {
     /**
      * Indicates unknown radio access technology (RAT).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RADIO_TECHNOLOGY_UNKNOWN = 0,
 
@@ -1990,7 +2006,8 @@ declare namespace radio {
      * radio system (GPRS), and enhanced data rates for GSM evolution (EDGE).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RADIO_TECHNOLOGY_GSM = 1,
 
@@ -1999,7 +2016,8 @@ declare namespace radio {
      * Single-Carrier Radio Transmission Technology (1xRTT).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RADIO_TECHNOLOGY_1XRTT = 2,
 
@@ -2007,7 +2025,8 @@ declare namespace radio {
      * Indicates that RAT is wideband code division multiple address (WCDMA).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RADIO_TECHNOLOGY_WCDMA = 3,
 
@@ -2016,7 +2035,8 @@ declare namespace radio {
      * access (HSDPA), and high-speed uplink packet access (HSUPA).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RADIO_TECHNOLOGY_HSPA = 4,
 
@@ -2025,7 +2045,8 @@ declare namespace radio {
      * HSPA+ (DC-HSPA+).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RADIO_TECHNOLOGY_HSPAP = 5,
 
@@ -2033,7 +2054,8 @@ declare namespace radio {
      * Indicates that RAT is time division-synchronous code division multiple access (TD-SCDMA).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RADIO_TECHNOLOGY_TD_SCDMA = 6,
 
@@ -2041,7 +2063,8 @@ declare namespace radio {
      * Indicates that RAT is evolution data only (EVDO), including EVDO Rev.0, EVDO Rev.A, and EVDO Rev.B.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RADIO_TECHNOLOGY_EVDO = 7,
 
@@ -2049,7 +2072,8 @@ declare namespace radio {
      * Indicates that RAT is evolved high rate packet data (EHRPD).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RADIO_TECHNOLOGY_EHRPD = 8,
 
@@ -2057,7 +2081,8 @@ declare namespace radio {
      * Indicates that RAT is long term evolution (LTE).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RADIO_TECHNOLOGY_LTE = 9,
 
@@ -2065,7 +2090,8 @@ declare namespace radio {
      * Indicates that RAT is LTE carrier aggregation (LTE-CA).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RADIO_TECHNOLOGY_LTE_CA = 10,
 
@@ -2073,7 +2099,8 @@ declare namespace radio {
      * Indicates that RAT is interworking WLAN (I-WLAN).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RADIO_TECHNOLOGY_IWLAN = 11,
 
@@ -2081,7 +2108,8 @@ declare namespace radio {
      * Indicates that RAT is 5G new radio (NR).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RADIO_TECHNOLOGY_NR = 12
   }
@@ -2091,7 +2119,8 @@ declare namespace radio {
    *
    * @interface SignalInformation
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since arkts{ '1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface SignalInformation {
     /**
@@ -2099,42 +2128,47 @@ declare namespace radio {
      *
      * @type { NetworkType }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     signalType: NetworkType;
 
     /**
      * Obtains the signal level of the current network.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    signalLevel: number;
+    signalLevel: int;
 
     /**
      * rsrp for LTE and NR; dbm for CDMA and EVDO; rscp for WCDMA; rssi for GSM.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    dBm: number;
+    dBm: int;
   }
 
   /**
    * Describes the network type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since arkts{ '1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum NetworkType {
     /**
      * Indicates unknown network type.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NETWORK_TYPE_UNKNOWN,
 
@@ -2142,7 +2176,8 @@ declare namespace radio {
      * Indicates that the network type is GSM.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NETWORK_TYPE_GSM,
 
@@ -2150,7 +2185,8 @@ declare namespace radio {
      * Indicates that the network type is CDMA.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NETWORK_TYPE_CDMA,
 
@@ -2158,7 +2194,8 @@ declare namespace radio {
      * Indicates that the network type is WCDMA.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NETWORK_TYPE_WCDMA,
 
@@ -2166,7 +2203,8 @@ declare namespace radio {
      * Indicates that the network type is TD-SCDMA.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NETWORK_TYPE_TDSCDMA,
 
@@ -2174,7 +2212,8 @@ declare namespace radio {
      * Indicates that the network type is LTE.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NETWORK_TYPE_LTE,
 
@@ -2182,7 +2221,8 @@ declare namespace radio {
      * Indicates that the network type is 5G NR.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NETWORK_TYPE_NR
   }
@@ -2192,7 +2232,8 @@ declare namespace radio {
    *
    * @interface NetworkState
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since arkts{ '1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface NetworkState {
     /**
@@ -2203,7 +2244,8 @@ declare namespace radio {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     longOperatorName: string;
 
@@ -2215,7 +2257,8 @@ declare namespace radio {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     shortOperatorName: string;
 
@@ -2226,7 +2269,8 @@ declare namespace radio {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     plmnNumeric: string;
 
@@ -2235,7 +2279,8 @@ declare namespace radio {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isRoaming: boolean;
 
@@ -2244,7 +2289,8 @@ declare namespace radio {
      *
      * @type { RegState }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     regState: RegState;
 
@@ -2253,7 +2299,8 @@ declare namespace radio {
      *
      * @type { RadioTechnology }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 8
+     * @since arkts{ '1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cfgTech: RadioTechnology;
 
@@ -2264,7 +2311,8 @@ declare namespace radio {
      *
      * @type { NsaState }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     nsaState: NsaState;
 
@@ -2287,7 +2335,8 @@ declare namespace radio {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isEmergency: boolean;
   }
@@ -2295,16 +2344,18 @@ declare namespace radio {
   /**
    * Describes the network registration state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since arkts{ '1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum RegState {
     /**
      * Indicates a state in which a device cannot use any service.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REG_STATE_NO_SERVICE = 0,
 
@@ -2312,7 +2363,8 @@ declare namespace radio {
      * Indicates a state in which a device can use services properly.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REG_STATE_IN_SERVICE = 1,
 
@@ -2320,7 +2372,8 @@ declare namespace radio {
      * Indicates a state in which a device can use only the emergency call service.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REG_STATE_EMERGENCY_CALL_ONLY = 2,
 
@@ -2328,7 +2381,8 @@ declare namespace radio {
      * Indicates that the cellular radio is powered off.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REG_STATE_POWER_OFF = 3
   }
@@ -2338,14 +2392,16 @@ declare namespace radio {
    *
    * @enum { number }
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since arkts{ '1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum NsaState {
     /**
      * Indicates that a device is idle under or is connected to an LTE cell that does not support NSA.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NSA_STATE_NOT_SUPPORT = 1,
 
@@ -2353,7 +2409,8 @@ declare namespace radio {
      * Indicates that a device is idle under an LTE cell supporting NSA but not NR coverage detection.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NSA_STATE_NO_DETECT = 2,
 
@@ -2362,7 +2419,8 @@ declare namespace radio {
      * that supports NSA and NR coverage detection.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NSA_STATE_CONNECTED_DETECT = 3,
 
@@ -2370,7 +2428,8 @@ declare namespace radio {
      * Indicates that a device is idle under an LTE cell supporting NSA and NR coverage detection.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NSA_STATE_IDLE_DETECT = 4,
 
@@ -2378,7 +2437,8 @@ declare namespace radio {
      * Indicates that a device is connected to an LTE + NR network under an LTE cell that supports NSA.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NSA_STATE_DUAL_CONNECTED = 5,
 
@@ -2386,7 +2446,8 @@ declare namespace radio {
      * Indicates that a device is idle under or is connected to an NG-RAN cell while being attached to 5GC.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since arkts{ '1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NSA_STATE_SA_ATTACHED = 6
   }
@@ -2396,7 +2457,8 @@ declare namespace radio {
    *
    * @interface CellInformation
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 8
+   * @since arkts{ '1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CellInformation {
     /**
@@ -2406,7 +2468,8 @@ declare namespace radio {
      *
      * @type { NetworkType }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 8
+     * @since arkts{ '1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     networkType: NetworkType;
 
@@ -2441,7 +2504,8 @@ declare namespace radio {
      *
      * @type { SignalInformation }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 8
+     * @since arkts{ '1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     signalInformation: SignalInformation;
 
@@ -3199,10 +3263,11 @@ declare namespace radio {
   /**
    * Obtains IMS registration status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ImsRegState {
     /**
@@ -3210,7 +3275,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IMS_UNREGISTERED,
 
@@ -3219,7 +3285,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IMS_REGISTERED,
   }
@@ -3227,10 +3294,11 @@ declare namespace radio {
   /**
    * Indicates IMS registration technology.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ImsRegTech {
     /**
@@ -3238,7 +3306,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REGISTRATION_TECH_NONE,
 
@@ -3247,7 +3316,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REGISTRATION_TECH_LTE,
 
@@ -3256,7 +3326,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REGISTRATION_TECH_IWLAN,
 
@@ -3265,7 +3336,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REGISTRATION_TECH_NR,
   }
@@ -3276,7 +3348,8 @@ declare namespace radio {
    * @interface ImsRegInfo
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface ImsRegInfo {
     /**
@@ -3285,7 +3358,8 @@ declare namespace radio {
      * @type { ImsRegState }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     imsRegState: ImsRegState;
 
@@ -3295,7 +3369,8 @@ declare namespace radio {
      * @type { ImsRegTech }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     imsRegTech: ImsRegTech;
   }
@@ -3303,10 +3378,11 @@ declare namespace radio {
   /**
    * Indicates the type of IMS service.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ImsServiceType {
     /**
@@ -3314,7 +3390,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_VOICE,
 
@@ -3323,7 +3400,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_VIDEO,
 
@@ -3332,7 +3410,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_UT,
 
@@ -3341,7 +3420,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_SMS,
   }

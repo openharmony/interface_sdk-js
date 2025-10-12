@@ -21,10 +21,6 @@
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { FrameNode } from './FrameNode';
 import { Size } from './Graphics';
-/*** if arkts 1.2 */
-import { TouchEvent } from './component/common';
-import { WrappedBuilder, CustomBuilder, CustomBuilderT } from './component/builder';
-/*** endif */
 
 /**
  * Render type of the node using for indicating that
@@ -60,10 +56,9 @@ For details, see Rendering and Drawing Video and Button Components at the Same L
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
-export declare enum NodeRenderType {
+declare enum NodeRenderType {
   /**
    * Display type.The node will be shown on the display.
    *
@@ -77,8 +72,7 @@ export declare enum NodeRenderType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   RENDER_TYPE_DISPLAY = 0,
 
@@ -93,8 +87,7 @@ export declare enum NodeRenderType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   RENDER_TYPE_TEXTURE = 1,
 }
@@ -114,8 +107,7 @@ export declare enum NodeRenderType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface RenderOptions {
   /**
@@ -131,8 +123,7 @@ export interface RenderOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   selfIdealSize?: Size;
 
@@ -147,8 +138,7 @@ export interface RenderOptions {
    * @type { ?NodeRenderType } type - Render type of the node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   type?: NodeRenderType;
 
@@ -164,8 +154,7 @@ export interface RenderOptions {
    * @type { ?string } surfaceId - surfaceId of a consumer who can receive the texture of the Node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   surfaceId?: string;
 }
@@ -178,8 +167,7 @@ export interface RenderOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface BuildOptions {
 
@@ -192,8 +180,7 @@ export interface BuildOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   nestingBuilderSupported?: boolean;
 
@@ -297,8 +284,7 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   constructor(uiContext: UIContext, options?: RenderOptions);
 
@@ -349,8 +335,7 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   build(builder: WrappedBuilder<Args>, arg?: Object): void;
 
@@ -375,8 +360,7 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   build(builder: WrappedBuilder<Args>, arg: Object, options: BuildOptions): void;
 
@@ -401,8 +385,7 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   update(arg: Object): void;
 
@@ -423,8 +406,7 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getFrameNode(): FrameNode | null;
 
@@ -485,8 +467,7 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   postTouchEvent(event: TouchEvent): boolean;
 
@@ -506,8 +487,7 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   dispose(): void;
 
@@ -519,8 +499,7 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   reuse(param?: Object): void;
 
@@ -585,146 +564,199 @@ export class BuilderNode<Args extends Object[]> {
 }
 
 /**
- * Defines BuilderNode.
+ * Defines ReactiveBuilderNode.
+ * Implements a ReactiveBuilderNode, which can create a component tree through the stateless UI method @Builder and hold
+ * the root node of the component tree. A ReactiveBuilderNode cannot be defined as a state variable. The FrameNode held
+ * in the ReactiveBuilderNode is only used to mount the ReactiveBuilderNode to other FrameNodes as a child node.
+ * Undefined behavior may occur if you set attributes or perform operations on subnodes of the FrameNode held by the
+ * ReactiveBuilderNode. Therefore, after you have obtained a RenderNode through the getFrameNode method of the
+ * ReactiveBuilderNode and the getRenderNode method of the FrameNode, avoid setting the attributes or operating the
+ * subnodes through APIs of the RenderNode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 22
  */
-export declare class BuilderNode<T = undefined> {
+export class ReactiveBuilderNode<Args extends Object[]> {
+/**
+ * Constructor.
+ * When the content generated by the ReactiveBuilderNode is embedded in another RenderNode for display, that is, the
+ * RenderNode corresponding to the ReactiveBuilderNode is mounted to another RenderNode for display, selfIdealSize in
+ * RenderOptions must be explicitly specified. If selfIdealSize is not set, the node in the builder follows the
+ * default parent component layout constraint [0, 0], which means that the size of the root node of the subtree in
+ * ReactiveBuilderNode is [0, 0].
+ * 
+ * <p><strong>Note:</strong>
+ * <br>The input parameter for uiContext must be a valid value, that is, the UI context must be correct. If an invalid
+ * <br>value is passed in or if no value is specified, creation will fail.
+ * </p>
+ *
+ * @param { UIContext } uiContext - uiContext used to create the ReactiveBuilderNode
+ * @param { RenderOptions } [options] - Render options of the Builder Node
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22
+ */
+  constructor(uiContext: UIContext, options?: RenderOptions);
+/**
+ * Build the ReactiveBuilderNode with the builder.Support the type that WrappedBuilder contains builder used different
+ * params. Creates a component tree based on the passed object and holds the root node of the component tree. The
+ * stateless UI method @Builder has at most one root node. Custom components are allowed. Yet, the custom components
+ * cannot use decorators, such as @Reusable, @Link, @Provide, and @Consume, for state synchronization with the current
+ * page. Custom components can receive LocalStorage instances. You can use LocalStorage related
+ * decorators such as @LocalStorageProp and @LocalStorageLink by passing LocalStorage instances.
+ * 
+ * <p><strong>Note:</strong>
+ * <br>For details about the creation and update using @Builder, see @Builder.
+ * <br>The outermost @Builder supports only one input argument.
+ * </p>
+ *
+ * @param { WrappedBuilder<Args> } builder - Defined the builder will be called to build the node.
+ * @param { BuildOptions } config - Defined the options will be used when build.
+ * @param { Args } args - Defined the args will be used in the builder. The type of the input argument
+ *     must be consistent with the type defined by @Builder.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22
+ */
+  build(builder: WrappedBuilder<Args>, config: BuildOptions, ...args: Args): void;
    /**
-    * Constructor.
+    * Get the FrameNode in ReactiveBuilderNode.
+    * The FrameNode is generated only after the ReactiveBuilderNode executes the build operation.
     *
-    * @param { UIContext } uiContext - uiContext used to create the BuilderNode
-    * @param { RenderOptions } [options] - Render options of the Builder Node
+    * @returns { FrameNode | null } - Returns a FrameNode inside the ReactiveBuilderNode, or null if not contained.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 20
-    * @arkts 1.2
-    */
-   constructor(uiContext: UIContext, options?: RenderOptions);
- 
-   /**
-    * Build the BuilderNode with the builder.
-    *
-    * @param {  WrappedBuilder<CustomBuilder> } builder - Defined the builder will be called to build the node.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @crossplatform
-    * @atomicservice
-    * @since 20
-    * @arkts 1.2
-    */
-   build(builder: WrappedBuilder<CustomBuilder>): void;
- 
-   /**
-    * Build the BuilderNode with the builder.
-    *
-    * @param {  WrappedBuilder<CustomBuilderT<T>> } builder - Defined the builder will be called to build the node.
-    * @param { T } arg - Defined the args will be used in the builder.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @crossplatform
-    * @atomicservice
-    * @since 20
-    * @arkts 1.2
-    */
-   build(builder: WrappedBuilder<CustomBuilderT<T>>, arg: T): void;
- 
-   /**
-    * Build the BuilderNode with the builder.Support the type that WrappedBuilder contains builder used different params.
-    *
-    * @param { WrappedBuilder<CustomBuilderT<T>> } builder - Defined the builder will be called to build the node.
-    * @param { T } arg - Defined the args will be used in the builder.
-    * @param { BuildOptions } options - Defined the options will be used when build.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @crossplatform
-    * @atomicservice
-    * @since 20
-    * @arkts 1.2
-    */
-   build(builder: WrappedBuilder<CustomBuilderT<T>>, arg: T, options: BuildOptions): void;
- 
-   /**
-    * Update the BuilderNode based on the provided parameters.
-    *
-    * @param { T } arg - Parameters used to update the BuilderNode, which must match the types required by the builder bound to the BuilderNode.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @crossplatform
-    * @atomicservice
-    * @since 20
-    * @arkts 1.2
-    */
-   update(arg: T): void;
- 
-   /**
-    * Get the FrameNode in BuilderNode.
-    *
-    * @returns { FrameNode | null } - Returns a FrameNode inside the BuilderNode, or null if not contained.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @crossplatform
-    * @atomicservice
-    * @since 20
-    * @arkts 1.2
+    * @since 22
     */
    getFrameNode(): FrameNode | null;
- 
+  
    /**
     * Dispatch touchEvent to targetNode.
+    * postTouchEvent dispatches the event from a middle node in the component tree downwards. To ensure the event is
+    * dispatched correctly, it needs to be transformed into the coordinate system of the parent component, as shown in
+    * the figure below.
+    * OffsetA indicates the offset of the BuildNode relative to the parent component. You can obtain this offset by
+    * calling getPositionToParent in the FrameNode. OffsetB indicates the offset of the touch point relative to the
+    * BuildNode. You can obtain this offset from the TouchEvent object. OffsetC is the sum of OffsetA and OffsetB. It
+    * represents the final offset that you need to pass to postTouchEvent.
+    * 
+    * <p><strong>Note:</strong>
+    * <br>The coordinates you pass in need to be converted to pixel values (px). If the ReactiveBuilderNode has any
+    * <br>affine transformations applied to it, they must be taken into account and combined with the touch event
+    * <br>coordinates. In Webview, coordinate system transformations are already handled internally, so you can directly
+    * <br>dispatch the touch event without additional adjustments.
+    * <br>The postTouchEvent API can be called only once for the same timestamp.
+    * <br>UIExtensionComponent is not supported.
+    * </p>
     *
     * @param { TouchEvent } event - The touchEvent which will be sent to the targetNode.
-    * @returns { boolean } - Returns true if the TouchEvent has been successfully posted to the targetNode, false otherwise.
+    * @returns { boolean } - Returns true if the TouchEvent has been successfully posted to the targetNode, false
+    *     otherwise. If the event does not hit the expected component, ensure the following:
+    *     1. The coordinate system has been correctly transformed
+    *     2. The component is in an interactive state.
+    *     3. The event has been bound to the component.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 20
-    * @arkts 1.2
+    * @since 22
     */
    postTouchEvent(event: TouchEvent): boolean;
- 
+  
    /**
-    * Dispose the BuilderNode immediately.
+    * Dispose the ReactiveBuilderNode immediately.
+    * Calling dispose on a ReactiveBuilderNode object breaks its reference to the backend entity node, and also
+    * simultaneously severs the references of its contained FrameNode and RenderNode to their respective entity nodes.
+    * 
+    * <p><strong>Note:</strong>
+    * <br>Calling dispose on a ReactiveBuilderNode object breaks its reference to the backend entity node, and also
+    * <br>simultaneously severs the references of its contained FrameNode and RenderNode to their respective entity
+    * <br>nodes. If the frontend object ReactiveBuilderNode cannot be released, memory leaks may occur. To avoid this,
+    * <br>be sure to call dispose on the ReactiveBuilderNode when you no longer need it. This reduces the complexity
+    * <br>of reference relationships and lowers the risk of memory leaks.
+    * </p>
     *
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 20
-    * @arkts 1.2
+    * @since 22
     */
    dispose(): void;
- 
+  
    /**
-    * Reuse the BuilderNode based on the provided parameters.
+    * Reuse the ReactiveBuilderNode based on the provided parameters.
     *
-    * @param {  Record<string,NullishType> } [param] - Parameters for reusing BuilderNode.
+    * @param { Object } [param] - Parameters for reusing ReactiveBuilderNode.
+    *     It is of the same type as the parameter passed to the build API.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 20
-    * @arkts 1.2
+    * @since 22
     */
-   reuse(param?: Record<string, NullishType>): void;
- 
+   reuse(param?: Object): void;
+  
    /**
-    * Recycle the BuilderNode.
+    * Recycle the ReactiveBuilderNode.
     *
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 20
-    * @arkts 1.2
+    * @since 22
     */
    recycle(): void;
- 
+  
    /**
-    * Notify BuilderNode to update the configuration to trigger a reload of the BuilderNode.
+    * Notify ReactiveBuilderNode to update the configuration to trigger a reload of the ReactiveBuilderNode.
+    * 
+    * <p><strong>Note:</strong>
+    * <br>The updateConfiguration API is used to instruct an object to update, with the system environment used for the
+    * <br>update being determined by the changes in the application's current system environment.
+    * </p>
     *
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 20
-    * @arkts 1.2
+    * @since 22
     */
    updateConfiguration(): void;
- }
+  
+   /**
+    * Dispatch mouse event to targetNode.
+    *
+    * @param { InputEventType  } event - The event which will be sent to the targetNode.
+    * @returns { boolean } - Returns true if the event has been successfully posted to the targetNode,
+    *     false otherwise.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @atomicservice
+    * @since 22
+    */
+   postInputEvent(event: InputEventType): boolean;
+  
+   /**
+    * Set if the ReactiveBuilderNode inherits the freezing policy of the parent CustomComponent, ComponentContent,
+    * ReactiveComponentContent, BuilderNode or ReactiveBuilderNode.
+    *
+    * @param { boolean } enabled - If the ReactiveBuilderNode inherits the freezing policy of the parent
+    *     CustomComponent, ComponentContent, ReactiveComponentContent, BuilderNode or ReactiveBuilderNode.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 22
+    */
+   inheritFreezeOptions(enabled: boolean): void;
+  
+   /**
+    * Get if the node is disposed.
+    * 
+    * @returns { boolean } - Returns true if the node is disposed, false otherwise.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 22
+    */
+   isDisposed(): boolean;
+}

@@ -19,9 +19,7 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
-/*** if arkts 1.1 */
 import stream from './@ohos.util.stream';
-/*** endif */
 
 /**
  * Hash
@@ -141,6 +139,7 @@ declare namespace hash {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   class HashStream extends stream.Transform {
     /**
@@ -161,6 +160,7 @@ declare namespace hash {
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     digest(): string;
 
@@ -182,6 +182,7 @@ declare namespace hash {
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     update(data: ArrayBuffer): void;
   }
@@ -208,6 +209,7 @@ declare namespace hash {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   function createHash(algorithm: string): HashStream;
 }

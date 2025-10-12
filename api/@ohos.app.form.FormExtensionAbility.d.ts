@@ -173,7 +173,7 @@ declare class FormExtensionAbility {
   /**
    * Called when the form provider receives form events from the system.
    *
-   * @param { Record<string, number> } newStatus - Indicates the form events occurred. The key in the {@code Map}
+   * @param { Record<string, int> } newStatus - Indicates the form events occurred. The key in the {@code Map}
    *                                               object indicates the form ID, and the value indicates the event
    *                                               type, which can be either
    *                                               {@link formInfo#VisibilityType#FORM_VISIBLE} or
@@ -187,7 +187,7 @@ declare class FormExtensionAbility {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  onChangeFormVisibility(newStatus: Record<string, number>): void;
+  onChangeFormVisibility(newStatus: Record<string, int>): void;
 
   /**
    * Called when a specified message event defined by the form provider is triggered. This method is valid only for

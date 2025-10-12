@@ -67,7 +67,7 @@ export interface ProcessInformation {
    * @since 10
    */
   /**
-   * @type { number }
+   * @type { int }
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -75,7 +75,7 @@ export interface ProcessInformation {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  pid: number;
+  pid: int;
 
   /**
    * @type { number }
@@ -84,14 +84,14 @@ export interface ProcessInformation {
    * @since 9
    */
   /**
-   * @type { number }
+   * @type { int }
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  uid: number;
+  uid: int;
 
   /**
    * @type { string }
@@ -174,11 +174,11 @@ export interface ProcessInformation {
 
   /**
    * The app clone index of current process if app is multi app mode.
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  appCloneIndex?: number;
+  appCloneIndex?: int;
 }

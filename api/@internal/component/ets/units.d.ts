@@ -18,13 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { Resource as _Resource } from '../../global/resource';
-import { Color, BorderStyle, FontWeight, FontStyle, DividerMode} from './enums';
-import { OutlineStyle } from './common';
-import { LengthMetricsUnit as _LengthMetricsUnit, LengthMetrics as _LengthMetrics, ColorMetrics as _ColorMetrics } from '../Graphics';
-/*** endif */
-
 /**
  * Defines the data type of the interface restriction.
  *
@@ -64,19 +57,6 @@ import { LengthMetricsUnit as _LengthMetricsUnit, LengthMetrics as _LengthMetric
 declare type Resource = import('../api/global/resource').Resource;
 
 /**
- * Defines the data type of the interface restriction.
- *
- * @typedef { _Resource } Resource
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type Resource = _Resource;
-
-/**
  * Defines the length property with string, number and resource unit.
  *
  * @typedef { string | number | Resource } Length
@@ -108,8 +88,7 @@ declare type Resource = _Resource;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare type Length = string | number | Resource;
 
@@ -139,17 +118,6 @@ declare type Length = string | number | Resource;
  */
 declare type PX = `${number}px`;
 
-
-/**
- * Defines the length property with number in units of px.
- *
- * @typedef { string } PX
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type PX = string;
 /**
  * Defines the length property with number or number in units of vp.
  *
@@ -175,17 +143,6 @@ declare type PX = string;
  * @since 18
  */
 declare type VP = `${number}vp` | number;
-
-/**
- * Defines the length property with number or number in units of vp.
- *
- * @typedef { string | number } VP
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type VP = string | number;
 
 /**
  * Defines the length property with number in units of fp.
@@ -214,17 +171,6 @@ declare type VP = string | number;
 declare type FP = `${number}fp`;
 
 /**
- * Defines the length property with number in units of fp.
- *
- * @typedef { string } FP
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type FP = string;
-
-/**
  * Defines the length property with number in units of lpx.
  *
  * @typedef { `${number}lpx` } LPX
@@ -249,17 +195,6 @@ declare type FP = string;
  * @since 18
  */
 declare type LPX = `${number}lpx`;
-
-/**
- * Defines the length property with number in units of lpx.
- *
- * @typedef { string } LPX
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type LPX = string;
 
 /**
  * Defines the length property with number in units of Percentage.
@@ -288,17 +223,6 @@ declare type LPX = string;
 declare type Percentage = `${number}%`;
 
 /**
- * Defines the length property with number in units of Percentage.
- *
- * @typedef { string } Percentage
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type Percentage = string;
-
-/**
  * Defines the angle property with number in units of deg.
  *
  * @typedef { `${number}deg` } Degree
@@ -314,17 +238,6 @@ declare type Percentage = string;
  * @since 11
  */
 declare type Degree = `${number}deg`;
-
-/**
- * Defines the angle property with number in units of deg.
- *
- * @typedef { string } Degree
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type Degree = string;
 
 /**
  * Defines the dimension property with number with units(vp|px|fp|lpx|%), and resource.
@@ -348,8 +261,7 @@ declare type Degree = string;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare type Dimension = PX | VP | FP | LPX | Percentage | Resource;
 
@@ -385,8 +297,7 @@ declare type Dimension = PX | VP | FP | LPX | Percentage | Resource;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare type ResourceStr = string | Resource;
 
@@ -421,19 +332,7 @@ declare type ResourceStr = string | Resource;
  * @atomicservice
  * @since 11
  */
-/**
- * Defines the padding property.
- *
- * Anonymous Object Rectification
- * @typedef { object } Padding
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-declare interface Padding {
+declare type Padding = {
   /**
    * top property.
    *
@@ -464,10 +363,9 @@ declare interface Padding {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   top?: Length;
 
@@ -501,10 +399,9 @@ declare interface Padding {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   right?: Length;
 
@@ -538,10 +435,9 @@ declare interface Padding {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   bottom?: Length;
 
@@ -575,10 +471,9 @@ declare interface Padding {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   left?: Length;
 };
@@ -591,8 +486,7 @@ declare interface Padding {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface LocalizedPadding {
   /**
@@ -603,8 +497,7 @@ declare interface LocalizedPadding {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   top?: LengthMetrics;
 
@@ -616,8 +509,7 @@ declare interface LocalizedPadding {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   end?: LengthMetrics;
 
@@ -629,8 +521,7 @@ declare interface LocalizedPadding {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   bottom?: LengthMetrics;
 
@@ -642,11 +533,10 @@ declare interface LocalizedPadding {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   start?: LengthMetrics;
-};
+}
 
 /**
  * Defines the margin property.
@@ -680,8 +570,7 @@ declare interface LocalizedPadding {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare type Margin = Padding;
 
@@ -700,8 +589,7 @@ declare type Margin = Padding;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare type EdgeWidth = EdgeWidths;
 
@@ -732,19 +620,7 @@ declare type EdgeWidth = EdgeWidths;
  * @atomicservice
  * @since 11
  */
-/**
- * Defines the border width property.
- *
- * Anonymous Object Rectification
- * @typedef { object } EdgeWidths
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-declare interface EdgeWidths {
+declare type EdgeWidths = {
   /**
    * top property.
    *
@@ -768,10 +644,9 @@ declare interface EdgeWidths {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   top?: Length;
 
@@ -798,10 +673,9 @@ declare interface EdgeWidths {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   right?: Length;
 
@@ -828,10 +702,9 @@ declare interface EdgeWidths {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   bottom?: Length;
 
@@ -858,10 +731,9 @@ declare interface EdgeWidths {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   left?: Length;
 };
@@ -874,8 +746,7 @@ declare interface EdgeWidths {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface LocalizedEdgeWidths {
   /**
@@ -886,8 +757,7 @@ declare interface LocalizedEdgeWidths {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   top?: LengthMetrics;
 
@@ -899,8 +769,7 @@ declare interface LocalizedEdgeWidths {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   end?: LengthMetrics;
 
@@ -912,8 +781,7 @@ declare interface LocalizedEdgeWidths {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   bottom?: LengthMetrics;
 
@@ -925,11 +793,10 @@ declare interface LocalizedEdgeWidths {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   start?: LengthMetrics;
-};
+}
 
 /**
  * Defines the outline width property.
@@ -949,18 +816,7 @@ declare interface LocalizedEdgeWidths {
  * @atomicservice
  * @since 12
  */
-/**
- * Defines the outline width property.
- *
- * @interface EdgeOutlineWidths
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-declare interface EdgeOutlineWidths {
+declare type EdgeOutlineWidths = {
   /**
    * top outline width property.
    *
@@ -978,8 +834,7 @@ declare interface EdgeOutlineWidths {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   top?: Dimension;
 
@@ -1000,8 +855,7 @@ declare interface EdgeOutlineWidths {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   right?: Dimension;
 
@@ -1022,8 +876,7 @@ declare interface EdgeOutlineWidths {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   bottom?: Dimension;
 
@@ -1044,8 +897,7 @@ declare interface EdgeOutlineWidths {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   left?: Dimension;
 };
@@ -1077,19 +929,7 @@ declare interface EdgeOutlineWidths {
  * @atomicservice
  * @since 11
  */
-/**
- * Defines the border radius property.
- *
- * Anonymous Object Rectification
- * @typedef { object } BorderRadiuses
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-declare interface BorderRadiuses {
+declare type BorderRadiuses = {
   /**
    * top-left property.
    *
@@ -1113,10 +953,9 @@ declare interface BorderRadiuses {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   topLeft?: Length;
 
@@ -1143,10 +982,9 @@ declare interface BorderRadiuses {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   topRight?: Length;
 
@@ -1173,10 +1011,9 @@ declare interface BorderRadiuses {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   bottomLeft?: Length;
 
@@ -1203,10 +1040,9 @@ declare interface BorderRadiuses {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   bottomRight?: Length;
 };
@@ -1219,8 +1055,7 @@ declare interface BorderRadiuses {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface LocalizedBorderRadiuses  {
   /**
@@ -1231,8 +1066,7 @@ declare interface LocalizedBorderRadiuses  {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   topStart?: LengthMetrics;
 
@@ -1244,8 +1078,7 @@ declare interface LocalizedBorderRadiuses  {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   topEnd?: LengthMetrics;
 
@@ -1257,8 +1090,7 @@ declare interface LocalizedBorderRadiuses  {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   bottomStart?: LengthMetrics;
 
@@ -1270,11 +1102,10 @@ declare interface LocalizedBorderRadiuses  {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   bottomEnd?: LengthMetrics;
-};
+}
 
 /**
  * Defines the outline radius property.
@@ -1295,18 +1126,7 @@ declare interface LocalizedBorderRadiuses  {
  * @atomicservice
  * @since 12
  */
-/**
- * Defines the outline radius property.
- *
- * @interface OutlineRadiuses
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-declare interface OutlineRadiuses {
+declare type OutlineRadiuses = {
   /**
    * top-left property.
    *
@@ -1324,8 +1144,7 @@ declare interface OutlineRadiuses {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   topLeft?: Dimension;
 
@@ -1346,8 +1165,7 @@ declare interface OutlineRadiuses {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   topRight?: Dimension;
 
@@ -1368,8 +1186,7 @@ declare interface OutlineRadiuses {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   bottomLeft?: Dimension;
 
@@ -1390,8 +1207,7 @@ declare interface OutlineRadiuses {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   bottomRight?: Dimension;
 };
@@ -1423,19 +1239,7 @@ declare interface OutlineRadiuses {
  * @atomicservice
  * @since 11
  */
-/**
- * Defines the border color property.
- *
- * Anonymous Object Rectification
- * @typedef { object } EdgeColors
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-declare interface EdgeColors {
+declare type EdgeColors = {
   /**
    * top property.
    *
@@ -1459,10 +1263,9 @@ declare interface EdgeColors {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   top?: ResourceColor;
 
@@ -1489,10 +1292,9 @@ declare interface EdgeColors {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   right?: ResourceColor;
 
@@ -1519,10 +1321,9 @@ declare interface EdgeColors {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   bottom?: ResourceColor;
 
@@ -1549,10 +1350,9 @@ declare interface EdgeColors {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   left?: ResourceColor;
 };
@@ -1565,8 +1365,7 @@ declare interface EdgeColors {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface LocalizedEdgeColors  {
   /**
@@ -1577,8 +1376,7 @@ declare interface LocalizedEdgeColors  {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   top?: ResourceColor;
 
@@ -1590,8 +1388,7 @@ declare interface LocalizedEdgeColors  {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   end?: ResourceColor;
 
@@ -1603,8 +1400,7 @@ declare interface LocalizedEdgeColors  {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   bottom?: ResourceColor;
 
@@ -1616,11 +1412,10 @@ declare interface LocalizedEdgeColors  {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   start?: ResourceColor;
-};
+}
 
 /**
  * Defines the localized margin property.
@@ -1630,8 +1425,7 @@ declare interface LocalizedEdgeColors  {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
 */
 declare type LocalizedMargin = LocalizedPadding;
 
@@ -1662,19 +1456,7 @@ declare type LocalizedMargin = LocalizedPadding;
  * @atomicservice
  * @since 11
  */
-/**
- * Defines the border style property.
- *
- * Anonymous Object Rectification
- * @typedef { object } EdgeStyles
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-declare interface EdgeStyles {
+declare type EdgeStyles = {
   /**
    * top property.
    *
@@ -1698,10 +1480,9 @@ declare interface EdgeStyles {
    * @type { ?BorderStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   top?: BorderStyle;
 
@@ -1728,10 +1509,9 @@ declare interface EdgeStyles {
    * @type { ?BorderStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   right?: BorderStyle;
 
@@ -1758,10 +1538,9 @@ declare interface EdgeStyles {
    * @type { ?BorderStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   bottom?: BorderStyle;
 
@@ -1788,10 +1567,9 @@ declare interface EdgeStyles {
    * @type { ?BorderStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   left?: BorderStyle;
 };
@@ -1815,18 +1593,7 @@ declare interface EdgeStyles {
  * @atomicservice
  * @since 12
  */
-/**
- * Defines the outline style property.
- *
- * @interface EdgeOutlineStyles
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-declare interface EdgeOutlineStyles {
+declare type EdgeOutlineStyles = {
   /**
    * top property.
    *
@@ -1844,8 +1611,7 @@ declare interface EdgeOutlineStyles {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   top?: OutlineStyle;
 
@@ -1866,8 +1632,7 @@ declare interface EdgeOutlineStyles {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   right?: OutlineStyle;
 
@@ -1888,8 +1653,7 @@ declare interface EdgeOutlineStyles {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   bottom?: OutlineStyle;
 
@@ -1910,8 +1674,7 @@ declare interface EdgeOutlineStyles {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   left?: OutlineStyle;
 };
@@ -1938,10 +1701,9 @@ declare interface EdgeOutlineStyles {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
-declare interface Offset {
+declare type Offset = {
   /**
    * dx property.
    *
@@ -1964,8 +1726,7 @@ declare interface Offset {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   dx: Length;
 
@@ -1991,8 +1752,7 @@ declare interface Offset {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   dy: Length;
 };
@@ -2029,8 +1789,7 @@ declare interface Offset {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare type ResourceColor = Color | number | string | Resource;
 
@@ -2061,19 +1820,7 @@ declare type ResourceColor = Color | number | string | Resource;
  * @atomicservice
  * @since 11
  */
-/**
- * Defines the length constrain property.
- *
- * Anonymous Object Rectification
- * @typedef { object } LengthConstrain
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-declare interface LengthConstrain {
+declare type LengthConstrain = {
   /**
    * minimum length.
    *
@@ -2097,10 +1844,9 @@ declare interface LengthConstrain {
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   minLength: Length;
 
@@ -2127,10 +1873,9 @@ declare interface LengthConstrain {
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @form
+   * @atomicservice
+   * @since 11
    */
   maxLength: Length;
 };
@@ -2142,8 +1887,7 @@ declare interface LengthConstrain {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare type VoidCallback  = () => void;
 
@@ -2160,19 +1904,6 @@ declare type VoidCallback  = () => void;
 declare type LengthMetricsUnit = import('../api/arkui/Graphics').LengthMetricsUnit;
 
 /**
- * Defines length metrics unit.
- *
- * @typedef { _LengthMetricsUnit } LengthMetricsUnit
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type LengthMetricsUnit = _LengthMetricsUnit;
-
-/**
  * Defines LengthMetrics.
  *
  * @typedef { import('../api/arkui/Graphics').LengthMetrics } LengthMetrics
@@ -2184,18 +1915,6 @@ declare type LengthMetricsUnit = _LengthMetricsUnit;
 declare type LengthMetrics = import('../api/arkui/Graphics').LengthMetrics;
 
 /**
- * Defines LengthMetrics.
- *
- * @typedef { _LengthMetrics } LengthMetrics
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type LengthMetrics = _LengthMetrics;
-
-/**
  * Defines ColorMetrics.
  *
  * @typedef { import('../api/arkui/Graphics').ColorMetrics } ColorMetrics
@@ -2205,18 +1924,6 @@ declare type LengthMetrics = _LengthMetrics;
  * @since 12
  */
 declare type ColorMetrics = import('../api/arkui/Graphics').ColorMetrics;
-
-/**
- * Defines ColorMetrics.
- *
- * @typedef { _ColorMetrics } ColorMetrics
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type ColorMetrics = _ColorMetrics;
 
 /**
  * Defines the font used for text.
@@ -2240,8 +1947,7 @@ declare type ColorMetrics = _ColorMetrics;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface Font {
   /**
@@ -2266,8 +1972,7 @@ declare interface Font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   size?: Length;
 
@@ -2293,8 +1998,7 @@ declare interface Font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   weight?: FontWeight | number | string;
 
@@ -2320,8 +2024,7 @@ declare interface Font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   family?: string | Resource;
 
@@ -2347,8 +2050,7 @@ declare interface Font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   style?: FontStyle;
 }
@@ -2385,8 +2087,7 @@ declare interface Font {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface Area {
   /**
@@ -2421,8 +2122,7 @@ declare interface Area {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   width: Length;
 
@@ -2458,8 +2158,7 @@ declare interface Area {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   height: Length;
 
@@ -2495,8 +2194,7 @@ declare interface Area {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   position: Position;
 
@@ -2532,8 +2230,7 @@ declare interface Area {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   globalPosition: Position;
 }
@@ -2570,8 +2267,7 @@ declare interface Area {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface Position {
   /**
@@ -2606,8 +2302,7 @@ declare interface Position {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   x?: Length;
 
@@ -2643,8 +2338,7 @@ declare interface Position {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   y?: Length;
 }
@@ -2656,8 +2350,7 @@ declare interface Position {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface LocalizedPosition {
   /**
@@ -2667,8 +2360,7 @@ declare interface LocalizedPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   start?: LengthMetrics;
 
@@ -2679,8 +2371,7 @@ declare interface LocalizedPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   top?: LengthMetrics;
 }
@@ -2693,8 +2384,7 @@ declare interface LocalizedPosition {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface Edges {
   /**
@@ -2705,8 +2395,7 @@ declare interface Edges {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   top?: Dimension;
 
@@ -2718,8 +2407,7 @@ declare interface Edges {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   left?: Dimension;
 
@@ -2731,8 +2419,7 @@ declare interface Edges {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   bottom?: Dimension;
 
@@ -2744,8 +2431,7 @@ declare interface Edges {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   right?: Dimension;
 }
@@ -2757,8 +2443,7 @@ declare interface Edges {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface LocalizedEdges {
   /**
@@ -2768,8 +2453,7 @@ declare interface LocalizedEdges {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   top?: LengthMetrics;
 
@@ -2780,8 +2464,7 @@ declare interface LocalizedEdges {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   start?: LengthMetrics;
 
@@ -2792,8 +2475,7 @@ declare interface LocalizedEdges {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   bottom?: LengthMetrics;
 
@@ -2804,8 +2486,7 @@ declare interface LocalizedEdges {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   end?: LengthMetrics;
 }
@@ -2827,8 +2508,7 @@ declare interface LocalizedEdges {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface Bias {
   /**
@@ -2850,8 +2530,7 @@ declare interface Bias {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   horizontal?: number;
 
@@ -2874,8 +2553,7 @@ declare interface Bias {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   vertical?: number;
 }
@@ -2912,8 +2590,7 @@ declare interface Bias {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface ConstraintSizeOptions {
   /**
@@ -2948,8 +2625,7 @@ declare interface ConstraintSizeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   minWidth?: Length;
 
@@ -2985,8 +2661,7 @@ declare interface ConstraintSizeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   maxWidth?: Length;
 
@@ -3022,8 +2697,7 @@ declare interface ConstraintSizeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   minHeight?: Length;
 
@@ -3059,8 +2733,7 @@ declare interface ConstraintSizeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   maxHeight?: Length;
 }
@@ -3097,8 +2770,7 @@ declare interface ConstraintSizeOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface SizeOptions {
   /**
@@ -3133,8 +2805,7 @@ declare interface SizeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   width?: Length;
 
@@ -3170,8 +2841,7 @@ declare interface SizeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   height?: Length;
 }
@@ -3218,8 +2888,7 @@ declare interface SizeOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface BorderOptions {
   /**
@@ -3264,8 +2933,7 @@ declare interface BorderOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   width?: EdgeWidths | Length | LocalizedEdgeWidths;
 
@@ -3311,8 +2979,7 @@ declare interface BorderOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   color?: EdgeColors | ResourceColor | LocalizedEdgeColors;
 
@@ -3358,8 +3025,7 @@ declare interface BorderOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   radius?: BorderRadiuses | Length | LocalizedBorderRadiuses;
 
@@ -3395,8 +3061,7 @@ declare interface BorderOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   style?: EdgeStyles | BorderStyle;
 
@@ -3407,8 +3072,7 @@ declare interface BorderOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   dashGap?: EdgeWidths | LengthMetrics | LocalizedEdgeWidths;
 
@@ -3419,8 +3083,7 @@ declare interface BorderOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   dashWidth?: EdgeWidths | LengthMetrics | LocalizedEdgeWidths;
 }
@@ -3442,8 +3105,7 @@ declare interface BorderOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface OutlineOptions {
   /**
@@ -3463,8 +3125,7 @@ declare interface OutlineOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   width?: EdgeOutlineWidths | Dimension;
 
@@ -3485,8 +3146,7 @@ declare interface OutlineOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   color?: EdgeColors | ResourceColor | LocalizedEdgeColors;
 
@@ -3507,8 +3167,7 @@ declare interface OutlineOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   radius?: OutlineRadiuses | Dimension;
 
@@ -3529,8 +3188,7 @@ declare interface OutlineOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   style?: EdgeOutlineStyles | OutlineStyle;
 }
@@ -3550,8 +3208,7 @@ declare interface OutlineOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface MarkStyle {
   /**
@@ -3569,8 +3226,7 @@ declare interface MarkStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   strokeColor?: ResourceColor;
 
@@ -3589,8 +3245,7 @@ declare interface MarkStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   size?: Length;
 
@@ -3609,8 +3264,7 @@ declare interface MarkStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   strokeWidth?: Length;
 }
@@ -3637,8 +3291,7 @@ declare interface MarkStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class ColorFilter {
   /**
@@ -3666,8 +3319,7 @@ declare class ColorFilter {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   constructor(value: number[]);
 }
@@ -3694,8 +3346,7 @@ declare class ColorFilter {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface TouchPoint {
   /**
@@ -3720,8 +3371,7 @@ declare interface TouchPoint {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   x: Dimension;
 
@@ -3747,8 +3397,7 @@ declare interface TouchPoint {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   y: Dimension;
 }
@@ -3761,8 +3410,7 @@ declare interface TouchPoint {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface DirectionalEdgesT<T> {
   /**
@@ -3773,8 +3421,7 @@ declare interface DirectionalEdgesT<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   start: T;
 
@@ -3786,8 +3433,7 @@ declare interface DirectionalEdgesT<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   end: T;
 
@@ -3799,8 +3445,7 @@ declare interface DirectionalEdgesT<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   top: T;
 
@@ -3812,8 +3457,7 @@ declare interface DirectionalEdgesT<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   bottom: T;
 }
@@ -3825,8 +3469,7 @@ declare interface DirectionalEdgesT<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface DividerStyleOptions {
   /**
@@ -3836,8 +3479,7 @@ declare interface DividerStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   strokeWidth?: LengthMetrics;
 
@@ -3848,8 +3490,7 @@ declare interface DividerStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   color?: ResourceColor;
 
@@ -3860,8 +3501,7 @@ declare interface DividerStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   startMargin?: LengthMetrics;
 
@@ -3872,8 +3512,7 @@ declare interface DividerStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   endMargin?: LengthMetrics;
 
@@ -3884,8 +3523,7 @@ declare interface DividerStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   mode?: DividerMode;
 }
@@ -3897,8 +3535,7 @@ declare interface DividerStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 declare interface ChainWeightOptions {
   /**
@@ -3908,8 +3545,7 @@ declare interface ChainWeightOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   horizontal?: number;
 
@@ -3920,8 +3556,7 @@ declare interface ChainWeightOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   vertical?: number;
 }
@@ -3933,8 +3568,7 @@ declare interface ChainWeightOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 declare interface AccessibilityOptions {
   /**
@@ -3944,8 +3578,7 @@ declare interface AccessibilityOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   accessibilityPreferred?: boolean;
 }
@@ -3978,4 +3611,65 @@ declare interface ScrollBarMargin {
    * @since 20
    */
   end?: LengthMetrics;
+}
+
+/**
+ * Define a responsive item filling pattern that can be used in WaterFlow,Grid,List, and Swiper components.
+ *
+ * @typedef { PresetFillType } ResponsiveFillType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22
+ */
+declare type ResponsiveFillType = PresetFillType;
+
+/**
+ * Define a responsive item layout suitable for WaterFlow, Grid, List,and Swiper components.
+ *
+ * @typedef { PresetFillType } ResponsiveFillType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22
+ */
+declare interface ItemFillPolicy {
+  /**
+   *Specify the number of columns for different responsive breakpoints.
+    *
+    * @typedef { ?ResponsiveFillType }
+    * @default ResponsiveFillType.BREAKPOINT_DEFAULT
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 22
+    */
+  fillType?: ResponsiveFillType;
+}
+/**
+ * Define cache count information.
+ * @interface CacheCountInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 22
+ */
+declare interface CacheCountInfo {
+/**
+ * min cache count.
+ * 
+ * @type { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 22
+ */
+minCount: number;
+/**
+ * max cache count.
+ * 
+ * @type { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 22
+ */
+maxCount: number;
 }

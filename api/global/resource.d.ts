@@ -84,14 +84,26 @@ export interface Resource {
   /**
    * resource id in hap
    *
-   * @type { number }
+   * @type { long }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  id: number;
+  id: long;
+
+  /**
+   * Set params.
+   *
+   * @type { ?Array<string | int | long | double | Resource> }
+   * @syscap SystemCapability.Global.ResourceManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  params?: Array<string | int | long | double | Resource>;
 
   /**
    * Set params.
@@ -113,18 +125,6 @@ export interface Resource {
   params?: any[];
 
   /**
-   * Set params.
-   *
-   * @type { ?Array<Object | undefined> }
-   * @syscap SystemCapability.Global.ResourceManager
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  params?: Array<Object | undefined>;
-
-  /**
    * Set type.
    *
    * @type { ?number }
@@ -134,12 +134,12 @@ export interface Resource {
   /**
    * Set type.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  type?: number;
+  type?: int;
 }

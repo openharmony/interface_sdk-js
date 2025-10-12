@@ -44,7 +44,10 @@ action("ohos_base_split") {
     "--output-interface-sdk",
     rebase_path(interface_sdk_path, root_build_dir),
   ]
-  outputs = [ "${root_out_dir}/sdk-interface" ]
+  outputs = [
+    "${interface_sdk_path}",
+    "${interface_sdk_path_ets1}/api/bundle/bundleStatusCallback.d.ts",
+  ]
 }
 
 template("ohos_copy_internal") {
@@ -201,8 +204,10 @@ ohos_copy_internal("ets_internal_api2") {
 if (!sdk_build_public) {
   # ets/build-tools/ets-loader/declarations脚本
   ohos_copy("bundle_api") {
+    deps = [ ":ohos_base_split" ]
     sdk_type = "ets"
-    sources = [ "api/bundle/bundleStatusCallback.d.ts" ]
+    sources =
+        [ "${interface_sdk_path_ets1}/api/bundle/bundleStatusCallback.d.ts" ]
     outputs =
         [ target_out_dir + "/${sdk_type}/${target_name}/{{source_file_part}}" ]
     module_source_dir = target_out_dir + "/${sdk_type}/${target_name}"
@@ -400,4 +405,29 @@ ohos_copy("ohos_ets_api") {
   outputs = [ ohos_ets_api_path ]
   part_name = "sdk"
   subsystem_name = "sdk"
+}
+
+action("gen_api_check_plugin") {
+  external_deps = [ "ace_ets2bundle:ohos_ets_ui_plugins" ]
+  npm_path = "//prebuilts/build-tools/common/nodejs/current/bin/npm"
+  script = "build_api_check_plugin.py"
+  args = [
+    "--source_path",
+    rebase_path(
+        get_path_info("./build-tools/compile-plugins/api-check-plugin-static",
+                      "abspath")),
+    "--output_path",
+    rebase_path("$target_gen_dir"),
+    "--npm",
+    rebase_path(npm_path),
+  ]
+  outputs = [ "$target_gen_dir" ]
+}
+
+ohos_copy("api_check_plugin") {
+  deps = [ ":gen_api_check_plugin" ]
+  sources = [ rebase_path("$target_gen_dir") ]
+  outputs = [ target_out_dir + "/$target_name" ]
+  module_source_dir = target_out_dir + "/$target_name"
+  module_install_name = ""
 }

@@ -27,7 +27,8 @@ import image from './@ohos.multimedia.image';
  * @namespace screenshot
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace screenshot {
   /**
@@ -56,7 +57,8 @@ declare namespace screenshot {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>): void;
 
@@ -67,7 +69,8 @@ declare namespace screenshot {
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { HdrScreenshotOptions } [options] - Screenshot parameters. Default value is null.
    * @returns { Promise<Array<image.PixelMap>> } Promise used to return a PixelMap array. When HDR content is available,
-   * return two PixelMap objects: the first one as SDR and the second one as HDR. When no HDR content is available, only return one SDR PixelMap object.
+   *     return two PixelMap objects: the first one as SDR and the second one as HDR. When no HDR content is available,
+   *     only return one SDR PixelMap object.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -89,7 +92,8 @@ declare namespace screenshot {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function save(callback: AsyncCallback<image.PixelMap>): void;
 
@@ -105,7 +109,8 @@ declare namespace screenshot {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function save(options?: ScreenshotOptions): Promise<image.PixelMap>;
 
@@ -174,48 +179,53 @@ declare namespace screenshot {
    * @interface Rect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Rect {
     /**
      * The X-axis coordinate of the upper left vertex of the rectangle.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    left: number;
+    left: long;
 
     /**
      * The Y-axis coordinate of the upper left vertex of the rectangle.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    top: number;
+    top: long;
 
     /**
      * Width of the rectangle.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    width: number;
+    width: long;
 
     /**
      * Height of the rectangle.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    height: number;
+    height: long;
   }
 
   /**
@@ -224,28 +234,31 @@ declare namespace screenshot {
    * @interface Size
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Size {
     /**
      * Defines the width property.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    width: number;
+    width: long;
 
     /**
      * Defines the height property.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    height: number;
+    height: long;
   }
 
   /**
@@ -260,12 +273,22 @@ declare namespace screenshot {
     /**
      * ID of the screen to be captured.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 14
      */
-    displayId?: number;
+    displayId?: long;
+
+    /**
+     * List of window ids excluded in the screenshot.
+     *
+     * @type { ?Array<int> }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 21 dynamic&static
+     */
+    blackWindowIds?: Array<int>;
   }
 
   /**
@@ -274,7 +297,8 @@ declare namespace screenshot {
    * @interface ScreenshotOptions
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ScreenshotOptions {
     /**
@@ -283,7 +307,8 @@ declare namespace screenshot {
      * @type { ?Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     screenRect?: Rect;
     /**
@@ -292,34 +317,38 @@ declare namespace screenshot {
      * @type { ?Size }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     imageSize?: Size;
     /**
      * Rotation angle of the screenshot. The value can be 0, 90, 180, or 270. The default value is 0.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    rotation?: number;
+    rotation?: int;
     /**
      * ID of the screen to be captured.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    displayId?: number;
+    displayId?: long;
     /**
      * The capture action is need notification.
      *
      * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isNotificationNeeded?: boolean;
     /**
@@ -329,6 +358,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 20
+     * @arkts 1.1&1.2
      */
     isCaptureFullOfScreen?: boolean;
   }
@@ -345,13 +375,13 @@ declare namespace screenshot {
     /**
      * ID of the screen to be captured.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @default The ID of current display. The value is a positive integer greater than or equal to 0.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 20
      */
-    displayId?: number;
+    displayId?: long;
     /**
      * The capture action is need notification.
      *

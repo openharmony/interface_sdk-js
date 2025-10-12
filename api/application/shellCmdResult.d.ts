@@ -63,13 +63,13 @@ export interface ShellCmdResult {
   /**
    * shell cmd exec result.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  exitCode: number;
+  exitCode: int;
 }
 
 /*** if arkts 1.1 */

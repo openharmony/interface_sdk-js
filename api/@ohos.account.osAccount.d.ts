@@ -26,7 +26,8 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace osAccount
  * @syscap SystemCapability.Account.OsAccount
- * @since 7
+ * @since arkts {'1.1':'7', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace osAccount {
   /**
@@ -34,7 +35,8 @@ declare namespace osAccount {
    *
    * @returns { AccountManager } Returns the instance of the AccountManager.
    * @syscap SystemCapability.Account.OsAccount
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAccountManager(): AccountManager;
 
@@ -43,7 +45,8 @@ declare namespace osAccount {
    *
    * @interface AccountManager
    * @syscap SystemCapability.Account.OsAccount
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AccountManager {
     /**
@@ -55,7 +58,7 @@ declare namespace osAccount {
      * </p>
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -79,7 +82,7 @@ declare namespace osAccount {
      * </p>
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -93,9 +96,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300016 - The number of logged in accounts reaches the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    activateOsAccount(localId: number, callback: AsyncCallback<void>): void;
+    activateOsAccount(localId: int, callback: AsyncCallback<void>): void;
 
     /**
      * Activates a specified OS account on the target display.
@@ -135,7 +139,7 @@ declare namespace osAccount {
      * </p>
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -159,7 +163,7 @@ declare namespace osAccount {
      * </p>
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -173,15 +177,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300016 - The number of logged in accounts reaches the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    activateOsAccount(localId: number): Promise<void>;
+    activateOsAccount(localId: int): Promise<void>;
 
     /**
      * Deactivates a specified OS account.
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -193,9 +198,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target account is being operated.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    deactivateOsAccount(localId: number): Promise<void>;
+    deactivateOsAccount(localId: int): Promise<void>;
 
     /**
      * Checks whether the function of supporting multiple OS accounts is enabled.
@@ -307,7 +313,7 @@ declare namespace osAccount {
      * Checks whether an OS account is activated based on its local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<boolean> } - Returns {@code true} if the OS account is activated; returns {@code false} otherwise.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -319,7 +325,7 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 11
      */
-    isOsAccountActivated(localId: number): Promise<boolean>;
+    isOsAccountActivated(localId: int): Promise<boolean>;
 
     /**
      * Checks whether a constraint has been enabled for an OS account based on its local ID.
@@ -430,7 +436,7 @@ declare namespace osAccount {
      * Checks whether the given constraint is enabled for the specified OS account.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { string } constraint - Indicates the constraint to check. For example: the value can be:
      * <br> {@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
      * <br> {@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
@@ -448,7 +454,7 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 11
      */
-    isOsAccountConstraintEnabled(localId: number, constraint: string): Promise<boolean>;
+    isOsAccountConstraintEnabled(localId: int, constraint: string): Promise<boolean>;
 
     /**
      * Checks whether this OS account is a test OS account.
@@ -601,7 +607,8 @@ declare namespace osAccount {
      * @returns { Promise<boolean> } Returns whether the current OS account is unlocked.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isOsAccountUnlocked(): Promise<boolean>;
 
@@ -609,7 +616,7 @@ declare namespace osAccount {
      * Checks whether the specified OS account is unlocked.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<boolean> } Returns whether the specified OS account is unlocked.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -619,9 +626,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    isOsAccountUnlocked(localId: number): Promise<boolean>;
+    isOsAccountUnlocked(localId: int): Promise<boolean>;
 
     /**
      * Removes an OS account based on its local ID.
@@ -804,7 +812,7 @@ declare namespace osAccount {
      * Obtains the number of all OS accounts created on a device.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { AsyncCallback<number> } callback - Returns the number of created OS accounts.
+     * @param { AsyncCallback<int> } callback - Returns the number of created OS accounts.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
@@ -813,20 +821,20 @@ declare namespace osAccount {
      * This API can be called only by system applications.
      * @since 9
      */
-    getOsAccountCount(callback: AsyncCallback<number>): void;
+    getOsAccountCount(callback: AsyncCallback<int>): void;
 
     /**
      * Obtains the number of all OS accounts created on a device.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @returns { Promise<number> } Returns the number of created OS accounts.
+     * @returns { Promise<int> } Returns the number of created OS accounts.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
      * @since 9
      */
-    getOsAccountCount(): Promise<number>;
+    getOsAccountCount(): Promise<int>;
 
     /**
      * Obtains the local ID of an OS account from the current process UID.
@@ -853,24 +861,26 @@ declare namespace osAccount {
     /**
      * Gets the local ID of the current OS account.
      *
-     * @param { AsyncCallback<number> } callback - Indicates the callback for getting the local ID of the current OS account.
+     * @param { AsyncCallback<int> } callback - Indicates the callback for getting the local ID of the current OS account.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getOsAccountLocalId(callback: AsyncCallback<number>): void;
+    getOsAccountLocalId(callback: AsyncCallback<int>): void;
 
     /**
      * Get the local ID of the current OS account.
      *
-     * @returns { Promise<number> } Returns the local ID of the current account.
+     * @returns { Promise<int> } Returns the local ID of the current account.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getOsAccountLocalId(): Promise<number>;
+    getOsAccountLocalId(): Promise<int>;
 
     /**
      * Gets the local ID of an OS account from the process UID
@@ -899,43 +909,46 @@ declare namespace osAccount {
     /**
      * Gets the local ID of the OS account associated with the specified UID.
      *
-     * @param { number } uid - Indicates the process UID.
-     * @param { AsyncCallback<number> } callback - Indicates the callback for getting the local ID of the OS account associated with the specified UID.
+     * @param { int } uid - Indicates the process UID.
+     * @param { AsyncCallback<int> } callback - Indicates the callback for getting the local ID of the OS account associated with the specified UID.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getOsAccountLocalIdForUid(uid: number, callback: AsyncCallback<number>): void;
+    getOsAccountLocalIdForUid(uid: int, callback: AsyncCallback<int>): void;
 
     /**
      * Get the local ID of the OS account associated with the specified UID.
      *
-     * @param { number } uid - Indicates the process UID.
-     * @returns { Promise<number> } - Returns the local ID of the OS account associated with the specified UID.
+     * @param { int } uid - Indicates the process UID.
+     * @returns { Promise<int> } - Returns the local ID of the OS account associated with the specified UID.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getOsAccountLocalIdForUid(uid: number): Promise<number>;
+    getOsAccountLocalIdForUid(uid: int): Promise<int>;
 
     /**
      * Gets the local ID of the OS account associated with the specified UID synchronously.
      *
-     * @param { number } uid - Indicates the process UID.
-     * @returns { number } Returns the local ID of the OS account associated with the specified UID.
+     * @param { int } uid - Indicates the process UID.
+     * @returns { int } Returns the local ID of the OS account associated with the specified UID.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getOsAccountLocalIdForUidSync(uid: number): number;
+    getOsAccountLocalIdForUidSync(uid: int): int;
 
     /**
      * Queries the local ID of an OS account which is bound to the specified domain account.
@@ -968,7 +981,7 @@ declare namespace osAccount {
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
-     * @param { AsyncCallback<number> } callback - Indicates the callback for
+     * @param { AsyncCallback<int> } callback - Indicates the callback for
      *   getting the local ID of the OS account associated with the specified domain account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -979,14 +992,14 @@ declare namespace osAccount {
      * This API can be called only by system applications.
      * @since 9
      */
-    getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo, callback: AsyncCallback<number>): void;
+    getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo, callback: AsyncCallback<int>): void;
 
     /**
      * Gets the local ID of the OS account associated with the specified domain account.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
-     * @returns { Promise<number> } Returns the local ID of the OS account associated with the specified domain account.
+     * @returns { Promise<int> } Returns the local ID of the OS account associated with the specified domain account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
@@ -996,12 +1009,12 @@ declare namespace osAccount {
      * This API can be called only by system applications.
      * @since 9
      */
-    getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo): Promise<number>;
+    getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo): Promise<int>;
 
     /**
      * Queries the maximum number of OS accounts that can be created on a device.
      *
-     * @param { AsyncCallback<number> } callback - Returns the maximum number of OS accounts that can be created.
+     * @param { AsyncCallback<int> } callback - Returns the maximum number of OS accounts that can be created.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
@@ -1010,31 +1023,32 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 7
      */
-    queryMaxOsAccountNumber(callback: AsyncCallback<number>): void;
+    queryMaxOsAccountNumber(callback: AsyncCallback<int>): void;
 
     /**
      * Queries the maximum number of OS accounts that can be created on a device.
      *
-     * @returns { Promise<number> } Returns the maximum number of OS accounts that can be created.
+     * @returns { Promise<int> } Returns the maximum number of OS accounts that can be created.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7
      */
-    queryMaxOsAccountNumber(): Promise<number>;
+    queryMaxOsAccountNumber(): Promise<int>;
 
     /**
      * Queries the maximum number of OS accounts that can be logged in.
      *
-     * @returns { Promise<number> } Returns the maximum number of OS accounts that can be logged in.
+     * @returns { Promise<int> } Returns the maximum number of OS accounts that can be logged in.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    queryMaxLoggedInOsAccountNumber(): Promise<number>;
+    queryMaxLoggedInOsAccountNumber(): Promise<int>;
 
     /**
      * Obtains all constraints of an OS account based on its local ID.
@@ -1102,7 +1116,7 @@ declare namespace osAccount {
      * Gets all enabled constraints of the specified OS account by its local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<Array<string>> } Returns a list of constraints.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -1114,7 +1128,7 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 11
      */
-    getEnabledOsAccountConstraints(localId: number): Promise<Array<string>>;
+    getEnabledOsAccountConstraints(localId: int): Promise<Array<string>>;
 
     /**
      * Queries the list of all the OS accounts that have been created in the system.
@@ -1128,7 +1142,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     queryAllCreatedOsAccounts(callback: AsyncCallback<Array<OsAccountInfo>>): void;
 
@@ -1142,7 +1157,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     queryAllCreatedOsAccounts(): Promise<Array<OsAccountInfo>>;
 
@@ -1171,34 +1187,37 @@ declare namespace osAccount {
     /**
      * Gets the local IDs of all activated OS accounts.
      *
-     * @param { AsyncCallback<Array<number>> } callback - Indicates the callback for getting the local IDs of all activated OS accounts.
+     * @param { AsyncCallback<Array<int>> } callback - Indicates the callback for getting the local IDs of all activated OS accounts.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getActivatedOsAccountLocalIds(callback: AsyncCallback<Array<number>>): void;
+    getActivatedOsAccountLocalIds(callback: AsyncCallback<Array<int>>): void;
 
     /**
      * Gets the local IDs of all activated OS accounts.
      *
-     * @returns { Promise<Array<number>> } Returns all activated accounts.
+     * @returns { Promise<Array<int>> } Returns all activated accounts.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getActivatedOsAccountLocalIds(): Promise<Array<number>>;
+    getActivatedOsAccountLocalIds(): Promise<Array<int>>;
 
     /**
      * Gets the local ID of the foreground OS account.
      *
-     * @returns { Promise<number> } Returns local ID of the foreground OS account.
+     * @returns { Promise<int> } Returns local ID of the foreground OS account.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getForegroundOsAccountLocalId(): Promise<number>;
+    getForegroundOsAccountLocalId(): Promise<int>;
 
     /**
      * Gets the local ID of the foreground OS account by displayId.
@@ -1273,7 +1292,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300007 - The number of accounts has reached the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createOsAccount(localName: string, type: OsAccountType, callback: AsyncCallback<OsAccountInfo>): void;
 
@@ -1320,7 +1340,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300015 - The short name already exists.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createOsAccount(localName: string, type: OsAccountType, options?: CreateOsAccountOptions): Promise<OsAccountInfo>;
 
@@ -1510,7 +1531,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     queryOsAccount(): Promise<OsAccountInfo>;
 
@@ -1518,7 +1540,7 @@ declare namespace osAccount {
      * Queries OS account information based on the local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { AsyncCallback<OsAccountInfo> } callback - Returns the OS account information; returns {@code null} if the query fails.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -1529,15 +1551,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    queryOsAccountById(localId: number, callback: AsyncCallback<OsAccountInfo>): void;
+    queryOsAccountById(localId: int, callback: AsyncCallback<OsAccountInfo>): void;
 
     /**
      * Queries OS account information based on the local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<OsAccountInfo> } Returns the OS account information; returns {@code null} if the query fails.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -1548,9 +1571,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    queryOsAccountById(localId: number): Promise<OsAccountInfo>;
+    queryOsAccountById(localId: int): Promise<OsAccountInfo>;
 
     /**
      * Gets the domain account information associated with the specified OS account.
@@ -1601,7 +1625,8 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getOsAccountType(callback: AsyncCallback<OsAccountType>): void;
 
@@ -1612,7 +1637,8 @@ declare namespace osAccount {
      *         {@link OsAccountType#NORMAL}, and {@link OsAccountType#GUEST}.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getOsAccountType(): Promise<OsAccountType>;
 
@@ -1620,7 +1646,7 @@ declare namespace osAccount {
      * Gets the type of the specified OS account.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<OsAccountType> } Returns the OS account type.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -1630,9 +1656,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getOsAccountType(localId: number): Promise<OsAccountType>;
+    getOsAccountType(localId: int): Promise<OsAccountType>;
 
     /**
      * Obtains the distributed virtual device ID (DVID).
@@ -1712,7 +1739,7 @@ declare namespace osAccount {
      * Obtains the profile photo of an OS account based on its local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @param { AsyncCallback<string> } callback - Returns the profile photo if obtained;
      *         returns {@code null} if the profile photo fails to be obtained.
      * @throws { BusinessError } 201 - Permission denied.
@@ -1724,15 +1751,16 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getOsAccountProfilePhoto(localId: number, callback: AsyncCallback<string>): void;
+    getOsAccountProfilePhoto(localId: int, callback: AsyncCallback<string>): void;
 
     /**
      * Obtains the profile photo of an OS account based on its local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { int } localId - Indicates the local ID of the OS account.
      * @returns { Promise<string> } Returns the profile photo if obtained;
      *         returns {@code null} if the profile photo fails to be obtained.
      * @throws { BusinessError } 201 - Permission denied.
@@ -1744,9 +1772,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getOsAccountProfilePhoto(localId: number): Promise<string>;
+    getOsAccountProfilePhoto(localId: int): Promise<string>;
 
     /**
      * Sets the profile photo for an OS account based on its local ID.
@@ -1907,7 +1936,7 @@ declare namespace osAccount {
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
      * @param { 'activate' | 'activating' } type - Event type.
      * @param { string } name - Indicates the name of subscriber.
-     * @param { Callback<number> } callback - Asynchronous callback interface.
+     * @param { Callback<int> } callback - Asynchronous callback interface.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1916,9 +1945,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type or name.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'activate' | 'activating', name: string, callback: Callback<number>): void;
+    on(type: 'activate' | 'activating', name: string, callback: Callback<int>): void;
 
     /**
      * Unsubscribes from account events.
@@ -1926,7 +1956,7 @@ declare namespace osAccount {
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
      * @param { 'activate' | 'activating' } type - Event type.
      * @param { string } name - Indicates the name of subscriber.
-     * @param { Callback<number> } callback - Asynchronous callback interface.
+     * @param { Callback<int> } callback - Asynchronous callback interface.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1935,9 +1965,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type or name.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    off(type: 'activate' | 'activating', name: string, callback?: Callback<number>): void;
+    off(type: 'activate' | 'activating', name: string, callback?: Callback<int>): void;
 
     /**
      * Subscribes to the OS account switching event.
@@ -1953,7 +1984,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Subscribes to the OS account switching event.
@@ -1968,6 +2000,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 21
+     * @arkts 1.1&1.2
      */
     on(type: 'switching', callback: Callback<OsAccountSwitchEventData>): void;
 
@@ -1985,7 +2018,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Unsubscribes from the OS account switching event.
@@ -2000,6 +2034,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 21
+     * @arkts 1.1&1.2
      */
     off(type: 'switching', callback?: Callback<OsAccountSwitchEventData>): void;
 
@@ -2017,7 +2052,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Subscribes to the OS account switched event.
@@ -2032,6 +2068,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 21
+     * @arkts 1.1&1.2
      */
     on(type: 'switched', callback: Callback<OsAccountSwitchEventData>): void;
 
@@ -2049,7 +2086,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Unsubscribes from the OS account switched event.
@@ -2064,6 +2102,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 21
+     * @arkts 1.1&1.2
      */
     off(type: 'switched', callback?: Callback<OsAccountSwitchEventData>): void;
 
@@ -2127,7 +2166,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isMainOsAccount(callback: AsyncCallback<boolean>): void;
 
@@ -2142,7 +2182,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isMainOsAccount(): Promise<boolean>;
 
@@ -2220,24 +2261,27 @@ declare namespace osAccount {
    *
    * @interface OsAccountInfo
    * @syscap SystemCapability.Account.OsAccount
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface OsAccountInfo {
     /**
      * The local ID of an OS account.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    localId: number;
+    localId: int;
 
     /**
      * The local name of an OS account.
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     localName: string;
 
@@ -2247,7 +2291,8 @@ declare namespace osAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     shortName?: string;
 
@@ -2256,7 +2301,8 @@ declare namespace osAccount {
      *
      * @type { OsAccountType }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: OsAccountType;
 
@@ -2265,7 +2311,8 @@ declare namespace osAccount {
      *
      * @type { Array<string> }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constraints: Array<string>;
 
@@ -2285,7 +2332,8 @@ declare namespace osAccount {
      *
      * @type { boolean }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isUnlocked: boolean;
 
@@ -2294,36 +2342,40 @@ declare namespace osAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     photo: string;
 
     /**
      * Os account create time.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    createTime: number;
+    createTime: long;
 
     /**
      * The last time to log in.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    lastLoginTime: number;
+    lastLoginTime: long;
 
     /**
      * Os account serial number.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    serialNumber: number;
+    serialNumber: long;
 
     /**
      * Os account is activated or not.
@@ -2341,7 +2393,8 @@ declare namespace osAccount {
      *
      * @type { boolean }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isActivated: boolean;
 
@@ -2351,7 +2404,8 @@ declare namespace osAccount {
      * @type { ?boolean }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isLoggedIn?: boolean;
 
@@ -2360,7 +2414,8 @@ declare namespace osAccount {
      *
      * @type { boolean }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isCreateCompleted: boolean;
 
@@ -2369,7 +2424,8 @@ declare namespace osAccount {
      *
      * @type { distributedAccount.DistributedInfo }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     distributedInfo: distributedAccount.DistributedInfo;
 
@@ -2378,7 +2434,8 @@ declare namespace osAccount {
      *
      * @type { DomainAccountInfo }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     domainInfo: DomainAccountInfo;
   }
@@ -2389,28 +2446,31 @@ declare namespace osAccount {
    * @typedef OsAccountSwitchEventData
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface OsAccountSwitchEventData {
     /**
      * Indicates which OS account to switch from.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    fromAccountId: number;
+    fromAccountId: int;
 
     /**
      * Indicates which OS account to switch to.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    toAccountId: number;
+    toAccountId: int;
 
     /**
      * Indicates which display the switch event occurred on.
@@ -2429,7 +2489,8 @@ declare namespace osAccount {
    * @interface CreateOsAccountOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CreateOsAccountOptions {
     /**
@@ -2438,7 +2499,8 @@ declare namespace osAccount {
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     shortName: string;
 
@@ -2479,7 +2541,8 @@ declare namespace osAccount {
    *
    * @interface DomainAccountInfo
    * @syscap SystemCapability.Account.OsAccount
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DomainAccountInfo {
     /**
@@ -2487,7 +2550,8 @@ declare namespace osAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     domain: string;
 
@@ -2496,7 +2560,8 @@ declare namespace osAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     accountName: string;
 
@@ -2506,7 +2571,8 @@ declare namespace osAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     accountId?: string;
 
@@ -2516,7 +2582,8 @@ declare namespace osAccount {
      * @type { ?boolean }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isAuthenticated?: boolean;
 
@@ -2525,7 +2592,8 @@ declare namespace osAccount {
      *
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serverConfigId?: string;
   }
@@ -2533,16 +2601,18 @@ declare namespace osAccount {
   /**
    * Enumerates OS account types.
    *
-   * @enum { number } OsAccountType
+   * @enum { int } OsAccountType
    * @syscap SystemCapability.Account.OsAccount
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum OsAccountType {
     /**
      * Indicates the administrator account, which has the permission to manage other OS accounts.
      *
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ADMIN = 0,
 
@@ -2550,7 +2620,8 @@ declare namespace osAccount {
      * Indicates a normal account, which has access to common functions of OS accounts.
      *
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NORMAL = 1,
 
@@ -2558,7 +2629,8 @@ declare namespace osAccount {
      * Indicates a guest account, which is used to temporarily access the device and may be deleted at any time.
      *
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GUEST = 2,
 
@@ -2567,7 +2639,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PRIVATE = 1024
   }
@@ -2577,7 +2650,8 @@ declare namespace osAccount {
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    * @name UserAuth
    */
   class UserAuth {
@@ -2587,7 +2661,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -2652,7 +2727,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getProperty(request: GetPropertyRequest, callback: AsyncCallback<ExecutorProperty>): void;
 
@@ -2687,7 +2763,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getProperty(request: GetPropertyRequest): Promise<ExecutorProperty>;
 
@@ -2725,7 +2802,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid request.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setProperty(request: SetPropertyRequest, callback: AsyncCallback<void>): void;
 
@@ -2743,7 +2821,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid request.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setProperty(request: SetPropertyRequest): Promise<void>;
 
@@ -2873,6 +2952,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     auth(
       challenge: Uint8Array,
@@ -2950,6 +3030,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     auth(
       challenge: Uint8Array,
@@ -2963,7 +3044,7 @@ declare namespace osAccount {
      * Executes user authentication.
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { number } userId - Indicates the user identification.
+     * @param { int } userId - Indicates the user identification.
      * @param { Uint8Array } challenge - Indicates the challenge value.
      * @param { AuthType } authType - Indicates the authentication type.
      * @param { AuthTrustLevel } authTrustLevel - Indicates the trust level of authentication result.
@@ -2991,7 +3072,7 @@ declare namespace osAccount {
      * Executes user authentication.
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { number } userId - Indicates the user identification.
+     * @param { int } userId - Indicates the user identification.
      * @param { Uint8Array } challenge - Indicates the challenge value.
      * @param { AuthType } authType - Indicates the authentication type.
      * @param { AuthTrustLevel } authTrustLevel - Indicates the trust level of authentication result.
@@ -3025,7 +3106,7 @@ declare namespace osAccount {
      * Executes user authentication.
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { number } userId - Indicates the user identification.
+     * @param { int } userId - Indicates the user identification.
      * @param { Uint8Array } challenge - Indicates the challenge value.
      * @param { AuthType } authType - Indicates the authentication type.
      * @param { AuthTrustLevel } authTrustLevel - Indicates the trust level of authentication result.
@@ -3056,9 +3137,10 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     authUser(
-      userId: number,
+      userId: int,
       challenge: Uint8Array,
       authType: AuthType,
       authTrustLevel: AuthTrustLevel,
@@ -3078,7 +3160,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid contextId.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cancelAuth(contextID: Uint8Array): void;
   }
@@ -3088,7 +3171,8 @@ declare namespace osAccount {
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    * @name PINAuth
    */
   class PINAuth {
@@ -3098,7 +3182,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -3116,7 +3201,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300103 - The credential inputer already exists.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     registerInputer(inputer: IInputer): void;
 
@@ -3128,7 +3214,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     unregisterInputer(): void;
   }
@@ -3138,7 +3225,8 @@ declare namespace osAccount {
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    * @name InputerManager
    */
   class InputerManager {
@@ -3159,7 +3247,8 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static registerInputer(authType: AuthType, inputer: IInputer): void;
 
@@ -3176,7 +3265,8 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static unregisterInputer(authType: AuthType): void;
   }
@@ -3193,22 +3283,22 @@ declare namespace osAccount {
     /**
      * Indicates the remaining times that authentication can be performed.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    remainTimes: number;
+    remainTimes: int;
 
     /**
      * Indicates the freezing time before performing the next authentication.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    freezingTime: number;
+    freezingTime: int;
   }
 
   /**
@@ -3253,12 +3343,12 @@ declare namespace osAccount {
     /**
      * Indicates caller UID.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    callerUid: number;
+    callerUid: int;
   }
 
   /**
@@ -3314,12 +3404,12 @@ declare namespace osAccount {
     /**
      * Indicates the caller UID.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    callerUid: number;
+    callerUid: int;
   }
 
   /**
@@ -3328,7 +3418,8 @@ declare namespace osAccount {
    * @interface DomainPlugin
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DomainPlugin {
     /**
@@ -3443,7 +3534,8 @@ declare namespace osAccount {
    * Provides abilities for the management of domain account.
    *
    * @syscap SystemCapability.Account.OsAccount
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class DomainAccountManager {
     /**
@@ -3530,7 +3622,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
 
@@ -3589,7 +3682,7 @@ declare namespace osAccount {
      * Authenticates the domain account bound to the specified OS account with a popup.
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { number } localId - Indicates the local ID of the specified OS account.
+     * @param { int } localId - Indicates the local ID of the specified OS account.
      * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -3615,7 +3708,7 @@ declare namespace osAccount {
     /**
      * Authenticates the domain account bound to the specified OS account with a popup.
      *
-     * @param { number } localId - Indicates the local ID of the specified OS account.
+     * @param { int } localId - Indicates the local ID of the specified OS account.
      * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3638,7 +3731,7 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 11
      */
-    static authWithPopup(localId: number, callback: IUserAuthCallback): void;
+    static authWithPopup(localId: int, callback: IUserAuthCallback): void;
 
     /**
      * Checks whether the specified domain account exists.
@@ -3873,7 +3966,8 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static isAuthenticationExpired(domainAccountInfo: DomainAccountInfo): Promise<boolean>;
   }
@@ -4030,7 +4124,8 @@ declare namespace osAccount {
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    * @name UserIdentityManager
    */
   class UserIdentityManager {
@@ -4040,7 +4135,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -4059,7 +4155,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     openSession(callback: AsyncCallback<Uint8Array>): void;
 
@@ -4085,7 +4182,7 @@ declare namespace osAccount {
      * Start an IDM operation to obtain challenge value.
      *
      * @permission ohos.permission.MANAGE_USER_IDM
-     * @param { number } [accountId] - Indicates the local ID of the OS account.
+     * @param { int } [accountId] - Indicates the local ID of the OS account.
      * @returns { Promise<Uint8Array> } Returns a challenge value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -4095,9 +4192,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300008 - Restricted account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    openSession(accountId?: number): Promise<Uint8Array>;
+    openSession(accountId?: int): Promise<Uint8Array>;
 
     /**
      * Adds credential.
@@ -4150,7 +4248,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300116 - Credential complexity verification failed.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     addCredential(credentialInfo: CredentialInfo, callback: IIdmCallback): void;
 
@@ -4196,7 +4295,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300116 - Credential complexity verification failed.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     updateCredential(credentialInfo: CredentialInfo, callback: IIdmCallback): void;
 
@@ -4218,7 +4318,7 @@ declare namespace osAccount {
      * End an IDM operation.
      *
      * @permission ohos.permission.MANAGE_USER_IDM
-     * @param { number } [accountId] - Indicates the local ID of the OS account.
+     * @param { int } [accountId] - Indicates the local ID of the OS account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
@@ -4227,9 +4327,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300008 - Restricted account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    closeSession(accountId?: number): void;
+    closeSession(accountId?: int): void;
 
     /**
      * Cancels entry with a challenge value.
@@ -4262,7 +4363,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300101 - The token is invalid.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     delUser(token: Uint8Array, callback: IIdmCallback): void;
 
@@ -4302,6 +4404,21 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
+    /**
+     * Gets authentication information.
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { AsyncCallback<Array<EnrolledCredInfo>> } callback - Indicates the callback to get all registered credential information of
+     * the specified type for the current user.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
     getAuthInfo(callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
 
     /**
@@ -4321,6 +4438,23 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
+    /**
+     * Gets authentication information.
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { AuthType } authType - Indicates the authentication type.
+     * @param { AsyncCallback<Array<EnrolledCredInfo>> } callback - Indicates the callback to get all registered credential information of
+     * the specified type for the current user.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid authType.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
     getAuthInfo(authType: AuthType, callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
 
     /**
@@ -4337,9 +4471,27 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid authType.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getAuthInfo(authType?: AuthType): Promise<Array<EnrolledCredInfo>>;
+    /**
+     * Gets authentication information.
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { AuthType } authType - Indicates the authentication type.
+     * @returns { Promise<Array<EnrolledCredInfo>> } Returns all registered credential information of
+     * the specified type for the current user.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid authType.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    getAuthInfo(authType: AuthType): Promise<Array<EnrolledCredInfo>>;
 
     /**
      * Gets authentication information.
@@ -4358,6 +4510,24 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
+    /**
+     * Gets authentication information.
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { GetAuthInfoOptions } [options] - Indicates the options for getting the authentication information.
+     * @returns { Promise<Array<EnrolledCredInfo>> } Returns all enrolled credential information
+     * according to the options.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid options.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
     getAuthInfo(options?: GetAuthInfoOptions): Promise<Array<EnrolledCredInfo>>;
 
     /**
@@ -4365,7 +4535,7 @@ declare namespace osAccount {
      *
      * @permission ohos.permission.USE_USER_IDM
      * @param { AuthType } authType - Indicates the authentication type.
-     * @param { number } [accountId] - Indicates the OS account identifier.
+     * @param { int } [accountId] - Indicates the OS account identifier.
      * @returns { Promise<Uint8Array> } Returns the enrolled identifier.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -4380,7 +4550,27 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    getEnrolledId(authType: AuthType, accountId?: number): Promise<Uint8Array>;
+    /**
+     * Gets the credential enrolled identifier of the specified authentication type.
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { AuthType } authType - Indicates the authentication type.
+     * @param { int } [accountId] - Indicates the OS account identifier.
+     * @returns { Promise<Uint8Array> } Returns the enrolled identifier.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid authType.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    getEnrolledId(authType: AuthType, accountId?: int): Promise<Uint8Array>;
   }
 
   /**
@@ -4389,7 +4579,8 @@ declare namespace osAccount {
    * @typedef GetAuthInfoOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface GetAuthInfoOptions {
     /**
@@ -4398,28 +4589,31 @@ declare namespace osAccount {
      * @type { ?AuthType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     authType?: AuthType;
 
     /**
      * Indicates the OS account identifier.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    accountId?: number;
+    accountId?: int;
   }
 
   /**
    * Indicates the enumeration of the authentication intent.
    *
-   * @enum { number } AuthIntent
+   * @enum { int } AuthIntent
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AuthIntent {
     /**
@@ -4427,7 +4621,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNLOCK = 1,
 
@@ -4436,7 +4631,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SILENT_AUTH = 2,
 
@@ -4445,7 +4641,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     QUESTION_AUTH = 3,
 
@@ -4455,6 +4652,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     ABANDONED_PIN_AUTH = 4
   }
@@ -4465,7 +4663,8 @@ declare namespace osAccount {
    * @interface RemoteAuthOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface RemoteAuthOptions {
     /**
@@ -4474,7 +4673,8 @@ declare namespace osAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     verifierNetworkId?: string;
 
@@ -4484,19 +4684,21 @@ declare namespace osAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     collectorNetworkId?: string;
 
     /**
      * Indicates the collector token identifier.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    collectorTokenId?: number;
+    collectorTokenId?: int;
   }
 
   /**
@@ -4505,18 +4707,20 @@ declare namespace osAccount {
    * @interface AuthOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AuthOptions {
     /**
      * Indicates the local ID of the OS account to be authenticated.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    accountId?: number;
+    accountId?: int;
 
     /**
      * Indicates the authentication intent.
@@ -4524,7 +4728,8 @@ declare namespace osAccount {
      * @type { ?AuthIntent }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     authIntent?: AuthIntent;
 
@@ -4534,7 +4739,8 @@ declare namespace osAccount {
      * @type { ?RemoteAuthOptions }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     remoteAuthOptions?: RemoteAuthOptions;
   }
@@ -4545,22 +4751,25 @@ declare namespace osAccount {
    * @interface IInputData
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface IInputData {
     /**
      * Notifies to set data.
      *
-     * @type { function }
+     * @param { AuthSubType } authSubType - Indicates the authentication credential subtype.
+     * @param { Uint8Array } data - Indicates the authentication credential data.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300002 - Invalid pinSubType.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    onSetData: (authSubType: AuthSubType, data: Uint8Array) => void;
+    onSetData(authSubType: AuthSubType, data: Uint8Array): void;
   }
 
   /**
@@ -4569,7 +4778,8 @@ declare namespace osAccount {
    * @interface GetInputDataOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface GetInputDataOptions {
     /**
@@ -4578,7 +4788,8 @@ declare namespace osAccount {
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     challenge?: Uint8Array;
   }
@@ -4589,7 +4800,8 @@ declare namespace osAccount {
    * @interface IInputer
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface IInputer {
     /**
@@ -4598,7 +4810,8 @@ declare namespace osAccount {
      * @type { function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onGetData: (authSubType: AuthSubType, callback: IInputData, options: GetInputDataOptions) => void;
   }
@@ -4609,7 +4822,8 @@ declare namespace osAccount {
    * @interface IUserAuthCallback
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface IUserAuthCallback {
     /**
@@ -4621,9 +4835,10 @@ declare namespace osAccount {
      * @type { function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    onResult: (result: number, extraInfo: AuthResult) => void;
+    onResult: (result: int, extraInfo: AuthResult) => void;
 
     /**
      * During an authentication, the TipsCode is returned through the callback.
@@ -4631,9 +4846,10 @@ declare namespace osAccount {
      * @type { ?function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    onAcquireInfo?: (module: number, acquire: number, extraInfo: Uint8Array) => void;
+    onAcquireInfo?: (module: int, acquire: int, extraInfo: Uint8Array) => void;
   }
 
   /**
@@ -4642,7 +4858,8 @@ declare namespace osAccount {
    * @interface IIdmCallback
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface IIdmCallback {
     /**
@@ -4651,9 +4868,10 @@ declare namespace osAccount {
      * @type { function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    onResult: (result: number, extraInfo: RequestResult) => void;
+    onResult: (result: int, extraInfo: RequestResult) => void;
 
     /**
      * During an authentication, the TipsCode is returned through the callback.
@@ -4661,9 +4879,10 @@ declare namespace osAccount {
      * @type { ?function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    onAcquireInfo?: (module: number, acquire: number, extraInfo: Uint8Array) => void;
+    onAcquireInfo?: (module: int, acquire: int, extraInfo: Uint8Array) => void;
   }
 
   /**
@@ -4672,7 +4891,8 @@ declare namespace osAccount {
    * @interface GetPropertyRequest
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface GetPropertyRequest {
     /**
@@ -4681,7 +4901,8 @@ declare namespace osAccount {
      * @type { AuthType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     authType: AuthType;
 
@@ -4691,19 +4912,21 @@ declare namespace osAccount {
      * @type { Array<GetPropertyType> }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     keys: Array<GetPropertyType>;
 
     /**
      * Indicates the OS account identifier.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    accountId?: number;
+    accountId?: int;
   }
 
   /**
@@ -4712,7 +4935,8 @@ declare namespace osAccount {
    * @interface SetPropertyRequest
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SetPropertyRequest {
     /**
@@ -4721,7 +4945,8 @@ declare namespace osAccount {
      * @type { AuthType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     authType: AuthType;
 
@@ -4731,7 +4956,8 @@ declare namespace osAccount {
      * @type { SetPropertyType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     key: SetPropertyType;
 
@@ -4741,7 +4967,8 @@ declare namespace osAccount {
      * @type { Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setInfo: Uint8Array;
   }
@@ -4752,18 +4979,20 @@ declare namespace osAccount {
    * @interface ExecutorProperty
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ExecutorProperty {
     /**
      * Indicates the result.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    result: number;
+    result: int;
 
     /**
      * Indicates the authentication credential subtype.
@@ -4771,39 +5000,43 @@ declare namespace osAccount {
      * @type { AuthSubType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     authSubType: AuthSubType;
 
     /**
      * Indicates the remaining times.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    remainTimes?: number;
+    remainTimes?: int;
 
     /**
      * Indicates the freezing times.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    freezingTime?: number;
+    freezingTime?: int;
 
     /**
      * Indicates next phase freezing time.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    nextPhaseFreezingTime?: number;
+    nextPhaseFreezingTime?: int;
 
     /**
      * Indicates the enrollment progress.
@@ -4811,7 +5044,8 @@ declare namespace osAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enrollmentProgress?: string;
 
@@ -4821,19 +5055,21 @@ declare namespace osAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sensorInfo?: string;
 
     /**
      * Indicates the credential length.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
-    credentialLength?: number;
+    credentialLength?: int;
   }
 
   /**
@@ -4842,7 +5078,8 @@ declare namespace osAccount {
    * @interface AuthResult
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AuthResult {
     /**
@@ -4851,39 +5088,43 @@ declare namespace osAccount {
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     token?: Uint8Array;
 
     /**
      * Indicates the remaining times.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    remainTimes?: number;
+    remainTimes?: int;
 
     /**
      * Indicates the freezing times.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    freezingTime?: number;
+    freezingTime?: int;
 
     /**
      * Indicates next phase freezing time.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    nextPhaseFreezingTime?: number;
+    nextPhaseFreezingTime?: int;
 
     /**
      * Indicates the credential ID.
@@ -4891,29 +5132,32 @@ declare namespace osAccount {
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     credentialId?: Uint8Array;
 
     /**
      * Indicates the local ID of the authenticated OS account.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    accountId?: number;
+    accountId?: int;
 
     /**
      * Indicates the validity period after which the PIN will expire.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    pinValidityPeriod?: number;
+    pinValidityPeriod?: long;
   }
 
   /**
@@ -4922,7 +5166,8 @@ declare namespace osAccount {
    * @interface CredentialInfo
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CredentialInfo {
     /**
@@ -4931,7 +5176,8 @@ declare namespace osAccount {
      * @type { AuthType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     credType: AuthType;
 
@@ -4941,7 +5187,8 @@ declare namespace osAccount {
      * @type { AuthSubType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     credSubType: AuthSubType;
 
@@ -4951,19 +5198,21 @@ declare namespace osAccount {
      * @type { Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     token: Uint8Array;
 
     /**
      * Indicates the local ID of the OS account to which the credential belongs.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    accountId?: number;
+    accountId?: int;
   }
 
   /**
@@ -4972,7 +5221,8 @@ declare namespace osAccount {
    * @interface RequestResult
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface RequestResult {
     /**
@@ -4981,7 +5231,8 @@ declare namespace osAccount {
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     credentialId?: Uint8Array;
   }
@@ -4992,7 +5243,8 @@ declare namespace osAccount {
    * @interface EnrolledCredInfo
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface EnrolledCredInfo {
     /**
@@ -5001,7 +5253,8 @@ declare namespace osAccount {
      * @type { Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     credentialId: Uint8Array;
 
@@ -5011,7 +5264,8 @@ declare namespace osAccount {
      * @type { AuthType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     authType: AuthType;
 
@@ -5021,7 +5275,8 @@ declare namespace osAccount {
      * @type { AuthSubType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     authSubType: AuthSubType;
 
@@ -5031,7 +5286,8 @@ declare namespace osAccount {
      * @type { Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     templateId: Uint8Array;
 
@@ -5041,27 +5297,30 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     isAbandoned?: boolean;
 
     /**
      * Indicates the validity period.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
-    validityPeriod?: number;
+    validityPeriod?: long;
   }
 
   /**
    * Indicates the property type to get.
    *
-   * @enum { number } GetPropertyType
+   * @enum { int } GetPropertyType
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum GetPropertyType {
     /**
@@ -5069,7 +5328,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTH_SUB_TYPE = 1,
 
@@ -5078,7 +5338,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REMAIN_TIMES = 2,
 
@@ -5087,7 +5348,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FREEZING_TIME = 3,
 
@@ -5096,7 +5358,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ENROLLMENT_PROGRESS = 4,
 
@@ -5105,7 +5368,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SENSOR_INFO = 5,
 
@@ -5114,7 +5378,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NEXT_PHASE_FREEZING_TIME = 6,
 
@@ -5124,6 +5389,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     CREDENTIAL_LENGTH = 7
   }
@@ -5131,10 +5397,11 @@ declare namespace osAccount {
   /**
    * Indicates the property type to set.
    *
-   * @enum { number } SetPropertyType
+   * @enum { int } SetPropertyType
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum SetPropertyType {
     /**
@@ -5142,7 +5409,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INIT_ALGORITHM = 1
   }
@@ -5150,10 +5418,11 @@ declare namespace osAccount {
   /**
    * Indicates the credential type for authentication.
    *
-   * @enum { number } AuthType
+   * @enum { int } AuthType
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AuthType {
     /**
@@ -5161,7 +5430,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PIN = 1,
 
@@ -5170,7 +5440,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE = 2,
 
@@ -5179,7 +5450,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FINGERPRINT = 4,
 
@@ -5188,7 +5460,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RECOVERY_KEY = 8,
 
@@ -5197,7 +5470,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PRIVATE_PIN = 16,
 
@@ -5206,7 +5480,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DOMAIN = 1024
   }
@@ -5214,10 +5489,11 @@ declare namespace osAccount {
   /**
    * Indicates the credential subtype for authentication.
    *
-   * @enum { number } AuthSubType
+   * @enum { int } AuthSubType
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AuthSubType {
     /**
@@ -5225,7 +5501,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PIN_SIX = 10000,
 
@@ -5234,7 +5511,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PIN_NUMBER = 10001,
 
@@ -5243,7 +5521,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PIN_MIXED = 10002,
 
@@ -5252,7 +5531,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PIN_FOUR = 10003,
 
@@ -5261,7 +5541,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PIN_PATTERN = 10004,
 
@@ -5270,7 +5551,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PIN_QUESTION = 10005,
 
@@ -5279,7 +5561,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_2D = 20000,
 
@@ -5288,7 +5571,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_3D = 20001,
 
@@ -5297,7 +5581,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FINGERPRINT_CAPACITIVE = 30000,
 
@@ -5306,7 +5591,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FINGERPRINT_OPTICAL = 30001,
 
@@ -5315,7 +5601,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FINGERPRINT_ULTRASONIC = 30002,
 
@@ -5324,7 +5611,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DOMAIN_MIXED = 10240001
   }
@@ -5332,10 +5620,11 @@ declare namespace osAccount {
   /**
    * Indicates the trusted level of authentication results.
    *
-   * @enum { number } AuthTrustLevel
+   * @enum { int } AuthTrustLevel
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AuthTrustLevel {
     /**
@@ -5343,7 +5632,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ATL1 = 10000,
 
@@ -5352,7 +5642,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ATL2 = 20000,
 
@@ -5361,7 +5652,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ATL3 = 30000,
 
@@ -5370,7 +5662,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ATL4 = 40000
   }
@@ -5378,10 +5671,11 @@ declare namespace osAccount {
   /**
    * Indicates the module of acquired information.
    *
-   * @enum { number } Module
+   * @enum { int } Module
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum Module {
     /**
@@ -5389,7 +5683,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_AUTH = 1
   }
@@ -5397,10 +5692,11 @@ declare namespace osAccount {
   /**
    * Indicates the enumeration of authentication result code.
    *
-   * @enum { number } ResultCode
+   * @enum { int } ResultCode
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ResultCode {
     /**
@@ -5408,7 +5704,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SUCCESS = 0,
 
@@ -5417,7 +5714,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FAIL = 1,
 
@@ -5426,7 +5724,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GENERAL_ERROR = 2,
 
@@ -5435,7 +5734,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CANCELED = 3,
 
@@ -5444,7 +5744,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TIMEOUT = 4,
 
@@ -5453,7 +5754,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_NOT_SUPPORT = 5,
 
@@ -5462,7 +5764,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRUST_LEVEL_NOT_SUPPORT = 6,
 
@@ -5471,7 +5774,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BUSY = 7,
 
@@ -5480,7 +5784,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INVALID_PARAMETERS = 8,
 
@@ -5489,7 +5794,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOCKED = 9,
 
@@ -5498,7 +5804,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOT_ENROLLED = 10
   }
@@ -5506,10 +5813,11 @@ declare namespace osAccount {
   /**
    * Indicates the enumeration of prompt codes in the process of face authentication.
    *
-   * @enum { number } FaceTipsCode
+   * @enum { int } FaceTipsCode
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum FaceTipsCode {
     /**
@@ -5517,7 +5825,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_AUTH_TIP_TOO_BRIGHT = 1,
 
@@ -5526,7 +5835,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_AUTH_TIP_TOO_DARK = 2,
 
@@ -5535,7 +5845,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_AUTH_TIP_TOO_CLOSE = 3,
 
@@ -5544,7 +5855,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_AUTH_TIP_TOO_FAR = 4,
 
@@ -5553,7 +5865,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_AUTH_TIP_TOO_HIGH = 5,
 
@@ -5562,7 +5875,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_AUTH_TIP_TOO_LOW = 6,
 
@@ -5571,7 +5885,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_AUTH_TIP_TOO_RIGHT = 7,
 
@@ -5580,7 +5895,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_AUTH_TIP_TOO_LEFT = 8,
 
@@ -5589,7 +5905,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_AUTH_TIP_TOO_MUCH_MOTION = 9,
 
@@ -5598,7 +5915,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_AUTH_TIP_POOR_GAZE = 10,
 
@@ -5607,7 +5925,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_AUTH_TIP_NOT_DETECTED = 11
   }
@@ -5615,10 +5934,11 @@ declare namespace osAccount {
   /**
    * Indicates the enumeration of prompt codes in the process of fingerprint authentication.
    *
-   * @enum { number } FingerprintTips
+   * @enum { int } FingerprintTips
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum FingerprintTips {
     /**
@@ -5626,7 +5946,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FINGERPRINT_TIP_GOOD = 0,
 
@@ -5635,7 +5956,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FINGERPRINT_TIP_IMAGER_DIRTY = 1,
 
@@ -5644,7 +5966,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FINGERPRINT_TIP_INSUFFICIENT = 2,
 
@@ -5653,7 +5976,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FINGERPRINT_TIP_PARTIAL = 3,
 
@@ -5662,7 +5986,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FINGERPRINT_TIP_TOO_FAST = 4,
 
@@ -5671,7 +5996,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FINGERPRINT_TIP_TOO_SLOW = 5,
 
@@ -5680,7 +6006,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FINGERPRINT_TIP_FINGER_DOWN = 6,
 
@@ -5689,7 +6016,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FINGERPRINT_TIP_FINGER_UP = 7
   }
@@ -5697,7 +6025,7 @@ declare namespace osAccount {
   /**
    * Enumerates for constraint source types.
    *
-   * @enum { number } ConstraintSourceType
+   * @enum { int } ConstraintSourceType
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -5753,12 +6081,12 @@ declare namespace osAccount {
      * Indicates the id of an os account who set the constraint.
      * When type is CONSTRAINT_NOT_EXIST or CONSTRAINT_TYPE_BASE, localId will be -1.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    localId: number;
+    localId: int;
 
     /**
      * Indicates the source type of the constraint.

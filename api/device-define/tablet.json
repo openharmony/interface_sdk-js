@@ -15,7 +15,6 @@
     "SystemCapability.Graphic.Graphic2D.GLES3",
     "SystemCapability.Graphic.Graphic2D.HyperGraphicManager",
     "SystemCapability.Graphic.Graphic2D.WebGL",
-    "SystemCapability.Window.SessionManager",
     "SystemCapability.WindowManager.WindowManager.Core",
     "SystemCapability.Notification.CommonEvent",
     "SystemCapability.Notification.Notification",
@@ -225,6 +224,7 @@
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
     "SystemCapability.Test.PerfTest",
     "SystemCapability.DistributedHardware.DistributedHardwareFWK",
-    "SystemCapability.ResourceSchedule.SystemLoad"
+    "SystemCapability.ResourceSchedule.SystemLoad",
+    "SystemCapability.Tee.TeeClient"
   ]
 }

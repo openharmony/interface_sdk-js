@@ -40,13 +40,15 @@ import type connection from './@ohos.net.connection';
  * @syscap SystemCapability.Communication.NetStack
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace webSocket {
   /**
    * @typedef { connection.HttpProxy }
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type HttpProxy = connection.HttpProxy;
 
@@ -69,7 +71,8 @@ declare namespace webSocket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createWebSocket(): WebSocket;
 
@@ -92,7 +95,8 @@ declare namespace webSocket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface WebSocketRequestOptions {
     /**
@@ -200,7 +204,8 @@ declare namespace webSocket {
    * object of @type {connection.HttpProxy} means providing custom proxy settings
    * @typedef { 'system' | 'no-proxy' | HttpProxy }
    * @syscap SystemCapability.Communication.NetStack
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type ProxyConfiguration = 'system' | 'no-proxy' | HttpProxy;
 
@@ -287,31 +292,33 @@ declare namespace webSocket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface WebSocketCloseOptions {
     /**
      * Error code.
-     * @type {?number}
+     * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
      */
     /**
      * Error code.
-     * @type {?number}
+     * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
      */
     /**
      * Error code.
-     * @type {?number}
+     * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    code?: number;
+    code?: int;
     /**
      * Error cause.
      * @type {?string}
@@ -331,7 +338,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     reason?: string;
   }
@@ -349,25 +357,27 @@ declare namespace webSocket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CloseResult {
     /**
      * Error code.
-     * @type {number}
+     * @type {int}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
      */
     /**
      * Error code.
-     * @type {number}
+     * @type {int}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    code: number;
+    code: int;
     /**
      * Error cause.
      * @type {string}
@@ -381,7 +391,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     reason: string;
   }
@@ -418,7 +429,8 @@ declare namespace webSocket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface WebSocket {
     /**
@@ -471,7 +483,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     connect(url: string, callback: AsyncCallback<boolean>): void;
 
@@ -529,7 +542,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     connect(url: string, options: WebSocketRequestOptions, callback: AsyncCallback<boolean>): void;
 
@@ -587,7 +601,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     connect(url: string, options?: WebSocketRequestOptions): Promise<boolean>;
 
@@ -689,7 +704,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     close(callback: AsyncCallback<boolean>): void;
 
@@ -759,7 +775,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     close(options?: WebSocketCloseOptions): Promise<boolean>;
 

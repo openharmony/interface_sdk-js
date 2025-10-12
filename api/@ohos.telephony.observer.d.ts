@@ -30,7 +30,8 @@ import type sim from './@ohos.telephony.sim';
  *
  * @namespace observer
  * @syscap SystemCapability.Telephony.StateRegistry
- * @since 6
+ * @since arkts {'1.1':'6','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace observer {
   /**
@@ -38,7 +39,8 @@ declare namespace observer {
    *
    * @typedef { radio.NetworkState }
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type NetworkState = radio.NetworkState;
 
@@ -47,7 +49,8 @@ declare namespace observer {
    *
    * @typedef { radio.SignalInformation }
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type SignalInformation = radio.SignalInformation;
 
@@ -57,7 +60,8 @@ declare namespace observer {
    * @typedef { radio.CellInformation }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type CellInformation = radio.CellInformation;
 
@@ -66,7 +70,8 @@ declare namespace observer {
    *
    * @typedef { data.DataConnectState }
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type DataConnectState = data.DataConnectState;
 
@@ -75,7 +80,8 @@ declare namespace observer {
    *
    * @typedef { radio.RadioTechnology }
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type RatType = radio.RadioTechnology;
 
@@ -84,7 +90,8 @@ declare namespace observer {
    *
    * @typedef { data.DataFlowType }
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type DataFlowType = data.DataFlowType;
 
@@ -93,7 +100,8 @@ declare namespace observer {
    *
    * @typedef { call.CallState }
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type CallState = call.CallState;
 
@@ -102,7 +110,8 @@ declare namespace observer {
    *
    * @typedef { sim.CardType }
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type CardType = sim.CardType;
 
@@ -111,9 +120,20 @@ declare namespace observer {
    *
    * @typedef { sim.SimState }
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type SimState = sim.SimState;
+
+  /**
+   * Indicates the states of tel call.
+   *
+   * @typedef { call.TelCallState }
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  type TelCallState = call.TelCallState;
 
   /**
    * Callback when the network state corresponding to the default sim card is updated.
@@ -130,7 +150,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'networkStateChange', callback: Callback<NetworkState>): void;
 
@@ -168,7 +189,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'networkStateChange', options: ObserverOptions, callback: Callback<NetworkState>): void;
 
@@ -185,7 +207,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'networkStateChange', callback?: Callback<NetworkState>): void;
 
@@ -202,7 +225,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'signalInfoChange', callback: Callback<Array<SignalInformation>>): void;
 
@@ -236,7 +260,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'signalInfoChange', options: ObserverOptions, callback: Callback<Array<SignalInformation>>): void;
 
@@ -253,7 +278,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'signalInfoChange', callback?: Callback<Array<SignalInformation>>): void;
 
@@ -274,7 +300,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'cellInfoChange', callback: Callback<Array<CellInformation>>): void;
 
@@ -316,7 +343,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'cellInfoChange', options: ObserverOptions, callback: Callback<Array<CellInformation>>): void;
 
@@ -335,7 +363,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'cellInfoChange', callback?: Callback<Array<CellInformation>>): void;
 
@@ -370,7 +399,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'cellularDataConnectionStateChange', callback: Callback<DataConnectionStateInfo>): void;
 
@@ -408,7 +438,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'cellularDataConnectionStateChange', options: ObserverOptions,
     callback: Callback<DataConnectionStateInfo>): void;
@@ -442,7 +473,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'cellularDataConnectionStateChange', callback?: Callback<DataConnectionStateInfo>): void;
 
@@ -459,7 +491,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'cellularDataFlowChange', callback: Callback<DataFlowType>): void;
 
@@ -493,7 +526,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'cellularDataFlowChange', options: ObserverOptions, callback: Callback<DataFlowType>): void;
 
@@ -510,7 +544,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'cellularDataFlowChange', callback?: Callback<DataFlowType>): void;
 
@@ -526,7 +561,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Callback when the call state corresponding to the default sim card is updated.
@@ -541,7 +577,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'callStateChange', callback: Callback<CallStateInfo>): void;
 
@@ -559,7 +596,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Callback when the call state corresponding to the monitored {@code slotId} is updated.
@@ -575,7 +613,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'callStateChange', options: ObserverOptions, callback: Callback<CallStateInfo>): void;
 
@@ -591,7 +630,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Cancel callback when the call state is updated.
@@ -606,9 +646,43 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'callStateChange', callback?: Callback<CallStateInfo>): void;
+
+  /**
+   * Callback when the telCall state corresponding to the monitored {@code slotId} is updated.
+   *
+   * @param { 'callStateChangeEx' } type - Event type. Indicates the callStateChangeEx event to be subscribed to.
+   * @param { Callback<TelCallState> } callback - Indicates the callback for
+   *     getting the telCall state.
+   * @param { ObserverOptions } [options] - Indicates the options for observer.
+   * @throws { BusinessError } 8800001 - Invalid parameter value.
+   * @throws { BusinessError } 8800002 - Service connection failed.
+   * @throws { BusinessError } 8800003 - System internal error.
+   * @throws { BusinessError } 8800999 - Unknown error.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function on(type: 'callStateChangeEx', callback: Callback<TelCallState>, options?: ObserverOptions): void;
+
+  /**
+   * Cancel callback when the telCall state is updated.
+   *
+   * @param { 'callStateChangeEx' } type - Event type. Indicates the callStateChangeEx event to unsubscribe from.
+   * @param { Callback<TelCallState> } [callback] - Indicates the callback to
+   *     unsubscribe from the callStateChangeEx event.
+   * @throws { BusinessError } 8800001 - Invalid parameter value.
+   * @throws { BusinessError } 8800002 - Service connection failed.
+   * @throws { BusinessError } 8800003 - System internal error.
+   * @throws { BusinessError } 8800999 - Unknown error.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function off(type: 'callStateChangeEx', callback?: Callback<TelCallState>): void;
 
   /**
    * Callback when the sim state corresponding to the default sim card is updated.
@@ -623,7 +697,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'simStateChange', callback: Callback<SimStateData>): void;
 
@@ -655,7 +730,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'simStateChange', options: ObserverOptions, callback: Callback<SimStateData>): void;
 
@@ -671,7 +747,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'simStateChange', callback?: Callback<SimStateData>): void;
 
@@ -689,7 +766,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'iccAccountInfoChange', callback: Callback<void>): void;
 
@@ -706,7 +784,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'iccAccountInfoChange', callback?: Callback<void>): void;
 
@@ -715,7 +794,8 @@ declare namespace observer {
    *
    * @interface SimStateData
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface SimStateData {
     /**
@@ -723,7 +803,8 @@ declare namespace observer {
      *
      * @type { CardType }
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: CardType;
 
@@ -732,7 +813,8 @@ declare namespace observer {
      *
      * @type { SimState }
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     state: SimState;
 
@@ -741,7 +823,8 @@ declare namespace observer {
      *
      * @type { LockReason }
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     reason: LockReason;
   }
@@ -751,7 +834,8 @@ declare namespace observer {
    *
    * @interface CallStateInfo
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CallStateInfo {
     /**
@@ -759,7 +843,8 @@ declare namespace observer {
      *
      * @type { CallState }
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     state: CallState;
 
@@ -771,6 +856,16 @@ declare namespace observer {
      * @since 11
      */
     number: string;
+
+    /**
+     * Indicates call number.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.StateRegistry
+     * @since 22
+     * @arkts 1.2
+     */
+    teleNumber: string;
   }
 
   /**
@@ -778,7 +873,8 @@ declare namespace observer {
    *
    * @interface DataConnectionStateInfo
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface DataConnectionStateInfo {
     /**
@@ -786,7 +882,8 @@ declare namespace observer {
      *
      * @type { DataConnectState }
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     state: DataConnectState;
 
@@ -795,7 +892,8 @@ declare namespace observer {
      *
      * @type { RatType }
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     network: RatType;
   }
@@ -805,32 +903,36 @@ declare namespace observer {
    *
    * @interface ObserverOptions
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface ObserverOptions {
     /**
      * Indicates the ID of the target card slot.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    slotId: number;
+    slotId: int;
   }
 
   /**
    * Enum for SIM card lock type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum LockReason {
     /**
      * Indicates no SIM lock.
      *
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SIM_NONE,
 
@@ -838,7 +940,8 @@ declare namespace observer {
      * Indicates the PIN lock.
      *
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SIM_PIN,
 
@@ -846,7 +949,8 @@ declare namespace observer {
      * Indicates the PUK lock.
      *
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SIM_PUK,
 
@@ -854,7 +958,8 @@ declare namespace observer {
      * Indicates network personalization of PIN lock(refer 3GPP TS 22.022 [33]).
      *
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SIM_PN_PIN,
 
@@ -862,7 +967,8 @@ declare namespace observer {
      * Indicates network personalization of PUK lock(refer 3GPP TS 22.022 [33]).
      *
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SIM_PN_PUK,
 
@@ -870,7 +976,8 @@ declare namespace observer {
      * Indicates network subset personalization of PIN lock(refer 3GPP TS 22.022 [33]).
      *
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SIM_PU_PIN,
 
@@ -878,7 +985,8 @@ declare namespace observer {
      * Indicates network subset personalization of PUK lock(refer 3GPP TS 22.022 [33]).
      *
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SIM_PU_PUK,
 
@@ -886,7 +994,8 @@ declare namespace observer {
      * Indicates service provider personalization of PIN lock(refer 3GPP TS 22.022 [33]).
      *
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SIM_PP_PIN,
 
@@ -894,7 +1003,8 @@ declare namespace observer {
      * Indicates service provider personalization of PUK lock(refer 3GPP TS 22.022 [33]).
      *
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SIM_PP_PUK,
 
@@ -902,7 +1012,8 @@ declare namespace observer {
      * Indicates corporate personalization of PIN lock(refer 3GPP TS 22.022 [33]).
      *
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SIM_PC_PIN,
 
@@ -910,7 +1021,8 @@ declare namespace observer {
      * Indicates corporate personalization of PUK lock(refer 3GPP TS 22.022 [33]).
      *
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SIM_PC_PUK,
 
@@ -918,7 +1030,8 @@ declare namespace observer {
      * Indicates SIM/USIM personalization of PIN lock(refer 3GPP TS 22.022 [33]).
      *
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SIM_SIM_PIN,
 
@@ -926,7 +1039,8 @@ declare namespace observer {
      * Indicates SIM/USIM personalization of PUK lock(refer 3GPP TS 22.022 [33]).
      *
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SIM_SIM_PUK,
   }

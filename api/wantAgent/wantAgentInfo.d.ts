@@ -112,7 +112,8 @@ export interface WantAgentInfo {
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   requestCode: number;
 
@@ -206,6 +207,17 @@ export interface WantAgentInfo {
    * @arkts 1.1&1.2
    */
   extraInfos?: Record<string, Object>;
+
+  /**
+   * Indicates the target user upon whom the WantAgent takes effect.
+   *
+   * @type { ?int }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  userId?: int;
 }
 
 /**

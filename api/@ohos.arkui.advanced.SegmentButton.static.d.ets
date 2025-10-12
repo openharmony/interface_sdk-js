@@ -817,13 +817,13 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   /**
    * Appends new elements to the end of SegmentButtonItemOptionsArray.
    *
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item1 - New element to add to SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item - New element to add to SegmentButtonItemOptionsArray.
    * @returns { int } Returns the new length of SegmentButtonItemOptionsArray.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    * @noninterop
    */
-  push(item1: SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem): int;
+  push(item: SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem): int;
 
   /**
    * Appends new elements to the end of SegmentButtonItemOptionsArray.
@@ -880,13 +880,13 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   /**
    * Appends new elements to the start of SegmentButtonItemOptionsArray.
    *
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item1 - New element to add to SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item - New element to add to SegmentButtonItemOptionsArray.
    * @returns { int } Returns the new length of SegmentButtonItemOptionsArray.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    * @noninterop
    */
-  unshift(item1: SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem): int;
+  unshift(item: SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem): int;
 
   /**
    * Appends new elements to the start of SegmentButtonItemOptionsArray.
@@ -939,6 +939,7 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    *
    * @param { SegmentButtonItemTuple } elements - The SegmentButton items.
    * @returns { SegmentButtonItemOptionsArray } Returns the a new SegmentButtonItemOptionsArray object.
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    * @noninterop
