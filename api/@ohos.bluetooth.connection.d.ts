@@ -1408,11 +1408,24 @@ declare namespace connection {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 20 static
    */
   function on(type: 'bluetoothDeviceFind', callback: Callback<Array<string>>): void;
 
   /**
+   * Subscribe the event reported when a remote Bluetooth device is discovered.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<Array<string>> } callback - Callback used to listen for the discovering event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 22 static
+   */
+  function onBluetoothDeviceFind(callback: Callback<Array<string>>): void;
+
+  /**
    * Unsubscribe the event reported when a remote Bluetooth device is discovered.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -1450,9 +1463,22 @@ declare namespace connection {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 20 static
    */
   function off(type: 'bluetoothDeviceFind', callback?: Callback<Array<string>>): void;
+  
+  /**
+   * Unsubscribe the event reported when a remote Bluetooth device is discovered.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<Array<string>> } [callback] - Callback used to listen for the discovering event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 22 static
+   */
+  function offBluetoothDeviceFind(callback?: Callback<Array<string>>): void;
 
   /**
    * Subscribe the event reported when a remote Bluetooth device is discovered.
@@ -1482,11 +1508,23 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 18 dynamic
-   * @since 20 static
    */
   function on(type: 'discoveryResult', callback: Callback<Array<DiscoveryResult>>): void;
 
   /**
+   * Subscribe the event reported when a remote Bluetooth device is discovered.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<Array<DiscoveryResult>> } callback - Callback used to listen for the discovering event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 22 static
+   */
+  function onDiscoveryResult(callback: Callback<Array<DiscoveryResult>>): void;
+
+  /**
    * Unsubscribe the event reported when a remote Bluetooth device is discovered.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.GET_BLUETOOTH_PEERS_MAC
@@ -1510,11 +1548,23 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 18 dynamic
-   * @since 20 static
    */
   function off(type: 'discoveryResult', callback?: Callback<Array<DiscoveryResult>>): void;
 
   /**
+   * Unsubscribe the event reported when a remote Bluetooth device is discovered.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<Array<DiscoveryResult>> } [callback] - Callback used to listen for the discovering event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 22 static
+   */
+  function offDiscoveryResult(callback?: Callback<Array<DiscoveryResult>>): void;
+
+  /**
    * Subscribe the event reported when a remote Bluetooth device is bonded.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -1542,9 +1592,22 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
-   * @since 20 static
    */
   function on(type: 'bondStateChange', callback: Callback<BondStateParam>): void;
+
+  /**
+   * Subscribe the event reported when a remote Bluetooth device is bonded.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<BondStateParam> } callback - Callback used to listen for the bond state event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 22 static
+   */
+  function onBondStateChange(callback: Callback<BondStateParam>): void;
 
   /**
    * Unsubscribe the event reported when a remote Bluetooth device is bonded.
@@ -1574,9 +1637,22 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
-   * @since 20 static
    */
   function off(type: 'bondStateChange', callback?: Callback<BondStateParam>): void;
+
+  /**
+   * Unsubscribe the event reported when a remote Bluetooth device is bonded.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<BondStateParam> } [callback] - Callback used to listen for the bond state event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 22 static
+   */
+  function offBondStateChange(callback?: Callback<BondStateParam>): void;
 
   /**
    * Subscribe the event of a pairing request from a remote Bluetooth device.
@@ -1591,9 +1667,21 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
-   * @since 20 static
    */
   function on(type: 'pinRequired', callback: Callback<PinRequiredParam>): void;
+
+  /**
+   * Subscribe the event of a pairing request from a remote Bluetooth device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<PinRequiredParam> } callback - Callback used to listen for the pairing request event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 22 static
+   */
+  function onPinRequired(callback: Callback<PinRequiredParam>): void;
 
   /**
    * Unsubscribe the event of a pairing request from a remote Bluetooth device.
@@ -1608,9 +1696,21 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
-   * @since 20 static
    */
   function off(type: 'pinRequired', callback?: Callback<PinRequiredParam>): void;
+
+  /**
+   * Unsubscribe the event of a pairing request from a remote Bluetooth device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<PinRequiredParam> } [callback] - Callback used to listen for the pairing request event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 22 static
+   */
+  function offPinRequired(callback?: Callback<PinRequiredParam>): void;
 
   /**
    * Subscribe the event of battery state changed from a remote device.
@@ -1622,9 +1722,20 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 12 dynamic
-   * @since 20 static
    */
   function on(type: 'batteryChange', callback: Callback<BatteryInfo>): void;
+  
+  /**
+   * Subscribe the event of battery state changed from a remote device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<BatteryInfo> } callback - Callback used to listen.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 22 static
+   */
+  function onBatteryChange(callback: Callback<BatteryInfo>): void;
 
   /**
    * Unsubscribe the event of battery state changed from a remote device.
@@ -1636,9 +1747,20 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 12 dynamic
-   * @since 20 static
    */
   function off(type: 'batteryChange', callback?: Callback<BatteryInfo>): void;
+
+  /**
+   * Unsubscribe the event of battery state changed from a remote device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Callback<BatteryInfo> } [callback] - Callback used to listen.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 22 static
+   */
+  function offBatteryChange(callback?: Callback<BatteryInfo>): void;
 
   /**
    * Describes the class of a bluetooth device.
