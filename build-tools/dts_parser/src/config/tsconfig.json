@@ -62,6 +62,7 @@
         "Particle",        
         "Path",
         "PatternLock",
+        "Picker",
         "Piece",
         "PluginComponent",
         "Polygon",
@@ -386,6 +387,11 @@
             "name": "PatternLock",
             "type": "PatternLockAttribute",
             "instance": "PatternLockInstance"
+          },
+          {
+            "name": "Picker",
+            "type": "PickerAttribute",
+            "instance": "PickerInterface"
           },
           {
             "name": "Piece",
