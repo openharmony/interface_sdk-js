@@ -57,5 +57,5 @@ export const MESSAGE_CONFIG_COLOR_RED: string = '\u001b[31m';
 export const MESSAGE_CONFIG_COLOR_RESET: string = '\u001b[39m';
 export const MESSAGE_CONFIG_COLOR_ERROR: string = 'color:#f5a623';
 export const MESSAGE_CONFIG_COLOR_WARNING: string = 'color:#d0021b';
-export const MESSAGE_CONFIG_HEADER_ERROR: string = 'ERROR: ArkTS:ERROR File: ';
-export const MESSAGE_CONFIG_HEADER_WARNING: string = 'WARN: ArkTS:WARN File: ';
+export const MESSAGE_CONFIG_HEADER_ERROR: string = 'ArkTS:ERROR File: ';
+export const MESSAGE_CONFIG_HEADER_WARNING: string = 'ArkTS:WARN File: ';
