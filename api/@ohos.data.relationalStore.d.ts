@@ -735,7 +735,16 @@ declare namespace relationalStore {
      * @since 20
      * @arkts 1.1&1.2
      */
-    AES_256_CBC
+    AES_256_CBC,
+
+    /**
+     * PLAIN_TEXT: Database is unencrypted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 22
+     */
+    PLAIN_TEXT
   }
 
   /**
@@ -8645,6 +8654,28 @@ declare namespace relationalStore {
      * @since 20
      */
     setLocale(locale: string) : Promise<void>
+
+    /**
+     * Change the encryption parameters of the database.
+     *
+     * @param { CryptoParam } cryptoParam - Crypto parameters.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 22 dynamic&static
+     */
+    rekeyEx(cryptoParam: CryptoParam): Promise<void>;
   }
 
   /**
