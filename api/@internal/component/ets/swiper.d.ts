@@ -1911,6 +1911,28 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   displayCount(value: number | string | SwiperAutoFill, swipeByGroup?: boolean): SwiperAttribute;
 
   /**
+   * Sets the number of elements to display per page.
+   *
+   * If swipeByGroup is set to true:
+   * 1、All sub-items are grouped from index 0.
+   * 2、The number of sub-items in each group is the value of displayCount.
+   * 3、If the number of sub-items in the last group is less than displayCount, placeholder items are added to supplement
+   * the number of last group.
+   * 4、Placeholder items do not display any content and are only used as placeholders.
+   * 5、When turning pages, turn pages by group.
+   *
+   * @param { number | string | SwiperAutoFill | ItemFillPolicy } value
+   * @param { boolean } [swipeByGroup] - if swipe by group.
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22
+   */
+  displayCount(value: number | string | SwiperAutoFill | ItemFillPolicy, swipeByGroup?: boolean): SwiperAttribute;
+
+  /**
    * Invoked when setting the sliding effect
    *
    * @param { EdgeEffect } value
