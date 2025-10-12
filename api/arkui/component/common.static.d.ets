@@ -8856,22 +8856,10 @@ export declare interface CommonMethod {
      * It encapsulates various blur radius, mask color, mask opacity, saturation.
      * And brightness values through enum values.
      *
-     * @param { BlurStyle | undefined } value - Settings of the background blur style
+     * @param { BlurStyle | undefined } style - Settings of the background blur style
      *     <br>including the blur radius, mask color, mask opacity, saturation, and brightness.
-     * @param { BackgroundBlurStyleOptions } [options] - Background blur options.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default backgroundBlurStyle(value: BlurStyle | undefined, options?: BackgroundBlurStyleOptions): this;
-    /**
-     * Background blur style.
-     * blurStyle:Blur style type.
-     * sysOptions: system adaptive options.
-     *
-     * @param { BlurStyle | undefined } style
      * @param { BackgroundBlurStyleOptions } [options]
-     * @param { SystemAdaptiveOptions } [sysOptions]
+     * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
@@ -8956,21 +8944,9 @@ export declare interface CommonMethod {
     /**
      * Applies a foreground blur style to the component.
      *
-     * @param { BlurStyle | undefined } value - Settings of the foreground blur style.
-     * @param { ForegroundBlurStyleOptions } [options] - Foreground blur options.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default foregroundBlurStyle(value: BlurStyle | undefined, options?: ForegroundBlurStyleOptions): this;
-    /**
-     * Foreground blur style.
-     * blurStyle:Blur style type.
-     * sysOptions: system adaptive options.
-     *
-     * @param { BlurStyle | undefined } style
+     * @param { BlurStyle | undefined } style - Settings of the foreground blur style.
      * @param { ForegroundBlurStyleOptions } [options]
-     * @param { SystemAdaptiveOptions } [sysOptions]
+     * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
@@ -9442,18 +9418,6 @@ export declare interface CommonMethod {
      * The larger the blurring radius, the more blurring the content.
      * If the value is 0, the content blurring effect is not blurring.
      *
-     * @param { number | undefined } value - value indicates radius of backdrop blur.
-     * @param { BlurOptions } [options] - options indicates blur options.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default blur(value: number | undefined, options?: BlurOptions): this;
-    /**
-     * Adds the content blurring effect for the current component. The input parameter is the blurring radius.
-     * The larger the blurring radius, the more blurring the content.
-     * If the value is 0, the content blurring effect is not blurring.
-     *
      * @param { number | undefined } blurRadius - value indicates radius of backdrop blur.
      * @param { BlurOptions } [options] - options indicates blur options.
      * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
@@ -9659,18 +9623,6 @@ export declare interface CommonMethod {
      * @since 20 static
      */
     default useEffect(value: boolean | undefined): this;
-    /**
-     * Applies a background blur effect to the component. You can customize the blur radius and grayscale parameters.
-     *
-     * @param { number | undefined } value - Background blur effect to apply to the component.
-     *     <br>The input parameter is the blur radius. The larger the radius is, the more blurred the background is.
-     *     <br>If the value is **0**, the background is not blurred.
-     * @param { BlurOptions } [options] - Grayscale parameters.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default backdropBlur(value: number | undefined, options?: BlurOptions): this;
     /**
      * Adds the background blur effect for the current component. The input parameter is the blur radius.
      * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
@@ -10312,15 +10264,6 @@ export declare interface CommonMethod {
      * @since 20 static
      */
     default id(value: string | undefined): this;
-    /**
-     * geometryTransition
-     *
-     * @param { string | undefined } id
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default geometryTransition(id: string | undefined): this;
     /**
      * Shared geometry transition
      *
