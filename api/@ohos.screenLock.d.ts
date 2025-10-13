@@ -37,7 +37,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7 dynamic
    * @since 20 static
-   * @deprecated since 9
+   * @deprecated since 9 dynamic
    */
   function isScreenLocked(callback: AsyncCallback<boolean>): void;
 
@@ -48,7 +48,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7 dynamic
    * @since 20 static
-   * @deprecated since 9
+   * @deprecated since 9 dynamic
    */
   function isScreenLocked(): Promise<boolean>;
 
@@ -71,7 +71,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7 dynamic
    * @since 20 static
-   * @deprecated since 9
+   * @deprecated since 9 dynamic
    */
   function isSecureMode(callback: AsyncCallback<boolean>): void;
 
@@ -82,7 +82,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7 dynamic
    * @since 20 static
-   * @deprecated since 9
+   * @deprecated since 9 dynamic
    */
   function isSecureMode(): Promise<boolean>;
 
