@@ -434,7 +434,7 @@ function duplicateRemoval(newTypesArr) {
     }
   });
 
-  return newTypesArr;
+  return newTypesNodeArr;
 }
 
 /**
