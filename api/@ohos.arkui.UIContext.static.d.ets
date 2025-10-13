@@ -2935,12 +2935,12 @@ export declare class UIContext {
   /**
    * Get FrameNode by uniqueId.
    *
-   * @param { number } id - The uniqueId of the FrameNode.
+   * @param { long } id - The uniqueId of the FrameNode.
    * @returns { FrameNode | null } - The FrameNode with the target uniqueId, or null if the frameNode is not existed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getFrameNodeByUniqueId(id: number): FrameNode | null;
+  getFrameNodeByUniqueId(id: long): FrameNode | null;
 
   /**
    * Get page information of the frameNode with uniqueId.
