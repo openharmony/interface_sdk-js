@@ -39,35 +39,35 @@ declare namespace componentSnapshot {
         /**
          * Left side position of rectangle, in PX.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        left: number;
+        left: double;
         /**
          * Right side position of Rectangle, in PX.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        right: number;
+        right: double;
         /**
          * Top side position of Rectangle, in PX.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        top: number;
+        top: double;
         /**
          * Bottom side position of Rectangle, in PX.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        bottom: number;
+        bottom: double;
     }
     /**
      * Defines the extra options for snapshot taking, if this is used, the start and end will
@@ -81,35 +81,35 @@ declare namespace componentSnapshot {
         /**
          * Left/Right side position of rectangle, in PX
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        start: number;
+        start: double;
         /**
          * End side position of Rectangle, in PX.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        end: number;
+        end: double;
         /**
          * Left/Right side position of rectangle, in PX
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        top: number;
+        top: double;
         /**
          * Bottom side position of Rectangle, in PX.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        bottom: number;
+        bottom: double;
     }
     /**
      * Defines the snapshot region rect type.
@@ -130,11 +130,11 @@ declare namespace componentSnapshot {
         /**
          * Defines the scale property to render the snapshot.
          *
-         * @type {?number}
+         * @type {?double}
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        scale?: number;
+        scale?: double;
         /**
          * Whether to wait the rendering is finished.
          *
