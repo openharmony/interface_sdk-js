@@ -26,7 +26,7 @@ import { VoidCallback } from './units';
 /**
  * Defines the FormDimension enum.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since arkts {'1.1':'7','1.2':'20'}
@@ -128,7 +128,7 @@ declare enum FormDimension {
 /**
  * Defines the FormRenderingMode enum.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since arkts {'1.1':'11','1.2':'20'}
@@ -160,7 +160,7 @@ declare enum FormRenderingMode {
 /**
  * Defines the FormShape enum.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since arkts {'1.1':'12','1.2':'20'}
@@ -201,13 +201,13 @@ declare interface FormInfo {
   /**
    * The id the form.
    *
-   * @type { number | string }
+   * @type { long | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  id: number | string;
+  id: long | string;
 
   /**
    * The name of the form.
@@ -343,7 +343,7 @@ interface FormComponentInterface {
    * Set a new value.
    *
    * @param { {
-   * id: number;
+   * id: long;
    * name: string;
    * bundle: string;
    * ability: string;
@@ -401,13 +401,13 @@ interface FormCallbackInfo {
   /**
    * The id of the form.
    *
-   * @type { number }
+   * @type { long }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  id: number;
+  id: long;
 
   /**
    * The string id of the form.
@@ -444,24 +444,24 @@ interface FormSize {
    * The width of the form.
    * Anonymous Object Rectification
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since arkts{ '1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  width: number;
+  width: double;
   /**
    * The height of the form.
    * Anonymous Object Rectification
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since arkts{ '1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  height: number;
+  height: double;
 }
 
 /**
@@ -478,13 +478,13 @@ interface ErrorInformation {
    * Error code.
    * Anonymous Object Rectification
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since arkts{ '1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  errcode: number;
+  errcode: int;
 
   /**
    * Error information.
