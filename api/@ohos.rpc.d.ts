@@ -2970,13 +2970,12 @@ declare namespace rpc {
     /**
      * A constructor used to create a MessageOption instance.
      *
-     * @param { int } syncFlags - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
-     * @param { int } waitTime - Maximum wait time for a RPC call. The default value is TF_WAIT_TIME.
+     * @param { number } syncFlags - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
+     * @param { number } waitTime - Maximum wait time for a RPC call. The default value is TF_WAIT_TIME.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
      */
-    constructor(syncFlags?: int, waitTime?: int);
+    constructor(syncFlags?: number, waitTime?: number);
 
     /**
      * A constructor used to create a MessageOption instance.
@@ -2992,9 +2991,36 @@ declare namespace rpc {
      *
      * @param { boolean } isAsync - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 20 static
+     * @since 22 static
      */
     constructor(isAsync: boolean);
+
+    /**
+     * A constructor used to create a MessageOption instance.
+     *
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 22 static
+     */
+    constructor();
+
+    /**
+     * A constructor used to create a MessageOption instance.
+     *
+     * @param { int } syncFlags - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 22 static
+     */
+    constructor(syncFlags: int);
+
+    /**
+     * A constructor used to create a MessageOption instance.
+     *
+     * @param { int } syncFlags - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
+     * @param { int } waitTime - Maximum wait time for a RPC call. The default value is TF_WAIT_TIME.
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 22 static
+     */
+    constructor(syncFlags: int, waitTime: int);
 
     /**
      * Obtains the SendRequest call flag, which can be synchronous or asynchronous.
