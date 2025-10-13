@@ -712,6 +712,23 @@ export declare class FrameNode {
   * @since 20
   */
   isTransferred(): boolean;
+
+  /**
+   * Converts a point's coordinates from the current node's coordinate system 
+   * to the target node's coordinate system.
+   * 
+   * @param { NodePosition } position - The point's coordinates in the current node's local coordinate system.
+   * @param { FrameNode } targetNode - The destination node whose coordinate system will be used
+   *     for conversion.
+   * @returns { NodePosition } The converted coordinates in the target node's local coordinate system.
+   * @throws { BusinessError } 100024 - The current FrameNode and the target FrameNode do not have a common ancestor
+   *     node.
+   * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
+   *     are included in the error message. For example: "The parameter 'targetNode' is invalid: it cannot be disposed."
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  convertPoint(position: NodePosition, targetNode: FrameNode): NodePosition;
 }
 
 /**
