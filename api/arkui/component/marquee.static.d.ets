@@ -41,13 +41,14 @@ export interface MarqueeOptions {
      * <br><em>true</em>: Start scrolling.
      * <br><em>false</em>: Do not start scrolling.
      * <br>This parameter cannot be used to restart scrolling that has been completed.
+     * <br>In Marquee component, the default value is false. Set to `undefined` will restore it to the default value.
      * </p>
      *
-     * @type { boolean }
+     * @type { boolean | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    start: boolean;
+    start: boolean | undefined;
     /**
      * Scroll animation text scroll step, when step is larger than the text width of Marquee, take the default value.
      *
@@ -90,14 +91,15 @@ export interface MarqueeOptions {
      */
     fromStart?: boolean;
     /**
-     * Text that needs scrolling.
+     * Text that needs scrolling. In Marquee component, the default value is an empty string.
+     * Set to `undefined` will restore it to the default value.
      *
      * Anonymous Object Rectification.
-     * @type { string }
+     * @type { string | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    src: string;
+    src: string | undefined;
 }
 
 /**

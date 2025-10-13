@@ -75,13 +75,14 @@ export declare enum TextDataDetectorType {
  */
 export declare interface TextDataDetectorConfig {
     /**
-     * Text data detector types.
+     * Text data detector types. The default value is an empty array.
+     * Set to `undefined` or `null` will restore it to the default value.
      *
-     * @type { TextDataDetectorType[] }
+     * @type { TextDataDetectorType[] | undefined | null }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    types: TextDataDetectorType[];
+    types: TextDataDetectorType[] | undefined | null;
     /**
      * Text data detect result callback.
      *
