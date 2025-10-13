@@ -3106,6 +3106,7 @@ declare namespace text {
    * @returns { Promise<Array<FontDescriptor>> } Promise used to return all parsed font descriptors,
    *     and an empty array will be returned if no fonts are found, invalid path, no permission, or non-font file.
    * @syscap SystemCapability.Graphics.Drawing
+   * @atomicservice
    * @since 22 dynamic&static
    */
   function getFontDescriptorsFromPath(path: string | Resource): Promise<Array<FontDescriptor>>;
