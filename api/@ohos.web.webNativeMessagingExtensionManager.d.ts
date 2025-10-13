@@ -180,7 +180,8 @@ declare namespace webNativeMessagingExtensionManager {
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
+   *     2. The system service failed to communicate with dependency module.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21
