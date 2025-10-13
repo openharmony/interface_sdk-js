@@ -304,3 +304,17 @@ export { VideoModifier } from './arkui/VideoModifier';
  * @since 20
  */
 export { ParticleModifier } from './arkui/ParticleModifier';
+
+/**
+ * Export MenuModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { MenuModifier } from './arkui/MenuModifier';
+
+/**
+ * Export MenuItemModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { MenuItemModifier } from './arkui/MenuItemModifier';
