@@ -22,6 +22,7 @@
  * @typedef ActionResult
  * @syscap SystemCapability.Notification.Notification
  * @since 3
+ * @deprecated since 7
  */
 export interface ActionResult {
   /**
@@ -30,6 +31,7 @@ export interface ActionResult {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 3
+   * @deprecated since 7
    */
   bundleName: string;
 
@@ -39,6 +41,7 @@ export interface ActionResult {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 3
+   * @deprecated since 7
    */
   abilityName: string;
 
@@ -52,6 +55,7 @@ export interface ActionResult {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 3
+   * @deprecated since 7
    */
   uri: string;
 }
@@ -60,6 +64,7 @@ export interface ActionResult {
  * @typedef ShowNotificationOptions
  * @syscap SystemCapability.Notification.Notification
  * @since 3
+ * @deprecated since 7
  */
 export interface ShowNotificationOptions {
   /**
@@ -68,6 +73,7 @@ export interface ShowNotificationOptions {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 3
+   * @deprecated since 7
    */
   contentTitle?: string;
 
@@ -77,6 +83,7 @@ export interface ShowNotificationOptions {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 3
+   * @deprecated since 7
    */
   contentText?: string;
 
@@ -94,6 +101,7 @@ export interface ShowNotificationOptions {
 /**
  * @syscap SystemCapability.Notification.Notification
  * @since 3
+ * @deprecated since 7
  */
 export default class Notification {
   /**
@@ -102,6 +110,7 @@ export default class Notification {
    * @param { ShowNotificationOptions } [options] - Options.
    * @syscap SystemCapability.Notification.Notification
    * @since 3
+   * @deprecated since 7
    */
   static show(options?: ShowNotificationOptions): void;
 }
