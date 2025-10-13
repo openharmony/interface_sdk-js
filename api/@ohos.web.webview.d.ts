@@ -7303,7 +7303,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21
+     * @since 21 dynamic&static
      */
     static setSiteIsolationMode(mode: SiteIsolationMode): void;
 
@@ -7313,7 +7313,7 @@ declare namespace webview {
      * @returns { SiteIsolationMode } The site isolation mode of the application.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21
+     * @since 21 dynamic&static
      */
     static getSiteIsolationMode(): SiteIsolationMode;
   
@@ -10667,20 +10667,20 @@ declare namespace webview {
    * Indicates the site isolation mode of the application, default value depends on different devices type.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 21
+   * @since 21 dynamic&static
    */
   enum SiteIsolationMode {
     /**
      * The partial site isolation mode
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21
+     * @since 21 dynamic&static
      */
     PARTIAL = 0,
 
     /**
      * The strict site isolation mode
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21
+     * @since 21 dynamic&static
      */
     STRICT = 1
   }
