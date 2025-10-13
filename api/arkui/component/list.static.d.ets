@@ -159,7 +159,7 @@ export declare enum StickyStyle {
      * and the footer is pinned to the bottom.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     BOTH = 3
 }
