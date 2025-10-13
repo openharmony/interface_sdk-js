@@ -211,7 +211,7 @@ export declare struct GridObjectSortComponent {
    * Build function of GridObjectSortComponent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since20
+   * @since 20 static
    */
   @Builder
   build(): void;
