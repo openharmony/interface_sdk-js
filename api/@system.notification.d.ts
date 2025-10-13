@@ -102,6 +102,7 @@ export interface ShowNotificationOptions {
  * @syscap SystemCapability.Notification.Notification
  * @since 3
  * @deprecated since 7
+ * @useinstead ohos.notification/notification
  */
 export default class Notification {
   /**
