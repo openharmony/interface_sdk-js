@@ -36,31 +36,31 @@ export declare interface TimePickerResult {
     /**
      * Hour portion of the selected time.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    hour: number;
+    hour: int;
     /**
      * Minute portion of the selected time.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    minute: number;
+    minute: int;
     /**
      * Second portion of the selected time.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    second: number;
+    second: int;
 }
 /**
  * Type of the TimePicker that need to be displayed.
- * @enum {number}
+ * @enum {int}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */

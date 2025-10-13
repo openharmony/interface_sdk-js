@@ -42,11 +42,11 @@ export declare interface DatePickerResult {
      * If start and end are not set, the default range is [1970, 2100].
      * </p>
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
      * @since 20 static
      */
-    year?: number;
+    year?: int;
     /**
      * Month index of the selected date.
      * The index is zero-based. 0 indicates January, and 11 indicates December.
@@ -55,11 +55,11 @@ export declare interface DatePickerResult {
      * <br>Value range: depends on start and end. If start and end are not set, the default range is [0, 11].
      * </p>
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
      * @since 20 static
      */
-    month?: number;
+    month?: int;
     /**
      * Day of the selected date.
      *
@@ -67,16 +67,16 @@ export declare interface DatePickerResult {
      * <br>Value range: depends on start and end. If start and end are not set, the default range is [1, 31].
      * </p>
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full    
      * @since 20 static
      */
-    day?: number;
+    day?: int;
 }
 /**
  * Defines the mode of the date picker.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */

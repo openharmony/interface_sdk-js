@@ -65,7 +65,7 @@ export type DrawingLattice = drawing.Lattice;
  */
 export type ImageMatrix = matrix4.Matrix4Transit;
 /**
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -90,7 +90,7 @@ export declare enum ImageRenderMode {
 /**
  * Specify image's content.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
@@ -104,7 +104,7 @@ export declare enum ImageContent {
     EMPTY = 0
 }
 /**
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
@@ -132,7 +132,7 @@ export declare enum DynamicRangeMode {
     STANDARD = 2
 }
 /**
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
@@ -167,7 +167,7 @@ export declare enum ImageInterpolation {
     High
 }
 /**
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
@@ -247,77 +247,77 @@ export interface ImageCompleteEvent {
     /**
      * The width of the image source.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    width: number;
+    width: int;
     /**
      * The height of the image source.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    height: number;
+    height: int;
     /**
      * The width of the component source.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    componentWidth: number;
+    componentWidth: int;
     /**
      * The height of the component source.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    componentHeight: number;
+    componentHeight: int;
     /**
      * The value of the status of the image being loaded successfully.
      * If the returned status value is 0, the image data is successfully loaded.
      * If the returned status value is 1, the image is successfully decoded.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    loadingStatus: number;
+    loadingStatus: int;
     /**
      * The width of the picture that is actually drawn.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    contentWidth: number;
+    contentWidth: int;
     /**
      * The height of the picture that is actually drawn.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    contentHeight: number;
+    contentHeight: int;
     /**
      * The actual draw is offset from the x-axis of the component itself.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    contentOffsetX: number;
+    contentOffsetX: int;
     /**
      * The actual draw is offset from the y-axis of the component itself.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    contentOffsetY: number;
+    contentOffsetY: int;
 }
 /**
  * Defines source size of image.
@@ -331,20 +331,20 @@ export interface ImageSourceSize {
      * Set width.
      * Anonymous Object Rectification.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    width: number;
+    width: double;
     /**
      * Set height.
      * Anonymous Object Rectification.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    height: number;
+    height: double;
 }
 /**
  * Defines the ColorContent.
@@ -611,13 +611,13 @@ export declare interface ImageAttribute extends CommonMethod {
      * The range of the parameter values is (0.333, 1.333].
      * Default value is 0.0.
      *
-     * @param { number | undefined } value - The degree of anti-aliasing.
+     * @param { double | undefined } value - The degree of anti-aliasing.
      * @returns { ImageAttribute } The attribute of the image.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 20 static
      */
-    default edgeAntialiasing(value: number | undefined): this;
+    default edgeAntialiasing(value: double | undefined): this;
     /**
      * This callback is triggered when an image is successfully loaded.
      * The size of the image source that is successfully loaded is returned, in pixels.
@@ -777,19 +777,19 @@ export declare interface ImageError {
     /**
      * Component width.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    componentWidth: number;
+    componentWidth: int;
     /**
      * Component height.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    componentHeight: number;
+    componentHeight: int;
     /**
      * Message.
      *

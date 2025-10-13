@@ -37,29 +37,29 @@ export interface GaugeOptions {
      * Set current data value.
      * Anonymous Object Rectification.
      *
-     * @type { number | undefined }
+     * @type { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    value: number | undefined;
+    value: double | undefined;
     /**
      * Set current segment minimum value.
      * Anonymous Object Rectification.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    min?: number;
+    min?: double;
     /**
      * Set current segment maximum value.
      * Anonymous Object Rectification.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    max?: number;
+    max?: double;
 }
 /**
  * Defines the options of gauge track shadow.
@@ -109,27 +109,27 @@ export declare interface GaugeConfiguration extends CommonConfiguration<GaugeCon
     /**
      * Current data value.
      *
-     * @type { number } data value - the current data value.
+     * @type { double } data value - the current data value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    value: number;
+    value: double;
     /**
      * Current Segment Minimum Value.
      *
-     * @type { number } segment minimum value - the current segment minimum value.
+     * @type { double } segment minimum value - the current segment minimum value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    min: number;
+    min: double;
     /**
      * Current Segment Maximum Value.
      *
-     * @type { number } segment maximum value - the current segment maximum value.
+     * @type { double } segment maximum value - the current segment maximum value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    max: number;
+    max: double;
 }
 /**
  * Defines the Gauge component attributes.
@@ -144,43 +144,40 @@ export declare interface GaugeAttribute extends CommonMethod {
     /**
      * Sets the value for the current profile.
      *
-     * @param { number | undefined } value
+     * @param { double | undefined } value
      * @returns { GaugeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default value(value: number | undefined): this;
+    default value(value: double | undefined): this;
     /**
      * Set the start angle. Clock 0 is 0 degrees and clockwise is positive.
      *
-     * @param { number | undefined } angle
+     * @param { double | undefined } angle
      * @returns { GaugeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default startAngle(angle: number | undefined): this;
+    default startAngle(angle: double | undefined): this;
     /**
      * Sets the end angle position. Clock 0 is 0 degrees and clockwise is positive.
      *
-     * @param { number | undefined } angle
+     * @param { double | undefined } angle
      * @returns { GaugeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default endAngle(angle: number | undefined): this;
+    default endAngle(angle: double | undefined): this;
     /**
      * Set the color of the chart. You can set the solid color and segmented gradient color.
      *
-     * @param { ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, number] | undefined> } colors - 
+     * @param { ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, double] | undefined> } colors - 
      *     section colors of gauge drawing.
      * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default colors(colors: ResourceColor | LinearGradient | Array<[
-        ResourceColor | LinearGradient,
-        number
-    ]> | undefined): this;
+    default colors(colors: ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, double]> | undefined): this;
     /**
      * Sets the thickness of the ring chart.
      *
