@@ -25,37 +25,42 @@ import type { Callback } from "./@ohos.base";
  *
  * @namespace motion
  * @syscap SystemCapability.MultimodalAwareness.Motion
- * @since 15
+ * @since 15 dynamic
+ * @since 20 static
  */
 
 declare namespace motion {
   /**
    * Enum for operating hand status.
    *
-   * @enum { number } OperatingHandStatus
+   * @enum { int } OperatingHandStatus
    * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @since 15
+   * @since 15 dynamic
+   * @since 20 static
    */
   export enum OperatingHandStatus {
     /**
      * indicates nothing has been detected.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
-     * @since 15
+     * @since 15 dynamic
+     * @since 20 static
      */
     UNKNOWN_STATUS = 0,
     /**
      * indicates the operating hand is left hand.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
-     * @since 15
+     * @since 15 dynamic
+     * @since 20 static
      */
     LEFT_HAND_OPERATED = 1,
     /**
      * indicates the operating hand is right hand.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
-     * @since 15
+     * @since 15 dynamic
+     * @since 20 static
      */
     RIGHT_HAND_OPERATED = 2
   }
@@ -63,44 +68,44 @@ declare namespace motion {
   /**
    * Enum for holding hand status
    *
-   * @enum { number } HoldingHandStatus
+   * @enum { int } HoldingHandStatus
    * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @since 20
+   * @since 20 dynamic&static
    */
   export enum HoldingHandStatus {
     /**
      * indicates no holding has been detected.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
-     * @since 20
+     * @since 20 dynamic&static
      */
     NOT_HELD = 0,
     /**
      * indicates holding with the left hand.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
-     * @since 20
+     * @since 20 dynamic&static
      */
     LEFT_HAND_HELD = 1,
     /**
      * indicates holding with the right hand.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
-     * @since 20
+     * @since 20 dynamic&static
      */
     RIGHT_HAND_HELD = 2,
     /**
      * indicates holding with both hands.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
-     * @since 20
+     * @since 20 dynamic&static
      */
     BOTH_HANDS_HELD = 3,
     /**
      * indicates nothing has been detected.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
-     * @since 20
+     * @since 20 dynamic&static
      */
     UNKNOWN_STATUS = 16
   }
