@@ -711,7 +711,7 @@ export class ReactiveBuilderNode<Args extends Object[]> {
   
    /**
     * Notify ReactiveBuilderNode to update the configuration to trigger a reload of the ReactiveBuilderNode.
-    * 
+    *
     * <p><strong>Note:</strong>
     * <br>The updateConfiguration API is used to instruct an object to update, with the system environment used for the
     * <br>update being determined by the changes in the application's current system environment.
@@ -723,6 +723,17 @@ export class ReactiveBuilderNode<Args extends Object[]> {
     * @since 22
     */
    updateConfiguration(): void;
+
+   /**
+    * Flushes the current state changes to update the ReactiveBuilderNode immediately.
+    * This forces a synchronous update of the ReactiveBuilderNode with the latest state values.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 22 dynamic
+    */
+   flushState(): void;
   
    /**
     * Dispatch mouse event to targetNode.
