@@ -259,17 +259,6 @@ export declare class MultiNavPathStack extends NavPathStack {
   removeByName(name: string): int;
  
   /**
-   * Pop the top NavDestination of the stack.
-   *
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty,
-   *                                      otherwise returns undefined.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
-   */
-  pop(animated?: boolean): NavPathInfo | undefined;
- 
-  /**
    * Pop the top NavDestination of the stack. When keepBottomPage sets true, the page at the bottom of the
    * stack will be retained.
    *

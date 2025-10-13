@@ -1470,7 +1470,7 @@ export declare interface NavigationAttribute extends CommonMethod {
       * @param { NavigationToolbarOptions | undefined } [options] - Indicates the options of toolbar.
       * @returns { NavigationAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
-     `* @since 20 static
+      * @since 20 static
       */
     default toolbarConfiguration(value: Array<ToolbarItem> | CustomBuilder | undefined, options?: NavigationToolbarOptions | undefined): this;
 
