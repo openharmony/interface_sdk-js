@@ -574,16 +574,30 @@ declare namespace statistics {
    * Detailed information of statistics.
    * @interface NetStatsInfo
    * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
    * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
+   */
+  /**
+   * Detailed information of statistics.
+   * @interface NetStatsInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 22 static&dynamic
    */
   export interface NetStatsInfo {
     /**
      * Bytes of received.
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
+     */
+    /**
+     * Bytes of received.
+     * @type {long}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 static&dynamic
      */
     rxBytes: long;
 
@@ -591,8 +605,15 @@ declare namespace statistics {
      * Bytes of send.
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
+     */
+    /**
+     * Bytes of send.
+     * @type {long}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 static&dynamic
      */
     txBytes: long;
 
@@ -600,8 +621,15 @@ declare namespace statistics {
      * Packets of received.
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
+     */
+    /**
+     * Packets of received.
+     * @type {long}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 static&dynamic
      */
     rxPackets: long;
 
@@ -609,8 +637,15 @@ declare namespace statistics {
      * Packets of send.
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
+     */
+    /**
+     * Packets of send.
+     * @type {long}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 static&dynamic
      */
     txPackets: long;
   }
@@ -694,40 +729,75 @@ declare namespace statistics {
    * Parameters for obtaining detailed information on specified network traffic usage.
    * @interface NetworkInfo
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'12','1.2':'20'}
+   * @systemapi Hide this for inner system use.
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
+   */
+  /**
+   * Parameters for obtaining detailed information on specified network traffic usage.
+   * @interface NetworkInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 22 static&dynamic
    */
   export interface NetworkInfo {
     /**
      * Network type for querying traffic.
      * @type { NetBearType }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts{'1.1':'12','1.2':'20'}
+     * @systemapi Hide this for inner system use.
+     * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
+     */
+    /**
+     * Network type for querying traffic.
+     * @type { NetBearType }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 static&dynamic
      */
     type: NetBearType;
     /**
      * Start time for querying traffic.
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts{'1.1':'12','1.2':'20'}
+     * @systemapi Hide this for inner system use.
+     * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
+     */
+    /**
+     * Start time for querying traffic.
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 static&dynamic
      */
     startTime: int;
     /**
      * End time for querying traffic.
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts{'1.1':'12','1.2':'20'}
+     * @systemapi Hide this for inner system use.
+     * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
+     */
+    /**
+     * End time for querying traffic.
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 static&dynamic
      */
     endTime: int;
     /**
      * SIM card id for querying traffic.
      * @type { ?int }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts{'1.1':'12','1.2':'20'}
+     * @systemapi Hide this for inner system use.
+     * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
+     */
+    /**
+     * SIM card id for querying traffic.
+     * @type { ?int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 static&dynamic
      */
     simId?: int;
   }
