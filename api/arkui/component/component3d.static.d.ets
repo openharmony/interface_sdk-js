@@ -170,8 +170,8 @@ export declare interface Component3DAttribute extends CommonMethod {
 /**
  * Defines Component3D.
  *
- * @param { SceneOptions } sceneOptions - The 3D scene controller
- * @param { function } content_ - container
+ * @param { SceneOptions } [sceneOptions] - The 3D scene controller
+ * @param { function } [content_] - container
  * @returns { Component3DAttribute }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 static
