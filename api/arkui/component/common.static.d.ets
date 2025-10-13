@@ -4081,7 +4081,6 @@ export declare interface ClickEvent extends BaseEvent {
     /**
      * Prevent the default function.
      *
-     * @type { function }
      * @throws { BusinessError } 100017 - Component does not support prevent function.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
@@ -4154,7 +4153,6 @@ export declare interface HoverEvent extends BaseEvent {
     /**
      * The blocking hover event pops up.
      *
-     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
@@ -4564,7 +4562,6 @@ export declare interface TouchEvent extends BaseEvent {
     /**
      * Stops the event from bubbling upwards or downwards.
      *
-     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
@@ -4580,7 +4577,6 @@ export declare interface TouchEvent extends BaseEvent {
     /**
      * Blocks the default event.
      *
-     * @type { function }
      * @throws { BusinessError } 100017 - Component does not support prevent function.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
@@ -4671,12 +4667,10 @@ export declare interface AxisEvent extends BaseEvent {
     /**
      * Active event bubbling.
      *
-     * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
-    propagation: Callback<void>;
+    propagation(): void;
     /**
      * Obtains the value of the horizontal scroll axis for this axis event.
      *
@@ -5490,12 +5484,10 @@ export declare interface FocusAxisEvent extends BaseEvent {
     /**
      * The blocking event pops up.
      *
-     * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
-    stopPropagation: Callback<void>;
+    stopPropagation(): void;
 }
 /**
  * CrownEvent object description
@@ -5543,12 +5535,10 @@ export declare interface CrownEvent {
     /**
      * The blocking event pops up.
      *
-     * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
-    stopPropagation: Callback<void>;
+    stopPropagation(): void;
 }
 /**
  * Overlay module options
