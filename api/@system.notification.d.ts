@@ -99,6 +99,8 @@ export interface ShowNotificationOptions {
 }
 
 /**
+ * Manages notifications.
+ *
  * @syscap SystemCapability.Notification.Notification
  * @since 3
  * @deprecated since 7
