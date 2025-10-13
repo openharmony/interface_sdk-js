@@ -9688,6 +9688,41 @@ declare namespace media {
   }
 
   /**
+   * Enumerates (audio codec) AAC profile.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @atomicservice
+   * @@since 22 dynamic&static
+   */
+  enum AacProfile {
+    /**
+     * AAC LC (Low Complexity) Profile.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    AAC_LC = 0,
+
+    /**
+     * HE (High Efficiency) AAC profile.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    AAC_HE = 1,
+
+    /**
+     * HE (High Efficiency with Parametric Stereo coding) AAC profile.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    AAC_HE_V2 = 2,
+
+  }
+
+  /**
    * Provides the media recorder profile definitions.
    *
    * @typedef AVRecorderProfile
@@ -9766,6 +9801,15 @@ declare namespace media {
      * @arkts 1.1&1.2
      */
     audioCodec?: CodecMimeType;
+
+    /**
+     * AAC profile for AAC audio encoder. If not set, use AAC_LC profile as default.
+     * @type { ?AacProfile }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    aacProfile?: AacProfile;
 
     /**
      * Indicates the audio sampling rate.
