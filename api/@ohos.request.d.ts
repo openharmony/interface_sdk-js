@@ -1257,7 +1257,8 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}	
+     * @arkts 1.1&1.2
      */
     on(type: 'fail', callback: (err: int) => void): void;
 
