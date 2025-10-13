@@ -9476,6 +9476,34 @@ declare namespace media {
   }
 
   /**
+   * Enumerates picker mode (window only, screen only, screen and window) for capture screen selection.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @since 22 dynamic&static
+   */
+  enum PickerMode {
+    /**
+     * Capture Window Only
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 22 dynamic&static
+     */
+    WINDOW_ONLY = 0,
+    /**
+     * Capture Screen Only
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 22 dynamic&static
+     */
+    SCREEN_ONLY = 1,
+    /**
+     * Capture Screen and Window
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 22 dynamic&static
+     */
+    SCREEN_AND_WINDOW = 2,
+  }
+
+  /**
    * Provides the video recorder configuration definitions.
    *
    * @typedef VideoRecorderConfig
@@ -10797,6 +10825,47 @@ declare namespace media {
      * @arkts 1.1&1.2
      */
     skipPrivacyMode(windowIDs: Array<int>): Promise<void>;
+
+    /**
+     * Configures display mode for system-level picker
+     * @param { PickerMode } pickerMode - Selection mode enumeration
+     *     Defines content types in picker:
+     *     - SCREEN_ONLY: Physical displays only
+     *     - WINDOW_ONLY: Application windows only
+     *     - SCREEN_AND_WINDOW: Both (default)
+     * @returns { Promise<void> } Promise without return value
+     * @throws { BusinessError } 5400103 - Invalid parameter
+     * @throws { BusinessError } 5400105 - Service unavailable
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 22 dynamic&static
+     */
+    setPickerMode(pickerMode: PickerMode): Promise<void>;
+
+    /**
+     * Configures window exclusion list for system-level picker
+     * @param { Array<int> } excludedWindows - Window IDs to exclude from picker
+     *     Filters specified windows before displaying system-level picker
+     * @returns { Promise<void> } Promise without return value
+     * @throws { BusinessError } 5400103 - IO error
+     * @throws { BusinessError } 5400105 - Service unavailable
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 22 dynamic&static
+     */
+    excludePickerWindows(excludedWindows: Array<int>): Promise<void>;
+
+    /**
+     * Displays system-level capture source picker interface
+     *
+     * Activates visual selector for two scenarios:
+     * 1. Initial configuration: Select source before capture starts
+     * 2. Dynamic switching: Change capture target during active recording
+     * @returns { Promise<void> } Promise without return value
+     * @throws { BusinessError } 5400103 - IO operation failed
+     * @throws { BusinessError } 5400105 - Service unavailable
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 22 dynamic&static
+     */
+    presentPicker(): Promise<void>;
 
     /**
      * Enables or disables the microphone. This API uses a promise to return the result.
