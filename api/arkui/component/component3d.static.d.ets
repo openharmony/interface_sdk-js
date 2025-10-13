@@ -25,7 +25,7 @@ import { AttributeModifier, CommonMethod } from './common';
 
 /**
  * The enum of model type
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 static
  */
@@ -129,17 +129,18 @@ export declare interface Component3DAttribute extends CommonMethod {
   /**
    * Buffer input for shader animation
    *
-   * @param { Array<number> | undefined } buffer - The uniform buffer of shader input
+   * @param { Array<double> | undefined } buffer - The uniform buffer of shader input
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 static
    */
-  default shaderInputBuffer(buffer: Array<number> | undefined): this;
+  default shaderInputBuffer(buffer: Array<double> | undefined): this;
 
   /**
    * Set render width resolution.
    *
-   * @param { Dimension | undefined } value - Width of gpu render target, target would upscale or downscale to view's width.
+   * @param { Dimension | undefined } value - Width of gpu render target,
+   *     target would upscale or downscale to view's width.
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 static
@@ -149,7 +150,8 @@ export declare interface Component3DAttribute extends CommonMethod {
   /**
    * Set render height resolution.
    *
-   * @param { Dimension | undefined } value - Height of gpu render target, target would upscale or downscale to view's height.
+   * @param { Dimension | undefined } value - Height of gpu render target,
+   *     target would upscale or downscale to view's height.
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 static
@@ -164,7 +166,8 @@ export declare interface Component3DAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 static
    */
-  default attributeModifier(modifier: AttributeModifier<Component3DAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+  default attributeModifier(modifier: AttributeModifier<Component3DAttribute> |
+      AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
