@@ -177,18 +177,18 @@ declare namespace curves {
     /**
      * Creates a step curve.
      *
-     * @param { number } count - Number of steps. The value must be a positive integer.<br>Value range: [1, +∞).
-     * <p>**NOTE**:
-     * <br>A value less than 1 evaluates to the value **1**.
-     * </p>
+     * @param { int } count - Number of steps. The value must be a positive integer.<br>Value range: [1, INT_MAX].
+     *     <p>**NOTE**:
+     *     <br>A value less than 1 evaluates to the value **1**.
+     *     </p>
      * @param { boolean } end -Whether jumping occurs when the interpolation ends.
-     * **true**: Jumping occurs when the interpolation ends.
-     * *false**: Jumping occurs when the interpolation starts.
+     *     **true**: Jumping occurs when the interpolation ends.
+     *     **false**: Jumping occurs when the interpolation starts.
      * @returns { ICurve } Interpolation curve.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    export function stepsCurve(count: number, end: boolean): ICurve;
+    export function stepsCurve(count: int, end: boolean): ICurve;
     
     /**
      * Creates a custom curve.
