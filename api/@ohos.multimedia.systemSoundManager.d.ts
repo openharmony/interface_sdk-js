@@ -293,6 +293,15 @@ declare namespace systemSoundManager {
   const TONE_CATEGORY_CONTACTS:16;
 
   /**
+   * Define the app notification tone category.
+   * @constant
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  const TONE_CATEGORY_NOTIFICATION_APP:32;
+
+  /**
    * Tone attributes.
    * @typedef ToneAttrs
    * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -634,6 +643,36 @@ declare namespace systemSoundManager {
      * @arkts 1.1&1.2
      */
     getFileName(): string;
+
+    /**
+     * Get gentle haptics URI.
+     * @returns { string | null } Haptics URI or null if not gentle haptics not exist.
+     * @throws{ BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    getGentleUri(): string | null;
+
+    /**
+     * Get title of gentle haptics.
+     * @returns { string | null } Haptics title or null if not gentle haptics not exist.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    getGentleTitle(): string | null;
+
+    /**
+     * Get file name of gentle haptics.
+     * @returns { string | null } Haptics file name or null if not gentle haptics not exist.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    getGentleFileName(): string | null;
   }
 
   /**
