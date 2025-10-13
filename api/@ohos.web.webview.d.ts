@@ -7300,9 +7300,9 @@ declare namespace webview {
      *
      * @param { SiteIsolationMode } mode The site isolation mode of the application, 
      *      default value depends on different devices type.
-     * @throws { BusinessError } 17100001 - Init error. Possible causes: 
+     * @throws { BusinessError } 17100001 - Init error. Possible causes:
      *     1. Site Isolation mode is already set by the developer.
-     *     2. Site Isolation mode cannot be strict in single-render-process mode. 
+     *     2. Site Isolation mode cannot be strict in single-render-process mode.
      *     3. Site Isolation mode cannot be changed while Secure Shield mode is active.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
