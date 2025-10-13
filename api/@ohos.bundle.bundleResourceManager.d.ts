@@ -280,6 +280,21 @@ declare namespace bundleResourceManager {
   function getExtensionAbilityResourceInfo(bundleName: string, extensionAbilityType: bundleManager.ExtensionAbilityType, resourceFlags: int, appIndex?: int): Array<LauncherAbilityResourceInfo>;
 
   /**
+   * Obtains BundleResourceInfo of all uninstalled but retained data bundles in the system.
+   *
+   * @permission ohos.permission.GET_BUNDLE_RESOURCES
+   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information
+   *     contained in the BundleResourceInfo that will be returned.
+   * @returns { Promise<Array<BundleResourceInfo>> } Returns a list of BundleResourceInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
+   * @since 21 dynamic
+   */
+  function getAllUninstalledBundleResourceInfo(resourceFlags: int): Promise<Array<BundleResourceInfo>>;
+
+  /**
    * Obtains resource info of a bundle.
    *
    * @typedef { _BundleResourceInfo }
