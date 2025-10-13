@@ -56,6 +56,14 @@ export { SceneResourceType, SceneResource, Shader, MaterialType, Material, Shade
   SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, CullMode, Blend,
   RenderSort, MaterialProperty, MetallicRoughnessMaterial, MeshResource, Morpher,
   Sampler, SamplerFilter, SamplerAddressMode, Effect } from './graphics3d/SceneResources';
+
+/**
+ * Export scene resources
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 22 dynamic&static
+ */
+export { PolygonMode, UnlitMaterial } from './graphics3d/SceneResources';
+
 /**
  * Export scene resources
  * @syscap SystemCapability.ArkUi.Graphics3D
