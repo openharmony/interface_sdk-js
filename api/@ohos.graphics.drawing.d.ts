@@ -39,6 +39,16 @@ import { Resource } from './global/resource';
  * @since 20
  * @arkts 1.1&1.2
  */
+/**
+ * The common2D module defines some common data types in the 2D graphics field.
+ *
+ * @namespace drawing
+ * @syscap SystemCapability.Graphics.Drawing
+ * @crossplatform
+ * @atomicservice
+ * @since 22
+ * @arkts 1.1&1.2
+ */
 declare namespace drawing {
   /**
    * Enumerates the blend modes. A blend mode combines two colors (source color and destination color) in a specific way to create a new color.
@@ -1074,6 +1084,15 @@ declare namespace drawing {
    * @since 20
    * @arkts 1.1&1.2
    */
+  /**
+   * A compound geometric path consisting of line segments, arcs, quadratic Bezier curves, and cubic Bezier curves.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   * @arkts 1.1&1.2
+   */
   class Path {
     /**
      * Constructs a path.
@@ -1085,6 +1104,14 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
+     */
+    /**
+     * Constructs a path.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      * @arkts 1.1&1.2
      */
     constructor();
@@ -1103,6 +1130,15 @@ declare namespace drawing {
      * @since 20
      * @arkts 1.1&1.2
      */
+    /**
+     * Constructs a copy of an existing path.
+     * @param { Path } path - Path to copy.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     * @arkts 1.1&1.2
+     */
     constructor(path: Path);
 
     /**
@@ -1111,6 +1147,14 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Sets the Path with the same content of another.
+     * @param { Path } src - the path to copy content from.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     set(src: Path): void;
 
@@ -1132,6 +1176,17 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Sets the start point of this path.
+     * @param { double } x - X coordinate of the start point. The value is a floating point number.
+     * @param { double } y - Y coordinate of the start point. The value is a floating point number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     moveTo(x: double, y: double): void;
 
@@ -1155,6 +1210,18 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Draws a line segment from the last point of this path to the target point.
+     * If the path is empty, the start point (0, 0) is used.
+     * @param { double } x - X coordinate of the target point. The value is a floating point number.
+     * @param { double } y - Y coordinate of the target point. The value is a floating point number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     lineTo(x: double, y: double): void;
 
@@ -1206,6 +1273,33 @@ declare namespace drawing {
      * @since 20
      * @arkts 1.1&1.2
      */
+    /**
+     * Draws an arc to this path using angle arc mode.
+     * This mode first defines a rectangle and takes its inscribed ellipse.
+     * Then, it specifies a start angle and a sweep angle.
+     * The arc is the portion of the ellipse's circumference defined by the start angle and the sweep angle. By default,
+     * a line segment from the last point of the path to the start point of the arc is also added.
+     * @param { double } x1 - X coordinate of the upper left corner of the rectangle.
+     *     The value is a floating point number.
+     * @param { double } y1 - Y coordinate of the upper left corner of the rectangle.
+     *     The value is a floating point number.
+     * @param { double } x2 - X coordinate of the lower right corner of the rectangle.
+     *     The value is a floating point number.
+     * @param { double } y2 - Y coordinate of the lower right corner of the rectangle.
+     *     The value is a floating point number.
+     * @param { double } startDeg - Start angle. The start direction (0°) of the angle is
+     *     the positive direction of the X axis.
+     * @param { double } sweepDeg - Angle to sweep, in degrees. A positive number indicates a clockwise sweep,
+     *     and a negative value indicates a counterclockwise swipe.
+     *     The actual swipe degree is the modulo operation result of the input parameter by 360.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     * @arkts 1.1&1.2
+     */
     arcTo(x1: double, y1: double, x2: double, y2: double, startDeg: double, sweepDeg: double): void;
 
     /**
@@ -1232,6 +1326,20 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Draws a quadratic Bezier curve from the last point of this path to the target point.
+     * If the path is empty, the start point (0, 0) is used.
+     * @param { double } ctrlX - X coordinate of the control point. The value is a floating point number.
+     * @param { double } ctrlY - Y coordinate of the control point. The value is a floating point number.
+     * @param { double } endX - X coordinate of the target point. The value is a floating point number.
+     * @param { double } endY - Y coordinate of the target point. The value is a floating point number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     quadTo(ctrlX: double, ctrlY: double, endX: double, endY: double): void;
 
@@ -1268,6 +1376,24 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Draws a conic curve from the last point of this path to the target point.
+     * If the path is empty, the start point (0, 0) is used.
+     * @param { double } ctrlX - X coordinate of the control point. The value is a floating point number.
+     * @param { double } ctrlY - Y coordinate of the control point. The value is a floating point number.
+     * @param { double } endX - X coordinate of the target point. The value is a floating point number.
+     * @param { double } endY - Y coordinate of the target point. The value is a floating point number.
+     * @param { double } weight - Weight of the curve, which determines its shape. The larger the value,
+     *     the closer of the curve to the control point. If the value is less than or equal to 0,
+     *     this API has the same effect as lineTo. If the value is 1, it has the same effect as quadTo.
+     *     The value is a floating point number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     conicTo(ctrlX: double, ctrlY: double, endX: double, endY: double, weight: double): void;
 
     /**
@@ -1298,6 +1424,22 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Draws a cubic Bezier curve from the last point of this path to the target point.
+     * If the path is empty, the start point (0, 0) is used.
+     * @param { double } ctrlX1 - X coordinate of the first control point. The value is a floating point number.
+     * @param { double } ctrlY1 - Y coordinate of the first control point. The value is a floating point number.
+     * @param { double } ctrlX2 - X coordinate of the second control point. The value is a floating point number.
+     * @param { double } ctrlY2 - Y coordinate of the second control point. The value is a floating point number.
+     * @param { double } endX - X coordinate of the target point. The value is a floating point number.
+     * @param { double } endY - Y coordinate of the target point. The value is a floating point number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     cubicTo(ctrlX1: double, ctrlY1: double, ctrlX2: double, ctrlY2: double, endX: double, endY: double): void;
 
@@ -1330,6 +1472,22 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Sets the start position relative to the last point of this path.
+     * If the path is empty, the start point (0, 0) is used.
+     * @param { double } dx - X offset of the start point relative to the last point.
+     *     A positive number indicates a rightward shift from the last point,
+     *     and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { double } dy - Y offset of the start point relative to the last point.
+     *     A positive number indicates an upward shift from the last point,
+     *     and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     rMoveTo(dx: double, dy: double): void;
 
     /**
@@ -1359,6 +1517,22 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Draws a line segment from the last point of this path to a point relative to the last point.
+     * If the path is empty, the start point (0, 0) is used.
+     * @param { double } dx - X offset of the target point relative to the last point.
+     *     A positive number indicates a rightward shift from the last point,
+     *     and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { double } dy - Y offset of the target point relative to the last point.
+     *     A positive number indicates an upward shift from the last point,
+     *     and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     rLineTo(dx: double, dy: double): void;
 
@@ -1402,6 +1576,28 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Draws a quadratic Bezier curve from the last point of this path to a point relative to the last point.
+     * If the path is empty, the start point (0, 0) is used.
+     * @param { double } dx1 - X offset of the control point relative to the last point.
+     *     A positive number indicates a rightward shift from the last point,
+     *     and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { double } dy1 - Y offset of the control point relative to the last point.
+     *     A positive number indicates an upward shift from the last point,
+     *     and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { double } dx2 - X offset of the target point relative to the last point.
+     *     A positive number indicates a rightward shift from the last point,
+     *     and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { double } dy2 - Y offset of the target point relative to the last point.
+     *     A positive number indicates an upward shift from the last point,
+     *     and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     rQuadTo(dx1: double, dy1: double, dx2: double, dy2: double): void;
 
@@ -1455,6 +1651,33 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Draws a conic curve from the last point of this path to a point relative to the last point.
+     * If the path is empty, the start point (0, 0) is used.
+     * @param { double } ctrlX - X offset of the control point relative to the last point.
+     *     A positive number indicates a rightward shift from the last point,
+     *     and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { double } ctrlY - Y offset of the control point relative to the last point.
+     *     A positive number indicates an upward shift from the last point,
+     *     and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { double } endX - X offset of the target point relative to the last point.
+     *     A positive number indicates a rightward shift from the last point,
+     *     and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { double } endY - Y offset of the target point relative to the last point.
+     *     A positive number indicates an upward shift from the last point,
+     *     and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { double } weight - Weight of the curve, which determines its shape.
+     *     The larger the value, the closer of the curve to the control point.
+     *     If the value is less than or equal to 0, this API is equivalent to rLineTo, that is,
+     *     adding a line segment from the last point of the path to the target point.
+     *     If the value is 1, this API is equivalent to rQuadTo. The value is a floating point number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     rConicTo(ctrlX: double, ctrlY: double, endX: double, endY: double, weight: double): void;
 
@@ -1522,6 +1745,40 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Draws a cubic Bezier curve from the last point of this path to a point relative to the last point.
+     * If the path is empty, the start point (0, 0) is used.
+     * @param { double } ctrlX1 - X offset of the first control point relative to the last point.
+     *     A positive number indicates a rightward shift
+     *     from the last point, and a negative number indicates a leftward shift from the last point.
+     *     The value is a floating point number.
+     * @param { double } ctrlY1 - Y offset of the first control point relative to the last point.
+     *     A positive number indicates an upward shift
+     *     from the last point, and a negative number indicates a downward shift from the last point.
+     *     The value is a floating point number.
+     * @param { double } ctrlX2 - X offset of the second control point relative to the last point.
+     *     A positive number indicates a rightward shift
+     *     from the last point, and a negative number indicates a leftward shift from the last point.
+     *     The value is a floating point number.
+     * @param { double } ctrlY2 - Y offset of the second control point relative to the last point.
+     *     A positive number indicates an upward shift
+     *     from the last point, and a negative number indicates a downward shift from the last point.
+     *     The value is a floating point number.
+     * @param { double } endX - X offset of the target point relative to the last point.
+     *     A positive number indicates a rightward shift
+     *     from the last point, and a negative number indicates a leftward shift from the last point.
+     *     The value is a floating point number.
+     * @param { double } endY - Y offset of the target point relative to the last point.
+     *     A positive number indicates an upward shift
+     *     from the last point, and a negative number indicates a downward shift from the last point.
+     *     The value is a floating point number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     rCubicTo(ctrlX1: double, ctrlY1: double, ctrlX2: double, ctrlY2: double, endX: double, endY: double): void;
 
@@ -1931,6 +2188,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     isRect(rect: common2D.Rect | null): boolean;
 
@@ -2408,6 +2666,14 @@ declare namespace drawing {
    * @crossplatform
    * @since 20
    */
+  /**
+   * Describes font feature for drawing and measuring single character.
+   * @typedef FontFeature
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
   interface FontFeature {
     /**
      * The name of font feature.
@@ -2416,6 +2682,14 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * The name of font feature.
+     * @type { string } feature name
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     name: string;
     /**
      * The value of font feature.
@@ -2423,6 +2697,14 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * The value of font feature.
+     * @type { number } feature value
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     value: number;
   }
@@ -2437,6 +2719,14 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
+   */
+  /**
+   * A carrier that carries the drawn content and drawing status.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @atomicservice
+   * @since 22
    * @arkts 1.1&1.2
    */
   class Canvas {
@@ -2456,6 +2746,17 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
+     */
+    /**
+     * Creates a Canvas object that uses a PixelMap as the drawing target.
+     * @param { image.PixelMap } pixelmap - PixelMap used to create the object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      * @arkts 1.1&1.2
      */
     constructor(pixelmap: image.PixelMap);
@@ -3910,6 +4211,15 @@ declare namespace drawing {
    * @crossplatform
    * @since 20
    */
+  /**
+   * Enumerates the text encoding types.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
   enum TextEncoding {
     /**
      * One byte is used to indicate UTF-8 or ASCII characters.
@@ -3921,6 +4231,13 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * One byte is used to indicate UTF-8 or ASCII characters.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     TEXT_ENCODING_UTF8 = 0,
     /**
@@ -3934,6 +4251,13 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Two bytes are used to indicate most Unicode characters.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     TEXT_ENCODING_UTF16 = 1,
     /**
      * Four bytes are used to indicate all Unicode characters.
@@ -3946,6 +4270,13 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Four bytes are used to indicate all Unicode characters.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     TEXT_ENCODING_UTF32 = 2,
     /**
      * Two bytes are used to indicate the glyph index.
@@ -3957,6 +4288,13 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Two bytes are used to indicate the glyph index.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     TEXT_ENCODING_GLYPH_ID = 3,
   }
@@ -4106,12 +4444,28 @@ declare namespace drawing {
    * @since 20
    * @arkts 1.1&1.2
    */
+  /**
+   * Provides an interface to the drawing, and describe the arguments for a font.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   * @arkts 1.1&1.2
+   */
   class TypefaceArguments {
     /**
      * Constructor for the TypefaceArguments.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
+     */
+    /**
+     * Constructor for the TypefaceArguments.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      * @arkts 1.1&1.2
      */
     constructor();
@@ -4123,6 +4477,16 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Adds variation axis for the TypefaceArguments.
+     * @param { string } axis  - Indicates the axis tag, which must contain four ASCII characters.
+     * @param { double } value  - Indicates the value of the axis field.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     addVariation(axis: string, value: double);
   }
@@ -4139,6 +4503,15 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
+   */
+  /**
+   * Describes the style of a typeface, such as SimSun or KaiTi.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @atomicservice
+   * @since 22
    * @arkts 1.1&1.2
    */
   class Typeface {
@@ -4188,6 +4561,18 @@ declare namespace drawing {
      * @since 20
      * @arkts 1.1&1.2
      */
+    /**
+     * Constructs a typeface from a file.
+     * @param { string } filePath - file path for typeface.
+     * @returns { Typeface } Typeface.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     * @arkts 1.1&1.2
+     */
      static makeFromFile(filePath: string): Typeface;
 
     /**
@@ -4213,6 +4598,19 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Constructs a typeface from a file, which must be stored in the resources/rawfile directory of the application project.
+     * @param { Resource } rawfile - Resource object corresponding to the file.
+     * Currently, only resource objects referenced in rawfile format are supported.
+     * The corresponding format is rawfile('filePath'), where filePath is the relative path of the file to the resources/rawfile directory in the project.
+     * If the file is stored in resources/rawfile, the reference format is rawfile('HarmonyOS_Sans_Bold.ttf').
+     * If the file is stored in a subdirectory, for example, in resources/rawfile/ttf, the reference format is rawfile('ttf/HarmonyOS_Sans_Bold.ttf').
+     * @returns { Typeface } Typeface.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     static makeFromRawFile(rawfile: Resource): Typeface;
 
     /**
@@ -4226,6 +4624,18 @@ declare namespace drawing {
      * @since 20
      * @arkts 1.1&1.2
      */
+    /**
+     * Generate typeface from file and TypefaceArguments.
+     * @param { string } filePath - file path for typeface.
+     * @param { TypefaceArguments } typefaceArguments - TypefaceArguments for typeface.
+     * @returns { Typeface } Typeface.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     * @arkts 1.1&1.2
+     */
     static makeFromFileWithArguments(filePath: string, typefaceArguments: TypefaceArguments): Typeface;
 
     /**
@@ -4237,6 +4647,17 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Generate typeface from Rawfile and TypefaceArguments.
+     * @param { Resource } rawfile - RawFile for typeface.
+     * @param { TypefaceArguments } typefaceArguments - TypefaceArguments for typeface.
+     * @returns { Typeface } Typeface.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     static makeFromRawFileWithArguments(rawfile: Resource, typefaceArguments: TypefaceArguments): Typeface;
   }
@@ -4256,6 +4677,15 @@ declare namespace drawing {
    * @crossplatform
    * @since 20
    */
+  /**
+   * Enumerates the font edging types.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
   enum FontEdging {
     /**
      * No anti-aliasing processing is used.
@@ -4267,6 +4697,13 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * No anti-aliasing processing is used.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     ALIAS = 0,
 
@@ -4281,6 +4718,13 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Uses anti-aliasing to smooth the jagged edges.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     ANTI_ALIAS = 1,
 
     /**
@@ -4293,6 +4737,13 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Uses sub-pixel anti-aliasing to provide a smoother effect for jagged edges.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     SUBPIXEL_ANTI_ALIAS = 2,
   }
@@ -4312,6 +4763,15 @@ declare namespace drawing {
    * @crossplatform
    * @since 20
    */
+  /**
+   * Enumerates the font hinting types.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
   enum FontHinting {
     /**
      * No font hinting is used.
@@ -4323,6 +4783,13 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * No font hinting is used.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     NONE = 0,
 
@@ -4337,6 +4804,13 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Slight font hinting is used to improve contrast.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     SLIGHT = 1,
 
     /**
@@ -4350,6 +4824,13 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Normal font hinting is used to improve contrast.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     NORMAL = 2,
 
     /**
@@ -4362,6 +4843,13 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Full font hinting is used to improve contrast.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     FULL = 3,
   }
@@ -4378,6 +4866,15 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
+   */
+  /**
+   * Describes the attributes used for text rendering, such as size and typeface.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @atomicservice
+   * @since 22
    * @arkts 1.1&1.2
    */
   class Font {
@@ -4400,6 +4897,17 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Enables subpixel font rendering.
+     * @param { boolean } isSubpixel - Whether to enable subpixel font rendering.
+     * The value true means to enable subpixel font rendering, and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     enableSubpixel(isSubpixel: boolean): void;
 
     /**
@@ -4421,6 +4929,17 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Enables emboldened fonts.
+     * @param { boolean } isEmbolden - Whether to enable emboldened fonts.
+     * The value true means to enable emboldened fonts, and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     enableEmbolden(isEmbolden: boolean): void;
 
     /**
@@ -4441,6 +4960,17 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Enables linear font scaling.
+     * @param { boolean } isLinearMetrics - Whether to enable linear font scaling.
+     * The value true means to enable linear font scaling, and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     enableLinearMetrics(isLinearMetrics: boolean): void;
 
@@ -4464,6 +4994,18 @@ declare namespace drawing {
      * @since 20
      * @arkts 1.1&1.2
      */
+    /**
+     * Sets the font size.
+     * @param { double } textSize - Font size. The value is a floating point number.
+     * If a negative number is passed in, the size is set to 0. If the size is 0, the text drawn will not be displayed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     * @arkts 1.1&1.2
+     */
     setSize(textSize: double): void;
 
     /**
@@ -4478,6 +5020,14 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Obtains the font size.
+     * @returns { double } Font size. The value is a floating point number.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     getSize(): double;
 
@@ -4499,6 +5049,17 @@ declare namespace drawing {
      * @since 20
      * @arkts 1.1&1.2
      */
+    /**
+     * Sets the typeface style (including attributes such as font name, weight, and italic) for the font.
+     * @param { Typeface } typeface - Typeface style (including attributes such as font name, weight, and italic).
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     * @arkts 1.1&1.2
+     */
     setTypeface(typeface: Typeface): void;
 
     /**
@@ -4515,6 +5076,15 @@ declare namespace drawing {
      * @since 20
      * @arkts 1.1&1.2
      */
+    /**
+     * Obtains the typeface.
+     * @returns { Typeface } Typeface object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     * @arkts 1.1&1.2
+     */
     getTypeface(): Typeface;
 
     /**
@@ -4529,6 +5099,15 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
+     */
+    /**
+     * Obtains the font metrics of the typeface.
+     * @returns { FontMetrics } The fontMetrics value returned to the caller.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      * @arkts 1.1&1.2
      */
     getMetrics(): FontMetrics;
@@ -4556,6 +5135,19 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Measures the width of a single character.
+     * If the typeface of the current font does not support the character to measure,
+     *     the system typeface is used to measure the character width.
+     * @param { string } text - Single character to measure. The length of the string must be 1.
+     * @returns { double } Width of the character. The value is a floating point number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     measureSingleCharacter(text: string): double;
 
     /**
@@ -4567,6 +5159,17 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Measure a single character with font feature.
+     * @param { string } text - A string containing only a single character.
+     * @param { Array<FontFeature> } features - Font Feature Array.
+     * @returns { number } The width of the single character, in px.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     measureSingleCharacterWithFeatures(text: string, features: Array<FontFeature>): number;
 
@@ -4591,6 +5194,18 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Measures the text width.
+     * @param { string } text - Text Symbol Content.
+     * @param { TextEncoding } encoding - Encoding format.
+     * @returns { double } Width of the text. The value is a floating point number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     measureText(text: string, encoding: TextEncoding): double;
 
     /**
@@ -4609,6 +5224,16 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Sets a horizontal scale factor for this font.
+     * @param { double } scaleX - Horizontal scale factor. The value is a floating point number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     setScaleX(scaleX: double): void;
 
@@ -4633,6 +5258,18 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Sets a horizontal skew factor for this font.
+     * @param { double } skewX - Horizontal skew factor.
+     *     A positive number means a skew to the left, and a negative number means a skew to the right.
+     *     The value is a floating point number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     setSkewX(skewX: double): void;
 
     /**
@@ -4652,6 +5289,16 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Sets a font edging effect.
+     * @param { FontEdging } edging - Font edging effect.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     setEdging(edging: FontEdging): void;
 
     /**
@@ -4670,6 +5317,16 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Sets a font hinting effect.
+     * @param { FontHinting } hinting - Font hinting effect.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     setHinting(hinting: FontHinting): void;
 
@@ -4692,6 +5349,17 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Obtains the number of glyphs represented by text.
+     * @param { string } text - Indicates the character storage encoded with text encoding.
+     * @returns { int } Returns the count of text.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     countText(text: string): int;
 
     /**
@@ -4713,6 +5381,17 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Sets whether to request that baselines be snapped to pixels when the current canvas matrix is axis aligned.
+     * @param { boolean } isBaselineSnap - Whether to request that baselines be snapped to pixels.
+     * The value true means to request that baselines be snapped to pixels, and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     setBaselineSnap(isBaselineSnap: boolean): void;
 
     /**
@@ -4729,6 +5408,15 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Checks whether baselines are requested to be snapped to pixels when the current canvas matrix is axis aligned.
+     * @returns { boolean } Check result. The value true means that the baselines are requested to be snapped to pixels,
+     * and false means the opposite.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     isBaselineSnap(): boolean;
 
@@ -4751,6 +5439,17 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Sets whether to use bitmaps in this font.
+     * @param { boolean } isEmbeddedBitmaps - Whether to use bitmaps in the font. The value true means to use bitmaps in the font,
+     * and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     setEmbeddedBitmaps(isEmbeddedBitmaps: boolean): void;
 
     /**
@@ -4765,6 +5464,14 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Checks whether bitmaps are used in this font.
+     * @returns { boolean } Check result. The value true means that the bitmaps are used, and false means the opposite.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     isEmbeddedBitmaps(): boolean;
 
@@ -4787,6 +5494,17 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Sets whether to forcibly use auto hinting, that is, whether to always hint glyphs.
+     * @param { boolean } isForceAutoHinting - Whether to forcibly use auto hinting. The value true means to forcibly use auto hinting,
+     * and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     setForceAutoHinting(isForceAutoHinting: boolean): void;
 
     /**
@@ -4801,6 +5519,14 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Checks whether auto hinting is forcibly used.
+     * @returns { boolean } Check result. The value true means that auto hinting is forcibly used, and false means the opposite.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     isForceAutoHinting(): boolean;
 
@@ -4823,7 +5549,18 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
-    getWidths(glyphs: Array<int>): Array<double>;
+    /**
+     * Obtains the width of each glyph in an array.
+     * @param { Array<number> } glyphs - Glyph array, which can be generated by textToGlyphs.
+     * @returns { Array<number> } Glyph array, which can be generated by textToGlyphs.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    getWidths(glyphs: Array<number>): Array<number>;
 
     /**
      * Converts text into glyph indexes.
@@ -4850,7 +5587,21 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
-    textToGlyphs(text: string, glyphCount?: int): Array<int>;
+    /**
+     * Converts text into glyph indexes.
+     * @param { string } text - Text string.
+     * @param { number } glyphCount - Number of glyphs represented by the text.
+     *     The value must be the same as the value obtained from countText.
+     *     The default value is the number of characters in the text string. The value is an integer.
+     * @returns { Array<number> } Returns the storage for glyph indices.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    textToGlyphs(text: string, glyphCount?: number): Array<number>;
 
     /**
      * Checks whether sub-pixel rendering is used for this font.
@@ -4864,6 +5615,14 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Checks whether sub-pixel rendering is used for this font.
+     * @returns { boolean } Check result. The value true means that sub-pixel rendering is used, and false means the opposite.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     isSubpixel(): boolean;
 
@@ -4880,6 +5639,14 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Checks whether linear scaling is used for this font.
+     * @returns { boolean } Checks whether linear scaling is used for this font.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     isLinearMetrics(): boolean;
     
     /**
@@ -4894,6 +5661,14 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Obtains the horizontal skew factor of this font.
+     * @returns { double } Horizontal skew factor.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     getSkewX(): double;
 
@@ -4912,6 +5687,15 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Checks whether the bold effect is set for this font.
+     * @returns { boolean } Check result. The value true means that the bold effect is set, and false means the opposite.
+     * returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     isEmbolden(): boolean;
 
     /**
@@ -4926,6 +5710,14 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Obtains the horizontal scale ratio of this font.
+     * @returns { double } Horizontal scale ratio.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     getScaleX(): double;
 
@@ -4942,6 +5734,14 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * Obtains the font hinting effect.
+     * @returns { FontHinting } Font hinting effect.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     getHinting(): FontHinting;
 
     /**
@@ -4956,6 +5756,14 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Obtains the font edging effect.
+     * @returns { FontEdging } Font edging effect.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     getEdging(): FontEdging;
 
@@ -4976,7 +5784,17 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
-    createPathForGlyph(index: int): Path;
+    /**
+     * Obtains the outline path of a glyph.
+     * @param { number } index - Index of the glyph.
+     * @returns { Path } Outline path of the glyph.
+     * Note: Path use y-axis-goes-down system, y axis is inverted to the y-axis-goes-up system.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    createPathForGlyph(index: number): Path;
 
     /**
      * Obtains the rectangular bounding box of each glyph in an array.
@@ -4999,7 +5817,19 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
-    getBounds(glyphs: Array<int>): Array<common2D.Rect>;
+    /**
+     * Obtains the rectangular bounding box of each glyph in an array.
+     * @param { Array<number> } glyphs - Glyph array, which can be generated by textToGlyphs.
+     * @returns { Array<common2D.Rect> } Array that holds the rectangular bounding boxes.
+     *     Note: 1. Rect use y-axis-goes-down system, y axis is inverted to the y-axis-goes-up system.
+     *     <br>2. Rect use two points(left-bottom & right-top) to describe the bound.
+     *     <br>3. The bound rect will be snap to integral boundaries.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    getBounds(glyphs: Array<number>): Array<common2D.Rect>;
 
     /**
      * Obtains the outline path of a text.
@@ -5030,7 +5860,23 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
-    getTextPath(text: string, byteLength: int, x: double, y: double): Path;
+    /**
+     * Obtains the outline path of a text.
+     * @param { string } text - UTF-8 text-encoded characters.
+     * @param { number } byteLength - Length of the outline path,
+     *     which is obtained based on the minimum value between the passed value of byteLength and
+     *     the actual text byte size.
+     * @param { number } x - X coordinate of the text in the drawing area, with the origin as the start point.
+     * @param { number } y - Y coordinate of the text in the drawing area, with the origin as the start point.
+     * @returns { Path } Outline path of the text.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    getTextPath(text: string, byteLength: number, x: number, y: number): Path;
 
     /**
      * Sets whether to follow the theme font. When followed is set to true,
@@ -5052,6 +5898,18 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Sets whether to follow the theme font. When followed is set to true,
+     * the theme font is used if it is enabled by the system and no typeface is set.
+     * @param { boolean } followed - Whether to follow the theme font.
+     * The value true means to follow the theme font, and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     setThemeFontFollowed(followed: boolean): void;
 
@@ -5067,6 +5925,14 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Checks whether the font follows the theme font. By default, the font follows the theme font.
+     * @returns { boolean } Check result. The value true means that the theme font is followed, and false means the opposite.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     isThemeFontFollowed(): boolean;
   }
@@ -5084,6 +5950,14 @@ declare namespace drawing {
    * @crossplatform
    * @since 20
    */
+  /**
+   * Enumerates the font measurement flags, which is used to specify whether a field in the font measurement information is valid.
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
   enum FontMetricsFlags {
     /**
      * The underlineThickness field in the FontMetrics struct is valid.
@@ -5095,6 +5969,13 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * The underlineThickness field in the FontMetrics struct is valid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     UNDERLINE_THICKNESS_VALID = 1 << 0,
 
@@ -5109,6 +5990,13 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * The underlinePosition field in the FontMetrics struct is valid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     UNDERLINE_POSITION_VALID = 1 << 1,
 
     /**
@@ -5121,6 +6009,13 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * The strikethroughThickness field in the FontMetrics struct is valid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     STRIKETHROUGH_THICKNESS_VALID = 1 << 2,
 
@@ -5135,6 +6030,13 @@ declare namespace drawing {
      * @crossplatform
      * @since 20
      */
+    /**
+     * The strikethroughPosition field in the FontMetrics struct is valid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     STRIKETHROUGH_POSITION_VALID = 1 << 3,
 
     /**
@@ -5147,6 +6049,13 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * The boundary metrics (such as top, bottom, xMin, and xMax) in the FontMetrics struct are invalid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     BOUNDS_INVALID = 1 << 4,
   }
@@ -5165,6 +6074,15 @@ declare namespace drawing {
    * @since 20
    * @arkts 1.1&1.2
    */
+  /**
+   * Describes the attributes that describe the font size and layout. A typeface has similar font metrics.
+   * @typedef FontMetrics
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   * @arkts 1.1&1.2
+   */
   interface FontMetrics {
     /**
      * Font measurement flags that are valid.
@@ -5178,6 +6096,14 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Font measurement flags that are valid.
+     * @type { ?FontMetricsFlags }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     flags?: FontMetricsFlags;
 
@@ -5195,6 +6121,15 @@ declare namespace drawing {
      * @since 20
      * @arkts 1.1&1.2
      */
+    /**
+     * Maximum distance from the baseline to the highest coordinate of the text. The value is a floating point number.
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     * @arkts 1.1&1.2
+     */
     top: double;
     /**
      * Distance from the baseline to the highest coordinate of the text. The value is a floating point number.
@@ -5208,6 +6143,15 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
+     */
+    /**
+     * Distance from the baseline to the highest coordinate of the text. The value is a floating point number.
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      * @arkts 1.1&1.2
      */
     ascent: double;
@@ -5225,6 +6169,15 @@ declare namespace drawing {
      * @since 20
      * @arkts 1.1&1.2
      */
+    /**
+     * Distance from the baseline to the lowest coordinate of the text. The value is a floating point number.
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     * @arkts 1.1&1.2
+     */
     descent: double;
     /**
      * Maximum distance from the baseline to the lowest coordinate of the text. The value is a floating point number.
@@ -5238,6 +6191,15 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
+     */
+    /**
+     * Maximum distance from the baseline to the lowest coordinate of the text. The value is a floating point number.
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      * @arkts 1.1&1.2
      */
     bottom: double;
@@ -5257,6 +6219,16 @@ declare namespace drawing {
      * @since 20
      * @arkts 1.1&1.2
      */
+    /**
+     * Interline spacing, that is, the distance from the descent of one line of text to the ascent of the next line.
+     * The value is a floating point number.
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     * @arkts 1.1&1.2
+     */
     leading: double;
     /**
      * Average character width.
@@ -5270,6 +6242,14 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     */
+    /**
+     * Average character width.
+     * @type { ?double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
      avgCharWidth?: double;
 
@@ -5285,6 +6265,14 @@ declare namespace drawing {
       * @syscap SystemCapability.Graphics.Drawing
       * @crossplatform
       * @since 20
+      */
+     /**
+      * Maximum character width.
+      * @type { ?double }
+      * @syscap SystemCapability.Graphics.Drawing
+      * @crossplatform
+      * @atomicservice
+      * @since 22
       */
      maxCharWidth?: double;
  
@@ -5303,6 +6291,15 @@ declare namespace drawing {
       * @crossplatform
       * @since 20
       */
+     /**
+      * Horizontal distance from the leftmost edge of any glyph bounding box to the origin.
+      * This value is usually less than 0, indicating the minimum horizontal coordinate across all glyph bounding boxes.
+      * @type { ?double }
+      * @syscap SystemCapability.Graphics.Drawing
+      * @crossplatform
+      * @atomicservice
+      * @since 22
+      */
      xMin?: double;
  
      /**
@@ -5320,6 +6317,15 @@ declare namespace drawing {
       * @crossplatform
       * @since 20
       */
+     /**
+      * Horizontal distance from the rightmost edge of any glyph bounding box to the origin.
+      * The value is a positive number, indicating the maximum horizontal coordinate across all glyph bounding boxes.
+      * @type { ?double }
+      * @syscap SystemCapability.Graphics.Drawing
+      * @crossplatform
+      * @atomicservice
+      * @since 22
+      */
      xMax?: double;
  
      /**
@@ -5334,6 +6340,14 @@ declare namespace drawing {
       * @syscap SystemCapability.Graphics.Drawing
       * @crossplatform
       * @since 20
+      */
+     /**
+      * Height of the lowercase letter x. The value is usually a negative value.
+      * @type { ?double }
+      * @syscap SystemCapability.Graphics.Drawing
+      * @crossplatform
+      * @atomicservice
+      * @since 22
       */
      xHeight?: double;
  
@@ -5350,6 +6364,14 @@ declare namespace drawing {
       * @crossplatform
       * @since 20
       */
+     /**
+      * Height of a capital letter. The value is usually a negative value.
+      * @type { ?double }
+      * @syscap SystemCapability.Graphics.Drawing
+      * @crossplatform
+      * @atomicservice
+      * @since 22
+      */
      capHeight?: double;
  
      /**
@@ -5364,6 +6386,14 @@ declare namespace drawing {
       * @syscap SystemCapability.Graphics.Drawing
       * @crossplatform
       * @since 20
+      */
+     /**
+      * Thickness of the underline.
+      * @type { ?double }
+      * @syscap SystemCapability.Graphics.Drawing
+      * @crossplatform
+      * @atomicservice
+      * @since 22
       */
      underlineThickness?: double;
  
@@ -5380,6 +6410,14 @@ declare namespace drawing {
       * @crossplatform
       * @since 20
       */
+     /**
+      * Vertical distance from the baseline to the top of the underline. The value is usually a positive number.
+      * @type { ?double }
+      * @syscap SystemCapability.Graphics.Drawing
+      * @crossplatform
+      * @atomicservice
+      * @since 22
+      */
      underlinePosition?: double;
  
      /**
@@ -5395,6 +6433,14 @@ declare namespace drawing {
       * @crossplatform
       * @since 20
       */
+     /**
+      * Thickness of the strikethrough.
+      * @type { ?double }
+      * @syscap SystemCapability.Graphics.Drawing
+      * @crossplatform
+      * @atomicservice
+      * @since 22
+      */
      strikethroughThickness?: double;
  
      /**
@@ -5409,6 +6455,14 @@ declare namespace drawing {
       * @syscap SystemCapability.Graphics.Drawing
       * @crossplatform
       * @since 20
+      */
+     /**
+      * Vertical distance from the baseline to the bottom of the strikethrough. The value is usually a negative value.
+      * @type { ?double }
+      * @syscap SystemCapability.Graphics.Drawing
+      * @crossplatform
+      * @atomicservice
+      * @since 22
       */
      strikethroughPosition?: double;
   }
@@ -8073,6 +9127,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     preConcat(matrix: Matrix): void;
 
@@ -8879,6 +9934,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     setEmpty(): void;
   }
@@ -9150,6 +10206,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   class RectUtils {
     /**
@@ -9197,6 +10254,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static getWidth(rect: common2D.Rect): double;
 
@@ -9209,6 +10267,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static getHeight(rect: common2D.Rect): double;
 
@@ -9246,6 +10305,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static contains(rect: common2D.Rect, other: common2D.Rect): boolean;
 
@@ -9291,6 +10351,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static inset(rect: common2D.Rect, left: double, top: double, right: double, bottom: double): void;
 
@@ -9306,6 +10367,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static intersect(rect: common2D.Rect, other: common2D.Rect): boolean;
 
@@ -9344,6 +10406,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static isEmpty(rect: common2D.Rect): boolean;
 
@@ -9358,6 +10421,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static offset(rect: common2D.Rect, dx: double, dy: double): void;
 
@@ -9420,6 +10484,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static sort(rect: common2D.Rect): void;
 
@@ -9434,6 +10499,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static isEqual(rect: common2D.Rect, other: common2D.Rect): boolean;
   }

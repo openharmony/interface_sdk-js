@@ -43,14 +43,20 @@ import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 /*** endif */
 /*** if arkts 1.2 */
 import _UIAbilityContext from './application/UIAbilityContext';
-import type _UIExtensionContext from './application/UIExtensionContext';
+import _UIExtensionContext from './application/UIExtensionContext';
+import _AutoFillExtensionContext from './application/AutoFillExtensionContext';
+import _UIServiceExtensionContext from './application/UIServiceExtensionContext';
 import _AbilityStageContext from './application/AbilityStageContext';
 import _ApplicationContext from './application/ApplicationContext';
+import _AppServiceExtensionContext from './application/AppServiceExtensionContext';
 import _BaseContext from './application/BaseContext';
 import _Context from './application/Context';
 import _ExtensionContext from './application/ExtensionContext';
 import _FormExtensionContext from './application/FormExtensionContext';
 import _ServiceExtensionContext from './application/ServiceExtensionContext';
+import _UIServiceProxy from './application/UIServiceProxy';
+import _UIServiceHostProxy from './application/UIServiceHostProxy';
+import _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
 /*** endif */
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import type _AbilityStartCallback from './application/AbilityStartCallback';
@@ -485,6 +491,19 @@ declare namespace common {
   export type AutoFillExtensionContext = _AutoFillExtensionContext.default;
 
   /**
+   * The context of auto fill extension. It allows access to
+   * AutoFillExtension-specific resources.
+   *
+   * @typedef { _AutoFillExtensionContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AutoFillExtensionContext = _AutoFillExtensionContext;
+
+  /**
    * The function Called when some error occurred except disconnected from UIAbility or UIExtensionAbility
    *
    * @typedef { _AbilityStartCallback }
@@ -563,6 +582,18 @@ declare namespace common {
   export type UIServiceExtensionContext = _UIServiceExtensionContext.default;
 
   /**
+   * The context of a UI service ability.
+   *
+   * @typedef { _UIServiceExtensionContext.default }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  export type UIServiceExtensionContext = _UIServiceExtensionContext;
+
+  /**
    * The UI service proxy.
    *
    * @typedef { _UIServiceProxy.default }
@@ -572,6 +603,18 @@ declare namespace common {
    * @since 14
    */
   export type UIServiceProxy = _UIServiceProxy.default;
+
+  /**
+   * The UI service proxy.
+   *
+   * @typedef { _UIServiceProxy }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type UIServiceProxy = _UIServiceProxy;
 
   /**
    * The UI service host proxy.
@@ -585,6 +628,18 @@ declare namespace common {
   export type UIServiceHostProxy = _UIServiceHostProxy.default;
 
   /**
+   * The UI service host proxy.
+   *
+   * @typedef { _UIServiceHostProxy }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  export type UIServiceHostProxy = _UIServiceHostProxy;
+
+  /**
    * The UI service extension connect callback.
    *
    * @typedef { _UIServiceExtensionConnectCallback.default }
@@ -596,6 +651,18 @@ declare namespace common {
   export type UIServiceExtensionConnectCallback = _UIServiceExtensionConnectCallback.default;
 
   /**
+   * The UI service extension connect callback.
+   *
+   * @typedef { _UIServiceExtensionConnectCallback}
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type UIServiceExtensionConnectCallback = _UIServiceExtensionConnectCallback;
+
+  /**
    * The context of app service extension. It allows access to
    * appServiceExtension-specific resources.
    *
@@ -605,6 +672,18 @@ declare namespace common {
    * @since 20
    */
   export type AppServiceExtensionContext = _AppServiceExtensionContext.default;
+
+  /**
+   * The context of app service extension. It allows access to
+   * appServiceExtension-specific resources.
+   *
+   * @typedef { _AppServiceExtensionContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AppServiceExtensionContext = _AppServiceExtensionContext;
 }
 
 export default common;

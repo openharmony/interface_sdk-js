@@ -19,6 +19,7 @@
  */
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent';
+import { ExtraConfig } from './@ohos.inputMethod.ExtraConfig';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import BaseContext from './application/BaseContext';
 import window from './@ohos.window';
@@ -2386,6 +2387,39 @@ declare namespace inputMethodEngine {
      * @since 21
      */
     getSystemPanelCurrentInsets(displayId: number): Promise<SystemPanelInsets>;
+
+    /**
+     * Set current panel's shadow.
+     * It cannot be used for SOFT_KEYBOARD panel with FLG_FIXED.
+     *
+     * @param { double } radius - the radius of the shadow, unit is px.
+     * @param { string } color - the color of the shadow,
+     *     the value range is [#00000000, #FFFFFFFF] or [#000000, #FFFFFF].
+     * @param { double } offsetX - the offset of the shadow on the x-axis, unit is px.
+     * @param { double } offsetY - the offset of the shadow on the y-axis, unit is px.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
+     *     Possible causes: Panel's flag is FLG_FIXED.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    setShadow(radius: double, color: string, offsetX: double, offsetY: double): void;
+
+    /**
+     * Set current panel function key color and background color.
+     * It is only used for function key with raised areas of the panel.
+     *
+     * @param { string | undefined } fillColor - the color of the function key,
+     *     the value range is [#00000000, #FFFFFFFF] or [#000000, #FFFFFF].
+     * @param { string | undefined } backgroundColor - the background color of the function key,
+     *     the value range is [#00000000, #FFFFFFFF] or [#000000, #FFFFFF].
+     * @returns { Promise<void> } the promise returned by the function.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 22 dynamic&static
+     */
+    setSystemPanelButtonColor(fillColor: string | undefined, backgroundColor: string | undefined): Promise<void>;
   }
 
   /** 
@@ -2552,6 +2586,16 @@ declare namespace inputMethodEngine {
      * @since 20
      */
     readonly fluidLightMode?: FluidLightMode;
+
+    /**
+     * Extra config of edit box.
+     *
+     * @type { ?ExtraConfig }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 22
+     */
+    readonly extraConfig?: ExtraConfig;
   }
 
   /**

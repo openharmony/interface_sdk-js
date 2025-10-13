@@ -3614,6 +3614,39 @@ declare interface ScrollBarMargin {
 }
 
 /**
+ * Define a responsive item filling pattern that can be used in WaterFlow,Grid,List, and Swiper components.
+ *
+ * @typedef { PresetFillType } ResponsiveFillType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22
+ */
+declare type ResponsiveFillType = PresetFillType;
+
+/**
+ * Define a responsive item layout suitable for WaterFlow, Grid, List,and Swiper components.
+ *
+ * @typedef { PresetFillType } ResponsiveFillType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22
+ */
+declare interface ItemFillPolicy {
+  /**
+   *Specify the number of columns for different responsive breakpoints.
+    *
+    * @typedef { ?ResponsiveFillType }
+    * @default ResponsiveFillType.BREAKPOINT_DEFAULT
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 22
+    */
+  fillType?: ResponsiveFillType;
+}
+/**
  * Define cache count information.
  * @interface CacheCountInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full

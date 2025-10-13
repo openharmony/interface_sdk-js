@@ -52,6 +52,16 @@ export { BuildOptions } from './arkui/BuilderNode';
 export { InputEventType } from './arkui/BuilderNode';
 
 /**
+ * Export ReactiveBuilderNode, which is used to create a node trees by builder function and manage the update of the tree.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since arkts { '1.1':'22','1.2':'22' }
+ * @arkts 1.1&1.2
+ */
+export { ReactiveBuilderNode } from './arkui/BuilderNode';
+
+/**
  * Export NodeController, which defines the controller of node container. Provides lifecycle callbacks for the associated NodeContainer
  * and methods to control the child node of the NodeContainer.
  * 
@@ -177,6 +187,17 @@ export { Content } from './arkui/Content';
  * @since 12 dynamic
  */
 export { ComponentContent , ComponentContentBase } from './arkui/ComponentContent';
+
+/**
+ * Export ReactiveComponentContent.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since arkts { '1.1':'22','1.2':'22' }
+ * @arkts 1.1&1.2
+ */
+export { ReactiveComponentContent } from './arkui/ComponentContent';
 
 /**
  * Export NodeContent.

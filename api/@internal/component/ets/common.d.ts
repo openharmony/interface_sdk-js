@@ -771,7 +771,6 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
  * @returns { PropertyDecorator } Env decorator
  * @throws { BusinessError } 140000 - Invalid key for @Env
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 22 dynamic
  */
@@ -781,11 +780,29 @@ declare type EnvDecorator = (value: string) => PropertyDecorator;
  * Defining Env PropertyDecorator.
  * @type { EnvDecorator }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 22 dynamic
  */
 declare const Env: EnvDecorator;
+
+/**
+ * Defining Environment variable enumeration value.
+ * 
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare enum SystemProperties {
+ /**
+  * System environmental breakpoin key that is used to obtain the width and height breakpoint value of the window.
+  * 
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 22 dynamic
+  */
+  BREAK_POINT = 'system.arkui.breakpoint'
+};
 
 /**
  * Defining Consume PropertyDecorator.
@@ -31317,6 +31334,18 @@ declare abstract class TextContentControllerBase {
    * @since 15
    */
   addText(text: string, textOperationOptions?: TextContentControllerOptions): number;
+
+  /**
+   * Set the styled placeholder.
+   *
+   * @param { StyledString } styledString - The styledString for placeholder.
+   *     If the parameter is invalid, this method will have no effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  setStyledPlaceholder(styledString: StyledString): void;
 
   /**
    * Delete text in TextRange.

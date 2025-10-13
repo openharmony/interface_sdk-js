@@ -561,7 +561,7 @@ declare namespace colorSpaceManager {
     /**
      * PRIMARIES_BT2020 | TRANSFUNC_SRGB | RANGE_FULL
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'22'}
      */
     DISPLAY_BT2020_SRGB = 27,
 

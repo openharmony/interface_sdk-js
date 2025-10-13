@@ -784,6 +784,30 @@ declare namespace window {
   }
 
   /**
+   * Describes the pixel unit
+   * @enum { int }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 22 dynamic&static
+   */
+  enum PixelUnit {
+    /**
+     * Physical pixel unit of the screen.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    PX = 0,
+    /**
+     * Pixel unit specific to the screen density.
+     * Pixels in this unit are converted into physical pixels of the screen based on the screen pixel density.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    VP = 1,
+  }
+
+  /**
    * Properties of status bar and navigation bar, it couldn't update automatically
    *
    * @interface SystemBarProperties
@@ -2735,6 +2759,15 @@ declare namespace window {
      * @arkts 1.1&1.2
      */
     minHeight?: int;
+
+    /**
+     * The unit of window limits.
+     *
+     * @type { ?PixelUnit }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    pixelUnit?: PixelUnit;
   }
 
   /**
@@ -10054,6 +10087,27 @@ declare namespace window {
     maximize(presentation?: MaximizePresentation): Promise<void>;
 
     /**
+     * Maximizes the main window.
+     *
+     * @param { MaximizePresentation } [presentation] - Layout when the window is maximized.
+     *     The default value is window.MaximizePresentation.ENTER_IMMERSIVE,
+     *     indicating that the window enters the immersive layout when maximized.
+     * @param { boolean } [acrossDisplay] - Parameter controls the waterfall mode of main windows in the half-folded state.
+     *     The value true Indicates that the window could enter the waterfall mode directly,
+     *     and maintains the waterfall mode when the device is half-folded.
+     *     The default value is false.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Function maximize can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    maximize(presentation?: MaximizePresentation, acrossDisplay?: boolean): Promise<void>;
+
+    /**
      * Set whether to enable a window to resize by drag.
      *
      * @param { boolean } enable - Disable window to resize by drag if false.
@@ -10126,7 +10180,7 @@ declare namespace window {
     hideNonSystemFloatingWindows(shouldHide: boolean): Promise<void>;
 
     /**
-     * Get the window limits of current window.
+     * Get the window limits of current window measrued in px.
      *
      * @returns { WindowLimits } - The limits of window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -10135,7 +10189,7 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Get the window limits of current window.
+     * Get the window limits of current window measrued in px.
      *
      * @returns { WindowLimits } - The limits of window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -10146,6 +10200,17 @@ declare namespace window {
      * @since 22 static
      */
     getWindowLimits(): WindowLimits;
+
+    /**
+     * Get the window limits of current window measrued in vp.
+     *
+     * @returns { WindowLimits } - The limits of window.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    getWindowLimitsVP(): WindowLimits;
 
     /**
      * Set the window limits of a window.
@@ -11267,6 +11332,76 @@ declare namespace window {
      * @since 20
      */
     setDragKeyFramePolicy(keyFramePolicy: KeyFramePolicy): Promise<KeyFramePolicy>;
+  
+    /**
+     * Check if the current device is in free window mode.
+     *
+     * @returns { boolean } true - means in free window mode; false - means not in free window mode.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    isInFreeWindowMode(): boolean;
+ 
+    /**
+     * free window mode change callback on.
+     * 
+     * @param { 'freeWindowModeChange' } type The value is fixed at 'freeWindowModeChange',
+     *     indicating the free window mode change.
+     * @param { Callback<boolean> } callback Callback used to return the result if the current device
+     *     is in free window mode. true - means in free window mode; false - means not in free window mode.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    on(type: 'freeWindowModeChange', callback: Callback<boolean>): void;
+ 
+    /**
+     * free window mode change callback off.
+     *
+     * @param { 'freeWindowModeChange' } type The value is fixed at 'freeWindowModeChange',
+     *     indicating the free window mode change.
+     * @param { Callback<boolean> } [callback] Callback used to return the result if the current device
+     *     is in free window mode. true - means in free window mode; false - means not in free window mode.
+     *     Unregister the callback function. If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    off(type: 'freeWindowModeChange', callback?: Callback<boolean>): void;
+
+    /**
+     * free window mode change callback on.
+     * 
+     * @param { Callback<boolean> } callback Callback used to return the result if the current device
+     *     is in free window mode. true - means in free window mode; false - means not in free window mode.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 22 static
+     */
+    onFreeWindowModeChange(callback: Callback<boolean>): void;
+ 
+    /**
+     * free window mode change callback off.
+     *
+     * @param { Callback<boolean> } [callback] Callback used to return the result if the current device
+     *     is in free window mode. true - means in free window mode; false - means not in free window mode.
+     *     Unregister the callback function. If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 22 static
+     */
+    offFreeWindowModeChange(callback?: Callback<boolean>): void;
   }
 
   /**
@@ -11432,7 +11567,8 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum WindowStageLifecycleEventType {
     /**
@@ -11440,7 +11576,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     SHOWN = 1,
     /**
@@ -11448,7 +11585,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     RESUMED = 2,
     /**
@@ -11456,7 +11594,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     PAUSED = 3,
     /**
@@ -11464,7 +11603,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     HIDDEN = 4
   }
@@ -11534,8 +11674,8 @@ declare namespace window {
    * @interface SubWindowOptions
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   interface SubWindowOptions {
     /**
@@ -11551,7 +11691,8 @@ declare namespace window {
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     title: string;
     /**
@@ -11567,7 +11708,8 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     decorEnabled: boolean;
     /**
@@ -11576,7 +11718,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     isModal?: boolean;
     /**
@@ -11585,7 +11728,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     isTopmost?: boolean;
     /**
@@ -11594,7 +11738,8 @@ declare namespace window {
      * @type { ?ModalityType }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     modalityType?: ModalityType;
     /**
@@ -11603,7 +11748,8 @@ declare namespace window {
      * @type { ?Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
+     * @since 20 static
      */
     windowRect?: Rect;
     /**
@@ -11612,7 +11758,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
+     * @since 20 static
      */
     maximizeSupported?: boolean;
     /**
@@ -11621,7 +11768,8 @@ declare namespace window {
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
+     * @since 20 static
      */
     zLevel?: int;
     /**
@@ -11630,7 +11778,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     outlineEnabled?: boolean;
 
@@ -12295,9 +12444,24 @@ declare namespace window {
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     on(eventType: 'windowStageLifecycleEvent', callback: Callback<WindowStageLifecycleEventType>): void;
+
+    /**
+     * Subscribes to the window stage lifecycle change event.
+     *
+     * @param { Callback<WindowStageLifecycleEventType> } callback Callback used to
+     *     return the window stage lifecycle state.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 22 static
+     */
+    onWindowStageLifecycleEvent(callback: Callback<WindowStageLifecycleEventType>): void;
 
     /**
      * Unsubscribes from the window stage lifecycle change event.
@@ -12314,9 +12478,24 @@ declare namespace window {
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     off(eventType: 'windowStageLifecycleEvent', callback?: Callback<WindowStageLifecycleEventType>): void;
+
+    /**
+     * Unsubscribes from the window stage lifecycle change event.
+     *
+     * @param { Callback<WindowStageLifecycleEventType> } [callback] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 22 static
+     */
+    offWindowStageLifecycleEvent(callback?: Callback<WindowStageLifecycleEventType>): void;
 
     /**
      * Subscribes to the click event on the close button in the three-button navigation bar of the main window.
@@ -12668,8 +12847,8 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   enum ExtensionWindowAttribute {
     /**
@@ -12678,8 +12857,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     SYSTEM_WINDOW = 0,
 
@@ -12689,8 +12868,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     SUB_WINDOW = 1
   }
@@ -12702,8 +12881,8 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   interface SystemWindowOptions {
     /**
@@ -12713,8 +12892,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     windowType: WindowType;
   }
@@ -12726,8 +12905,8 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   interface ExtensionWindowConfig {
     /**
@@ -12737,8 +12916,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     windowName: string;
 
@@ -12749,7 +12928,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     windowAttribute: ExtensionWindowAttribute;
 
@@ -12760,7 +12940,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     windowRect: Rect;
 
@@ -12771,7 +12952,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     subWindowOptions?: SubWindowOptions;
 
@@ -12782,7 +12964,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     systemWindowOptions?: SystemWindowOptions;
   }

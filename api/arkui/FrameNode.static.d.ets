@@ -65,6 +65,7 @@ import { SliderAttribute, SliderOptions } from '@ohos.arkui.component';
 import { ToggleAttribute, ToggleOptions } from '@ohos.arkui.component';
 import { CheckboxGroupAttribute, CheckboxGroupOptions } from '@ohos.arkui.component';
 import { RatingAttribute, RatingOptions } from '@ohos.arkui.component';
+import { XComponentAttribute, XComponentOptions, XComponentParameters, NativeXComponentParameters } from './component/xcomponent';
 import image from '../@ohos.multimedia.image';
 import { ImageAIOptions } from '@ohos.arkui.component';
 import { ResourceStr } from '@ohos.arkui.component';
@@ -777,6 +778,9 @@ export declare namespace typeNode {
     createLoadingProgressNode,
     createProgressNode,
     createBadgeNode,
+    createXComponentNodeDefault,
+    createXComponentNodeWithOptions,
+    createXComponentNodeWithNativeParameters
   }
 
   /**
@@ -2016,6 +2020,88 @@ export declare namespace typeNode {
    * @since 20
    */
   export function createSwiperNode(context: UIContext, nodeType: 'Swiper'): Swiper;
+
+  /**
+   * Defines the XComponent type of FrameNode.
+   *
+   * @extends TypedFrameNode<XComponentAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  abstract class XComponentFrameNode extends TypedFrameNode<XComponentAttribute> {
+    /**
+     * Initialize XComponent FrameNode.
+     *
+     * @param { XComponentParameters } value - Indicates the options of the xcomponent.
+     * @returns { XComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    abstract initialize(value: XComponentParameters): XComponentAttribute;
+
+    /**
+     * Initialize XComponent FrameNode.
+     *
+     * @param { XComponentOptions } value - Indicates the options of the xcomponent.
+     * @returns { XComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    abstract initialize(value: XComponentOptions): XComponentAttribute;
+
+    /**
+     * Initialize XComponent FrameNode.
+     *
+     * @param { NativeXComponentParameters } params - Indicates the constructor parameters of the
+     *     xcomponent for native developing.
+     * @returns { XComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    abstract initialize(params: NativeXComponentParameters): XComponentAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for XComponent.
+   *
+   * @typedef { XComponentFrameNode } XComponent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  type XComponent = XComponentFrameNode;
+
+  /**
+   * Create a FrameNode of XComponent type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @returns { XComponent } - Return XComponent type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  export function createXComponentNodeDefault(context: UIContext): XComponent;
+
+  /**
+   * Create a FrameNode of XComponent type with options.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { XComponentOptions } value - initialization parameters.
+   * @returns { XComponent } - Return XComponent type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  export function createXComponentNodeWithOptions(context: UIContext, value: XComponentOptions): XComponent;
+
+  /**
+   * Create a FrameNode of XComponent type with options for native developing.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { NativeXComponentParameters } parameters - initialization parameters.
+   * @returns { XComponent } - Return XComponent type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  export function createXComponentNodeWithNativeParameters(
+    context: UIContext, parameters: NativeXComponentParameters): XComponent;
 }
 
 /**

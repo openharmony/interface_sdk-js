@@ -1000,6 +1000,14 @@ declare namespace bundleManager {
     FAULT_LOG = 33,
 
     /**
+     * Indicates extension info with type of the notification subscriber
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 22 dynamic&static
+     */
+    NOTIFICATION_SUBSCRIBER = 34,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -4420,6 +4428,46 @@ declare namespace bundleManager {
    * @since 22 dynamic&static
    */
   function getPluginBundlePathForSelf(pluginBundleName: string): string;
+
+  /**
+   * Recover backup bundle data by bundleName, userId and appIndex.
+   *
+   * @permission ohos.permission.RECOVER_BUNDLE
+   * @param { string } bundleName - Indicates the application bundle name to be recovered.
+   * @param { int } userId - Indicates the user ID.
+   * @param { int } appIndex - Indicates the index of clone app.
+   * @returns { Promise<void> } Returns recoverBackupBundleData result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 21 dynamic
+   * @since 22 static
+   */
+  function recoverBackupBundleData(bundleName: string, userId: int, appIndex: int): Promise<void>;
+
+  /**
+   * Remove backup bundle data by bundleName, userId and appIndex.
+   *
+   * @permission ohos.permission.CLEAN_APPLICATION_DATA
+   * @param { string } bundleName - Indicates the application bundle name to be removed.
+   * @param { int } userId - Indicates the user ID.
+   * @param { int } appIndex - Indicates the index of clone app.
+   * @returns { Promise<void> } Returns removeBackupBundleData result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 21 dynamic
+   * @since 22 static
+   */
+  function removeBackupBundleData(bundleName: string, userId: int, appIndex: int): Promise<void>;
 
   /**
    * Obtains configuration information about an application.

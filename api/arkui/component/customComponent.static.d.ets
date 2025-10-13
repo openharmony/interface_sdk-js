@@ -23,7 +23,7 @@ import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from "../
 import { ExtendableComponent } from './extendableComponent';
 import { GeometryInfo, Layoutable, Measurable, SizeResult } from './common'
 import { ConstraintSizeOptions } from './units'
-import { Builder } from './builder'
+import { Builder, WrappedBuilder } from './builder'
 import { LocalStorage } from './../stateManagement/storage/localStorage';
 import { CustomDialogController } from './customDialogController';
 
@@ -126,6 +126,23 @@ export @interface ReusableV2 {}
  */
 @Retention({policy: "SOURCE"})
 export @interface CustomLayout {}
+
+/**
+ * Defining of entry of page
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare abstract class EntryPoint {
+
+    /**
+     * Define entry function of page
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    @Builder entry(): void;
+}
 
 /**
  * Defining CustomDialog Annotation
@@ -362,14 +379,13 @@ export interface PageLifeCycle {
 }
 
 /**
- * Defining interface of LayoutCallback for custom component, when decorate with @Layoutable.
+ * Defining interface of LayoutCallbacks for custom component, when decorate with @Layoutable.
  *
+ * typedef LayoutCallbacks
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
+ * @since 20 static
  */
-export interface LayoutCallback {
+export interface LayoutCallbacks {
     /**
      * Custom component override this method to layout each of its sub components.
      *
@@ -377,9 +393,7 @@ export interface LayoutCallback {
      * @param { Array<Layoutable> } children
      * @param { ConstraintSizeOptions } constraint
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     onPlaceChildren(selfLayoutInfo: GeometryInfo, children: Array<Layoutable>, constraint: ConstraintSizeOptions): void {}
 
@@ -390,11 +404,9 @@ export interface LayoutCallback {
      * @param { ConstraintSizeOptions } constraint - indicate child constraint size
      * @returns { SizeResult }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     onMeasureSize(selfLayoutInfo: GeometryInfo, children: Array<Measurable>, constraint: ConstraintSizeOptions): SizeResult {
-        return {width: 0, height: 0} as SizeResult
+        return {width: 0, height: 0} as SizeResult;
     }
 }
