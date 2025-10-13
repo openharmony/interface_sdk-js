@@ -9665,16 +9665,14 @@ declare namespace media {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @atomicservice
-   * @since 22
-   * @arkts 1.1&1.2
+   * @@since 22 dynamic&static
    */
   enum AacProfile {
     /**
      * AAC LC (Low Complexity) Profile.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @atomicservice
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     AAC_LC = 0,
 
@@ -9682,8 +9680,7 @@ declare namespace media {
      * HE (High Efficiency) AAC profile.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @atomicservice
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     AAC_HE = 1,
 
@@ -9691,8 +9688,7 @@ declare namespace media {
      * HE (High Efficiency with Parametric Stereo coding) AAC profile.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @atomicservice
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     AAC_HE_V2 = 2,
 
@@ -9783,8 +9779,7 @@ declare namespace media {
      * @type { ?AacProfile }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @atomicservice
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     aacProfile?: AacProfile;
 
