@@ -429,6 +429,15 @@ declare namespace bundleManager {
      * @arkts 1.1&1.2
      */
     GET_BUNDLE_INFO_WITH_CLOUD_KIT = 0x00008000,
+    /**
+     * Used to obtain the bundleInfo containing hapModuleInfo of entry. The obtained bundleInfo does not
+     * contain the information of signatureInfo, applicationInfo, ability, extensionAbility and permission.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    GET_BUNDLE_INFO_WITH_ENTRY_MODULE = 0x00010000,
   }
 
   /**
