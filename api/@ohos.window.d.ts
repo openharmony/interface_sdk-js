@@ -11402,6 +11402,39 @@ declare namespace window {
      * @since 22 static
      */
     offFreeWindowModeChange(callback?: Callback<boolean>): void;
+
+    /**
+     * Set whether this window limits screen rotation when this window is shown.
+     *
+     * @param { boolean } locked - Screen rotation lock status to set.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Function setRotationLocked can not work correctly due
+     *     to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300029 - This window type is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    setRotationLocked(locked: boolean): Promise<void>;
+
+    /**
+     * Get whether this window limits screen rotation when this window is shown.
+     *
+     * @returns { boolean } - Screen rotation lock status of this window.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Function setRotationLocked can not work correctly due
+     *     to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300029 - This window type is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    getRotationLocked(): boolean;
   }
 
   /**
