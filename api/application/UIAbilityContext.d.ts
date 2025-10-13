@@ -4992,6 +4992,26 @@ declare class UIAbilityContext extends Context {
   * @arkts 1.1&1.2
   */
   startSelfUIAbilityInCurrentProcess(want: Want, specifiedFlag: string, options?: StartOptions): Promise<void>;
+
+  /**
+   * Restart current application process. If the destination UIAbility is the same as the caller ability,
+   * the caller window will be reused as the destination window. Otherwise, the caller window will be
+   * destroyed after navigating to the destination window.
+   *
+   * @param { Want } want - Indicates the ability to start.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Connect to system server error.
+   * @throws { BusinessError } 16000063 - The target to restart does not belong to the caller or is not a UIAbility.
+   * @throws { BusinessError } 16000064 - Restart too frequently.
+   * @throws { BusinessError } 16000065 - The API can be called only when the ability is focused.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  restartApp(want: Want): Promise<void>;
 }
 
 export default UIAbilityContext;
