@@ -3090,7 +3090,15 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 22
      */
-    CLOUD_ID = 'cloud_id'
+    CLOUD_ID = 'cloud_id',
+    /**
+     * Compatible duplicate of asset exists, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    EXIST_COMPATIBLE_DUPLICATE = 'exist_compatible_duplicate',
   }
 
   /**
