@@ -3758,9 +3758,9 @@ declare namespace window {
   /**
    * Shift window touch event within the same application. And the window type contains only main window and subwindow.
    *
-   * @param { number } sourceWindowId - Window id which the touch event shift from.
-   * @param { number } targetWindowId - Window id which the touch event shift to.
-   * @param { number } fingerId - Finger id in touch event.
+   * @param { int } sourceWindowId - Window id which the touch event shift from.
+   * @param { int } targetWindowId - Window id which the touch event shift to.
+   * @param { int } fingerId - Finger id in touch event.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 801 - Capability not supported. Function shiftAppWindowTouchEvent can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -3768,9 +3768,10 @@ declare namespace window {
    * @throws { BusinessError } 1300004 - Unauthorized operation.
    * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
-  function shiftAppWindowTouchEvent(sourceWindowId: number, targetWindowId: number, fingerId: number): Promise<void>;
+  function shiftAppWindowTouchEvent(sourceWindowId: int, targetWindowId: int, fingerId: int): Promise<void>;
 
   /**
    * Get info of visible windows.
@@ -11057,9 +11058,23 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     on(eventType: 'uiExtensionSecureLimitChange', callback: Callback<boolean>): void;
+
+    /**
+     * UIExtension in window secure limit change callback on.
+     *
+     * @param { Callback<boolean> } callback
+     *     Callback used to return the result whether the APP has uiextension secure limit. 
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Function on('uiExtensionSecureLimitChange') can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onUiExtensionSecureLimitChange(callback: Callback<boolean>): void;
 
     /**
      * UIExtension in window secure limit change callback off.
@@ -11071,9 +11086,23 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     off(eventType: 'uiExtensionSecureLimitChange', callback?: Callback<boolean>): void;
+
+    /**
+     * UIExtension in window secure limit change callback off.
+     *
+     * @param { Callback<boolean> } [callback] Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Function off('uiExtensionSecureLimitChange') can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offUiExtensionSecureLimitChange(callback?: Callback<boolean>): void;
  
 
     /**
