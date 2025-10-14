@@ -95,6 +95,9 @@ import { AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData } fro
 import zlib from '@ohos.zlib';
 import commonEventManager from '@ohos.commonEventManager';
 import emitter from '@ohos.events.emitter';
+import systemDateTime from '@ohos.systemDateTime';
+import systemTimer from '@ohos.systemTimer';
 
-export { configPolicy, customConfig, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, zlib, commonEventManager, emitter };
+export { configPolicy, customConfig, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, zlib,
+  commonEventManager, emitter, systemDateTime, systemTimer };
 /*** endif */
