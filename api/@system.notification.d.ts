@@ -100,20 +100,22 @@ export interface ShowNotificationOptions {
 
 /**
  * Manages notifications.
- *
+ * 
  * @syscap SystemCapability.Notification.Notification
  * @since 3 dynamiconly
  * @deprecated since 7
  * @useinstead ohos.notification/notification
  */
-export default class Notification {
+declare class Notification {
   /**
    * Displays the notification.
    *
    * @param { ShowNotificationOptions } [options] - Options.
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   static show(options?: ShowNotificationOptions): void;
 }
+
+export default Notification;
