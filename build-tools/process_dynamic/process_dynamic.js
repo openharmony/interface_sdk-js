@@ -130,7 +130,9 @@ function main() {
  */
 function processContent(filePath, content, kitName) {
   content = content.replace(/(\s*\/\*\*(?:(?!\/\*\*)[\s\S])*?@since[\s\S]*?\*\/\s*?)+/g, (substring, p1) => {
-    return substring.replace(p1, () => getNewCommont(p1, kitName, filePath));
+    // 转义特殊字符，确保安全替换
+    const specialSearch = p1.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return substring.replace(new RegExp(specialSearch, 'g'), () => getNewCommont(p1, kitName, filePath));
   });
   //修改if arkts
   content = content.replace(/(if arkts )(1\.1&1\.2|1\.1|1\.2)/g, (substring, p1, p2) => {
