@@ -172,7 +172,7 @@ export interface MeasureOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export default declare class MeasureText {
+declare class MeasureText {
   /**
    * Displays the textWidth.
    *
@@ -193,3 +193,4 @@ export default declare class MeasureText {
    */
   static measureTextSize(options: MeasureOptions): SizeOptions;
 }
+export default MeasureText;
