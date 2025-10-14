@@ -80,7 +80,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21
      */
-    combinedTaskNotification?: boolean = false;
+    combinedTaskNotification?: boolean;
 
     /**
      * The continuous task id, default -1.
@@ -89,7 +89,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21
      */
-    continuousTaskId?: number = -1;
+    continuousTaskId?: number;
 
     /**
      * Whether the modes of continuous task are supported.
@@ -102,6 +102,30 @@ declare namespace backgroundTaskManager {
      * @since 21
      */
     isModeSupported(): boolean;
+
+    /**
+     * Result of user authorization for 'MODE_SPECIAL_SCENARIO_PROCESSING'.
+     *
+     * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+     * @param { Callback<UserAuthResult> } callback - The callback of the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 9800005 - Continuous task verification failed.
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 22
+     */
+    requestAuthFromUser(callback: Callback<UserAuthResult>): void;
+
+    /**
+     * The result of checkSpecialScenarioAuth.
+     *
+     * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+     * @returns { Promise<UserAuthResult> } The promise returns the result of user authorization.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 9800005 - Continuous task verification failed.
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 22
+     */
+    checkSpecialScenarioAuth(): Promise<UserAuthResult>;
   }
 
   /**
@@ -536,7 +560,7 @@ declare namespace backgroundTaskManager {
   /**
    * Obtains transient task info before an application enters the suspended state.
    *
-   * @returns { Promise<TransientTaskInfo> } The promise returns the transient task info.
+   * @returns { Promise<TransientTaskInfo> } The promise returns the transient tasks info.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900003 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
@@ -1213,6 +1237,22 @@ declare namespace backgroundTaskManager {
      * @since 21
      */
     MODE_TASK_KEEPING = 9,
+
+    /**
+     * 'av playback and record' mode, for example audio playback, audio recording.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 22
+     */
+    MODE_AV_PLAYBACK_AND_RECORD = 10,
+
+    /**
+     * special scenario processing mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 22
+     */
+    MODE_SPECIAL_SCENARIO_PROCESSING = 11
   }
 
   /**
@@ -1246,6 +1286,62 @@ declare namespace backgroundTaskManager {
      * @since 21
      */
     SUBMODE_LIVE_VIEW_NOTIFICATION = 3,
+
+    /**
+     * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 22
+     */
+    SUBMODE_AUDIO_PLAYBACK_NORMAL_NOTIFICATION = 4,
+
+    /**
+     * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 22
+     */
+    SUBMODE_AVSESSION_AUDIO_PLAYBACK = 5,
+
+    /**
+     * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 22
+     */
+    SUBMODE_AUDIO_RECORD_NORMAL_NOTIFICATION = 6,
+
+    /**
+     * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 22
+     */
+    SUBMODE_SCREEN_RECORD_NORMAL_NOTIFICATION = 7,
+
+    /**
+     * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 22
+     */
+    SUBMODE_VOICE_CHAT_NORMAL_NOTIFICATION = 8,
+
+    /**
+     * submode of 'MODE_SPECIAL_SCENARIO_PROCESSING'.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 22
+     */
+    SUBMODE_MEDIA_PROCESS_NORMAL_NOTIFICATION = 9,
+
+    /**
+     * submode of 'MODE_MULTI_DEVICE_CONNECTION'.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 22
+     */
+    SUBMODE_VIDEO_BROADCAST_NORMAL_NOTIFICATION = 10,
   }
 
   /**
@@ -1625,6 +1721,55 @@ declare namespace backgroundTaskManager {
      * @since 21
      */
     SYSTEM_SUSPEND_VOIP_NOT_USED = 13
+  }
+
+  /**
+   * Type of user authorization status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 22
+   */
+  export enum UserAuthResult {
+    /**
+     * Request is not supported.
+     * 
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 22
+     */
+    NOT_SUPPORTED = 0,
+
+    /**
+     * Permission is not determined.
+     * 
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 22
+     */
+    NOT_DETERMINED = 1,
+
+    /**
+     * Permission has been denied, only can change it in settings.
+     * 
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 22
+     */
+    DENIED = 2,
+
+    /**
+     * The permission was granted once.
+     * 
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 22
+     */
+    GRANTED_ONCE = 3,
+
+    /**
+     * Permissions are always granted.
+     * 
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 22
+     */
+    GRANTED_ALWAYS = 4
   }
 }
 
