@@ -758,15 +758,6 @@ export declare namespace typeNode {
     createGridItemNode,
     createWaterFlowNode,
     createFlowItemNode,
-    createColumnNode,
-    createRowNode,
-    createStackNode,
-    createFlexNode,
-    createRelativeContainerNode,
-    createGridRowNode,
-    createGridColNode,
-    createDividerNode,
-    createBlankNode,
     createXComponentNodeDefault,
     createXComponentNodeWithOptions,
     createXComponentNodeWithNativeParameters,
@@ -812,12 +803,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Column type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Column' } nodeType - node type.
    * @returns { Column } - Return Column type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  export function createColumnNode(context: UIContext, nodeType: 'Column'): Column;
+  export function createColumnNode(context: UIContext): Column;
 
   /**
    * Define the Row type of FrameNode.
@@ -851,12 +841,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Row type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Row' } nodeType - node type.
    * @returns { Row } - Return Row type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  export function createRowNode(context: UIContext, nodeType: 'Row'): Row;
+  export function createRowNode(context: UIContext): Row;
 
   /**
    * Define the Stack type of FrameNode.
@@ -890,12 +879,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Stack type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Stack' } nodeType - node type.
    * @returns { Stack } - Return Stack type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  export function createStackNode(context: UIContext, nodeType: 'Stack'): Stack;
+  export function createStackNode(context: UIContext): Stack;
 
   /**
    * Define the GridRow type of FrameNode.
@@ -929,12 +917,11 @@ export declare namespace typeNode {
    * Create a FrameNode of GridRow type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'GridRow' } nodeType - node type.
    * @returns { GridRow } - Return GridRow type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  export function createGridRowNode(context: UIContext, nodeType: 'GridRow'): GridRow;
+  export function createGridRowNode(context: UIContext): GridRow;
 
   /**
    * Define the GridCol type of FrameNode.
@@ -968,12 +955,11 @@ export declare namespace typeNode {
    * Create a FrameNode of GridCol type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'GridCol' } nodeType - node type.
    * @returns { GridCol } - Return GridCol type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  export function createGridColNode(context: UIContext, nodeType: 'GridCol'): GridCol;
+  export function createGridColNode(context: UIContext): GridCol;
 
   /**
    * Define the Flex type of FrameNode.
@@ -1007,12 +993,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Flex type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Flex' } nodeType - node type.
    * @returns { Flex } - Return Flex type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  export function createFlexNode(context: UIContext, nodeType: 'Flex'): Flex;
+  export function createFlexNode(context: UIContext): Flex;
 
   /**
    * Define the RelativeContainer type of FrameNode.
@@ -1045,12 +1030,11 @@ export declare namespace typeNode {
    * Create a FrameNode of RelativeContainer type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'RelativeContainer' } nodeType - node type.
    * @returns { RelativeContainer } - Return RelativeContainer type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  export function createRelativeContainerNode(context: UIContext, nodeType: 'RelativeContainer'): RelativeContainer;
+  export function createRelativeContainerNode(context: UIContext): RelativeContainer;
 
   /**
    * Define the Divider type of FrameNode.
@@ -1083,12 +1067,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Divider type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Divider' } nodeType - node type.
    * @returns { Divider } - Return Divider type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  export function createDividerNode(context: UIContext, nodeType: 'Divider'): Divider;
+  export function createDividerNode(context: UIContext): Divider;
 
 /**
    * Define the LoadingProgress type of FrameNode.
@@ -1159,12 +1142,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Blank type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Blank' } nodeType - node type.
    * @returns { Blank } - Return Blank type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  export function createBlankNode(context: UIContext, nodeType: 'Blank'): Blank;
+  export function createBlankNode(context: UIContext): Blank;
 
   /**
    * Define the Image type of FrameNode.
