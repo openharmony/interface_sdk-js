@@ -952,7 +952,7 @@ function judgeIsDeleteApi(node) {
   }
 
   if (dirType === DirType.typeThree) {
-    return !/@arkts\s*(1\.1&)?1\.2/g.test(notesStr) && !/@since\s\S*\s(staticonly|(dynamic&)?static)/g.test(notesStr);
+    return !/@arkts\s*(1\.1&)?1\.2\s/g.test(notesStr) && !/@since\s\S*\s(staticonly|(dynamic&)?static)/g.test(notesStr);
   }
 
   return false;
