@@ -404,7 +404,7 @@ export declare abstract class GeometryDefinition {
    * @since 18 dynamic
    * @since 20 static
    */
-  readonly geometryType: GeometryType;
+  get geometryType(): GeometryType;
 }
 
 /**

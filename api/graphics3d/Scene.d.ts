@@ -381,13 +381,15 @@ export interface SceneComponent {
   /**
    * Component properties
    * 
-   * @type { Record<string, string | double | Vec2 | Vec3 | Vec4 | SceneResource | boolean | double[] | string[] | SceneResource[] | Vec2[] | Vec3[] | Vec4[] | null | undefined> }
+   * @type { Record<string, string | double | Vec2 | Vec3 | Vec4 | SceneResource | boolean | double[] | string[] |
+   * SceneResource[] | Vec2[] | Vec3[] | Vec4[] | null | undefined> }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 20 static
    */
-  readonly property: Record<string, string | double | Vec2 | Vec3 | Vec4 | SceneResource | boolean | double[] | string[] | SceneResource[] | Vec2[] | Vec3[] | Vec4[] | null | undefined>;
+  readonly property: Record<string, string | double | Vec2 | Vec3 | Vec4 | SceneResource | boolean | double[] |
+  string[] | SceneResource[] | Vec2[] | Vec3[] | Vec4[] | null | undefined>;
 }
 
 /** 
