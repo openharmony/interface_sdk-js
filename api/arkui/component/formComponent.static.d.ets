@@ -29,7 +29,7 @@ import { AttributeModifier, CommonMethod } from "./common";
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 22 static
  */
 export declare enum FormDimension {
     /**
@@ -37,7 +37,7 @@ export declare enum FormDimension {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     Dimension_1_2 = 0,
     /**
@@ -45,7 +45,7 @@ export declare enum FormDimension {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     Dimension_2_2 = 1,
     /**
@@ -53,7 +53,7 @@ export declare enum FormDimension {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     Dimension_2_4 = 2,
     /**
@@ -61,7 +61,7 @@ export declare enum FormDimension {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     Dimension_4_4 = 3,
     /**
@@ -70,7 +70,7 @@ export declare enum FormDimension {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     DIMENSION_1_1 = 6,
     /**
@@ -78,7 +78,7 @@ export declare enum FormDimension {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     DIMENSION_6_4 = 7,
     /**
@@ -86,7 +86,7 @@ export declare enum FormDimension {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     DIMENSION_2_3 = 8,
     /**
@@ -94,7 +94,7 @@ export declare enum FormDimension {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     DIMENSION_3_3 = 9
 }
@@ -104,7 +104,7 @@ export declare enum FormDimension {
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 22 static
  */
 export declare enum FormRenderingMode {
     /**
@@ -112,17 +112,17 @@ export declare enum FormRenderingMode {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
-    FULL_COLOR,
+    FULL_COLOR = 0,
     /**
      *  single color mode
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
-    SINGLE_COLOR
+    SINGLE_COLOR = 1
 }
 /**
  * Defines the FormShape enum.
@@ -130,7 +130,7 @@ export declare enum FormRenderingMode {
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 22 static
  */
 export declare enum FormShape {
     /**
@@ -138,7 +138,7 @@ export declare enum FormShape {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     RECT = 1,
     /**
@@ -146,9 +146,9 @@ export declare enum FormShape {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
-    CIRCLE
+    CIRCLE = 2
 }
 /**
  * Defines the FormInfo.
@@ -156,7 +156,7 @@ export declare enum FormShape {
  * @interface FormInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 22 static
  */
 export declare interface FormInfo {
     /**
@@ -165,7 +165,7 @@ export declare interface FormInfo {
      * @type { long | string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     id: long | string;
     /**
@@ -174,7 +174,7 @@ export declare interface FormInfo {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     name: string;
     /**
@@ -183,7 +183,7 @@ export declare interface FormInfo {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     bundle: string;
     /**
@@ -192,7 +192,7 @@ export declare interface FormInfo {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     ability: string;
     /**
@@ -201,7 +201,7 @@ export declare interface FormInfo {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     module: string;
     /**
@@ -210,7 +210,7 @@ export declare interface FormInfo {
      * @type { ?FormDimension }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     dimension?: FormDimension;
     /**
@@ -219,7 +219,7 @@ export declare interface FormInfo {
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     temporary?: boolean;
     /**
@@ -228,7 +228,7 @@ export declare interface FormInfo {
      * @type { ?Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     want?: Want;
     /**
@@ -237,7 +237,7 @@ export declare interface FormInfo {
      * @type { ?FormRenderingMode }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     renderingMode?: FormRenderingMode;
     /**
@@ -246,7 +246,7 @@ export declare interface FormInfo {
      * @type { ?FormShape }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     shape?: FormShape;
 }
@@ -256,7 +256,7 @@ export declare interface FormInfo {
  * @interface FormCallbackInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 22 static
  */
 export interface FormCallbackInfo {
     /**
@@ -265,7 +265,7 @@ export interface FormCallbackInfo {
      * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     id: long;
     /**
@@ -274,7 +274,7 @@ export interface FormCallbackInfo {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     idString: string;
 }
@@ -284,7 +284,7 @@ export interface FormCallbackInfo {
  * @interface FormSize
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 22 static
  */
 export interface FormSize {
     /**
@@ -294,7 +294,7 @@ export interface FormSize {
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     width: double;
     /**
@@ -304,7 +304,7 @@ export interface FormSize {
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     height: double;
 }
@@ -314,7 +314,7 @@ export interface FormSize {
  * @typedef ErrorInformation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 22 static
  */
 export interface ErrorInformation {
     /**
@@ -324,7 +324,7 @@ export interface ErrorInformation {
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     errcode: int;
     /**
@@ -334,7 +334,7 @@ export interface ErrorInformation {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     msg: string;
 }
@@ -357,9 +357,9 @@ export declare interface FormComponentAttribute extends CommonMethod {
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
-    default size(formSize: FormSize | undefined): this;
+    default size(formSize: FormSize): this;
     /**
      * Card module name.
      *
@@ -367,7 +367,7 @@ export declare interface FormComponentAttribute extends CommonMethod {
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     default moduleName(value: string | undefined): this;
     /**
@@ -377,7 +377,7 @@ export declare interface FormComponentAttribute extends CommonMethod {
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     default dimension(value: FormDimension | undefined): this;
     /**
@@ -387,7 +387,7 @@ export declare interface FormComponentAttribute extends CommonMethod {
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     default allowUpdate(value: boolean | undefined): this;
     /**
@@ -397,7 +397,7 @@ export declare interface FormComponentAttribute extends CommonMethod {
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     default visibility(value: Visibility | undefined): this;
     /**
@@ -408,7 +408,7 @@ export declare interface FormComponentAttribute extends CommonMethod {
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     default onAcquired(callback: Callback<FormCallbackInfo> | undefined): this;
     /**
@@ -418,7 +418,7 @@ export declare interface FormComponentAttribute extends CommonMethod {
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     default onError(callback: Callback<ErrorInformation> | undefined): this;
     /**
@@ -429,7 +429,7 @@ export declare interface FormComponentAttribute extends CommonMethod {
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     default onRouter(callback: Callback<object> | undefined): this;
     /**
@@ -439,7 +439,7 @@ export declare interface FormComponentAttribute extends CommonMethod {
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     default onUninstall(callback: Callback<FormCallbackInfo> | undefined): this;
     /**
@@ -449,7 +449,7 @@ export declare interface FormComponentAttribute extends CommonMethod {
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     default onLoad(callback: VoidCallback | undefined): this;
     /**
@@ -459,7 +459,7 @@ export declare interface FormComponentAttribute extends CommonMethod {
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 22 static
      */
     default onUpdate(callback: Callback<FormCallbackInfo> | undefined): this;
     default attributeModifier(modifier: AttributeModifier<FormComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -473,7 +473,7 @@ export declare interface FormComponentAttribute extends CommonMethod {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @noninterop
- * @since 20
+ * @since 22 static
  */
 @memo
 @ComponentBuilder
