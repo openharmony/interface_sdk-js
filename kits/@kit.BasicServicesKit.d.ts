@@ -94,8 +94,10 @@ export {
 import configPolicy from '@ohos.configPolicy';
 import customConfig from '@ohos.customization.customConfig';
 import zlib from '@ohos.zlib';
+import systemDateTime from '@ohos.systemDateTime';
+import systemTimer from '@ohos.systemTimer';
 
 export {
-  zlib, configPolicy, customConfig
+  zlib, configPolicy, customConfig, systemDateTime, systemTimer
 };
 /*** endif */
