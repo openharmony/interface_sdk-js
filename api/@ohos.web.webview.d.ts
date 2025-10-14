@@ -3555,6 +3555,16 @@ declare namespace webview {
      * @arkts 1.1&1.2
      */
     getArray(): Array<string | double | long | boolean>;
+    /**
+     * Get the exception or object of the the JavaScript code execution result and serialize it into a string.
+     * @returns { string | null } - if an exception occurs, or the returned type is object, return the
+     *     serialized string in the format of "Not support type: <{exception|object}>", Parts exceeding a length of
+     *     2048 will be truncated; otherwise, return null.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    getErrorDescription(): string | null;
   }
 
   /**
