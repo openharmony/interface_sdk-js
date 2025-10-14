@@ -29,7 +29,8 @@ import { ValuesBucket } from './@ohos.data.ValuesBucket';
  *
  * @namespace reminderAgentManager
  * @syscap SystemCapability.Notification.ReminderAgent
- * @since 9
+ * @since arkts{ '1.1':'9', '1.2':'20' }
+ * @arkts 1.1&1.2
  */
 declare namespace reminderAgentManager {
   /**
@@ -42,7 +43,8 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 1700001 - Notification is not enabled.
    * @throws { BusinessError } 1700002 - The number of reminders exceeds the limit.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback<number>): void;
 
@@ -56,7 +58,8 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 1700001 - Notification is not enabled.
    * @throws { BusinessError } 1700002 - The number of reminders exceeds the limit.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function publishReminder(reminderReq: ReminderRequest): Promise<number>;
 
@@ -69,7 +72,8 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @throws { BusinessError } 1700004 - The bundle name does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function cancelReminder(reminderId: number, callback: AsyncCallback<void>): void;
 
@@ -82,7 +86,8 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @throws { BusinessError } 1700004 - The bundle name does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function cancelReminder(reminderId: number): Promise<void>;
 
@@ -93,7 +98,8 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700004 - The bundle name does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function getValidReminders(callback: AsyncCallback<Array<ReminderRequest>>): void;
 
@@ -104,7 +110,8 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700004 - The bundle name does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function getValidReminders(): Promise<Array<ReminderRequest>>;
 
@@ -115,7 +122,8 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700004 - The bundle name does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function cancelAllReminders(callback: AsyncCallback<void>): void;
 
@@ -126,7 +134,8 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700004 - The bundle name does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function cancelAllReminders(): Promise<void>;
 
@@ -137,7 +146,8 @@ declare namespace reminderAgentManager {
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function addNotificationSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
@@ -148,7 +158,8 @@ declare namespace reminderAgentManager {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function addNotificationSlot(slot: NotificationSlot): Promise<void>;
 
@@ -159,7 +170,8 @@ declare namespace reminderAgentManager {
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function removeNotificationSlot(slotType: notification.SlotType, callback: AsyncCallback<void>): void;
 
@@ -170,7 +182,8 @@ declare namespace reminderAgentManager {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function removeNotificationSlot(slotType: notification.SlotType): Promise<void>;
   
@@ -184,7 +197,8 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 12
+   * @since arkts{ '1.1':'12', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function addExcludeDate(reminderId: number, date: Date): Promise<void>;
   
@@ -196,7 +210,8 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 12
+   * @since arkts{ '1.1':'12', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function deleteExcludeDates(reminderId: number): Promise<void>;
   
@@ -208,7 +223,8 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 12
+   * @since arkts{ '1.1':'12', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function getExcludeDates(reminderId: number): Promise<Array<Date>>;
 
@@ -218,7 +234,8 @@ declare namespace reminderAgentManager {
    * @returns { Promise<Array<ReminderInfo>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 12
+   * @since arkts{ '1.1':'12', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function getAllValidReminders(): Promise<Array<ReminderInfo>>;
 
@@ -234,6 +251,7 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 1700007 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 20
+   * @arkts 1.1&1.2
    */
   function updateReminder(reminderId: number, reminderReq: ReminderRequest): Promise<void>;
 
@@ -242,14 +260,16 @@ declare namespace reminderAgentManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export enum ActionButtonType {
     /**
      * Button for closing the reminder.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     ACTION_BUTTON_TYPE_CLOSE = 0,
 
@@ -257,7 +277,8 @@ declare namespace reminderAgentManager {
      * Button for snoozing the reminder.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     ACTION_BUTTON_TYPE_SNOOZE = 1,
 
@@ -266,7 +287,8 @@ declare namespace reminderAgentManager {
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts{ '1.1':'10', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     ACTION_BUTTON_TYPE_CUSTOM = 2
   }
@@ -277,14 +299,16 @@ declare namespace reminderAgentManager {
    * @enum { number }
    *
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export enum ReminderType {
     /**
      * Countdown reminder.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     REMINDER_TYPE_TIMER = 0,
 
@@ -292,7 +316,8 @@ declare namespace reminderAgentManager {
      * Calendar reminder.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     REMINDER_TYPE_CALENDAR = 1,
 
@@ -300,7 +325,8 @@ declare namespace reminderAgentManager {
      * Alarm reminder.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     REMINDER_TYPE_ALARM = 2
   }
@@ -311,7 +337,8 @@ declare namespace reminderAgentManager {
    * @interface ActionButton
    *
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   interface ActionButton {
     /**
@@ -319,7 +346,8 @@ declare namespace reminderAgentManager {
      *
      * @type { string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     title: string;
 
@@ -328,7 +356,8 @@ declare namespace reminderAgentManager {
      * 
      * @type { ?string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 11
+     * @since arkts{ '1.1':'11', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     titleResource?: string;
 
@@ -337,7 +366,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ActionButtonType }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     type: ActionButtonType;
 
@@ -347,7 +377,8 @@ declare namespace reminderAgentManager {
      * @type { ?WantAgent }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts{ '1.1':'10', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     wantAgent?: WantAgent;
 
@@ -357,10 +388,21 @@ declare namespace reminderAgentManager {
      * @type { ?DataShareUpdate }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts{ '1.1':'11', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     dataShareUpdate?: DataShareUpdate;
   }
+
+  /**
+   * Record data type
+   * 
+   * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> }
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 20
+   * @arkts 1.2
+   */
+  type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>
 
   /**
    * Want agent information.
@@ -368,7 +410,8 @@ declare namespace reminderAgentManager {
    *
    * @interface WantAgent
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   interface WantAgent {
     /**
@@ -376,7 +419,8 @@ declare namespace reminderAgentManager {
      *
      * @type { string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     pkgName: string;
 
@@ -385,7 +429,8 @@ declare namespace reminderAgentManager {
      *
      * @type { string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     abilityName: string;
 
@@ -394,10 +439,11 @@ declare namespace reminderAgentManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 12
+     * @since arkts{ '1.1':'12', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     uri?: string;
-	
+
     /**
      * The description of the WantParams object in an Want
      *
@@ -406,6 +452,16 @@ declare namespace reminderAgentManager {
      * @since 12
      */
     parameters?: Record<string, Object>;
+
+    /**
+     * The description of the WantParams object in an Want
+     *
+     * @type { ?RecordData }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 20
+     * @arkts 1.2
+     */
+    parameters?: RecordData;
   }
 
   /**
@@ -415,7 +471,8 @@ declare namespace reminderAgentManager {
    * @interface DataShareUpdate
    * @syscap SystemCapability.Notification.ReminderAgent
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts{ '1.1':'11', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   interface DataShareUpdate {
     /**
@@ -424,7 +481,8 @@ declare namespace reminderAgentManager {
      * @type { string }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts{ '1.1':'11', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     uri: string;
 
@@ -434,7 +492,8 @@ declare namespace reminderAgentManager {
      * @type { Record<string, number | string | boolean> }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts{ '1.1':'11', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     equalTo: Record<string, number | string | boolean>;
 
@@ -444,7 +503,8 @@ declare namespace reminderAgentManager {
      * @type { ValuesBucket }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts{ '1.1':'11', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     value: ValuesBucket;
   }
@@ -454,7 +514,8 @@ declare namespace reminderAgentManager {
    *
    * @interface MaxScreenWantAgent
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   interface MaxScreenWantAgent {
     /**
@@ -462,7 +523,8 @@ declare namespace reminderAgentManager {
      *
      * @type { string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     pkgName: string;
 
@@ -471,7 +533,8 @@ declare namespace reminderAgentManager {
      *
      * @type { string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     abilityName: string;
   }
@@ -483,6 +546,7 @@ declare namespace reminderAgentManager {
    *
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 20
+   * @arkts 1.1&1.2
    */
   export enum RingChannel {
     /**
@@ -490,6 +554,7 @@ declare namespace reminderAgentManager {
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 20
+     * @arkts 1.1&1.2
      */
     RING_CHANNEL_ALARM = 0,
 
@@ -498,6 +563,7 @@ declare namespace reminderAgentManager {
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 20
+     * @arkts 1.1&1.2
      */
     RING_CHANNEL_MEDIA = 1,
   }
@@ -507,7 +573,8 @@ declare namespace reminderAgentManager {
    *
    * @interface ReminderRequest
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   interface ReminderRequest {
     /**
@@ -515,7 +582,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ReminderType }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     reminderType: ReminderType;
 
@@ -532,7 +600,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?[ActionButton?, ActionButton?, ActionButton?] }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 10
+     * @since arkts{ '1.1':'10', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     actionButton?: [ActionButton?, ActionButton?, ActionButton?];
 
@@ -541,7 +610,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?WantAgent }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     wantAgent?: WantAgent;
 
@@ -551,7 +621,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?MaxScreenWantAgent }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     maxScreenWantAgent?: MaxScreenWantAgent;
 
@@ -560,7 +631,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     ringDuration?: number;
 
@@ -570,6 +642,7 @@ declare namespace reminderAgentManager {
      * @type { ?RingChannel }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 20
+     * @arkts 1.1&1.2
      */
     ringChannel?: RingChannel;
 
@@ -578,7 +651,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     snoozeTimes?: number;
 
@@ -587,7 +661,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     timeInterval?: number;
 
@@ -596,7 +671,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     title?: string;
 
@@ -605,7 +681,8 @@ declare namespace reminderAgentManager {
      * 
      * @type { ?number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 18
+     * @since arkts{ '1.1':'18', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     titleResourceId?: number;
   
@@ -614,7 +691,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     content?: string;
 
@@ -623,7 +701,8 @@ declare namespace reminderAgentManager {
      * 
      * @type { ?number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 18
+     * @since arkts{ '1.1':'18', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     contentResourceId?: number;
   
@@ -632,7 +711,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     expiredContent?: string;
 
@@ -641,7 +721,8 @@ declare namespace reminderAgentManager {
      * 
      * @type { ?number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 18
+     * @since arkts{ '1.1':'18', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     expiredContentResourceId?: number;
   
@@ -650,7 +731,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     snoozeContent?: string;
 
@@ -659,7 +741,8 @@ declare namespace reminderAgentManager {
      * 
      * @type { ?number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 18
+     * @since arkts{ '1.1':'18', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     snoozeContentResourceId?: number;
   
@@ -668,7 +751,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     notificationId?: number;
 
@@ -677,7 +761,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 11
+     * @since arkts{ '1.1':'11', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     groupId?: string;
 
@@ -686,7 +771,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?notification.SlotType }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     slotType?: notification.SlotType;
 
@@ -695,7 +781,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 10
+     * @since arkts{ '1.1':'10', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     tapDismissed?: boolean;
 
@@ -704,16 +791,18 @@ declare namespace reminderAgentManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 10
+     * @since arkts{ '1.1':'10', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     autoDeletedTime?: number;
-
+     
     /**
      * Type of the snoozeSlot used by the reminder.
      *
      * @type { ?notification.SlotType }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 11
+     * @since arkts{ '1.1':'11', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     snoozeSlotType?: notification.SlotType;
 
@@ -722,7 +811,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 11
+     * @since arkts{ '1.1':'11', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     customRingUri?: string;
   }
@@ -733,7 +823,8 @@ declare namespace reminderAgentManager {
    * @extends ReminderRequest
    * @typedef ReminderRequestCalendar
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   interface ReminderRequestCalendar extends ReminderRequest {
     /**
@@ -741,7 +832,8 @@ declare namespace reminderAgentManager {
      *
      * @type { LocalDateTime }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     dateTime: LocalDateTime;
 
@@ -750,7 +842,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?Array<number> }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     repeatMonths?: Array<number>;
 
@@ -759,7 +852,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?Array<number> }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     repeatDays?: Array<number>;
 
@@ -768,7 +862,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?Array<number> }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 11
+     * @since arkts{ '1.1':'11', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     daysOfWeek?: Array<number>;
 
@@ -777,7 +872,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?LocalDateTime }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 12
+     * @since arkts{ '1.1':'12', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     endDateTime?: LocalDateTime;
 
@@ -788,7 +884,8 @@ declare namespace reminderAgentManager {
      * @type { ?WantAgent }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts{ '1.1':'12', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     rruleWantAgent?: WantAgent;
   }
@@ -799,7 +896,8 @@ declare namespace reminderAgentManager {
    * @extends ReminderRequest
    * @typedef ReminderRequestAlarm
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   interface ReminderRequestAlarm extends ReminderRequest {
     /**
@@ -807,7 +905,8 @@ declare namespace reminderAgentManager {
      *
      * @type { number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     hour: number;
 
@@ -816,7 +915,8 @@ declare namespace reminderAgentManager {
      *
      * @type { number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     minute: number;
 
@@ -825,7 +925,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?Array<number> }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     daysOfWeek?: Array<number>;
   }
@@ -836,7 +937,8 @@ declare namespace reminderAgentManager {
    * @extends ReminderRequest
    * @typedef ReminderRequestTimer
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   interface ReminderRequestTimer extends ReminderRequest {
     /**
@@ -844,7 +946,8 @@ declare namespace reminderAgentManager {
      *
      * @type { number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     triggerTimeInSeconds: number;
   }
@@ -854,7 +957,8 @@ declare namespace reminderAgentManager {
    *
    * @interface ReminderInfo
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 12
+   * @since arkts{ '1.1':'12', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   interface ReminderInfo {
     /**
@@ -862,7 +966,8 @@ declare namespace reminderAgentManager {
      *
      * @type { number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 12
+     * @since arkts{ '1.1':'12', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     reminderId: number;
 
@@ -871,7 +976,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ReminderRequest }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 12
+     * @since arkts{ '1.1':'12', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     reminderReq: ReminderRequest;
   }
@@ -881,7 +987,8 @@ declare namespace reminderAgentManager {
    *
    * @interface LocalDateTime
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since arkts{ '1.1':'9', '1.2':'20' }
+   * @arkts 1.1&1.2
    */
   interface LocalDateTime {
     /**
@@ -889,7 +996,8 @@ declare namespace reminderAgentManager {
      *
      * @type { number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     year: number;
 
@@ -898,7 +1006,8 @@ declare namespace reminderAgentManager {
      *
      * @type { number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     month: number;
 
@@ -907,7 +1016,8 @@ declare namespace reminderAgentManager {
      *
      * @type { number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     day: number;
 
@@ -916,7 +1026,8 @@ declare namespace reminderAgentManager {
      *
      * @type { number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     hour: number;
 
@@ -925,7 +1036,8 @@ declare namespace reminderAgentManager {
      *
      * @type { number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     minute: number;
 
@@ -934,7 +1046,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since arkts{ '1.1':'9', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     second?: number;
   }
