@@ -96,8 +96,9 @@ import customConfig from '@ohos.customization.customConfig';
 import zlib from '@ohos.zlib';
 import systemDateTime from '@ohos.systemDateTime';
 import systemTimer from '@ohos.systemTimer';
+import systemLoad from '@ohos.resourceschedule.systemload';
 
 export {
-  zlib, configPolicy, customConfig, systemDateTime, systemTimer
+  zlib, configPolicy, customConfig, systemDateTime, systemTimer, systemLoad
 };
 /*** endif */
