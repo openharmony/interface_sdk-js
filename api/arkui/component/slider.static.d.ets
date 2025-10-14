@@ -148,19 +148,19 @@ export declare interface SlideRange {
     /**
      * Start of the slide range.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    from?: number;
+    from?: double;
     /**
      * End of the slide range.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    to?: number;
+    to?: double;
 }
 /**
  * Parameters of the slider.
@@ -173,20 +173,20 @@ export declare interface SliderOptions {
     /**
      * Current value of Slider.
      *
-     * @type { ?(number| undefined | Bindable<number>) }
+     * @type { ?(double| undefined | Bindable<double>) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    value?: number | undefined | Bindable<number>;
+    value?: double | undefined | Bindable<double>;
     /**
      * Minimum value.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    min?: number;
+    min?: double;
     /**
      * Maximum value.
      * <p><strong>NOTE</strong>:
@@ -195,24 +195,24 @@ export declare interface SliderOptions {
      * whichever is closer.
      * </p>
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 100
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    max?: number;
+    max?: double;
     /**
      * Step of the slider.
      * <p><strong>NOTE</strong>:
      * <br>If this parameter is set to a value less than 0 or greater than the value of max, the default value is used.
      * </p>
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 1 - Value range: [0.01, max - min]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    step?: number;
+    step?: double;
     /**
      * Style of the slider thumb and track.
      *
@@ -311,12 +311,12 @@ export declare interface SliderBlockStyle {
  * Defines the callback type used in SliderConfiguration.
  *
  * @typedef {function} SliderTriggerChangeCallback
- * @param { number } value - Current progress.
+ * @param { double } value - Current progress.
  * @param { SliderChangeMode } mode - State triggered by the event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export type SliderTriggerChangeCallback = (value: number, mode: SliderChangeMode) => void;
+export type SliderTriggerChangeCallback = (value: double, mode: SliderChangeMode) => void;
 /**
  * You need a custom class to implement the ContentModifier API.
  *
@@ -329,35 +329,35 @@ export declare interface SliderConfiguration extends CommonConfiguration<SliderC
     /**
      * Current progress.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    value: number;
+    value: double;
     /**
      * Minimum value.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    min: number;
+    min: double;
     /**
      * Maximum value.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    max: number;
+    max: double;
     /**
      * Step of the slider.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    step: number;
+    step: double;
     /**
      * Triggers slider changes.
      *
@@ -441,12 +441,12 @@ export declare interface SliderAttribute extends CommonMethod {
      * not be triggered.
      * </p>
      *
-     * @param { ((value: number, mode: SliderChangeMode) => void) | undefined } callback
+     * @param { ((value: double, mode: SliderChangeMode) => void) | undefined } callback
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default onChange(callback: ((value: number, mode: SliderChangeMode) => void) | undefined): this;
+    default onChange(callback: ((value: double, mode: SliderChangeMode) => void) | undefined): this;
     /**
      * Called when the border color of block is set.
      *
@@ -533,12 +533,12 @@ export declare interface SliderAttribute extends CommonMethod {
     /**
      * Sets the min value when Slider response to drag event.
      *
-     * @param { number | undefined } value
+     * @param { double | undefined } value
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default minResponsiveDistance(value: number | undefined): this;
+    default minResponsiveDistance(value: double | undefined): this;
     /**
      * Creates a content modifier.
      *

@@ -82,21 +82,21 @@ export declare class LevelOrder {
     /**
      * Generate valid level order.
      *
-     * @param { number } order - Clamp order with mininum number -100000 and maximum number 100000.
+     * @param { double } order - Clamp order with mininum number -100000 and maximum number 100000.
      * @returns { LevelOrder } the order object.
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 staticonly
      */
-    static clamp(order: number): LevelOrder;
+    static clamp(order: double): LevelOrder;
     /**
      * Get the order from LevelOrder object.
      *
-     * @returns { number } the order number.
+     * @returns { double } the order number.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 staticonly
      */
-    getOrder(): number;
+    getOrder(): double;
 }
 
 
@@ -135,21 +135,21 @@ declare namespace promptAction {
          * The recommended value ranges from 1500ms to 10000ms.
          * NOTE: A value less than 1500 is automatically changed to 1500. The maximum value is 10000ms.
          *
-         * @type { ?number }
+         * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 staticonly
          */
-        duration?: number;
+        duration?: int;
         
         
         /**
          * The distance between toast dialog box and the bottom of screen.
          *
-         * @type { ?(string | number) }
+         * @type { ?(string | double) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 staticonly
          */
-        bottom?: string | number;
+        bottom?: string | double;
         
         /**
          * Determine the show mode of the toast.
@@ -392,11 +392,11 @@ declare namespace promptAction {
         /**
          * Index of the selected button, starting from 0.
          *
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 staticonly
          */
-        index: number;
+        index: int;
     }
     
     
@@ -590,11 +590,11 @@ declare namespace promptAction {
         /**
          * The uniqueId of any node in the router or navigation page.
          *
-         * @type { ?number }
+         * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 staticonly
          */
-        levelUniqueId?: number;
+        levelUniqueId?: int;
         /**
          * Determine the immersive mode of the dialog.
          *
@@ -844,11 +844,11 @@ declare namespace promptAction {
         /**
          * The uniqueId of any node in the router or navigation page.
          *
-         * @type { ?number }
+         * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 staticonly
          */
-        levelUniqueId?: number;
+        levelUniqueId?: int;
         /**
          * Determine the immersive mode of the dialog.
          *
@@ -1108,11 +1108,11 @@ declare namespace promptAction {
         /**
          * Index of the selected button, starting from 0.
          *
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 staticonly
          */
-        index: number;
+        index: int;
     }
     
     
@@ -1177,11 +1177,11 @@ declare namespace promptAction {
         /**
          * The uniqueId of any node in the router or navigation page.
          *
-         * @type { ?number }
+         * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 staticonly
          */
-        levelUniqueId?: number;
+        levelUniqueId?: int;
         /**
          * Determine the immersive mode of the dialog.
          *
@@ -1196,7 +1196,7 @@ declare namespace promptAction {
      * Displays the notification text.
      *
      * @param { ShowToastOptions } options - Options.
-     * @returns { Promise<number> } return the toast id that will be used by closeToast.
+     * @returns { Promise<int> } return the toast id that will be used by closeToast.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
@@ -1205,11 +1205,11 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 staticonly
      */
-    export function openToast(options: ShowToastOptions): Promise<number>;
+    export function openToast(options: ShowToastOptions): Promise<int>;
     /**
      * Close the notification text.
      *
-     * @param { number } toastId - the toast id that returned by openToast.
+     * @param { int } toastId - the toast id that returned by openToast.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
@@ -1219,6 +1219,6 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 staticonly
      */
-    export function closeToast(toastId: number): void;
+    export function closeToast(toastId: int): void;
 }
 export default promptAction;

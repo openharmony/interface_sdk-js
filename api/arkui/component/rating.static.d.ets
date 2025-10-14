@@ -32,11 +32,11 @@ export declare interface RatingOptions {
     /**
      * Rating option.
      *
-     * @type { number | undefined | Bindable<number> }
+     * @type { double | undefined | Bindable<double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    rating: number | undefined | Bindable<number>;
+    rating: double | undefined | Bindable<double>;
     /**
      * Indicator option.
      *
@@ -94,11 +94,11 @@ export declare interface RatingConfiguration extends CommonConfiguration<RatingC
     /**
      * Current number of Rating.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    rating: number;
+    rating: double;
     /**
      * Indicates whether Rating is used as an indicator.
      *
@@ -110,37 +110,37 @@ export declare interface RatingConfiguration extends CommonConfiguration<RatingC
     /**
      * Total stars of Rating.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    stars: number;
+    stars: int;
     /**
      * The step size of the Rating.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    stepSize: number;
+    stepSize: double;
     /**
      * Trigger Rating select change.
      *
-     * @type { Callback<number> }
+     * @type { Callback<double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    triggerChange: Callback<number>;
+    triggerChange: Callback<double>;
 }
 /**
  * Callback of the star rating of the operation scoring bar changes event.
  *
  * @typedef {function} OnRatingChangeCallback
- * @param {number} rating - The rating of the rating bar.
+ * @param {double} rating - The rating of the rating bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export type OnRatingChangeCallback = (rating: number) => void;
+export type OnRatingChangeCallback = (rating: double) => void;
 /**
  * Defines the Rating component attributes.
  *
@@ -153,21 +153,21 @@ export declare interface RatingAttribute extends CommonMethod {
     /**
      * Called when the total number of stars is set.
      *
-     * @param { number | undefined } value
+     * @param { int | undefined } value
      * @returns { RatingAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default stars(value: number | undefined): this;
+    default stars(value: int | undefined): this;
     /**
      * Called when the step size of the operation rating.
      *
-     * @param { number | undefined } value
+     * @param { double | undefined } value
      * @returns { RatingAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default stepSize(value: number | undefined): this;
+    default stepSize(value: double | undefined): this;
     /**
      * Called when a picture is set.
      * Anonymous Object Rectification.

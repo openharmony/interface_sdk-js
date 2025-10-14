@@ -155,20 +155,20 @@ export interface ActionSheetOffset {
      * Offset of the action sheet along the x-axis relative to the alignment position.
      * Anonymous Object Rectification.
      *
-     * @type { number | string | Resource }
+     * @type { double | string | Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    dx: number | string | Resource;
+    dx: double | string | Resource;
     /**
      * Offset of the action sheet along the y-axis relative to the alignment position.
      * Anonymous Object Rectification.
      *
-     * @type { number | string | Resource }
+     * @type { double | string | Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    dy: number | string | Resource;
+    dy: double | string | Resource;
 }
 /**
  * The options of ActionSheet.
@@ -511,11 +511,11 @@ export interface ActionSheetOptions {
      * <br>This parameter takes effect only when levelMode is set to LevelMode.EMBEDDED.
      * </p>
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    levelUniqueId?: number;
+    levelUniqueId?: int;
     /**
      * Overlay effect for the page-level dialog box.
      *
