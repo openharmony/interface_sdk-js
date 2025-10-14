@@ -4174,11 +4174,9 @@ export declare interface ClickEvent extends BaseEvent {
      * @type { function }
      * @throws { BusinessError } 100017 - Component does not support prevent function.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
-    preventDefault: () => void;
+    preventDefault(): void;
 }
 /**
  * The hover action triggers this method invocation.
@@ -4660,7 +4658,7 @@ export declare interface TouchEvent extends BaseEvent {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    stopPropagation: () => void;
+    stopPropagation(): void;
     /**
      * Obtains all historical points of the current frame.
      *
@@ -4677,7 +4675,7 @@ export declare interface TouchEvent extends BaseEvent {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    preventDefault: () => void;
+    preventDefault(): void;
 }
 /**
  * The axis event triggers this method invocation.
@@ -5526,7 +5524,7 @@ export declare interface KeyEvent {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    stopPropagation: () => void;
+    stopPropagation(): void;
     /**
      * Intention code of a key or modifier keys.
      *
