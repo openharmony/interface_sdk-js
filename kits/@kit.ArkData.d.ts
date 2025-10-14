@@ -53,7 +53,12 @@ import uniformTypeDescriptor from '@ohos.data.uniformTypeDescriptor';
 import preferences from '@ohos.data.preferences';
 import { ValueType, ValuesBucket } from '@ohos.data.ValuesBucket';
 import distributedKVStore from '@ohos.data.distributedKVStore';
+import DataShareExtensionAbility from '@ohos.application.DataShareExtensionAbility';
+import dataShare from '@ohos.data.dataShare';
+import dataSharePredicates from '@ohos.data.dataSharePredicates';
+import DataShareResultSet from '@ohos.data.DataShareResultSet';
 export {
-  ValueType, ValuesBucket, relationalStore, unifiedDataChannel, uniformTypeDescriptor, preferences, distributedKVStore
+  ValueType, ValuesBucket, relationalStore, unifiedDataChannel, uniformTypeDescriptor, preferences, distributedKVStore,
+  DataShareExtensionAbility, dataShare, dataSharePredicates, DataShareResultSet
 };
 /*** endif */
