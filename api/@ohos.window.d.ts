@@ -1305,70 +1305,80 @@ declare namespace window {
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum WindowAnchor {
     /**
      * The value means window top left corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     TOP_START = 0,
     /**
      * The value means horizontal midpoint of the border on the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     TOP = 1,
     /**
      * The value means window top right corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     TOP_END = 2,
     /**
      * The value means vertical midpoint of the left border of the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     START = 3,
     /**
      * The value means window horizontal and vertical midpoint.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     CENTER = 4,
     /**
      * The value means vertical midpoint of the right border of the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     END = 5,
     /**
      * The value means window bottom left corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     BOTTOM_START = 6,
     /**
      * The value means horizontal midpoint of the lower border of the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     BOTTOM = 7,
     /**
      * The value means window bottom right corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     BOTTOM_END = 8,
   }
@@ -5795,7 +5805,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     setRelativePositionToParentWindowEnabled(enabled: boolean, anchor?: WindowAnchor,
         offsetX?: number, offsetY?: number): Promise<void>;
@@ -11280,8 +11291,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
-     * 
+     * @since 19 dynamic
+     * @since 22 static
      */
     setWindowDelayRaiseOnDrag(isEnabled: boolean): void;
 
