@@ -48,13 +48,13 @@ export interface TriggerInfo {
   /**
    * Result code.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  code: number;
+  code: int;
 
   /**
    * Extra Want.
