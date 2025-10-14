@@ -85,11 +85,11 @@ declare namespace backgroundTaskManager {
     /**
      * The continuous task id, default -1.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21
      */
-    continuousTaskId?: int;
+    continuousTaskId?: number;
 
     /**
      * Whether the modes of continuous task are supported.
@@ -139,19 +139,19 @@ declare namespace backgroundTaskManager {
     /**
      * The unique identifier of the delay request.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 9
      */
-    requestId: int;
+    requestId: number;
     /**
      * The actual delay duration (ms).
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 9
      */
-    actualDelayTime: int;
+    actualDelayTime: number;
   }
 
   /**
@@ -165,11 +165,11 @@ declare namespace backgroundTaskManager {
     /**
      * Total remaining quota of an application in one day.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 20
      */
-    remainingQuota: int;
+    remainingQuota: number;
     /**
      * The info list of delay suspend.
      *
@@ -210,19 +210,19 @@ declare namespace backgroundTaskManager {
     /**
      * The notification id.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice
      * @since 12
      */
-    notificationId: int;
+    notificationId: number;
     /**
      * The continuous task id.
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15
      */
-    continuousTaskId?: int;
+    continuousTaskId?: number;
   }
 
   /**
@@ -245,11 +245,11 @@ declare namespace backgroundTaskManager {
     /**
      * The id of cancelled continuous task.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15
      */
-    id: int;
+    id: number;
   }
 
   /**
@@ -263,11 +263,11 @@ declare namespace backgroundTaskManager {
     /**
      * The id of active continuous task.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20
      */
-    id: int;
+    id: number;
   }
 
   /**
@@ -289,19 +289,19 @@ declare namespace backgroundTaskManager {
    /**
      * The uid of apply continuous task.
      *
-     * @type { int}
+     * @type { number}
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20
      */
-    uid: int;
+    uid: number;
    /**
      * The pid of apply continuous task.
      *
-     * @type { int}
+     * @type { number}
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20
      */
-    pid: int;
+    pid: number;
     /**
      * Is apply continuous task from webview.
      *
@@ -329,25 +329,25 @@ declare namespace backgroundTaskManager {
     /**
      * The notification id of apply continuous task.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20
      */
-    notificationId: int;
+    notificationId: number;
     /**
      * The continuous task id of apply continuous task.
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20
      */
-    continuousTaskId: int;
+    continuousTaskId: number;
    /**
      * The ability id of apply continuous task.
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20
      */
-    abilityId: int;
+    abilityId: number;
     /**
      * The wantAgent bundle name of apply continuous task.
      * @type { string }
@@ -382,11 +382,11 @@ declare namespace backgroundTaskManager {
     /**
      * The id of suspended continuous task.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20
      */
-    continuousTaskId: int;
+    continuousTaskId: number;
 
     /**
      * The suspend state of continuous task.
@@ -419,21 +419,21 @@ declare namespace backgroundTaskManager {
     /**
      * The set of resource types that app wants to apply.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 20
      */
-    resourceTypes: int;
+    resourceTypes: number;
     /**
      * The duration that the resource can be used most.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 20
      */
-    timeout: int;
+    timeout: number;
     /**
      * True if the apply action is persistent, else false. Default value is false.
      *
@@ -464,27 +464,27 @@ declare namespace backgroundTaskManager {
    /**
      * The uid of apply efficiency resources.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 20
      */
-    uid: int;
+    uid: number;
    /**
      * The pid of apply efficiency resources.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 20
      */
-    pid: int;
+    pid: number;
   }
 
   /**
    * Cancels delayed transition to the suspended state.
    *
-   * @param { int } requestId - The identifier of the delay request.
+   * @param { number } requestId - The identifier of the delay request.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
@@ -497,13 +497,13 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 9
    */
-  function cancelSuspendDelay(requestId: int): void;
+  function cancelSuspendDelay(requestId: number): void;
 
   /**
    * Obtains the remaining time before an application enters the suspended state.
    *
-   * @param { int } requestId - The identifier of the delay request.
-   * @param { AsyncCallback<int> } callback - The callback of the remaining delay time.
+   * @param { number } requestId - The identifier of the delay request.
+   * @param { AsyncCallback<number> } callback - The callback of the remaining delay time.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
@@ -516,13 +516,13 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 9
    */
-  function getRemainingDelayTime(requestId: int, callback: AsyncCallback<int>): void;
+  function getRemainingDelayTime(requestId: number, callback: AsyncCallback<number>): void;
 
   /**
    * Obtains the remaining time before an application enters the suspended state.
    *
-   * @param { int } requestId - The identifier of the delay request.
-   * @returns { Promise<int> } The promise returns the remaining delay time.
+   * @param { number } requestId - The identifier of the delay request.
+   * @returns { Promise<number> } The promise returns the remaining delay time.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
@@ -535,7 +535,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 9
    */
-  function getRemainingDelayTime(requestId: int): Promise<int>;
+  function getRemainingDelayTime(requestId: number): Promise<number>;
 
   /**
    * Requests delayed transition to the suspended state.
@@ -872,7 +872,7 @@ declare namespace backgroundTaskManager {
    * UI ability uses this method to request stop running in background acording to continuous task id.
    *
    * @param { Context } context - App running context.
-   * @param { int } continuousTaskId - continuousTaskId.
+   * @param { number } continuousTaskId - continuousTaskId.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
@@ -882,7 +882,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 21
    */
-  function stopBackgroundRunning(context: Context, continuousTaskId: int): Promise<void>;
+  function stopBackgroundRunning(context: Context, continuousTaskId: number): Promise<void>;
 
   /**
    * Obtains all the continuous tasks before an application enters the suspended state,
@@ -1054,14 +1054,14 @@ declare namespace backgroundTaskManager {
   /**
    * Supported background mode.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 9
    */
   /**
    * Supported background mode.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
    * @since 12
@@ -1159,7 +1159,7 @@ declare namespace backgroundTaskManager {
   /**
    * Supported Continuous task mode.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 21
    */
@@ -1258,7 +1258,7 @@ declare namespace backgroundTaskManager {
   /**
    * Supported Continuous task submode.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 21
    */
@@ -1347,7 +1347,7 @@ declare namespace backgroundTaskManager {
   /**
    * The type of resource.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -1447,12 +1447,12 @@ declare namespace backgroundTaskManager {
     /**
      * The set of resource types that app wants to apply.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    resourceTypes: int;
+    resourceTypes: number;
 
     /**
      * True if the app begin to use, else false.
@@ -1467,12 +1467,12 @@ declare namespace backgroundTaskManager {
     /**
      * The duration that the resource can be used most.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    timeOut: int;
+    timeOut: number;
 
     /**
      * True if the apply action is persist, else false. Default value is false.
@@ -1508,7 +1508,7 @@ declare namespace backgroundTaskManager {
   /**
    * The type of continuous task cancel reason.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 15
    */
@@ -1603,7 +1603,7 @@ declare namespace backgroundTaskManager {
   /**
    * Supported background submode.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 16
    */
@@ -1637,7 +1637,7 @@ declare namespace backgroundTaskManager {
   /**
    * Type of continuous task suspend reason.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 20
    */
@@ -1726,7 +1726,7 @@ declare namespace backgroundTaskManager {
   /**
    * Type of user authorization status.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 22
    */
