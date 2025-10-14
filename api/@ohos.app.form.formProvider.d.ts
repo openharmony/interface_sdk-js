@@ -20,9 +20,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 import formBindingData from './@ohos.app.form.formBindingData';
-/*** if arkts 1.1 */
 import formInfo from './@ohos.app.form.formInfo';
-/*** endif */
 import Want from './@ohos.app.ability.Want';
 import type UIAbilityContext from './application/UIAbilityContext';
 
@@ -470,6 +468,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   function openFormManagerCrossBundle(want: Want): void
 
@@ -509,6 +508,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   function activateSceneAnimation(formId: string): Promise<void>;
 
@@ -530,6 +530,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   function deactivateSceneAnimation(formId: string): Promise<void>;
 
@@ -551,6 +552,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function requestOverflow(formId: string, overflowInfo: formInfo.OverflowInfo): Promise<void>;
 
@@ -571,6 +573,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function cancelOverflow(formId: string): Promise<void>;
 
@@ -591,6 +594,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function getFormRect(formId: string): Promise<formInfo.Rect>;
 
