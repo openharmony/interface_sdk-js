@@ -436,23 +436,5 @@ declare class deviceInfo {
      * @since 20 static
      */
     static get diskSN(): string;
-
-    /**
-   * Obtains the sdk minor api version
-   * 
-   * @syscap SystemCapability.Startup.SystemInfo
-   * @crossplatform
-   * @since 20 static
-   */
-  static get sdkMinorApiVersion(): int;
-
-  /**
-   * Obtains the sdk patch api version
-   * 
-   * @syscap SystemCapability.Startup.SystemInfo
-   * @crossplatform
-   * @since 20 static
-   */
-  static get sdkPatchApiVersion(): int;
 }
 export default deviceInfo;
