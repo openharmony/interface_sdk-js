@@ -78,8 +78,6 @@ export declare class ReuseObject {
  *
  * Entry is an Annotation and it supports parameters.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20 static
  */
 @Retention({policy: "SOURCE"})
@@ -89,7 +87,6 @@ export @interface Entry {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     routeName: string = "";
@@ -99,7 +96,6 @@ export @interface Entry {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     storage: string = "";
@@ -109,8 +105,6 @@ export @interface Entry {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     useSharedStorage: boolean = false;
@@ -121,8 +115,6 @@ export @interface Entry {
  *
  * Component is an Annotation to define a custom component using state management V1.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20 static
  */
 @Retention({policy: "SOURCE"})
@@ -133,8 +125,6 @@ export @interface Component {}
  *
  * ComponentV2 is an Annotation to define a custom component using state management V2.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20 static
  */
 @Retention({policy: "SOURCE"})
@@ -144,8 +134,6 @@ export @interface ComponentV2 {}
  * Defining Reusable Annotation that is used to decorate @Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20 static
  */
 @Retention({policy: "SOURCE"})
@@ -155,8 +143,6 @@ export @interface Reusable {}
  * Defining ReusableV2 Annotation that is used to decorate @ComponentV2.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20 static
  */
 @Retention({policy: "SOURCE"})
@@ -166,8 +152,6 @@ export @interface ReusableV2 {}
  * Defining CustomLayout Annotation that is used to decorate @Component and @ComponentV2.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20 static
  */
 @Retention({policy: "SOURCE"})
@@ -195,8 +179,6 @@ export declare abstract class EntryPoint {
  *
  * CustomDialog is an Annotation to define a custom dialog.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20 static
  */
 @Retention({policy: "SOURCE"})
@@ -207,8 +189,6 @@ export @interface CustomDialog {}
  *
  * @extends ExtendableComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20 static
  */
 export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_Options>, T_Options> extends ExtendableComponent {
@@ -253,8 +233,6 @@ export declare abstract class BaseCustomComponent<T_Options> extends ExtendableC
      * aboutToRecycle Method.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     aboutToRecycle(): void;
@@ -265,8 +243,6 @@ export declare abstract class BaseCustomComponent<T_Options> extends ExtendableC
  *
  * @extends BaseCustomComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20 static
  */
 export declare abstract class CustomComponent<T extends CustomComponent<T, T_Options>, T_Options> extends BaseCustomComponent<T_Options> {
@@ -316,8 +292,6 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
  *
  * @extends BaseCustomComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20 static
  */
 export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T_Options>, T_Options> extends BaseCustomComponent<T_Options> {
@@ -345,8 +319,6 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
      * aboutToReuse Method
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     aboutToReuse(): void;
@@ -356,8 +328,6 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
  * Defining interface of PageLifeCycle for custom component, when decorate with @Entry.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20 static
  */
 export interface PageLifeCycle {

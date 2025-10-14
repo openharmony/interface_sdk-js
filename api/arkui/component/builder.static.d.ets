@@ -25,10 +25,8 @@ import { Callback } from '@ohos.base';
  * Defines Builder Annotation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20 static
+ * @noninterop
  */
 @Retention({policy: "SOURCE"})
 export declare @interface Builder {}
@@ -37,9 +35,6 @@ export declare @interface Builder {}
  * Defines BuilderParam Annotation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20 static
  */
 @Retention({policy: "SOURCE"})
@@ -50,10 +45,8 @@ export declare @interface BuilderParam {}
  *
  * @typedef { @Builder (() => void) } CustomBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20 static
+ * @noninterop
  */
 export type CustomBuilder = @Builder (() => void);
 
@@ -62,10 +55,8 @@ export type CustomBuilder = @Builder (() => void);
  *
  * @typedef { @Builder ((t:T) => void) } CustomBuilderT
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20 static
+ * @noninterop
  */
 export type CustomBuilderT<T> = @Builder ((t: T) => void);
 
@@ -75,6 +66,7 @@ export type CustomBuilderT<T> = @Builder ((t: T) => void);
  * @typedef { function }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export type PageMapBuilder = @Builder ((name: string, param: Object | null | undefined) => void);
 
@@ -84,6 +76,7 @@ export type PageMapBuilder = @Builder ((name: string, param: Object | null | und
  * @returns { WrappedBuilder<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare function wrapBuilder<T>(builder: T): WrappedBuilder<T>;
 
@@ -91,6 +84,7 @@ export declare function wrapBuilder<T>(builder: T): WrappedBuilder<T>;
  * Defines the WrappedBuilder class.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare class WrappedBuilder<T> {
 
