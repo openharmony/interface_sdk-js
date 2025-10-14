@@ -362,9 +362,10 @@ export enum GeometryType {
 /**
  * The enum of rendering pipeline type.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 21 dynamic
+ * @since 22 static
  */
 export enum RenderingPipelineType {
   /**
@@ -374,6 +375,7 @@ export enum RenderingPipelineType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
+   * @since 22 static
    */
   FORWARD_LIGHTWEIGHT = 0,
   
@@ -383,6 +385,7 @@ export enum RenderingPipelineType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
+   * @since 22 static
    */
   FORWARD = 1
 }

@@ -22,7 +22,7 @@
 import { Resource } from '../global/resource';
 import { Shader, Animation, Environment, Image, MeshResource, Sampler, SceneResource } from './SceneResources';
 import { Camera, LightType, Light, Node, NodeType } from './SceneNodes';
-import { Position3, Color, GeometryDefinition, Vec2, Vec3, Vec4 } from './SceneTypes';
+import { Position3, Color, GeometryDefinition, RenderingPipelineType, Vec2, Vec3, Vec4 } from './SceneTypes';
 /*** endif */
 /*** if arkts dynamic */
 import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource, Effect } from './SceneResources';
@@ -231,8 +231,19 @@ export interface RenderResourceFactory {
  * @interface CameraParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 21 dynamic
+ * @since 22 static
  */
 export interface CameraParameters {
+  /**
+   * Select whether MSAA is enabled.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  msaa?: boolean;
+
   /**
    * Select the initial rendering pipeline type to use.
    * 
@@ -240,6 +251,7 @@ export interface CameraParameters {
    * @default RenderingPipelineType.FORWARD_LIGHTWEIGHT
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
+   * @since 22 static
    */
   renderingPipeline?: RenderingPipelineType;
 }
@@ -291,6 +303,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    * @returns { Promise<Camera> } promise a camera
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
+   * @since 22 static
    */
   createCamera(params: SceneNodeParameters, cameraParams: CameraParameters): Promise<Camera>;
   

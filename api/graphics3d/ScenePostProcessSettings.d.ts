@@ -133,6 +133,57 @@ export interface BloomSettings {
 }
 
 /**
+ * Defines vignette parameters.
+ *
+ * @typedef VignetteSettings
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 22 dynamic&static
+ */
+export interface VignetteSettings {
+  /**
+   * Controls the roundness of vignette between [0, 1].
+   * Lower value will make the vignette effect more square.
+   *
+   * @type { ?double }
+   * @default 0.707
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  roundness?: double;
+
+  /**
+   * Controls how strong the dark or bright edges are.
+   * When intensity > 0, the edges darken and the center brightens, creating a classic vignette effect.
+   * When intensity < 0, the center darkens and the edges brighten, producing an reverse vignette effect.
+   *
+   * @type { ?double }
+   * @default 0.4
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  intensity?: double;
+}
+
+/**
+ * Defines color fringe parameters.
+ *
+ * @typedef ColorFringeSettings
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 22 dynamic&static
+ */
+export interface ColorFringeSettings {
+  /**
+   * Controls the strength of color fringe.
+   *
+   * @type { ?double }
+   * @default 0.2
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  intensity?: double;
+}
+
+/**
  * Defines post processing settings.
  *
  * @typedef PostProcessSettings 
@@ -159,4 +210,24 @@ export interface PostProcessSettings {
    * @since 18 dynamic
    */
   bloom?: BloomSettings;
+
+  /**
+   * Vignette settings of the post processing settings
+   *
+   * @type { ?VignetteSettings }
+   * @default vignette enabled by default
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  vignette?: VignetteSettings;
+
+  /**
+   * Color fringe settings of the post processing settings
+   *
+   * @type { ?ColorFringeSettings }
+   * @default colorFringe enabled by default
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  colorFringe?: ColorFringeSettings;
 }
