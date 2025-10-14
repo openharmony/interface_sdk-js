@@ -37,7 +37,7 @@ declare namespace intl {
    */
   export interface DateTimeOptions {
     /**
-     * Valid locale ID, for example, "zh-Hans-CN". The default value is the current system locale.
+     * Valid locale ID, for example, "zh-Hans-CN". The default value is the current system locale. 
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -64,7 +64,7 @@ declare namespace intl {
     timeStyle?: string;
 
     /**
-     * Hour cycle. The value can be: "h11", "h12", "h23", or "h24".
+     * Hour cycle. The value can be: "h11", "h12", "h23", or "h24". 
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -73,7 +73,7 @@ declare namespace intl {
     hourCycle?: string;
 
     /**
-     * Time zone in use. The value is a valid IANA time zone ID.
+     * Time zone in use. The value is a valid IANA time zone ID. 
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -238,9 +238,9 @@ declare namespace intl {
      * Creates a DateTimeOptions object for the specified locale.
      *
      * @param { string | Array<string> } locale - Locale ID or locale ID array. If the input is a locale ID array, the
-     *                                            first valid locale ID is used.
+     *     first valid locale ID is used.
      * @param { DateTimeOptions } [options] - Options for creating the DateTimeOptions object.<br>If no options are
-     *                                        set, the default values of year, month, and day are numeric.
+     *     set, the default values of year, month, and day are numeric.
      * @syscap SystemCapability.Global.I18n
      * @since 20 static
      */
@@ -260,7 +260,7 @@ declare namespace intl {
      * Formats date and time ranges.
      *
      * @param { Date } startDate - Start date and time. Note: The month starts from 0. For example, 0 indicates
-     *                             January.
+     *     January.
      * @param { Date } endDate - End date and time. Note: The month starts from 0. For example, 0 indicates January.
      * @returns { string } a date string formatted based on the specified locale.
      * @syscap SystemCapability.Global.I18n
@@ -553,7 +553,7 @@ declare namespace intl {
      * Creates a NumberFormat object for the specified locale.
      *
      * @param { string | Array<string> } locale - Locale ID or locale ID array. If the input is a locale ID array,
-     *                                            the first valid locale ID is used.
+     *     the first valid locale ID is used.
      * @param { NumberOptions } [options] - Options for creating the NumberFormat object.
      * @syscap SystemCapability.Global.I18n
      * @since 20 static
@@ -674,6 +674,7 @@ declare namespace intl {
    * Enable language-sensitive string comparison.
    *
    * @syscap SystemCapability.Global.I18n
+   * @crossplatform
    * @since 20 static
    */
   export class Collator {
@@ -689,7 +690,7 @@ declare namespace intl {
      * Creates a Collator object.
      *
      * @param { string | Array<string> } locale - Locale ID or locale ID array. If the input is a locale ID array,
-     *                                            the first valid locale ID is used.
+     *     the first valid locale ID is used.
      * @param { CollatorOptions } [options] - Options for creating a Collator object.
      * @syscap SystemCapability.Global.I18n
      * @since 20 static
@@ -702,8 +703,8 @@ declare namespace intl {
      * @param { string } first - First string to compare.
      * @param { string } second - Second string to compare.
      * @returns { int } Comparison result. If the value is a negative number, the first string comes before the
-     *                     second string. If the value is 0, the first and second strings are in the same sequence.
-     *                     If the value is a positive number, the first string is comes after the second string.
+     *     second string. If the value is 0, the first and second strings are in the same sequence.
+     *     If the value is a positive number, the first string is comes after the second string.
      * @syscap SystemCapability.Global.I18n
      * @since 20 static
      */

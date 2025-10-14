@@ -51,7 +51,6 @@
  * @form
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare namespace intl {
   /**
@@ -1031,14 +1030,14 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Valid locale ID, for example, "zh-Hans-CN". The default value is the current system locale.
+     * Valid locale ID, for example, "zh-Hans-CN". The default value is the current system locale. 
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12 dynamiconly
+     * @since 12 dynamic
      * @deprecated since 20
      */
     locale?: string;
@@ -3513,7 +3512,7 @@ declare namespace intl {
      */
     /**
      * Collation type. The value can be "cardinal" or "ordinal". The default value is "cardinal". The value "cardinal"
-     * indicates a cardinal number and the value "ordinal" indicates an ordinal number.
+     * indicates a cardinal number and the value "ordinal" indicates an ordinal number. 
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
