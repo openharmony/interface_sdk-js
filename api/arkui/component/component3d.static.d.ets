@@ -166,8 +166,8 @@ export declare interface Component3DAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 static
    */
-  default attributeModifier(modifier: AttributeModifier<Component3DAttribute> |
-      AttributeModifier<CommonMethod> | undefined): this;
+  default attributeModifier(modifier: AttributeModifier<Component3DAttribute>
+      | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
