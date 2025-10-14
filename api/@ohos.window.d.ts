@@ -11281,6 +11281,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19
+     * 
      */
     setWindowDelayRaiseOnDrag(isEnabled: boolean): void;
 
