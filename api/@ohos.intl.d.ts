@@ -1164,7 +1164,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Hour cycle. The value can be: "h11", "h12", "h23", or "h24".
+     * Hour cycle. The value can be: "h11", "h12", "h23", or "h24". 
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1209,7 +1209,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Time zone in use. The value is a valid IANA time zone ID.
+     * Time zone in use. The value is a valid IANA time zone ID. 
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
