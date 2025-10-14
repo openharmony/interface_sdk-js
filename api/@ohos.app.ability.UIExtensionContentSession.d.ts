@@ -188,7 +188,6 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 20 static
    */
   loadContentByName(name: string, storage?: LocalStorage): void;
 
@@ -606,7 +605,6 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
    */
   setWindowPrivacyMode(isPrivacyMode: boolean): Promise<void>;
 
@@ -623,7 +621,6 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
    */
   setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
 
@@ -759,7 +756,6 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
    */
   getUIExtensionWindowProxy(): uiExtension.WindowProxy;
 }

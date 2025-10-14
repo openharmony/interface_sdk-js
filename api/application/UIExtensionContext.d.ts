@@ -418,7 +418,6 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
    */
   openLink(link: string, options?: OpenLinkOptions, callback?: AsyncCallback<AbilityResult>): Promise<void>;
 
@@ -961,7 +960,6 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
    */
   openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<AbilityResult>;
 
