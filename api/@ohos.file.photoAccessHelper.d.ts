@@ -3053,7 +3053,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 20
+     * @since 21
      * @arkts 1.1&1.2
      */
     EXIF_ROTATE = 'exif_rotate',
