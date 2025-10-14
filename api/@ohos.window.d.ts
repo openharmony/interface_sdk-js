@@ -1303,7 +1303,7 @@ declare namespace window {
   /**
    * Enum for window anchor
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Window.SessionManager
    * @since 20 dynamic
    * @since 22 static
@@ -5792,10 +5792,10 @@ declare namespace window {
      *     when the relative position between the primary sub window and the main window remains unchanged. The
      *     default value is window.WindowAnchor.TOP_Start, meaning the default anchor point is the top-left corner
      *     of the window.
-     * @param { number } [offsetX] - The x-axis offset
+     * @param { int } [offsetX] - The x-axis offset
      *     between the anchor point of the first level sub window and the anchor point of the main window.
      *     The default value is 0.
-     * @param { number } [offsetY] - The y-axis offset
+     * @param { int } [offsetY] - The y-axis offset
      *     between the anchor point of the first level sub window and the anchor point of the main window.
      *     The default value is 0.
      * @returns { Promise<void> } Promise that returns no value.
@@ -5809,7 +5809,7 @@ declare namespace window {
      * @since 22 static
      */
     setRelativePositionToParentWindowEnabled(enabled: boolean, anchor?: WindowAnchor,
-        offsetX?: number, offsetY?: number): Promise<void>;
+        offsetX?: int, offsetY?: int): Promise<void>;
 
     /**
      * Set the type of a window.
