@@ -26,7 +26,7 @@ import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Defines the list item group style.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
@@ -89,11 +89,11 @@ export declare interface ListItemGroupOptions {
     /**
      * Describes the ListItemGroup space.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    space?: number | string;
+    space?: double | string;
     /**
      * Describes the ListItemGroup style.
      *

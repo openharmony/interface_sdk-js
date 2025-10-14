@@ -867,8 +867,9 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 14 dynamic
+   * @since 20 static
    */
-  function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>);
+  function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>): void;
 
   /**
    * Clear up application data by bundle name

@@ -28,5 +28,5 @@ import { ButtonAttribute } from './component/button';
  * @implements { ButtonAttribute, AttributeModifier<ButtonAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
-*/
+ */
 export declare class ButtonModifier implements ButtonAttribute, AttributeModifier<ButtonAttribute> {}

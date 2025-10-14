@@ -2913,26 +2913,46 @@ declare namespace rpc {
     /**
      * Indicates synchronous call.
      *
-     * @type { int }
+     * @type { number }
      * @default 0
      * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      */
-    static readonly TF_SYNC: int;
+    static readonly TF_SYNC: number;
+
+    /**
+     * Indicates synchronous call.
+     *
+     * @returns { int } Return vaule indicating synchronous call.
+     * @static
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 20 static
+     */
+    static get TF_SYNC(): int;
 
     /**
      * Indicates asynchronous call.
      *
-     * @type { int }
+     * @type { number }
      * @default 1
      * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      */
-    static readonly TF_ASYNC: int;
+    static readonly TF_ASYNC: number;
+
+    /**
+     * Indicates asynchronous call.
+     *
+     * @returns { int } Return vaule indicating asynchronous call.
+     * @static
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 20 static
+     */
+    static get TF_ASYNC(): int;
 
     /**
      * Indicates the sendRequest API for returning the file descriptor.
@@ -2947,6 +2967,16 @@ declare namespace rpc {
     static readonly TF_ACCEPT_FDS: number;
 
     /**
+     * Indicates the sendRequest API for returning the file descriptor.
+     *
+     * @returns { int } Return vaule indicating the sendRequest API for returning the file descriptor.
+     * @static
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 20 static
+     */
+    static get TF_ACCEPT_FDS(): int;
+
+    /**
      * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
      *
      * @default 4
@@ -2958,25 +2988,34 @@ declare namespace rpc {
     /**
      * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
      *
-     * @type { int }
+     * @type { number }
      * @default 8
      * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 11 dynamic
      */
-    static readonly TF_WAIT_TIME: int;
+    static readonly TF_WAIT_TIME: number;
+
+    /**
+     * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
+     *
+     * @returns { int } Return vaule indicating the wait time for RPC, in seconds. It is NOT used in IPC case.
+     * @static
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 20 static
+     */
+    static get TF_WAIT_TIME(): int;
 
     /**
      * A constructor used to create a MessageOption instance.
      *
-     * @param { int } syncFlags - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
-     * @param { int } waitTime - Maximum wait time for a RPC call. The default value is TF_WAIT_TIME.
+     * @param { number } syncFlags - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
+     * @param { number } waitTime - Maximum wait time for a RPC call. The default value is TF_WAIT_TIME.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
      */
-    constructor(syncFlags?: int, waitTime?: int);
+    constructor(syncFlags?: number, waitTime?: number);
 
     /**
      * A constructor used to create a MessageOption instance.
@@ -2992,9 +3031,36 @@ declare namespace rpc {
      *
      * @param { boolean } isAsync - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 20 static
+     * @since 22 static
      */
     constructor(isAsync: boolean);
+
+    /**
+     * A constructor used to create a MessageOption instance.
+     *
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 22 static
+     */
+    constructor();
+
+    /**
+     * A constructor used to create a MessageOption instance.
+     *
+     * @param { int } syncFlags - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 22 static
+     */
+    constructor(syncFlags: int);
+
+    /**
+     * A constructor used to create a MessageOption instance.
+     *
+     * @param { int } syncFlags - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
+     * @param { int } waitTime - Maximum wait time for a RPC call. The default value is TF_WAIT_TIME.
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 22 static
+     */
+    constructor(syncFlags: int, waitTime: int);
 
     /**
      * Obtains the SendRequest call flag, which can be synchronous or asynchronous.
@@ -3378,6 +3444,16 @@ declare namespace rpc {
     static readonly PING_TRANSACTION: number;
 
     /**
+     * Indicates the message code for a Ping operation.
+     *
+     * @returns { int } Return vaule indicating the message code for a Ping operation.
+     * @static
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 20 static
+     */
+    static get PING_TRANSACTION(): int;
+
+    /**
      * Indicates the message code for a dump operation.
      *
      * @type { number }
@@ -3390,6 +3466,16 @@ declare namespace rpc {
     static readonly DUMP_TRANSACTION: number;
 
     /**
+     * Indicates the message code for a dump operation.
+     *
+     * @returns { int } Return vaule indicating the message code for a dump operation.
+     * @static
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 20 static
+     */
+    static get DUMP_TRANSACTION(): int;
+
+    /**
      * Indicates the message code for a transmission.
      *
      * @type { number }
@@ -3400,6 +3486,16 @@ declare namespace rpc {
      * @since 7 dynamic
      */
     static readonly INTERFACE_TRANSACTION: number;
+
+    /**
+     * Indicates the message code for a transmission.
+     *
+     * @returns { int } Return vaule indicating the message code for a transmission.
+     * @static
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 20 static
+     */
+    static get INTERFACE_TRANSACTION(): int;
 
     /**
      * Indicates the minimum value of a valid message code.
@@ -3415,6 +3511,17 @@ declare namespace rpc {
     static readonly MIN_TRANSACTION_ID: number;
 
     /**
+     * Indicates the minimum value of a valid message code.
+     * <p>This constant is used to check the validity of an operation.
+     *
+     * @returns { int } Return vaule indicating the minimum value of a valid message code.
+     * @static
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 20 static
+     */
+    static get MIN_TRANSACTION_ID(): int;
+
+    /**
      * Indicates the maximum value of a valid message code.
      * <p>This constant is used to check the validity of an operation.
      *
@@ -3426,6 +3533,17 @@ declare namespace rpc {
      * @since 7 dynamic
      */
     static readonly MAX_TRANSACTION_ID: number;
+
+    /**
+     * Indicates the maximum value of a valid message code.
+     * <p>This constant is used to check the validity of an operation.
+     *
+     * @returns { int } Return vaule indicating the maximum value of a valid message code.
+     * @static
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 20 static
+     */
+    static get MAX_TRANSACTION_ID(): int;
 
     /**
      * Queries a local interface with a specified descriptor.
@@ -3871,6 +3989,16 @@ declare namespace rpc {
     static readonly PROT_EXEC: number;
 
     /**
+     * The mapped memory is executable.
+     *
+     * @returns { int } Return vaule indicating the mapped memory is executable.
+     * @static
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 20 static
+     */
+    static get PROT_EXEC(): int;
+
+    /**
      * The mapped memory is inaccessible.
      *
      * @type { number }
@@ -3881,6 +4009,16 @@ declare namespace rpc {
      * @since 8 dynamic
      */
     static readonly PROT_NONE: number;
+
+    /**
+     * The mapped memory is inaccessible.
+     *
+     * @returns { int } Return vaule indicating the mapped memory is inaccessible.
+     * @static
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 20 static
+     */
+    static get PROT_NONE(): int;
 
     /**
      * The mapped memory is readable.
@@ -3895,6 +4033,16 @@ declare namespace rpc {
     static readonly PROT_READ: number;
 
     /**
+     * The mapped memory is readable.
+     *
+     * @returns { int } Return vaule indicating the mapped memory is readable.
+     * @static
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 20 static
+     */
+    static get PROT_READ(): int;
+
+    /**
      * The mapped memory is writable.
      *
      * @type { number }
@@ -3905,6 +4053,16 @@ declare namespace rpc {
      * @since 8 dynamic
      */
     static readonly PROT_WRITE: number;
+
+    /**
+     * The mapped memory is writable.
+     *
+     * @returns { int } Return vaule indicating the mapped memory is writable.
+     * @static
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 20 static
+     */
+    static get PROT_WRITE(): int;
 
     /**
      * Creates an Ashmem object with the specified name and size.

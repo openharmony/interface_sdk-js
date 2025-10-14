@@ -38,7 +38,7 @@ import CompletionHandler from './@ohos.app.ability.CompletionHandler';
  * @since 11 dynamic
  * @since 20 static
  */
-export default class StartOptions {
+declare class StartOptions {
   /**
    * The type of {@link ohos.app.ability.AbilityConstant#WindowMode}
    * {@link ohos.app.ability.AbilityConstant#WindowMode.WINDOW_MODE_SPLIT_PRIMARY} and
@@ -264,3 +264,5 @@ export default class StartOptions {
    */
   hideStartWindow?: boolean;
 }
+
+export default StartOptions;

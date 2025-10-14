@@ -20,13 +20,13 @@
 import { CommonMethod, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { Length } from './units';
-import { ComponentContent } from '../ComponentContent';
+import { ComponentContentBase } from '../ComponentContent';
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Sliding effect
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
@@ -49,7 +49,7 @@ export declare enum SwipeEdgeEffect {
 /**
  * Declare enum SwipeActionState.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
@@ -90,7 +90,6 @@ export declare interface SwipeActionItem {
      *
      * @type { ?CustomBuilder }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @since 20 static
      */
     builder?: CustomBuilder;
@@ -98,18 +97,17 @@ export declare interface SwipeActionItem {
       * An action item that appears when a list item slides right (when list direction is Vertical) or
       * slides down (when list direction Horizontal).
       *
-      * @type { ?ComponentContent }
+      * @type { ?ComponentContentBase }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @since 20 static
       */
-    builderComponent?: ComponentContent;
+    builderComponent?: ComponentContentBase;
     /**
      * Defines distance for the delete area.
      *
      * @type { ?Length }
      * @default 56vp
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @since 20 static
      */
     actionAreaDistance?: Length;
@@ -118,7 +116,6 @@ export declare interface SwipeActionItem {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @since 20 static
      */
     onAction?: () => void;
@@ -127,7 +124,6 @@ export declare interface SwipeActionItem {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @since 20 static
      */
     onEnterActionArea?: () => void;
@@ -136,7 +132,6 @@ export declare interface SwipeActionItem {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @since 20 static
      */
     onExitActionArea?: () => void;
@@ -145,7 +140,6 @@ export declare interface SwipeActionItem {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @since 20 static
      */
     onStateChange?: (state: SwipeActionState) => void;
@@ -191,12 +185,12 @@ export declare interface SwipeActionOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    onOffsetChange?: (offset: number) => void;
+    onOffsetChange?: (offset: double) => void;
 }
 /**
  * Defines the list item style.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */

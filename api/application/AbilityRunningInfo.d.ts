@@ -34,14 +34,6 @@ export interface AbilityRunningInfo {
    * Ability matching information.
    *
    * @type { ElementName }
-   * @default ability element name
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
-   */
-  /**
-   * Ability matching information.
-   *
-   * @type { ElementName }
    * @default the ohos.bundleManager.ElementName object of the ability.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
