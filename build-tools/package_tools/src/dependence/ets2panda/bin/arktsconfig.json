@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "escompat": [
+        "../lib/stdlib/escompat"
+      ],
+      "std": [
+        "../lib/stdlib/std"
+      ]
+    }
+  }
+}
