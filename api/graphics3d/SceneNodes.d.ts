@@ -25,8 +25,9 @@ import { RaycastParameters, RaycastResult } from './Scene';
 /*** if arkts dynamic */
 import { SceneResource, Mesh, Morpher, Effect } from './SceneResources';
 import { RaycastParameters, RaycastResult } from './Scene';
+import { RenderingPipelineType } from './SceneTypes';
 /*** endif */
-import { Position3, Quaternion, Scale3, Color, Vec2, Vec3, RenderingPipelineType } from './SceneTypes';
+import { Position3, Quaternion, Scale3, Color, Vec2, Vec3 } from './SceneTypes';
 import { PostProcessSettings } from './ScenePostProcessSettings';
 
 /**
@@ -548,7 +549,6 @@ export interface Camera extends Node {
    * @default RenderingPipelineType.FORWARD_LIGHTWEIGHT
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
-   * @since 22 static
    */
   renderingPipeline?: RenderingPipelineType;
 
