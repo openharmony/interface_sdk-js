@@ -2228,11 +2228,11 @@ declare namespace print {
   /**
    * Defines the callback type used in registering to listen for PrintJobState.
    * The value of state indicates the state of print job.
-   * The value of job indicates the latest printer print job info.
+   * The value of job indicates the latest print job info.
    *
    * @typedef { function } PrintJobStateChangeCallback
    * @param { PrintJobState } state - the state of print job
-   * @param { PrintJob } info - the information of the latest print job
+   * @param { PrintJob } job - the information of the print job
    * @syscap SystemCapability.Print.PrintFramework
    * @since 22 static
    */
