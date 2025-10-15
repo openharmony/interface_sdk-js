@@ -748,6 +748,7 @@ export declare function clearTimeout(timeoutID?: number): void;
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @since 22 static
  */
 export declare function canIUse(syscap: string): boolean;
 
