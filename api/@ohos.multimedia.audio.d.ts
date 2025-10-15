@@ -3740,9 +3740,19 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'deviceChange', deviceFlag: DeviceFlag, callback: Callback<DeviceChangeAction>): void;
+
+    /**
+     * Subscribes to device change events. When a device is connected/disconnected, registered clients will receive
+     * the callback.
+     * @param { DeviceFlag } deviceFlag - Audio device flag.
+     * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 static
+     */
+    onDeviceChange(deviceFlag: DeviceFlag, callback: Callback<DeviceChangeAction>): void;
 
     /**
      * UnSubscribes to device change events.
@@ -3766,9 +3776,17 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'deviceChange', callback?: Callback<DeviceChangeAction>): void;
+
+    /**
+     * UnSubscribes to device change events.
+     * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 static
+     */
+    offDeviceChange(callback?: Callback<DeviceChangeAction>): void;
 
     /**
      * Obtains all the available audio devices with a specific device usage.
@@ -3796,9 +3814,19 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback<DeviceChangeAction>): void;
+
+    /**
+     * Subscribes to available device change events. When a device is connected/disconnected, registered clients will receive
+     * the callback.
+     * @param { DeviceUsage } deviceUsage - Audio device usage.
+     * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 static
+     */
+    onAvailableDeviceChange(deviceUsage: DeviceUsage, callback: Callback<DeviceChangeAction>): void;
 
     /**
      * UnSubscribes to available device change events.
@@ -3810,9 +3838,17 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'availableDeviceChange', callback?: Callback<DeviceChangeAction>): void;
+
+    /**
+     * UnSubscribes to available device change events.
+     * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 static
+     */
+    offAvailableDeviceChange(callback?: Callback<DeviceChangeAction>): void;
 
     /**
      * Sets a device to the active state. This method uses an asynchronous callback to return the result.
@@ -4120,9 +4156,20 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'preferOutputDeviceChangeForRendererInfo', rendererInfo: AudioRendererInfo, callback: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Subscribes to prefer output device change events. When prefer device for target audio renderer info changes,
+     * registered clients will receive the callback.
+     * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices information.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 static
+     */
+    onPreferOutputDeviceChangeForRendererInfo(rendererInfo: AudioRendererInfo, callback: Callback<AudioDeviceDescriptors>): void;
+
     /**
      * UnSubscribes to prefer output device change events.
      * @param { 'preferOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the
@@ -4147,9 +4194,18 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * UnSubscribes to prefer output device change events.
+     * @param {Callback<AudioDeviceDescriptors> } [callback] - Callback used to obtain
+     *     the changed prefer devices in subscribe.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 static 
+     */
+    offPreferOutputDeviceChangeForRendererInfo(callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
      * Get input device for target audio capturer info.
@@ -4245,9 +4301,21 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'preferredInputDeviceChangeForCapturerInfo', capturerInfo: AudioCapturerInfo, callback: Callback<AudioDeviceDescriptors>): void;
+    
+    /**
+     * Subscribes to preferred input device change events. When preferred device for target
+     * audio capturer info changes, registered clients will receive the callback.
+     * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the
+     *     changed preferred devices information.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 static
+     */
+    onPreferredInputDeviceChangeForCapturerInfo(capturerInfo: AudioCapturerInfo, callback: Callback<AudioDeviceDescriptors>): void;
+
     /**
      * Unsubscribes to preferred input device change events.
      * @param { 'preferredInputDeviceChangeForCapturerInfo' } type - Type of the event to listen for.
@@ -4270,9 +4338,18 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'preferredInputDeviceChangeForCapturerInfo', callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Unsubscribes to preferred input device change events.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain
+     *     the changed preferred devices in subscribe.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 static
+     */
+    offPreferredInputDeviceChangeForCapturerInfo(callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
      * Gets preferred input device for target audio capturer info.
@@ -4322,9 +4399,20 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 13 dynamic
-     * @since 20 static
      */
     on(type: 'micBlockStatusChanged', callback: Callback<DeviceBlockStatusInfo>): void;
+
+    /**
+     * Subscribes microphone blocked events. Before subscribing, users should query whether block detection is supported
+     * on current device. The caller will receive the callback only when it is recording and the used
+     * microphones' block status have changed. Currently, block detecting is only support for microphones located on
+     * the local device.
+     * @param { Callback<DeviceBlockStatusInfo> } callback - Callback used to obtain the microphone block status.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 static
+     */
+    onMicBlockStatusChanged(callback: Callback<DeviceBlockStatusInfo>): void;
 
     /**
      * Unsubscribes microphone blocked events.
@@ -4336,10 +4424,18 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 13 dynamic
-     * @since 20 static
      */
      off(type: 'micBlockStatusChanged', callback?: Callback<DeviceBlockStatusInfo>): void;
 
+    /**
+     * Unsubscribes microphone blocked events.
+     * @param { Callback<DeviceBlockStatusInfo> } callback - Callback used to obtain the microphone block status.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 static
+     */
+    offMicBlockStatusChanged(callback?: Callback<DeviceBlockStatusInfo>): void;
+    
     /**
      * Exclude output devices. After calling this function successfully, audio will not be played on the specified
      * devices. Note that only the external ouput device can be excluded by this function. Local output devices is not
@@ -4588,9 +4684,18 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'audioRendererChange', callback: Callback<AudioRendererChangeInfoArray>): void;
+
+    /**
+     * Listens for audio renderer change events. When there is any audio renderer change,
+     * registered clients will receive the callback.
+     * @param { Callback<AudioRendererChangeInfoArray> } callback - Callback invoked for the audio renderer change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 22 static
+     */
+    onAudioRendererChange(callback: Callback<AudioRendererChangeInfoArray>): void;
 
     /**
      * UnSubscribes to audio renderer change events.
@@ -4621,9 +4726,17 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 18 dynamic
-     * @since 20 static
      */
     off(type: 'audioRendererChange', callback?: Callback<AudioRendererChangeInfoArray>): void;
+
+    /**
+     * Unsubscribes to audio renderer change events.
+     * @param { Callback<AudioRendererChangeInfoArray> } callback - Callback invoked for the audio renderer change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 22 static
+     */
+    offAudioRendererChange(callback?: Callback<AudioRendererChangeInfoArray>): void;
 
     /**
      * Listens for audio capturer change events. When there is any audio capturer change,
@@ -4649,9 +4762,18 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'audioCapturerChange', callback: Callback<AudioCapturerChangeInfoArray>): void;
+
+    /**
+     * Listens for audio capturer change events. When there is any audio capturer change,
+     * registered clients will receive the callback.
+     * @param { Callback<AudioCapturerChangeInfoArray> } callback - Callback invoked for the audio capturer change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 22 static
+     */
+    onAudioCapturerChange(callback: Callback<AudioCapturerChangeInfoArray>): void;
 
     /**
      * UnSubscribes to audio capturer change events.
@@ -4682,9 +4804,17 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 18 dynamic
-     * @since 20 static
      */
     off(type: 'audioCapturerChange', callback?: Callback<AudioCapturerChangeInfoArray>): void;
+
+    /**
+     * Unsubscribes to audio capturer change events.
+     * @param { Callback<AudioCapturerChangeInfoArray> } callback - Callback invoked for the audio capturer change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 22 static
+     */
+    offAudioCapturerChange(callback?: Callback<AudioCapturerChangeInfoArray>): void;
 
     /**
      * Checks whether a stream is active. This method uses an asynchronous callback to return the query result.
@@ -4967,9 +5097,18 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'audioSessionDeactivated', callback: Callback<AudioSessionDeactivatedEvent>): void;
+
+    /**
+     * Listens for audio session deactivated event. When the audio session is deactivated,
+     * registered clients will receive the callback.
+     * @param { Callback<AudioSessionDeactivatedEvent> } callback - Callback invoked for the audio session deactivated event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 22 static
+     */
+    onAudioSessionDeactivated(callback: Callback<AudioSessionDeactivatedEvent>): void;
 
     /**
     * Unsubscribes to audio session deactivated event.
@@ -4981,10 +5120,19 @@ declare namespace audio {
     * @throws { BusinessError } 6800101 - Parameter verification failed.
     * @syscap SystemCapability.Multimedia.Audio.Core
     * @crossplatform
-     * @since 12 dynamic
-     * @since 20 static
+    * @since 12 dynamic
     */
     off(type: 'audioSessionDeactivated', callback?: Callback<AudioSessionDeactivatedEvent>): void;
+
+    /**
+    * Unsubscribes to audio session deactivated event.
+    * @param { Callback<AudioSessionDeactivatedEvent> } callback - Callback invoked for
+    *     the audio session deactivated event.
+    * @throws { BusinessError } 6800101 - Parameter verification failed.
+    * @syscap SystemCapability.Multimedia.Audio.Core
+    * @since 22 static
+    */
+   offAudioSessionDeactivated(callback?: Callback<AudioSessionDeactivatedEvent>): void;
   }
 
   /**
@@ -5222,7 +5370,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      * @deprecated since 20
      * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:streamVolumeChange
      */
@@ -5238,7 +5385,6 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 12 dynamic
-     * @since 20 static
      * @deprecated since 20
      * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:streamVolumeChange
      */
@@ -5258,9 +5404,23 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 19 dynamic
-     * @since 20 static
      */
     on(type: 'appVolumeChangeForUid', uid: int, callback: Callback<VolumeEvent>): void;
+
+    /**
+     * Listens for specified app volume change events.
+     * The app volume may changed by {@link setAppVolumePercentageForUid}.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { int } uid - The app's uid.
+     * @param { Callback<VolumeEvent> } callback - Callback used to get the app volume change event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 22 static
+     */
+    onAppVolumeChangeForUid(uid: int, callback: Callback<VolumeEvent>): void;
 
     /**
      * Unsubscribes to the app volume change events..
@@ -5274,9 +5434,21 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 19 dynamic
-     * @since 20 static
      */
     off(type: 'appVolumeChangeForUid', callback?: Callback<VolumeEvent>): void;
+
+    /**
+     * Unsubscribes to the app volume change events..
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { Callback<VolumeEvent> } callback - Callback used to obtain the invoking volume change event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 22 static
+     */
+    offAppVolumeChangeForUid(callback?: Callback<VolumeEvent>): void;
 
     /**
      * Listens for app volume change events. The app volume may changed by your called {@link setAppVolumePercentage}
@@ -5286,9 +5458,18 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 19 dynamic
-     * @since 20 static
      */
     on(type: 'appVolumeChange', callback: Callback<VolumeEvent>): void;
+
+    /**
+     * Listens for app volume change events. The app volume may changed by your called {@link setAppVolumePercentage}
+     * or other system settings.
+     * @param { Callback<VolumeEvent> } callback - Callback used to get the app volume change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 22 static
+     */
+    onAppVolumeChange(callback: Callback<VolumeEvent>): void;
 
     /**
      * Unsubscribes to the app volume change events..
@@ -5298,9 +5479,17 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 19 dynamic
-     * @since 20 static
      */
     off(type: 'appVolumeChange', callback?: Callback<VolumeEvent>): void;
+
+    /**
+     * Unsubscribes to the app volume change events..
+     * @param { Callback<VolumeEvent> } callback - Callback used to obtain the invoking volume change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 22 static
+     */
+    offAppVolumeChange(callback?: Callback<VolumeEvent>): void;
 
     /**
      * Subscribes to active volume type changes.
@@ -5311,20 +5500,31 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     on(type: 'activeVolumeTypeChange', callback: Callback<AudioVolumeType>): void;
 
     /**
-     * Unsubscribes from active volume type changes.
-     * @param { 'activeVolumeTypeChange' } type - Type of the event to unregister.
-     * Only the activeVolumeTypeChange event is supported.
+     * Subscribes to active volume type changes.
      * @param { Callback<AudioVolumeType> } callback - Callback used to return the active volume type.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 22 static
+     */
+    onActiveVolumeTypeChange(callback: Callback<AudioVolumeType>): void;
+
+    /**
+     * Unsubscribes from active volume type changes.
+     * @param { 'activeVolumeTypeChange' } type - Type of the event to unregister.
+     * Only the activeVolumeTypeChange event is supported.
+     * @param { Callback<AudioVolumeType> } [callback] - Callback used to return the active volume type.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20 dynamic
      */
     off(type: 'activeVolumeTypeChange', callback?: Callback<AudioVolumeType>): void;
 
@@ -5400,20 +5600,31 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     on(type: 'systemVolumeChange', callback: Callback<VolumeEvent>): void;
+
+    /**
+     * Listens for system volume change events. This method uses a callback to get volume change events.
+     * @param { Callback<VolumeEvent> } callback - Callback used to get the system volume change event.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 22 static
+     */
+    onSystemVolumeChange(callback: Callback<VolumeEvent>): void;
 
     /**
      * Unsubscribes to the system volume change events.
      * @param { 'systemVolumeChange' } type - Type of the event to be unregistered.
      * Only the systemVolumeChange event is supported.
-     * @param { Callback<VolumeEvent> } callback - Callback used to obtain the invoking volume change event.
+     * @param { Callback<VolumeEvent> } [callback] - Callback used to obtain the invoking volume change event.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     off(type: 'systemVolumeChange', callback?: Callback<VolumeEvent>): void;
 
@@ -5512,9 +5723,19 @@ declare namespace audio {
      * @param { Callback<StreamVolumeEvent> } callback - Callback used to get the stream volume change event.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     on(type: 'streamVolumeChange', streamUsage: StreamUsage, callback: Callback<StreamVolumeEvent>): void;
+
+    /**
+     * Listens for stream volume change events. This method uses a callback to get volume change events.
+     * @param { StreamUsage } streamUsage - StreamUsage to be listened.
+     * @param { Callback<StreamVolumeEvent> } callback - Callback used to get the stream volume change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 22 static
+     */
+    onStreamVolumeChange(streamUsage: StreamUsage, callback: Callback<StreamVolumeEvent>): void;
 
     /**
      * Unsubscribes to the stream volume change events.
@@ -5975,9 +6196,17 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9 dynamic
-     * @since 20 static
      */
     on(type: 'ringerModeChange', callback: Callback<AudioRingMode>): void;
+
+    /**
+     * Listens for ringer mode change events. This method uses a callback to get ringer mode changes.
+     * @param { Callback<AudioRingMode> } callback - Callback used to get the updated ringer mode.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 22 static
+     */
+    onRingerModeChange(callback: Callback<AudioRingMode>): void;
 
     /**
      * Unsubscribes to the ringer mode state change events.
@@ -5986,9 +6215,17 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 18 dynamic
-     * @since 20 static
      */
     off(type: 'ringerModeChange', callback?: Callback<AudioRingMode>): void;
+
+    /**
+     * Unsubscribes to the ringer mode state change events.
+     * @param { Callback<AudioRingMode> } callback - Callback used to get the updated ringer mode.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 22 static
+     */
+    offRingerModeChange(callback?: Callback<AudioRingMode>): void;
 
     /**
      * Mutes or unmutes the microphone. This method uses an asynchronous callback to return the result.
@@ -6127,9 +6364,17 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9 dynamic
-     * @since 20 static
      */
     on(type: 'micStateChange', callback: Callback<MicStateChangeEvent>): void;
+
+    /**
+     * Listens for system microphone state change events. This method uses a callback to get microphone change events.
+     * @param { Callback<MicStateChangeEvent> } callback - Callback used to get the system microphone state change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 22 static
+     */
+    onMicStateChange(callback: Callback<MicStateChangeEvent>): void;
 
     /**
      * Unsubscribes to the microphone state change events.
@@ -6141,10 +6386,18 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'micStateChange', callback?: Callback<MicStateChangeEvent>): void;
 
+    /**
+     * Unsubscribes to the microphone state change events.
+     * @param { Callback<MicStateChangeEvent> } callback - Callback used to get the system microphone state change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 22 static
+     */
+    offMicStateChange(callback?: Callback<MicStateChangeEvent>): void;
+    
     /**
      * Gets if this volume group is volume unadjustable.
      * @returns { boolean } Whether it is volume unadjustable.
@@ -6574,9 +6827,21 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'spatializationEnabledChangeForAnyDevice', callback: Callback<AudioSpatialEnabledStateForDevice>): void;
+
+    /**
+     * Subscribes to the spatialization enable state change events by the specified device.
+     * When the spatialization enable state changes, registered clients will receive the callback.
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - Callback used to get the
+     *     spatialization enable state by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 22 static
+     */
+    onSpatializationEnabledChangeForAnyDevice(callback: Callback<AudioSpatialEnabledStateForDevice>): void;
 
     /**
      * Unsubscribes to the spatialization enable state change events.
@@ -6606,9 +6871,20 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'spatializationEnabledChangeForAnyDevice', callback?: Callback<AudioSpatialEnabledStateForDevice>): void;
+
+    /**
+     * Unsubscribes to the spatialization enable state change events by the specified device.
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - Callback used to get the
+     *     spatialization enable state by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 22 static
+     */
+    offSpatializationEnabledChangeForAnyDevice(callback?: Callback<AudioSpatialEnabledStateForDevice>): void;
 
     /**
      * Sets the head tracking enabled or disabled. This method uses an asynchronous callback to return the result.
@@ -6722,9 +6998,21 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'headTrackingEnabledChangeForAnyDevice', callback: Callback<AudioSpatialEnabledStateForDevice>): void;
+
+    /**
+     * Subscribes to the head tracking enable state change events by the specified device.
+     * When the head tracking enable state changes, registered clients will receive the callback.
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - Callback used to get the head
+     *     tracking enable state by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 22 static
+     */
+    onHeadTrackingEnabledChangeForAnyDevice(callback: Callback<AudioSpatialEnabledStateForDevice>): void;
 
     /**
      * Unsubscribes to the head tracking enable state change events.
@@ -6754,9 +7042,20 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'headTrackingEnabledChangeForAnyDevice', callback?: Callback<AudioSpatialEnabledStateForDevice>): void;
+
+    /**
+     * Unsubscribes to the head tracking enable state change events by the specified device.
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - Callback used to get
+     *     the head tracking enable state by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @since 22 static
+     */
+    offHeadTrackingEnabledChangeForAnyDevice(callback?: Callback<AudioSpatialEnabledStateForDevice>): void;
 
     /**
      * Updates the spatial device state.
@@ -6820,9 +7119,18 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @since 18 dynamic
-     * @since 20 static
      */
     on(type: 'spatializationEnabledChangeForCurrentDevice', callback: Callback<boolean>): void;
+
+    /**
+     * Subscribes to the spatialization enable state change events by the current device.
+     * When the spatialization enable state changes, registered clients will receive the callback.
+     * @param { Callback<boolean> } callback - Callback used to get the spatialization enable state.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @since 22 static
+     */
+    onSpatializationEnabledChangeForCurrentDevice(callback: Callback<boolean>): void;
 
     /**
      * Unsubscribes to the spatialization enable state change events by the current device.
@@ -6831,9 +7139,17 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @since 18 dynamic
-     * @since 20 static
      */
     off(type: 'spatializationEnabledChangeForCurrentDevice', callback?: Callback<boolean>): void;
+
+    /**
+     * Unsubscribes to the spatialization enable state change events by the current device.
+     * @param { Callback<boolean> } callback - Callback used to get the spatialization enable state.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @since 22 static
+     */
+    offSpatializationEnabledChangeForCurrentDevice(callback?: Callback<boolean>): void;
   }
 
   /**
@@ -9177,9 +9493,18 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'audioInterrupt', callback: Callback<InterruptEvent>): void;
+
+    /**
+     * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
+     * triggered when audio playback is interrupted.
+     * @param { Callback<InterruptEvent> } callback - Callback used to listen for interrupt callback.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @since 22 static
+     */
+    onAudioInterrupt(callback: Callback<InterruptEvent>): void;
 
     /**
      * Unsubscribes audio interrupt events.
@@ -9188,9 +9513,17 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @since 18 dynamic
-     * @since 20 static
      */
     off(type: 'audioInterrupt', callback?: Callback<InterruptEvent>): void;
+
+    /**
+     * Unsubscribes audio interrupt events.
+     * @param { Callback<InterruptEvent> } callback - Callback used to listen for interrupt callback.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @since 22 static
+     */
+    offAudioInterrupt(callback?: Callback<InterruptEvent>): void;
 
     /**
      * Subscribes to mark reached events. When the number of frames rendered reaches the value of the frame parameter,
@@ -9215,9 +9548,19 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'markReach', frame: long, callback: Callback<long>): void;
+
+    /**
+     * Subscribes to mark reached events. When the number of frames rendered reaches the value of the frame parameter,
+     * the callback is invoked.
+     * @param { long } frame - Number of frames to trigger the event. The value must be greater than 0.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 22 static
+     */
+    onMarkReach(frame: long, callback: Callback<long>): void;
+
     /**
      * Unsubscribes from mark reached events.
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
@@ -9238,9 +9581,16 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 18 dynamic
-     * @since 20 static
      */
     off(type: 'markReach', callback?: Callback<long>): void;
+
+    /**
+     * Unsubscribes from mark reached events.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 22 static
+     */
+    offMarkReach(callback?: Callback<long>): void;
 
     /**
      * Subscribes to period reached events. When the period of frame rendering reaches the value of frame parameter,
@@ -9260,9 +9610,19 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'periodReach', frame: long, callback: Callback<long>): void;
+
+    /**
+     * Subscribes to period reached events. When the period of frame rendering reaches the value of frame parameter,
+     * the callback is invoked.
+     * @param { long } frame - Period during which frame rendering is listened. The value must be greater than 0.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 22 static
+     */
+    onPeriodReach(frame: long, callback: Callback<long>): void;
+    
     /**
      * Unsubscribes from period reached events.
      * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
@@ -9283,9 +9643,16 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 18 dynamic
-     * @since 20 static
      */
     off(type: 'periodReach', callback?: Callback<long>): void;
+
+    /**
+     * Unsubscribes from period reached events.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 22 static
+     */
+    offPeriodReach(callback?: Callback<long>): void;
 
     /**
      * Subscribes audio state change event callback.
@@ -9301,9 +9668,16 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'stateChange', callback: Callback<AudioState>): void;
+
+    /**
+     * Subscribes audio renderer state change event callback.
+     * @param { Callback<AudioState> } callback - Callback invoked when state change.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 22 static
+     */
+    onStateChange(callback: Callback<AudioState>): void;
 
     /**
      * Unsubscribes audio state change event callback.
@@ -9312,9 +9686,17 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 18 dynamic
-     * @since 20 static
      */
     off(type: 'stateChange', callback?: Callback<AudioState>): void;
+
+    /**
+     * Unsubscribes audio state change event callback.
+     * @param { Callback<AudioState> } callback - Callback invoked when state change.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 22 static
+     */
+    offStateChange(callback?: Callback<AudioState>): void;
 
     /**
      * Subscribes output device change event callback.
@@ -9340,13 +9722,22 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'outputDeviceChange', callback: Callback<AudioDeviceDescriptors>): void;
 
     /**
      * Subscribes output device change event callback.
      * The event is triggered when output device change for this stream.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 static
+     */
+    onOutputDeviceChange(callback: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Subscribes output device change event callback.
+     * The event is triggered when output device change for this stream.
      * @param { 'outputDeviceChangeWithInfo' } type - Type of the event to listen for.
      * @param { Callback<AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -9368,9 +9759,18 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'outputDeviceChangeWithInfo', callback: Callback<AudioStreamDeviceChangeInfo>): void;
+
+    /**
+     * Subscribes output device change event callback.
+     * The event is triggered when output device change for this stream.
+     * @param { Callback<AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 static
+     */
+    onOutputDeviceChangeWithInfo(callback: Callback<AudioStreamDeviceChangeInfo>): void;
 
     /**
      * Unsubscribes output device change event callback.
@@ -9394,9 +9794,17 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'outputDeviceChange', callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Unsubscribes output device change event callback.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 static
+     */
+    offOutputDeviceChange(callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
      * Unsubscribes output device change event callback.
@@ -9420,9 +9828,17 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'outputDeviceChangeWithInfo', callback?: Callback<AudioStreamDeviceChangeInfo>): void;
+
+    /**
+     * Unsubscribes output device change event callback.
+     * @param { Callback<AudioStreamDeviceChangeInfo> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 static
+     */
+    offOutputDeviceChangeWithInfo(callback?: Callback<AudioStreamDeviceChangeInfo>): void;
 
     /**
      * Subscribes audio data callback.
@@ -9448,9 +9864,18 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'writeData', callback: AudioRendererWriteDataCallback): void;
+
+    /**
+     * Subscribes audio data callback.
+     * The event is triggered when audio buffer is available for writing more data.
+     * @param { AudioRendererWriteDataCallback } callback - Audio renderer write data callback.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 22 static
+     */
+    onWriteData(callback: AudioRendererWriteDataCallback): void;
 
     /**
      * Unsubscribes audio data callback.
@@ -9474,9 +9899,17 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'writeData', callback?: AudioRendererWriteDataCallback): void;
+
+    /**
+     * Unsubscribes audio data callback.
+     * @param { AudioRendererWriteDataCallback } callback - Audio renderer write data callback.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 22 static
+     */
+    offWriteData(callback?: AudioRendererWriteDataCallback): void;
   }
 
   /**
@@ -10258,9 +10691,19 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'markReach', frame: long, callback: Callback<long>): void;
+
+    /**
+     * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
+     * the callback is invoked.
+     * @param { long } frame - Number of frames to trigger the event. The value must be greater than 0.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 22 static
+     */
+    onMarkReach(frame: long, callback: Callback<long>): void;
+    
     /**
      * Unsubscribes from the mark reached events.
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
@@ -10281,11 +10724,18 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 18 dynamic
-     * @since 20 static
      */
     off(type: 'markReach', callback?: Callback<long>): void;
 
     /**
+     * Unsubscribes from the mark reached events.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 22 static
+     */
+    offMarkReach(callback?: Callback<long>): void;
+
+    /**
      * Subscribes to period reached events. When the period of frame capturing reaches the value of frame parameter,
      * the callback is invoked.
      * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
@@ -10303,9 +10753,19 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'periodReach', frame: long, callback: Callback<long>): void;
+
+    /**
+     * Subscribes to period reached events. When the period of frame capturing reaches the value of frame parameter,
+     * the callback is invoked.
+     * @param { long } frame - Period during which frame capturing is listened. The value must be greater than 0.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 22 static
+     */
+    onPeriodReach(frame: long, callback: Callback<long>): void;
+
     /**
      * Unsubscribes from period reached events.
      * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
@@ -10326,9 +10786,16 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 18 dynamic
-     * @since 20 static
      */
     off(type: 'periodReach', callback?: Callback<long>): void;
+
+    /**
+     * Unsubscribes from period reached events.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 22 static
+     */
+    offPeriodReach(callback?: Callback<long>): void;
 
     /**
      * Subscribes audio state change event callback.
@@ -10344,9 +10811,16 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'stateChange', callback: Callback<AudioState>): void;
+
+    /**
+     * Subscribes audio state change event callback.
+     * @param { Callback<AudioState> } callback - Callback used to listen for the audio state change event.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 22 static
+     */
+    onStateChange(callback: Callback<AudioState>): void;
 
     /**
      * Unsubscribes audio state change event callback.
@@ -10355,11 +10829,19 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 18 dynamic
-     * @since 20 static
      */
     off(type: 'stateChange', callback?: Callback<AudioState>): void;
 
     /**
+     * Unsubscribes audio state change event callback.
+     * @param { Callback<AudioState> } callback - Callback used to listen for the audio state change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 22 static
+     */
+    offStateChange(callback?: Callback<AudioState>): void;
+
+    /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
      * triggered when audio recording is interrupted.
      * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
@@ -10383,11 +10865,20 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'audioInterrupt', callback: Callback<InterruptEvent>): void;
 
     /**
+     * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
+     * triggered when audio recording is interrupted.
+     * @param { Callback<InterruptEvent> } callback - Callback used to listen for interrupt callback.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @since 22 static
+     */
+    onAudioInterrupt(callback: Callback<InterruptEvent>): void;
+
+    /**
      * UnSubscribes to audio interrupt events.
      * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -10407,11 +10898,17 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'audioInterrupt'): void;
 
     /**
+     * UnSubscribes to audio interrupt events.
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @since 22 static
+     */
+    offAudioInterrupt(): void;
+
+    /**
      * Subscribes input device change event callback.
      * The event is triggered when input device change for this stream.
      * @param { 'inputDeviceChange' } type - Type of the event to listen for.
@@ -10435,9 +10932,19 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'inputDeviceChange', callback: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Subscribes input device change event callback.
+     * The event is triggered when input device change for this stream.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 static
+     */
+    onInputDeviceChange(callback: Callback<AudioDeviceDescriptors>): void;
+
     /**
      * Unsubscribes input device change event callback.
      * @param { 'inputDeviceChange' } type - Type of the event to listen for.
@@ -10460,9 +10967,17 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'inputDeviceChange', callback?: Callback<AudioDeviceDescriptors>): void;
+
+     /**
+     * Unsubscribes input device change event callback.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 static
+     */
+    offInputDeviceChange(callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
      * Subscribes audio capturer info change event callback.
@@ -10488,9 +11003,19 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'audioCapturerChange', callback: Callback<AudioCapturerChangeInfo>): void;
+
+    /**
+     * Subscribes audio capturer info change event callback.
+     * The event is triggered when input device change for this stream.
+     * @param { Callback<AudioCapturerChangeInfo> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 22 static
+     */
+    onAudioCapturerChange(callback: Callback<AudioCapturerChangeInfo>): void;
+
     /**
      * Unsubscribes audio capturer info change event callback.
      * @param { 'audioCapturerChange' } type - Type of the event to listen for.
@@ -10513,11 +11038,19 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'audioCapturerChange', callback?: Callback<AudioCapturerChangeInfo>): void;
 
     /**
+     * Unsubscribes audio capturer info change event callback.
+     * @param { Callback<AudioCapturerChangeInfo> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 22 static
+     */
+    offAudioCapturerChange(callback?: Callback<AudioCapturerChangeInfo>): void;
+
+    /**
      * Subscribes audio data callback.
      * The event is triggered when audio buffer is available for reading more data.
      * @param { 'readData' } type - Type of the event to listen for.
@@ -10541,9 +11074,18 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'readData', callback: Callback<ArrayBuffer>): void;
+
+    /**
+     * Subscribes audio data callback.
+     * The event is triggered when audio buffer is available for reading more data.
+     * @param { Callback<ArrayBuffer> } callback - Callback with the buffer to read.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 20 static
+     */
+    onReadData(callback: Callback<ArrayBuffer>): void;
 
     /**
      * Unsubscribes audio data callback.
@@ -10567,9 +11109,17 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'readData', callback?: Callback<ArrayBuffer>): void;
+
+    /**
+     * Unsubscribes audio data callback.
+     * @param { Callback<ArrayBuffer> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 22 static
+     */
+    offReadData(callback?: Callback<ArrayBuffer>): void;
 
     /**
      * Sets default input device of this Capturer to DEVICE_TYPE_ACCESSORY.
