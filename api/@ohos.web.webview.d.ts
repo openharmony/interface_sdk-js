@@ -6053,8 +6053,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     /**
      * Start a download.
@@ -6756,8 +6755,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
      *                           length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Inject offline resources into cache.
@@ -6770,6 +6768,7 @@ declare namespace webview {
      *     length exceeds 2*1024*1024.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 22
+     * @arkts 1.1&1.2
      */
     injectOfflineResources(resourceMaps: Array<OfflineResourceMap>): void;
 
