@@ -4842,6 +4842,17 @@ declare namespace text {
      * @since 22 dynamic
      */
     getAdvances(range: Range): Array<common2D.Point>;
+
+    /**
+     * Gets the glyph width array within the range.
+     * @param { Range } range - Range of the glyphs, where range.start indicates the start position of the range, and
+     *     range.end indicates the length of the range. If the length is 0, the range is from range.start to the end of
+     *     the run.
+     * @returns { Array<common2D.Point> | undefined } Array holding the advance width and height of each glyph.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    getAdvances(range: Range): Array<common2D.Point> | undefined;
   }
 
   /**
