@@ -179,6 +179,7 @@ declare namespace hidebug {
    * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
+   * @since 20 static
    */
   function startJsCpuProfiling(filename: string): void;
 
@@ -189,6 +190,7 @@ declare namespace hidebug {
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
+   * @since 20 static
    */
   function stopJsCpuProfiling(): void;
 
