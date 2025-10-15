@@ -184,11 +184,11 @@ export declare class SymbolOptions {
     /**
      * The size of symbol icon.
      *
-     * @type { ?(int | string | Resource) }
+     * @type { ?(double | string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    public fontSize?: int | string | Resource;
+    public fontSize?: double | string | Resource;
     /**
      * The color of symbol icon.
      *
