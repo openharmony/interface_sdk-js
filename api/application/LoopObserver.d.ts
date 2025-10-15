@@ -52,7 +52,6 @@ export interface LoopObserver {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
    */
   onLoopTimeOut?(timeout: int): void;
 }
