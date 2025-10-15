@@ -3893,6 +3893,15 @@ declare namespace socket {
      * @since 18
      */
     proxy?: ProxyOptions;
+
+    /**
+     * Timeout duration of the TLSSocket connection, in milliseconds.
+     * @type {?int}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 22 dynamic&static
+     */
+    timeout?: int;
   }
 
   /**
