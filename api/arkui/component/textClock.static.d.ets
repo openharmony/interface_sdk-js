@@ -17,10 +17,9 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier, Optional, DateTimeOptions } from './common';
-import { ResourceColor, Length, ResourceStr, VoidCallback } from "./units";
+import { ResourceColor, Length, ResourceStr } from "./units";
 import { FontStyle, FontWeight } from "./enums";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier } from "./common";
@@ -138,24 +137,9 @@ export declare interface TextClockAttribute extends CommonMethod {
      * @param { ResourceStr | undefined } value
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default format(value: ResourceStr | undefined): this;
-    /**
-     * set display time format,such as "yyyy/mm/dd","yyyy-mm-dd".
-     * support time format：yyyy,mm,mmm(English month abbreviation),mmmm(Full name of the month in English),
-     * dd,ddd(English Week abbreviation),dddd(Full name of the week in English),
-     * HH/hh(24-hour clock/12-hour clock),MM/mm(minute),SS/ss(second).
-     * The default value is "hh:mm:ss" when TextClock is not in a form.
-     * The default value is "hh:mm" when TextClock is in a form.
-     * If the value has second or millisecond, the value will be set to the default value.
-     *
-     * @param { string | undefined } value
-     * @returns { TextClockAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
-     */
-    default format(value: string | undefined): this;
     /**
      * Provides a date change callback.
      * The callback parameter is Unix Time Stamp,

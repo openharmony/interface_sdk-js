@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { CommonMethod, AttributeModifier } from './common';
@@ -114,6 +113,15 @@ export declare interface StepperItemAttribute extends CommonMethod {
   default attributeModifier(modifier: AttributeModifier<StepperItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Defines StepperItem Component
+ *
+ * @param { function } [content_] - container
+ * @returns { StepperItemAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
 export declare function StepperItem(

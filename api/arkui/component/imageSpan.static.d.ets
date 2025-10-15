@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { ResourceStr, ColorFilter } from "./units";
 import { BaseSpan } from "./span";
@@ -31,7 +30,8 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  *
  * @extends BaseSpan
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
+ * @noninterop
  */
 export declare interface ImageSpanAttribute extends BaseSpan {
     /**
@@ -40,7 +40,7 @@ export declare interface ImageSpanAttribute extends BaseSpan {
      * @param { ImageSpanAlignment | undefined } value - The alignment type of image span.
      * @returns { ImageSpanAttribute } The attribute of the image span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default verticalAlign(value: ImageSpanAlignment | undefined): this;
     /**
@@ -49,7 +49,7 @@ export declare interface ImageSpanAttribute extends BaseSpan {
      * @param { ColorFilter | DrawingColorFilter | undefined } filter ColorFilter object.
      * @returns { ImageSpanAttribute } The attribute of the image span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default colorFilter(filter: ColorFilter | DrawingColorFilter | undefined): this;
     /**
@@ -58,7 +58,7 @@ export declare interface ImageSpanAttribute extends BaseSpan {
      * @param { ImageFit | undefined } value - Image display mode.
      * @returns { ImageSpanAttribute } The attribute of the image span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default objectFit(value: ImageFit | undefined): this;
     /**
@@ -68,7 +68,7 @@ export declare interface ImageSpanAttribute extends BaseSpan {
      * @param { ImageCompleteCallback | undefined } callback - Triggered when the image is successfully loaded.
      * @returns { ImageSpanAttribute } The attribute of the image span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onComplete(callback: ImageCompleteCallback | undefined): this;
     /**
@@ -78,7 +78,7 @@ export declare interface ImageSpanAttribute extends BaseSpan {
      * @param { ImageErrorCallback | undefined } callback - Triggered when an exception occurs during image loading.
      * @returns { ImageSpanAttribute } The attribute of the image span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onError(callback: ImageErrorCallback | undefined): this;
     /**
@@ -87,7 +87,7 @@ export declare interface ImageSpanAttribute extends BaseSpan {
      * @param { PixelMap | undefined } value
      * @returns { ImageSpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default alt(value: PixelMap | undefined): this;
     /**
@@ -96,7 +96,7 @@ export declare interface ImageSpanAttribute extends BaseSpan {
      * @param { AttributeModifier<ImageSpanAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
      * @returns { ImageSpanAttribute } the attribute of the ImageSpanAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<ImageSpanAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -106,7 +106,7 @@ export declare interface ImageSpanAttribute extends BaseSpan {
  * @typedef { function } ImageCompleteCallback
  * @param { ImageLoadResult } result - the information about the successfully loaded image.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type ImageCompleteCallback = (result: ImageLoadResult) => void;
 /**
@@ -114,83 +114,83 @@ export type ImageCompleteCallback = (result: ImageLoadResult) => void;
  *
  * @interface ImageLoadResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ImageLoadResult {
     /**
      * The width of the image source.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    width: number;
+    width: double;
     /**
      * The height of the image source.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    height: number;
+    height: double;
     /**
      * The width of the component source.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    componentWidth: number;
+    componentWidth: double;
     /**
      * The height of the component source.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    componentHeight: number;
+    componentHeight: double;
     /**
      * The value of the status of the image being loaded successfully.
      * If the returned status value is 0, the image data is successfully loaded.
      * If the returned status value is 1, the image is successfully decoded.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    loadingStatus: number;
+    loadingStatus: double;
     /**
      * The width of the picture that is actually drawn.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    contentWidth: number;
+    contentWidth: double;
     /**
      * The height of the picture that is actually drawn.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    contentHeight: number;
+    contentHeight: double;
     /**
      * The offset between image content and image component on the X-axis.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    contentOffsetX: number;
+    contentOffsetX: double;
     /**
      * The offset between image content and image component on the Y-axis.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    contentOffsetY: number;
+    contentOffsetY: double;
 }
 
 /**
@@ -200,7 +200,8 @@ export declare interface ImageLoadResult {
  * @param { function } [content_]
  * @returns { ImageSpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
+ * @noninterop
  */
 @memo
 @ComponentBuilder

@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { Resource } from '../../global/resource';
@@ -237,28 +236,6 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @since 20
    */
   default sideBarWidth(value: Length | Bindable<Length> | undefined): this;
-
-  /**
-   * Sets the min length of sidebar.
-   * default value is 240vp.
-   *
-   * @param { number | undefined } value
-   * @returns { SideBarContainerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   */
-  default minSideBarWidth(value: number | undefined): this;
-
-  /**
-   * Sets the max length of sidebar.
-   * default value is 280vp.
-   *
-   * @param { number | undefined } value
-   * @returns { SideBarContainerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   */
-  default maxSideBarWidth(value: number | undefined): this;
 
   /**
    * Sets the min length of sidebar.

@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { KeyboardOptions, PasteEvent } from "./richEditor";
 import { CaretStyle, DeleteValue, EditMenuOptions, EditableTextOnChangeCallback, InsertValue, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance } from "./textCommon";
@@ -46,11 +45,11 @@ export declare class TextAreaController extends TextContentControllerBase {
     /**
      * Called when the position of the insertion cursor is set.
      *
-     * @param { number } value - Length from the start of the string to the position where the caret is located.
+     * @param { int } value - Length from the start of the string to the position where the caret is located.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    caretPosition(value: number): void;
+    caretPosition(value: int): void;
     /**
      * Text selection is achieved by specifying the start and end positions of the text.
      *
@@ -61,23 +60,23 @@ export declare class TextAreaController extends TextContentControllerBase {
      * the emoji is selected when its start position is within the text selection range.
      * </p>
      *
-     * @param { number } selectionStart - The start position of the selected text.
+     * @param { int } selectionStart - The start position of the selected text.
      * The start position of text in the text box is 0.
      * A value less than 0 is handled as 0.
      * A value greater than the maximum text length is handled as the maximum text length.
-     * @param { number } selectionEnd - The end position of the selected text.
+     * @param { int } selectionEnd - The end position of the selected text.
      * A value less than 0 is handled as the value 0.
      * A value greater than the maximum text length is handled as the maximum text length.
      * @param { SelectionOptions } [options] - Indicates the options of the text selection.Default value is MenuPolicy.DEFAULT.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    setTextSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
+    setTextSelection(selectionStart: int, selectionEnd: int, options?: SelectionOptions): void;
     /**
      * Exit edit state.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     stopEditing(): void;
 }
@@ -285,12 +284,12 @@ export declare interface TextAreaAttribute extends CommonMethod {
     /**
     * Called when the font weight is set.
     *
-    * @param { number | FontWeight | string | undefined } value
+    * @param { int | FontWeight | string | undefined } value
     * @returns { TextAreaAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 20 static
     */
-    default fontWeight(value: number | FontWeight | string | undefined): this;
+    default fontWeight(value: int | FontWeight | string | undefined): this;
     /**
      * Called when the font list of text is set.
      *
@@ -395,23 +394,23 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * Called when the text selection changes.
      *
      * @param { function | undefined } callback - callback of the listened event.
-     * { number } selectionStart - The start position of text is 0.
+     * { int } selectionStart - The start position of text is 0.
      * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default onTextSelectionChange(callback: ((selectionStart: number, selectionEnd: number) => void) | undefined): this;
+    default onTextSelectionChange(callback: ((selectionStart: int, selectionEnd: int) => void) | undefined): this;
     /**
      * Called when the content scrolls.
      *
      * @param { function | undefined } callback - callback of the listened event.
-     * { number } totalOffsetX - The unit is px.
-     * { number } totalOffsetY - The unit is px.
+     * { double } totalOffsetX - The unit is px.
+     * { double } totalOffsetY - The unit is px.
      * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default onContentScroll(callback: ((totalOffsetX: number, totalOffsetY: number) => void) | undefined): this;
+    default onContentScroll(callback: ((totalOffsetX: double, totalOffsetY: double) => void) | undefined): this;
     /**
      * Called when judging whether the text editing change finished.
      * The text box is in the editing state when it has the caret placed in it, and is in the non-editing state otherwise.
@@ -486,12 +485,12 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * no more characters can be entered, and the border turns red.
      * </p>
      *
-     * @param { number | undefined } value
+     * @param { int | undefined } value
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default maxLength(value: number | undefined): this;
+    default maxLength(value: int | undefined): this;
     /**
      * Define show counter of the text area.
      *
@@ -569,12 +568,12 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>When the adaptive font size is used, the fontSize settings do not take effect.
      * </p>
      *
-     * @param { number | string | Resource | undefined } value - The unit is fp.
+     * @param { double | string | Resource | undefined } value - The unit is fp.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default minFontSize(value: number | string | Resource | undefined): this;
+    default minFontSize(value: double | string | Resource | undefined): this;
     /**
      * Called when the maximum font size of the font is set.
      *
@@ -584,12 +583,12 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>When the adaptive font size is used, the fontSize settings do not take effect.
      * </p>
      *
-     * @param { number | string | Resource | undefined } value - The unit is fp.
+     * @param { double | string | Resource | undefined } value - The unit is fp.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default maxFontSize(value: number | string | Resource | undefined): this;
+    default maxFontSize(value: double | string | Resource | undefined): this;
     /**
      * Called when the minimum font scale of the font is set.
      * Value range: [0, 1]
@@ -601,12 +600,12 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>Abnormal values are ineffective by default.
      * </p>
      *
-     * @param { number | Resource | undefined } scale
+     * @param { double | Resource | undefined } scale
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default minFontScale(scale: number | Resource | undefined): this;
+    default minFontScale(scale: double | Resource | undefined): this;
     /**
      * Called when the maximum font scale of the font is set.
      * Value range: [1, +∞)
@@ -616,12 +615,12 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>Abnormal values are ineffective by default.
      * </p>
      *
-     * @param { number | Resource | undefined } scale
+     * @param { double | Resource | undefined } scale
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default maxFontScale(scale: number | Resource | undefined): this;
+    default maxFontScale(scale: double | Resource | undefined): this;
     /**
      * Called when the height adaptive policy is set.
      *
@@ -665,12 +664,12 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * indicating that there is no maximum number of lines.
      * </p>
      *
-     * @param { number | undefined } value
+     * @param { int | undefined } value
      * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default maxLines(value: number | undefined): this;
+    default maxLines(value: int | undefined): this;
     /**
      * Set the word break type.
      *
@@ -742,12 +741,12 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>A negative value too small may result in the text being compressed to 0 and no content being displayed.
      * </p>
      *
-     * @param { number | string | Resource | undefined } value - The unit is fp.
+     * @param { double | string | Resource | undefined } value - The unit is fp.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default letterSpacing(value: number | string | Resource | undefined): this;
+    default letterSpacing(value: double | string | Resource | undefined): this;
     /**
      * Set font line spacing.
      *
@@ -769,12 +768,12 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * <br>If the value is of the number type, the unit fp is used.
      * </p>
      *
-     * @param { number | string | Resource | undefined } value
+     * @param { double | string | Resource | undefined } value
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default lineHeight(value: number | string | Resource | undefined): this;
+    default lineHeight(value: double | string | Resource | undefined): this;
     /**
      * Called when the input type is set.
      *

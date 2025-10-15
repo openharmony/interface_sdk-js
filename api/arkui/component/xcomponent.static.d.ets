@@ -15,7 +15,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { ImageAIOptions, ImageAnalyzerConfig } from "./imageCommon";
 import { CommonMethod, AttributeModifier, Callback } from "./common";
@@ -306,6 +305,16 @@ export declare interface XComponentAttribute extends CommonMethod {
      * @since 20
      */
     default enableSecure(isSecure: boolean | undefined): this;
+    /**
+     * Enable transparent layer for XComponent.
+     *
+     * @param { boolean | undefined } enabled - whether to enable transparent layer for XComponent.
+     * @returns { XComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 20 static
+     */
+    default enableTransparentLayer(enabled: boolean | undefined): this;
     /**
      * Set hdrBrightness for XComponent.
      *

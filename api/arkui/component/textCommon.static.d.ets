@@ -15,14 +15,13 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
-import { ResourceColor, ResourceStr, Length } from "./units";
-import { DecorationStyleInterface, MutableStyledString, StyledString } from "./styledString";
+import { ResourceColor, ResourceStr, Length } from './units';
+import { DecorationStyleInterface, MutableStyledString, StyledString } from './styledString';
 import { SelectionOptions, Callback } from './common';
-import { TextDecorationType, TextDecorationStyle } from "./enums";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { TextDecorationType, TextDecorationStyle } from './enums';
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines the text data detector type.
  *
@@ -119,44 +118,44 @@ export declare interface TextRange {
     /**
      * Start offset.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    start?: number;
+    start?: int;
     /**
      * End offset.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default text length
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    end?: number;
+    end?: int;
 }
 /**
  * Defines the inserted text value info.
  *
  * @interface InsertValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface InsertValue {
     /**
      * The location info where the value will be inserted.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    insertOffset: number;
+    insertOffset: int;
     /**
      * The inserted value.
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     insertValue: string;
 }
@@ -254,11 +253,11 @@ export declare interface DeleteValue {
     /**
      * The location info where the value will be deleted.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    deleteOffset: number;
+    deleteOffset: int;
     /**
      * The deleted direction.
      *
@@ -292,11 +291,13 @@ export type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRange
  * @typedef { function } EditableTextOnChangeCallback
  * @param { string } value - Value of body text, without previewText value.
  * @param { PreviewText } [previewText] - info of previewText, contains previewText value and start index.
- * @param { TextChangeOptions } [options] - contains the selection range before and after the change, as well as the old content.
+ * @param { TextChangeOptions } [options] - contains the selection range before and after the change, as well as
+ *    the old content.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
-export type EditableTextOnChangeCallback = (value: string, previewText?: PreviewText, options?: TextChangeOptions) => void;
+export type EditableTextOnChangeCallback =
+                                      (value: string, previewText?: PreviewText, options?: TextChangeOptions) => void;
 /**
  * Define the text selection controller.
  *
@@ -385,23 +386,23 @@ export declare interface TextEditControllerEx extends TextBaseController {
  * The previewText.
  * @interface PreviewText
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface PreviewText {
     /**
      * Start offset of the previewText
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    offset: number;
+    offset: int;
     /**
      * Value of the previewText.
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     value: string;
 }
@@ -499,38 +500,38 @@ export declare interface LayoutManager {
     /**
      * Get the line count.
      *
-     * @returns { number } The line count value returned to the caller.
+     * @returns { int } The line count value returned to the caller.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    getLineCount(): number;
+    getLineCount(): int;
     /**
      * Get the glyph position at coordinate.
      *
-     * @param { number } x - the positionX of typography.
-     * @param { number } y - the positionY of typography.
+     * @param { double } x - the positionX of typography.
+     * @param { double } y - the positionY of typography.
      * @returns { PositionWithAffinity } TextBlob object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    getGlyphPositionAtCoordinate(x: number, y: number): PositionWithAffinity;
+    getGlyphPositionAtCoordinate(x: double, y: double): PositionWithAffinity;
 }
 /**
  * Position and affinity.
  *
  * @typedef PositionWithAffinity
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface PositionWithAffinity {
     /**
      * Position of text.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    position: number;
+    position: int;
 }
 /**
  * Defines the cursor style

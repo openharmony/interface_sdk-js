@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 export * from './arkui/component/animation';
@@ -29,7 +28,6 @@ export * from './arkui/component/units';
 export * from './arkui/component/actionSheet';
 export * from './arkui/component/alertDialog';
 export * from './arkui/component/alphabetIndexer';
-export * from './arkui/component/animator';
 export * from './arkui/component/badge';
 export * from './arkui/component/blank';
 export * from './arkui/component/builder';
@@ -69,12 +67,12 @@ export * from './arkui/component/gridCol';
 export * from './arkui/component/gridRow';
 export * from './arkui/component/gridItem';
 export * from './arkui/component/hyperlink';
+export * from './arkui/component/inspector';
 export * from './arkui/component/image';
 export * from './arkui/component/imageAnimator';
 export * from './arkui/component/imageCommon';
 export * from './arkui/component/imageSpan';
 export * from './arkui/component/indicatorcomponent';
-export * from './arkui/component/inspector';
 export * from './arkui/component/interop';
 export * from './arkui/component/lazyForEach';
 export * from './arkui/component/line';
