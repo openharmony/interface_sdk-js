@@ -1385,12 +1385,21 @@ export declare interface TextInputAttribute extends CommonMethod {
     /**
      * Set the cancel button style
      *
-     * @param { CancelButtonOptions | CancelButtonSymbolOptions | undefined } symbolOptions - indicates the style of the cancel button.
+     * @param { CancelButtonOptions | undefined } iconOptions - indicates the image style of the cancel button.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default cancelButton(symbolOptions: CancelButtonOptions | CancelButtonSymbolOptions | undefined): this;
+    default cancelButton(iconOptions: CancelButtonOptions | undefined): this;
+    /**
+     * Set the cancel button style
+     *
+     * @param { CancelButtonSymbolOptions | undefined } symbolOptions - indicates the symbol style of the cancel button.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    default cancelButton(symbolOptions: CancelButtonSymbolOptions | undefined): this;
     /**
      * Sets selection when on focus.
      *

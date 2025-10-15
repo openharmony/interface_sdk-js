@@ -572,12 +572,12 @@ export declare interface SearchAttribute extends CommonMethod {
     /**
      * Call the function when clicked the search button.
      *
-     * @param { Callback<string> | SearchSubmitCallback | undefined } callback - callback of the listened event.
+     * @param { SearchSubmitCallback | undefined } callback - callback of the listened event.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default onSubmit(callback: Callback<string> | SearchSubmitCallback | undefined): this;
+    default onSubmit(callback: SearchSubmitCallback | undefined): this;
     /**
      * Call the function when editing the input text
      *
