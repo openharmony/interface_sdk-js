@@ -4247,6 +4247,42 @@ declare namespace notificationManager {
   function isSilentReminderEnabled(bundle: BundleOption): Promise<SwitchState>;
  
   /**
+   * Set the custom ringtone information of application.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { RingtoneInfo } ringtoneInfo - Custom ringtone information.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600022 - The specified bundle is invalid.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function setRingtoneInfoByBundle(bundle: BundleOption, ringtoneInfo: RingtoneInfo): Promise<void>;
+
+  /**
+   * Get the custom ringtone information of application.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @returns { Promise<RingtoneInfo> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600022 - The specified bundle is invalid.
+   * @throws { BusinessError } 1600024 - The specified bundle has no custom ringtone information.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function getRingtoneInfoByBundle(bundle: BundleOption): Promise<RingtoneInfo>;
+
+  /**
    * Represents the state of a switch,
    * distinguishing system defaults from user modifications.
    *
@@ -5028,6 +5064,51 @@ declare namespace notificationManager {
   }
 
   /**
+   * Describes the ringtone information.
+   *
+   * @typedef RingtoneInfo
+   * @syscap SystemCapability.Notification.Notification
+   * @since 22 dynamic&static
+   */
+  export interface RingtoneInfo {
+    /**
+     * Ringtone type.
+     *
+     * @type { RingtoneType }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 22 dynamic&static
+     */
+    ringtoneType: RingtoneType;
+
+    /**
+     * Title of ringtone.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 22 dynamic&static
+     */
+    ringtoneTitle?: string;
+
+    /**
+     * File name of ringtone.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 22 dynamic&static
+     */
+    ringtoneFileName?: string;
+
+    /**
+     * Uri of ringtone.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 22 dynamic&static
+     */
+    ringtoneUri?: string;
+  }
+
+  /**
    * The remind type of the notification.
    *
    * @enum { int }
@@ -5182,6 +5263,52 @@ declare namespace notificationManager {
      * @arkts 1.1&1.2
      */
     NOTIFICATION_STATUS_CLOSE_STATUSBAR_ICON = 1 << 5
+  }
+
+  /**
+   * Enumerates the ringtone types.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Notification.Notification
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  export enum RingtoneType {
+    /**
+     * System custom ringtone.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    RINGTONE_TYPE_SYSTEM = 0,
+
+    /**
+     * Local custom ringtone.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    RINGTONE_TYPE_LOCAL = 1,
+
+    /**
+     * Online custom ringtone.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    RINGTONE_TYPE_ONLINE = 2,
+
+    /**
+     * No custom ringtone.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    RINGTONE_TYPE_NONE = 3,
   }
 
   /**
