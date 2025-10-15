@@ -1364,45 +1364,41 @@ export declare class UIObserver {
   /**
    * Registers a callback function to be called when the screen density in a ui context is updated.
    *
-   * @param { 'densityUpdate' } type - The type of event to listen for. Must be 'densityUpdate'.
    * @param { Callback<observer.DensityInfo> } callback - The callback function to be called when the screen density is
    * updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  on(type: 'densityUpdate', callback: Callback<observer.DensityInfo>): void;
+  onDensityUpdate(callback: Callback<observer.DensityInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { 'densityUpdate' } type - The type of event to remove the listener for. Must be 'densityUpdate'.
    * @param { Callback<observer.DensityInfo> } [callback] - The callback function to remove. If not provided, all
    * callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  off(type: 'densityUpdate', callback?: Callback<observer.DensityInfo>): void;
+  offDensityUpdate(callback?: Callback<observer.DensityInfo>): void;
 
   /**
    * Registers a callback function to be called when the draw command will be drawn.
    *
-   * @param { 'willDraw' } type - The type of event to listen for. Must be 'willDraw'.
    * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  on(type: 'willDraw', callback: Callback<void>): void;
+  onWillDraw(callback: Callback<void>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { 'willDraw' } type - The type of event to remove the listener for. Must be 'willDraw'.
    * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the
    * given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  off(type: 'willDraw', callback?: Callback<void>): void;
+  offWillDraw(callback?: Callback<void>): void;
 
   /**
    * Registers a callback function to be called when the layout is done.
@@ -1412,19 +1408,18 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  on(type: 'didLayout', callback: Callback<void>): void;
+  onDidLayout(callback: Callback<void>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { 'didLayout' } type - The type of event to remove the listener for. Must be 'didLayout'.
    * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the
    * given event type
    *                                                        will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  off(type: 'didLayout', callback?: Callback<void>): void;
+  offDidLayout(callback?: Callback<void>): void;
 
   /**
    * Registers a callback function to be called when the navigation switched to a new navDestination.

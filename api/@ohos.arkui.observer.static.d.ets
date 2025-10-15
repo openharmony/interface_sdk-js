@@ -700,67 +700,61 @@ declare namespace uiObserver {
     /**
      * Registers a callback function to be called when the screen density is updated.
      *
-     * @param { 'densityUpdate' } type - The type of event to listen for. Must be 'densityUpdate'.
      * @param { UIContext } context - The context scope of the observer.
      * @param { Callback<DensityInfo> } callback - The callback function to be called when the screen density
      *     is updated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    export function on(type: 'densityUpdate', context: UIContext, callback: Callback<DensityInfo>): void;
+    export function onDensityUpdate(context: UIContext, callback: Callback<DensityInfo>): void;
     /**
      * Removes a callback function that was previously registered with `on()`.
      *
-     * @param { 'densityUpdate' } type - The type of event to remove the listener for. Must be 'densityUpdate'.
      * @param { UIContext } context - The context scope of the observer.
      * @param { Callback<DensityInfo> } [callback] - The callback function to remove. If not provided, all callbacks
      *     for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    export function off(type: 'densityUpdate', context: UIContext, callback?: Callback<DensityInfo>): void;
+    export function offDensityUpdate(context: UIContext, callback?: Callback<DensityInfo>): void;
     /**
      * Registers a callback function to be called when the draw command will be drawn.
      *
-     * @param { 'willDraw' } type - The type of event to listen for. Must be 'willDraw'.
      * @param { UIContext } context - The context scope of the observer.
      * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    export function on(type: 'willDraw', context: UIContext, callback: Callback<void>): void;
+    export function onWillDraw(context: UIContext, callback: Callback<void>): void;
     /**
      * Removes a callback function that was previously registered with `on()`.
      *
-     * @param { 'willDraw' } type - The type of event to remove the listener for. Must be 'willDraw'.
      * @param { UIContext } context - The context scope of the observer.
      * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks
      *     for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    export function off(type: 'willDraw', context: UIContext, callback?: Callback<void>): void;
+    export function offWillDraw(context: UIContext, callback?: Callback<void>): void;
     /**
      * Registers a callback function to be called when the layout is done.
      *
-     * @param { 'didLayout' } type - The type of event to listen for. Must be 'didLayout'.
      * @param { UIContext } context - The context scope of the observer.
      * @param { Callback<void> } callback - The callback function to be called when the layout is done.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    export function on(type: 'didLayout', context: UIContext, callback: Callback<void>): void;
+    export function onDidLayout(context: UIContext, callback: Callback<void>): void;
     /**
      * Removes a callback function that was previously registered with `on()`.
      *
-     * @param { 'didLayout' } type - The type of event to remove the listener for. Must be 'didLayout'.
      * @param { UIContext } context - The context scope of the observer.
      * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks
      *     for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    export function off(type: 'didLayout', context: UIContext, callback?: Callback<void>): void;
+    export function offDidLayout(context: UIContext, callback?: Callback<void>): void;
     /**
      * Registers a callback function to be called when the tabContent is showed or hidden.
      *
