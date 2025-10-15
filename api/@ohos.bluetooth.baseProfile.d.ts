@@ -444,9 +444,21 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 20 static
      */
     on(type: 'connectionStateChange', callback: Callback<StateChangeParam>): void;
+
+    /**
+     * Subscribe the event reported when the profile connection state changes .
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    onConnectionStateChange(callback: Callback<StateChangeParam>): void;
 
     /**
      * Unsubscribe the event reported when the profile connection state changes .
@@ -474,9 +486,21 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 20 static
      */
     off(type: 'connectionStateChange', callback?: Callback<StateChangeParam>): void;
+
+    /**
+     * Unsubscribe the event reported when the profile connection state changes .
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { Callback<StateChangeParam> } [callback] - Callback used to listen for event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 22 static
+     */
+    offConnectionStateChange(callback?: Callback<StateChangeParam>): void;
   }
 }
 

@@ -345,9 +345,20 @@ declare namespace access {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   function on(type: 'stateChange', callback: Callback<BluetoothState>): void;
+
+  /**
+   * Subscribe the event reported when the Bluetooth state changes.
+   *
+   * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 22 static
+   */
+  function onStateChange(callback: Callback<BluetoothState>): void;
 
   /**
    * Unsubscribe the event reported when the Bluetooth state changes.
@@ -407,9 +418,20 @@ declare namespace access {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   function off(type: 'stateChange', callback?: Callback<BluetoothState>): void;
+
+  /**
+   * Unsubscribe the event reported when the Bluetooth state changes.
+   *
+   * @param { Callback<BluetoothState> } [callback] - Callback used to listen for the Bluetooth state event.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 22 static
+   */
+  function offStateChange(callback?: Callback<BluetoothState>): void;
 
   /**
    * Add a persistent random device address. Once the randomized address is successfully added,
