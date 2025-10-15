@@ -157,6 +157,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11 dynamic
+   * @since 20 static
    */
   function updateForm(
     formId: string,
@@ -200,6 +201,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11 dynamic
+   * @since 20 static
    */
   function updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
 
@@ -231,6 +233,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11 dynamic
+   * @since 20 static
    */
   function getFormsInfo(filter: formInfo.FormInfoFilter, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
@@ -260,6 +263,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11 dynamic
+   * @since 20 static
    */
   function getFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
@@ -291,6 +295,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11 dynamic
+   * @since 20 static
    */
   function getFormsInfo(filter?: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>;
 
@@ -309,6 +314,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
+   * @since 20 static
    */
   function requestPublishForm(
     want: Want,
@@ -330,6 +336,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
+   * @since 20 static
    */
   function requestPublishForm(want: Want, callback: AsyncCallback<string>): void;
 
@@ -348,6 +355,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
+   * @since 20 static
    */
   function requestPublishForm(want: Want, formBindingData?: formBindingData.FormBindingData): Promise<string>;
 
@@ -363,6 +371,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
+   * @since 20 static
    */
   function isRequestPublishFormSupported(callback: AsyncCallback<boolean>): void;
 
@@ -376,6 +385,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9 dynamic
+   * @since 20 static
    */
   function isRequestPublishFormSupported(): Promise<boolean>;
 
@@ -390,7 +400,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 18 dynamiconly
+   * @since 18 dynamic
+   * @since 20 static
    * @deprecated since 20
    * @useinstead getPublishedRunningFormInfoById
    */
@@ -406,7 +417,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 18 dynamiconly
+   * @since 18 dynamic
+   * @since 20 static
    * @deprecated since 20
    * @useinstead getPublishedRunningFormInfos
    */
@@ -424,7 +436,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   function getPublishedRunningFormInfoById(formId: string): Promise<formInfo.RunningFormInfo>;
    
@@ -437,7 +449,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   function getPublishedRunningFormInfos(): Promise<Array<formInfo.RunningFormInfo>>
 
@@ -452,6 +464,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 18 dynamic
+   * @since 20 static
    */
   function openFormManager(want: Want): void;
 
@@ -486,6 +499,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501007 - Form is not trust.
    * @syscap SystemCapability.Ability.Form
    * @since 18 dynamic
+   * @since 20 static
    */
   function openFormEditAbility(abilityName: string, formId: string, isMainPage?: boolean): void;
 
