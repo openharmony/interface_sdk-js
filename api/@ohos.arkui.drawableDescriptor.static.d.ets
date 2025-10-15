@@ -136,19 +136,19 @@ export interface AnimationOptions {
   /**
    * The duration of animation playback once.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  duration?: number;
+  duration?: int;
   /**
    * Animation playback times.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  iterations?: number;
+  iterations?: int;
 }
 
 /**
