@@ -112,7 +112,7 @@ export declare class Indicator {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  default left(value: Length | undefined): this;
+  left(value: Length | undefined): this;
 
   /**
    * Set the indicator to the top.
@@ -124,7 +124,7 @@ export declare class Indicator {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  default top(value: Length | undefined): this;
+  top(value: Length | undefined): this;
 
   /**
    * Set the indicator to the right.
@@ -136,7 +136,7 @@ export declare class Indicator {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  default right(value: Length | undefined): this;
+  right(value: Length | undefined): this;
 
   /**
    * Set the indicator to the bottom.
@@ -148,7 +148,7 @@ export declare class Indicator {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  default bottom(value: Length | undefined): this;
+  bottom(value: Length | undefined): this;
 
   /**
    * Sets the position of the navigation indicator relative to the bottom edge of the Swiper component.
@@ -162,7 +162,7 @@ export declare class Indicator {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  default bottom(bottom: LengthMetrics | Length | undefined, ignoreSize: boolean): this;
+  bottom(bottom: LengthMetrics | Length | undefined, ignoreSize: boolean): this;
 
   /**
    * Set the indicator to the left in LTR
@@ -174,7 +174,7 @@ export declare class Indicator {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  default start(value: LengthMetrics | undefined): this;
+  start(value: LengthMetrics | undefined): this;
 
   /**
    * Set the indicator to the left in RTL
@@ -186,7 +186,7 @@ export declare class Indicator {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  default end(value: LengthMetrics | undefined): this;
+  end(value: LengthMetrics | undefined): this;
 
   /**
    * DotIndicator class object.
