@@ -177,7 +177,6 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
    */
   function startUsingPermission(tokenID: int, permissionName: Permissions): Promise<void>;
 
