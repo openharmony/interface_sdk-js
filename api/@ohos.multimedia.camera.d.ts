@@ -212,17 +212,17 @@ declare namespace camera {
   /**
    * Enumerates the system pressure levels of the current camera session. When the system pressure increases,
    * you are advised to reduce the load of the current camera session.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic&static
    */
   enum SystemPressureLevel {
     /**
      * Normal level. This level indicates that the system pressure is normal.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     SYSTEM_PRESSURE_NORMAL = 0,
 
@@ -230,7 +230,7 @@ declare namespace camera {
      * Low level. This level indicates that the system pressure is slightly increased.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     SYSTEM_PRESSURE_MILD = 1,
 
@@ -238,7 +238,7 @@ declare namespace camera {
      * Severity level. This level indicates that the system pressure is severely increased.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     SYSTEM_PRESSURE_SEVERE = 2,
 
@@ -246,7 +246,7 @@ declare namespace camera {
      * Critical level. This level indicates that the system pressure has reached a critical threshold.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     SYSTEM_PRESSURE_CRITICAL = 3,
 
@@ -255,7 +255,7 @@ declare namespace camera {
      * shut down soon.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     SYSTEM_PRESSURE_SHUTDOWN = 4
   }
@@ -8355,7 +8355,7 @@ declare namespace camera {
      * @param { AsyncCallback<SystemPressureLevel> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     on(type: 'systemPressureLevelChange', callback: AsyncCallback<SystemPressureLevel>): void
 
@@ -8366,7 +8366,7 @@ declare namespace camera {
      * @param { AsyncCallback<SystemPressureLevel> } [callback] - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     off(type: 'systemPressureLevelChange', callback?: AsyncCallback<SystemPressureLevel>): void
 
@@ -8874,7 +8874,7 @@ declare namespace camera {
      * @param { AsyncCallback<SystemPressureLevel> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     on(type: 'systemPressureLevelChange', callback: AsyncCallback<SystemPressureLevel>): void
 
@@ -8885,7 +8885,7 @@ declare namespace camera {
      * @param { AsyncCallback<SystemPressureLevel> } [callback] - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     off(type: 'systemPressureLevelChange', callback?: AsyncCallback<SystemPressureLevel>): void
 
