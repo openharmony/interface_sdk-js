@@ -532,8 +532,8 @@ export interface PacMap {
  * If the PacMap object is to be transferred to a non-OHOS process,
  * values of primitive types are supported, but not custom Sequenceable objects.
  *
- * @typedef { Record<string, number | string | boolean | Array<string | number | boolean> | null> }
+ * @typedef { Record<string, int | double | string | boolean | Array<string | int | double | boolean> | null> }
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @since 20 static
  */
-export type PacMap = Record<string, number | string | boolean | Array<string | number | boolean> | null>;
+export type PacMap = Record<string, int | double | string | boolean | Array<string | int | double | boolean> | null>;

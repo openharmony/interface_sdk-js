@@ -313,7 +313,7 @@ declare class ApplicationContext extends Context {
    * Unregister environment callback.
    * 
    * @param { 'environment' } type - environment.
-   * @param { int } callbackId - Indicates the number code of the callback.
+   * @param { number } callbackId - Indicates the number code of the callback.
    * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -321,7 +321,7 @@ declare class ApplicationContext extends Context {
    * @atomicservice
    * @since 11 dynamic
    */
-  off(type: 'environment', callbackId: int, callback: AsyncCallback<void>): void;
+  off(type: 'environment', callbackId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Unregister environment callback.
