@@ -36,7 +36,8 @@ declare namespace screenLock {
    * @param { AsyncCallback<boolean> } callback - the callback of isScreenLocked.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7 dynamic
-   * @deprecated since 9
+   * @since 20 static
+   * @deprecated since 9 dynamic
    */
   function isScreenLocked(callback: AsyncCallback<boolean>): void;
 
@@ -46,7 +47,8 @@ declare namespace screenLock {
    * @returns { Promise<boolean> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7 dynamic
-   * @deprecated since 9
+   * @since 20 static
+   * @deprecated since 9 dynamic
    */
   function isScreenLocked(): Promise<boolean>;
 
@@ -68,7 +70,8 @@ declare namespace screenLock {
    * @param { AsyncCallback<boolean> } callback - the callback of isSecureMode.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7 dynamic
-   * @deprecated since 9
+   * @since 20 static
+   * @deprecated since 9 dynamic
    */
   function isSecureMode(callback: AsyncCallback<boolean>): void;
 
@@ -78,7 +81,8 @@ declare namespace screenLock {
    * @returns { Promise<boolean> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7 dynamic
-   * @deprecated since 9
+   * @since 20 static
+   * @deprecated since 9 dynamic
    */
   function isSecureMode(): Promise<boolean>;
 
@@ -467,6 +471,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
+   * @since 20 static
    */
   function requestStrongAuth(reasonFlag: StrongAuthReasonFlags, userId: int): Promise<void>;
 
