@@ -13,16 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
  */
+
 import { CommonMethod, Callback } from './common';
 import Want from '../../@ohos.app.ability.Want';
 import { Visibility } from './enums';
 import { VoidCallback } from './units';
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier, CommonMethod } from "./common";
+
 /**
  * Defines the FormDimension enum.
  *
@@ -40,6 +43,7 @@ export declare enum FormDimension {
      * @since 22 static
      */
     Dimension_1_2 = 0,
+
     /**
      * 2 x 2 cards
      *
@@ -48,6 +52,7 @@ export declare enum FormDimension {
      * @since 22 static
      */
     Dimension_2_2 = 1,
+
     /**
      * 2 x 4 cards
      *
@@ -56,6 +61,7 @@ export declare enum FormDimension {
      * @since 22 static
      */
     Dimension_2_4 = 2,
+
     /**
      * 4 x 4 cards
      *
@@ -64,6 +70,7 @@ export declare enum FormDimension {
      * @since 22 static
      */
     Dimension_4_4 = 3,
+
     /**
      * 1 x 1 cards
      * The default value is 6
@@ -73,6 +80,7 @@ export declare enum FormDimension {
      * @since 22 static
      */
     DIMENSION_1_1 = 6,
+
     /**
      * 6 x 4 cards
      *
@@ -81,6 +89,7 @@ export declare enum FormDimension {
      * @since 22 static
      */
     DIMENSION_6_4 = 7,
+
     /**
      * 2 x 3 cards used for wearable devices
      *
@@ -89,6 +98,7 @@ export declare enum FormDimension {
      * @since 22 static
      */
     DIMENSION_2_3 = 8,
+
     /**
      * 3 x 3 cards used for wearable devices
      *
@@ -98,6 +108,7 @@ export declare enum FormDimension {
      */
     DIMENSION_3_3 = 9
 }
+
 /**
  * Defines the FormRenderingMode enum.
  *
@@ -115,6 +126,7 @@ export declare enum FormRenderingMode {
      * @since 22 static
      */
     FULL_COLOR = 0,
+
     /**
      *  single color mode
      *
@@ -141,6 +153,7 @@ export declare enum FormShape {
      * @since 22 static
      */
     RECT = 1,
+
     /**
      * The circle shape.
      *
@@ -168,6 +181,7 @@ export declare interface FormInfo {
      * @since 22 static
      */
     id: long | string;
+
     /**
      * The name of the form.
      *
@@ -177,6 +191,7 @@ export declare interface FormInfo {
      * @since 22 static
      */
     name: string;
+
     /**
      * The bundle of the form.
      *
@@ -186,6 +201,7 @@ export declare interface FormInfo {
      * @since 22 static
      */
     bundle: string;
+
     /**
      * The ability of the form.
      *
@@ -195,6 +211,7 @@ export declare interface FormInfo {
      * @since 22 static
      */
     ability: string;
+
     /**
      * The module of the form.
      *
@@ -204,6 +221,7 @@ export declare interface FormInfo {
      * @since 22 static
      */
     module: string;
+
     /**
      * The dimension of the form.
      *
@@ -213,6 +231,7 @@ export declare interface FormInfo {
      * @since 22 static
      */
     dimension?: FormDimension;
+
     /**
      * Whether the form is temporary.
      *
@@ -222,6 +241,7 @@ export declare interface FormInfo {
      * @since 22 static
      */
     temporary?: boolean;
+
     /**
      * The want of the form.
      *
@@ -231,6 +251,7 @@ export declare interface FormInfo {
      * @since 22 static
      */
     want?: Want;
+
     /**
      * The renderingMode of the form.
      *
@@ -240,6 +261,7 @@ export declare interface FormInfo {
      * @since 22 static
      */
     renderingMode?: FormRenderingMode;
+
     /**
      * The shape of the form.
      *
@@ -268,6 +290,7 @@ export interface FormCallbackInfo {
      * @since 22 static
      */
     id: long;
+
     /**
      * The string id of the form.
      *
@@ -297,6 +320,7 @@ export interface FormSize {
      * @since 22 static
      */
     width: double;
+
     /**
      * The height of the form.
      * Anonymous Object Rectification
@@ -327,6 +351,7 @@ export interface ErrorInformation {
      * @since 22 static
      */
     errcode: int;
+
     /**
      * Error information.
      * Anonymous Object Rectification
@@ -346,7 +371,7 @@ export interface ErrorInformation {
  * @interface  FormComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 22 static
  * @noninterop
  */
 export declare interface FormComponentAttribute extends CommonMethod {
@@ -360,108 +385,128 @@ export declare interface FormComponentAttribute extends CommonMethod {
      * @since 22 static
      */
     default size(formSize: FormSize): this;
+
     /**
      * Card module name.
      *
-     * @param { string } value
+     * @param { string | undefined } value
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
     default moduleName(value: string | undefined): this;
+
     /**
      * Set the card size.
      *
-     * @param { FormDimension } value
+     * @param { FormDimension | undefined } value
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
     default dimension(value: FormDimension | undefined): this;
+
     /**
      * Indicates whether to allow card update.
      *
-     * @param { boolean } value
+     * @param { boolean | undefined } value
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
     default allowUpdate(value: boolean | undefined): this;
+
     /**
      * Whether the card is visible.
      *
-     * @param { Visibility } value
+     * @param { Visibility | undefined } value
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
     default visibility(value: Visibility | undefined): this;
+
     /**
      * This function is triggered after card information is obtained.
      * For details about the form information, see the definition of the original capability subsystem.
      *
-     * @param { Callback<FormCallbackInfo> } callback
+     * @param { Callback<FormCallbackInfo> | undefined } callback
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
     default onAcquired(callback: Callback<FormCallbackInfo> | undefined): this;
+
     /**
      * Card loading error.
      *
-     * @param { Callback<ErrorInformation> } callback
+     * @param { Callback<ErrorInformation> | undefined } callback
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
     default onError(callback: Callback<ErrorInformation> | undefined): this;
+
     /**
      * Card to be redirected.
      * Anonymous Object Rectification
      *
-     * @param { Callback<object> } callback
+     * @param { Callback<object> | undefined } callback
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
     default onRouter(callback: Callback<object> | undefined): this;
+
     /**
      * Uninstall Card.
      *
-     * @param { Callback<FormCallbackInfo> } callback
+     * @param { Callback<FormCallbackInfo> | undefined } callback
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
     default onUninstall(callback: Callback<FormCallbackInfo> | undefined): this;
+
     /**
      * Card to be loaded.
      *
-     * @param { VoidCallback } callback
+     * @param { VoidCallback | undefined } callback
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
     default onLoad(callback: VoidCallback | undefined): this;
+
     /**
      * Card has been updated.
      *
-     * @param { Callback<FormCallbackInfo> } callback
+     * @param { Callback<FormCallbackInfo> | undefined } callback
      * @returns { FormComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 22 static
      */
     default onUpdate(callback: Callback<FormCallbackInfo> | undefined): this;
+
+    /**
+     * Call attributeModifier.
+     *
+     * @param { AttributeModifier<FormComponentAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 22 static
+     */
     default attributeModifier(modifier: AttributeModifier<FormComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
@@ -472,8 +517,8 @@ export declare interface FormComponentAttribute extends CommonMethod {
  * @returns { FormComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @noninterop
  * @since 22 static
+ * @noninterop
  */
 @memo
 @ComponentBuilder

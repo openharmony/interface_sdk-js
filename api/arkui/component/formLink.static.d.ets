@@ -1,6 +1,6 @@
 'use static';
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,9 +17,11 @@
  * @file
  * @kit ArkUI
  */
+
 import { CommonMethod } from './common';
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier, CommonMethod } from "./common";
+
 /**
  * Defines the FormLink options.
  *
@@ -71,24 +73,32 @@ export declare interface FormLinkOptions {
     /**
      * The additional parameters, use JSON format key value pairs for content.
      *
-     * @type { ?Object }
+     * @type { ?RecordData  }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    params?: Object;
+    params?: RecordData;
 }
 /**
  * Define the attribute functions of FormLink.
  *
  * @extends CommonMethod
- * @interface  FormLinkAttribute
+ * @interface FormLinkAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 20
+ * @since 22 static
  * @noninterop
  */
 export declare interface FormLinkAttribute extends CommonMethod {
-    default  attributeModifier(modifier: AttributeModifier<FormLinkAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    /**
+     * Call attributeModifier.
+     *
+     * @param { AttributeModifier<FormLinkAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     * @noninterop
+     */
+    default attributeModifier(modifier: AttributeModifier<FormLinkAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 /**
  * Defines FormLink.
@@ -96,9 +106,8 @@ export declare interface FormLinkAttribute extends CommonMethod {
  * @param { function } [content_] - container
  * @returns { FormLinkAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @noninterop
  * @since 22 static
+ * @noninterop
  */
 @memo
 @ComponentBuilder

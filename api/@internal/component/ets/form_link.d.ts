@@ -24,7 +24,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 10
- */
+*/
 /**
  * Defines the FormLink options.
  *
@@ -33,7 +33,7 @@
  * @form
  * @atomicservice
  * @since 11 dynamic
- */
+*/
 declare interface FormLinkOptions {
   /**
    * Action types: "router" and "message".

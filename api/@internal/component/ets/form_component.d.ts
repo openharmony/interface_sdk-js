@@ -386,7 +386,7 @@ interface FormCallbackInfo {
 /**
  * Defines the size of Form.
  *
- * @typedef FormSize
+ * @interface FormSize
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 18 dynamic
@@ -653,3 +653,4 @@ declare const FormComponent: FormComponentInterface;
  * @since 7 dynamic
  */
 declare const FormComponentInstance: FormComponentAttribute;
+  
