@@ -2163,6 +2163,7 @@ declare namespace print {
    * @param { PrinterState } state - the state of printer
    * @param { PrinterInfo } info - the information of the latest printer
    * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
    * @since 22 static
    */
   type PrinterStateChangeCallback = (state: PrinterState, info: PrinterInfo) => void;
@@ -2234,6 +2235,7 @@ declare namespace print {
    * @param { PrintJobState } state - the state of print job
    * @param { PrintJob } job - the information of the print job
    * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
    * @since 22 static
    */
   type PrintJobStateChangeCallback = (state: PrintJobState, job: PrintJob) => void;
