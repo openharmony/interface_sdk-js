@@ -2164,7 +2164,7 @@ declare namespace update {
      * @since arkts{ '1.1':'9','1.2':'20' }
      * @arkts 1.1&1.2
      */
-    EVENT_TASK_RECEIVE,
+    EVENT_TASK_RECEIVE = 0x01000001,
 
     /**
      * Event id is task cancelled.
@@ -2174,7 +2174,7 @@ declare namespace update {
      * @since arkts{ '1.1':'9','1.2':'20' }
      * @arkts 1.1&1.2
      */
-    EVENT_TASK_CANCEL,
+    EVENT_TASK_CANCEL = 0x01000002,
 
     /**
      * Event id is waiting for download.
@@ -2184,7 +2184,7 @@ declare namespace update {
      * @since arkts{ '1.1':'9','1.2':'20' }
      * @arkts 1.1&1.2
      */
-    EVENT_DOWNLOAD_WAIT,
+    EVENT_DOWNLOAD_WAIT = 0x01000003,
 
     /**
      * Event id is download started.
@@ -2194,7 +2194,7 @@ declare namespace update {
      * @since arkts{ '1.1':'9','1.2':'20' }
      * @arkts 1.1&1.2
      */
-    EVENT_DOWNLOAD_START,
+    EVENT_DOWNLOAD_START = 0x01000004,
 
     /**
      * Event id is download progress update.
@@ -2204,7 +2204,7 @@ declare namespace update {
      * @since arkts{ '1.1':'9','1.2':'20' }
      * @arkts 1.1&1.2
      */
-    EVENT_DOWNLOAD_UPDATE,
+    EVENT_DOWNLOAD_UPDATE = 0x01000005,
 
     /**
      * Event id is download paused.
@@ -2214,7 +2214,7 @@ declare namespace update {
      * @since arkts{ '1.1':'9','1.2':'20' }
      * @arkts 1.1&1.2
      */
-    EVENT_DOWNLOAD_PAUSE,
+    EVENT_DOWNLOAD_PAUSE = 0x01000006,
 
     /**
      * Event id is download resumed.
@@ -2224,7 +2224,7 @@ declare namespace update {
      * @since arkts{ '1.1':'9','1.2':'20' }
      * @arkts 1.1&1.2
      */
-    EVENT_DOWNLOAD_RESUME,
+    EVENT_DOWNLOAD_RESUME = 0x01000007,
 
     /**
      * Event id is download succeeded.
@@ -2234,7 +2234,7 @@ declare namespace update {
      * @since arkts{ '1.1':'9','1.2':'20' }
      * @arkts 1.1&1.2
      */
-    EVENT_DOWNLOAD_SUCCESS,
+    EVENT_DOWNLOAD_SUCCESS = 0x01000008,
 
     /**
      * Event id is download failed.
@@ -2244,7 +2244,7 @@ declare namespace update {
      * @since arkts{ '1.1':'9','1.2':'20' }
      * @arkts 1.1&1.2
      */
-    EVENT_DOWNLOAD_FAIL,
+    EVENT_DOWNLOAD_FAIL = 0x01000009,
 
     /**
      * Event id is waiting for update.
@@ -2254,7 +2254,7 @@ declare namespace update {
      * @since arkts{ '1.1':'9','1.2':'20' }
      * @arkts 1.1&1.2
      */
-    EVENT_UPGRADE_WAIT,
+    EVENT_UPGRADE_WAIT = 0x0100000a,
 
     /**
      * Event id is update started.
@@ -2264,7 +2264,7 @@ declare namespace update {
      * @since arkts{ '1.1':'9','1.2':'20' }
      * @arkts 1.1&1.2
      */
-    EVENT_UPGRADE_START,
+    EVENT_UPGRADE_START = 0x0100000b,
 
     /**
      * Event id is update in progress.
@@ -2274,7 +2274,7 @@ declare namespace update {
      * @since arkts{ '1.1':'9','1.2':'20' }
      * @arkts 1.1&1.2
      */
-    EVENT_UPGRADE_UPDATE,
+    EVENT_UPGRADE_UPDATE = 0x0100000c,
 
     /**
      * Event id is waiting for applying the update.
@@ -2284,7 +2284,7 @@ declare namespace update {
      * @since arkts{ '1.1':'9','1.2':'20' }
      * @arkts 1.1&1.2
      */
-    EVENT_APPLY_WAIT,
+    EVENT_APPLY_WAIT = 0x0100000d,
 
     /**
      * Event id is applying the update.
@@ -2294,7 +2294,7 @@ declare namespace update {
      * @since arkts{ '1.1':'9','1.2':'20' }
      * @arkts 1.1&1.2
      */
-    EVENT_APPLY_START,
+    EVENT_APPLY_START = 0x0100000e,
 
     /**
      * Event id is update succeeded.
@@ -2304,7 +2304,7 @@ declare namespace update {
      * @since arkts{ '1.1':'9','1.2':'20' }
      * @arkts 1.1&1.2
      */
-    EVENT_UPGRADE_SUCCESS,
+    EVENT_UPGRADE_SUCCESS = 0x0100000f,
 
     /**
      * Event id is update failed.
@@ -2314,7 +2314,7 @@ declare namespace update {
      * @since arkts{ '1.1':'9','1.2':'20' }
      * @arkts 1.1&1.2
      */
-    EVENT_UPGRADE_FAIL
+    EVENT_UPGRADE_FAIL = 0x01000010
   }
 }
 
