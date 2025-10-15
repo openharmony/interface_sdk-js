@@ -2896,21 +2896,21 @@ export declare enum SourceTool {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    MOUSE = 3,
+    MOUSE = 7,
     /**
      * The touchpad type.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    TOUCHPAD = 4,
+    TOUCHPAD = 9,
     /**
      * The joystick type.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    JOYSTICK = 5
+    JOYSTICK = 10
 }
 /**
  * Defines the Border Image Repeat Mode.

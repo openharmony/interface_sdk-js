@@ -511,7 +511,7 @@ export declare enum MouseButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  Left = 0,
+  Left = 1,
 
   /**
    * Mouse Right Button.
@@ -519,7 +519,7 @@ export declare enum MouseButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  Right = 1,
+  Right = 2,
 
   /**
    * Mouse Middle Button.
@@ -527,7 +527,7 @@ export declare enum MouseButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  Middle = 2,
+  Middle = 4,
 
   /**
    * Mouse Back Button.
@@ -535,7 +535,7 @@ export declare enum MouseButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  Back = 3,
+  Back = 8,
 
   /**
    * Mouse Forward Button.
@@ -543,7 +543,7 @@ export declare enum MouseButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  Forward = 4,
+  Forward = 16,
 
   /**
    * Mouse None Button.
@@ -551,7 +551,7 @@ export declare enum MouseButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  None = 5
+  None = 0
 }
 
 /**
@@ -568,7 +568,7 @@ export declare enum MouseAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  Press = 0,
+  Press = 1,
 
   /**
    * Triggered when the mouse is released.
@@ -576,7 +576,7 @@ export declare enum MouseAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  Release = 1,
+  Release = 2,
 
   /**
    * Triggered when the mouse is Moved.
@@ -584,7 +584,7 @@ export declare enum MouseAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  Move = 2,
+  Move = 3,
 
   /**
    * Triggered when the mouse is Hovered.
@@ -592,7 +592,7 @@ export declare enum MouseAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  Hover = 3,
+  Hover = 4,
 
   /**
    * Triggered when mouse enters the window.
@@ -600,7 +600,7 @@ export declare enum MouseAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  ENTER_WINDOW = 4,
+  ENTER_WINDOW = 5,
 
   /**
    * Triggered when mouse leaves the window.
@@ -608,7 +608,7 @@ export declare enum MouseAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  LEAVE_WINDOW = 5,
+  LEAVE_WINDOW = 6,
 
   /**
    * Triggered when the mouse event is canceled.
@@ -798,7 +798,7 @@ export declare enum KeySource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  Keyboard = 1,
+  Keyboard = 4,
 
   /**
    * Set Device Type to Joystic.
@@ -806,7 +806,7 @@ export declare enum KeySource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  JOYSTICK = 2
+  JOYSTICK = 5
 }
 
 /**
@@ -1699,7 +1699,7 @@ export declare enum ImageSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  Auto = 0,
+  Auto = 2,
 
   /**
    * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the
@@ -1716,7 +1716,7 @@ export declare enum ImageSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  Contain = 2,
+  Contain = 0,
 
   /**
    * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
