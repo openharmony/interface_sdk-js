@@ -18,9 +18,7 @@
  * @kit AbilityKit
  */
 
-/*** if arkts dynamic */
 import type appManager from './@ohos.app.ability.appManager';
-/*** endif */
 
 /**
  * The definition of AbilityConstant.
@@ -304,7 +302,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     processState?: appManager.ProcessState;
   }
