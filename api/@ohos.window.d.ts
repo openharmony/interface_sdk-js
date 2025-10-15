@@ -1303,72 +1303,82 @@ declare namespace window {
   /**
    * Enum for window anchor
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum WindowAnchor {
     /**
      * The value means window top left corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     TOP_START = 0,
     /**
      * The value means horizontal midpoint of the border on the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     TOP = 1,
     /**
      * The value means window top right corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     TOP_END = 2,
     /**
      * The value means vertical midpoint of the left border of the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     START = 3,
     /**
      * The value means window horizontal and vertical midpoint.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     CENTER = 4,
     /**
      * The value means vertical midpoint of the right border of the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     END = 5,
     /**
      * The value means window bottom left corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     BOTTOM_START = 6,
     /**
      * The value means horizontal midpoint of the lower border of the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     BOTTOM = 7,
     /**
      * The value means window bottom right corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     BOTTOM_END = 8,
   }
@@ -5782,10 +5792,10 @@ declare namespace window {
      *     when the relative position between the primary sub window and the main window remains unchanged. The
      *     default value is window.WindowAnchor.TOP_Start, meaning the default anchor point is the top-left corner
      *     of the window.
-     * @param { number } [offsetX] - The x-axis offset
+     * @param { int } [offsetX] - The x-axis offset
      *     between the anchor point of the first level sub window and the anchor point of the main window.
      *     The default value is 0.
-     * @param { number } [offsetY] - The y-axis offset
+     * @param { int } [offsetY] - The y-axis offset
      *     between the anchor point of the first level sub window and the anchor point of the main window.
      *     The default value is 0.
      * @returns { Promise<void> } Promise that returns no value.
@@ -5795,10 +5805,11 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     setRelativePositionToParentWindowEnabled(enabled: boolean, anchor?: WindowAnchor,
-        offsetX?: number, offsetY?: number): Promise<void>;
+        offsetX?: int, offsetY?: int): Promise<void>;
 
     /**
      * Set the type of a window.
@@ -11280,7 +11291,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
+     * @since 22 static
      */
     setWindowDelayRaiseOnDrag(isEnabled: boolean): void;
 
