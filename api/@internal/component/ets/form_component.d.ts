@@ -264,7 +264,7 @@ declare interface FormInfo {
    * @systemapi
    * @since 12 dynamic
    */
-  renderingMode ?: FormRenderingMode;
+  renderingMode?: FormRenderingMode;
 
   /**
    * The shape of the form.
@@ -274,7 +274,7 @@ declare interface FormInfo {
    * @systemapi
    * @since 12 dynamic
    */
-  shape ?: FormShape;
+  shape?: FormShape;
 
   /**
    * Exempt app lock
@@ -284,7 +284,7 @@ declare interface FormInfo {
    * @systemapi
    * @since 20 dynamic
    */
-  exemptAppLock ?: boolean;
+  exemptAppLock?: boolean;
 }
 
 /**
