@@ -2689,6 +2689,8 @@ export declare function animateTo(value: AnimateParam, event: () => void): void;
  *     and the system will automatically insert transition animations for state changes caused by the closure function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @deprecated since 22
+ * @useinstead ohos.arkui.UIContext.UIContext#animateToImmediately
  */
 export declare function animateToImmediately(value: AnimateParam, event: () => void): void;
 /**

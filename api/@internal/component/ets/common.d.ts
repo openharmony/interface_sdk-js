@@ -7643,6 +7643,8 @@ declare function animateTo(value: AnimateParam, event: () => void): void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @deprecated since 22
+ * @useinstead ohos.arkui.UIContext.UIContext#animateToImmediately
  */
 declare function animateToImmediately(value: AnimateParam, event: () => void): void;
 
