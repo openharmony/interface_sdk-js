@@ -8254,9 +8254,26 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
-     * @since 20 static
      */
     static deleteAssets(context: Context, uriList: Array<string>): Promise<void>;
+
+    /**
+     * Deletes media assets. This API uses a promise to return the result. The deleted assets are moved to the trash.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Context } context - Context of the ability instance.
+     * @param { Array<string> } uriList - URIs of the media files to delete.
+     * @returns { Promise<void> } - Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     1. context is null or invalid; 2. The uri format is incorrect or does not exist.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request time out.
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 22 static
+     */
+    static deleteAssetsToTrashWithUris(context: Context, uriList: Array<string>): Promise<void>;
 
     /**
      * Get the asset.
