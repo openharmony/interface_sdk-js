@@ -54,7 +54,7 @@ declare interface AppForegroundStateObserver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onAppStateChanged(appStateData: AppStateData): void;
 }
