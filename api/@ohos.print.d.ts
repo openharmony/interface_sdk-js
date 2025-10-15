@@ -2302,8 +2302,8 @@ declare namespace print {
    * The value of info indicates the connect info.
    *
    * @typedef { function } ExtInfoChangeCallback
-   * @param { extensionId } extensionId - the printer extension id
-   * @param { info } info - the information of printer
+   * @param { string } extensionId - the printer extension id
+   * @param { string } info - the information of printer
    * @syscap SystemCapability.Print.PrintFramework
    * @since 22 static
    */
