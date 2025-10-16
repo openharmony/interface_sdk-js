@@ -776,6 +776,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     static getSystemCollations(): Map<string, string>;
 
@@ -788,6 +789,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     static getUsingCollation(): string;
 
@@ -803,6 +805,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     static setSystemCollation(identifier: string): void;
 
@@ -815,6 +818,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     static getSystemMeasurements(): Map<string, string>;
 
@@ -827,6 +831,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     static getUsingMeasurement(): string;
 
@@ -843,6 +848,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     static setSystemMeasurement(identifier: string): void;
 
@@ -855,6 +861,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     static getUsingNumberingSystem(): string;
 
@@ -871,6 +878,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     static setSystemNumberingSystem(identifier: string): void;
 
@@ -884,6 +892,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     static getSystemNumberingSystems(): Map<string, string>;
 
@@ -896,6 +905,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     static getSystemNumberPatterns(): Map<string, string>;
 
@@ -912,6 +922,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     static setSystemNumberPattern(pattern: string): void;
 
@@ -925,6 +936,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     static getUsingNumberPattern(): string;
 
@@ -937,6 +949,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     static getSystemNumericalDatePatterns(): Map<string, string>;
 
@@ -953,6 +966,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     static setSystemNumericalDatePattern(identifier : string): void;
 
@@ -965,6 +979,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     static getUsingNumericalDatePattern(): string;
   }
@@ -3231,6 +3246,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     public getZoneRules(): ZoneRules;
   }
@@ -3241,6 +3257,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   export class ZoneRules {
     /**
@@ -3251,6 +3268,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     public nextTransition(date?: double): ZoneOffsetTransition;
   }
@@ -3261,6 +3279,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   export class ZoneOffsetTransition {
     /**
@@ -3270,6 +3289,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     public getMilliseconds(): double;
 
@@ -3280,6 +3300,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     public getOffsetAfter(): int;
 
@@ -3290,6 +3311,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     public getOffsetBefore(): int;
   }
