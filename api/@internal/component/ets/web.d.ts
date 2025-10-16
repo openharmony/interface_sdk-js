@@ -1350,7 +1350,7 @@ declare interface FullScreenEnterEvent {
   /**
    * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -1358,19 +1358,19 @@ declare interface FullScreenEnterEvent {
   /**
    * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    * @since 20 static
    */
-  videoWidth?: number;
+  videoWidth?: int;
 
   /**
    * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -1378,14 +1378,14 @@ declare interface FullScreenEnterEvent {
   /**
    * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    * @since 20 static
    */
-  videoHeight?: number;
+  videoHeight?: int;
 }
 
 /**
