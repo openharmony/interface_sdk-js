@@ -18,14 +18,14 @@
  * @file
  * @kit ArkUI
  */
-import { ComponentV2 } from './arkui/component/customComponent';
-import { ResourceStr, ResourceColor, LocalizedPadding, SizeOptions } from './arkui/component/units';
-import { ButtonStyleMode, ButtonRole } from './arkui/component/button';
-import { PixelMap, ThemeColorMode, CustomPopupOptions } from './arkui/component/common';
+import { ComponentV2 } from '@ohos.arkui.component';
+import { ResourceStr, ResourceColor, LocalizedPadding, SizeOptions } from '@ohos.arkui.component';
+import { ButtonStyleMode, ButtonRole } from '@ohos.arkui.component';
+import { PixelMap, ThemeColorMode, CustomPopupOptions } from '@ohos.arkui.component';
 import { Local, Param, ObservedV2, Require, Trace, Event } from './arkui/stateManagement/decorator';
-import { BuilderParam, Builder, CustomBuilder } from './arkui/component/builder';
+import { BuilderParam, Builder, CustomBuilder } from '@ohos.arkui.component';
 import { LengthMetrics, ColorMetrics } from './arkui/Graphics';
-import { SheetInfo } from './arkui/component/actionSheet';
+import { SheetInfo } from '@ohos.arkui.component';
 /**
  * Declare the action when the button of dialog is clicked.
  *
