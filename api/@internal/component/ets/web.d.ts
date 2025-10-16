@@ -91,7 +91,7 @@ type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
  * @syscap SystemCapability.Web.Webview.Core
  * @since 22 dynamic&static
  */
-type OnVerifyPinCallback = (identity: string, handler: VerifyPinHandler) => void;
+type OnVerifyPinCallback = (event: {identity: string, handler: VerifyPinHandler}) => void;
 
 /**
  * The callback of onOverrideErrorPage.
@@ -2158,17 +2158,6 @@ declare class ClientAuthenticationHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
-  /**
-   * Confirm to use the specified private key and client certificate chain.
-   *
-   * @param { string } priKeyFile - The file that store private key.
-   * @param { string } certChainFile - The file that store client certificate chain.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  confirm(priKeyFile: string, certChainFile: string): void;
-
   /**
    * Confirm to use the specified private key and client certificate chain.
    *
