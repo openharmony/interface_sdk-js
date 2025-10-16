@@ -4283,6 +4283,78 @@ declare namespace notificationManager {
   function getRingtoneInfoByBundle(bundle: BundleOption): Promise<RingtoneInfo>;
 
   /**
+   * Set reminder info for all applications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<NotificationReminderInfo> } reminderInfos - The array of reminderInfo objects.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function setReminderInfoByBundles(reminderInfos: Array<NotificationReminderInfo>) : Promise<void>;
+
+  /**
+   * Obtains the reminder info of all applications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<BundleOption> } bundles - The array of BundleOption objects.
+   * @returns { Promise<Array<NotificationReminderInfo>> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function getReminderInfoByBundles(bundles: Array<BundleOption>) : Promise<Array<NotificationReminderInfo>>;
+
+  /**
+   * Set badge display status for all applications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Map<BundleOption, boolean> } badges - The map of BundleOption to badge enabled status.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function setBadgeDisplayStatusByBundles(badges: Map<BundleOption, boolean>) : Promise<void>;
+
+  /**
+   * Obtains the badge display status of all applications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<BundleOption> } bundles - The array of BundleOption objects.
+   * @returns { Promise<Map<BundleOption, boolean>> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function getBadgeDisplayStatusByBundles(bundles: Array<BundleOption>) : Promise<Map<BundleOption, boolean>>;
+
+  /**
    * Represents the state of a switch,
    * distinguishing system defaults from user modifications.
    *
@@ -5061,6 +5133,47 @@ declare namespace notificationManager {
      * @arkts 1.1&1.2
      */
     trustlist?: Array<BundleOption>;
+  }
+
+  /**
+   * Describes reminder info.
+   *
+   * @typedef NotificationReminderInfo
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  export interface NotificationReminderInfo {
+    /**
+     * The application bundle option.
+     *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER
+     * @type { BundleOption }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    bundle: BundleOption;
+
+    /**
+     * Obtains the notification reminder flags.
+     *
+     * @type { long }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    reminderFlags: long;
+
+    /**
+     * The application silent reminder enable status.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    silentReminderEnabled: boolean;
   }
 
   /**
