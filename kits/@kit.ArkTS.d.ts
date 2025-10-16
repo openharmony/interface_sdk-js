@@ -90,6 +90,10 @@ import TreeSetForEachCb from '@ohos.util.TreeSet';
 import TreeSetComparator from '@ohos.util.TreeSet';
 export {
   ArrayList, Deque, HashMap, HashSet, LightWeightMap, LightWeightSet, LinkedList, List,
-  PlainArray, Queue, Stack, TreeMap, TreeSet, buffer, uri, url, util, stream, xml, transfer, collections, Decimal, ArrayListComparatorFn, ArrayListForEachCb, ArrayListReplaceCb, DequeForEachCb, HashMapCbFn, HashSetCbFn, LightWeightMapCbFn, LightWeightSetForEachCb, LinkedListForEachCb, ListComparatorFn, ListForEachCb, ListReplaceCb, PlainArrayForEachCb, QueueForEachCb, StackForEachCb, TreeMapForEachCb, TreeMapComparator, TreeSetForEachCb, TreeSetComparator
+  PlainArray, Queue, Stack, TreeMap, TreeSet, buffer, uri, url, util, stream, xml, transfer,
+  collections, Decimal, ArrayListComparatorFn, ArrayListForEachCb, ArrayListReplaceCb,
+  DequeForEachCb, HashMapCbFn, HashSetCbFn, LightWeightMapCbFn, LightWeightSetForEachCb,
+  LinkedListForEachCb, ListComparatorFn, ListForEachCb, ListReplaceCb, PlainArrayForEachCb,
+  QueueForEachCb, StackForEachCb, TreeMapForEachCb, TreeMapComparator, TreeSetForEachCb, TreeSetComparator
 };
 /*** endif */
