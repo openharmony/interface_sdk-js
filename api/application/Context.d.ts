@@ -287,7 +287,7 @@ declare class Context extends BaseContext {
    */
   /**
    * Bundle code directory.
-   * 
+   *
    * <p>**NOTE**:
    * <br>Do not access resource files using concatenated paths. Use @ohos.resourceManager instead.
    * </p>
@@ -324,7 +324,7 @@ declare class Context extends BaseContext {
 
   /**
    * Resource directory.
-   * 
+   *
    * <p>**NOTE**:
    * <br>You are required to manually create the resfile directory in <code><module-name>\resource</code>. The resfile
    * directory can be accessed only in read-only mode.
@@ -351,6 +351,17 @@ declare class Context extends BaseContext {
    * @arkts 1.1&1.2
    */
   cloudFileDir: string;
+
+  /**
+   * Get log file directory.
+   *
+   * @returns { string } Returns the log file directory.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  get logFileDir(): string;
 
   /**
    * Indicates event hub.
@@ -440,7 +451,7 @@ declare class Context extends BaseContext {
 
   /**
    * Creates the context based on the bundle name.
-   * 
+   *
    * <p>**NOTE**:
    * <br>If there are multiple modules in the stage model, resource ID conflicts may occur. You are advised to
    * use application.createModuleContext instead.
@@ -486,7 +497,7 @@ declare class Context extends BaseContext {
    */
   /**
    * Creates the context based on the module name.
-   * 
+   *
    * <p>**NOTE**:
    * <br>This API is deprecated since API version 12. You are advised to use application.createModuleContext instead.
    * </p>
@@ -507,7 +518,7 @@ declare class Context extends BaseContext {
 
   /**
    * Creates the context based on the bundle name and module name.
-   * 
+   *
    * <p>**NOTE**:
    * <br>This API is deprecated since API version 12. You are advised to use application.createModuleContext instead.
    * </p>

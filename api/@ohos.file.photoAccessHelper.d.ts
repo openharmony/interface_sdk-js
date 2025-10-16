@@ -338,6 +338,14 @@ declare namespace photoAccessHelper {
      * @arkts 1.1&1.2
      */
     BURST = 4,
+    /**
+     * Spatial 3DGS Type
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    SPATIAL_3DGS = 7,
   }
 
   /**
@@ -1770,8 +1778,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     getThumbnail(callback: AsyncCallback<image.PixelMap>): void;
     /**
@@ -1802,8 +1809,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     getThumbnail(size: image.Size, callback: AsyncCallback<image.PixelMap>): void;
     /**
@@ -1834,8 +1840,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     getThumbnail(size?: image.Size): Promise<image.PixelMap>;
     /**
@@ -2192,11 +2197,11 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
      *    1. The original file does not exist locally in PhotoAsset;
-     *    2. The original file format is not within the supported rrange
+     *    2. The original file format is not within the supported range;
      *    3. The original file is a temporary file or is being editted;
-     * @throws { BusinessError } 23800301 - Internal systerm error.It is recommended to retry and check the
+     * @throws { BusinessError } 23800301 - Internal system error.It is recommended to retry and check the
      *    logs.Possible causes:
-     *    1. Database corrupted.2. The file system is abnorma1.3. The IPC request timed out.
+     *    1. Database corrupted.2. The file system is abnormal.3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21
@@ -3045,7 +3050,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 20
+     * @since 21
      * @arkts 1.1&1.2
      */
     EXIF_ROTATE = 'exif_rotate',
@@ -3074,7 +3079,23 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 21 dynamic&static
      */
-    HDR_MODE = 'hdr_mode'
+    HDR_MODE = 'hdr_mode',
+    /**
+     * The unique key when an asset is on the cloud, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    CLOUD_ID = 'cloud_id',
+    /**
+     * Compatible duplicate of asset exists, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    EXIST_COMPATIBLE_DUPLICATE = 'exist_compatible_duplicate',
   }
 
   /**
@@ -6570,7 +6591,7 @@ declare namespace photoAccessHelper {
      * @returns { Promise<boolean> } - Returns the whether appplication supports compatible copies
      * @throws {BusinessError } 201 - Permission denied
      * @throws {BusinessError } 202 - Called by non-system aapplication
-     * @throws {BusinessError } 23800301 - Internal system eerror. It is recommended to retry and check the logs
+     * @throws {BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs
      *    <br>Possible causes: 1. The IPC request timed out. 2.system running error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -11452,7 +11473,15 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'14','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    RETAIN_FORCE = 0
+    RETAIN_FORCE = 0,
+    /**
+     * Deletes the local metadata and thumbnail of the original files from the hdc device.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    HDC_RETAIN_FORCE = 1
   }
 
   /**

@@ -3620,6 +3620,17 @@ interface LongPressGestureHandlerOptions extends BaseHandlerOptions {
    * @since 12
    */
   duration?: number;
+  /**
+   * Indicates maximum moving distance, in px.
+   * The default value is 15px.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  allowableMovement?: number;
 }
 
 /**
@@ -4586,6 +4597,17 @@ declare class LongPressRecognizer extends GestureRecognizer {
    * @since 18
    */
   getDuration(): number;
+  /**
+   * Returns the long press gesture's maximum moving distance.
+   * The unit is px.
+   *
+   * @returns { number } - the maximum moving distance of the long press gesture.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  getAllowableMovement(): number;
 }
 
 /**

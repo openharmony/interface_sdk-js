@@ -19,9 +19,16 @@
  */
 
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
+/*** if arkts 1.1 */
 import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
 import type AutoFillExtensionContext from './application/AutoFillExtensionContext';
 import type { FillRequest, SaveRequest, UpdateRequest, FillRequestCallback, SaveRequestCallback } from './application/AutoFillRequest';
+/*** endif */
+/*** if arkts 1.2 */
+import UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
+import AutoFillExtensionContext from './application/AutoFillExtensionContext';
+import { FillRequest, SaveRequest, UpdateRequest, FillRequestCallback, SaveRequestCallback } from './application/AutoFillRequest';
+/*** endif */
 
 /**
  * The class of auto fill extension ability.
@@ -30,9 +37,10 @@ import type { FillRequest, SaveRequest, UpdateRequest, FillRequestCallback, Save
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @StageModelOnly
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class AutoFillExtensionAbility extends ExtensionAbility {
+declare class AutoFillExtensionAbility extends ExtensionAbility {
   /**
    * Indicates configuration information about an auto fill extension ability context.
    *
@@ -40,7 +48,8 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   context: AutoFillExtensionContext;
 
@@ -50,7 +59,8 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCreate(): void;
 
@@ -63,7 +73,8 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onFillRequest(session: UIExtensionContentSession, request: FillRequest, callback: FillRequestCallback): void;
 
@@ -76,7 +87,8 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onSaveRequest(session: UIExtensionContentSession, request: SaveRequest, callback: SaveRequestCallback): void;
 
@@ -87,7 +99,8 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onUpdateRequest(request: UpdateRequest): void;
 
@@ -98,7 +111,8 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onSessionDestroy(session: UIExtensionContentSession): void;
 
@@ -108,7 +122,8 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onForeground(): void;
 
@@ -118,7 +133,8 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onBackground(): void;
 
@@ -132,4 +148,18 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @since 11
    */
   onDestroy(): void | Promise<void>;
+
+  /**
+   * Called back before an auto fill extension is destroyed.
+   *
+   * @returns { Promise<void> | undefined } the promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onDestroy(): Promise<void> | undefined;
 }
+
+export default AutoFillExtensionAbility;

@@ -20,7 +20,6 @@
 
 /*** if arkts 1.1 */
 import image from '../@ohos.multimedia.image';
-import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
 import contextConstant from '../@ohos.app.ability.contextConstant';
 import type UIServiceProxy from './UIServiceProxy';
@@ -30,6 +29,7 @@ import { AbilityInfo } from '../bundleManager/AbilityInfo';
 import { AbilityResult } from '../ability/abilityResult';
 import { AsyncCallback } from '../@ohos.base';
 import Context from './Context';
+import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import { HapModuleInfo } from '../bundleManager/HapModuleInfo';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
 import Want from '../@ohos.app.ability.Want';
@@ -41,7 +41,10 @@ import { Caller } from '../@ohos.app.ability.UIAbility';
 import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import type AbilityStartCallback from './AbilityStartCallback';
-
+/*** if arkts 1.2 */
+import UIServiceProxy from './UIServiceProxy';
+import UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
+/*** endif */
 /**
  * The context of an ability. It allows access to ability-specific resources.
  *
@@ -4385,7 +4388,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   requestDialogService(want: Want, result: AsyncCallback<dialogRequest.RequestResult>): void;
 
@@ -4442,7 +4446,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   requestDialogService(want: Want): Promise<dialogRequest.RequestResult>;
 
@@ -4758,7 +4763,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startUIServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -4787,7 +4793,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnectCallback) : Promise<UIServiceProxy>;
 
@@ -4803,7 +4810,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise<void>;
 
@@ -4955,6 +4963,55 @@ declare class UIAbilityContext extends Context {
    * @since 20
    */
   setOnNewWantSkipScenarios(scenarios: number): Promise<void>;
+
+  /**
+  * Launch the application's own UIAbility in the current process.
+  * If the launchMode of UIAbility is specified, you can set specified flag.
+  *
+  * @param { Want } want - Indicates the ability to start.
+  * @param { string } specifiedFlag - If the launchType of target UIAbility is specified,
+  *     you can set specifiedFlag by this param, and system will not call onAcceptWant.
+  * @param { StartOptions } [options] - Indicates the start options.
+  * @returns { Promise<void> } The promise returned by the function.
+  * @throws { BusinessError } 801 - Capability not supported.
+  * @throws { BusinessError } 16000001 - The specified ability does not exist.
+  * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+  * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+  * @throws { BusinessError } 16000011 - The context does not exist.
+  * @throws { BusinessError } 16000050 - Internal error. Connect to system service failed.
+  * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+  * @throws { BusinessError } 16000122 - The target component is blocked by the system module and
+  *     does not support startup.
+  * @throws { BusinessError } 16000123 - Implicit startup is not supported.
+  * @throws { BusinessError } 16000124 - Starting a remote UIAbility is not supported.
+  * @throws { BusinessError } 16000130 - The UIAbility not belong to caller.
+  * @throws { BusinessError } 16000131 - The UIAbility is already exist, can not start again.
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @stagemodelonly
+  * @since 22
+  * @arkts 1.1&1.2
+  */
+  startSelfUIAbilityInCurrentProcess(want: Want, specifiedFlag: string, options?: StartOptions): Promise<void>;
+
+  /**
+   * Restart current application process. If the destination UIAbility is the same as the caller ability,
+   * the caller window will be reused as the destination window. Otherwise, the caller window will be
+   * destroyed after navigating to the destination window.
+   *
+   * @param { Want } want - Indicates the ability to start.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Connect to system server error.
+   * @throws { BusinessError } 16000063 - The target to restart does not belong to the caller or is not a UIAbility.
+   * @throws { BusinessError } 16000064 - Restart too frequently.
+   * @throws { BusinessError } 16000065 - The API can be called only when the ability is focused.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  restartApp(want: Want): Promise<void>;
 }
 
 export default UIAbilityContext;

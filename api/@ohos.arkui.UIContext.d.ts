@@ -2356,6 +2356,37 @@ export class UIObserver {
   off(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback?: NodeRenderStateChangeCallback): void;
 
   /**
+   * Registers a callback function to be called when the window size layout breakpoint changes.
+   * This method allows observing changes in window size breakpoints which can be used to
+   * adapt UI layouts responsively based on window dimensions.
+   *
+   * @param { 'windowSizeLayoutBreakpointChange' } type - The type of event to listen for.
+   *     Must be 'windowSizeLayoutBreakpointChange'.
+   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } callback - The callback function to be
+   *     called when the window size layout breakpoint changes. The callback receives a
+   *     {@link WindowSizeLayoutBreakpointInfo} object containing the current width and height
+   *     breakpoint classifications.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  on(type: 'windowSizeLayoutBreakpointChange', callback: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
+
+  /**
+   * Removes a previously registered callback function for window size layout breakpoint changes.
+   * If no callback is provided, all callbacks for the specified context will be removed.
+   *
+   * @param { 'windowSizeLayoutBreakpointChange' } type - The type of event to remove the listener for.
+   *     Must be 'windowSizeLayoutBreakpointChange'.
+   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } [callback] - The specific callback function to remove.
+   *     If not provided, all callbacks for the given event type and context will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  off(type: 'windowSizeLayoutBreakpointChange', callback?: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
+
+  /**
   * Registers a callback function to be called when text field's content is changed.
   *
   * @param { 'textChange' } type - The type of event to listen for. Must be 'textChange'.
@@ -2573,6 +2604,51 @@ export class OverlayManager {
    * @since 12
    */
   hideAllComponentContents(): void;
+}
+
+/**
+ * Provides the method for magnifier capabilities.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
+export class Magnifier {
+  /**
+   * Bind magnifier to a component.
+   *
+   * @param { string } id - component id.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  bind(id: string): void;
+
+  /**
+   * Set the position of the magnified content.
+   *
+   * @param { number } x - the x position of the magnified content relative to the component.
+   *     The unit of x is vp.
+   * @param { number } y - the y position of the magnified content relative to the component.
+   *     The unit of y is vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  show(x: number, y: number): void;
+
+  /**
+   * Unbind the magnifier from its associated component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  unbind(): void;
 }
 
 /**
@@ -3682,6 +3758,17 @@ export class UIContext {
    * @since 12
    */
   getOverlayManager(): OverlayManager;
+
+  /**
+   * Obtains the Magnifier object.
+   *
+   * @returns { Magnifier } Magnifier instance obtained.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  getMagnifier(): Magnifier;
 
   /**
    * Init OverlayManager.

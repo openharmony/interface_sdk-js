@@ -33,6 +33,57 @@ import Context from './application/Context';
  */
 declare namespace application {
   /**
+   * Indicates the app preload type.
+   * 
+   * @enum { int }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22
+   * @arkts 1.1&1.2
+   */
+  export enum AppPreloadType {
+    /**
+     * Indicates no preloading has occurred or preload data has been cleared.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    UNSPECIFIED = 0,
+
+    /**
+     * Indicates the preloading will be completed after the process creation is finished.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    TYPE_CREATE_PROCESS = 1,
+
+    /**
+     * Indicates that the preloading will be completed after the ability stage creation is finished.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    TYPE_CREATE_ABILITY_STAGE = 2,
+
+    /**
+     * Indicates that the preloading will be completed after the window stage creation is finished.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    TYPE_CREATE_WINDOW_STAGE = 3
+  }
+
+  /**
    * Create a module context
    *
    * @param { Context } context - Indicates current context.
@@ -130,6 +181,8 @@ declare namespace application {
 
   /**
    * Elevate the current process to be a candidate master process.
+   * If the current process is already a master process,
+   * calling this interface will not perform any operation and will not throw an error code.
    * If UIAbility or UIExtension component within the application is configured with "isolationProcess",launching an
    * instance of such UIAbility or UIExtension will trigger a callback to the master process's "onNewProcessRequest".
    * The "onNewProcessRequest" callback return value determines whether the new instance starts in a new process or an existing one.
@@ -139,8 +192,7 @@ declare namespace application {
    * @param { boolean } insertToHead - Whether inset current process to the head of candidates master process list.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 16000115 - The current process is not running a component configured with "isolationProcess"
-   *                                      and cannot be set as a candidate master process.
+   * @throws { BusinessError } 16000115 - The current process cannot be set as a candidate master process.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
@@ -169,12 +221,26 @@ declare namespace application {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000118 - Not a master process.
-   * @throws { BusinessError } 16000119 - Cannot exit because there is an unfinished onNewProcessRequest.
+   * @throws { BusinessError } 16000119 - Cannot exit because there is an unfinished request.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 21
    */
    export function exitMasterProcessRole(): Promise<void>
+
+  /**
+   * Obtains the preload type of the current process.
+   * 
+   * Note: The preload type data is cleared after the first `AbilityStage.onCreate()` finishes.
+   * Subsequent calls will return `UNSPECIFIED`.
+   *
+   * @returns { AppPreloadType } The preload type of the process.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22
+   * @arkts 1.1&1.2
+   */
+  export function getAppPreloadType(): AppPreloadType;
 }
 
 export default application;

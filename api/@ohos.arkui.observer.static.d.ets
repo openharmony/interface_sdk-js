@@ -19,12 +19,12 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { ResourceStr } from './arkui/component/units';
-import { NavPathStack, NavigationOperation, NavBar } from './arkui/component/navigation';
+import { ResourceStr } from '@ohos.arkui.component';
+import { NavPathStack, NavigationOperation, NavBar } from '@ohos.arkui.component';
 import { UIContext } from '@ohos.arkui.UIContext';
 import UIAbilityContext from './application/UIAbilityContext';
 import { Callback } from './@ohos.base';
-import { NavDestinationMode } from './arkui/component/navDestination';
+import { NavDestinationMode } from '@ohos.arkui.component';
 
 /**
  * Register callbacks to observe ArkUI behavior.
@@ -322,6 +322,14 @@ declare namespace uiObserver {
          * @since 20
          */
         pathStack: NavPathStack;
+        /**
+        * The uniqueId of the navigation.
+        *
+        * @type { ?int }
+        * @syscap SystemCapability.ArkUI.ArkUI.Full
+        * @since 20 static
+        */
+        uniqueId?: int;
     }
     /**
      * ScrollEvent info.

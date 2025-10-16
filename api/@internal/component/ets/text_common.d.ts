@@ -185,6 +185,26 @@ declare interface TextDataDetectorConfig {
 }
 
 /**
+ * Text selected data detector config.
+ *
+ * @interface SelectDataDetectorConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare interface SelectDataDetectorConfig {
+  /**
+   * Text data detector types.
+   *
+   * @type { TextDataDetectorType[] | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  types: TextDataDetectorType[] | undefined;
+}
+
+/**
  * Defines range of text type component.
  *
  * @interface TextRange
@@ -899,6 +919,16 @@ declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox;
  * @since 20
  */
 declare type Paragraph = import('../api/@ohos.graphics.text').default.Paragraph;
+
+/**
+ * The type for ExtraConfig, see the detailed description in ExtraConfig.
+ *
+ * @typedef { import('../api/@ohos.inputMethod.ExtraConfig').ExtraConfig } ExtraConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare type ExtraConfig = import('../api/@ohos.inputMethod.ExtraConfig').ExtraConfig;
 
 /**
  * Defines the cursor style
@@ -2052,6 +2082,36 @@ declare enum KeyboardFluidLightMode {
 }
 
 /**
+ * Defines text direction.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare enum TextDirection {
+  /**
+   * Left to right.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  LTR = 0,
+  /**
+   * Right to left.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  RTL = 1
+}
+
+/**
  * Defines the keyboard appearance config.
  *
  * @interface KeyboardAppearanceConfig
@@ -2193,6 +2253,16 @@ declare interface IMEClient {
    * @since 20
    */
   nodeId: number;
+
+  /**
+   * Called when the extra config is set.
+   *
+   * @param { ExtraConfig } config - The extra config object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  setExtraConfig(config: ExtraConfig): void;
 }
 
 /**

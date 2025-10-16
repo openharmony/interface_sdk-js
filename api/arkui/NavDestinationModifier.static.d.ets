@@ -20,8 +20,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { NavDestinationAttribute } from './component/navDestination';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { NavDestinationAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines NavDestination Modifier

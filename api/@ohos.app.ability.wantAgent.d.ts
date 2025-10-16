@@ -23,9 +23,7 @@ import Want from './@ohos.app.ability.Want';
 import { WantAgentInfo as _WantAgentInfo } from './wantAgent/wantAgentInfo';
 import { TriggerInfo as _TriggerInfo } from './wantAgent/triggerInfo';
 import Context from './application/Context';
-/*** if arkts 1.1 */
 import { LocalWantAgentInfo as _LocalWantAgentInfo } from './wantAgent/wantAgentInfo';
-/*** endif */
 
 /**
  * Provide the method obtain trigger, cancel, and compare and to obtain
@@ -528,6 +526,7 @@ declare namespace wantAgent {
    * @systemapi
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   function createLocalWantAgent(info: LocalWantAgentInfo): WantAgent;
 
@@ -1019,6 +1018,7 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   export type LocalWantAgentInfo = _LocalWantAgentInfo;
 

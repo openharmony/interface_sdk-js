@@ -429,6 +429,15 @@ declare namespace bundleManager {
      * @arkts 1.1&1.2
      */
     GET_BUNDLE_INFO_WITH_CLOUD_KIT = 0x00008000,
+    /**
+     * Used to obtain the bundleInfo containing hapModuleInfo of entry. The obtained bundleInfo does not
+     * contain the information of signatureInfo, applicationInfo, ability, extensionAbility and permission.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    GET_BUNDLE_INFO_WITH_ENTRY_MODULE = 0x00010000,
   }
 
   /**
@@ -998,6 +1007,14 @@ declare namespace bundleManager {
      * @since 22 static
     */
     FAULT_LOG = 33,
+
+    /**
+     * Indicates extension info with type of the notification subscriber
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 22 dynamic&static
+     */
+    NOTIFICATION_SUBSCRIBER = 34,
 
     /**
      * Indicates extension info with type of unspecified
@@ -4409,6 +4426,57 @@ declare namespace bundleManager {
    * @since 22 dynamic&static
    */
   function setAbilityFileTypesForSelf(moduleName: string, abilityName: string, fileTypes: Array<string>): void;
+
+  /**
+   * Get the bundle path of the specified plugin.
+   *
+   * @param { string } pluginBundleName - Indicates the plugin bundle name.
+   * @returns { string } Returns the bundle path of specified plugin.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 22 dynamic&static
+   */
+  function getPluginBundlePathForSelf(pluginBundleName: string): string;
+
+  /**
+   * Recover backup bundle data by bundleName, userId and appIndex.
+   *
+   * @permission ohos.permission.RECOVER_BUNDLE
+   * @param { string } bundleName - Indicates the application bundle name to be recovered.
+   * @param { int } userId - Indicates the user ID.
+   * @param { int } appIndex - Indicates the index of clone app.
+   * @returns { Promise<void> } Returns recoverBackupBundleData result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 21 dynamic
+   * @since 22 static
+   */
+  function recoverBackupBundleData(bundleName: string, userId: int, appIndex: int): Promise<void>;
+
+  /**
+   * Remove backup bundle data by bundleName, userId and appIndex.
+   *
+   * @permission ohos.permission.CLEAN_APPLICATION_DATA
+   * @param { string } bundleName - Indicates the application bundle name to be removed.
+   * @param { int } userId - Indicates the user ID.
+   * @param { int } appIndex - Indicates the index of clone app.
+   * @returns { Promise<void> } Returns removeBackupBundleData result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 21 dynamic
+   * @since 22 static
+   */
+  function removeBackupBundleData(bundleName: string, userId: int, appIndex: int): Promise<void>;
 
   /**
    * Obtains configuration information about an application.

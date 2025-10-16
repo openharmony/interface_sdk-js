@@ -40,7 +40,6 @@
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 interface MenuInterface {
     /**

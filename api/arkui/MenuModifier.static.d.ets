@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { MenuAttribute } from './component/menu';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { MenuAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Menu Modifier

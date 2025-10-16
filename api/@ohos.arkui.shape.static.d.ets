@@ -17,10 +17,9 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { Position, ResourceColor, Length, SizeOptions } from './arkui/component/units';
+import { Position, ResourceColor, Length, SizeOptions } from '@ohos.arkui.component';
 /**
  * Interface for shape size properties.
  *
@@ -105,9 +104,9 @@ export interface PathShapeOptions {
  * Common shape method class
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
-declare class CommonShapeMethod<T> {
+export declare class CommonShapeMethod<T> {
     /**
      * Sets coordinate offset relative to the layout completion position.
      *
@@ -141,9 +140,9 @@ declare class CommonShapeMethod<T> {
  *
  * @extends CommonShapeMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
-declare class BaseShape<T> extends CommonShapeMethod<T> {
+export declare class BaseShape<T> extends CommonShapeMethod<T> {
     /**
      * Sets the width of the shape.
      *
@@ -203,7 +202,7 @@ export declare class RectShape extends BaseShape<RectShape> {
      * @param { number | string } rHeight
      * @returns { RectShape }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     radiusHeight(rHeight: number | string): RectShape;
     /**
@@ -212,7 +211,7 @@ export declare class RectShape extends BaseShape<RectShape> {
      * @param { number | string | Array<number | string> } radius
      * @returns { RectShape }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     radius(radius: number | string | Array<number | string>): RectShape;
 }
@@ -221,7 +220,7 @@ export declare class RectShape extends BaseShape<RectShape> {
  *
  * @extends BaseShape<CircleShape>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class CircleShape extends BaseShape<CircleShape> {
     /**
@@ -229,7 +228,7 @@ export declare class CircleShape extends BaseShape<CircleShape> {
      *
      * @param { ShapeSize } options
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor(options?: ShapeSize);
 }

@@ -3908,6 +3908,28 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   dataDetectorConfig(config: TextDataDetectorConfig): RichEditorAttribute;
 
   /**
+   * Enable selected data detector.
+   *
+   * @param { boolean | undefined } enable - whether to enable the selected data detector.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  enableSelectedDataDetector(enable: boolean | undefined): RichEditorAttribute;
+
+  /**
+   * Config selected data detector.
+   *
+   * @param { SelectDataDetectorConfig | undefined } config - Set the config of selected data detector.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  selectedDataDetectorConfig(config: SelectDataDetectorConfig | undefined): RichEditorAttribute;
+
+  /**
    * Set richEditor placeholder.
    *
    * @param { ResourceStr } value - The value of placeholder.
@@ -4027,6 +4049,19 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 12
     */
   onCopy(callback: Callback<CopyEvent>): RichEditorAttribute;
+
+  /**
+   * Called before the RichEditor component attach the InputMethod.
+   *
+   * @param { Callback<IMEClient> | undefined } callback - The triggered function before attach the InputMethod.
+   *     If `undefined` is passed, the existing registered event will be removed.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  onWillAttachIME(callback: Callback<IMEClient> | undefined): RichEditorAttribute;
 
   /**
    * Set the custom text menu.

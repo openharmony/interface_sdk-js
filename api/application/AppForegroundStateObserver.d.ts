@@ -54,7 +54,7 @@ declare interface AppForegroundStateObserver {
    * @param { AppStateData } appStateData - State changed application info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'22'}
    * @arkts 1.1&1.2
    */
   onAppStateChanged(appStateData: AppStateData): void;

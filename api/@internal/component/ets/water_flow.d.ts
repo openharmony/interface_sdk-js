@@ -559,6 +559,18 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @since 11
    */
   columnsTemplate(value: string): WaterFlowAttribute;
+  
+  /**
+   * Sets the number of columns in the layout. If this attribute is not set, one column is used by default.
+   *
+   * @param { string | ItemFillPolicy } value - Number of columns in the layout.<br>Default value: <em>'1fr'</em>
+   * @returns { WaterFlowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  columnsTemplate(value: string | ItemFillPolicy): WaterFlowAttribute;
 
   /**
    * This parameter specifies the min or max size of each item.

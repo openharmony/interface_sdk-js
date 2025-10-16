@@ -17,20 +17,18 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
-import { ResourceStr, Dimension } from './arkui/component/units';
+import { ResourceStr, Dimension } from '@ohos.arkui.component';
 import { PropRef } from './arkui/stateManagement/decorator';
-import { Component } from './arkui/component/customComponent';
-import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
-import { Builder } from './arkui/component/builder';
+import { Component } from '@ohos.arkui.component';
+import { SymbolGlyphModifier } from 'arkui.SymbolGlyphModifier';
+import { Builder } from '@ohos.arkui.component';
 /**
  * Control margin status of  ExceptionPrompt.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare enum MarginType {
   /**
@@ -57,7 +55,6 @@ export declare enum MarginType {
  * @interface PromptOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export interface PromptOptions {
   /**
@@ -122,7 +119,6 @@ export interface PromptOptions {
  * @struct { ExceptionPrompt }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @Component
 export declare struct ExceptionPrompt {

@@ -19,7 +19,7 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { ResourceColor } from './arkui/component/units';
+import { ResourceColor } from '@ohos.arkui.component';
 /**
  * Defines the struct of Theme.
  *

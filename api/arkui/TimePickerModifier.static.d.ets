@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { TimePickerAttribute } from './component/timePicker';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { TimePickerAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines TimePicker Modifier

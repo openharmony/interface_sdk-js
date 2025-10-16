@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, Callback, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, DateTimeOptions, Bindable } from './common';
@@ -32,7 +31,7 @@ import { AttributeModifier } from "./common";
  *
  * @interface DatePickerResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface DatePickerResult {
     /**
@@ -45,7 +44,7 @@ export declare interface DatePickerResult {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
-     * @since 20
+     * @since 20 static
      */
     year?: number;
     /**
@@ -58,7 +57,7 @@ export declare interface DatePickerResult {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
-     * @since 20
+     * @since 20 static
      */
     month?: number;
     /**
@@ -70,7 +69,7 @@ export declare interface DatePickerResult {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full    
-     * @since 20
+     * @since 20 static
      */
     day?: number;
 }
@@ -79,21 +78,21 @@ export declare interface DatePickerResult {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum DatePickerMode {
     /**
      * The date displays three columns: year, month, and day.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
-     * @since 20
+     * @since 20 static
      */
     DATE = 0,
     /**
      * The date displays two columns: year and month.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
-     * @since 20
+     * @since 20 static
      */
     YEAR_AND_MONTH = 1,
     /**
@@ -103,7 +102,7 @@ export declare enum DatePickerMode {
      * the year does not decrement by one. The year remains fixed at the currently set value.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
-     * @since 20
+     * @since 20 static
      */
     MONTH_AND_DAY = 2
 }
@@ -112,7 +111,7 @@ export declare enum DatePickerMode {
  *
  * @interface DatePickerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface DatePickerOptions {
     /**
@@ -121,7 +120,7 @@ export declare interface DatePickerOptions {
      * @type { ?Date }
      * @default Date('1970-1-1')
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
-     * @since 20
+     * @since 20 static
      */
     start?: Date;
     /**
@@ -130,7 +129,7 @@ export declare interface DatePickerOptions {
      * @type { ?Date }
      * @default Date('2100-12-31')
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
-     * @since 20
+     * @since 20 static
      */
     end?: Date;
     /**
@@ -138,7 +137,7 @@ export declare interface DatePickerOptions {
      *
      * @type { ?(Date | Bindable<Date>) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
-     * @since 20
+     * @since 20 static
      */
     selected?: Date | Bindable<Date>;
     /**
@@ -153,7 +152,7 @@ export declare interface DatePickerOptions {
      * @default DatePickerMode.DATE - which means to display three columns: year, month, and day.
      * <br>Decimal values are rounded off.
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
-     * @since 20
+     * @since 20 static
      */
     mode?: DatePickerMode;
 }
@@ -163,82 +162,83 @@ export declare interface DatePickerOptions {
  * @extends CommonMethod
  * @interface DatePickerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
+ * @noninterop
  */
 export declare interface DatePickerAttribute extends CommonMethod {
     /**
      * Specifies whether to display the lunar calendar.
      *
-     * @param { boolean } value - Whether to display the lunar calendar.
+     * @param { boolean | undefined } value - Whether to display the lunar calendar.
      *     <br>- <em>true</em>: Display the lunar calendar.
      *     <br>- <em>false</em>: Do not display the lunar.
      * @default false
      * @returns { DatePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
-     * @since 20
+     * @since 20 static
      */
     default lunar(value: boolean | undefined): this;
     /**
      * Sets the text style for the top and bottom items.
      *
-     * @param { PickerTextStyle } value - Font color, font size, and font weight of the top and bottom items.
+     * @param { PickerTextStyle | undefined } value - Font color, font size, and font weight of the top and bottom items.
      * @default {<br>color: '#ff182431',<br>font: {<br>size: '14fp', <br>weight: FontWeight.Regular<br>}<br>}
      * @returns { DatePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
-     * @since 20
+     * @since 20 static
      */
     default disappearTextStyle(value: PickerTextStyle | undefined): this;
     /**
      * Sets the text style for all items except the top, bottom, and selected items.
      *
-     * @param { PickerTextStyle } value - Font color, font size, and font weight of all items except the top,
+     * @param { PickerTextStyle | undefined } value - Font color, font size, and font weight of all items except the top,
      *     <br>bottom, and selected items.
      * @default {<br>color: '#ff182431',<br>font: {<br>size: '16fp', <br>weight: FontWeight.Regular<br>}<br>}
      * @returns { DatePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
-     * @since 20
+     * @since 20 static
      */
     default textStyle(value: PickerTextStyle | undefined): this;
     /**
      * Sets the text style for the selected item.
      *
-     * @param { PickerTextStyle } value - Font color, font size, and font weight of the selected item.
+     * @param { PickerTextStyle | undefined } value - Font color, font size, and font weight of the selected item.
      * @default {<br>color: '#ff007dff',<br>font: {<br>size: '20vp', <br>weight: FontWeight.Medium<br>}<br>}
      * @returns { DatePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
-     * @since 20
+     * @since 20 static
      */
     default selectedTextStyle(value: PickerTextStyle | undefined): this;
     /**
      * Triggered when a date is selected.
      * Anonymous Object Rectification.
      *
-     * @param { Callback<Date> } callback
+     * @param { Callback<Date> | undefined } callback
      * @returns { DatePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
-     * @since 20
+     * @since 20 static
      */
     default onDateChange(callback: Callback<Date> | undefined): this;
     /**
      * Sets the sensitivity to the digital crown rotation.
      *
-     * @param { Optional<CrownSensitivity> } sensitivity - Sensitivity to the digital crown rotation.
+     * @param { CrownSensitivity | undefined } sensitivity - Sensitivity to the digital crown rotation.
      * @default CrownSensitivity.MEDIUM
      * @returns { DatePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
-     * @since 20
+     * @since 20 static
      */
     default digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
     /**
      * Sets whether to enable haptic feedback.
      *
-     * @param { Optional<boolean> } enable - Whether to enable haptic feedback.
+     * @param { boolean | undefined } enable - Whether to enable haptic feedback.
      *     <br>true (default): Haptic feedback is enabled.
      *     <br>false: Haptic feedback is disabled.
      * @default true
      * @returns { DatePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full   
-     * @since 20
+     * @since 20 static
      */
     default enableHapticFeedback(enable: boolean | undefined): this;
     /**
@@ -247,7 +247,7 @@ export declare interface DatePickerAttribute extends CommonMethod {
      * @param { AttributeModifier<DatePickerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { DatePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<DatePickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -256,7 +256,7 @@ export declare interface DatePickerAttribute extends CommonMethod {
  *
  * @interface LunarSwitchStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface LunarSwitchStyle {
     /**
@@ -265,7 +265,7 @@ export declare interface LunarSwitchStyle {
      * @type { ?ResourceColor }
      * @default $r('sys.color.ohos_id_color_text_primary_actived')
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     selectedColor?: ResourceColor;
     /**
@@ -274,7 +274,7 @@ export declare interface LunarSwitchStyle {
      * @type { ?ResourceColor }
      * @default $r('sys.color.ohos_id_color_switch_outline_off')
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     unselectedColor?: ResourceColor;
     /**
@@ -283,7 +283,7 @@ export declare interface LunarSwitchStyle {
      * @type { ?ResourceColor }
      * @default Color.White
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     strokeColor?: ResourceColor;
 }
@@ -293,7 +293,7 @@ export declare interface LunarSwitchStyle {
  * @extends DatePickerOptions
  * @interface DatePickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface DatePickerDialogOptions extends DatePickerOptions {
     /**
@@ -303,7 +303,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full    
-     * @since 20
+     * @since 20 static
      */
     lunar?: boolean;
     /**
@@ -313,7 +313,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * @type { ?boolean } value - indicates whether to show the switch to display the lunar.
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full    
-     * @since 20
+     * @since 20 static
      */
     lunarSwitch?: boolean;
     /**
@@ -323,7 +323,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * @default { selectedColor: $r('sys.color.ohos_id_color_text_primary_actived'),
      * <br>unselectedColor: $r('sys.color.ohos_id_color_switch_outline_off'), strokeColor: Color.White }.
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
-     * @since 20
+     * @since 20 static
      */
     lunarSwitchStyle?: LunarSwitchStyle;
     /**
@@ -338,7 +338,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     showTime?: boolean;
     /**
@@ -352,7 +352,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     useMilitaryTime?: boolean;
     /**
@@ -361,7 +361,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * @type { ?PickerTextStyle }
      * @default {<br>color: '#ff182431',<br>font: {<br>size: '14fp', <br>weight: FontWeight.Regular<br>}<br>}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     disappearTextStyle?: PickerTextStyle;
     /**
@@ -370,7 +370,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * @type { ?PickerTextStyle }
      * @default {<br>color: '#ff182431',<br>font: {<br>size: '16fp', <br>weight: FontWeight.Regular<br>}<br>}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     textStyle?: PickerTextStyle;
     /**
@@ -384,7 +384,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      *
      * @type { ?PickerDialogButtonStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     acceptButtonStyle?: PickerDialogButtonStyle;
     /**
@@ -398,7 +398,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      *
      * @type { ?PickerDialogButtonStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     cancelButtonStyle?: PickerDialogButtonStyle;
     /**
@@ -407,7 +407,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * @type { ?PickerTextStyle }
      * @default {<br>color: '#ff007dff',<br>font: {<br>size: '20vp', <br>weight: FontWeight.Medium<br>}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     selectedTextStyle?: PickerTextStyle;
     /**
@@ -417,7 +417,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * @type { ?Rectangle }
      * @default { x: 0, y: 0, width: '100%', height: '100%' }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     maskRect?: Rectangle;
     /**
@@ -426,7 +426,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * @type { ?DialogAlignment }
      * @default DialogAlignment.Default
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     alignment?: DialogAlignment;
     /**
@@ -435,7 +435,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * @type { ?Offset }
      * @default { dx: 0 , dy: 0 }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     offset?: Offset;
     /**
@@ -444,7 +444,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onCancel?: VoidCallback;
     /**
@@ -458,7 +458,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      *
      * @type { ?Callback<Date> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onDateAccept?: Callback<Date>;
     /**
@@ -473,7 +473,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      *
      * @type { ?Callback<Date> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onDateChange?: Callback<Date>;
     /**
@@ -482,7 +482,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * @type { ?ResourceColor }
      * @default Color.Transparent
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     backgroundColor?: ResourceColor;
     /**
@@ -491,7 +491,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * @type { ?BlurStyle }
      * @default BlurStyle.COMPONENT_ULTRA_THICK
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     backgroundBlurStyle?: BlurStyle;
     /**
@@ -499,7 +499,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      *
      * @type { ?BackgroundBlurStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
     /**
@@ -507,7 +507,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      *
      * @type { ?BackgroundEffectOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     backgroundEffect?: BackgroundEffectOptions;
     /**
@@ -526,7 +526,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onDidAppear?: VoidCallback;
     /**
@@ -539,7 +539,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onDidDisappear?: VoidCallback;
     /**
@@ -554,7 +554,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onWillAppear?: VoidCallback;
     /**
@@ -569,7 +569,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onWillDisappear?: VoidCallback;
     /**
@@ -579,7 +579,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      *
      * @type { ?(ShadowOptions | ShadowStyle) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     shadow?: ShadowOptions | ShadowStyle;
     /**
@@ -594,7 +594,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * <br>In the 12-hour format, it defaults to numeric, which means no leading zero is used.
      * <br>minute: defaults to 2-digit, which means a leading zero is used.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     dateTimeOptions?: DateTimeOptions;
     /**
@@ -603,7 +603,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     enableHoverMode?: boolean;
     /**
@@ -612,7 +612,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * @type { ?HoverModeAreaType }
      * @default HoverModeAreaType.BOTTOM_SCREEN
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     hoverModeArea?: HoverModeAreaType;
     /**
@@ -622,7 +622,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
-     * @since 20
+     * @since 20 static
      */
     enableHapticFeedback?: boolean;
 }
@@ -630,7 +630,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
  * Defines DatePickerDialog which uses show method to show DatePicker dialog.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class DatePickerDialog {}
 /**
@@ -640,7 +640,8 @@ export declare class DatePickerDialog {}
  * @param { function } [content_]
  * @returns { DatePickerAttribute } The attribute of the DatePicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
+ * @noninterop
  */
 @memo
 @ComponentBuilder

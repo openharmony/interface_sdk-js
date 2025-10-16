@@ -444,6 +444,44 @@ declare interface BadgeStyle {
    * @since 20
    */
   fontWeight?: number | FontWeight | ResourceStr;
+
+  /**
+   * Outer border color of the background.
+   *
+   * @type { ?ResourceColor }
+   * @default Color.White
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  outerBorderColor?: ResourceColor;
+
+  /**
+   * Outer border width of the background.
+   * This parameter cannot be set in percentage.
+   * Unit: vp
+   *
+   * @type { ?LengthMetrics }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  outerBorderWidth?: LengthMetrics;
+
+  /**
+   * Enable auto avoidance for text in badge.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  enableAutoAvoidance?: boolean;
 }
 
 /**

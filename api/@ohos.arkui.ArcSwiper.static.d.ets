@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { SwiperAnimationEvent } from './arkui/component/swiper';
 import { CrownSensitivity, EdgeEffect } from './arkui/component/enums';

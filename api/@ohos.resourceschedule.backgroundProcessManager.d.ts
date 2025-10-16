@@ -23,22 +23,25 @@
  *
  * @namespace backgroundProcessManager
  * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
- * @since 17
+ * @since 17 dynamic
+ * @since 22 static
  */
 declare namespace backgroundProcessManager {
     /**
      * Describes the level of BackgroundProcessManager priority.
      *
-     * @enum { number }
+     * @enum { int }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 17
+     * @since 17 dynamic
+     * @since 22 static
      */
     export enum ProcessPriority {
         /**
          * Means the process has stopped working and in the background
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since 17
+         * @since 17 dynamic
+         * @since 22 static
          */
         PROCESS_BACKGROUND = 1,
 
@@ -46,7 +49,8 @@ declare namespace backgroundProcessManager {
          * Means the process is working in the background
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since 17
+         * @since 17 dynamic
+         * @since 22 static
          */
         PROCESS_INACTIVE = 2,
     }
@@ -80,24 +84,26 @@ declare namespace backgroundProcessManager {
     /**
      * Set the priority of process.
      *
-     * @param { number } pid - Indicates the pid of the process to be set.
+     * @param { int } pid - Indicates the pid of the process to be set.
      * @param { ProcessPriority } priority - Indicates the priority to set. Specific priority can be referenced ProcessPriority
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: priority is out of range.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 17
+     * @since 17 dynamic
+     * @since 22 static
      */
-    function setProcessPriority(pid: number, priority: ProcessPriority): Promise<void>;
+    function setProcessPriority(pid: int, priority: ProcessPriority): Promise<void>;
 
     /**
      * Reset the priority of process.
      *
-     * @param { number } pid - Indicates the pid of the process to be reset.
+     * @param { int } pid - Indicates the pid of the process to be reset.
      * @returns { Promise<void> } The promise returned by the function.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 17
+     * @since 17 dynamic
+     * @since 22 static
      */
-    function resetProcessPriority(pid: number): Promise<void>;
+    function resetProcessPriority(pid: int): Promise<void>;
 
     /**
      * Set the power saving mode of process. The setting may fail due to user setting reasons or

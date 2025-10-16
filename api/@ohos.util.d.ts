@@ -4953,7 +4953,7 @@ declare namespace util {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   interface AutoFinalizer<T> {
     /**
@@ -4963,7 +4963,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     onFinalization(heldValue: T): void;
   }
@@ -4973,7 +4973,7 @@ declare namespace util {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   class AutoFinalizerCleaner<T> {
     /**
@@ -4985,7 +4985,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     static register<T>(obj: AutoFinalizer<T>, heldValue: T): void;
   }

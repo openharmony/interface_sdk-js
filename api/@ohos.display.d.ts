@@ -863,6 +863,50 @@ declare namespace display {
   function convertRelativeToGlobalCoordinate(relativePosition: RelativePosition): Position;
 
   /**
+   * Obtain the display brightnessInfo.
+   * 
+   * @param { long } displayId Display id to query. This parameter should be greater than or equal to 0.
+   * @returns { BrightnessInfo } The current brightnessInfo of the display.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  function getBrightnessInfo(displayId: long): BrightnessInfo;
+
+  /**
+   * Register the callback for brightness info changes.
+   *
+   * @param { 'brightnessInfoChange' } type - the event of display brightness info changes.
+   * @param { Callback<long, BrightnessInfo> } callback - Callback used to return the display corresponding
+   *     brightness info.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  function on(type: 'brightnessInfoChange', callback: Callback<long, BrightnessInfo>): void;
+
+  /**
+   * Unregister the callback for brightness info changes.
+   *
+   * @param { 'brightnessInfoChange' } type - the event of display brightness info changes.
+   * @param { Callback<long, BrightnessInfo> } [callback] - Callback used to return the display corresponding
+   *     brightness info. If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  function off(type: 'brightnessInfoChange', callback?: Callback<long, BrightnessInfo>): void;
+
+  /**
    * The parameter for creating virtual screen.
    *
    * @interface VirtualScreenConfig
@@ -1563,6 +1607,47 @@ declare namespace display {
      * @arkts 1.1&1.2
      */
     readonly creaseRects: Array<Rect>;
+  }
+
+  /**
+   * Display Brightness Info.
+   *
+   * @interface BrightnessInfo
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  interface BrightnessInfo {
+    /**
+     * Standard Dynamic Range.
+     *
+     * @type { double }
+     * @readonly
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    readonly sdrNits: double;
+    /**
+     * Current Brightness Dynamic Margin.
+     *
+     * @type { double }
+     * @readonly
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    readonly currentHeadroom: double;
+    /**
+     * Current Maximum Brightness Margin.
+     *
+     * @type { double }
+     * @readonly
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    readonly maxHeadroom: double;
   }
 
   /**
@@ -2411,7 +2496,7 @@ declare namespace display {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic&static
      */
     getLiveCreaseRegion(): FoldCreaseRegion;
 

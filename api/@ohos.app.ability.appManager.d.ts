@@ -1086,9 +1086,10 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>);
+  function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>): void;
 
   /**
    * Clear up application data by bundle name

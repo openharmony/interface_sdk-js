@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { BlankAttribute } from './component/blank';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { BlankAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Blank Modifier

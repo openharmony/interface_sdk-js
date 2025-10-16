@@ -7494,6 +7494,61 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 12
      */
     setMetadata(key: HdrMetadataKey, value: HdrMetadataValue): Promise<void>;
+
+    /**
+     * Checks whether the pixelmap is released.
+     * 
+     * @returns { boolean } Returns true if the pixelmap is released; returns false otherwise.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 dynamic&static
+     */
+    isReleased(): boolean;
+
+    /**
+     * Gets the unique ID of the PixelMap
+     * 
+     * @returns { int } The unique ID of the PixelMap.
+     * @throws { BusinessError } 7600201 - The PixelMap has been released.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 dynamic&static
+     */
+    getUniqueId(): int;
+
+    /**
+     * Creates a cropped and scaled PixelMap based on current PixelMap.
+     *
+     * @param { Region } region The region of the source pixelmap to be cropped.
+     * @param { double } x The scale ratio of width.
+     * @param { double } y The scale ratio of height.
+     * @param { AntiAliasingLevel } [level] The anti-aliasing algorithm to be used.
+     *     The default value is AntiAliasingLevel.NONE.
+     * @returns { PixelMap } return the new cropped and scaled pixelmap.
+     * @throws { BusinessError } 7600201 - The PixelMap has been released.
+     * @throws { BusinessError } 7600204 - Invalid region.
+     * @throws { BusinessError } 7600205 - Unsupported pixel format.
+     * @throws { BusinessError } 7600301 - Memory alloc failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 dynamic&static
+     */
+    createCroppedAndScaledPixelMapSync(region: Region, x: double, y: double, level?: AntiAliasingLevel): PixelMap;
+
+    /**
+     * Creates a cropped and scaled PixelMap based on current PixelMap.
+     *
+     * @param { Region } region The region of the source pixelmap to be cropped.
+     * @param { double } x The scale ratio of width.
+     * @param { double } y The scale ratio of height.
+     * @param { AntiAliasingLevel } [level] The anti-aliasing algorithm to be used.
+     *     The default value is AntiAliasingLevel.NONE.
+     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * @throws { BusinessError } 7600201 - The PixelMap has been released.
+     * @throws { BusinessError } 7600204 - Invalid region.
+     * @throws { BusinessError } 7600205 - Unsupported pixel format.
+     * @throws { BusinessError } 7600301 - Memory alloc failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 22 dynamic&static
+     */
+    createCroppedAndScaledPixelMap(region: Region, x: double, y: double, level?: AntiAliasingLevel): Promise<PixelMap>;
   }
 
   /**
@@ -9078,6 +9133,24 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @arkts 1.1&1.2
      */
     modifyImageProperties(records: Record<PropertyKey, string|null>): Promise<void>;
+
+    /**
+     * Modify the value of properties in an image with the specified keys. The method is more efficient than
+     * modifyImageProperties, as it completes batch data modifications in memory with a single write operation
+     * to the file.
+     *
+     * @param { Record<PropertyKey, string|null> } records - Property Records whose values are to be modified,
+     *     when the value is set to null the tag will be removed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails,
+     *     an error message is returned.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700202 - Unsupported metadata. For example, the property key is not supported,
+     *     or the property value is invalid.
+     * @throws { BusinessError } 7700304 - Failed to write image properties to the file.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 22 dynamic&static
+     */
+    modifyImagePropertiesEnhanced(records: Record<PropertyKey, string | null>): Promise<void>;
 
     /**
      * Update the data in the incremental ImageSource.

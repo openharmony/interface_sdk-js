@@ -96,14 +96,14 @@ export interface Resource {
   /**
    * Set params.
    *
-   * @type { ?Array<Object | undefined> }
+   * @type { ?Array<string | int | long | double | Resource> }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  params?: Array<Object | undefined>;
+  params?: Array<string | int | long | double | Resource>;
 
   /**
    * Set params.

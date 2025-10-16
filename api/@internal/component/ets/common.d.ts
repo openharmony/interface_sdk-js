@@ -771,7 +771,6 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
  * @returns { PropertyDecorator } Env decorator
  * @throws { BusinessError } 140000 - Invalid key for @Env
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 22 dynamic
  */
@@ -781,11 +780,29 @@ declare type EnvDecorator = (value: string) => PropertyDecorator;
  * Defining Env PropertyDecorator.
  * @type { EnvDecorator }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 22 dynamic
  */
 declare const Env: EnvDecorator;
+
+/**
+ * Defining Environment variable enumeration value.
+ * 
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare enum SystemProperties {
+ /**
+  * System environmental breakpoin key that is used to obtain the width and height breakpoint value of the window.
+  * 
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 22 dynamic
+  */
+  BREAK_POINT = 'system.arkui.breakpoint'
+};
 
 /**
  * Defining Consume PropertyDecorator.
@@ -8250,7 +8267,7 @@ declare enum SourceType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 22
    */
   KEY = 4,
 
@@ -8260,7 +8277,7 @@ declare enum SourceType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 22
    */
   JOYSTICK = 5,
 }
@@ -12570,7 +12587,7 @@ declare interface AxisEvent extends BaseEvent {
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 21
+   * @since 22
    */
   hasAxis(axisType: AxisType): boolean;
 }
@@ -12880,6 +12897,15 @@ declare type DataLoadParams = import('../api/@ohos.data.unifiedDataChannel').def
  * @since 14
  */
 declare enum DragResult {
+  /**
+   * If the drag is not finished and the result is not set by receiver, return DragResult.UNKNOWN.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  UNKNOWN = -1,
   /**
    * If the drag is successful, return DragResult.DRAG_SUCCESSFUL.
    *
@@ -19691,6 +19717,15 @@ declare interface FadingEdgeOptions {
  * @atomicservice
  * @since 11
  */
+/**
+ * Define nested scroll options
+ *
+ * @interface NestedScrollOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
 declare interface NestedScrollOptions {
   /**
    * Set NestedScrollMode when the scrollable component scrolls forward
@@ -25784,7 +25819,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 22 dynamic
    */
   allowDrop(value: Array<UniformDataType> | null | Array<string>): T;
 
@@ -31308,6 +31343,18 @@ declare abstract class TextContentControllerBase {
    * @since 15
    */
   addText(text: string, textOperationOptions?: TextContentControllerOptions): number;
+
+  /**
+   * Set the styled placeholder.
+   *
+   * @param { StyledString } styledString - The styledString for placeholder.
+   *     If the parameter is invalid, this method will have no effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  setStyledPlaceholder(styledString: StyledString): void;
 
   /**
    * Delete text in TextRange.

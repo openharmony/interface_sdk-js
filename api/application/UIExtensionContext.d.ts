@@ -35,6 +35,8 @@ import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectC
 /*** if arkts 1.2 */
 import { AbilityResult } from '../ability/abilityResult';
 import { ConnectOptions } from '../ability/connectOptions';
+import UIServiceProxy from './UIServiceProxy';
+import UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 /*** endif */
 
 /**
@@ -987,7 +989,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startUIServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -1015,7 +1018,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnectCallback) : Promise<UIServiceProxy>;
 
@@ -1030,7 +1034,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise<void>;
 
@@ -1203,9 +1208,9 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 21
    */
-  startUIAbilitiesInSplitWindowMode(primaryWindowId: number, secondaryWant: Want): Promise<void>;
+  startUIAbilitiesInSplitWindowMode(primaryWindowId: int, secondaryWant: Want): Promise<void>;
 }
 
 export default UIExtensionContext;

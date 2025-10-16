@@ -1524,6 +1524,22 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   lanes(value: number | LengthConstrain, gutter?: Dimension): ListAttribute;
 
   /**
+   * Sets the number of columns or rows in the list. If the value is set to the gutter type, it indicates the gap
+   * between columns. It takes effect when the number of columns is greater than 1.
+   *
+   * @param { number | LengthConstrain | ItemFillPolicy } value - Number of columns or rows in the list.
+   *     <br>Default value: <em>1</em>
+   * @param { Dimension } [gutter] - Gap between columns.<br>Default value: <em>0</em>
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22
+   */
+  lanes(value: number | LengthConstrain | ItemFillPolicy, gutter?: Dimension): ListAttribute;
+
+  /**
    * Called when need to decide how to align lanes in the direction of the cross axis.
    *
    * @param { ListItemAlign } value
@@ -1924,6 +1940,25 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 14
    */
   cachedCount(count: number, show: boolean): ListAttribute;
+
+  /**
+   * Sets the number of list items or list item groups to be cached (preloaded) and specifies whether to display
+   * the preloaded nodes.
+   * 
+   * @param { number | CacheCountInfo } count - If the parameter type is number, it indicates number of list items
+   * to be preloaded. If the parameter type is CacheCountInfo, it indicates the range of list items to be preloaded.
+   * <br>Default value: number of nodes visible on the screen, with the maximum value of 16
+   * <br>Value range for number type: [0, +∞)
+   * @param { boolean } show - Whether to display the preloaded list items.
+   * Default value: false
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22
+   */
+  cachedCount(count: number | CacheCountInfo, show: boolean): ListAttribute;
 
   /**
    * Called when setting whether to enable chain linkage dynamic effect.

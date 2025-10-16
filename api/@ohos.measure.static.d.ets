@@ -16,14 +16,10 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-
-
-
-import { FontStyle, FontWeight, TextAlign, TextOverflow, TextCase, WordBreak } from './arkui/component/enums'
-import { SizeOptions } from './arkui/component/units';
+import { FontStyle, FontWeight, TextAlign, TextOverflow, TextCase, WordBreak } from '@ohos.arkui.component'
+import { SizeOptions } from '@ohos.arkui.component';
 import { Resource } from './global/resource'
 
 /**
@@ -31,7 +27,7 @@ import { Resource } from './global/resource'
  *
  * @interface MeasureOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface MeasureOptions {
   /**
@@ -39,133 +35,133 @@ export interface MeasureOptions {
    *
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   textContent: string | Resource;
 
   /**
    * Text display area of width.
    *
-   * @type { ?(number | string | Resource) }
+   * @type { ?(double | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  constraintWidth?: number | string | Resource;
+  constraintWidth?: double | string | Resource;
 
   /**
    * Font Size.
    *
-   * @type { ?(number | string | Resource) }
+   * @type { ?(double | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  fontSize?: number | string | Resource;
+  fontSize?: double | string | Resource;
 
   /**
    * Font style.
    *
-   * @type { ?(number | FontStyle) }
+   * @type { ?(int | FontStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  fontStyle?: number | FontStyle;
+  fontStyle?: int | FontStyle;
 
   /**
    * Font weight.
    *
-   * @type { ?(number | string | FontWeight) }
+   * @type { ?(int | string | FontWeight) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  fontWeight?: number | string | FontWeight;
+  fontWeight?: int | string | FontWeight;
 
   /**
    * Font list of text.
    *
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   fontFamily?: string | Resource;
 
   /**
    * Distance between text fonts.
    *
-   * @type { ?(number | string) }
+   * @type { ?(double | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  letterSpacing?: number | string;
+  letterSpacing?: double | string;
 
   /**
    * Alignment of text.
    *
-   * @type { ?(number | TextAlign) }
+   * @type { ?(int | TextAlign) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  textAlign?: number | TextAlign;
+  textAlign?: int | TextAlign;
 
   /**
    * Overflow mode of the font.
    *
-   * @type { ?(number | TextOverflow) }
+   * @type { ?(int | TextOverflow) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  overflow?: number | TextOverflow;
+  overflow?: int | TextOverflow;
 
   /**
-   * Maximum number of lines of text.
+   * Maximum int of lines of text.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  maxLines?: number;
+  maxLines?: int;
 
   /**
    * Vertical center mode of the font.
    *
-   * @type { ?(number | string | Resource) }
+   * @type { ?(double | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  lineHeight?: number | string | Resource;
+  lineHeight?: double | string | Resource;
 
   /**
    * Baseline offset.
    *
-   * @type { ?(number | string) }
+   * @type { ?(double | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  baselineOffset?: number | string;
+  baselineOffset?: double | string;
 
   /**
    * Type of letter in the text font
    *
-   * @type { ?(number | TextCase) }
+   * @type { ?(int | TextCase) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  textCase?: number | TextCase;
+  textCase?: int | TextCase;
 
   /**
    * Specify the indentation of the first line in a text-block.
    *
-   * @type { ?(number | string) }
+   * @type { ?(double | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  textIndent?: number | string;
+  textIndent?: double | string;
 
   /**
    * Set the word break type.
    *
    * @type { ?WordBreak }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   wordBreak?: WordBreak;
 }
@@ -174,18 +170,18 @@ export interface MeasureOptions {
  * Defines the Measure interface.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export default declare class MeasureText {
   /**
    * Displays the textWidth.
    *
    * @param { MeasureOptions } options - Options.
-   * @returns { number }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  static measureText(options: MeasureOptions): number;
+  static measureText(options: MeasureOptions): double;
 
   /**
    * Displays the text width and height.
@@ -193,7 +189,7 @@ export default declare class MeasureText {
    * @param { MeasureOptions } options - Options of measure area occupied by text.
    * @returns { SizeOptions } width and height for text to display \
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static measureTextSize(options: MeasureOptions): SizeOptions;
 }

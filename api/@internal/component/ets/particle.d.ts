@@ -1901,7 +1901,7 @@ declare enum ParticleUpdater {
  */
 declare type SizeT<T> = import('../api/arkui/Graphics').SizeT<T>;
 
- /**
+/**
  * Defines the PositionT type.
  *
  * @typedef { import('../api/arkui/Graphics').PositionT<T> }
@@ -1911,6 +1911,17 @@ declare type SizeT<T> = import('../api/arkui/Graphics').SizeT<T>;
  * @since 12
  */
 declare type PositionT<T> = import('../api/arkui/Graphics').PositionT<T>;
+
+/**
+ * Defines the Vector2T type.
+ *
+ * @typedef { import('../api/arkui/Graphics').Vector2T<T> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare type Vector2T<T> = import('../api/arkui/Graphics').Vector2T<T>;
 
 /**
  * Defines the Particle component attribute functions.
@@ -1951,6 +1962,32 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
    * @since 12
    */
   emitter(value: Array<EmitterProperty>): ParticleAttribute;
+
+  /**
+   * Set ripple fields of particles. The ripple field applies a force that varies in a wave-like pattern to particles
+   * within its influence range, creating an effect similar to the spreading of ripples.
+   *
+   * @param { Array<RippleFieldOptions> | undefined } fields - The infomation of ripple fields.
+   * @returns { ParticleAttribute } Returns the particle attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  rippleFields(fields: Array<RippleFieldOptions> | undefined): ParticleAttribute;
+
+  /**
+   * Set velocity fields of particles. The velocity field applies a force to particles within its influence range,
+   * causing the particles to superimpose the specified velocity of the field onto their original velocity. 
+   *
+   * @param { Array<VelocityFieldOptions> | undefined } fields - The infomation of velocity fields.
+   * @returns { ParticleAttribute } Returns the particle attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  velocityFields(fields: Array<VelocityFieldOptions> | undefined): ParticleAttribute;
 }
 
 /**
@@ -2186,4 +2223,164 @@ declare interface ParticleAnnulusRegion {
    * @since 20
    */
   endAngle?: number,
+}
+
+/**
+ * Defines particle field region params.
+ * @interface FieldRegion
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare interface FieldRegion {
+  /**
+   * The shape of the field
+   *
+   * @type { ?DisturbanceFieldShape }
+   * @default DisturbanceFieldShape.RECT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  shape?: DisturbanceFieldShape,
+  /**
+   * The top-left corner of the field. The top-left corner of the component is the origin of the coordinate system.
+   * The coordinate unit is vp.
+   *
+   * @type { ?PositionT<number> }
+   * @default {x:0,y:0}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  position?: PositionT<number>,
+  /**
+   * The size of the field. The unit of value is vp.
+   *
+   * @type { ?SizeT<number> }
+   * @default {width:0,height:0}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  size?: SizeT<number>,
+}
+
+/**
+ * Defines ripple field options.
+ * @interface RippleFieldOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare interface RippleFieldOptions {
+  /**
+   * The amplitude of the ripple field. The greater the amplitude, the stronger the force of the ripple field.
+   * Range of values:[0, +∞)
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  amplitude?: number,
+  /**
+   * Wavelength, which is the distance over which a wave cycle changes. The larger the wavelength, the slower
+   * the wave changes with distance, and the less pronounced the wave fluctiations.
+   * Range of values:(0, +∞)
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  wavelength?: number,
+  /**
+   * Wave speed. The greater the wave speed, the faster the wave changes over time, and the more pronounced the wave
+   * motion. Range of values:(0, +∞)
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  waveSpeed?: number,
+  /**
+   * The attenuation coefficient of the ripple field. The larger the attenuation coeffecient, the faster the wave
+   * attenuates over time. Range of values:[0,1]
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  attenuation?: number,
+  /**
+   * The central point where the ripple field generates force. The top-left corner of the component is the origin of
+   * coordinates. The coordinate unit is vp.
+   *
+   * @type { ?PositionT<number> }
+   * @default {x:0,y:0}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  center?: PositionT<number>,
+  /**
+   * The region influenced by the ripple field.
+   *
+   * @type { ?FieldRegion }
+   * @default {shape:DisturbanceFieldShape.RECT,position:{x:0,y:0},size:{width:0,height:0}}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  region?: FieldRegion,
+}
+
+/**
+ * Defines velocity field options.
+ * @interface VelocityFieldOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare interface VelocityFieldOptions {
+  /**
+   * The velocity values in each direction of the velocity field. Particles only acquire this velocity when within
+   * the range of the velocity field; once they leave the range of the velocity field, they are no longer influenced
+   * by it and do not gain this additional velocity.
+   *
+   * @type { ?Vector2T<number, number> }
+   * @default {x:0,y:0}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  velocity?: Vector2T<number, number>,
+  /**
+   * The region influenced by the velocity field.
+   *
+   * @type { ?FieldRegion }
+   * @default {shape:DisturbanceFieldShape.RECT,position:{x:0,y:0},size:{width:0,height:0}}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  region?: FieldRegion,  
 }

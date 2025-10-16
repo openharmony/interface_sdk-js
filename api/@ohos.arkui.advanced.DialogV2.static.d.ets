@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { ComponentV2 } from './arkui/component/customComponent';
 import { ResourceStr, ResourceColor, LocalizedPadding, SizeOptions } from './arkui/component/units';
@@ -32,7 +31,7 @@ import { SheetInfo } from './arkui/component/actionSheet';
  *
  * @typedef { function } AdvancedDialogV2ButtonAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare type AdvancedDialogV2ButtonAction = () => void;
@@ -41,7 +40,7 @@ export declare type AdvancedDialogV2ButtonAction = () => void;
  *
  * @class AdvancedDialogV2Button
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @ObservedV2
@@ -51,83 +50,83 @@ export declare class AdvancedDialogV2Button {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Trace
-  content: ResourceStr;
+  public content: ResourceStr;
   /**
    * Sets the Button Callback.
    *
    * @type { ?AdvancedDialogV2ButtonAction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Trace
-  action?: AdvancedDialogV2ButtonAction;
+  public action?: AdvancedDialogV2ButtonAction;
   /**
    * Sets the background color of a button.
    *
    * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Trace
-  background?: ColorMetrics;
+  public background?: ColorMetrics;
   /**
    * Sets the Button Text Color.
    *
    * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Trace
-  fontColor?: ColorMetrics;
+  public fontColor?: ColorMetrics;
   /**
    * Describes the Button style.
    *
    * @type { ?ButtonStyleMode }
    * @default ButtonStyleMode.TEXTUAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Trace
-  buttonStyle?: ButtonStyleMode;
+  public buttonStyle?: ButtonStyleMode;
   /**
    * Describes the Button role.
    *
    * @type { ?ButtonRole }
    * @default ButtonRole.NORMAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Trace
-  role?: ButtonRole;
+  public role?: ButtonRole;
   /**
    * Set the default focus of a button.
    *
    * @type { ?boolean }
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Trace
-  defaultFocus?: boolean;
+  public defaultFocus?: boolean;
   /**
    * Set the availability of the button.
    *
    * @type { ?boolean }
    * @default { true }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Trace
-  enabled?: boolean;
+  public enabled?: boolean;
   /**
    * The constructor used to create a AdvancedDialogV2Button object.
    *
    * @param { AdvancedDialogV2ButtonOptions } options - button info.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   constructor(options: AdvancedDialogV2ButtonOptions);
 }
@@ -136,7 +135,7 @@ export declare class AdvancedDialogV2Button {
  *
  * @interface AdvancedDialogV2ButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare interface AdvancedDialogV2ButtonOptions {
@@ -145,7 +144,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   content: ResourceStr;
   /**
@@ -153,7 +152,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
    *
    * @type { ?AdvancedDialogV2ButtonAction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   action?: AdvancedDialogV2ButtonAction;
   /**
@@ -161,7 +160,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
    *
    * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   background?: ColorMetrics;
   /**
@@ -169,7 +168,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
    *
    * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   fontColor?: ColorMetrics;
   /**
@@ -178,7 +177,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
    * @type { ?ButtonStyleMode }
    * @default ButtonStyleMode.TEXTUAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   buttonStyle?: ButtonStyleMode;
   /**
@@ -187,7 +186,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
    * @type { ?ButtonRole }
    * @default ButtonRole.NORMAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   role?: ButtonRole;
   /**
@@ -196,7 +195,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
    * @type { ?boolean }
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   defaultFocus?: boolean;
   /**
@@ -205,7 +204,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
    * @type { ?boolean }
    * @default { true }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   enabled?: boolean;
 }
@@ -215,7 +214,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
  * @typedef { function } AdvancedDialogV2OnCheckedChange
  * @param { boolean } checked - Checkbox status.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare type AdvancedDialogV2OnCheckedChange = (checked: boolean) => void;
@@ -224,7 +223,7 @@ export declare type AdvancedDialogV2OnCheckedChange = (checked: boolean) => void
  *
  * @struct { TipsDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @ComponentV2
@@ -234,7 +233,7 @@ export declare struct TipsDialogV2 {
    *
    * @type { ResourceStr | PixelMap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Require
   @Param
@@ -244,7 +243,7 @@ export declare struct TipsDialogV2 {
    *
    * @type { ?SizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   imageSize?: SizeOptions;
@@ -253,7 +252,7 @@ export declare struct TipsDialogV2 {
    *
    * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   imageBorderColor?: ColorMetrics;
@@ -262,7 +261,7 @@ export declare struct TipsDialogV2 {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   imageBorderWidth?: LengthMetrics;
@@ -271,7 +270,7 @@ export declare struct TipsDialogV2 {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   title?: ResourceStr;
@@ -280,7 +279,7 @@ export declare struct TipsDialogV2 {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   content?: ResourceStr;
@@ -289,7 +288,7 @@ export declare struct TipsDialogV2 {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   checkTips?: ResourceStr;
@@ -298,7 +297,7 @@ export declare struct TipsDialogV2 {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   checked?: boolean;
@@ -307,7 +306,7 @@ export declare struct TipsDialogV2 {
    *
    * @type { ?AdvancedDialogV2Button }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   primaryButton?: AdvancedDialogV2Button;
@@ -316,7 +315,7 @@ export declare struct TipsDialogV2 {
    *
    * @type { ?AdvancedDialogV2Button }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   secondaryButton?: AdvancedDialogV2Button;
@@ -324,14 +323,14 @@ export declare struct TipsDialogV2 {
    * Sets the TipsDialogV2 CheckBox Callback.
    * @type { ?AdvancedDialogV2OnCheckedChange }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   onCheckedChange?: AdvancedDialogV2OnCheckedChange;
   /**
    * The method to build component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Builder
   build(): void;
@@ -341,7 +340,7 @@ export declare struct TipsDialogV2 {
  *
  * @struct { SelectDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @ComponentV2
@@ -351,7 +350,7 @@ export declare struct SelectDialogV2 {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Require
   @Param
@@ -361,25 +360,25 @@ export declare struct SelectDialogV2 {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   content?: ResourceStr;
   /**
    * Sets the SelectDialogV2 selected index.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
-  selectedIndex?: number;
+  selectedIndex?: int;
   /**
    * Sets the SelectDialogV2 confirm button.
    *
    * @type { ?AdvancedDialogV2Button }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   confirm?: AdvancedDialogV2Button;
@@ -387,7 +386,7 @@ export declare struct SelectDialogV2 {
    * Sets the SelectDialog sheets.
    * @type { SheetInfo[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Require
   @Param
@@ -395,7 +394,7 @@ export declare struct SelectDialogV2 {
   /**
    * The method to build component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Builder
   build(): void;
@@ -405,7 +404,7 @@ export declare struct SelectDialogV2 {
  *
  * @struct { ConfirmDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @ComponentV2
@@ -415,7 +414,7 @@ export declare struct ConfirmDialogV2 {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Require
   @Param
@@ -425,7 +424,7 @@ export declare struct ConfirmDialogV2 {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   content?: ResourceStr;
@@ -434,7 +433,7 @@ export declare struct ConfirmDialogV2 {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   checkTips?: ResourceStr;
@@ -443,7 +442,7 @@ export declare struct ConfirmDialogV2 {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   checked?: boolean;
@@ -452,7 +451,7 @@ export declare struct ConfirmDialogV2 {
    *
    * @type { ?AdvancedDialogV2Button }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   primaryButton?: AdvancedDialogV2Button;
@@ -461,7 +460,7 @@ export declare struct ConfirmDialogV2 {
    *
    * @type { ?AdvancedDialogV2Button }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   secondaryButton?: AdvancedDialogV2Button;
@@ -470,14 +469,14 @@ export declare struct ConfirmDialogV2 {
    *
    * @type { ?AdvancedDialogV2OnCheckedChange }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   onCheckedChange?: AdvancedDialogV2OnCheckedChange;
   /**
    * The method to build component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Builder
   build(): void;
@@ -487,7 +486,7 @@ export declare struct ConfirmDialogV2 {
  *
  * @struct { AlertDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @ComponentV2
@@ -497,7 +496,7 @@ export declare struct AlertDialogV2 {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   primaryTitle?: ResourceStr;
@@ -506,7 +505,7 @@ export declare struct AlertDialogV2 {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   secondaryTitle?: ResourceStr;
@@ -515,7 +514,7 @@ export declare struct AlertDialogV2 {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Require
   @Param
@@ -525,7 +524,7 @@ export declare struct AlertDialogV2 {
    *
    * @type { ?AdvancedDialogV2Button }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   primaryButton?: AdvancedDialogV2Button;
@@ -534,14 +533,14 @@ export declare struct AlertDialogV2 {
    *
    * @type { ?AdvancedDialogV2Button }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   secondaryButton?: AdvancedDialogV2Button;
   /**
    * The method to build component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Builder
   build(): void;
@@ -551,7 +550,7 @@ export declare struct AlertDialogV2 {
  *
  * @struct { LoadingDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @ComponentV2
@@ -561,14 +560,14 @@ export declare struct LoadingDialogV2 {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   content?: ResourceStr;
   /**
    * The method to build component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Builder
   build(): void;
@@ -578,7 +577,7 @@ export declare struct LoadingDialogV2 {
  *
  * @struct { CustomContentDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @ComponentV2
@@ -588,7 +587,7 @@ export declare struct CustomContentDialogV2 {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   primaryTitle?: ResourceStr;
@@ -597,7 +596,7 @@ export declare struct CustomContentDialogV2 {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   secondaryTitle?: ResourceStr;
@@ -606,7 +605,7 @@ export declare struct CustomContentDialogV2 {
    *
    * @type { CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @BuilderParam
   contentBuilder: CustomBuilder;
@@ -615,7 +614,7 @@ export declare struct CustomContentDialogV2 {
    *
    * @type { ?LocalizedPadding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   contentAreaPadding?: LocalizedPadding;
@@ -623,14 +622,14 @@ export declare struct CustomContentDialogV2 {
    * Sets the CustomContentDialogV2 buttons.
    * @type { ?AdvancedDialogV2Button[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Param
   buttons?: AdvancedDialogV2Button[];
   /**
    * The method to build component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Builder
   build(): void;
@@ -640,7 +639,7 @@ export declare struct CustomContentDialogV2 {
  *
  * @struct { PopoverDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @ComponentV2
@@ -650,7 +649,7 @@ export declare struct PopoverDialogV2 {
    * 
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Require
   @Param
@@ -660,7 +659,7 @@ export declare struct PopoverDialogV2 {
    *
    * @type { ?PopoverDialogV2OnVisibleChange }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Event
   $visible?: PopoverDialogV2OnVisibleChange;
@@ -669,7 +668,7 @@ export declare struct PopoverDialogV2 {
    * 
    * @type { PopoverDialogV2Options }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Require
   @Param
@@ -679,14 +678,14 @@ export declare struct PopoverDialogV2 {
    * 
    * @type { CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @BuilderParam
   targetBuilder: CustomBuilder;
   /**
    * The method to build component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Builder
   build(): void;
@@ -697,7 +696,7 @@ export declare struct PopoverDialogV2 {
  * @typedef { function } PopoverDialogV2OnVisibleChange
  * @param { boolean } visible - The visibility of PopoverDialogV2.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare type PopoverDialogV2OnVisibleChange = (visible: boolean) => void;
@@ -707,7 +706,7 @@ export declare type PopoverDialogV2OnVisibleChange = (visible: boolean) => void;
  * @extends CustomPopupOptions
  * @interface PopoverDialogV2Options
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare interface PopoverDialogV2Options extends CustomPopupOptions {
