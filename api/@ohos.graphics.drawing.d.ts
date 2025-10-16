@@ -3546,8 +3546,7 @@ declare namespace drawing {
    *
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * Enumerates the canvas clipping modes.
