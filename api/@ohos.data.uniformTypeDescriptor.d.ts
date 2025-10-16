@@ -2231,7 +2231,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @systemapi
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
    */
   function registerTypeDescriptors(typeDescriptors: Array<TypeDescriptor>): Promise<void>;
 
@@ -2248,7 +2248,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @systemapi
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
    */
   function unregisterTypeDescriptors(typeIds: Array<string>): Promise<void>;
 }
