@@ -1121,12 +1121,12 @@ export declare namespace typeNode {
     /**
      * Initialize Blank FrameNode.
      *
-     * @param { number | string} [min] - Blank options.
+     * @param { double | string} [min] - Blank options.
      * @returns { BlankAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    abstract initialize(min?: number | string): BlankAttribute;
+    abstract initialize(min?: double | string): BlankAttribute;
   }
 
   /**
