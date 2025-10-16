@@ -631,7 +631,7 @@ declare namespace media {
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
    * @atomicservice
-   * @since 21 static
+   * @since 22 static
    */
   function createAVTranscoder(): Promise<AVTranscoder | undefined>;
 
