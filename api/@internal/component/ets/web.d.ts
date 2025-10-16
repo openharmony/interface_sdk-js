@@ -91,7 +91,7 @@ type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
  * @syscap SystemCapability.Web.Webview.Core
  * @since 22 dynamic&static
  */
-type OnVerifyPinCallback = (event: {identity: string, handler: VerifyPinHandler}) => void;
+type OnVerifyPinCallback = (verifyPinEvent: VerifyPinEvent) => void;
 
 /**
  * The callback of onOverrideErrorPage.
@@ -10924,6 +10924,29 @@ declare interface SslErrorEvent {
    * @since 20
    */
   certChainData?: Array<Uint8Array>;
+}
+
+/**
+ * Defines the event for PIN verification.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 dynamic&static
+ */
+declare interface VerifyPinEvent {
+  /**
+   * Handle the result of PIN verification.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  handler: VerifyPinHandler;
+  /**
+   * The identity of the Credential.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  identity: string;
 }
 
 /**
