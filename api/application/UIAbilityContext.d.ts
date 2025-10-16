@@ -4988,7 +4988,7 @@ declare class UIAbilityContext extends Context {
   * @throws { BusinessError } 16000131 - The UIAbility is already exist, can not start again.
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   * @stagemodelonly
-  * @since 21
+  * @since 22
   * @arkts 1.1&1.2
   */
   startSelfUIAbilityInCurrentProcess(want: Want, specifiedFlag: string, options?: StartOptions): Promise<void>;
