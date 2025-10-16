@@ -212,11 +212,11 @@ export declare interface BadgeParamWithString extends BadgeParam {
     /**
      * Text string of the prompt content.
      *
-     * @type { string }
+     * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
-    value: string;
+    value: ResourceStr;
 }
 /**
  * Defines the Button component attributes.
