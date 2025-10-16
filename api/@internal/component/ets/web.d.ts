@@ -86,8 +86,7 @@ type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
  * The callback of verify pin.
  *
  * @typedef { function } OnVerifyPinCallback
- * @param { string } identity - The identity of the hardware security key credential.
- * @param { VerifyPinHandler } handler - Passes the PIN code verify result through the handler.
+ * @param { VerifyPinEvent } verifyPinEvent - The event of verify PIN.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 22 dynamic&static
  */
