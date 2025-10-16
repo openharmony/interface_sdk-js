@@ -47,7 +47,7 @@ import { TimePickerDialogOptions } from '@ohos.arkui.component';
 import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, AlertDialogParamWithOptions } from '@ohos.arkui.component';
 import { ActionSheetOptions } from '@ohos.arkui.component';
 import { TextPickerDialogOptions } from '@ohos.arkui.component';
-import { LocalStorage } from './arkui/stateManagement/storage/localStorage';
+import { LocalStorage } from '@ohos.stateManagement';
 import { DatePickerDialogOptions } from '@ohos.arkui.component';
 import { TabsController } from '@ohos.arkui.component';
 import { Scroller } from '@ohos.arkui.component';

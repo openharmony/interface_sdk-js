@@ -23,7 +23,7 @@ import { Axis, CrownSensitivity, BarState } from '@ohos.arkui.component';
 import { Scroller } from '@ohos.arkui.component';
 import { VoidCallback } from '@ohos.arkui.component';
 import { LengthMetrics, ColorMetrics } from './arkui/Graphics';
-import { memo, ComponentBuilder } from './arkui/stateManagement/runtime';
+import { memo, ComponentBuilder } from '@ohos.stateManagement';
 import { ComponentContentBase } from './arkui/ComponentContent';
 import { AttributeModifier, CommonMethod } from '@ohos.arkui.component';
 import { SwipeActionOptions } from '@ohos.arkui.component';

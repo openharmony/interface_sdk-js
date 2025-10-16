@@ -23,7 +23,7 @@ import { CrownSensitivity, EdgeEffect } from '@ohos.arkui.component';
 import { LinearGradient } from '@ohos.arkui.component';
 import { ResourceColor } from '@ohos.arkui.component';
 import { CommonMethod, Callback } from '@ohos.arkui.component';
-import { memo, ComponentBuilder } from './arkui/stateManagement/runtime';
+import { memo, ComponentBuilder } from '@ohos.stateManagement';
 /**
  * Handler of swiper controller, used in finishAnimation.
  *

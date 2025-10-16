@@ -21,7 +21,7 @@
 import { TextModifier } from './arkui/TextModifier';
 import { ResourceStr, Resource, ResourceColor, LocalizedMargin, LocalizedPadding } from '@ohos.arkui.component';
 import { SelectOption } from '@ohos.arkui.component';
-import { PropRef } from './arkui/stateManagement/decorator';
+import { PropRef } from '@ohos.stateManagement';
 import { Component } from '@ohos.arkui.component';
 import { FontWeight } from '@ohos.arkui.component';
 import { SymbolEffectStrategy, SymbolRenderingStrategy } from '@ohos.arkui.component';

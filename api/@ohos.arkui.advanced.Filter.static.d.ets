@@ -21,7 +21,7 @@
 import { Component } from '@ohos.arkui.component';
 import { ResourceStr } from '@ohos.arkui.component';
 import { BuilderParam, Builder } from '@ohos.arkui.component';
-import { PropRef } from './arkui/stateManagement/decorator';
+import { PropRef } from '@ohos.stateManagement';
 /**
  * Declare FilterType
  *

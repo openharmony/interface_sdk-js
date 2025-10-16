@@ -21,7 +21,7 @@
 import { Scroller } from '@ohos.arkui.component';
 import { BarState } from '@ohos.arkui.component';
 import { CommonMethod } from '@ohos.arkui.component';
-import { memo, ComponentBuilder } from './arkui/stateManagement/runtime';
+import { memo, ComponentBuilder } from '@ohos.stateManagement';
 import { AttributeModifier, CommonMethod } from '@ohos.arkui.component';
 /**
  * Defines the arc scroll bar options.

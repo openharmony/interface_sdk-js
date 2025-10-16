@@ -22,7 +22,7 @@ import { TextModifier } from './arkui/TextModifier';
 import { ResourceStr } from '@ohos.arkui.component';
 import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
 import { SelectOption } from '@ohos.arkui.component';
-import { ObservedV2, Trace, Param } from './arkui/stateManagement/decorator';
+import { ObservedV2, Trace, Param } from '@ohos.stateManagement';
 import { ComponentV2 } from '@ohos.arkui.component';
 import { BuilderParam, Builder } from '@ohos.arkui.component';
 /**

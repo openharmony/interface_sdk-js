@@ -20,7 +20,7 @@
  */
 import { ComponentV2 } from '@ohos.arkui.component';
 import { ResourceStr } from '@ohos.arkui.component';
-import { ObservedV2, Param, Require, Trace } from './arkui/stateManagement/decorator';
+import { ObservedV2, Param, Require, Trace } from '@ohos.stateManagement';
 import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
 import { DividerModifier } from './arkui/DividerModifier';
 import { ColorMetrics, LengthMetrics } from './arkui/Graphics';

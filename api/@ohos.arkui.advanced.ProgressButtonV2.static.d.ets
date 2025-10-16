@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 import { ComponentV2 } from '@ohos.arkui.component';
-import { Require, Param, Once, Trace, ObservedV2 } from './arkui/stateManagement/decorator';
+import { Require, Param, Once, Trace, ObservedV2 } from '@ohos.stateManagement';
 import { ResourceStr } from '@ohos.arkui.component';
 import { Builder } from '@ohos.arkui.component';
 import { LengthMetrics, ColorMetrics } from './arkui/Graphics';
