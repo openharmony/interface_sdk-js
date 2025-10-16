@@ -2004,7 +2004,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @form
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     static getLocalInstance(): FontCollection;
 
