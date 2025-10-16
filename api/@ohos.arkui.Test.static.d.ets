@@ -27,8 +27,6 @@ import { TouchObject, KeyEvent, MouseEvent } from './arkui/component/common';
  * @param { TouchObject } event - TouchObject to be sent.
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20 static
  * @test
  */
@@ -41,8 +39,6 @@ export declare function sendTouchEvent(event: TouchObject): boolean;
  * @param { KeyEvent } event - KeyEvent to be sent.
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20 static
  * @test
  */
@@ -55,8 +51,6 @@ export declare function sendKeyEvent(event: KeyEvent): boolean;
  * @param { MouseEvent } event - MouseEvent to be sent.
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20 static
  * @test
  */
