@@ -1093,20 +1093,20 @@ export declare interface SwiperContentWillScrollResult {
   /**
    * the index value of the current child page.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  currentIndex: number;
+  currentIndex: int;
 
   /**
    * the index value of the child page that will display.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  comingIndex: number;
+  comingIndex: int;
 
   /**
    * the sliding offset of each frame. Positive numbers indicating slide backward(e.g. from index=1 to index=0),
@@ -1116,22 +1116,22 @@ export declare interface SwiperContentWillScrollResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  offset: number;
+  offset: double;
 }
 
 /**
  * The callback of onContentDidScroll.
  *
  * @typedef { function } ContentDidScrollCallback
- * @param { number } selectedIndex - the index value of the swiper content selected before animation start.
- * @param { number } index - the index value of the swiper content.
- * @param { number } position - the moving ratio of the swiper content from the start position of the swiper main axis.
- * @param { number } mainAxisLength - the swiper main axis length for calculating position.
+ * @param { int } selectedIndex - the index value of the swiper content selected before animation start.
+ * @param { int } index - the index value of the swiper content.
+ * @param { double } position - the moving ratio of the swiper content from the start position of the swiper main axis.
+ * @param { double } mainAxisLength - the swiper main axis length for calculating position.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export type ContentDidScrollCallback = (selectedIndex: number, index: number, position: number,
-  mainAxisLength: number) => void;
+export type ContentDidScrollCallback = (selectedIndex: int, index: int, position: double,
+  mainAxisLength: double) => void;
 
 /**
  * The callback of onContentWillScroll.
