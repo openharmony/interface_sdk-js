@@ -39,7 +39,8 @@ import { StartAbilityParameter as _StartAbilityParameter } from './ability/start
  *
  * @namespace ability
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace ability {
   /**
@@ -65,7 +66,8 @@ declare namespace ability {
    *
    * @typedef { _PacMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type PacMap = _PacMap;
 
