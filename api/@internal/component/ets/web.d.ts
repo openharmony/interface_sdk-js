@@ -83,6 +83,17 @@ type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDe
 type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
 
 /**
+ * The callback of verify pin.
+ *
+ * @typedef { function } OnVerifyPinCallback
+ * @param { string } identity - The identity of the hardware security key credential.
+ * @param { VerifyPinHandler } handler - Passes the PIN code verify result through the handler.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 dynamic&static
+ */
+type OnVerifyPinCallback = (identity: string, handler: VerifyPinHandler) => void;
+
+/**
  * The callback of onOverrideErrorPage.
  *
  * @typedef { function } OnOverrideErrorPageCallback
@@ -2159,6 +2170,17 @@ declare class ClientAuthenticationHandler {
   confirm(priKeyFile: string, certChainFile: string): void;
 
   /**
+   * Confirm to use the specified private key and client certificate chain.
+   *
+   * @param { string } priKeyFile - The file that store private key.
+   * @param { string } certChainFile - The file that store client certificate chain.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  confirm(priKeyFile: string, certChainFile: string): void;
+
+  /**
    * Confirm to use the authUri.The authUri can be obtained from certificate management.
    *
    * @param { string } authUri is the key of credentials.The credentials contain sign info and client certificates info.
@@ -2174,6 +2196,17 @@ declare class ClientAuthenticationHandler {
    * @since 11
    */
   confirm(authUri: string): void;
+
+  /**
+  * Confirm to use the identify of the certificate. The identify can be obtained from certificate management.
+  *
+  * @param { string } identity - The identify of the credential.
+  * @param { CredentialType } credentialType - The type of the credential.
+  * @throws { BusinessError } 801 - Capability not supported.
+  * @syscap SystemCapability.Web.Webview.Core
+  * @since 22 dynamic&static
+  */
+  confirm(identity: string, credentialType: CredentialType): void;
 
   /**
    * Cancel this certificate request.
@@ -2204,6 +2237,30 @@ declare class ClientAuthenticationHandler {
    * @since 11
    */
   ignore(): void;
+}
+
+/**
+ * Passes the PIN code verify result through VerifyPinHandler#confirm
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 dynamic&static
+ */
+declare class VerifyPinHandler {
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  constructor();
+  /**
+   * Passes the PIN code verify result.
+   *
+   * @param { PinVerifyResult } result The PIN code verify result.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  confirm(result: PinVerifyResult): void;
 }
 
 /**
@@ -9343,6 +9400,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onClientAuthenticationRequest(callback: Callback<OnClientAuthenticationEvent>): WebAttribute;
 
   /**
+   * Triggered when the Web page needs verify pin from the user.
+   *
+   * @param { OnVerifyPinCallback } callback The triggered callback when needs verify pin from the user.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @@since 22 dynamic&static
+   */
+  onVerifyPin(callback: OnVerifyPinCallback): WebAttribute;
+
+  /**
    * Triggered when web page requires the user to create a window.
    *
    * @param { function } callback The triggered callback when web page requires the user to create a window.
@@ -11019,4 +11086,59 @@ declare enum GestureFocusMode {
    * @since 20
    */
   GESTURE_TAP_AND_LONG_PRESS = 1
+}
+
+/**
+ * Enum type supplied to {@link PinVerifyResult} when VerifyPinHandler#confirm being called.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 dynamic&static
+ */
+declare enum PinVerificationResult {
+  /**
+   * SUCCESS.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  PIN_VERIFICATION_SUCCESS = 0,
+  /**
+   * FAILED.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  PIN_VERIFICATION_FAILED = 1
+}
+
+/**
+ * Enum type supplied to {@link CredentialType} when ClientAuthenticationHandler#confirm being called.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 dynamic&static
+ */
+declare enum CredentialType {
+  /**
+   * User credential.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  CREDENTIAL_USER = 2,
+  /**
+   * Application-specific credential.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  CREDENTIAL_APP = 3,
+  /**
+   * Hardware security key credential.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  CREDENTIAL_UKEY = 4,
 }
