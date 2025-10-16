@@ -337,6 +337,26 @@ declare namespace PiPWindow {
   }
 
   /**
+   * The info of picture-in-picture active status
+   *
+   * @interface PiPActiveStatus
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  interface PiPActiveStatus {
+    /**
+     * Indicates current window active status.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    status: number;
+  }
+
+  /**
    * Describe the type of picture-in-picture.
    *
    * @enum { number }.
@@ -1214,6 +1234,38 @@ declare namespace PiPWindow {
      */
     off(type: 'pipWindowSizeChange', callback?: Callback<PiPWindowSize>): void;
 
+    /**
+     * Register picture-in-picture active status change event listener
+     *
+     * @param { 'activeStatusChange' } type - The value is fixed at 'activeStatusChange', indicating the picture-in-picture
+     * active status change event.
+     * @param { Callback<PiPActiveStatus> } callback - Callback used to return the picture-in-picture active status.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'activeStatusChange', callback: Callback<PiPActiveStatus>): void;
+
+    /**
+     * Unregister picture-in-picture status change change event listener
+     *
+     * @param { 'activeStatusChange' } type - The value is fixed at 'activeStatusChange', indicating the picture-in-picture
+     * active status change event.
+     * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'activeStatusChange', callback?: Callback<PiPActiveStatus>): void;
+    
     /**
      * Returns a Boolean value that indicates whether picture-in-picture is supported
      *
