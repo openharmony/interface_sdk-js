@@ -27,8 +27,7 @@ import type print from './@ohos.print';
  * @syscap SystemCapability.Print.PrintFramework
  * @stagemodelonly
  * @systemapi Hide this for inner system use.
- * @since 10 dynamic
- * @since 20 static
+ * @since 10
  */
 /**
  * class of print extensionAbility.
