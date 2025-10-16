@@ -4001,3 +4001,38 @@ declare enum ColorSpace {
    */
   DISPLAY_P3 = 1,
 }
+
+/**
+ * Define the axis type of axis event.
+ *
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export declare enum AxisType {
+  /**
+   * Indicates the vertical scoll axis. When you scroll the mouse wheel or make certain gestures on the touchpad,
+   * the status of the vertical scoll axis changes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  VERTICAL_AXIS = 0,
+
+  /**
+   * Indicates the horizontal scoll axis. When you make certain gestures on the touchpad,
+   * the status of the horizontal scroll axis changes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  HORIZONTAL_AXIS = 1,
+
+  /**
+   * Indicates the pinch axis, which is used to describe a pinch gesture on the touchpad.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  PINCH_AXIS = 2,
+}
