@@ -7911,7 +7911,7 @@ declare namespace window {
     off(type: 'windowStatusChange', callback?: Callback<WindowStatusType>): void;
 
     /**
-     * Register the callback of windowStatusDidChange. Window rect update completed.
+     * Register the callback of windowStatusDidChange. The windowRect has been updated when this callback is triggered
      *
      * @param { 'windowStatusDidChange' } type - The value is fixed at 'windowStatusDidChange', indicating the window status change event.
      * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
