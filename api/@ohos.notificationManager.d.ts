@@ -2865,7 +2865,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function setDistributedEnableByBundles(bundleEnableInfos: Array<DistributedBundleEnableInfo>, deviceType: string): Promise<void>;
 
@@ -4097,7 +4098,7 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER or ohos.permission.MANAGE_EDM_POLICY
    * @param { boolean } disabled - The switch of disableNotification.
    * @param { Array<string> } bundleList - The bundles of disableNotification.
-   * @param { number } userId - the userId.
+   * @param { int } userId - the userId.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
@@ -4106,9 +4107,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
-  function disableNotificationFeature(disabled: boolean, bundleList: Array<string>, userId: number): Promise<void>;
+  function disableNotificationFeature(disabled: boolean, bundleList: Array<string>, userId: int): Promise<void>;
 
   /**
    * Set target device status.
@@ -4175,7 +4177,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function isDistributedEnabled(deviceType: string): Promise<boolean>;
  
@@ -4190,7 +4193,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function setDistributedEnabled(enable: boolean, deviceType: string): Promise<void>;
  
@@ -4203,7 +4207,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getDistributedDeviceList(): Promise<Array<string>>;
 
@@ -4223,7 +4228,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function setSilentReminderEnabled(bundle: BundleOption, enabled: boolean): Promise<void>;
  
@@ -4242,7 +4248,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function isSilentReminderEnabled(bundle: BundleOption): Promise<SwitchState>;
  
