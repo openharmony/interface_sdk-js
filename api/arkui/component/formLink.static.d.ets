@@ -21,6 +21,7 @@
 import { CommonMethod } from './common';
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier, CommonMethod } from "./common";
+import { RecordData } from '@ohos.base';
 
 /**
  * Defines the FormLink options.
