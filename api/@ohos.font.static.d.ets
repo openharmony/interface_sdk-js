@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Resource } from './global/resource';
 
@@ -99,19 +98,19 @@ declare namespace font {
         /**
          * The weight of the font.
          *
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
-        weight: number;
+        weight: int;
         /**
          * The width of the font style.
          *
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
-        width: number;
+        width: int;
         /**
          * Whether it is italic.
          *
@@ -209,32 +208,32 @@ declare namespace font {
         /**
          * Weight the font set contains only fonts with, if weight = 0,
          * this font set can contain fonts with any weight.
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
-        weight: number;
+        weight: double;
     }
     /**
      * @typedef UIFontAdjustInfo
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     interface UIFontAdjustInfo {
         /**
          * Original weight of the font
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
-        weight: number;
+        weight: double;
         /**
          * Font weight displayed in the app
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
-        to: number;
+        to: int;
     }
     /**
      * @typedef UIFontFallbackGroupInfo

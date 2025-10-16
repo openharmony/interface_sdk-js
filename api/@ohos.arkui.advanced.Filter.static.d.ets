@@ -17,48 +17,49 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
-import { Component } from './arkui/component/customComponent';
-import { ResourceStr } from './arkui/component/units';
-import { BuilderParam, Builder } from './arkui/component/builder';
+import { Component } from '@ohos.arkui.component';
+import { ResourceStr } from '@ohos.arkui.component';
+import { BuilderParam, Builder } from '@ohos.arkui.component';
 import { PropRef } from './arkui/stateManagement/decorator';
 /**
  * Declare FilterType
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
+ * @noninterop
  */
 export declare enum FilterType {
     /**
      * The multi_line_filter type.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     MULTI_LINE_FILTER = 0,
     /**
      * The list_filter type.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     LIST_FILTER = 1
 }
 /**
  * This parameter is used to define the input of each filtering dimension.
- *
+ * @typedef FilterParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
+ * @noninterop
  */
-export declare class FilterParams {
+export declare interface FilterParams {
     /**
      * filter item name.
      *
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     name: ResourceStr;
     /**
@@ -66,40 +67,41 @@ export declare class FilterParams {
      *
      * @type { Array<ResourceStr> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     options: Array<ResourceStr>;
 }
 /**
  * This parameter specifies the selection result of a filtering dimension.
  * The index starts from 0.
- *
+ * @typedef FilterResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
+ * @noninterop
  */
-export declare class FilterResult {
+export declare interface FilterResult {
     /**
      * result name.
      *
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     name: ResourceStr;
     /**
      * result index.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    index: number;
+    index: int;
     /**
      * result value.
      *
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     value: ResourceStr;
 }
@@ -110,7 +112,8 @@ export declare class FilterResult {
  * @typedef { function } OnFilterChangedCallback
  * @param { Array<FilterResult> } filterResults - The result of filter.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
+ * @noninterop
  */
 declare type OnFilterChangedCallback = (filterResults: Array<FilterResult>) => void;
 
@@ -118,7 +121,8 @@ declare type OnFilterChangedCallback = (filterResults: Array<FilterResult>) => v
  * Declare Filter.The Filter is used in scenarios where multi-dimensional filtering is required.
  * @struct { Filter }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
+ * @noninterop
  */
 @Component
 export declare struct Filter {
@@ -127,31 +131,34 @@ export declare struct Filter {
      *
      * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    @BuilderParam container: () => void;
+    @BuilderParam
+    container: () => void;
     /**
      * Multi-dimensional filtering parameters.
      *
      * @type { Array<FilterParams> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    @PropRef multiFilters: Array<FilterParams>;
+    @PropRef
+    multiFilters: Array<FilterParams>;
     /**
      * FilterParams, Additional filter item parameter. The filter item name is displayed and can be deselected.
      *
      * @type { ?FilterParams }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    @PropRef additionFilters?: FilterParams;
+    @PropRef
+    additionFilters?: FilterParams;
     /**
      * FilterParams, Callback method after a user clicks a filter item.
      *
      * @type { OnFilterChangedCallback } FilterType, Filter display style type.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onFilterChanged: OnFilterChangedCallback;
     /**
@@ -159,14 +166,16 @@ export declare struct Filter {
      *
      * @type { ?FilterType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    @PropRef filterType?: FilterType;
+    @PropRef
+    filterType?: FilterType;
     /**
      * The method to build component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    @Builder build(): void;
+    @Builder
+    build(): void;
 }

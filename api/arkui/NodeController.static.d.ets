@@ -17,13 +17,12 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { UIContext } from '@ohos.arkui.UIContext';
 import { FrameNode } from 'arkui.FrameNode';
 import { Size } from 'arkui.Graphics';
-import { Callback } from '../@ohos.base';
+import { Callback } from '@ohos.base';
 import { TouchEvent } from '@ohos.arkui.component';
 
 

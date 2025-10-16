@@ -17,13 +17,12 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier } from './common';
 import { ResourceColor, Length, ResourceStr } from "./units";
 import { FontStyle, FontWeight } from "./enums";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { AttributeModifier } from "./common";
 
 /**
  * Provides a way to control the process.
@@ -224,15 +223,6 @@ export declare interface TextTimerAttribute extends CommonMethod {
      * @since 20
      */
     default fontWeight(value: number | FontWeight | ResourceStr | undefined): this;
-    /**
-     * Called when the fontWeight is set
-     *
-     * @param { number | FontWeight | string | undefined } value
-     * @returns { TextTimerAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
-     */
-    default fontWeight(value: number | FontWeight | string | undefined): this;
     /**
      * Sets the font family.
      *

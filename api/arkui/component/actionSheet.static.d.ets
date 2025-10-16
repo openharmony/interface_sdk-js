@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Resource } from '../../global/resource';
 import { VoidCallback, ResourceStr, ResourceColor, Dimension, BorderRadiuses, LocalizedEdgeColors, EdgeColors, EdgeWidths, LocalizedEdgeWidths, EdgeStyles, LocalizedBorderRadiuses } from './units';
@@ -468,35 +467,35 @@ export interface ActionSheetOptions {
     /**
      * Callback function when the dialog appears.
      *
-     * @type { ?Callback<void> }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    onDidAppear?: Callback<void>;
+    onDidAppear?: VoidCallback;
     /**
      * Callback function when the dialog disappears.
      *
-     * @type { ?Callback<void> }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    onDidDisappear?: Callback<void>;
+    onDidDisappear?: VoidCallback;
     /**
      * Callback function before the dialog openAnimation starts.
      *
-     * @type { ?Callback<void> }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    onWillAppear?: Callback<void>;
+    onWillAppear?: VoidCallback;
     /**
      * Callback function before the dialog closeAnimation starts.
      *
-     * @type { ?Callback<void> }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    onWillDisappear?: Callback<void>;
+    onWillDisappear?: VoidCallback;
     /**
      * Display level of the dialog box.
      *

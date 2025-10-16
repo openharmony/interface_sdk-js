@@ -17,14 +17,13 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
-import { SwiperAnimationEvent } from '@ohos.arkui.component';
-import { CrownSensitivity, EdgeEffect } from '@ohos.arkui.component';
-import { LinearGradient } from '@ohos.arkui.component';
-import { ResourceColor } from '@ohos.arkui.component';
-import { CommonMethod, Callback } from '@ohos.arkui.component';
-import { memo, ComponentBuilder } from '@ohos.arkui.stateManagement';
+import { SwiperAnimationEvent } from './arkui/component/swiper';
+import { CrownSensitivity, EdgeEffect } from './arkui/component/enums';
+import { LinearGradient } from './arkui/component/dataPanel';
+import { ResourceColor } from './arkui/component/units';
+import { CommonMethod, Callback } from './arkui/component/common';
+import { memo, ComponentBuilder } from './arkui/stateManagement/runtime';
 /**
  * Handler of swiper controller, used in finishAnimation.
  *

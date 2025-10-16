@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Resource } from '../../global/resource';
 import { ResourceColor } from './units';
@@ -170,45 +169,45 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @param { ((isOn: boolean) => void) | undefined } callback
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    onChange(callback: ((isOn: boolean) => void) | undefined): this;
+    default onChange(callback: ((isOn: boolean) => void) | undefined): this;
     /**
      * Set the content modifier of toggle.
      *
      * @param { ContentModifier<ToggleConfiguration> | undefined } modifier - The content modifier of toggle.
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    contentModifier(modifier: ContentModifier<ToggleConfiguration> | undefined): this;
+    default contentModifier(modifier: ContentModifier<ToggleConfiguration> | undefined): this;
     /**
      * Called when the color of the selected button is set.
      *
      * @param { ResourceColor | undefined } value
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    selectedColor(value: ResourceColor | undefined): this;
+    default selectedColor(value: ResourceColor | undefined): this;
     /**
      * Called when the color of the selected button is set.
      *
      * @param { ResourceColor | undefined } color
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    switchPointColor(color: ResourceColor | undefined): this;
+    default switchPointColor(color: ResourceColor | undefined): this;
     /**
      * Set the style of the switch.
      *
      * @param { SwitchStyle | undefined } value
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    switchStyle(value: SwitchStyle | undefined): this;
+    default switchStyle(value: SwitchStyle | undefined): this;
     /**
      * Set the attribute modifier of toggle.
      *
@@ -216,9 +215,9 @@ export declare interface ToggleAttribute extends CommonMethod {
      *     The attribute modifier of toggle.
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    attributeModifier(modifier: AttributeModifier<ToggleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default attributeModifier(modifier: AttributeModifier<ToggleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**

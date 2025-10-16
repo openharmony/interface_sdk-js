@@ -15,7 +15,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { LengthMetricsUnit } from '../Graphics';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
@@ -25,112 +24,112 @@ import { AttributeModifier, CommonMethod } from './common';
  * 2D transformation matrix, supporting rotation, translation, and scaling of the X-axis and Y-axis
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class Matrix2D {
     /**
      * Get the horizontal zoom.
      *
-     * @return { number | undefined }
+     * @returns { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    get scaleX(): number | undefined;
+    get scaleX(): double | undefined;
     /**
      * Set the horizontal zoom.
      *
-     * @param { number | undefined }
+     * @param { double | undefined } scaleX - The horizontal zoom.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    set scaleX(scaleX: number | undefined);
+    set scaleX(scaleX: double | undefined);
     /**
      * Get the vertical zoom.
      *
-     * @return { number | undefined }
+     * @returns { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    get scaleY(): number | undefined;
+    get scaleY(): double | undefined;
     /**
      * Set the vertical zoom.
      *
-     * @param { number | undefined }
+     * @param { double | undefined } scaleY - The vertical zoom.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    set scaleY(scaleY: number | undefined);
+    set scaleY(scaleY: double | undefined);
     /**
      * Get the horizontal tilt.
      *
-     * @return { number | undefined }
+     * @returns { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    get rotateX(): number | undefined;
+    get rotateX(): double | undefined;
     /**
      * Set the horizontal tilt.
      *
-     * @param { number | undefined }
+     * @param { double | undefined } rotateX - The horizontal tilt.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    set rotateX(rotateX: number | undefined);
+    set rotateX(rotateX: double | undefined);
     /**
      * Get the vertical tilt.
      *
-     * @return { number | undefined }
+     * @returns { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    get rotateY(): number | undefined;
+    get rotateY(): double | undefined;
     /**
      * Set the vertical tilt.
      *
-     * @param { number | undefined }
+     * @param { double | undefined } rotateY - The vertical tilt.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    set rotateY(rotateY: number | undefined);
+    set rotateY(rotateY: double | undefined);
     /**
      * Get the horizontal movement.
      *
-     * @return { number | undefined }
+     * @returns { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    get translateX(): number | undefined;
+    get translateX(): double | undefined;
     /**
      * Set the horizontal movement.
      *
-     * @param { number | undefined }
+     * @param { double | undefined } translateX - The horizontal movement.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    set translateX(translateX: number | undefined);
+    set translateX(translateX: double | undefined);
     /**
      * Get the vertical movement.
      *
-     * @return { number | undefined }
+     * @returns { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    get translateY(): number | undefined;
+    get translateY(): double | undefined;
     /**
      * Set the vertical movement.
      *
-     * @param { number | undefined }
+     * @param { double | undefined } translateY - The vertical movement.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    set translateY(translateY: number | undefined);
+    set translateY(translateY: double | undefined);
     /**
      * Transforms the current 2D matrix back to the identity matrix (i.e., without any rotational
      * translation scaling effect)
      *
      * @returns { Matrix2D }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     identity(): Matrix2D;
     /**
@@ -139,45 +138,45 @@ export declare class Matrix2D {
      *
      * @returns { Matrix2D }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     invert(): Matrix2D;
     /**
      * Adds the rotation effect of the X and Y axes to the current matrix.
      *
-     * @param { number } degree - The rotation angle, clockwise in radians.
-     * @param { number } [rx] - Rotation effect of the X-axis
-     * @param { number } [ry] - Rotation effect of the Y-axis
+     * @param { double } degree - The rotation angle, clockwise in radians.
+     * @param { double } [rx] - Rotation effect of the X-axis
+     * @param { double } [ry] - Rotation effect of the Y-axis
      * @returns { Matrix2D }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    rotate(degree: number, rx?: number, ry?: number): Matrix2D;
+    rotate(degree: double, rx?: double, ry?: double): Matrix2D;
     /**
      * Adds the translation effect of the X and Y axes to the current matrix.
      *
-     * @param { number } [tx] - X-axis translation effect
-     * @param { number } [ty] - Y-axis translation effect
+     * @param { double } [tx] - X-axis translation effect
+     * @param { double } [ty] - Y-axis translation effect
      * @returns { Matrix2D }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    translate(tx?: number, ty?: number): Matrix2D;
+    translate(tx?: double, ty?: double): Matrix2D;
     /**
      * Adds the scaling effect of the X and Y axes to the current matrix.
      *
-     * @param { number } [sx] - X-axis scaling effect
-     * @param { number } [sy] - Y-axis scaling effect
+     * @param { double } [sx] - X-axis scaling effect
+     * @param { double } [sy] - Y-axis scaling effect
      * @returns { Matrix2D }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    scale(sx?: number, sy?: number): Matrix2D;
+    scale(sx?: double, sy?: double): Matrix2D;
     /**
      * Constructs a 2D change matrix object. The default value is the unit matrix.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor();
     /**
@@ -185,7 +184,7 @@ export declare class Matrix2D {
      *
      * @param { LengthMetricsUnit } unit - the unit mode
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor(unit: LengthMetricsUnit);
 }

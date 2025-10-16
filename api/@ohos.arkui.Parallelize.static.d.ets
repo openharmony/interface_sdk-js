@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { memo } from './arkui/stateManagement/runtime'
+import { memo, ComponentBuilder } from './arkui/stateManagement/runtime'
 
 /**
 * Describe the options for the ParallelizeUI.
@@ -39,34 +39,27 @@ export interface ParallelOption {
 }
 
 /**
- * Define the constructor of ParallelizeUI.
- * 
- * @param { ParallelOption | undefined } [options] - ParallelizeUI Option
- * @param { () => void } [content_] - Parallel creation of content
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
- */
-@memo
-export declare function ParallelizeUI(
-  options: ParallelOption | undefined,
-  @memo
-  content_: () => void,
-): void
-
+* Defines the ParallelizeUI attribute interface
+*
+* @interface UIParallelAttribute
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @since 20 static
+*/
+export interface UIParallelAttribute {
+}
 
 /**
  * Define the constructor of ParallelizeUI.
- *
+ * 
  * @param { ParallelOption | undefined } [options] - ParallelizeUI Option
- * @param { () => T } [param] - ParallelizeUI parameter
- * @param { (param: T) => void } [content_] - Parallel creation of content
+ * @param { () => void } [content_] - tail closure for ParallelizeUI
+ * @returns { UIParallelAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-@memo
-export declare function ParallelizeUI<T>(
-  options: ParallelOption | undefined,
-  param: () => T,
+@ComponentBuilder
+export declare function ParallelizeUI(
+  options?: ParallelOption | undefined,
   @memo
-  content_: (param: T) => void,
-): void
+  content_?: () => void,
+): UIParallelAttribute

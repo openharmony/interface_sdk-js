@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { AsyncCallback } from './@ohos.base';
@@ -69,9 +69,9 @@ declare namespace pluginComponentManager {
    *
    * @typedef { Record<string, int | long | double | string | boolean | Array<KVObject> | KVObject> } KVObject
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  export type KVObject = Record<string, int | long | double | string | boolean | Array<KVObject> | KVObject>  
+  export type KVObject = Record<string, int | long | double | string | boolean | Array<KVObject> | KVObject>;
   /**
    * Plugin component push parameters.
    *
