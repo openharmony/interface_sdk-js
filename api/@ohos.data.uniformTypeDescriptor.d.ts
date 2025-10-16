@@ -2216,6 +2216,41 @@ declare namespace uniformTypeDescriptor {
    * @since 20
    */
   function getUniformDataTypesByMIMEType(mimeType: string, belongsTo?: string): Array<string>;
+
+  /**
+   * Register type descriptors into the system.
+   *
+   * @permission ohos.permission.MANAGE_DYNAMIC_UTD_TYPE
+   * @param { Array<TypeDescriptor> } typeDescriptors - The list of type descriptors to be registered.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called the system api.
+   * @throws { BusinessError } 20400002 - The format of one or more type descriptors are invalid.
+   * @throws { BusinessError } 20400003 - The content of one or more type descriptors violate rules.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @systemapi
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  function registerTypeDescriptors(typeDescriptors: Array<TypeDescriptor>): Promise<void>;
+
+  /**
+   * Unregister one or more type descriptors from the system by the given type IDs.
+   *
+   * @permission ohos.permission.MANAGE_DYNAMIC_UTD_TYPE
+   * @param { Array<string> } typeIds - The list of type IDs to be unregistered.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called the system api.
+   * @throws { BusinessError } 20400004 - One or more typeIds are invalid or do not exist.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @systemapi
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  function unregisterTypeDescriptors(typeIds: Array<string>): Promise<void>;
 }
 
 export default uniformTypeDescriptor;
