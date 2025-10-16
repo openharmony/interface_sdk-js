@@ -46,11 +46,19 @@ declare namespace pasteboard {
    */
   /**
    * Indicates the maximum number of records allowed in a PasteData object.
+   * No limit the number of records in a PasteData object since API version 10.
+   * @constant
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @since 10
+   */
+  /**
+   * Indicates the maximum number of records allowed in a PasteData object.
+   * No limit the number of records in PasteData object since API version 10.
    * @constant
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 20 static
    */
   const MAX_RECORD_NUM = 512;
   /**
@@ -566,8 +574,7 @@ declare namespace pasteboard {
      * an want in a record.
      * @type { Want }
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since arkts {'1.1':'7','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     /**
      * an want in a record.
@@ -575,7 +582,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 20 static
      */
     want: Want;
     /**
@@ -1120,13 +1127,15 @@ declare namespace pasteboard {
     /**
      * Removes a Record based on a specified index.
      * @param { int } index - indicates the record index in PasteData.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * 3. Parameter verification failed.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 20 static
      */
     removeRecord(index: int): void;
 
@@ -1156,13 +1165,15 @@ declare namespace pasteboard {
      * Replaces a specified record with a new one.
      * @param { int } index - indicates the record index in PasteData.
      * @param { PasteDataRecord } record - the content of the replaced record.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * 3. Parameter verification failed.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 20 static
      */
     replaceRecord(index: int, record: PasteDataRecord): void;
 
