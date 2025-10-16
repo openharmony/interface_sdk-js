@@ -18,7 +18,7 @@
  * @kit InputKit
  */
 
-import { AsyncCallback } from "./@ohos.base";
+import { AsyncCallback } from './@ohos.base';
 
 /**
  * The inputDeviceCooperate module implements screen hopping for two or more networked devices to share the keyboard and mouse for collaborative operations.
