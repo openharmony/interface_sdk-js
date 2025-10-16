@@ -925,11 +925,12 @@ declare namespace uiObserver {
      * the configured width breakpoint thresholds.
      *
      * @type { WidthBreakpoint }
+     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 22 dynamic
      */
-    widthBreakpoint: WidthBreakpoint;
+    readonly widthBreakpoint: WidthBreakpoint;
 
     /**
      * The height breakpoint classification of the current window.
@@ -937,11 +938,12 @@ declare namespace uiObserver {
      * the configured height breakpoint thresholds and aspect ratio.
      *
      * @type { HeightBreakpoint }
+     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 22 dynamic
      */
-    heightBreakpoint: HeightBreakpoint;
+    readonly heightBreakpoint: HeightBreakpoint;
   }
 
   /**
