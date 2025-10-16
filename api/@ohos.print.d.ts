@@ -2307,6 +2307,7 @@ declare namespace print {
    * @param { string } extensionId - the printer extension id
    * @param { string } info - the information of printer
    * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
    * @since 22 static
    */
   type ExtInfoChangeCallback = (extensionId: string, info: string) => void;
