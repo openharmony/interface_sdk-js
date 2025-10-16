@@ -48,6 +48,7 @@ import { StyledString } from "./styledString";
 import { CustomBuilder, WrappedBuilder, CustomBuilderT } from './builder';
 import curves from '../../@ohos.curves';
 import matrix4 from '../../@ohos.matrix4';
+import { RecordData } from '../../@ohos.base';
 /**
  * Define the ratio of characters entered by the the percentage of InputCounterOptions.
  *
@@ -379,12 +380,12 @@ export declare interface ExpectedFrameRateRange {
  * global $r function
  *
  * @param { string } value
- * @param { (Object | null | undefined)[] } params
+ * @param { RecordData[] } params
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare function $r(value: string, ...params: (Object | null | undefined)[]): Resource;
+export declare function $r(value: string, ...params: RecordData[]): Resource;
 /**
  * global $rawfile function
  *
