@@ -1585,14 +1585,14 @@ declare interface WindowChangeOptions {
   /**
    * Listening timeout in milliseconds, it is recommended that the value of timeout be greater than 500
    * to prevent listening failures casued by event notification delay, default is 10000.
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since arkts {'1.1':'22','1.2':'22'}
    * @arkts 1.1&1.2
    * @test
    */
-  timeout?: number;
+  timeout?: int;
   /**
    * Bundlename of the listening window, default to listen on all application windows.
    * @type { ?string }
@@ -1619,14 +1619,14 @@ declare interface ComponentEventOptions {
   /**
    * Listening timeout in milliseconds, it is recommended that the value of timeout be greater than 500
    * to prevent listening failures casued by event notification delay, default is 10000.
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since arkts {'1.1':'22','1.2':'22'}
    * @arkts 1.1&1.2
    * @test
    */
-  timeout?: number;
+  timeout?: int;
   /**
    * The attribute requirements of target compoinent to be listened on, default to listen on all components in screen.
    * @type { ?On }
@@ -5411,7 +5411,7 @@ declare class Driver {
    *
    * @param { On } on - The attribute requirements of the target {@link Component}.
    * @param { Point } point - The coordinate point where the finger touches the screen.
-   * @param { number } [duration] - Duration of longClick before drag in millisecond,
+   * @param { int } [duration] - Duration of longClick before drag in millisecond,
    *                             the minimum and default values are 1500.
    * @returns { Promise<boolean> }
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -5422,7 +5422,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  isComponentPresentWhenLongClick(on: On, point: Point, duration?: number): Promise<boolean>;
+  isComponentPresentWhenLongClick(on: On, point: Point, duration?: int): Promise<boolean>;
 
   /**
    * Drag and check if the specified component exists concurrently. If it exists, return true; otherwise, return false.
@@ -5430,9 +5430,9 @@ declare class Driver {
    * @param { On } on - The attribute requirements of the target {@link Component}.
    * @param { Point } from - The coordinate point where the finger touches the screen.
    * @param { Point } to - The coordinate point where the finger leaves the screen.
-   * @param { number } [speed] - Speed of drag(pixels per second), the value ranges from 200 to 40000.
+   * @param { int } [speed] - Speed of drag(pixels per second), the value ranges from 200 to 40000.
    *                          Set it default 600 if out out of range or null or undefined.   
-   * @param { number } [duration] - Duration of longClick before drag in millisecond,
+   * @param { int } [duration] - Duration of longClick before drag in millisecond,
    *                             the minimum and default values are 1500.
    * @returns { Promise<boolean> }
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -5443,7 +5443,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  isComponentPresentWhenDrag(on: On, from: Point, to: Point, speed?: number, duration?: number): Promise<boolean>;
+  isComponentPresentWhenDrag(on: On, from: Point, to: Point, speed?: int, duration?: int): Promise<boolean>;
 
   /**
    * Swipe and check if the specified component exists concurrently. If it exists, return true; otherwise, return false.
@@ -5451,7 +5451,7 @@ declare class Driver {
    * @param { On } on - The attribute requirements of the target {@link Component}.
    * @param { Point } from - The coordinate point where the finger touches the screen.
    * @param { Point } to - The coordinate point where the finger leaves the screen.
-   * @param { number } [speed] - Speed of swipe(pixels per second), the value ranges from 200 to 40000.
+   * @param { int } [speed] - Speed of swipe(pixels per second), the value ranges from 200 to 40000.
    *                          Set it default 600 if out out of range or null or undefined.
    * @returns { Promise<boolean> }
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -5462,7 +5462,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  isComponentPresentWhenSwipe(on: On, from: Point, to: Point, speed?: number): Promise<boolean>;
+  isComponentPresentWhenSwipe(on: On, from: Point, to: Point, speed?: int): Promise<boolean>;
 
   /**
    * Simulate touchpad two fingers scroll.
