@@ -2155,9 +2155,23 @@ declare namespace print {
   function on(type: 'printerStateChange', callback: (state: PrinterState, info: PrinterInfo) => void): void;
 
   /**
+   * Defines the callback type used in registering to listen for PrinterState.
+   * The value of state indicates the state of printer.
+   * The value of info indicates the latest printer info.
+   *
+   * @typedef { function } PrinterStateChangeCallback
+   * @param { PrinterState } state - the state of printer
+   * @param { PrinterInfo } info - the information of the latest printer
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  type PrinterStateChangeCallback = (state: PrinterState, info: PrinterInfo) => void;
+
+  /**
    * Register event callback for the state change of printer.
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { function } callback - The callback function for state change of printer.
+   * @param { PrinterStateChangeCallback } callback - The callback function for state change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2166,7 +2180,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 22 static
    */
-  function onPrinterStateChange(callback: (state: PrinterState, info: PrinterInfo) => void): void;
+  function onPrinterStateChange(callback: PrinterStateChangeCallback): void;
 
   /**
    * Unregister event callback for the state change of printer.
@@ -2213,9 +2227,23 @@ declare namespace print {
   function on(type: 'jobStateChange', callback: (state: PrintJobState, job: PrintJob) => void): void;
 
   /**
+   * Defines the callback type used in registering to listen for PrintJobState.
+   * The value of state indicates the state of print job.
+   * The value of job indicates the latest print job info.
+   *
+   * @typedef { function } PrintJobStateChangeCallback
+   * @param { PrintJobState } state - the state of print job
+   * @param { PrintJob } job - the information of the print job
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  type PrintJobStateChangeCallback = (state: PrintJobState, job: PrintJob) => void;
+
+  /**
    * Register event callback for the state change of print job.
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { function } callback - The callback function for state change of printer.
+   * @param { PrintJobStateChangeCallback } callback - The callback function for state change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2224,7 +2252,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 22 static
    */
-  function onJobStateChange(callback: (state: PrintJobState, job: PrintJob) => void): void;
+  function onJobStateChange(callback: PrintJobStateChangeCallback): void;
 
   /**
    * Unregister event callback for the state change of print job.
@@ -2271,9 +2299,22 @@ declare namespace print {
   function on(type: 'extInfoChange', callback: (extensionId: string, info: string) => void): void;
 
   /**
+   * Defines the callback type used in registering to listen for extension change.
+   * The value of extensionId indicates the print extension id.
+   * The value of info indicates the connect info.
+   *
+   * @typedef { function } ExtInfoChangeCallback
+   * @param { string } extensionId - the printer extension id
+   * @param { string } info - the information of printer
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 22 static
+   */
+  type ExtInfoChangeCallback = (extensionId: string, info: string) => void;
+
+  /**
    * Register event callback for the information change of print extension.
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { function } callback - The callback function for information change of print extension.
+   * @param { ExtInfoChangeCallback } callback - The callback function for information change of print extension.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2282,7 +2323,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 22 static
    */
-  function onExtInfoChange(callback: (extensionId: string, info: string) => void): void;
+  function onExtInfoChange(callback: ExtInfoChangeCallback): void;
 
   /**
    * Unregister event callback for the information change of print extension.
