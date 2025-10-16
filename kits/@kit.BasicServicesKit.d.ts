@@ -98,7 +98,8 @@ import emitter from '@ohos.events.emitter';
 import systemDateTime from '@ohos.systemDateTime';
 import systemTimer from '@ohos.systemTimer';
 import systemLoad from '@ohos.resourceschedule.systemload';
+import request from '@ohos.request';
 
 export { configPolicy, customConfig, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, zlib,
-  commonEventManager, emitter, systemDateTime, systemTimer, systemLoad };
+  commonEventManager, emitter, systemDateTime, systemTimer, systemLoad, request };
 /*** endif */
