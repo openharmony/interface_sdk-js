@@ -478,6 +478,16 @@ declare namespace access {
   function isValidRandomDeviceId(deviceId: string): boolean;
 
   /**
+   * Convert 2-byte and 4-byte UUID strings to the 16-byte UUID string standard used in Bluetooth.
+   *
+   * @param { string } uuid - 2-byte, 4-byte, 16-byte UUID string data.
+   * @returns { string } Return the converted 16-byte UUID string.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 22 dynamic
+   */
+  function convertUuid(uuid: string): string;
+
+  /**
    * The enum of bluetooth state.
    *
    * @enum { number }
@@ -653,7 +663,7 @@ declare namespace access {
   interface NotifyDialogResultParams {
     /**
      * The type of bluetooth dialog.
-     * 
+     *
      * @type { DialogType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
@@ -663,7 +673,7 @@ declare namespace access {
     /**
      * The result of bluetooth dialog. The value true indicates that the user approves the request,
      * and the value false indicates that the user rejects the request.
-     * 
+     *
      * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
