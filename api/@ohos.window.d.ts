@@ -10155,7 +10155,7 @@ declare namespace window {
      * @param { boolean } [acrossDisplay] - Parameter controls the waterfall mode of main windows in the half-folded state.
      *     The value true Indicates that the window could enter the waterfall mode directly,
      *     and maintains the waterfall mode when the device is half-folded.
-     *     The default value is false.
+     *     The default value is undefined.
      * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Function maximize can not work correctly due to limited device capabilities.
