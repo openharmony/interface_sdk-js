@@ -972,7 +972,7 @@ export interface ListElement extends Element {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 4 dynamic
+     * @since 4
      */
     groupid: string;
   }): void;
@@ -991,7 +991,7 @@ export interface ListElement extends Element {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 4 dynamic
+     * @since 4
      */
     groupid: string;
   }): void;
@@ -1028,7 +1028,7 @@ export interface SwiperElement extends Element {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 4 dynamic
+     * @since 4
      */
     index: number;
   }): void;
@@ -1284,7 +1284,7 @@ export interface ChartElement extends Element {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 4 dynamic
+     * @since 4
      */
     serial: number;
     /**
@@ -1292,7 +1292,7 @@ export interface ChartElement extends Element {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 4 dynamic
+     * @since 4
      */
     data: Array<number>;
   }): void;

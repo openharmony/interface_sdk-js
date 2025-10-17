@@ -16257,7 +16257,7 @@ declare interface PopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      */
     value: string;
 
@@ -16283,7 +16283,7 @@ declare interface PopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      */
     action: () => void;
   };
@@ -16335,7 +16335,7 @@ declare interface PopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      */
     value: string;
 
@@ -16361,7 +16361,7 @@ declare interface PopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      */
     action: () => void;
   };
@@ -16406,7 +16406,7 @@ declare interface PopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      */
     isVisible: boolean
   }) => void;
@@ -17066,7 +17066,7 @@ declare interface CustomPopupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      */
     isVisible: boolean
   }) => void;
