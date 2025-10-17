@@ -17,7 +17,8 @@
  * @file
  * @kit ArkUI
  */
-import { Callback, RecordData } from './@ohos.base';
+import { RecordData } from './@ohos.base';
+import { VoidCallback } from '@ohos.arkui.component';
 
 /**
  * Used to do observer layout and draw event for component.
@@ -40,56 +41,56 @@ declare namespace inspector {
         /**
          * Registers a callback with the corresponding query condition by using the handle.
          * This callback is triggered when the component layout complete.
-         * @param { Callback<void> } callback - callback of the listened event.
+         * @param { VoidCallback } callback - callback of the listened event.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        onLayout(callback: Callback<void>): void;
+        onLayout(callback: VoidCallback): void;
         
         /**
          * Deregisters a callback with the corresponding query condition by using the handle.
          * This callback is not triggered when the component layout complete.
-         * @param { Callback<void> } [callback] - callback of the listened event.
+         * @param { VoidCallback } [callback] - callback of the listened event.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        offLayout(callback?: Callback<void>): void;
+        offLayout(callback?: VoidCallback): void;
         
         /**
          * Registers a callback with the corresponding query condition by using the handle.
          * This callback is triggered when the component draw complete.
-         * @param { Callback<void> } callback - callback of the listened event.
+         * @param { VoidCallback } callback - callback of the listened event.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        onDraw(callback: Callback<void>): void;
+        onDraw(callback: VoidCallback): void;
         
         /**
          * Deregisters a callback with the corresponding query condition by using the handle.
          * This callback is not triggered when the component draw complete.
-         * @param { Callback<void> } [callback] - callback of the listened event.
+         * @param { VoidCallback } [callback] - callback of the listened event.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        offDraw(callback?: Callback<void>): void;
+        offDraw(callback?: VoidCallback): void;
 
         /**
          * Registers a callback with the corresponding query condition by using the handle.
          * This callback is triggered when the child of component draw complete.
-         * @param { Callback<void> } callback - callback of the listened event.
+         * @param { VoidCallback } callback - callback of the listened event.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        onDrawChildren(callback: Callback<void>): void;
+        onDrawChildren(callback: VoidCallback): void;
 
         /**
          * Deregisters a callback with the corresponding query condition by using the handle.
          * This callback is not triggered when the child of component draw complete.
-         * @param { Callback<void> } [callback] - callback of the listened event.
+         * @param { VoidCallback } [callback] - callback of the listened event.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        offDrawChildren(callback?: Callback<void>): void;
+        offDrawChildren(callback?: VoidCallback): void;
     }
     
     /**
