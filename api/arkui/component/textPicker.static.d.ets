@@ -795,13 +795,7 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
      */
     enableHapticFeedback?: boolean;
 }
-/**
- * A text picker dialog box is a dialog box that allows users to select text from the given range.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
- */
-export declare class TextPickerDialog {}
+
 /**
  * Defines the TextPicker component.
  *

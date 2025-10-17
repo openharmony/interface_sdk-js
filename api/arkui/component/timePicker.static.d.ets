@@ -479,14 +479,7 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      */
     enableHapticFeedback?: boolean;
 }
-/**
- * Defines TimePickerDialog which uses show method to show TimePicker dialog.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
- */
-export declare class TimePickerDialog {
-}
+
 /**
  * Defines the TimePicker component.
  *
