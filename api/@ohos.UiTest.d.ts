@@ -1747,7 +1747,7 @@ declare interface UIElementInfo {
    * @arkts 1.1&1.2
    * @test
    */
-  readonly windowId?: number;
+  readonly windowId?: int;
   /**
    * The id of the component, set it as an empty string if it's a window.
    * @type { ?string }
