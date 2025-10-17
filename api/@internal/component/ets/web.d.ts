@@ -11455,6 +11455,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableSelectedDataDetector(enable: boolean): WebAttribute
 
   /**
+   * Sets whether enable auto fill or not.
+   *
+   * @param { boolean } value - Indicates the flag whether autofill is enabled.
+   *      Default value is true.true: enable, false: disable.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  enableAutoFill(value: boolean): WebAttribute;
+
+  /**
    * Called when the text selection changes.
    *
    * @param { TextSelectionChangeCallback } callback - when the text selection changes.
@@ -12020,7 +12031,7 @@ declare interface CameraCaptureStateChangeInfo {
   originalState: CameraCaptureState;
 
   /**
-   * The new camera capture state. 
+   * The new camera capture state.
    *
    * @type { CameraCaptureState }
    * @syscap SystemCapability.Web.Webview.Core

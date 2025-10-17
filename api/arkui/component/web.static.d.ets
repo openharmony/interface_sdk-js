@@ -6203,6 +6203,16 @@ export declare interface WebAttribute extends CommonMethod {
     */
     default enableSelectedDataDetector(enable: boolean | undefined): this;
     /**
+    * Sets whether enable auto fill or not.
+    *
+    * @param { boolean | undefined } value - Indicates the flag whether autofill is enabled.
+    *      Default value is true.true: enable, false: disable.
+    * @returns { WebAttribute }
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    default enableAutoFill(value: boolean | undefined): this;
+    /**
     * Called when the text selection changes.
     *
     * @param { TextSelectionChangeCallback | undefined } callback - when the text selection changes.
