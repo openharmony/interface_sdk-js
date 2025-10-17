@@ -440,17 +440,34 @@ export declare interface ButtonAttribute extends CommonMethod {
 /**
  * Defines Button Component.
  *
- * @param { ButtonOptions | ResourceStr } label - the label of Button.
+ * @param { ResourceStr } label - the label of Button.
  * @param { ButtonOptions } [options] - the options of Button.
  * @param { function } [content_] - container
  * @returns { ButtonAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @memo
 @ComponentBuilder
 export declare function Button(
-    label: ButtonOptions | ResourceStr, options?: ButtonOptions, 
+    label: ResourceStr, options?: ButtonOptions, 
+    @memo
+    content_?: () => void,
+): ButtonAttribute
+
+/**
+ * Defines Button Component.
+ *
+ * @param { ButtonOptions } [options] - the options of Button.
+ * @param { function } [content_] - container
+ * @returns { ButtonAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+@memo
+@ComponentBuilder
+export declare function Button(
+    options?: ButtonOptions, 
     @memo
     content_?: () => void,
 ): ButtonAttribute
