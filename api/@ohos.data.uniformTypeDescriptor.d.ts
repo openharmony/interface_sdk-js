@@ -1862,7 +1862,15 @@ declare namespace uniformTypeDescriptor {
      * @crossplatform
      * @since 20
      */
-    readonly typeId: string;
+    /**
+     * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 22
+     */
+    typeId: string;
 
     /**
      * Uniform data type IDs that the uniform data type belongs to.
@@ -1881,7 +1889,15 @@ declare namespace uniformTypeDescriptor {
      * @crossplatform
      * @since 20
      */
-    readonly belongingToTypes: Array<string>;
+    /**
+     * Uniform data type IDs that the uniform data type belongs to.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 22
+     */
+    belongingToTypes: Array<string>;
 
     /**
      * A textual description for the uniform data type.
@@ -1900,7 +1916,15 @@ declare namespace uniformTypeDescriptor {
      * @crossplatform
      * @since 20
      */
-    readonly description: string;
+    /**
+     * A textual description for the uniform data type.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 22
+     */
+    description: string;
 
     /**
      * Reference URL for the uniform data type, which describes the detail information of the type.
@@ -1919,7 +1943,15 @@ declare namespace uniformTypeDescriptor {
      * @crossplatform
      * @since 20
      */
-    readonly referenceURL: string;
+    /**
+     * Reference URL for the uniform data type, which describes the detail information of the type.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 22
+     */
+    referenceURL: string;
 
     /**
      * Default icon file path for the uniform data type.
@@ -1938,7 +1970,15 @@ declare namespace uniformTypeDescriptor {
      * @crossplatform
      * @since 20
      */
-    readonly iconFile: string;
+    /**
+     * Default icon file path for the uniform data type.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 22
+     */
+    iconFile: string;
 
     /**
      * File name extensions for the uniform data type.
@@ -1957,7 +1997,15 @@ declare namespace uniformTypeDescriptor {
      * @crossplatform
      * @since 20
      */
-     readonly filenameExtensions: Array<string>;
+    /**
+     * File name extensions for the uniform data type.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 22
+     */
+    filenameExtensions: Array<string>;
 
      /**
      * MIMETypes of the uniform data type.
@@ -1976,7 +2024,15 @@ declare namespace uniformTypeDescriptor {
      * @crossplatform
      * @since 20
      */
-    readonly mimeTypes: Array<string>;
+    /**
+     * MIMETypes of the uniform data type.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 22
+     */
+    mimeTypes: Array<string>;
 
     /**
      * Checks whether the uniform data type belongs to the given uniform data type.
