@@ -82,7 +82,6 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getAccessibilityFocusedElement
    */
   getFocusElement(isAccessibilityFocus: boolean, callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -99,7 +98,6 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getAccessibilityFocusedElement
    */
   getFocusElement(isAccessibilityFocus?: boolean): Promise<AccessibilityElement>;
 
@@ -114,7 +112,6 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getAccessibilityFocusedElement
    */
   getFocusElement(callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -131,7 +128,6 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getRootInActiveWindow
    */
   getWindowRootElement(windowId: number, callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -148,7 +144,6 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getRootInActiveWindow
    */
   getWindowRootElement(windowId?: number): Promise<AccessibilityElement>;
 
@@ -163,7 +158,6 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getRootInActiveWindow
    */
   getWindowRootElement(callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -180,7 +174,6 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getAccessibilityWindowsSync
    */
   getWindows(displayId: number, callback: AsyncCallback<Array<AccessibilityElement>>): void;
 
@@ -197,7 +190,6 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getAccessibilityWindowsSync
    */
   getWindows(displayId?: number): Promise<Array<AccessibilityElement>>;
 
@@ -212,7 +204,6 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getAccessibilityWindowsSync
    */
   getWindows(callback: AsyncCallback<Array<AccessibilityElement>>): void;
 
@@ -500,7 +491,6 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead AccessibilityExtensionContext/AccessibilityElement#supportedActionNames
    */
   actionNames(callback: AsyncCallback<Array<string>>): void;
 
@@ -511,7 +501,6 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead AccessibilityExtensionContext/AccessibilityElement#supportedActionNames
    */
   actionNames(): Promise<Array<string>>;
 
@@ -529,7 +518,6 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead AccessibilityExtensionContext/AccessibilityElement#executeAction
    */
   performAction(actionName: string, parameters: object, callback: AsyncCallback<void>): void;
 
@@ -547,7 +535,6 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead AccessibilityExtensionContext/AccessibilityElement#executeAction
    */
   performAction(actionName: string, parameters?: object): Promise<void>;
 
@@ -564,7 +551,6 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead AccessibilityExtensionContext/AccessibilityElement#executeAction
    */
   performAction(actionName: string, callback: AsyncCallback<void>): void;
 
@@ -620,7 +606,6 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead AccessibilityExtensionContext/AccessibilityElement#findElementByContent
    */
   findElement(type: 'content', condition: string, callback: AsyncCallback<Array<AccessibilityElement>>): void;
 
@@ -637,7 +622,6 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead AccessibilityExtensionContext/AccessibilityElement#findElementByContent
    */
   findElement(type: 'content', condition: string): Promise<Array<AccessibilityElement>>;
 
@@ -686,7 +670,6 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead AccessibilityExtensionContext/AccessibilityElement#findElementByFocusDirection
    */
   findElement(type: 'focusDirection', condition: FocusDirection, callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -703,7 +686,6 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead AccessibilityExtensionContext/AccessibilityElement#findElementByFocusDirection
    */
   findElement(type: 'focusDirection', condition: FocusDirection): Promise<AccessibilityElement>;
 
