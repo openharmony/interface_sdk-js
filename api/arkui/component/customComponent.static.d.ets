@@ -20,9 +20,9 @@
 
 import { memo, ComponentBuilder } from "../stateManagement/runtime";
 import { ExtendableComponent } from './extendableComponent';
-import { GeometryInfo, Layoutable, Measurable, SizeResult } from './common'
+import { CommonAttribute, GeometryInfo, Layoutable, Measurable, SizeResult } from './common'
 import { ConstraintSizeOptions } from './units'
-import { Builder, WrappedBuilder } from './builder'
+import { Builder, WrappedBuilder, CustomBuilder } from './builder'
 import { LocalStorage } from './../stateManagement/storage/localStorage';
 import { CustomDialogController } from './customDialogController';
 import { RecordData } from '@ohos.base';
@@ -222,22 +222,20 @@ export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_O
    constructor(useSharedStorage?: boolean, storage?: LocalStorage);
 
     /**
-     * Define the constructor of custom dialog
+     * Implementation for creating a custom dialog
      *
-     * @param { () => T } factory - factory to create instance of custom dialog
-     * @param { T_Options } initializers - initial data for all the fields in custom dialog
-     * @param { @Builder () => void } content - tail closure for custom dialog
+     * @param { function } factory - factory to create instance of custom dialog
+     * @param { function } [initializers] - initial data for all the fields in custom dialog
+     * @param { CustomBuilder } [content] - tail closure for custom dialog
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
-    @ComponentBuilder
-    static $_instantiate(
-        factory: () => T,
-        initializers?: T_Options,
-        @Builder content?: () => void
-    ): T
+    @Builder
+    static _invokeImpl<S extends BaseCustomDialog<S, S_Options>, S_Options>(
+        factory: () => S,
+        initializers?: () => S_Options,
+        content?: CustomBuilder
+    ): void;
 }
 
 /**
@@ -250,7 +248,7 @@ export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_O
  * @atomicservice
  * @since 20 static
  */
-export declare abstract class BaseCustomComponent extends ExtendableComponent {
+export declare abstract class BaseCustomComponent<T_Options> extends ExtendableComponent implements CommonAttribute {
     /**
      * aboutToRecycle Method.
      *
@@ -271,7 +269,7 @@ export declare abstract class BaseCustomComponent extends ExtendableComponent {
  * @atomicservice
  * @since 20 static
  */
-export declare abstract class CustomComponent<T extends CustomComponent<T, T_Options>, T_Options> extends BaseCustomComponent {
+export declare abstract class CustomComponent<T extends CustomComponent<T, T_Options>, T_Options> extends BaseCustomComponent<T_Options> {
    /**
     * Constructor to use to create a customComponent instance.
     * @param {boolean} [useSharedStorage] - determine whether to use the LocalStorage instance object returned by UIContext.getSharedLocalStorage() interface.
@@ -282,24 +280,24 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
    constructor(useSharedStorage?: boolean, storage?: LocalStorage);
     
     /**
-     * Define the constructor of custom component
+     * Implementation for creating a custom component
      *
-     * @param { () => T } factory - factory to create instance of custom component
-     * @param { T_Options } initializers - initial data for all the fields in custom component
-     * @param { string } reuseId - reuse id for reusable. Only valid if custom component decorated with @Reusable
-     * @param { @Builder () => void } content - tail closure for custom component
+     * @param { function } styles - styles of custom component
+     * @param { function } factory - factory to create instance of custom component
+     * @param { function } [initializers] - initial data for all the fields in custom component
+     * @param { string } [reuseId] - reuse id for reusable. Only valid if custom component decorated with @Reusable
+     * @param { CustomBuilder } [content] - tail closure for custom component
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20 static
+     * @since 20
      */
-    @ComponentBuilder
-    static $_instantiate(
-        factory: () => T,
-        initializers?: T_Options,
+    @Builder
+    static _invokeImpl<S extends CustomComponent<S, S_Options>, S_Options>(
+        @Builder styles: (instance: S) => void,
+        factory: () => S,
+        initializers?: () => S_Options,
         reuseId?: string,
-        @Builder content?: () => void
-    ): T
+        content?: CustomBuilder
+    ): void;
 
     /**
      * aboutToReuse Method
@@ -322,26 +320,26 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
  * @atomicservice
  * @since 20 static
  */
-export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T_Options>, T_Options> extends BaseCustomComponent {
+export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T_Options>, T_Options> extends BaseCustomComponent<T_Options> {
     /**
-     * Define the constructor of custom component
+     * Implementation for creating a v2 custom component
      *
-     * @param { () => T } factory - factory to create instance of custom component
-     * @param { T_Options } initializers - initial data for all the fields in custom component
-     * @param { string } reuseId - reuse id for reusable. Only valid if custom component decorated with @Reusable
-     * @param { @Builder () => void } content - tail closure for custom component
+     * @param { function } styles - styles of custom component
+     * @param { function } factory - factory to create instance of custom component
+     * @param { function } [initializers] - initial data for all the fields in custom component
+     * @param { string } [reuseId] - reuse id for reusable. Only valid if custom component decorated with @Reusable
+     * @param { CustomBuilder } [content] - tail closure for custom component
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20 static
+     * @since 20
      */
-    @ComponentBuilder
-    static $_instantiate(
-        factory: () => T,
-        initializers?: T_Options,
+    @Builder
+    static _invokeImpl<S extends CustomComponentV2<S, S_Options>, S_Options>(
+        @Builder styles: (instance: S) => void,
+        factory: () => S,
+        initializers?: () => S_Options,
         reuseId?: string,
-        @Builder content?: () => void
-    ): T
+        content?: CustomBuilder
+    ): void;
 
     /**
      * aboutToReuse Method
