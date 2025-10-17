@@ -18,6 +18,10 @@
  * @kit PerformanceAnalysisKit
  */
 
+/*** if arkts static */
+import { RecordData } from '@ohos.base';
+/*** endif */
+
 /**
  * Provides interfaces to generate system logs.
  *
@@ -59,7 +63,7 @@ declare namespace hilog {
   /**
    * Outputs debug-level logs.
    *
-   * * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                            if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
@@ -79,8 +83,9 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
+  function debug(domain: number, tag: string, format: string, ...args: any[]): void;
   /**
    * Outputs debug-level logs.
    *
@@ -88,13 +93,13 @@ declare namespace hilog {
    *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
-   * @param { (Object | undefined | null)[] }args Indicates the log parameters.
+   * @param { RecordData[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 static
    */
-  function debug(domain: int, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
+  function debug(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
    * Outputs info-level logs.
@@ -130,8 +135,9 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
+  function info(domain: number, tag: string, format: string, ...args: any[]): void;
   /**
    * Outputs info-level logs.
    *
@@ -139,13 +145,13 @@ declare namespace hilog {
    *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
-   * @param { (Object | undefined | null)[] }args Indicates the log parameters.
+   * @param { RecordData[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 static
    */
-  function info(domain: int, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
+  function info(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
    * Outputs warning-level logs.
@@ -181,8 +187,9 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
+  function warn(domain: number, tag: string, format: string, ...args: any[]): void;
   /**
    * Outputs warning-level logs.
    *
@@ -190,13 +197,13 @@ declare namespace hilog {
    *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
-   * @param { (Object | undefined | null)[] }args Indicates the log parameters.
+   * @param { RecordData[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 static
    */
-  function warn(domain: int, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
+  function warn(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
    * Outputs error-level logs.
@@ -232,8 +239,9 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
+  function error(domain: number, tag: string, format: string, ...args: any[]): void;
   /**
    * Outputs error-level logs.
    *
@@ -241,13 +249,13 @@ declare namespace hilog {
    *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
-   * @param { (Object | undefined | null)[] }args Indicates the log parameters.
+   * @param { RecordData[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 static
    */
-  function error(domain: int, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
+  function error(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
    * Outputs fatal-level logs.
@@ -283,8 +291,9 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
+  function fatal(domain: number, tag: string, format: string, ...args: any[]): void;
   /**
    * Outputs fatal-level logs.
    *
@@ -292,13 +301,13 @@ declare namespace hilog {
    *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
-   * @param { (Object | undefined | null)[] }args Indicates the log parameters.
+   * @param { RecordData[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 static
    */
-  function fatal(domain: int, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
+  function fatal(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
    * Checks whether logs of the specified tag, and level can be printed.
