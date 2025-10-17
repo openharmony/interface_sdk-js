@@ -4923,7 +4923,7 @@ declare namespace window {
    *
    * @interface KeyFramePolicy
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20
+   * @since 20 dynamic&static
    */
   interface KeyFramePolicy {
     /**
@@ -4931,49 +4931,49 @@ declare namespace window {
      *
      * @type { boolean }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic&static
      */
     enable: boolean;
 
     /**
      * Set the drag interval to notify rect change in millisecond.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @default 1000
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic&static
      */
-    interval?: number;
+    interval?: long;
 
     /**
      * Set the drag distance to notify rect change in px.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 1000
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic&static
      */
-    distance?: number;
+    distance?: int;
 
     /**
      * Set the rect change animation duration in millisecond.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @default 100
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic&static
      */
-    animationDuration?: number;
+    animationDuration?: long;
 
     /**
      * Set the rect change animation delay in millisecond
      *
-     * @type { ?number }
+     * @type { ?long }
      * @default 100
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic&static
      */
-    animationDelay?: number;
+    animationDelay?: long;
   }
 
   /**
@@ -11442,7 +11442,7 @@ declare namespace window {
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
      *     1. Invalid parameter range; 2. The parameter format is incorrect.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic&static
      */
     setDragKeyFramePolicy(keyFramePolicy: KeyFramePolicy): Promise<KeyFramePolicy>;
   
