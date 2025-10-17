@@ -5793,7 +5793,61 @@ declare namespace camera {
      * @since 10 dynamic
      * @since 20 static
      */
-    SKIN_TONE = 3
+    SKIN_TONE = 3,
+
+    /**
+     * Skin tone bright beauty type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    SKIN_TONE_BRIGHT = 4,
+
+    /**
+     * Eye big eyes beauty type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    EYE_BIG_EYES = 5,
+
+    /**
+     * Hair hairline beauty type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    HAIR_HAIRLINE = 6,
+
+    /**
+     * Face makeup beauty type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    FACE_MAKEUP = 7,
+
+    /**
+     * Head shrink beauty type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    HEAD_SHRINK = 8,
+
+    /**
+     * Nose slender beauty type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    NOSE_SLENDER = 9
   }
 
   /**
@@ -11204,7 +11258,17 @@ declare namespace camera {
    * @since 12 dynamic
    * @since 20 static
    */
-  interface QuickShotPhotoSession extends Session, AutoExposure, ColorEffect, ColorManagement, EffectSuggestion, Flash, Focus, Zoom {
+  /**
+   * Quick shot photo session object.
+   *
+   * @extends Session, AutoExposure, ColorEffect, ColorManagement, EffectSuggestion, Flash, Focus, Zoom, Beauty
+   * @interface QuickShotPhotoSession
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  interface QuickShotPhotoSession extends Session, AutoExposure, ColorEffect, ColorManagement, EffectSuggestion,
+    Flash, Focus, Zoom, Beauty {
     /**
      * Subscribes to error events.
      *
