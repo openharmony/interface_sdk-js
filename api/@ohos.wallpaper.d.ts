@@ -83,7 +83,6 @@ declare namespace wallpaper {
    * @enum { number } WallpaperType
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamic
-   * @since 20 static
    */
   enum WallpaperType {
     /**
@@ -91,7 +90,6 @@ declare namespace wallpaper {
      *
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @since 7 dynamic
-     * @since 20 static
      */
     WALLPAPER_SYSTEM,
     /**
@@ -99,7 +97,6 @@ declare namespace wallpaper {
      *
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @since 7 dynamic
-     * @since 20 static
      */
     WALLPAPER_LOCKSCREEN
   }
