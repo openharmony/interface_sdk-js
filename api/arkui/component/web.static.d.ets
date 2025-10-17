@@ -4393,6 +4393,15 @@ export declare interface BlankScreenDetectionEventInfo {
  */
 export type OnDetectBlankScreenCallback = (event: BlankScreenDetectionEventInfo) => void;
 /**
+ * Callback with the selected text after the text selection content changes.
+ *
+ * @typedef { function } TextSelectionChangeCallback
+ * @param { string } selectionText - the selected text after the text selection content changes.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 23 static
+ */
+export type TextSelectionChangeCallback = (selectionText: string) => void;
+/**
  * The methods can be chosen to detect if current page is blank or nearly blank.
  *
  * @enum { int }
@@ -6064,6 +6073,15 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 22 static
      */
     default backToTop(backToTop: boolean | undefined): this;
+    /**
+    * Called when the text selection changes.
+    *
+    * @param { TextSelectionChangeCallback | undefined } callback - when the text selection changes.
+    * @returns { WebAttribute }
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    default onTextSelectionChange(callback: TextSelectionChangeCallback | undefined): this;
     /**
     * Set up web component to support AI image recognition capability.
     *
