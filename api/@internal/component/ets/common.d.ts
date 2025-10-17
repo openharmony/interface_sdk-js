@@ -5371,9 +5371,20 @@ declare interface AlignRuleOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
-  left?: { anchor: string, align: HorizontalAlign };
+  /**
+   * The param of left align.
+   *
+   * Anonymous Object Rectification
+   * @type { ?HorizontalAlignParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  left?: HorizontalAlignParam;
 
   /**
    * The param of right align.
@@ -5400,9 +5411,20 @@ declare interface AlignRuleOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
-  right?: { anchor: string, align: HorizontalAlign };
+  /**
+   * The param of right align.
+   *
+   * Anonymous Object Rectification
+   * @type { ?HorizontalAlignParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  right?: HorizontalAlignParam;
 
   /**
    * The param of middle align.
@@ -5606,6 +5628,98 @@ declare interface LocalizedVerticalAlignParam {
    * @since 12 dynamic
    */
   align: VerticalAlign;
+}
+
+/**
+ * Defines the horizontal align rule of relative container.
+ *
+ * @interface HorizontalAlignParam
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20 dynamic
+ */
+declare interface HorizontalAlignParam {
+  /**
+   * Specifies the anchor component.
+   *
+   * @type { string } anchor
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Specifies the anchor component.
+   *
+   * @type { string } anchor
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Specifies the anchor component.
+   *
+   * @type { string } anchor
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Specifies the anchor component
+   *
+   * Anonymous Object Rectification
+   * @type { string } anchor
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  anchor: string;
+
+  /**
+   * Sets the horizontal alignment relative to the anchor component.
+   *
+   * @type { ?HorizontalAlign } align
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Sets the horizontal alignment relative to the anchor component.
+   *
+   * @type { HorizontalAlign } align
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Sets the horizontal alignment relative to the anchor component.
+   *
+   * @type { HorizontalAlign } align
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Sets the horizontal alignment relative to the anchor component.
+   *
+   * Anonymous Object Rectification
+   * @type { HorizontalAlign } align
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  align: HorizontalAlign;
 }
 
 /**
@@ -20647,8 +20761,8 @@ declare class CommonMethod<T> {
    *
    * @param { CustomBuilder } builder - Custom background.
    * @param { object } options - Alignment mode between the custom background and the component.
-   * <br>If **background**, **backgroundColor**, and **backgroundImage** are set at the same time
-   * <br>They will all take effect, with **background** at the top layer.
+   *     <br>If **background**, **backgroundColor**, and **backgroundImage** are set at the same time
+   *     <br>They will all take effect, with **background** at the top layer.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -20659,15 +20773,27 @@ declare class CommonMethod<T> {
    *
    * @param { CustomBuilder } builder - Custom background.
    * @param { object } options - Alignment mode between the custom background and the component.
-   * <br>If **background**, **backgroundColor**, and **backgroundImage** are set at the same time
-   * <br>They will all take effect, with **background** at the top layer.
+   *     <br>If **background**, **backgroundColor**, and **backgroundImage** are set at the same time
+   *     <br>They will all take effect, with **background** at the top layer.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    */
-  background(builder: CustomBuilder, options?: { align?: Alignment }): T;
+  /**
+   * Add a background for the component.
+   *
+   * Anonymous Object Rectification.
+   * @param { CustomBuilder | ResourceColor } content
+   * @param { BackgroundOptions } [options]
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  background(content: CustomBuilder | ResourceColor, options?: BackgroundOptions): T;
   
   /**
    * Add a background for the component.
@@ -24796,9 +24922,19 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12
    */
-  allowDrop(value: Array<UniformDataType> | null): T;
+  /**
+   * Allowed drop uniformData type for this node.
+   * 
+   * @param { Array<UniformDataType> | null | Array<string> } value - the uniformData type for this node.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  allowDrop(value: Array<UniformDataType> | null | Array<string>): T;
 
   /**
    * Enable the selectable area can be dragged.
@@ -26052,14 +26188,16 @@ declare class CommonMethod<T> {
    * The interval between two visible area change callbacks will not be less than the expected update interval.
    *
    * @param { VisibleAreaEventOptions } options - The options for the visibility event.
-   * @param { VisibleAreaChangeCallback | undefined } event - The callback will be triggered when the visibleArea of component changed and get close to any number in ratios defined by options.
-   * If set undefined will reset the target callback.
+   * @param { VisibleAreaChangeCallback | undefined } event - The callback will be triggered when the visibleArea of
+   *     component changed and get close to any number in ratios defined by options. If set undefined will reset the
+   *     target callback.
+   * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 17 dynamic
    */
-  onVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): void;
+  onVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): T;
 
   /**
    * Set the spherical effect of the component.

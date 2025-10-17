@@ -40,7 +40,7 @@ import { ResizableOptions } from "./image";
 import intl from '../../@ohos.intl';
 import { ButtonType, ButtonStyleMode, ButtonRole } from "./button";
 import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback } from "./units";
-import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
+import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo, TouchRecognizer } from "./gesture";
 import { ScrollState } from "./list";
 import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType } from "./enums";
 import { TextRange } from "./textCommon";
@@ -3799,9 +3799,6 @@ export declare interface BaseEvent {
      *
      * @type { SourceType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20 static
      */
     source: SourceType;
@@ -3885,6 +3882,14 @@ export declare interface BaseEvent {
      * @since 20 static
      */
     targetDisplayId?: int;
+    /**
+     * Indicates the Pinch axis coordinate.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    axisPinch?: double;
 }
 /**
  * Border image option
@@ -4589,6 +4594,14 @@ export declare interface AxisEvent extends BaseEvent {
      * @since 20 static
      */
     getVerticalAxisValue(): double;
+    /**
+     * Obtains the value of the pinch axis for this axis event.
+     *
+     * @returns { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    getPinchAxisScaleValue(): double;
 }
 /**
  * Defines the callback type used in onSizeChange.
@@ -4607,11 +4620,12 @@ export type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions) 
  * @param { BaseGestureEvent } event - the event information
  * @param { GestureRecognizer } current - the current gesture recognizer of the component
  * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
+ * @param { Array<TouchRecognizer> } [touchRecognizers] - the touch recognizers of the component on the response chain
  * @returns { GestureJudgeResult } the gesture judge result
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>) => GestureJudgeResult;
+export type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>, touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
 /**
  * Defines the callback type used in shouldBuiltInRecognizerParallelWith.
  *
@@ -4633,6 +4647,19 @@ export type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureRecog
  * @since 20 static
  */
 export type TransitionFinishCallback = (transitionIn: boolean) => void;
+/**
+ * Defines the callback type used in onTouchTestDone.
+ * When the user touch down, the system performs hit test process to collect all gesture recognizers
+ * based on the press location, when the collection is completed, and before gesture begin to be recognizing,
+ * the callback is triggered, you can get all recognizer's information from this callback.
+ *
+ * @typedef { function } TouchTestDoneCallback
+ * @param { BaseGestureEvent } event - the event information, basicly is the touch down information
+ * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export type TouchTestDoneCallback = (event: BaseGestureEvent, recognizers: Array<GestureRecognizer>) => void;
 /**
  * Defines the PixelMap type object for ui component.
  *
@@ -9866,12 +9893,12 @@ export declare interface CommonMethod {
     /**
      * Allowed drop uniformData type for this node.
      *
-     * @param { Array<UniformDataType> | null | undefined } value - the uniformData type for this node.
+     * @param { Array<UniformDataType> | null | Array<string> | undefined } value - the uniformData type for this node.
      * @returns { this } return the component attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 21 static
      */
-    default allowDrop(value: Array<UniformDataType> | null | undefined): this;
+    default allowDrop(value: Array<UniformDataType> | null | Array<string> | undefined): this;
     /**
      * Enable the selectable area can be dragged.
      *
@@ -10237,6 +10264,7 @@ export declare interface CommonMethod {
      * @since 20 static
      */
     default restoreId(value: int | undefined): this;
+
     /**
      * Trigger a visible area change event.
      *
@@ -10248,6 +10276,7 @@ export declare interface CommonMethod {
      * @since 20 static
      */
     default onVisibleAreaChange(ratios: Array<double> | undefined, event: VisibleAreaChangeCallback | undefined): this;
+
     /**
      * Set or reset the callback which is triggered when the visibleArea of component changed.
      * The interval between two visible area change callbacks will not be less than the expected update interval.
@@ -10257,7 +10286,7 @@ export declare interface CommonMethod {
      *     If set undefined will reset the target callback.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onVisibleAreaApproximateChange(options: VisibleAreaEventOptions | undefined, event: VisibleAreaChangeCallback | undefined): this;
     /**
@@ -10650,6 +10679,19 @@ export declare interface CommonMethod {
      * @since 20 static
      */
     default accessibilityFocusDrawLevel(drawLevel: FocusDrawLevel | undefined): this;
+    /**
+     * Register one callback which will be executed when all gesture recognizers are collected done, this happens
+     * when user touchs down, the system do hit test process and collect gesture recognizers base on the touch
+     * position, after this, before handling any move events, the component can use this interface to know which
+     * gesture recognizers will participate in the recognition and competing with each other.
+     *
+     * @param { TouchTestDoneCallback | undefined } callback - A callback instance used when all gesture recognizers
+     *     are collected.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    default onTouchTestDone(callback: TouchTestDoneCallback | undefined): this;
 }
 /**
  * CommonAttribute for ide.

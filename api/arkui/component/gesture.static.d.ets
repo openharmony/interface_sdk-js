@@ -363,6 +363,63 @@ export declare interface GestureInfo {
     isSystemGesture: boolean;
 }
 /**
+ * The location info used in gesture event.
+ *
+ * @interface EventLocationInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface EventLocationInfo {
+    /**
+     * X-axis coordinates relative to the upper left corner of the component.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    x: double;
+    /**
+     * Y-axis coordinates relative to the upper left corner of the component.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    y: double;
+    /**
+     * X-axis coordinates relative to the upper left corner of the window.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    windowX: double;
+    /**
+     * Y-axis coordinates relative to the upper left corner of the window.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    windowY: double;
+    /**
+     * X-axis coordinates relative to the upper left corner of the screen.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    displayX: double;
+    /**
+     * Y-axis coordinates relative to the upper left corner of the screen.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    displayY: double;
+}
+/**
  * Type of the finger information.
  *
  * @interface FingerInfo
@@ -460,6 +517,15 @@ export interface BaseGestureEvent extends BaseEvent {
      * @since 20 static
      */
     fingerList: FingerInfo[];
+    /**
+     * All finger information when the gesture event is triggered, the return value
+     * is one array, and the array length is just the total fingers count. 
+     * 
+     * @type { ?FingerInfo[] }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    fingerInfos?: FingerInfo[];
 }
 /**
  * Defines event info for tap gesture.
@@ -470,6 +536,14 @@ export interface BaseGestureEvent extends BaseEvent {
  * @since 20 static
  */
 export interface TapGestureEvent extends BaseGestureEvent {
+    /**
+     * The tap location info used in tap gesture.
+     * 
+     * @type {?EventLocationInfo}
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    tapLocation?: EventLocationInfo;
 }
 /**
  * Defines event info for long press gesture.
@@ -649,6 +723,15 @@ export interface GestureEvent extends BaseEvent {
      */
     fingerList: FingerInfo[];
     /**
+     * All finger information when the gesture event is triggered, the return value
+     * is one array, and the array length is just the total fingers count. 
+     * 
+     * @type { ?FingerInfo[] }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    fingerInfos?: FingerInfo[];
+    /**
      * Gesture event offset X.
      * The unit is vp.
      * Used in PanGesture.
@@ -738,6 +821,13 @@ export interface GestureEvent extends BaseEvent {
      * @since 20 static
      */
     velocity: double;
+    /**
+     * The tap location info used in tap gesture.
+     * @type {?EventLocationInfo}
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    tapLocation?: EventLocationInfo;
 }
 /**
  * Defines the BaseHandlerOptions options.
@@ -1828,6 +1918,29 @@ export declare class EventTargetInfo {
     getId(): string;
 }
 /**
+ * Defines the touch recognizer.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare class TouchRecognizer {
+    /**
+     * Returns the event target information of the component.
+     *
+     * @returns { EventTargetInfo } - the event target information of the component.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    getEventTargetInfo(): EventTargetInfo;
+    /**
+     * Dispatch touch cancel to the touch recognizer.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    cancelTouch(): void;
+}
+/**
  * Defines the gesture recognizer.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1914,6 +2027,19 @@ export declare class GestureRecognizer {
      * @since 20 static
      */
     isFingerCountLimit(): boolean;
+    /**
+     * Prevent the gesture recognizer from participating in this gesture recognition until all fingers are lifted.
+     * If the system has already made out the result of this gesture recognizer (success and failure), calling this
+     * function will have no any effect.
+     *
+     * [Note]: This method is different from GestureRecognizer.setEnabled(isEnabled: boolean), setEnabled does not
+     * prevent a gesture recognizer object from participating in the gesture recognition process, but only affects
+     * whether the gesture's corresponding callback function is executed.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    preventBegin(): void;
 }
 /**
  * Defines the tap gesture recognizer.
