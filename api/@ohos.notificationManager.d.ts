@@ -5060,8 +5060,8 @@ declare namespace notificationManager {
    * @typedef DistributedBundleEnableInfo
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   export interface DistributedBundleEnableInfo {
     /**
@@ -5070,21 +5070,21 @@ declare namespace notificationManager {
      * @type { string }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     bundleName: string;
 
     /**
      * The uid.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
-    uid: number;
+    uid: int;
 
     /**
      * Indicates whether application is enabled.
@@ -5092,8 +5092,8 @@ declare namespace notificationManager {
      * @type { ?boolean }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     enable?: boolean;
   }
