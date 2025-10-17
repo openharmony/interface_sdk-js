@@ -101,18 +101,18 @@ export declare class SwiperController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare class Indicator<T> {
+export declare class Indicator {
   /**
    * Set the indicator to the left.
    *
    * @param { Length | undefined } value - the indicator to the left, default value is adaptive size layout,
    *     centered alignment in the spindle direction according to the size of the indicator itself and
    *     the size of the swiper, undefined means setting to default value.
-   * @returns { T }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  left(value: Length | undefined): T;
+  left(value: Length | undefined): this;
 
   /**
    * Set the indicator to the top.
@@ -120,11 +120,11 @@ export declare class Indicator<T> {
    * @param { Length | undefined } value - the indicator to the top, default value is adaptive size layout,
    *     centered alignment in the spindle direction according to the size of the indicator itself and
    *     the size of the swiper, undefined means setting to default value.
-   * @returns { T }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  top(value: Length | undefined): T;
+  top(value: Length | undefined): this;
 
   /**
    * Set the indicator to the right.
@@ -132,11 +132,11 @@ export declare class Indicator<T> {
    * @param { Length | undefined } value - the indicator to the right, default value is adaptive size layout,
    *     centered alignment in the spindle direction according to the size of the indicator itself and
    *     the size of the swiper, undefined means setting to default value.
-   * @returns { T }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  right(value: Length | undefined): T;
+  right(value: Length | undefined): this;
 
   /**
    * Set the indicator to the bottom.
@@ -144,11 +144,11 @@ export declare class Indicator<T> {
    * @param { Length | undefined } value - the indicator to the bottom, default value is adaptive size layout,
    *     centered alignment in the spindle direction according to the size of the indicator itself and
    *     the size of the swiper, undefined means setting to default value.
-   * @returns { T }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  bottom(value: Length | undefined): T;
+  bottom(value: Length | undefined): this;
 
   /**
    * Sets the position of the navigation indicator relative to the bottom edge of the Swiper component.
@@ -158,11 +158,11 @@ export declare class Indicator<T> {
    *     default value is adaptive size layout, centered alignment in the spindle direction according
    *     to the size of the indicator itself and the size of the swiper, undefined means setting to default value.
    * @param { boolean } ignoreSize - ignore the size of the indicator.
-   * @returns { T }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  bottom(bottom: LengthMetrics | Length | undefined, ignoreSize: boolean): T;
+  bottom(bottom: LengthMetrics | Length | undefined, ignoreSize: boolean): this;
 
   /**
    * Set the indicator to the left in LTR
@@ -170,11 +170,11 @@ export declare class Indicator<T> {
    *
    * @param { LengthMetrics | undefined } value - the indicator to the right in LTR, indicator to the left in RTL,
    *     default value is 0.0_vp, undefined means setting to default value.
-   * @returns { T }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  start(value: LengthMetrics | undefined): T;
+  start(value: LengthMetrics | undefined): this;
 
   /**
    * Set the indicator to the left in RTL
@@ -182,11 +182,11 @@ export declare class Indicator<T> {
    *
    * @param { LengthMetrics | undefined } value - the indicator to the left in RTL, Set the indicator
    *     to the right in LTR, default value is 0.0_vp, undefined means setting to default value.
-   * @returns { T }
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  end(value: LengthMetrics | undefined): T;
+  end(value: LengthMetrics | undefined): this;
 
   /**
    * DotIndicator class object.
@@ -212,11 +212,11 @@ export declare class Indicator<T> {
 /**
  * Define DotIndicator, the indicator type is dot.
  *
- * @extends Indicator<DotIndicator>
+ * @extends Indicator
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare class DotIndicator extends Indicator<DotIndicator> {
+export declare class DotIndicator extends Indicator {
   /**
    * Constructor.
    *
@@ -234,7 +234,7 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  itemWidth(value: Length | undefined): DotIndicator;
+  itemWidth(value: Length | undefined): this;
 
   /**
    * Set the indicator item height.
@@ -245,7 +245,7 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  itemHeight(value: Length | undefined): DotIndicator;
+  itemHeight(value: Length | undefined): this;
 
   /**
    * Set the indicator item width when selected.
@@ -256,7 +256,7 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  selectedItemWidth(value: Length | undefined): DotIndicator;
+  selectedItemWidth(value: Length | undefined): this;
 
   /**
    * Set the indicator item height when selected.
@@ -267,7 +267,7 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  selectedItemHeight(value: Length | undefined): DotIndicator;
+  selectedItemHeight(value: Length | undefined): this;
 
   /**
    * Setting indicator style mask.
@@ -278,7 +278,7 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  mask(value: boolean | undefined): DotIndicator;
+  mask(value: boolean | undefined): this;
 
   /**
    * Set the indicator color.
@@ -289,7 +289,7 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  color(value: ResourceColor | undefined): DotIndicator;
+  color(value: ResourceColor | undefined): this;
 
   /**
    * Set the navigation point color.
@@ -300,7 +300,7 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  selectedColor(value: ResourceColor | undefined): DotIndicator;
+  selectedColor(value: ResourceColor | undefined): this;
 
   /**
    * Set the Indicator maxDisplayCount when selected.
@@ -322,7 +322,7 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  space(space: LengthMetrics | undefined): DotIndicator;
+  space(space: LengthMetrics | undefined): this;
 }
 
 /**
@@ -346,11 +346,11 @@ export declare interface SwiperAutoFill {
 /**
  * Define DigitIndicator, the indicator type is digit.
  *
- * @extends Indicator<DigitIndicator>
+ * @extends Indicator
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare class DigitIndicator extends Indicator<DigitIndicator> {
+export declare class DigitIndicator extends Indicator {
   /**
    * Constructor.
    *
@@ -368,7 +368,7 @@ export declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  fontColor(value: ResourceColor | undefined): DigitIndicator;
+  fontColor(value: ResourceColor | undefined): this;
 
   /**
    * Set font color of the digital indicator when selected.
@@ -379,7 +379,7 @@ export declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  selectedFontColor(value: ResourceColor | undefined): DigitIndicator;
+  selectedFontColor(value: ResourceColor | undefined): this;
 
   /**
    * Set the digital indicator font (just support font size and weight).
@@ -390,7 +390,7 @@ export declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  digitFont(value: Font | undefined): DigitIndicator;
+  digitFont(value: Font | undefined): this;
 
   /**
    * Set the digital indicator font (just support font size and weight).
@@ -401,7 +401,7 @@ export declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  selectedDigitFont(value: Font | undefined): DigitIndicator;
+  selectedDigitFont(value: Font | undefined): this;
 }
 
 /**
