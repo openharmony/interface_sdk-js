@@ -9693,7 +9693,7 @@ declare namespace media {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @atomicservice
-   * @@since 22 dynamic&static
+   * @since 22 dynamic&static
    */
   enum AacProfile {
     /**
@@ -9719,7 +9719,6 @@ declare namespace media {
      * @since 22 dynamic&static
      */
     AAC_HE_V2 = 2,
-
   }
 
   /**
