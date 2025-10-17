@@ -5325,6 +5325,72 @@ declare namespace ble {
      * @arkts 1.1&1.2
      */
     connectable: boolean;
+
+    /**
+     * This field is used to identify the discovery mode and supported capabilities of the peer device.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    advertiseFlags?: int;
+
+    /**
+     * Map of manufacturer data.
+     *
+     * @type { ?Map<int, Uint8Array> }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    manufacturerDataMap?: Map<int, Uint8Array>;
+
+    /**
+     * Map of service data.
+     *
+     * @type { ?Map<string, Uint8Array> }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    serviceDataMap?: Map<string, Uint8Array>;
+
+    /**
+     * The list of service uuid.
+     *
+     * @type { ?string[] }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    serviceUuids?: string[];
+
+    /**
+     * The tx power level of the packet in dBm.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    txPowerLevel?: int;
+
+    /**
+     * Map of advertising data fields.
+     *
+     * @type { ?Map<int, Uint8Array> }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    advertisingDataMap?: Map<int, Uint8Array>;
   }
 
   /**
