@@ -3885,7 +3885,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     permissions?: GattPermissions;
   }
@@ -4038,7 +4039,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     permissions?: GattPermissions;
   }
@@ -5166,7 +5168,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     reason?: GattDisconnectReason;
   }
@@ -6596,7 +6599,8 @@ declare namespace ble {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     broadcast?: boolean;
 
@@ -6606,7 +6610,8 @@ declare namespace ble {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     authenticatedSignedWrite?: boolean;
 
@@ -6616,7 +6621,8 @@ declare namespace ble {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     extendedProperties?: boolean;
   }
@@ -6963,7 +6969,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
+   * @since 22 static
    */
   enum ScanReportMode {
     /**
@@ -6980,7 +6987,8 @@ declare namespace ble {
      * ScanOptions#interval}.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
+     * @since 22 static
      */
     BATCH = 2,
     /**
@@ -7012,7 +7020,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
+   * @since 22 static
    */
   enum ScanReportType {
     /**
@@ -7038,7 +7047,8 @@ declare namespace ble {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
+     * @since 22 static
      */
     ON_BATCH = 3,
   }
@@ -7120,7 +7130,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum GattDisconnectReason {
 
@@ -7130,7 +7141,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     CONN_TIMEOUT = 1,
 
@@ -7140,7 +7152,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     CONN_TERMINATE_PEER_USER = 2,
 
@@ -7150,7 +7163,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     CONN_TERMINATE_LOCAL_HOST = 3,
 
@@ -7160,7 +7174,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     CONN_UNKNOWN = 4
   }
@@ -7172,7 +7187,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface GattPermissions {
 
@@ -7182,7 +7198,8 @@ declare namespace ble {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     read?: boolean;
 
@@ -7192,7 +7209,8 @@ declare namespace ble {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     readEncrypted?: boolean;
 
@@ -7202,7 +7220,8 @@ declare namespace ble {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     readEncryptedMitm?: boolean;
 
@@ -7212,7 +7231,8 @@ declare namespace ble {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     write?: boolean;
 
@@ -7222,7 +7242,8 @@ declare namespace ble {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     writeEncrypted?: boolean;
 
@@ -7232,7 +7253,8 @@ declare namespace ble {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     writeEncryptedMitm?: boolean;
 
@@ -7242,7 +7264,8 @@ declare namespace ble {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     writeSigned?: boolean;
 
@@ -7252,7 +7275,8 @@ declare namespace ble {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     writeSignedMitm?: boolean;
   }

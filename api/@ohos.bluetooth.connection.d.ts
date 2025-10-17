@@ -1828,7 +1828,8 @@ declare namespace connection {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   enum BluetoothTransport {
     /**
@@ -1849,14 +1850,16 @@ declare namespace connection {
      * The value of bluetooth transport DUAL.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     TRANSPORT_DUAL = 2,
     /**
      * The unknown bluetooth transport.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     TRANSPORT_UNKNOWN = 3
   }
