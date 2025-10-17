@@ -1868,7 +1868,7 @@ declare namespace uniformTypeDescriptor {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
-     * @since 22
+     * @since 22 dynamic
      */
     typeId: string;
 
@@ -1895,7 +1895,7 @@ declare namespace uniformTypeDescriptor {
      * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
-     * @since 22
+     * @since 22 dynamic
      */
     belongingToTypes: Array<string>;
 
@@ -1922,7 +1922,7 @@ declare namespace uniformTypeDescriptor {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
-     * @since 22
+     * @since 22 dynamic
      */
     description: string;
 
@@ -1949,7 +1949,7 @@ declare namespace uniformTypeDescriptor {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
-     * @since 22
+     * @since 22 dynamic
      */
     referenceURL: string;
 
@@ -1976,7 +1976,7 @@ declare namespace uniformTypeDescriptor {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
-     * @since 22
+     * @since 22 dynamic
      */
     iconFile: string;
 
@@ -2003,7 +2003,7 @@ declare namespace uniformTypeDescriptor {
      * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
-     * @since 22
+     * @since 22 dynamic
      */
     filenameExtensions: Array<string>;
 
@@ -2030,7 +2030,7 @@ declare namespace uniformTypeDescriptor {
      * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
-     * @since 22
+     * @since 22 dynamic
      */
     mimeTypes: Array<string>;
 
