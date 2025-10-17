@@ -53,7 +53,6 @@ export declare function ParallelizeUI(
   content_: () => void,
 ): void
 
-
 /**
  * Define the constructor of ParallelizeUI.
  *
@@ -69,4 +68,23 @@ export declare function ParallelizeUI<T>(
   param: () => T,
   @memo
   content_: (param: T) => void,
+): void
+
+/**
+ * Define the constructor of ParallelizeUI for loop-based item creation.
+ *
+ * @param { ParallelOption | undefined } [options] - ParallelizeUI Option
+ * @param { Array<V> } [arr] - The array collection to be used in UI
+ * @param { (item: V, index: int) => T } [param] - Define item generator function
+ * @param { (param: T) => void } [content_] - Parallel creation of content
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+@memo
+export declare function ParallelizeUI<V, T>(
+  options: ParallelOption | undefined,
+  arr: Array<V>,
+  param: (item: V, index: int) => T,
+  @memo
+  content_: (param: T) => void
 ): void

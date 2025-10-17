@@ -125,7 +125,7 @@ declare namespace hidebug {
    * @since 9 dynamic
    * @since 20 static
    */
-  function getCpuUsage(): number;
+  function getCpuUsage(): double;
 
   /**
    *
@@ -137,7 +137,7 @@ declare namespace hidebug {
    * @param { string } filename - User-defined file name of the sampling data. The .json file is generated
    * in the files directory of the application based on the specified file name.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.hidebug/hidebug.startJsCpuProfiling
    */
@@ -149,7 +149,7 @@ declare namespace hidebug {
    * methods repeatedly. Otherwise, an exception may occur. It takes effect only when the CPU profiler is turned on.
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.hidebug/hidebug.stopJsCpuProfiling
    */
@@ -178,7 +178,8 @@ declare namespace hidebug {
    * directory of the application based on the specified file name.
    * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   function startJsCpuProfiling(filename: string): void;
 
@@ -188,7 +189,8 @@ declare namespace hidebug {
    * methods repeatedly. Otherwise, an exception may occur. It takes effect only when the CPU profiler is turned on
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   function stopJsCpuProfiling(): void;
 
@@ -233,7 +235,7 @@ declare namespace hidebug {
    * @since 12 dynamic
    * @since 20 static
    */
-  function getSystemCpuUsage(): number;
+  function getSystemCpuUsage(): double;
 
   /**
    * Describes the CPU usage of a thread.
@@ -953,7 +955,8 @@ declare namespace hidebug {
    *
    * @returns { boolean } true if the application is in the debugging state.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   function isDebugState(): boolean;
 
@@ -1060,7 +1063,8 @@ declare namespace hidebug {
    *
    * @interface GwpAsanOptions
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface GwpAsanOptions {
     /**
@@ -1068,7 +1072,8 @@ declare namespace hidebug {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     alwaysEnabled?: boolean;
     /**
@@ -1076,7 +1081,8 @@ declare namespace hidebug {
      *
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     sampleRate?: int;
     /**
@@ -1084,7 +1090,8 @@ declare namespace hidebug {
      *
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     maxSimutaneousAllocations?: int;
   }
@@ -1095,7 +1102,8 @@ declare namespace hidebug {
    * @param { int } [duration] - The duration days of GWP-ASAN grayscale.
    * @throws { BusinessError } 11400114 - The number of GWP-ASAN applications of this device overflowed after last boot.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function enableGwpAsanGrayscale(options?: GwpAsanOptions, duration?: int): void;
 
@@ -1103,7 +1111,8 @@ declare namespace hidebug {
    * Disable the GWP-ASAN grayscale of your application.
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function disableGwpAsanGrayscale(): void;
 
@@ -1112,7 +1121,8 @@ declare namespace hidebug {
    *
    * @returns { int } The remaining days of GWP-ASan grayscale.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getGwpAsanGrayscaleState(): int;
 

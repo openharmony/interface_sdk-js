@@ -60,7 +60,7 @@ declare class LiveFormExtensionContext extends ExtensionContext {
   *     application which is not a system application uses system API.
   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-  * @throws { BusinessError } 16501011 - The form can not support this operation
+  * @throws { BusinessError } 16501011 - The form can not support this operation.
   * @syscap SystemCapability.Ability.Form
   * @systemapi
   * @stagemodelonly
@@ -76,7 +76,7 @@ declare class LiveFormExtensionContext extends ExtensionContext {
   * @throws { BusinessError } 202 - Permission verification failed, 
   *     application which is not a system application uses system API.
   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-  * @throws { BusinessError } 16501011 - The form can not support this operation
+  * @throws { BusinessError } 16501011 - The form can not support this operation.
   * @syscap SystemCapability.Ability.Form
   * @systemapi
   * @stagemodelonly

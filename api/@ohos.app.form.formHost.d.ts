@@ -29,7 +29,8 @@ import formInfo from './@ohos.app.form.formInfo';
  * @namespace formHost
  * @syscap SystemCapability.Ability.Form
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace formHost {
   /**
@@ -738,6 +739,19 @@ declare namespace formHost {
   function on(type: 'formOverflow', callback: Callback<formInfo.OverflowRequest>): void;
 
   /**
+   * Listens to the event of formOverflow.
+   * <p>You can use this method to listen to the event of formOverflow.</p>
+   *
+   * @param { Callback<formInfo.OverflowRequest> } callback - The callback of formOverflow.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22
+   * @arkts 1.2
+   */
+  function onFormOverflow(callback: Callback<formInfo.OverflowRequest>): void;
+
+  /**
    * Cancels listening to the event of form's overflow.
    * <p>You can use this method to cancel listening to the event of form's overflow.</p>
    *
@@ -749,6 +763,19 @@ declare namespace formHost {
    * @since 20
    */
   function off(type: 'formOverflow', callback?: Callback<formInfo.OverflowRequest>): void;
+
+  /**
+   * Cancels listening to the event of formOverflow.
+   * <p>You can use this method to cancel listening to the event of formOverflow.</p>
+   *
+   * @param { Callback<formInfo.OverflowRequest> } callback - The callback of formOverflow.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22
+   * @arkts 1.2
+   */
+  function offFormOverflow(callback?: Callback<formInfo.OverflowRequest>): void;
 
   /**
    * Listens to the event of change scene animation state.
@@ -765,6 +792,20 @@ declare namespace formHost {
   function on(type: 'changeSceneAnimationState',
     callback: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
 
+    /**
+   * Listens to the event of change scene animation state.
+   * <p>You can use this method to listen to the event of change scene animation state.</p>
+   *
+   * @param { Callback<formInfo.ChangeSceneAnimationStateRequest> } callback - The callback of
+   *     change scene animation state.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22
+   * @arkts 1.2
+   */
+  function onChangeSceneAnimationState(callback: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
+
   /**
    * Cancels listening to the event of change scene animation state.
    * <p>You can use this method to cancel listening to the event of change scene animation state.</p>
@@ -780,6 +821,20 @@ declare namespace formHost {
   function off(type: 'changeSceneAnimationState',
     callback?: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
 
+    /**
+   * Cancels listening to the event of change scene animation state.
+   * <p>You can use this method to cancel listening to the event of change scene animation state.</p>
+   *
+   * @param { Callback<formInfo.ChangeSceneAnimationStateRequest> } callback - The callback of
+   *     change scene animation state.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22
+   * @arkts 1.2
+   */
+  function offChangeSceneAnimationState(callback?: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
+
   /**
    * Listens to the event of get form rect.
    * <p>You can use this method to listen to the event of get form rect.</p>
@@ -792,6 +847,20 @@ declare namespace formHost {
    * @since 20
    */
   function on(type: 'getFormRect', callback: formInfo.GetFormRectInfoCallback): void;
+
+  /**
+   * Listens to the event of get form rect.
+   * <p>You can use this method to listen to the event of get form rect.</p>
+   *
+   * @param { 'getFormRect' } type - Indicates event type.
+   * @param { formInfo.GetFormRectInfoCallback } callback - The callback of get form rect.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22
+   * @arkts 1.2
+   */
+  function onGetFormRect(callback: formInfo.GetFormRectInfoCallback): void;
  
   /**
    * Cancels listening to the event of get form rect.
@@ -805,6 +874,20 @@ declare namespace formHost {
    * @since 20
    */
   function off(type: 'getFormRect', callback?: formInfo.GetFormRectInfoCallback): void;
+
+  /**
+   * Cancels listening to the event of get form rect.
+   * <p>You can use this method to cancel listening to the event of get form rect.</p>
+   *
+   * @param { 'getFormRect' } type - Indicates event type.
+   * @param { formInfo.GetFormRectInfoCallback } [callback] - The callback of get form rect.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22
+   * @arkts 1.2
+   */
+  function offGetFormRect(callback?: formInfo.GetFormRectInfoCallback): void;
 
   /**
    * Notify form is Visible

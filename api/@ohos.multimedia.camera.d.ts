@@ -212,17 +212,17 @@ declare namespace camera {
   /**
    * Enumerates the system pressure levels of the current camera session. When the system pressure increases,
    * you are advised to reduce the load of the current camera session.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic&static
    */
   enum SystemPressureLevel {
     /**
      * Normal level. This level indicates that the system pressure is normal.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     SYSTEM_PRESSURE_NORMAL = 0,
 
@@ -230,7 +230,7 @@ declare namespace camera {
      * Low level. This level indicates that the system pressure is slightly increased.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     SYSTEM_PRESSURE_MILD = 1,
 
@@ -238,7 +238,7 @@ declare namespace camera {
      * Severity level. This level indicates that the system pressure is severely increased.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     SYSTEM_PRESSURE_SEVERE = 2,
 
@@ -246,7 +246,7 @@ declare namespace camera {
      * Critical level. This level indicates that the system pressure has reached a critical threshold.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     SYSTEM_PRESSURE_CRITICAL = 3,
 
@@ -255,7 +255,7 @@ declare namespace camera {
      * shut down soon.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     SYSTEM_PRESSURE_SHUTDOWN = 4
   }
@@ -5793,7 +5793,61 @@ declare namespace camera {
      * @since 10 dynamic
      * @since 20 static
      */
-    SKIN_TONE = 3
+    SKIN_TONE = 3,
+
+    /**
+     * Skin tone bright beauty type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    SKIN_TONE_BRIGHT = 4,
+
+    /**
+     * Eye big eyes beauty type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    EYE_BIG_EYES = 5,
+
+    /**
+     * Hair hairline beauty type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    HAIR_HAIRLINE = 6,
+
+    /**
+     * Face makeup beauty type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    FACE_MAKEUP = 7,
+
+    /**
+     * Head shrink beauty type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    HEAD_SHRINK = 8,
+
+    /**
+     * Nose slender beauty type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    NOSE_SLENDER = 9
   }
 
   /**
@@ -8355,7 +8409,7 @@ declare namespace camera {
      * @param { AsyncCallback<SystemPressureLevel> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     on(type: 'systemPressureLevelChange', callback: AsyncCallback<SystemPressureLevel>): void
 
@@ -8366,7 +8420,7 @@ declare namespace camera {
      * @param { AsyncCallback<SystemPressureLevel> } [callback] - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     off(type: 'systemPressureLevelChange', callback?: AsyncCallback<SystemPressureLevel>): void
 
@@ -8874,7 +8928,7 @@ declare namespace camera {
      * @param { AsyncCallback<SystemPressureLevel> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     on(type: 'systemPressureLevelChange', callback: AsyncCallback<SystemPressureLevel>): void
 
@@ -8885,7 +8939,7 @@ declare namespace camera {
      * @param { AsyncCallback<SystemPressureLevel> } [callback] - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     off(type: 'systemPressureLevelChange', callback?: AsyncCallback<SystemPressureLevel>): void
 
@@ -11204,7 +11258,17 @@ declare namespace camera {
    * @since 12 dynamic
    * @since 20 static
    */
-  interface QuickShotPhotoSession extends Session, AutoExposure, ColorEffect, ColorManagement, EffectSuggestion, Flash, Focus, Zoom {
+  /**
+   * Quick shot photo session object.
+   *
+   * @extends Session, AutoExposure, ColorEffect, ColorManagement, EffectSuggestion, Flash, Focus, Zoom, Beauty
+   * @interface QuickShotPhotoSession
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  interface QuickShotPhotoSession extends Session, AutoExposure, ColorEffect, ColorManagement, EffectSuggestion,
+    Flash, Focus, Zoom, Beauty {
     /**
      * Subscribes to error events.
      *

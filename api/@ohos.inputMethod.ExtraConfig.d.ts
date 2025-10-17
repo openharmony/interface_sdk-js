@@ -30,14 +30,13 @@ export type CustomValueType = number | string | boolean;
 /**
  * The extra config of edit box.
  *
- * @typedef ExtraConfig
+ * @typedef InputMethodExtraConfig
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 22
  */
-export interface ExtraConfig {
+export interface InputMethodExtraConfig {
     /**
-     * <p>Indicates extra customized settings.</p>
-     * <p>The size of all records can not exceed 128KB.</p>
+     * Indicates extra customized settings.
      *
      * @type { Record<string, CustomValueType> }
      * @syscap SystemCapability.MiscServices.InputMethodFramework

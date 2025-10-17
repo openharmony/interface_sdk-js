@@ -382,7 +382,7 @@ declare namespace appControl {
   /**
    * Obtains the disposed status of a specified bundle.
    *
-   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @param { AsyncCallback<Want> } callback - The callback of getting the disposed status of a specified bundle result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -400,7 +400,7 @@ declare namespace appControl {
   /**
    * Obtains the disposed status of a specified bundle.
    *
-   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @returns { Promise<Want> } Returns the disposed status of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
@@ -418,7 +418,7 @@ declare namespace appControl {
   /**
    * Obtains the disposed status of a specified bundle.
    *
-   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @returns { Want } Returns the disposed status of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
@@ -505,7 +505,7 @@ declare namespace appControl {
   /**
    * Obtains the disposed rule of a specified bundle.
    *
-   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @returns { DisposedRule } Returns the disposed rule of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
@@ -520,7 +520,7 @@ declare namespace appControl {
   /**
    * Obtains the disposed rule of a specified bundle.
    *
-   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @param { int } [appIndex] Indicates the index of clone app.
    * @returns { DisposedRule } Returns the disposed rule of a specified bundle.

@@ -18,7 +18,7 @@
  * @kit ArkUI
  * @arkts 1.2
  */
- import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
 import { Resource } from '../../global/resource';
 import { ResourceStr, ResourceColor, Length, Font } from './units';
 import { TextOverflow, FontWeight, FontStyle, TextHeightAdaptivePolicy } from './enums';

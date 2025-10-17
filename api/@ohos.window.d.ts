@@ -548,8 +548,8 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   enum WindowMode {
     /**
@@ -557,7 +557,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 20 static
      */
     UNDEFINED = 1,
     /**
@@ -565,7 +566,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 20 static
      */
     FULLSCREEN,
     /**
@@ -573,7 +575,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 20 static
      */
     PRIMARY,
     /**
@@ -581,7 +584,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 20 static
      */
     SECONDARY,
     /**
@@ -589,8 +593,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     FLOATING = 5
   }
@@ -781,6 +785,30 @@ declare namespace window {
      * @arkts 1.1&1.2
      */
     SPLIT_SCREEN = 5
+  }
+
+  /**
+   * Describes the pixel unit
+   * @enum { int }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 22 dynamic&static
+   */
+  enum PixelUnit {
+    /**
+     * Physical pixel unit of the screen.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    PX = 0,
+    /**
+     * Pixel unit specific to the screen density.
+     * Pixels in this unit are converted into physical pixels of the screen based on the screen pixel density.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    VP = 1,
   }
 
   /**
@@ -1253,98 +1281,111 @@ declare namespace window {
    *
    * @interface Position
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   export interface Position {
 
     /**
      * The X-coordinate, measured in px.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
-    x: number;
+    x: int;
 
     /**
      * The Y-coordinate, measured in px.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
-    y: number;
+    y: int;
   }
 
   /**
    * Enum for window anchor
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum WindowAnchor {
     /**
      * The value means window top left corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     TOP_START = 0,
     /**
      * The value means horizontal midpoint of the border on the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     TOP = 1,
     /**
      * The value means window top right corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     TOP_END = 2,
     /**
      * The value means vertical midpoint of the left border of the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     START = 3,
     /**
      * The value means window horizontal and vertical midpoint.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     CENTER = 4,
     /**
      * The value means vertical midpoint of the right border of the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     END = 5,
     /**
      * The value means window bottom left corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     BOTTOM_START = 6,
     /**
      * The value means horizontal midpoint of the lower border of the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     BOTTOM = 7,
     /**
      * The value means window bottom right corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     BOTTOM_END = 8,
   }
@@ -2735,6 +2776,15 @@ declare namespace window {
      * @arkts 1.1&1.2
      */
     minHeight?: int;
+
+    /**
+     * The unit of window limits.
+     *
+     * @type { ?PixelUnit }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    pixelUnit?: PixelUnit;
   }
 
   /**
@@ -4544,7 +4594,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     ENTER_IMMERSIVE_DISABLE_TITLE_AND_DOCK_HOVER = 3,
   }
@@ -5560,9 +5611,23 @@ declare namespace window {
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
      */
-    moveWindowToGlobalDisplay(x: number, y: number): Promise<void>;
+    /**
+     * Move window to the position relative to the main screen.
+     *
+     * @param { int } x - Indicate the X-coordinate of the window relative to the main screen.
+     * @param { int } y - Indicate the Y-coordinate of the window relative to the main screen.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    moveWindowToGlobalDisplay(x: int, y: int): Promise<void>;
 
     /**
      * Set the size of a window .
@@ -5751,10 +5816,10 @@ declare namespace window {
      *     when the relative position between the primary sub window and the main window remains unchanged. The
      *     default value is window.WindowAnchor.TOP_Start, meaning the default anchor point is the top-left corner
      *     of the window.
-     * @param { number } [offsetX] - The x-axis offset
+     * @param { int } [offsetX] - The x-axis offset
      *     between the anchor point of the first level sub window and the anchor point of the main window.
      *     The default value is 0.
-     * @param { number } [offsetY] - The y-axis offset
+     * @param { int } [offsetY] - The y-axis offset
      *     between the anchor point of the first level sub window and the anchor point of the main window.
      *     The default value is 0.
      * @returns { Promise<void> } Promise that returns no value.
@@ -5764,10 +5829,11 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     setRelativePositionToParentWindowEnabled(enabled: boolean, anchor?: WindowAnchor,
-        offsetX?: number, offsetY?: number): Promise<void>;
+        offsetX?: int, offsetY?: int): Promise<void>;
 
     /**
      * Set the type of a window.
@@ -7918,21 +7984,46 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
      */
     on(type: 'windowStatusDidChange', callback: Callback<WindowStatusType>): void;
 
     /**
-     * Unregister the callback of windowStatusDidChange. Window rect update completed.
+     * Register the callback of window status did change
+     *
+     * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onWindowStatusDidChange(callback: Callback<WindowStatusType>): void;
+
+    /**
+     * Unregister the callback of windowStatusDidChange
      *
      * @param { 'windowStatusDidChange' } type - The value is fixed at 'windowStatusDidChange', indicating the window status change event.
      * @param { Callback<WindowStatusType> } [callback] - Callback used to return the window status.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
      */
     off(type: 'windowStatusDidChange', callback?: Callback<WindowStatusType>): void;
+
+    /**
+     * Unregister the callback of window status did change
+     *
+     * @param { Callback<WindowStatusType> } [callback] - Callback used to return the window status.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offWindowStatusDidChange(callback?: Callback<WindowStatusType>): void;
 
     /**
      * Subscribes to the event indicating that the child window is closed.
@@ -10056,6 +10147,27 @@ declare namespace window {
     maximize(presentation?: MaximizePresentation): Promise<void>;
 
     /**
+     * Maximizes the main window.
+     *
+     * @param { MaximizePresentation } [presentation] - Layout when the window is maximized.
+     *     The default value is window.MaximizePresentation.ENTER_IMMERSIVE,
+     *     indicating that the window enters the immersive layout when maximized.
+     * @param { boolean } [acrossDisplay] - Parameter controls the waterfall mode of main windows in the half-folded state.
+     *     The value true Indicates that the window could enter the waterfall mode directly,
+     *     and maintains the waterfall mode when the device is half-folded.
+     *     The default value is false.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Function maximize can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    maximize(presentation?: MaximizePresentation, acrossDisplay?: boolean): Promise<void>;
+
+    /**
      * Set whether to enable a window to resize by drag.
      *
      * @param { boolean } enable - Disable window to resize by drag if false.
@@ -10128,7 +10240,7 @@ declare namespace window {
     hideNonSystemFloatingWindows(shouldHide: boolean): Promise<void>;
 
     /**
-     * Get the window limits of current window.
+     * Get the window limits of current window measrued in px.
      *
      * @returns { WindowLimits } - The limits of window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -10137,7 +10249,7 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Get the window limits of current window.
+     * Get the window limits of current window measrued in px.
      *
      * @returns { WindowLimits } - The limits of window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -10148,6 +10260,17 @@ declare namespace window {
      * @since 22 static
      */
     getWindowLimits(): WindowLimits;
+
+    /**
+     * Get the window limits of current window measrued in vp.
+     *
+     * @returns { WindowLimits } - The limits of window.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    getWindowLimitsVP(): WindowLimits;
 
     /**
      * Set the window limits of a window.
@@ -10862,9 +10985,22 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
      */
     on(type: 'rectChangeInGlobalDisplay', callback: Callback<RectChangeOptions>): void;
+
+    /**
+     * Register the callback of rect change in global display
+     *
+     * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onRectChangeInGlobalDisplay(callback: Callback<RectChangeOptions>): void;
 
     /**
      * Unregister the callback of rectChangeInGlobalDisplay
@@ -10875,9 +11011,22 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
      */
     off(type: 'rectChangeInGlobalDisplay', callback?: Callback<RectChangeOptions>): void;
+
+    /**
+     * Unregister the callback of rect change in global display
+     *
+     * @param { Callback<RectChangeOptions> } [callback] - Callback used to return the RectChangeOptions.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offRectChangeInGlobalDisplay(callback?: Callback<RectChangeOptions>): void;
 
     /**
      * Convert the window coordinates to the global coordinates.
@@ -10892,9 +11041,23 @@ declare namespace window {
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
      */
-    clientToGlobalDisplay(winX: number, winY: number): Position;
+    /**
+     * Convert the window coordinates to the global coordinates.
+     *
+     * @param { int } winX - Indicate the X-coordinate of the component relative to the current window.
+     * @param { int } winY - Indicate the Y-coordinate of the component relative to the current window.
+     * @returns { Position } Position - The pair {x, y} represents respectively the X-coordinate
+     *     and Y-coordinate of the window relative to the main screen.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    clientToGlobalDisplay(winX: int, winY: int): Position;
 
     /**
      * Convert the global coordinates to the window coordinates.
@@ -10909,9 +11072,23 @@ declare namespace window {
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
      */
-    globalDisplayToClient(globalDisplayX: number, globalDisplayY: number): Position;
+    /**
+     * Convert the global coordinates to the window coordinates.
+     *
+     * @param { int } globalDisplayX - Indicate the X-coordinate of the component relative to the main screen.
+     * @param { int } globalDisplayY - Indicate the Y-coordinate of the component relative to the main screen.
+     * @returns { Position } Position - The pair {x, y} represents respectively the X-coordinate
+     *     and Y-coordinate of the window relative to the current screen.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    globalDisplayToClient(globalDisplayX: int, globalDisplayY: int): Position;
 
     /**
      * Register the callback of rotation change
@@ -11219,7 +11396,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
+     * @since 22 static
      */
     setWindowDelayRaiseOnDrag(isEnabled: boolean): void;
 
@@ -11341,6 +11519,39 @@ declare namespace window {
      * @since 22 static
      */
     offFreeWindowModeChange(callback?: Callback<boolean>): void;
+
+    /**
+     * Set whether this window limits screen rotation when this window is shown.
+     *
+     * @param { boolean } locked - Screen rotation lock status to set.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Function setRotationLocked can not work correctly due
+     *     to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300029 - This window type is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    setRotationLocked(locked: boolean): Promise<void>;
+
+    /**
+     * Get whether this window limits screen rotation when this window is shown.
+     *
+     * @returns { boolean } - Screen rotation lock status of this window.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Function setRotationLocked can not work correctly due
+     *     to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300029 - This window type is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    getRotationLocked(): boolean;
   }
 
   /**
@@ -11613,8 +11824,8 @@ declare namespace window {
    * @interface SubWindowOptions
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   interface SubWindowOptions {
     /**
@@ -11630,7 +11841,8 @@ declare namespace window {
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     title: string;
     /**
@@ -11646,7 +11858,8 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     decorEnabled: boolean;
     /**
@@ -11655,7 +11868,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     isModal?: boolean;
     /**
@@ -11664,7 +11878,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     isTopmost?: boolean;
     /**
@@ -11673,7 +11888,8 @@ declare namespace window {
      * @type { ?ModalityType }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     modalityType?: ModalityType;
     /**
@@ -11682,7 +11898,8 @@ declare namespace window {
      * @type { ?Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
+     * @since 20 static
      */
     windowRect?: Rect;
     /**
@@ -11691,7 +11908,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
+     * @since 20 static
      */
     maximizeSupported?: boolean;
     /**
@@ -11700,7 +11918,8 @@ declare namespace window {
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
+     * @since 20 static
      */
     zLevel?: int;
     /**
@@ -11709,7 +11928,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     outlineEnabled?: boolean;
 
@@ -12777,8 +12997,8 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   enum ExtensionWindowAttribute {
     /**
@@ -12787,8 +13007,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     SYSTEM_WINDOW = 0,
 
@@ -12798,8 +13018,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     SUB_WINDOW = 1
   }
@@ -12811,8 +13031,8 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   interface SystemWindowOptions {
     /**
@@ -12822,8 +13042,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     windowType: WindowType;
   }
@@ -12835,8 +13055,8 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   interface ExtensionWindowConfig {
     /**
@@ -12846,8 +13066,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     windowName: string;
 
@@ -12858,7 +13078,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     windowAttribute: ExtensionWindowAttribute;
 
@@ -12869,7 +13090,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     windowRect: Rect;
 
@@ -12880,7 +13102,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     subWindowOptions?: SubWindowOptions;
 
@@ -12891,7 +13114,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     systemWindowOptions?: SystemWindowOptions;
   }

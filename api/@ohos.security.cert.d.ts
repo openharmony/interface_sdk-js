@@ -5952,6 +5952,19 @@ declare namespace cert {
      * @atomicservice
      * @since 22
      */
+    REVOCATION_CHECK_OPTION_CHECK_INTERMEDIATE_CA_ONLINE = 4,
+
+    /**
+     * When performing online OCSL or online CRL verification of certificate revocation status, it will also attempt to
+     * perform online revocation status checks on intermediate CA certificates. The OCSP address will be obtained from
+     * the AIA extension of the intermediate CA certificate, and the CRL address will be obtained from the CDP
+     * extension. If the address does not exist, it will be skipped.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     REVOCATION_CHECK_OPTION_LOCAL_CRL_ONLY_CHECK_END_ENTITY_CERT = 5
   }
 
@@ -7165,6 +7178,298 @@ declare namespace cert {
    * @arkts 1.1&1.2
    */
   function createCmsGenerator(contentType: CmsContentType): CmsGenerator;
+
+  /**
+   * The configuration for CMS verification.
+   *
+   * @typedef CmsVerificationConfig
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  interface CmsVerificationConfig {
+    /**
+     * The trust anchor certificates.
+     *
+     * @type { Array<X509Cert> }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    trustCerts: Array<X509Cert>;
+
+    /**
+     * The signer certificates.
+     *
+     * If the CMS signed data does not contain the signer certificate, the signer certificate should be specified here.
+     *
+     * @type { ?Array<X509Cert> }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    signerCerts?: Array<X509Cert>;
+
+    /**
+     * The content data.
+     *
+     * If the CMS signed data does not contain the content data, the content data should be specified here.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    contentData?: Uint8Array;
+
+    /**
+     * The content data format.
+     *
+     * @type { ?CmsContentDataFormat }
+     * @default CmsContentDataFormat.BINARY
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    contentDataFormat?: CmsContentDataFormat;
+  }
+
+  /**
+   * The configuration for CMS enveloped data decryption.
+   *
+   * @typedef CmsEnvelopedDecryptionConfig
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  interface CmsEnvelopedDecryptionConfig {
+    /**
+     * The private key info.
+     *
+     * If recipient is KeyTrans or KeyAgree type, the keyInfo should be specified here.
+     *
+     * @type { ?PrivateKeyInfo }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    keyInfo?: PrivateKeyInfo;
+
+    /**
+     * The certificate.
+     *
+     * The recipient certificate will be used to exactly match the information to be decrypted when recipient is
+     * KeyTrans or KeyAgree type.
+     *
+     * @type { ?X509Cert }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    cert?: X509Cert;
+
+    /**
+     * The encrypted content data.
+     *
+     * If the CMS enveloped data does not contain the encrypted content data, it should be specified here.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    encryptedContentData?: Uint8Array;
+
+    /**
+     * The content data format.
+     *
+     * @type { ?CmsContentDataFormat }
+     * @default CmsContentDataFormat.BINARY
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    contentDataFormat?: CmsContentDataFormat;
+  }
+
+  /**
+   * The type of CMS certificate.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  enum CmsCertType {
+    /**
+     * The signer certificate.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    SIGNER_CERTS = 0,
+
+    /**
+     * The recipient certificate.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    ALL_CERTS = 1,
+  }
+
+  /**
+   * The CMS parser.
+   *
+   * @typedef CmsParser
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  interface CmsParser {
+    /**
+     * Used to set the CMS raw data.
+     *
+     * @param { Uint8Array | string } data - the CMS raw data.
+     * @param { CmsFormat } cmsFormat - the CMS format.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     *     <br>1. The length of the data is zero or too large;
+     *     <br>2. The type of the cmsFormat is invalid or not supported.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    setRawData(data: Uint8Array | string, cmsFormat: CmsFormat): Promise<void>;
+
+    /**
+     * Used to get the CMS content type.
+     *
+     * @returns { CmsContentType } the CMS content type.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    getContentType(): CmsContentType;
+
+    /**
+     * Used to verify the CMS of the SIGNED_DATA content type.
+     *
+     * @param { CmsVerificationConfig } config - the CMS verification configuration.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     *     <br>1. The trustCerts of config is empty;
+     *     <br>2. The length of the contentData of config is zero or too large;
+     *     <br>3. The contentDataFormat of config is invalid or not supported.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030003 - the certificate has not taken effect.
+     * @throws { BusinessError } 19030004 - the certificate has expired.
+     * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    verifySignedData(config: CmsVerificationConfig): Promise<void>;
+
+    /**
+     * Used to get the original content data from the CMS of the SIGNED_DATA content type.
+     *
+     * This interface should be called after the verifySignedData interface is successfully called.
+     *
+     * @returns { Promise<Uint8Array> } the promise returned by the function.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    getContentData(): Promise<Uint8Array>;
+
+    /**
+     * Used to get the certificates from the CMS of the SIGNED_DATA content type.
+     *
+     * @param { CmsCertType } type - the type of the certificates.
+     * @returns { Promise<Array<X509Cert>> } the promise returned by the function.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     *     <br>1. The type of the cmsFormat is invalid or not supported.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    getCerts(type: CmsCertType): Promise<Array<X509Cert>>;
+
+    /**
+     * Used to decrypt the CMS of the ENVELOPED_DATA content type.
+     *
+     * @param { CmsEnvelopedDecryptionConfig } config - the CMS enveloped decryption configuration.
+     * @returns { Promise<Uint8Array> } the promise returned by the function.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     *     <br>1. The private key is invalid or not supported;
+     *     <br>2. The recipient certificate is invalid or not supported.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    decryptEnvelopedData(config: CmsEnvelopedDecryptionConfig): Promise<Uint8Array>;
+  }
+
+  /**
+   * Used to create CmsParser.
+   *
+   * @returns { CmsParser } the CmsParser.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+   *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  function createCmsParser(): CmsParser;
 
   /**
    * Additional information about the subject of the certificate.

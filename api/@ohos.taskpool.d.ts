@@ -1972,6 +1972,19 @@ declare namespace taskpool {
      */
     error?: Error | Object;
   }
+
+  /**
+   * Get task instance from the task pool. 
+   *
+   * @param { number } taskId - Task id.
+   * @param { string } [taskName] - Task name.
+   * @returns { Task | undefined }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamiconly
+   */
+  function getTask(taskId: number, taskName?: string): Task | undefined;
 }
 
 export default taskpool;

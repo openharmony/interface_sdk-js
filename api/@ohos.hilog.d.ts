@@ -18,6 +18,10 @@
  * @kit PerformanceAnalysisKit
  */
 
+/*** if arkts 1.2 */
+import { RecordData } from '@ohos.base';
+/*** endif */
+
 /**
  * Provides interfaces to generate system logs.
  *
@@ -44,18 +48,6 @@
  * @arkts 1.1&1.2
  */
 declare namespace hilog {
-
-  /**
-   * Using RecordData Replace any, unknown, ESObject.
-   * 
-   * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> }
-   * @syscap SystemCapability.HiviewDFX.HiLog
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
 
   /**
    * Outputs debug-level logs.
@@ -98,7 +90,7 @@ declare namespace hilog {
   /**
    * Outputs debug-level logs.
    *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   * @param { int } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
@@ -109,7 +101,7 @@ declare namespace hilog {
    * @since 20
    * @arkts 1.2
    */
-  function debug(domain: number, tag: string, format: string, ...args: RecordData[]): void;
+  function debug(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
    * Outputs info-level logs.
@@ -152,7 +144,7 @@ declare namespace hilog {
   /**
    * Outputs info-level logs.
    *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   * @param { int } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
@@ -163,7 +155,7 @@ declare namespace hilog {
    * @since 20
    * @arkts 1.2
    */
-  function info(domain: number, tag: string, format: string, ...args: RecordData[]): void;
+  function info(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
    * Outputs warning-level logs.
@@ -206,7 +198,7 @@ declare namespace hilog {
   /**
    * Outputs warning-level logs.
    *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   * @param { int } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
@@ -217,7 +209,7 @@ declare namespace hilog {
    * @since 20
    * @arkts 1.2
    */
-  function warn(domain: number, tag: string, format: string, ...args: RecordData[]): void;
+  function warn(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
    * Outputs error-level logs.
@@ -260,7 +252,7 @@ declare namespace hilog {
   /**
    * Outputs error-level logs.
    *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   * @param { int } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
@@ -271,7 +263,7 @@ declare namespace hilog {
    * @since 20
    * @arkts 1.2
    */
-  function error(domain: number, tag: string, format: string, ...args: RecordData[]): void;
+  function error(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
    * Outputs fatal-level logs.
@@ -314,7 +306,7 @@ declare namespace hilog {
   /**
    * Outputs fatal-level logs.
    *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   * @param { int } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
@@ -325,7 +317,7 @@ declare namespace hilog {
    * @since 20
    * @arkts 1.2
    */
-  function fatal(domain: number, tag: string, format: string, ...args: RecordData[]): void;
+  function fatal(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
    * Checks whether logs of the specified tag, and level can be printed.
@@ -341,7 +333,7 @@ declare namespace hilog {
   /**
    * Checks whether logs of the specified tag, and level can be printed.
    *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   * @param { int } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { LogLevel } level log level
@@ -351,7 +343,7 @@ declare namespace hilog {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function isLoggable(domain: number, tag: string, level: LogLevel): boolean;
+  function isLoggable(domain: int, tag: string, level: LogLevel): boolean;
 
   /**
    * Sets the lowest log level of the current application process.
@@ -393,7 +385,7 @@ declare namespace hilog {
   /**
    * Log level define
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
@@ -521,7 +513,7 @@ declare namespace hilog {
   /**
    * Enumerates preference strategy to be used in setLogLevel.
    * 
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice

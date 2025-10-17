@@ -213,6 +213,17 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
     * @since 22
     */
    updateConfiguration(): void;
+
+   /**
+    * Flushes the current state changes to update the ReactiveComponentContent immediately.
+    * This forces a synchronous update of the compponent with the latest state values.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 22 dynamic
+    */
+   flushState(): void;
   
    /**
     * Set if the ReactiveComponentContent inherits the freezing policy of the parent CustomComponent, ComponentContent,

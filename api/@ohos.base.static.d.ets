@@ -74,21 +74,23 @@
    * @since 20 static
    */
    constructor(code: int, data: T, error: Error);
+   /**
+   * A constructor used to create a BusinessError object
+   * @param { int } code
+   * @param { string } message
+   * @param { T } [data]
+   * @syscap SystemCapability.Base
+   * @since 20 static
+   */
+   constructor(code: int, message: string, data?: T);
  
-    /**
-    * Defines the basic error code.
-    * @type { int } code
-    * @syscap SystemCapability.Base
-    * @since 20 static
-    */
-   code: int;
     /**
     * Defines the additional information for business
     * @type { ?T } data
     * @syscap SystemCapability.Base
     * @since 20 static
     */
-   data?: T;
+   public data?: T;
  }
  
  /**
@@ -96,7 +98,7 @@
   * of attributes per level are uncertain, you can use RecordData for initialization.
   * @typedef RecordData
   * @syscap SystemCapability.Base
-  * @since 20 static
+  * @since 20 staticonly
   * @example
   * import { RecordData } from '@kit.BasicServiceKit';
   * const param: RecordData = {

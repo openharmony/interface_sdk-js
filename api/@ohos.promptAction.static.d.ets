@@ -16,16 +16,15 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { ResourceColor, Offset, Dimension, EdgeStyles, EdgeColors, EdgeWidths, BorderRadiuses, VoidCallback } from '@ohos.arkui.component';
-import { AsyncCallback, Callback } from './@ohos.base';
+import { AsyncCallback, Callback } from '@ohos.base';
 import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, TransitionEffect, KeyboardAvoidMode, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions } from '@ohos.arkui.component';
 import { CustomBuilder } from '@ohos.arkui.component';
 import { DialogAlignment } from '@ohos.arkui.component';
 import { DismissDialogAction } from '@ohos.arkui.component';
 import { BorderStyle, Alignment } from '@ohos.arkui.component';
-import { Resource } from './global/resource';
+import { Resource } from 'global.resource';
 import { LengthMetrics } from 'arkui.Graphics';
 /**
  * Define the display mode of all kind of dialog
@@ -550,35 +549,35 @@ declare namespace promptAction {
         /**
          * Callback function when the dialog appears.
          *
-         * @type { ?Callback<void> }
+         * @type { ?VoidCallback }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 staticonly
          */
-        onDidAppear?: Callback<void>;
+        onDidAppear?: VoidCallback;
         /**
          * Callback function when the dialog disappears.
          *
-         * @type { ?Callback<void> }
+         * @type { ?VoidCallback }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 staticonly
          */
-        onDidDisappear?: Callback<void>;
+        onDidDisappear?: VoidCallback;
         /**
          * Callback function before the dialog openAnimation starts.
          *
-         * @type { ?Callback<void> }
+         * @type { ?VoidCallback }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 staticonly
          */
-        onWillAppear?: Callback<void>;
+        onWillAppear?: VoidCallback;
         /**
          * Callback function before the dialog closeAnimation starts.
          *
-         * @type { ?Callback<void> }
+         * @type { ?VoidCallback }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 staticonly
          */
-        onWillDisappear?: Callback<void>;
+        onWillDisappear?: VoidCallback;
         /**
          * Determine the display level of the dialog.
          *

@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { CancelButtonSymbolOptions, CancelButtonOptions } from "./search";
 import { Callback, CommonMethod, TextContentControllerBase, SelectionOptions, InputCounterOptions, TextDecorationOptions, Optional, Bindable, AttributeModifier } from "./common";
@@ -615,11 +614,11 @@ export declare class TextInputController extends TextContentControllerBase {
      * <br>If the value exceeds the text length, the caret is placed at the end of the text.
      * </p>
      *
-     * @param { number } value
+     * @param { int } value
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    caretPosition(value: number): void;
+    caretPosition(value: int): void;
     /**
      * Text selection is achieved by specifying the start and end positions of the text.
      *
@@ -631,18 +630,18 @@ export declare class TextInputController extends TextContentControllerBase {
      * the emoji is selected when its start position is within the text selection range.
      * </p>
      *
-     * @param { number } selectionStart - The start position of the selected text.The start position of text in the text box is 0.
-     * @param { number } selectionEnd - The end position of the selected text.
+     * @param { int } selectionStart - The start position of the selected text.The start position of text in the text box is 0.
+     * @param { int } selectionEnd - The end position of the selected text.
      * @param { SelectionOptions } [options] - Indicates the options of the text selection.Default value is MenuPolicy.DEFAULT.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    setTextSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
+    setTextSelection(selectionStart: int, selectionEnd: int, options?: SelectionOptions): void;
     /**
      * Exit edit state.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     stopEditing(): void;
 }
@@ -766,23 +765,23 @@ export type OnSubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => v
  *
  * Anonymous Object Rectification.
  * @typedef { function } OnTextSelectionChangeCallback
- * @param { number } selectionStart - The starting position of the selected text, the starting position of the text is 0.
- * @param { number } selectionEnd - The end location of the selected text.
+ * @param { int } selectionStart - The starting position of the selected text, the starting position of the text is 0.
+ * @param { int } selectionEnd - The end location of the selected text.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
-export type OnTextSelectionChangeCallback = (selectionStart: number, selectionEnd: number) => void;
+export type OnTextSelectionChangeCallback = (selectionStart: int, selectionEnd: int) => void;
 /**
  * Defines a TextInput callback when onContentScroll.
  *
  * Anonymous Object Rectification.
  * @typedef { function } OnContentScrollCallback
- * @param { number } totalOffsetX - The text is offset in px on the horizontal axis of the content area.
- * @param { number } totalOffsetY - The text is offset in px on the vertical axis of the content area.
+ * @param { double } totalOffsetX - The text is offset in px on the horizontal axis of the content area.
+ * @param { double } totalOffsetY - The text is offset in px on the vertical axis of the content area.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
-export type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: number) => void;
+export type OnContentScrollCallback = (totalOffsetX: double, totalOffsetY: double) => void;
 /**
  * Defines a TextInput callback when onPaste.
  *
@@ -965,12 +964,12 @@ export declare interface TextInputAttribute extends CommonMethod {
      * <br>If a decimal number is specified, the integer part is used.
      * </p>
      *
-     * @param { number | undefined } value - Default value is Infinity, indicating that there is no upper limit on the number of characters that can be entered.
+     * @param { int | undefined } value - Default value is Infinity, indicating that there is no upper limit on the number of characters that can be entered.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default maxLength(value: number | undefined): this;
+    default maxLength(value: int | undefined): this;
     /**
      * Called when the font color is set.
      *
@@ -1008,12 +1007,12 @@ export declare interface TextInputAttribute extends CommonMethod {
     /**
     * Called when the font weight is set.
     *
-    * @param { number | FontWeight | string | undefined } value
+    * @param { int | FontWeight | string | undefined } value
     * @returns { TextInputAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 20 static
     */
-    default fontWeight(value: number | FontWeight | string | undefined): this;
+    default fontWeight(value: int | FontWeight | string | undefined): this;
     /**
      * Called when the font list of text is set.
      *
@@ -1168,12 +1167,12 @@ export declare interface TextInputAttribute extends CommonMethod {
     /**
      * Define the caret position of the text input.
      *
-     * @param { number | undefined } value
+     * @param { int | undefined } value
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default caretPosition(value: number | undefined): this;
+    default caretPosition(value: int | undefined): this;
     /**
      * Sets whether request keyboard or not when on focus.
      * Sets whether to enable the input method when the TextInput component obtains focus in a way other than clicking.
@@ -1296,12 +1295,12 @@ export declare interface TextInputAttribute extends CommonMethod {
      * Define max lines of the text input.
      * Value range: (0, +∞)
      *
-     * @param { number | undefined } value - Default value is 3.
+     * @param { int | undefined } value - Default value is 3.
      * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default maxLines(value: number | undefined): this;
+    default maxLines(value: int | undefined): this;
     /**
      * Set the text inline style word break type.
      *
@@ -1385,12 +1384,21 @@ export declare interface TextInputAttribute extends CommonMethod {
     /**
      * Set the cancel button style
      *
-     * @param { CancelButtonOptions | CancelButtonSymbolOptions | undefined } symbolOptions - indicates the style of the cancel button.
+     * @param { CancelButtonOptions | undefined } iconOptions - indicates the image style of the cancel button.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default cancelButton(symbolOptions: CancelButtonOptions | CancelButtonSymbolOptions | undefined): this;
+    default cancelButton(iconOptions: CancelButtonOptions | undefined): this;
+    /**
+     * Set the cancel button style
+     *
+     * @param { CancelButtonSymbolOptions | undefined } symbolOptions - indicates the symbol style of the cancel button.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    default cancelButton(symbolOptions: CancelButtonSymbolOptions | undefined): this;
     /**
      * Sets selection when on focus.
      *
@@ -1415,12 +1423,12 @@ export declare interface TextInputAttribute extends CommonMethod {
      * <br>When the adaptive font size is used, the fontSize settings do not take effect.
      * </p>
      *
-     * @param { number | string | Resource | undefined } value -  The unit is fp.
+     * @param { double | string | Resource | undefined } value -  The unit is fp.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default minFontSize(value: number | string | Resource | undefined): this;
+    default minFontSize(value: double | string | Resource | undefined): this;
     /**
      * Called when the maximum font size of the font is set.
      *
@@ -1432,30 +1440,30 @@ export declare interface TextInputAttribute extends CommonMethod {
      * <br>When the adaptive font size is used, the fontSize settings do not take effect.
      * </p>
      *
-     * @param { number | string | Resource | undefined } value -  The unit is fp.
+     * @param { double | string | Resource | undefined } value -  The unit is fp.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default maxFontSize(value: number | string | Resource | undefined): this;
+    default maxFontSize(value: double | string | Resource | undefined): this;
     /**
      * Called when the minimum font scale of the font is set.
      *
-     * @param { number | Resource | undefined } scale
+     * @param { double | Resource | undefined } scale
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default minFontScale(scale: number | Resource | undefined): this;
+    default minFontScale(scale: double | Resource | undefined): this;
     /**
      * Called when the maximum font scale of the font is set.
      *
-     * @param { number | Resource | undefined } scale
+     * @param { double | Resource | undefined } scale
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default maxFontScale(scale: number | Resource | undefined): this;
+    default maxFontScale(scale: double | Resource | undefined): this;
     /**
      * Called when the height adaptive policy is set.
      *
@@ -1517,12 +1525,12 @@ export declare interface TextInputAttribute extends CommonMethod {
      * and no content being displayed.
      * </p>
      *
-     * @param { number | string | Resource | undefined } value -  The unit is fp.
+     * @param { double | string | Resource | undefined } value -  The unit is fp.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default letterSpacing(value: number | string | Resource | undefined): this;
+    default letterSpacing(value: double | string | Resource | undefined): this;
     /**
      * Called when the line height of the font is set.
      *
@@ -1532,12 +1540,12 @@ export declare interface TextInputAttribute extends CommonMethod {
      * <br>For the string type, numeric string values with optional units, for example, "10" or "10fp", are supported.
      * </p>
      *
-     * @param { number | string | Resource | undefined } value
+     * @param { double | string | Resource | undefined } value
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default lineHeight(value: number | string | Resource | undefined): this;
+    default lineHeight(value: double | string | Resource | undefined): this;
     /**
      * Define the password rules of the text input.
      *

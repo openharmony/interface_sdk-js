@@ -2512,6 +2512,252 @@ declare namespace hiAppEvent {
    * @since 20 static
    */
   function removeProcessor(id: long): void;
+
+  /**
+   * Definition of main thread jank event policy
+   *
+   * @interface MainThreadJankPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  interface MainThreadJankPolicy {
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     * logType = 0: Default value. When the main thread times out consecutively twice within 150ms~450ms,
+     *     the call stack is collected; when the main thread times out for 450ms, a trace is collected.
+     * logType = 1: Only the call stack is collected, and the threshold for triggering detection is user-defined.
+     * logType = 2: Only the trace is collected.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    logType?: int;
+
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     * Ignore main thread timeout detection during startup.Unit: seconds (s), Minimum value: 3, Default
+     * value: 10.Timeout detection is not performed for a certain period after thread startup.Some processes
+     * have longer startup times, and capturing full timeout sampling stacks during this period holds little
+     * analytical value.Therefore, timeout detection is disabled within the startup time interval
+     * defined by the developer.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    ignoreStartupTime?: int;
+
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     * The timeout detection interval and sampling interval for the main thread.
+     * The unit is milliseconds (ms), and the value range is [50, 500]. The Default Value is 150 (ms).
+     * The system performs timeout detection judgments based on the interval set by the developer and
+     *     uses this interval as the period for periodic task detection.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    sampleInterval?: int;
+
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     * Number of main thread timeout samples. Once the system detects that the current main thread task
+     *    execution exceeds the sampling limit, it periodically collects stack traces at each interval,
+     *    for a total of sample_count times.Default value: 1 time(s), Unit: time(s). The maximum value
+     *    is dynamically calculated based on the custom sampleInterval, using the formula:
+     *    sampleCount <= (2500 / sampleInterval - 4).
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    sampleCount?: int;
+
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     * Number of main thread timeout sampling reports per application PID within a single lifecycle.
+     *     This can only be set once per lifecycle.Default value: 1 time(s), Unit: time(s). The max
+     *     value is 180. Exceed max value will be set to max value.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    reportTimesPerApp?: int;
+
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     * Stop sampling main thread stack when main thread blockage is resolved. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    autoStopSampling?: boolean;
+  }
+
+  /**
+   * Definition of cpu usage high event policy
+   *
+   * @interface CpuUsageHighPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  interface CpuUsageHighPolicy {
+    /**
+     * The policy for CPU_USAGE_HIGH event
+     * The param is used for user to set the threshould for foreground progress cpu load anomaly,
+     * The value rang is [1, 100], Strongly recommend less than 30
+     * If not set the param, the default value is 30.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    foregroundLoadThreshold?: int;
+
+    /**
+     * The policy for CPU_USAGE_HIGH event
+     * The param is used for user to set the threshould for background progress cpu load anomaly,
+     * The value rang is [1, 100] Strongly recommend less than 10.
+     * If not set the param, the default value is 10.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    backgroundLoadThreshold?: int;
+
+    /**
+     * The policy for CPU_USAGE_HIGH event
+     * The param is used for user to set the threshould for thread cpu load anomaly,
+     * The value rang is [15, 100]
+     * If not set the param, the default value is 70.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    threadLoadThreshold?: int;
+
+    /**
+     * The policy for CPU_USAGE_HIGH event
+     * The number of log captures per day. Once the system detects that the  execution count of the
+     * current abnormal log, The value rang is [-1, 100]
+     * if it exceeds the perfLogCaptureCount, it will stop capture logs but it will still report anomaly event.
+     * perfLogCaptureCount = -1: Collection log times per day is not limited per day.
+     * perfLogCaptureCount = 0 : Collection log times per day is zero, do not collect logs.
+     * perfLogCaptureCount > 0 : Collection log times per day is perfLogCaptureCount.
+     * perfLogCaptureCount default value is zero
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    perfLogCaptureCount?: int;
+
+    /**
+     * The policy for CPU_USAGE_HIGH event
+     * The Interval of cpu thread anomaly, The unit is second. If not set, default is 60s;
+     * The value rang is [5, 3600] Strongly recommend multiples of 5.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    threadLoadInterval?: int;
+  }
+
+  /**
+   * Definition of resource overlimit event policy
+   *
+   * @interface ResourceOverlimitPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  interface ResourceOverlimitPolicy {
+    /**
+     * The policy for RESOURCE_OVERLIMIT event
+     * This parameter is used to specify whether to pass profiler logs for native leak.
+     * When certain conditions are met and this parameter is set to true, profiler logs will
+     * be passed into the sandbox.
+     * If not set the param, the default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    collectNativeHeapProfile?: boolean;
+  }
+
+  /**
+   * Definition of event policy
+   *
+   * @interface EventPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  interface EventPolicy {
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     *
+     * @type { ?MainThreadJankPolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    mainThreadJankPolicy?: MainThreadJankPolicy;
+
+    /**
+     * The policy for CPU_USAGE_HIGH event
+     *
+     * @type { ?CpuUsageHighPolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    cpuUsageHighPolicy?: CpuUsageHighPolicy;
+
+    /**
+     * The policy for RESOURCE_OVERLIMIT event
+     *
+     * @type { ?ResourceOverlimitPolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    resourceOverlimitPolicy?: ResourceOverlimitPolicy;
+  }
+
+  /**
+   * Configure target event process policy with name
+   *
+   * @param { EventPolicy } policy The policy object.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  function configEventPolicy(policy: EventPolicy): Promise<void>;
 }
 
 export default hiAppEvent;

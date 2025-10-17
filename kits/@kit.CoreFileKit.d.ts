@@ -64,20 +64,16 @@ import fileUri from '@ohos.file.fileuri';
 import fileIo from '@ohos.file.fs'
 import {
   Filter, Options, ReaderIteratorResult, WatchEvent, WatchEventListener,
-  Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions, DfsListeners, TaskSignal
+  Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions, TaskSignal
 } from '@ohos.file.fs';
 import hash from '@ohos.file.hash';
 import securityLabel from '@ohos.file.securityLabel';
 import statfs from '@ohos.file.statvfs';
-import storageStatistics from '@ohos.file.storageStatistics';
-import volumeManager from '@ohos.file.volumeManager';
-import keyManager from '@ohos.file.keyManager';
 import fileShare from '@ohos.fileshare';
 
 export {
   BackupExtensionAbility, BundleVersion, Environment, Filter, Options, ReaderIteratorResult,
   WatchEvent, WatchEventListener, Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions,
-  cloudSync, cloudSyncManager, fileIo, fileShare, fileUri, hash, securityLabel, statfs,
-  storageStatistics, volumeManager, keyManager, DfsListeners, TaskSignal
+  cloudSync, cloudSyncManager, fileIo, fileShare, fileUri, hash, securityLabel, statfs, TaskSignal
 };
 /*** endif */
