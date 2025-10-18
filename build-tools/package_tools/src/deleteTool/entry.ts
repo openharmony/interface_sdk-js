@@ -13,60 +13,56 @@
  * limitations under the License.
  */
 
-import fs from 'fs';
-import path from 'path';
-import commander = from'commander';
+const fs = require('fs');
+const path = require('path');
+const commander = require('commander');
 // @ts-ignore
-import { arkts, arktsGlobal } from '../dependence/koala-wrapper/build/lib/es2panda';
+const { arkts, arktsGlobal } = require('../dependence/koala-wrapper/build/lib/es2panda');
 
-function writeStringToFile(content: string, filePath: string, options: fs.WriteFileOptions = { encoding: 'utf8' }) {
+function writeStringToFile(content, filePath, options = { encoding: 'utf8' }) {
   // 确保目录存在
-  const dir: string = path.dirname(filePath);
-  fs.mkdir(dir, { recursive: true }, (mkdirErr: NodeJS.ErrnoException | null) => {
-    if (mkdirErr) {
-      console.error(`创建目录失败: ${mkdirErr.message}`);
-    } 
-    // 写入文件
-    fs.writeFile(filePath, content, options, (writeErr: NodeJS.ErrnoException | null) => {
-      if (writeErr) {
-        console.error(`写入文件失败: ${writeErr.message}`);
-      }
-      console.log(`文件已成功写入: ${filePath}`);
-    });
+  const dir = path.dirname(filePath);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+  // 写入文件
+  fs.writeFile(filePath, content, options, (writeErr) => {
+    if (writeErr) {
+      console.error(`写入文件失败: ${writeErr.message}`);
+    }
+    console.log(`文件已成功写入: ${filePath}`);
   });
 }
 
-export function deleteEntry(input: string, output: string, isStatic: boolean = false) {
-  const currentPath: string = process.env.PATH || '';
-  const etspandaPath: string = '../dependence/ets2panda/lib'
+function deleteEntry(input, output) {
+  const currentPath = process.env.PATH || '';
+  const etspandaPath = '../dependence/ets2panda/lib'
   process.env.PATH = `${currentPath}${path.delimiter}${etspandaPath}`;
   process.env.LD_LIBRARY_PATH = etspandaPath;
 
-  const filePath: string = input;
+  const filePath = input;
   const ets2pandaCmd = [
     '_',
     '--extension',
     'ets',
     '--arktsconfig',
-    'D:/workspace/code/arkts2.0_sdk/bugfix/0805_testPanda/tools/arktsconfig.json'
+    '../dependence/arktsconfig.json'
   ];
   ets2pandaCmd.push('--debug-info');
   ets2pandaCmd.push(filePath);
 
-  const source: string = fs.readFileSync(filePath).toString();
+  const source = fs.readFileSync(filePath).toString();
   arktsGlobal.filePath = filePath;
   arktsGlobal.config = arkts.Config.create(ets2pandaCmd).peer;
   arktsGlobal.compilerContext = arkts.Context.createFromString(source);
   arkts.proceedToState(arkts.Es2pandaContextState.ES2PANDA_STATE_PARSED, arktsGlobal.compilerContext.peer);
 
   const ast = arkts.EtsScript.fromContext();
-  // traverseProgram(ast)
-  const statements: any[] = ast.statements;
+  const statements = ast.statements;
 
-  let content: string = '';
+  let content = '';
 
   for (const sta of statements) {
-    // console.log(arkts.getJsdocStringFromDeclaration(sta))
     let nodeJSDoc = '';
     const staJSDoc = arkts.getJsdocStringFromDeclaration(sta);
     if (staJSDoc !== 'Empty Jsdoc') {
@@ -74,21 +70,22 @@ export function deleteEntry(input: string, output: string, isStatic: boolean = f
     }
     content += nodeJSDoc + sta.dumpSrc();
   }
-  const outFilePath = path.join(__dirname, 'output.txt');
-  
+
+  const outFilePath = path.join(path.resolve(output), path.basename(filePath));
+
   writeStringToFile(content, outFilePath);
 }
 
 function main() {
   const program = new commander.Command();
   program
-    .name('test')
+    .name('delete')
     .version('0.0.1');
   program
-    .option('--path <string>', 'path name')
-    .action((opts:any) => {
-      deleteEntry(opts.path,'')
-      console.log(1)
+    .option('--input <string>', 'path name')
+    .option('--output <string>', 'path name')
+    .action((opts) => {
+      deleteEntry(opts.input, opts.output)
     });
   program.parse(process.argv);
 }
