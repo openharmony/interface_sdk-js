@@ -11292,6 +11292,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 22 dynamic
    */
   enableSelectedDataDetector(enable: boolean): WebAttribute
+
+  /**
+   * Set up web component to support AI image recognition capability.
+   *
+   * @param { boolean } enable - {@code true} means the Web AI image recognition capability,
+   *    {@code false} otherwise.
+   *    The default value is true.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  enableImageAnalyzer(enable: boolean): WebAttribute;
 }
 
 /**

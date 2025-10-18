@@ -6001,6 +6001,17 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default backToTop(backToTop: boolean | undefined): this;
     /**
+    * Set up web component to support AI image recognition capability.
+    *
+    * @param { boolean | undefined } enable - {@code true} means the Web AI image recognition capability,
+    *    {@code false} otherwise.
+    *    The default value is true.
+    * @returns { WebAttribute }
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    default enableImageAnalyzer(enable: boolean | undefined): this;
+    /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<WebAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
