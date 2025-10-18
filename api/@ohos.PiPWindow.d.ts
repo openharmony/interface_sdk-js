@@ -337,26 +337,6 @@ declare namespace PiPWindow {
   }
 
   /**
-   * The info of picture-in-picture active status
-   *
-   * @interface PiPActiveStatus
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 20
-   */
-  interface PiPActiveStatus {
-    /**
-     * Indicates current window active status.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 20
-     */
-    status: number;
-  }
-
-  /**
    * Describe the type of picture-in-picture.
    *
    * @enum { number }.
@@ -827,6 +807,40 @@ declare namespace PiPWindow {
     MUTE_SWITCH = 8,
   }
 
+  /**
+   * Enum for active status.
+   *
+   * @enum { number }.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 22
+   */
+  enum PiPActiveStatus {
+    /**
+     * unknown status.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22
+     */
+    STATUS_UNKNOWN = -1,
+    /**
+     * foreground status, pip is on foreground.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22
+     */
+    STATUS_FOREGROUND = 0,
+    /**
+     * sidebar status, pip is in sidebar.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22
+     */
+    STATUS_SIDEBAR = 1,
+  }  
 
   /**
    * Describe picture-in-picture action event type.
@@ -1235,34 +1249,31 @@ declare namespace PiPWindow {
     off(type: 'pipWindowSizeChange', callback?: Callback<PiPWindowSize>): void;
 
     /**
-     * Register picture-in-picture active status change event listener
+     * Register picture-in-picture active status change listener
      *
-     * @param { 'activeStatusChange' } type - The value is fixed at 'activeStatusChange', indicating the picture-in-picture
-     * active status change event.
-     * @param { Callback<PiPActiveStatus> } callback - Callback used to return the picture-in-picture active status.
-     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *                                                                2. Incorrect parameter types.
-     *                                                                3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @param { 'activeStatusChange' } type - Registration type, active status change, 'activeStatusChange'
+     * @param { Callback<PiPActiveStatus> } callback - Used to handle {'activeStatusChange'} command.
+     * @throws { BusinessError } 801 - Capability not supported. 
+     *     function on('activeStatusChange', callback) can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20
+     * @since 22
      */
     on(type: 'activeStatusChange', callback: Callback<PiPActiveStatus>): void;
 
     /**
-     * Unregister picture-in-picture status change change event listener
+     * Register picture-in-picture active status change listener
      *
-     * @param { 'activeStatusChange' } type - The value is fixed at 'activeStatusChange', indicating the picture-in-picture
-     * active status change event.
-     * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
-     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *                                                                2. Incorrect parameter types.
-     *                                                                3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @param { 'activeStatusChange' } type - Registration type, active status change, 'activeStatusChange'
+     * @param { Callback<PiPActiveStatus> } callback - Used to handle {'activeStatusChange'} command. If not provided,
+     *     all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported. 
+     *     function on('activeStatusChange', callback) can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20
+     * @since 22
      */
     off(type: 'activeStatusChange', callback?: Callback<PiPActiveStatus>): void;
     
