@@ -1386,7 +1386,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22
      */
-    MODE_AV_PLAYBACK_AND_RECORD = 10,
+    MODE_AV_PLAYBACK_AND_RECORD = 12,
 
     /**
      * special scenario processing mode.
@@ -1394,7 +1394,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22
      */
-    MODE_SPECIAL_SCENARIO_PROCESSING = 11
+    MODE_SPECIAL_SCENARIO_PROCESSING = 13
   }
 
   /**
