@@ -49,16 +49,41 @@ import { Size } from './Graphics';
  * <br>LazyForEach, List, Scroll, Swiper, TimePicker, @Component decorated custom components, NodeContainer,
  * <br>and FrameNode and RenderNode mounted to a NodeContainer.
  * </p>
-
-For details, see Rendering and Drawing Video and Button Components at the Same Layer.
+ * For details, see Rendering and Drawing Video and Button Components at the Same Layer.
  *
  * @enum { number } Render type
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12 dynamic
+ * @since 12
  */
-declare enum NodeRenderType {
+/**
+ * Render type of the node using for indicating that
+ * if the node will be shown on the display or rendered to a texture
+ * 
+ * <p><strong>NOTE</strong>:
+ * <br>Currently, the <em>RENDER_TYPE_TEXTURE</em> type takes effect only for the XComponentNode and the BuilderNode
+ * <br>holding a component tree whose root node is a custom component.
+ * <br>In the case of BuilderNode, the following custom components that function as the root node support texture export:
+ * <br>Badge, Blank, Button, CanvasGradient, CanvasPattern, CanvasRenderingContext2D, Canvas, CheckboxGroup, Checkbox,
+ * <br>Circle, ColumnSplit, Column, ContainerSpan, Counter, DataPanel, Divider, Ellipse, Flex, Gauge, Hyperlink,
+ * <br>ImageBitmap, ImageData, Image, Line, LoadingProgress, Marquee, Matrix2D, OffscreenCanvasRenderingContext2D,
+ * <br>OffscreenCanvas, Path2D, Path, PatternLock, Polygon, Polyline, Progress, QRCode, Radio, Rating, Rect,
+ * <br>RelativeContainer, RowSplit, Row, Shape, Slider, Span, Stack, TextArea, TextClock, TextInput, TextTimer, Text,
+ * <br>Toggle, Video (without support for full-screen playback), Web, XComponent
+ * <br>The following components support texture export since API version 12: DatePicker, ForEach, Grid, IfElse,
+ * <br>LazyForEach, List, Scroll, Swiper, TimePicker, @Component decorated custom components, NodeContainer,
+ * <br>and FrameNode and RenderNode mounted to a NodeContainer.
+ * </p>
+ * For details, see Rendering and Drawing Video and Button Components at the Same Layer.
+ *
+ * @enum { number } Render type
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20 dynamic
+ */
+export declare enum NodeRenderType {
   /**
    * Display type.The node will be shown on the display.
    *
