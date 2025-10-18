@@ -10012,7 +10012,7 @@ declare namespace window {
     /**
      * Raise main window above another.
      *
-     * @param { number } windowId - Indicates target window id.
+     * @param { int } windowId - Indicates target window id.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -10024,9 +10024,10 @@ declare namespace window {
      *     1. Invalid Parameter range. 2. Invalid parameter length.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
-    raiseMainWindowAboveTarget(windowId: number): Promise<void>;
+    raiseMainWindowAboveTarget(windowId: int): Promise<void>;
 
     /**
      * Set whether to enable an app sub window to raise itself by click.
