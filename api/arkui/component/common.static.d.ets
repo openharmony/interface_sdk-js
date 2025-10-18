@@ -352,29 +352,29 @@ export declare interface ExpectedFrameRateRange {
     /**
      * The minimum animation drawing FPS.
      * The minimum value should be less than or equal to the maximum value.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    min: number;
+    min: int;
     /**
      * The maximum animation drawing FPS.
      * The maximum value should be greater than or equal to the minimum value.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    max: number;
+    max: int;
     /**
      * The expected frame rate of dynamical callback rate range.
      * The value should be between the minimum and maximum value.
      * Otherwise, the actual callback rate will be dynamically
      * adjusted to better align with other animation sources.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    expected: number;
+    expected: int;
 }
 /**
  * global $r function
@@ -3203,12 +3203,12 @@ export declare interface BlurStyleOptions {
      * <br>Default value: **1.0**.
      * <br>Value range: [0.0, 1.0].
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 1.0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    scale?: number;
+    scale?: double;
     /**
      * Defines the options of blur
      *
@@ -3607,22 +3607,22 @@ export declare interface MultiShadowOptions {
      * Offset on the x-axis.
      * Unit: vp.
      *
-     * @type { ?(number | Resource) }
+     * @type { ?(double | Resource) }
      * @default 5
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    offsetX?: number | Resource;
+    offsetX?: double | Resource;
     /**
      * Offset on the y-axis.
      * Unit: vp.
      *
-     * @type { ?(number | Resource) }
+     * @type { ?(double | Resource) }
      * @default 5
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    offsetY?: number | Resource;
+    offsetY?: double | Resource;
 }
 /**
  * The types of expanded safe areas.
@@ -7605,21 +7605,21 @@ export declare class ProgressMask {
     /**
      * constructor.
      *
-     * @param { number } value - Current value of the progress mask. Value range: [0.0, +∞).
-     * @param { number } total - Maximum value of the progress mask. Value range: [0.0, +∞).
+     * @param { double } value - Current value of the progress mask. Value range: [0.0, +∞).
+     * @param { double } total - Maximum value of the progress mask. Value range: [0.0, +∞).
      * @param { ResourceColor } color - Color of the progress mask.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    constructor(value: number, total: number, color: ResourceColor);
+    constructor(value: double, total: double, color: ResourceColor);
     /**
      * Updates the progress value of the progress mask.
      *
-     * @param { number } value - Current value of the progress mask.
+     * @param { double } value - Current value of the progress mask.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    updateProgress(value: number): void;
+    updateProgress(value: double): void;
     /**
      * Update the color of the mask.
      *
@@ -10764,13 +10764,13 @@ export declare interface OverlayOffset {
  * The second element means the stop position.
  * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
  *
- * @typedef { [ number, number ] } FractionStop
+ * @typedef { [ double, double ] } FractionStop
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
 export type FractionStop = [
-    number,
-    number
+    double,
+    double
 ];
 
 /**
@@ -11941,19 +11941,19 @@ export declare interface BackgroundBrightnessOptions {
      * Brightness change rate. A higher rate means that brightness decreases more quickly.
      * If **rate** is set to **0**, **lightUpDegree** will not take effect, meaning no brightening effect will occur.
      *
-     * @type { number } - The default value is 0.0, value range: (0.0, +∞).
+     * @type { double } - The default value is 0.0, value range: (0.0, +∞).
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    rate: number;
+    rate: double;
     /**
      * Light up degree. A greater degree indicates a greater increase in brightness.
      *
-     * @type { number } - The default value is 0.0, value range: [-1.0, 1.0].
+     * @type { double } - The default value is 0.0, value range: [-1.0, 1.0].
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    lightUpDegree: number;
+    lightUpDegree: double;
 }
 
 /**

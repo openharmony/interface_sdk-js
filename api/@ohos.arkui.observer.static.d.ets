@@ -390,11 +390,11 @@ declare namespace uiObserver {
         /**
          * TabContent uniqueId.
          *
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        tabContentUniqueId: number;
+        tabContentUniqueId: int;
         /**
          * The state of TabContent.
          *
@@ -406,11 +406,11 @@ declare namespace uiObserver {
         /**
          * The index of TabContent in Tabs.
          *
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        index: number;
+        index: int;
         /**
          * Tabs id.
          *
@@ -422,11 +422,11 @@ declare namespace uiObserver {
         /**
          * Tabs uniqueId.
          *
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        uniqueId: number;
+        uniqueId: int;
     }
     /**
      * observer options.

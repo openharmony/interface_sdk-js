@@ -335,13 +335,14 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
     default popupItemBorderRadius(value: double | undefined): this;
     /**
      * Set the radius of the item of the indexer.
-     *
-     * @param { number } value
+     * Default value: 8vp.
+     * @param { double | undefined } value
+     *     undefined means setting to default value.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default itemBorderRadius(value: number | undefined): this;
+    default itemBorderRadius(value: double | undefined): this;
     /**
      * Set the background blurStyle of title of the pop-up window.
      *

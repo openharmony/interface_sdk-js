@@ -2952,13 +2952,13 @@ export declare class UIContext {
    * Dynamic dimming.
    *
    * @param { string } id - The id of FrameNode.
-   * @param { number } value - Compared to the original level of dimming.value range [0,1],
-   * set values less than 0 to 0 and values greater than 1 to 1.
+   * @param { double } value - Compared to the original level of dimming.value range [0,1],
+   *     set values less than 0 to 0 and values greater than 1 to 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20 static
+   * @since 20
    */
-  setDynamicDimming(id: string, value: number): void;
+  setDynamicDimming(id: string, value: double): void;
 
   /**
    * Get object cursor controller.
@@ -3091,23 +3091,22 @@ export declare class UIContext {
    * Open the BindSheet.
    *
    * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
-   * @param { SheetOptions } sheetOptions - The options of sheet.
-   * @param { number } targetId - The uniqueId of the FrameNode to which BindSheet is attached.
+   * @param { SheetOptions } [sheetOptions] - The options of sheet.
+   * @param { int } [targetId] - The uniqueId of the FrameNode to which BindSheet is attached.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
    * @throws { BusinessError } 120002 - The bindSheetContent already exists.
    * @throws { BusinessError } 120004 - The targetId does not exist.
    * @throws { BusinessError } 120005 - The node of targetId is not in the component tree.
    * @throws { BusinessError } 120006 - The node of targetId is not a child of the page node or NavDestination node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 20
    */
-  openBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions?: SheetOptions,
-    targetId?: number): Promise<void>;
+  openBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions?: SheetOptions, targetId?: int): Promise<void>;
 
   /**
    * Update the BindSheet with sheetOptions.
@@ -3119,16 +3118,15 @@ export declare class UIContext {
    *                                    Default value is false.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
    * @throws { BusinessError } 120003 - The bindSheetContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 20
    */
-  updateBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions: SheetOptions,
-    partialUpdate?: boolean): Promise<void>;
+  updateBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions: SheetOptions, partialUpdate?: boolean): Promise<void>;
 
   /**
    * Close the BindSheet.
@@ -3136,13 +3134,13 @@ export declare class UIContext {
    * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
    * @throws { BusinessError } 120003 - The bindSheetContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 20
    */
   closeBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>): Promise<void>;
 
