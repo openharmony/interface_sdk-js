@@ -39,7 +39,7 @@ import { ComponentContent } from '../../arkui/ComponentContent';
 import { ResizableOptions } from "./image";
 import intl from '../../@ohos.intl';
 import { ButtonType, ButtonStyleMode, ButtonRole } from "./button";
-import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics } from "./units";
+import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback } from "./units";
 import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
 import { ScrollState } from "./list";
 import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType } from "./enums";
@@ -4136,6 +4136,7 @@ export declare interface ClickEvent extends BaseEvent {
     /**
      * Prevent the default function.
      *
+     * @type { function }
      * @throws { BusinessError } 100017 - Component does not support prevent function.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -4620,6 +4621,7 @@ export declare interface TouchEvent extends BaseEvent {
     /**
      * Stops the event from bubbling upwards or downwards.
      *
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
@@ -4635,6 +4637,7 @@ export declare interface TouchEvent extends BaseEvent {
     /**
      * Blocks the default event.
      *
+     * @type { function }
      * @throws { BusinessError } 100017 - Component does not support prevent function.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
@@ -5469,6 +5472,7 @@ export declare interface KeyEvent {
     /**
      * Block event bubbling.
      *
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
@@ -8987,12 +8991,12 @@ export declare interface CommonMethod {
     /**
      * Background color
      *
-     * @param { Optional<ResourceColor | ColorMetrics> } value
+     * @param { ResourceColor | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default backgroundColor(value: Optional<ResourceColor | ColorMetrics>): this;
+    default backgroundColor(value: ResourceColor | undefined): this;
     /**
      * Sets the pixel rounding policy for the current component in the specified direction.
      * <br>If a direction is not set, the pixels are rounded to the nearest whole number in that direction.
@@ -9005,34 +9009,25 @@ export declare interface CommonMethod {
     default pixelRound(value: PixelRoundPolicy | undefined): this;
     /**
      * Background image
-     *
-     * @param { ResourceStr | PixelMap | undefined } src - the background image source
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default backgroundImage(src: ResourceStr | PixelMap | undefined): this;
-    /**
-     * Background image
-     *
-     * @param { ResourceStr | PixelMap | undefined } src - the background image source
-     * @param { BackgroundImageOptions } options - config the options
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default backgroundImage(src: ResourceStr | PixelMap | undefined, options: BackgroundImageOptions): this;
-    /**
-     * Background image
-     * src:Image address url
+     * src: Image address url
      *
      * @param { ResourceStr | PixelMap | undefined } src
-     * @param { ImageRepeat } repeat
+     * @param { ImageRepeat } [repeat]
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default backgroundImage(src: ResourceStr | PixelMap | undefined, repeat: ImageRepeat): this;
+    default backgroundImage(src: ResourceStr | PixelMap | undefined, repeat?: ImageRepeat): this;
+    /**
+     * Background image
+     *
+     * @param { ResourceStr | PixelMap | undefined } src - the background image source
+     * @param { BackgroundImageOptions } [options] - config the options
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    default backgroundImage(src: ResourceStr | PixelMap | undefined, options?: BackgroundImageOptions): this;
     /**
      * Background image size
      *
