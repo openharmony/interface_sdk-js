@@ -742,34 +742,6 @@ export declare abstract class TypedFrameNode<T> extends FrameNode {
  * @noninterop
  */
 export declare namespace typeNode {
-  /**
-   * Create a FrameNode. Overload for createNode functions.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
-   */
-  overload createNode {
-    createSwiperNode,
-    createListNode,
-    createListItemNode,
-    createListItemGroupNode,
-    createScrollNode,
-    createGridNode,
-    createGridItemNode,
-    createWaterFlowNode,
-    createFlowItemNode,
-    createXComponentNodeDefault,
-    createXComponentNodeWithOptions,
-    createXComponentNodeWithNativeParameters,
-    createButtonNode,
-    createCheckboxNode,
-    createCheckboxGroupNode,
-    createRadioNode,
-    createRatingNode,    
-    createSelectNode,
-    createSliderNode,
-    createToggleNode,
-  }
 
   /**
    * Define the Column type of FrameNode.
