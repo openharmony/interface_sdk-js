@@ -52,7 +52,9 @@ if __name__ == '__main__':
     # 输出结果  
     if matching_files:  
         for path in matching_files: 
-            p = subprocess.Popen(['node','./src/deleteTool/entry.ts', '--path', path],stdout=subprocess.PIPE) 
-            print(path)  
+            absolute_inputpath = os.path.abspath(path)
+            absolute_outputpath = os.path.abspath('./output')
+            p = subprocess.Popen(['node','./src/deleteTool/entry.js', '--input', absolute_inputpath, '--output', absolute_outputpath],stdout=subprocess.PIPE) 
+            print(absolute_outputpath)  
     else:  
         print(f"未找到任何匹配的文件。请检查路径 '{target_folder}' 下是否存在api、arkts、kit文件夹及其包含的.d.ts/.d.ets文件，并确保未被build-tools目录屏蔽。")
