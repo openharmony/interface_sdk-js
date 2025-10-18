@@ -1164,23 +1164,21 @@ type ComputedCallback<T> = () => T;
 
 /**
  * Defines IMonitor callback function
- *
  * @typedef { function } MonitorCallback
  * @param { IMonitor } iMonitor MonitorValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
-type MonitorCallback = (iMonitor: IMonitor) => void;
+export type MonitorCallback = (iMonitor: IMonitor) => void;
 
 /**
  * Defines IMonitor value callback function
- *
  * @typedef { function } MonitorValueCallback
  * @returns { Any }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
-type MonitorValueCallback = () => Any;
+export type MonitorValueCallback = () => Any;
 
 /**
  * Defines the callback that is called when state variable is change
