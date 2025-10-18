@@ -29,7 +29,6 @@ import type notificationManager from './@ohos.notificationManager';
  * @namespace backgroundTaskManager
  * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.Core
  * @since 9
- * @since 22 static
  */
 /**
  * Manages background tasks.
@@ -1055,7 +1054,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 22 static
    */
-  function onContinuousTaskCancel(type: 'continuousTaskCancel', callback: Callback<ContinuousTaskCancelInfo>): void;
+  function onContinuousTaskCancel(callback: Callback<ContinuousTaskCancelInfo>): void;
 
   /**
    * Unregister continuous task cancel callback.
