@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { ResourceColor, Dimension, BorderRadiuses, Length, Font } from "./units";
-import { CommonMethod, ShadowOptions, AttributeModifier } from "./common";
+import { CommonMethod, ShadowOptions, AttributeModifier, ClickEvent, Callback, HoverCallback } from "./common";
 import { LengthMetrics } from './../Graphics';
 import { Resource } from './../../../api/global/resource';
 import { FontStyle, FontWeight, TextCase } from "./enums";
@@ -80,12 +80,11 @@ export declare interface BaseSpan extends CommonMethod {
 /**
  * Define the Span attribute functions.
  *
- * @extends BaseSpan
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-export declare interface SpanAttribute extends BaseSpan {
+export declare interface SpanAttribute {
     /**
      * Called when the font is set.
      *
@@ -186,14 +185,90 @@ export declare interface SpanAttribute extends BaseSpan {
      */
     default textShadow(value: ShadowOptions | Array<ShadowOptions> | undefined): this;
     /**
+     * Span background style.
+     *
+     * @param { TextBackgroundStyle | undefined } style - The background style of span.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    default textBackgroundStyle(style: TextBackgroundStyle | undefined): this;
+    /**
+     * Base line offset of the Span.
+     *
+     * @param { LengthMetrics | undefined } value - The base line offset of the Span. The default value is 0.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { SpanAttribute } The attribute of the Span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    default baselineOffset(value: LengthMetrics | undefined): this;
+    /**
+     * Key. User can set an key to the component to identify it.
+     *
+     * @param { string | undefined } value
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     * @test
+     */
+    default key(value: string | undefined): this;
+    /**
+     * Id. User can set an id to the component to identify it.
+     *
+     * @param { string | undefined } value
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    default id(value: string | undefined): this;
+    /**
+     * Called when a click event occurs.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br> Click events cannot be triggered if the finger is pressed for more than 800 ms.
+     * <br> Click events cannot be triggered if the finger moves more than 20 px after pressing down.
+     * </p>
+     * @param { Callback<ClickEvent> | undefined } event - The click event
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    default onClick(event: Callback<ClickEvent> | undefined): this;
+    /**
+     * Trigger a click event when a click is clicked, move distance should smaller than distanceThreshold.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br> Click events cannot be triggered if the finger is pressed for more than 800 ms.
+     * <br> Click events cannot be triggered if the finger moves more than 20 px after pressing down.
+     * </p>
+     * @param { Callback<ClickEvent> | undefined } event - The click event
+     * @param { double | undefined } distanceThreshold
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    default onClick(event: Callback<ClickEvent> | undefined, distanceThreshold: double | undefined): this;
+    /**
+     * Trigger a hover event.
+     *
+     * @param { HoverCallback | undefined } event - The hover event
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    default onHover(event: HoverCallback | undefined): this;
+    /**
      * Sets the attribute modifier.
      *
-     * @param { AttributeModifier<SpanAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
+     * @param { AttributeModifier<SpanAttribute> | undefined } modifier - The instance of span modifier.
+     *     Passing `undefined` will do nothing.
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default attributeModifier(modifier: AttributeModifier<SpanAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default attributeModifier(modifier: AttributeModifier<SpanAttribute> | undefined): this;
 }
 
 /**
