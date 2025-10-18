@@ -1794,6 +1794,16 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @atomicservice
    * @since 20 dynamic
    */
+  /**
+   * Set text transition.
+   *
+   * @param { Optional<ContentTransition> } transition - The transition of text.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   contentTransition(transition: Optional<ContentTransition>): TextAttribute;
 }
 

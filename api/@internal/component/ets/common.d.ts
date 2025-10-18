@@ -26843,6 +26843,17 @@ declare class CommonMethod<T> {
    * @since 12 dynamic
    * @test
    */
+  /**
+   * Key. User can set an key to the component to identify it.
+   *
+   * @param { string } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   * @test
+   */
   key(value: string): T;
 
   /**
@@ -31386,6 +31397,14 @@ declare abstract class TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 17 dynamic
+   */
+  /**
+   * Clear the content of preview.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   clearPreviewText(): void;
 
