@@ -18,6 +18,7 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import { DataAbilityHelper as _DataAbilityHelper } from './ability/dataAbilityHelper';
 import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 import { DataAbilityOperation as _DataAbilityOperation } from './ability/dataAbilityOperation';
@@ -25,6 +26,10 @@ import { DataAbilityResult as _DataAbilityResult } from './ability/dataAbilityRe
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
 import { StartAbilityParameter as _StartAbilityParameter } from './ability/startAbilityParameter';
+/*** endif */
+/*** if arkts 1.2 */
+import { PacMap as _PacMap } from './ability/dataAbilityHelper';
+/*** endif */
 
 /**
  * The class of an ability.
