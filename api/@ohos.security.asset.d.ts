@@ -33,7 +33,8 @@
  * @namespace asset
  * @syscap SystemCapability.Security.Asset
  * @atomicservice
- * @since 14
+ * @since 14 dynamic
+ * @since 20 static
  */
 declare namespace asset {
   /**
@@ -91,7 +92,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   function add(attributes: AssetMap): Promise<void>;
 
@@ -101,7 +103,7 @@ declare namespace asset {
    *     by setting {@link Tag.IS_PERSISTENT} tag.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - the user identifier to add an Asset. The user identifier cannot be lower than 100.
+   * @param { int } userId - the user identifier to add an Asset. The user identifier cannot be lower than 100.
    * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
    * @returns { Promise<void> } the promise object returned by the function.
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
@@ -125,9 +127,10 @@ declare namespace asset {
    * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @syscap SystemCapability.Security.Asset
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  function addAsUser(userId: number, attributes: AssetMap): Promise<void>;
+  function addAsUser(userId: int, attributes: AssetMap): Promise<void>;
 
   /**
    * Add an Asset.
@@ -182,7 +185,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   function addSync(attributes: AssetMap): void;
 
@@ -228,7 +232,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   function remove(query: AssetMap): Promise<void>;
 
@@ -236,7 +241,7 @@ declare namespace asset {
    * Remove one or more Assets that match a search query from a specific user space.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - the user identifier to remove one or more Assets. The user identifier cannot be lower
+   * @param { int } userId - the user identifier to remove one or more Assets. The user identifier cannot be lower
    *     than 100.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be removed.
    * @returns { Promise<void> } the promise object returned by the function.
@@ -257,9 +262,10 @@ declare namespace asset {
    * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @syscap SystemCapability.Security.Asset
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  function removeAsUser(userId: number, query: AssetMap): Promise<void>;
+  function removeAsUser(userId: int, query: AssetMap): Promise<void>;
 
   /**
    * Remove one or more Assets that match a search query.
@@ -301,7 +307,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   function removeSync(query: AssetMap): void;
 
@@ -355,7 +362,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   function update(query: AssetMap, attributesToUpdate: AssetMap): Promise<void>;
 
@@ -363,7 +371,7 @@ declare namespace asset {
    * Update an Asset that matches a search query in a specific user space.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - the user identifier to update an Asset. The user identifier cannot be lower than 100.
+   * @param { int } userId - the user identifier to update an Asset. The user identifier cannot be lower than 100.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be updated.
    * @param { AssetMap } attributesToUpdate - a map object containing attributes with new values.
    * @returns { Promise<void> } the promise object returned by the function.
@@ -387,9 +395,10 @@ declare namespace asset {
    * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @syscap SystemCapability.Security.Asset
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  function updateAsUser(userId: number, query: AssetMap, attributesToUpdate: AssetMap): Promise<void>;
+  function updateAsUser(userId: int, query: AssetMap, attributesToUpdate: AssetMap): Promise<void>;
 
   /**
    * Update an Asset that matches a search query.
@@ -439,7 +448,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   function updateSync(query: AssetMap, attributesToUpdate: AssetMap): void;
 
@@ -493,7 +503,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000017 - The capability is not supported.
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   function preQuery(query: AssetMap): Promise<Uint8Array>;
 
@@ -502,7 +513,7 @@ declare namespace asset {
    * that require user authentication in a specific user space.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - the user identifier to pre-query one or more Assets. The user identifier cannot be
+   * @param { int } userId - the user identifier to pre-query one or more Assets. The user identifier cannot be
    *     lower than 100.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
    * @returns { Promise<Uint8Array> } the promise object returned by the function.
@@ -526,9 +537,10 @@ declare namespace asset {
    * @throws { BusinessError } 24000017 - The capability is not supported.
    * @syscap SystemCapability.Security.Asset
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  function preQueryAsUser(userId: number, query: AssetMap): Promise<Uint8Array>;
+  function preQueryAsUser(userId: int, query: AssetMap): Promise<Uint8Array>;
 
   /**
    * Preprocessing (e.g. get challenge) for querying one or more Assets that require user authentication.
@@ -580,7 +592,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000017 - The capability is not supported.
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   function preQuerySync(query: AssetMap): Uint8Array;
 
@@ -635,7 +648,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000017 - The capability is not supported.
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   function query(query: AssetMap): Promise<Array<AssetMap>>;
 
@@ -643,7 +657,7 @@ declare namespace asset {
    * Query one or more Assets that match a search query in a specific user space.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - the user identifier to query one or more Assets. The user identifier cannot be lower
+   * @param { int } userId - the user identifier to query one or more Assets. The user identifier cannot be lower
    *     than 100.
    * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
    * @returns { Promise<Array<AssetMap>> } the promise object returned by the function.
@@ -667,9 +681,10 @@ declare namespace asset {
    * @throws { BusinessError } 24000017 - The capability is not supported.
    * @syscap SystemCapability.Security.Asset
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  function queryAsUser(userId: number, query: AssetMap): Promise<Array<AssetMap>>;
+  function queryAsUser(userId: int, query: AssetMap): Promise<Array<AssetMap>>;
 
   /**
    * Query one or more Assets that match a search query.
@@ -722,7 +737,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000017 - The capability is not supported.
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   function querySync(query: AssetMap): Array<AssetMap>;
 
@@ -764,7 +780,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   function postQuery(handle: AssetMap): Promise<void>;
 
@@ -773,7 +790,7 @@ declare namespace asset {
    * specific user space.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - the user identifier to post-query one or more Assets. The user identifier cannot be
+   * @param { int } userId - the user identifier to post-query one or more Assets. The user identifier cannot be
    *     lower than 100.
    * @param { AssetMap } handle - a map object containing the handle returned by {@link preQueryAsUser}.
    * @returns { Promise<void> } the promise object returned by the function.
@@ -791,9 +808,10 @@ declare namespace asset {
    * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
    * @syscap SystemCapability.Security.Asset
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  function postQueryAsUser(userId:number, handle: AssetMap): Promise<void>;
+  function postQueryAsUser(userId: int, handle: AssetMap): Promise<void>;
 
   /**
    * Post-processing (e.g. release cached resource) for querying multiple Assets that require user authentication.
@@ -831,7 +849,8 @@ declare namespace asset {
    * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   function postQuerySync(handle: AssetMap): void;
 
@@ -850,7 +869,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000014 - The file operation failed.
    * @throws { BusinessError } 24000018 - Parameter verification failed.
    * @syscap SystemCapability.Security.Asset
-   * @since 20
+   * @since 20 dynamic&static
    */
   function querySyncResult(query: AssetMap): Promise<SyncResult>;
 
@@ -867,43 +886,46 @@ declare namespace asset {
    * @typedef { Map<Tag, Value> }
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  type AssetMap = Map<Tag, Value>;
+  export type AssetMap = Map<Tag, Value>;
 
   /**
    * A type that indicates the secret or attribute value of an Asset tag.
    *
-   * @typedef { boolean | number | Uint8Array }
+   * @typedef { boolean | int | Uint8Array }
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
   /**
    * Represents the value of each attribute in {@link AssetMap}.
    *
-   * @typedef { boolean | number | Uint8Array }
+   * @typedef { boolean | int | Uint8Array }
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  type Value = boolean | number | Uint8Array;
+  export type Value = boolean | int | Uint8Array;
 
   /**
    * An enum type indicates when the Asset is accessible.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
   /**
    * Enumerates the types of access control based on the lock screen status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  enum Accessibility {
+  export enum Accessibility {
     /**
      * The secret value in the Asset can only be accessed after the device is powered on.
      *
@@ -915,7 +937,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     DEVICE_POWERED_ON = 0,
     /**
@@ -932,7 +955,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     DEVICE_FIRST_UNLOCKED = 1,
     /**
@@ -949,7 +973,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     DEVICE_UNLOCKED = 2,
   }
@@ -957,19 +982,20 @@ declare namespace asset {
   /**
    * An enum type indicates the user authentication type for Asset access control.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
   /**
    * Enumerates the types of user authentication supported by an asset.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  enum AuthType {
+  export enum AuthType {
     /**
      * The access to an Asset doesn't require user authentication.
      *
@@ -981,7 +1007,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     NONE = 0x00,
     /**
@@ -996,7 +1023,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     ANY = 0xFF,
   }
@@ -1004,7 +1032,7 @@ declare namespace asset {
   /**
    * An enum type indicates the type of Asset synchronization.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
@@ -1014,12 +1042,13 @@ declare namespace asset {
    * This field is an embedded parameter. Currently, asset sync is not supported.
    * </p>
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  enum SyncType {
+  export enum SyncType {
     /**
      * An Asset with this attribute value is never allowed to be transferred out.
      *
@@ -1031,7 +1060,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     NEVER = 0,
     /**
@@ -1045,7 +1075,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     THIS_DEVICE = 1 << 0,
     /**
@@ -1059,7 +1090,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     TRUSTED_DEVICE = 1 << 1,
     /**
@@ -1074,7 +1106,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     TRUSTED_ACCOUNT = 1 << 2,
   }
@@ -1082,23 +1115,26 @@ declare namespace asset {
   /**
    * An enum type indicates the type of Asset encapsulation.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Asset
-   * @since 18
+   * @since 18 dynamic
+   * @since 20 static
    */
-  enum WrapType {
+  export enum WrapType {
     /**
      * An Asset with this attribute value is never allowed to be wrapped up.
      *
      * @syscap SystemCapability.Security.Asset
-     * @since 18
+     * @since 18 dynamic
+     * @since 20 static
      */
     NEVER = 0,
     /**
      * An Asset with this attribute value can only be wrapped or unwrapped on devices logged in with trusted accounts.
      *
      * @syscap SystemCapability.Security.Asset
-     * @since 18
+     * @since 18 dynamic
+     * @since 20 static
      */
     TRUSTED_ACCOUNT = 1,
   }
@@ -1106,19 +1142,20 @@ declare namespace asset {
   /**
    * An enum type indicates the strategy for conflict resolution when handling duplicated Asset alias.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
   /**
    * Enumerates the policies for resolving conflicts (for example, a duplicate alias) when an asset is added.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  enum ConflictResolution {
+  export enum ConflictResolution {
     /**
      * Directly overwrite an Asset with duplicated alias when a conflict is detected.
      *
@@ -1130,7 +1167,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     OVERWRITE = 0,
     /**
@@ -1144,7 +1182,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     THROW_ERROR = 1,
   }
@@ -1152,19 +1191,20 @@ declare namespace asset {
   /**
    * An enum type indicates the return type of the queried Asset.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
   /**
    * Enumerates the type of information returned by an asset query operation.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  enum ReturnType {
+  export enum ReturnType {
     /**
      * Specify that the return data should contain both secret value and attributes.
      *
@@ -1179,7 +1219,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     ALL = 0,
     /**
@@ -1196,7 +1237,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     ATTRIBUTES = 1,
   }
@@ -1204,23 +1246,26 @@ declare namespace asset {
   /**
    * Enumerates the types of additional operation to perform.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Asset
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  enum OperationType {
+  export enum OperationType {
     /**
      * Sync.
      *
      * @syscap SystemCapability.Security.Asset
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     NEED_SYNC = 0,
     /**
      * Logout.
      *
      * @syscap SystemCapability.Security.Asset
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     NEED_LOGOUT = 1,
   }
@@ -1230,54 +1275,55 @@ declare namespace asset {
    *
    * @typedef SyncResult
    * @syscap SystemCapability.Security.Asset
-   * @since 20
+   * @since 20 dynamic&static
    */
-  interface SyncResult {
+  export interface SyncResult {
     /**
      * The result code of synchronization.
      *
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Security.Asset
-     * @since 20
+     * @since 20 dynamic&static
      */
-    readonly resultCode: number;
+    readonly resultCode: int;
     /**
      * The total count of synchronized Assets.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @readonly
      * @syscap SystemCapability.Security.Asset
-     * @since 20
+     * @since 20 dynamic&static
      */
-    readonly totalCount?: number;
+    readonly totalCount?: int;
     /**
      * The count of Assets that fail to synchronize.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @readonly
      * @syscap SystemCapability.Security.Asset
-     * @since 20
+     * @since 20 dynamic&static
      */
-    readonly failedCount?: number;
+    readonly failedCount?: int;
   }
 
   /**
    * An enum type containing the data type definitions for Asset attribute value.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
   /**
    * Enumerates the asset attribute types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  enum TagType {
+  export enum TagType {
     /**
      * The data type of Asset attribute value is bool.
      *
@@ -1289,7 +1335,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     BOOL = 0x01 << 28,
     /**
@@ -1303,7 +1350,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     NUMBER = 0x02 << 28,
     /**
@@ -1317,7 +1365,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     BYTES = 0x03 << 28,
   }
@@ -1325,19 +1374,20 @@ declare namespace asset {
   /**
    * An enum type containing the Asset attribute tags.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
   /**
    * Enumerate the keys of asset attributes ({@link AssetMap}), which are in key-value (KV) pairs.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  enum Tag {
+  export enum Tag {
     /**
      * A tag whose value is a byte array indicating the sensitive user data such as passwords and tokens.
      *
@@ -1349,7 +1399,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     SECRET = TagType.BYTES | 0x01,
     /**
@@ -1363,7 +1414,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     ALIAS = TagType.BYTES | 0x02,
     /**
@@ -1377,7 +1429,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     ACCESSIBILITY = TagType.NUMBER | 0x03,
     /**
@@ -1391,7 +1444,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     REQUIRE_PASSWORD_SET = TagType.BOOL | 0x04,
     /**
@@ -1405,7 +1459,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     AUTH_TYPE = TagType.NUMBER | 0x05,
     /**
@@ -1419,7 +1474,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     AUTH_VALIDITY_PERIOD = TagType.NUMBER | 0x06,
     /**
@@ -1433,7 +1489,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     AUTH_CHALLENGE = TagType.BYTES | 0x07,
     /**
@@ -1447,7 +1504,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     AUTH_TOKEN = TagType.BYTES | 0x08,
     /**
@@ -1461,14 +1519,16 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     SYNC_TYPE = TagType.NUMBER | 0x10,
     /**
      * Whether to retain the asset when the application is uninstalled.
      *
      * @syscap SystemCapability.Security.Asset
-     * @since 11
+     * @since 11 dynamic
+     * @since 20 static
      */
     IS_PERSISTENT = TagType.BOOL | 0x11,
     /**
@@ -1482,7 +1542,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     DATA_LABEL_CRITICAL_1 = TagType.BYTES | 0x20,
     /**
@@ -1496,7 +1557,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     DATA_LABEL_CRITICAL_2 = TagType.BYTES | 0x21,
     /**
@@ -1510,7 +1572,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     DATA_LABEL_CRITICAL_3 = TagType.BYTES | 0x22,
     /**
@@ -1524,7 +1587,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     DATA_LABEL_CRITICAL_4 = TagType.BYTES | 0x23,
     /**
@@ -1538,7 +1602,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     DATA_LABEL_NORMAL_1 = TagType.BYTES | 0x30,
     /**
@@ -1552,7 +1617,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     DATA_LABEL_NORMAL_2 = TagType.BYTES | 0x31,
     /**
@@ -1566,7 +1632,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     DATA_LABEL_NORMAL_3 = TagType.BYTES | 0x32,
     /**
@@ -1580,7 +1647,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     DATA_LABEL_NORMAL_4 = TagType.BYTES | 0x33,
     /**
@@ -1596,7 +1664,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     DATA_LABEL_NORMAL_LOCAL_1 = TagType.BYTES | 0x34,
     /**
@@ -1612,7 +1681,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     DATA_LABEL_NORMAL_LOCAL_2 = TagType.BYTES | 0x35,
     /**
@@ -1628,7 +1698,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     DATA_LABEL_NORMAL_LOCAL_3 = TagType.BYTES | 0x36,
     /**
@@ -1644,7 +1715,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     DATA_LABEL_NORMAL_LOCAL_4 = TagType.BYTES | 0x37,
     /**
@@ -1658,7 +1730,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     RETURN_TYPE = TagType.NUMBER | 0x40,
     /**
@@ -1672,7 +1745,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     RETURN_LIMIT = TagType.NUMBER | 0x41,
     /**
@@ -1689,7 +1763,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     RETURN_OFFSET = TagType.NUMBER | 0x42,
     /**
@@ -1707,7 +1782,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     RETURN_ORDERED_BY = TagType.NUMBER | 0x43,
     /**
@@ -1721,7 +1797,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     CONFLICT_RESOLUTION = TagType.NUMBER | 0x44,
     /**
@@ -1735,14 +1812,16 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     UPDATE_TIME = TagType.BYTES | 0x45,
     /**
      * Additional operation type.
      *
      * @syscap SystemCapability.Security.Asset
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     OPERATION_TYPE = TagType.NUMBER | 0x46,
     /**
@@ -1750,21 +1829,24 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     REQUIRE_ATTR_ENCRYPTED = TagType.BOOL | 0x47,
     /**
      * Group to which the asset belongs.
      *
      * @syscap SystemCapability.Security.Asset
-     * @since 18
+     * @since 18 dynamic
+     * @since 20 static
      */
     GROUP_ID = TagType.BYTES | 0x48,
     /**
      * A tag whose value is a 32-bit unsigned integer indicating the type of Asset encapsulation.
      *
      * @syscap SystemCapability.Security.Asset
-     * @since 18
+     * @since 18 dynamic
+     * @since 20 static
      */
     WRAP_TYPE = TagType.NUMBER | 0x49,
   }
@@ -1772,31 +1854,34 @@ declare namespace asset {
   /**
    * An enum type containing the Asset error codes.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Asset
    * @since 11
    */
   /**
    * Enumerates the error codes.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.Asset
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  enum ErrorCode {
+  export enum ErrorCode {
     /**
      * The error code indicates that the caller doesn't have the permission.
      *
      * @syscap SystemCapability.Security.Asset
-     * @since 11
+     * @since 11 dynamic
+     * @since 20 static
      */
     PERMISSION_DENIED = 201,
     /**
      * The error code indicates that the caller is not a system application.
      *
      * @syscap SystemCapability.Security.Asset
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     NOT_SYSTEM_APPLICATION = 202,
     /**
@@ -1810,7 +1895,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     INVALID_ARGUMENT = 401,
     /**
@@ -1824,7 +1910,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     SERVICE_UNAVAILABLE = 24000001,
     /**
@@ -1838,7 +1925,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     NOT_FOUND = 24000002,
     /**
@@ -1852,7 +1940,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     DUPLICATED = 24000003,
     /**
@@ -1866,7 +1955,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     ACCESS_DENIED = 24000004,
     /**
@@ -1880,7 +1970,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     STATUS_MISMATCH = 24000005,
     /**
@@ -1894,7 +1985,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     OUT_OF_MEMORY = 24000006,
     /**
@@ -1908,7 +2000,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     DATA_CORRUPTED = 24000007,
     /**
@@ -1922,7 +2015,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     DATABASE_ERROR = 24000008,
     /**
@@ -1936,7 +2030,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     CRYPTO_ERROR = 24000009,
     /**
@@ -1950,7 +2045,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     IPC_ERROR = 24000010,
     /**
@@ -1964,7 +2060,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     BMS_ERROR = 24000011,
     /**
@@ -1978,7 +2075,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     ACCOUNT_ERROR = 24000012,
     /**
@@ -1992,7 +2090,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     ACCESS_TOKEN_ERROR = 24000013,
     /**
@@ -2006,7 +2105,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     FILE_OPERATION_ERROR = 24000014,
     /**
@@ -2020,7 +2120,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     GET_SYSTEM_TIME_ERROR = 24000015,
     /**
@@ -2034,7 +2135,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     LIMIT_EXCEEDED = 24000016,
     /**
@@ -2048,7 +2150,8 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     UNSUPPORTED = 24000017,
     /**
@@ -2056,7 +2159,7 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     PARAM_VERIFICATION_FAILED = 24000018,
   }

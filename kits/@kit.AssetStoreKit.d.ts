@@ -18,6 +18,8 @@
  * @kit AssetStoreKit
  */
 
+/*** if arkts dynamic&static */
 import asset from '@ohos.security.asset';
 
 export { asset };
+/*** endif */
