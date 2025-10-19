@@ -16,6 +16,7 @@ const path = require('path');
 const fs = require('fs');
 const ts = require('typescript');
 const commander = require('commander');
+const { execSync } = require('child_process');
 
 let sourceFile = null;
 let etsType = 'ets';
@@ -30,6 +31,8 @@ const COMPILER_OPTIONS = {
   target: ts.ScriptTarget.ES2017,
   etsAnnotationsEnable: true
 };
+let needParseWithStatic = false;
+let currentApiFileContent = '';
 /**
  * @enum {string} references地址的切换类型
  */
@@ -401,6 +404,16 @@ function tsTransform(utFiles, callback) {
       writeFile(url, content);
       return;
     }
+    const uiFileDir = path.resolve(inputDir, 'arkui', 'component');
+    // 过滤文件，仅处理涉及到静态独有语法的API文件，且暂时过滤组件接口文件
+    if (/\@memo/.test(content) && !url.includes(uiFileDir)) {
+      // TODO: 执行ets2panda解析
+      currentApiFileContent = execSync('ls -l').toString('utf-8');
+      needParseWithStatic = true;
+    } else {
+      currentApiFileContent = '';
+      needParseWithStatic = false;
+    }
     // dts文件处理
     const fileName = processFileName(url);
     let references = content.match(PATT.GET_REFERENCE);
@@ -633,6 +646,8 @@ function formatImportDeclaration(url, copyrightMessage = '', fileAndKitComment =
           result.substring(copyrightMessage.length);
       }
       result = removeSystemapiDoc(result);
+      // 裁剪解析结果比对，保证解析结果的准确性
+      result = needParseWithStatic && currentApiFileContent === result ? currentApiFileContent : result;
       writeFile(url, result);
       return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
     };
