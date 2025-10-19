@@ -5523,6 +5523,7 @@ declare class PointerMatrix {
  */
 declare const BY: By;
 
+/*** if arkts dynamic */
 /**
  * The static builder for building {@link On}object conveniently,usage example:ON.text('txt').enabled(true).
  *
@@ -5537,10 +5538,235 @@ declare const BY: By;
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  * @test
  */
 declare const ON: On;
+/*** endif */
+
+/*** if arkts static */
+/**
+ * The static builder for building {@link On}object conveniently,usage example:ON.text('txt').enabled(true).
+ *
+ * @syscap SystemCapability.Test.UiTest
+ * @since 22 static
+ * @test
+ */
+declare namespace ON {
+  /**
+   * Specifies the text for the target Component.
+   *
+   * @param { string } txt - the text value.
+   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value,Set it default {@link MatchPattern.EQUALS} if null or undefined.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function text(txt: string, pattern?: MatchPattern): On;
+
+  /**
+   * Specifies the id of the target Component.
+   *
+   * @param { string } id - the id value.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function id(id: string): On;
+
+  /**
+   * Specifies the type of the target Component.
+   *
+   * @param { string } tp - The type value.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function type(tp: string): On;
+
+  /**
+   * Specifies the clickable status of the target Component.
+   *
+   * @param { boolean } [b] - the clickable status.Set it default true if null or undefined.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function clickable(b?: boolean): On;
+
+  /**
+   * Specifies the longClickable status of the target Component.
+   *
+   * @param { boolean } [b] - the longClickable status.Set it default true if null or undefined.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function longClickable(b?: boolean): On;
+
+  /**
+   * Specifies the scrollable status of the target Component.
+   *
+   * @param { boolean } [b] - the scrollable status.Set it default true if null or undefined.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function scrollable(b?: boolean): On;
+
+  /**
+   * Specifies the enabled status of the target Component.
+   *
+   * @param { boolean } [b] - the enabled status.Set it default true if null or undefined.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function enabled(b?: boolean): On;
+
+  /**
+   * Specifies the focused status of the target Component.
+   *
+   * @param { boolean } [b] - the focused status.Set it default true if null or undefined.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function focused(b?: boolean): On;
+
+  /**
+   * Specifies the selected status of the target Component.
+   *
+   * @param { boolean } [b] the - selected status.Set it default true if null or undefined.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function selected(b?: boolean): On;
+
+  /**
+   * Specifies the checked status of the target Component.
+   *
+   * @param { boolean } [b] - the checked status.Set it default true if null or undefined.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function checked(b?: boolean): On;
+
+  /**
+   * Specifies the checkable status of the target Component.
+   *
+   * @param { boolean } [b] - the checkable status.Set it default true if null or undefined.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function checkable(b?: boolean): On;
+
+  /**
+   * Requires that the target Component which is before another Component that specified by the given {@link On}
+   * object,used to locate Component relatively.
+   *
+   * @param { On } on - describes the attribute requirements of Component which the target one is in front of.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function isBefore(on: On): On;
+
+  /**
+   * Requires that the target Component which is after another Component that specified by the given {@link On}
+   * object,used to locate Component relatively.
+   *
+   * @param { On } on - describes the attribute requirements of Component which the target one is in back of.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function isAfter(on: On): On;
+
+  /**
+   * Requires that the target Component which is inside of another Component that specified by the given {@link On}
+   * object,used to locate Component relatively.
+   *
+   * @param { On } on - describes the attribute requirements of Component which the target one is inside of.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function within(on: On): On;
+
+  /**
+   * Specifies the bundleName of the application which the window that the target Component is located belongs.
+   *
+   * @param { string } bundleName - the bundleName of the specified window.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function inWindow(bundleName: string): On;
+
+  /**
+   * Specifies the description for the target Component.
+   *
+   * @param { string } val - the description value.
+   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of description value,set it default {@link MatchPattern.EQUALS} if null or undefined.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function description(val: string, pattern?: MatchPattern): On;
+  /**
+   * Specifies the id of the target Component.
+   *
+   * @param { string } id - the id value.
+   * @param { MatchPattern } pattern - the {@link MatchPattern} of the text value,Set it default {@link MatchPattern.EQUALS} if null or undefined.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function id(id: string, pattern: MatchPattern): On;
+  /**
+   * Specifies the type of the target Component.
+   *
+   * @param { string } tp - The type value.
+   * @param { MatchPattern } pattern - the {@link MatchPattern} of the text value,Set it default {@link MatchPattern.EQUALS} if null or undefined.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function type(tp: string, pattern: MatchPattern): On;
+  /**
+   * Specifies the hint for the target Component.
+   *
+   * @param { string } val - the hint value.
+   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value,Set it default {@link MatchPattern.EQUALS} if null or undefined.
+   * @returns { On } this {@link On} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  export function hint(val: string, pattern?: MatchPattern): On;
+}
+/*** endif */
 
  /*** if arkts dynamic */
  export {
