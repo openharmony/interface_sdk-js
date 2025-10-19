@@ -178,7 +178,7 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) 
     }
   }
 
-  if (!isEndWithEts && !isEndWithTs) {
+  if (!isEndWithEts && !isEndWithTs || apiRelativePath.includes("@ohos.annotation.d.ets")) {
     writeFile(outputPath, fileContent);
     return;
   }
