@@ -176,11 +176,13 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
    /**
     * Reuse the ReactiveComponentContent based on the provided parameters.
     *
-    * @param { Object } [param] - Parameters for reusing ReactiveComponentContent.
+    * @param { Object } [param] - Parameters for reusing ReactiveComponentContent. It is of the same type as the
+    *     parameter passed to the build API. If this parameter is not passed, the default value is undefined, which
+    *     applies to parameterless ReactiveBuilderNode scenarios.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 22
+    * @since 22 dynamic
     */
    reuse(param?: Object): void;
   
