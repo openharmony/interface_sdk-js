@@ -3179,7 +3179,7 @@ export class CursorController {
  * @atomicservice
  * @since 12 dynamic
  */
-export declare class ContextMenuController {
+export class ContextMenuController {
   /**
    * Close context menu.
    *
