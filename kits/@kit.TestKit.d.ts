@@ -24,27 +24,28 @@ import TestRunner from '@ohos.application.testRunner';
 import {
   Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
   UIElementInfo, UIEventObserver, UiDirection, UiWindow, WindowMode, Point, WindowFilter, 
-  Rect, TouchPadSwipeOptions, InputTextMode
+  Rect, TouchPadSwipeOptions, InputTextMode,
+  WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions
 } from '@ohos.UiTest';
 /*** endif */
 
 import {PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest} from '@ohos.test.PerfTest';
 
 import {
-  UiComponent, UiDriver, BY, By, WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions
+  UiComponent, UiDriver, BY, By
 } from '@ohos.UiTest';
 export {
   BY, By, Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
   TestRunner, UIElementInfo, UIEventObserver, UiComponent, UiDirection, UiDriver, UiWindow,
   WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions, InputTextMode,
-  PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest,
-  WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions
+  PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest
 };
 
 /*** if arkts 1.2 */
 export {
   Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
   TestRunner, UIElementInfo, UIEventObserver, UiDirection, UiWindow, InputTextMode,
-  WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions
+  WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions,
+  WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions
 };
 /*** endif */
