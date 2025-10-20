@@ -626,13 +626,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      */
     enableHapticFeedback?: boolean;
 }
-/**
- * Defines DatePickerDialog which uses show method to show DatePicker dialog.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
- */
-export declare class DatePickerDialog {}
+
 /**
  * Defines the DatePicker component.
  * 
