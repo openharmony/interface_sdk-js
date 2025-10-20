@@ -73,6 +73,16 @@ declare namespace omapi {
   function on(type: 'stateChanged', callback: Callback<ServiceState>): void;
 
   /**
+   * Register the service state changed event.
+   *
+   * @param { Callback<ServiceState> } callback - The callback used to listen for the state change event.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Communication.SecureElement
+   * @since 22 static
+   */
+  function onStateChanged(callback: Callback<ServiceState>): void;
+
+  /**
    * Unsubscribe the service state changed event.
    *
    * @param { 'stateChanged' } type - The type to register.
@@ -82,6 +92,16 @@ declare namespace omapi {
    * @since 18 dynamic
    */
   function off(type: 'stateChanged', callback?: Callback<ServiceState>): void;
+
+  /**
+   * Unsubscribe the service state changed event.
+   *
+   * @param { Callback<ServiceState> } callback - The callback used to listen for the state change event.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Communication.SecureElement
+   * @since 22 static
+   */
+  function offStateChanged(callback?: Callback<ServiceState>): void;
 
   /**
    * SEService realizes the communication to available SEs on the device.

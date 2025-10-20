@@ -151,6 +151,15 @@ declare namespace nfcController {
   function on(type: 'nfcStateChange', callback: Callback<NfcState>): void;
 
   /**
+   * register nfc state changed event.
+   *
+   * @param { Callback<NfcState> } callback Callback used to listen to the nfc state changed event.
+   * @syscap SystemCapability.Communication.NFC.Core
+   * @since 22 static
+   */
+  function onNfcStateChange(callback: Callback<NfcState>): void;
+
+  /**
    * unregister nfc state changed event.
    *
    * @param { 'nfcStateChange' } type The type to unregister.
@@ -169,6 +178,15 @@ declare namespace nfcController {
    * @since 20 static
    */
   function off(type: 'nfcStateChange', callback?: Callback<NfcState>): void;
+
+  /**
+   * unregister nfc state changed event.
+   *
+   * @param { Callback<NfcState> }  callback Callback used to listen to the nfc state changed event.
+   * @syscap SystemCapability.Communication.NFC.Core
+   * @since 22 static
+   */
+  function offNfcStateChange(callback?: Callback<NfcState>): void;
 
   /**
    * Enables NFC.
