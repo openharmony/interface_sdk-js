@@ -2773,13 +2773,24 @@ export declare class UIContext {
    * Define animation functions for immediate distribution.
    *
    * @param { AnimateParam } param - Set animation effect parameters.
-   * @param { Callback<void> } event - Specify the closure function that displays dynamic effects,
-   * and the system will automatically insert transition animations for state changes caused by the closure function.
+   * @param { VoidCallback } processor - Specify the closure function that displays dynamic effects,
+   *     and the system will automatically insert transition animations for
+   *     state changes caused by the closure function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 20 static
    */
-  animateToImmediately(param: AnimateParam, event: Callback<void>): void;
+  /**
+   * Define animation functions for immediate distribution.
+   *
+   * @param { AnimateParam } param - Set animation effect parameters.
+   * @param { VoidCallback } processor - Specify the closure function that displays dynamic effects,
+   *     and the system will automatically insert transition animations for
+   *     state changes caused by the closure function.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  animateToImmediately(param: AnimateParam, processor: VoidCallback): void;
 
   /**
    * Get FrameNode by id.
