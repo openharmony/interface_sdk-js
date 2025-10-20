@@ -3889,12 +3889,14 @@ declare namespace window {
    * @param { long } [displayId] - Indicate the id of display.
    *     Not passing or passing a value of null or undefined indicates querying all screens.
    * @returns { Promise<int> } Promise used to return the window modes.
-   * @throws { BusinessError } 801 - Capability not supported. function getGlobalWindowMode can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. function getGlobalWindowMode can not work correctly due
+   *     to limited device capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getGlobalWindowMode(displayId?: long): Promise<int>;
 
@@ -3904,13 +3906,15 @@ declare namespace window {
    * @param { int } windowId - Indicates target window id.
    * @returns { Promise<string> } The name of the top navigation destination.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+   *     capabilities.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getTopNavDestinationName(windowId: int): Promise<string>;
 
@@ -4037,12 +4041,14 @@ declare namespace window {
    * @param { string } abilityName - ability Name that needs to be set.
    * @param { ColorMetrics } color - Color metrics.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 801 - Capability not supported.function setStartWindowBackgroundColor can not to work correctly due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.function setStartWindowBackgroundColor can not to work
+   *     correctly due to limited device capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function setStartWindowBackgroundColor(moduleName: string, abilityName: string, color: ColorMetrics): Promise<void>;
 
@@ -4056,7 +4062,8 @@ declare namespace window {
    * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function notifyScreenshotEvent(eventType: ScreenshotEventType): Promise<void>;
 
@@ -6012,7 +6019,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     setDefaultDensityEnabled(enabled: boolean): void;
 
@@ -6029,23 +6037,27 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     setWindowContainerModalColor(activeColor: string, inactiveColor: string): void;
 
     /**
      * Determine whether the window spans multiple screens and displays in full screen mode.
      *
-     * @returns { Promise<boolean> } Whether the window spans multiple screens and displays in full screen mode. 
-     * The value true means that the window spans multiple screens and displays in full screen mode,and false means the opposite.
+     * @returns { Promise<boolean> } Whether the window spans multiple screens and displays in full screen mode.
+     *     The value true means that the window spans multiple screens and displays in full screen mode, and false means
+     *     the opposite.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     isMainWindowFullScreenAcrossDisplays(): Promise<boolean>;
 
@@ -7642,38 +7654,77 @@ declare namespace window {
 
     /**
      *  Register Callback for window spans multiple screens and displays in full screen mode changed.
-     * 
      *
-     * @param { 'mainWindowFullScreenAcrossDisplaysChanged' } type - The value is fixed at 'mainWindowFullScreenAcrossDisplaysChanged',
-     * indicating the window spans multiple screens and displays in full screen mode changed.
-     * @param { Callback<boolean> } callback - Callback used to notify the window spans multiple screens and displays in full screen mode changed.
+     * @param { 'mainWindowFullScreenAcrossDisplaysChanged' } type - The value is fixed at
+     *     'mainWindowFullScreenAcrossDisplaysChanged', indicating the window spans multiple screens and displays in full
+     *     screen mode changed.
+     * @param { Callback<boolean> } callback - Callback used to notify the window spans multiple screens and displays in
+     *     full screen mode changed.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 20
-     */   
+     * @since 20 dynamic
+     */
     on(type: 'mainWindowFullScreenAcrossDisplaysChanged', callback: Callback<boolean>): void;
+
+    /**
+     *  Register Callback for window spans multiple screens and displays in full screen mode changed.
+     *
+     * @param { Callback<boolean> } callback - Callback used to notify the window spans multiple screens and displays in
+     *     full screen mode changed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    onMainWindowFullScreenAcrossDisplaysChanged(callback: Callback<boolean>): void;
 
     /**
      * Unregister Callback for window spans multiple screens and displays in full screen mode changed.
      *
-     * @param { 'mainWindowFullScreenAcrossDisplaysChanged' } type - The value is fixed at 'mainWindowFullScreenAcrossDisplaysChanged',
-     * indicating the window spans multiple screens and displays in full screen mode changed.
-     * @param { Callback<boolean> } [callback] - Callback used to notify the window spans multiple screens and displays in full screen mode changed.
+     * @param { 'mainWindowFullScreenAcrossDisplaysChanged' } type - The value is fixed at
+     *     'mainWindowFullScreenAcrossDisplaysChanged', indicating the window spans multiple screens and displays in full
+     *     screen mode changed.
+     * @param { Callback<boolean> } [callback] - Callback used to notify the window spans multiple screens and displays
+     *    in full screen mode changed. If not provided, all callbacks of this type will be unregistered.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
      */
     off(type: 'mainWindowFullScreenAcrossDisplaysChanged', callback?: Callback<boolean>): void;
+
+    /**
+     * Unregister Callback for window spans multiple screens and displays in full screen mode changed.
+     *
+     * @param { Callback<boolean> } [callback] - Callback used to notify the window spans multiple screens and displays
+     *     in full screen mode changed. If not provided, all callbacks of this type will be unregistered.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    offMainWindowFullScreenAcrossDisplaysChanged(callback?: Callback<boolean>): void;
 
     /**
      * Subscribes to non-interaction events in a window within the specified period.
@@ -7766,26 +7817,54 @@ declare namespace window {
     /**
      * Register the callback of screenshot app event
      *
-     * @param { 'screenshotAppEvent' } type - The value is fixed at 'screenshotAppEvent', indicating the screenshot app event.
+     * @param { 'screenshotAppEvent' } type - The value is fixed at 'screenshotAppEvent', indicating the screenshot app
+     *     event.
      * @param { Callback<ScreenshotEventType> } callback - Callback invoked when a screenshot app event occurs.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 20
+     * @since 20 dynamic
      */
     on(type: 'screenshotAppEvent', callback: Callback<ScreenshotEventType>): void;
 
     /**
-     * Unregister the callback of screenshot app event
+     * Register the callback of screenshot app event
      *
-     * @param { 'screenshotAppEvent' } type - The value is fixed at 'screenshotAppEvent', indicating the screenshot app event.
      * @param { Callback<ScreenshotEventType> } callback - Callback invoked when a screenshot app event occurs.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 20
+     * @since 22 static
+     */
+    onScreenshotAppEvent(callback: Callback<ScreenshotEventType>): void;
+
+    /**
+     * Unregister the callback of screenshot app event
+     *
+     * @param { 'screenshotAppEvent' } type - The value is fixed at 'screenshotAppEvent', indicating the screenshot app
+     *     event.
+     * @param { Callback<ScreenshotEventType> } [callback] - Callback invoked when a screenshot app event occurs.
+     *     If not provided, all callbacks of the screenshot app event will be unregistered.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 20 dynamic
      */
     off(type: 'screenshotAppEvent', callback?: Callback<ScreenshotEventType>): void;
+
+    /**
+     * Unregister the callback of screenshot app event
+     *
+     * @param { 'screenshotAppEvent' } type - The value is fixed at 'screenshotAppEvent', indicating the screenshot app
+     *     event.
+     * @param { Callback<ScreenshotEventType> } [callback] - Callback invoked when a screenshot app event occurs.
+     *     If not provided, all callbacks of the screenshot app event will be unregistered.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 static
+     */
+    offScreenshotAppEvent(callback?: Callback<ScreenshotEventType>): void;
 
     /**
      * Register the callback of dialogTargetTouch
@@ -8585,12 +8664,14 @@ declare namespace window {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed.
      * The application does not have the permission required to call the API.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     setWindowShadowEnabled(enable: boolean): Promise<void>;
 
@@ -9359,11 +9440,13 @@ declare namespace window {
      * Obtains snapshot of window
      *
      * @returns { image.PixelMap } Return pixel map of snapshot.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300018 - Timeout.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     snapshotSync(): image.PixelMap;
 
@@ -11240,10 +11323,12 @@ declare namespace window {
      * Checks whether the layout is immersive.
      *
      * @returns { boolean } The value true means that the layout is immersive, and false means the opposite.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     isImmersiveLayout(): boolean;
 
@@ -11377,11 +11462,13 @@ declare namespace window {
      * @param { string } inactiveColor - window container color in inactive.
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     setWindowContainerColor(activeColor: string, inactiveColor: string): void;
 
@@ -12745,13 +12832,15 @@ declare namespace window {
      * @param { boolean } enabled - Use default density if true, or follow system density change if false
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *    capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     setDefaultDensityEnabled(enabled: boolean): void;
 
@@ -12777,12 +12866,14 @@ declare namespace window {
      * @param { double } density - the specified custom density value.
      * @param { boolean } [applyToSubWindow] - whether to apply the custom density to already created subwindows.
      *     The default value is false.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+     *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     setCustomDensity(density: double, applyToSubWindow?: boolean): void;
 
@@ -13143,7 +13234,8 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum GlobalWindowMode {
     /**
@@ -13151,7 +13243,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     FULLSCREEN = 1,
 
@@ -13160,7 +13253,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     SPLIT = 1 << 1,
 
@@ -13169,7 +13263,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     FLOAT = 1 << 2,
 
@@ -13178,7 +13273,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     PIP = 1 << 3
   }
@@ -13283,42 +13379,48 @@ declare namespace window {
    *
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum ScreenshotEventType {
     /**
      * System screenshot
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     SYSTEM_SCREENSHOT = 0,
     /**
      * System screenshot abort
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     SYSTEM_SCREENSHOT_ABORT = 1,
     /**
      * Scroll shot start
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     SCROLL_SHOT_START = 2,
     /**
      * Scroll shot end
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     SCROLL_SHOT_END = 3,
     /**
      * Scroll shot abort
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     SCROLL_SHOT_ABORT = 4,
   }
