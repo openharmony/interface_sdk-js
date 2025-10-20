@@ -70,6 +70,8 @@ import { ImageAIOptions } from '@ohos.arkui.component';
 import { ResourceStr } from '@ohos.arkui.component';
 import { LoadingProgressAttribute } from '@ohos.arkui.component';
 import { CheckboxGroupOptions, CheckboxGroupAttribute } from '@ohos.arkui.component';
+import { AnimateParam, Optional } from '@ohos.arkui.component';
+import { AnimationPropertyType } from '@ohos.arkui.component';
 
 /**
  * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
@@ -790,6 +792,45 @@ export declare class FrameNode {
    * @since 23 static
    */
   removeAdoptedChild(child: FrameNode): void;
+
+  /**
+   * create property animation in FrameNode.
+   *
+   * @param { AnimationPropertyType } property - enumeration of property that produces the animation.
+   * @param { Optional<double[]> } startValue - start value of animation.
+   *     Undefined means that the last final value is used as the starting value of the animation,
+   *     and it is recommended to set undefined if the property already has a value.
+   * @param { double[] } endValue - end value of animation.
+   * @param { AnimateParam } param - param of animation.
+   * @returns { boolean } whether the createAnimation operation is successful. For example, 
+   *     if the array lengths of startValue and endValue do not match the data lengths required by type,
+   *     creating animation fails.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  createAnimation(property: AnimationPropertyType, startValue: Optional<double[]>, endValue: double[], param: AnimateParam): boolean;
+
+  /**
+   * request to cancel all animations on specified properties. It blocks synchronously to wait for the cancellation result.
+   * If the cancellation is successful, the corresponding properties on the node are restored to the cancelled value.
+   *
+   * @param { AnimationPropertyType[] } properties - animation property types to cancel.
+   * @returns { boolean } whether the cancel operation is successful. For example, 
+   * if ipc fails, canceling the animation fails.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  cancelAnimations(properties: AnimationPropertyType[]): boolean;
+
+  /**
+   * get property value from node.
+   *
+   * @param { AnimationPropertyType } property - animation property type to get value.
+   * @returns { double[] } - the property value on the node.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  getNodePropertyValue(property: AnimationPropertyType): double[];
 
   /**
   * Returns a flag indicating whether the current FrameNode was obtained through dynamic-static conversion,
