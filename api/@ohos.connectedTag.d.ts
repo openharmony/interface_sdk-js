@@ -200,6 +200,17 @@ declare namespace connectedTag {
   function on(type: 'notify', callback: Callback<number>): void;
 
   /**
+   * Subscribes NFC RF status change events.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { Callback<int> } callback The callback function to be registered.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Communication.ConnectedTag
+   * @since 22 static
+   */
+  function onNotify(callback: Callback<int>): void;
+
+  /**
    * Unsubscribes NFC RF status change events.
    * <p>All callback functions will be unregistered If there is no specific callback parameter.</p>
    *
@@ -210,6 +221,18 @@ declare namespace connectedTag {
    * @since 8 dynamic
    */
   function off(type: 'notify', callback?: Callback<number>): void;
+
+  /**
+   * Unsubscribes NFC RF status change events.
+   * <p>All callback functions will be unregistered If there is no specific callback parameter.</p>
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { Callback<number> } callback The callback function to be unregistered.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Communication.ConnectedTag
+   * @since 22 static
+   */
+  function offNotify(callback?: Callback<number>): void;
 
   /**
    * Describes the NFC RF type.
