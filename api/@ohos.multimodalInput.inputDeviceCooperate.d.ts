@@ -18,9 +18,9 @@
  * @kit InputKit
  */
 
-import { AsyncCallback } from "./@ohos.base";
+import { AsyncCallback } from './@ohos.base';
 /*** if arkts static */
-import { Callback } from "./@ohos.base";
+import { Callback } from './@ohos.base';
 /*** endif */
 
 /**
