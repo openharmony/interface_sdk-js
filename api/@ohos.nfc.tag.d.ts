@@ -17,7 +17,7 @@
  * @file
  * @kit ConnectivityKit
  */
-
+/*** if arkts 1.1 */
 import type { NfcATag as _NfcATag, NfcBTag as _NfcBTag, NfcFTag as _NfcFTag, NfcVTag as _NfcVTag } from './tag/nfctech';
 import {
   IsoDepTag as _IsoDepTag,
@@ -30,6 +30,7 @@ import {
 import { NdefMessage as _NdefMessage } from './tag/nfctech';
 import { TagSession as _TagSession } from './tag/tagSession';
 import type { PacMap } from './ability/dataAbilityHelper';
+/*** endif */
 import type rpc from './@ohos.rpc';
 import type { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
@@ -48,7 +49,8 @@ import type { ElementName } from './bundleManager/ElementName';
  * @namespace tag
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace tag {
   /**
@@ -64,7 +66,8 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const NFC_A = 1;
 
@@ -81,7 +84,8 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const NFC_B = 2;
 
@@ -98,7 +102,8 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const ISO_DEP = 3;
 
@@ -115,7 +120,8 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const NFC_F = 4;
 
@@ -132,7 +138,8 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const NFC_V = 5;
 
@@ -149,7 +156,8 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const NDEF = 6;
 
@@ -183,7 +191,8 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const MIFARE_CLASSIC = 8;
 
@@ -200,7 +209,8 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const MIFARE_ULTRALIGHT = 9;
 
@@ -349,7 +359,8 @@ declare namespace tag {
    * @enum { number }
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum NfcForumType {
     /**
@@ -423,7 +434,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIFARE_CLASSIC = 101
   }
@@ -1265,7 +1277,8 @@ declare namespace tag {
    * @typedef TagInfo
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface TagInfo {
     /**
@@ -1282,7 +1295,8 @@ declare namespace tag {
      * @type { number[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uid: number[];
 
@@ -1300,7 +1314,8 @@ declare namespace tag {
      * @type { number[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     technology: number[];
 
@@ -1444,7 +1459,8 @@ declare namespace tag {
    * @namespace ndef
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   namespace ndef {
     /**
