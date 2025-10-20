@@ -37,14 +37,18 @@ declare namespace privacyManager {
    * @param { int } successCount - Access count.
    * @param { int } failCount - Reject count.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
-   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the count value is invalid.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds
+   *     256 characters, or the count value is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
    * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
+   * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9
@@ -59,15 +63,18 @@ declare namespace privacyManager {
    * @param { int } failCount - Number of failed accesses to the permission.
    * @param { AddPermissionUsedRecordOptions } [options] - Options to be added.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
-   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, the count value is invalid,
-   *  or usedType in AddPermissionUsedRecordOptions is invalid.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds
+   *     256 characters, the count value is invalid, or usedType in AddPermissionUsedRecordOptions is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
    * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
+   * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 12 dynamic
@@ -98,6 +105,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
+   * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
@@ -121,10 +129,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The value of flag, begin, or end in request is invalid.
-   * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
-   * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
@@ -141,10 +146,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The value of flag, begin, or end in request is invalid.
-   * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
-   * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
@@ -161,12 +163,15 @@ declare namespace privacyManager {
    * @param { number } tokenID - Token ID of the application.
    * @param { Permissions } permissionName - Name of the permission to be started.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
-   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters,
-   *  or the type of the specified tokenID is not of the application type.
-   * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName
+   *     exceeds 256 characters, or the type of the specified tokenID is not of the application type.
+   * @throws { BusinessError } 12100002 - (Deprecated in 12) The specified tokenID does not exist or refer
+   *     to an application process.
    * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100004 - The API is used repeatedly with the same input.
    *  It means the application specified by the tokenID has been using the specified permission.
@@ -187,12 +192,13 @@ declare namespace privacyManager {
    * @param { number } [pid] - Pid of the application, default -1.
    * @param { PermissionUsedType } [usedType] - Used type of the permission accessed, default NORMAL_TYPE.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
-   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters,
-   *  the type of the specified tokenID is not of the application type, or usedType is invalid.
-   * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds
+   *     256 characters, the type of the specified tokenID is not of the application type, or usedType is invalid.
    * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100004 - The API is used repeatedly with the same input.
    *  It means the application specified by the tokenID has been using the specified permission.
@@ -221,7 +227,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters,
    *  or the type of the specified tokenID is not of the application type.
-   * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
+   * @throws { BusinessError } 12100002 - (Deprecated in 12) The specified tokenID does not exist or refer to an application process.
    * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100004 - The API is used repeatedly with the same input.
    *  It means the application specified by the tokenID has been using the specified permission.
@@ -245,7 +251,6 @@ declare namespace privacyManager {
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters,
    *  or the type of the specified tokenID is not of the application type.
-   * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
    * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100004 - The API is not used in pair with 'startUsingPermission'.
    * @throws { BusinessError } 12100007 - The service is abnormal.
@@ -269,7 +274,6 @@ declare namespace privacyManager {
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters,
    *  or the type of the specified tokenID is not of the application type.
-   * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
    * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100004 - The API is not used in pair with 'startUsingPermission'.
    * @throws { BusinessError } 12100007 - The service is abnormal.
@@ -296,7 +300,6 @@ declare namespace privacyManager {
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters,
    *  or the type of the specified tokenID is not of the application type.
-   * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
    * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100004 - The API is not used in pair with 'startUsingPermission'.
    * @throws { BusinessError } 12100007 - The service is abnormal.
@@ -371,11 +374,11 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100001 - Invalid parameter. PermissionName exceeds 256 characters.
    * @throws { BusinessError } 12100002 - The input tokenId does not exist.
    * @throws { BusinessError } 12100003 - The input permissionName does not exist.
+   * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 12
    */
-
   /**
    * Obtains the used type of the permission accessed.
    *
@@ -391,6 +394,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100001 - Invalid parameter. PermissionName exceeds 256 characters.
    * @throws { BusinessError } 12100002 - The input tokenId does not exist.
    * @throws { BusinessError } 12100003 - The input permissionName does not exist.
+   * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 20 dynamic
@@ -403,11 +407,14 @@ declare namespace privacyManager {
    * @permission ohos.permission.PERMISSION_RECORD_TOGGLE
    * @param { boolean } status - The toggle status to be set.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_RECORD_TOGGLE".
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   *     "ohos.permission.PERMISSION_RECORD_TOGGLE".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100007 - The service is abnormal.
-   * @throws { BusinessError } 12100009 - Common inner error.
+   * @throws { BusinessError } 12100009 - Common inner error. Possible causes: 1. A database error occurs;
+   *     2. Failed to query applications under the user.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 18 dynamic
