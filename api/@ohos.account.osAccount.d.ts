@@ -1541,7 +1541,7 @@ declare namespace osAccount {
      * Gets the domain account information associated with the specified OS account.
      *
      * @permission ohos.permission.GET_DOMAIN_ACCOUNTS and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { int } localId - Indicates the local ID of the specified OS account.
+     * @param { number } localId - Indicates the local ID of the specified OS account.
      * @returns { Promise<DomainAccountInfo> } Returns the domain account information.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1550,9 +1550,22 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - OS account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @since 15 dynamic
+     */
+    getOsAccountDomainInfo(localId: number): Promise<DomainAccountInfo>;
+
+    /**
+     * Gets the domain account information associated with the specified OS account.
+     *
+     * @permission ohos.permission.GET_DOMAIN_ACCOUNTS and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { int } localId - Indicates the local ID of the specified OS account.
+     * @returns { Promise<DomainAccountInfo | null> } Returns the domain account information.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300003 - OS account not found.
+     * @syscap SystemCapability.Account.OsAccount
      * @since 20 static
      */
-    getOsAccountDomainInfo(localId: int): Promise<DomainAccountInfo>;
+    getOsAccountDomainInfo(localId: int): Promise<DomainAccountInfo | null>;
 
     /**
      * Obtains the type of this OS account from the current process.
@@ -2498,9 +2511,18 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
      */
     shortName: string;
+
+    /**
+     * Indicates the short name of the OS account.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 20 static
+     */
+    shortName?: string;
 
     /**
      * Indicates the bundles are disallowed to be preinstalled on the OS account.
