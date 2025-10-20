@@ -19,7 +19,7 @@
  * @kit ArkWeb
  */
 
-import ExtensionContext from '@ohos.inner.application.ExtensionContext';
+import ExtensionContext from './application/ExtensionContext';
 import Want from './@ohos.app.ability.Want';
 import StartOptions from './@ohos.app.ability.StartOptions';
 
