@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from '../stateManagement/runtime';
+import { memo, ComponentBuilder } from '../stateManagement/runtime';
 import OriginalContext from '../../application/Context';
 import { Resource } from '../../global/resource';
 import pointer from '../../@ohos.multimodalInput.pointer';

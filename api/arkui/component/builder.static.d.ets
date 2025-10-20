@@ -19,7 +19,7 @@
  */
 
 import { memo, ComponentBuilder } from "../stateManagement/runtime";
-import { Callback } from '@ohos.base'
+import { Callback } from '@ohos.base';
 
 /**
  * Defines Builder Annotation.
