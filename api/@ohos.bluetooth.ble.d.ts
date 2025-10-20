@@ -2818,6 +2818,21 @@ declare namespace ble {
      * @atomicservice
      * @since 20
      */
+    /**
+     * Get the RSSI value of this BLE peripheral device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { AsyncCallback<int> } callback - Callback invoked to return the RSSI, in dBm.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2901003 - The connection is not established.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 22 dynamic
+     */
     getRssiValue(callback: AsyncCallback<number>): void;
 
     /**
@@ -2862,6 +2877,21 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 20
+     */
+    /**
+     * Get the RSSI value of this BLE peripheral device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @returns { Promise<int> } Returns the RSSI value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2901003 - The connection is not established.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 22 dynamic
      */
     getRssiValue(): Promise<number>;
 
@@ -5215,7 +5245,7 @@ declare namespace ble {
 
   /**
    * Describes the contents of the scan report.
-   * 
+   *
    * @typedef ScanReport
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
@@ -6778,7 +6808,7 @@ declare namespace ble {
 
   /**
    * Report mode used during scan.
-   * 
+   *
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
@@ -6949,7 +6979,7 @@ declare namespace ble {
      */
     CONN_UNKNOWN = 4
   }
-  
+
   /**
    * Describes the permission of a att attribute item.
    *
