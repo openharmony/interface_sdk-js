@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 import { ResourceStr } from '@ohos.arkui.component';
-import { PropRef } from '@ohos.stateManagement';
+import { PropRef } from '@ohos.arkui.stateManagement';
 import { Component } from '@ohos.arkui.component';
 import { Builder } from '@ohos.arkui.component';
 /**

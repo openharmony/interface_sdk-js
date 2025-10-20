@@ -22,7 +22,7 @@ import { ResourceStr, ResourceColor, LocalizedMargin } from '@ohos.arkui.compone
 import { SafeAreaType, SafeAreaEdge, BlurStyle } from '@ohos.arkui.component';
 import { Component } from '@ohos.arkui.component';
 import { SymbolGlyphModifier } from 'arkui.SymbolGlyphModifier';
-import { PropRef } from '@ohos.stateManagement';
+import { PropRef } from '@ohos.arkui.stateManagement';
 import { Builder } from '@ohos.arkui.component';
 /**
  * Declaration of the menu item on the right side.

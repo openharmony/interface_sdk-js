@@ -20,7 +20,7 @@
  */
 import { Component } from '@ohos.arkui.component';
 import { ResourceStr, Resource, ResourceColor } from '@ohos.arkui.component';
-import { PropRef, Observed, ObjectLink } from '@ohos.stateManagement';
+import { PropRef, Observed, ObjectLink } from '@ohos.arkui.stateManagement';
 import { SymbolGlyphModifier } from 'arkui.SymbolGlyphModifier';
 import { DividerModifier } from 'arkui.DividerModifier';
 import { LengthMetrics } from 'arkui.Graphics';

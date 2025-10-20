@@ -21,7 +21,7 @@
 import { Component } from '@ohos.arkui.component';
 import { ResourceStr } from '@ohos.arkui.component';
 import { BuilderParam, Builder } from '@ohos.arkui.component';
-import { PropRef } from '@ohos.stateManagement';
+import { PropRef } from '@ohos.arkui.stateManagement';
 /**
  * Declare FilterType
  *

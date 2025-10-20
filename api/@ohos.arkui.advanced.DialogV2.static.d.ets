@@ -18,11 +18,11 @@
  * @file
  * @kit ArkUI
  */
-import { ComponentV2 } from '@ohos.arkui.component';
+import { ComponentV2 } from '@ohos.arkui.component';L
 import { ResourceStr, ResourceColor, LocalizedPadding, SizeOptions } from '@ohos.arkui.component';
 import { ButtonStyleMode, ButtonRole } from '@ohos.arkui.component';
 import { PixelMap, ThemeColorMode, CustomPopupOptions } from '@ohos.arkui.component';
-import { Local, Param, ObservedV2, Require, Trace, Event } from '@ohos.stateManagement';
+import { Local, Param, ObservedV2, Require, Trace, Event } from '@ohos.arkui.stateManagement';
 import { BuilderParam, Builder, CustomBuilder } from '@ohos.arkui.component';
 import { LengthMetrics, ColorMetrics } from './arkui/Graphics';
 import { SheetInfo } from '@ohos.arkui.component';

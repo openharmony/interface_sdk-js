@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { memo } from '@ohos.stateManagement'
+import { memo } from '@ohos.arkui.stateManagement'
 
 /**
 * Describe the options for the ParallelizeUI.

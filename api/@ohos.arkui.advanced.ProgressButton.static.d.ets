@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 import { Component } from '@ohos.arkui.component';
-import { PropRef } from '@ohos.stateManagement';
+import { PropRef } from '@ohos.arkui.stateManagement';
 import { ResourceColor, ResourceStr, Length } from '@ohos.arkui.component';
 import { Builder } from '@ohos.arkui.component';
 import { LengthMetrics } from 'arkui.Graphics';
