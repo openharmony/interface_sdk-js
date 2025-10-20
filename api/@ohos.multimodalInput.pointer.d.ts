@@ -540,6 +540,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 20 dynamic
+     * @since 20 static
      */
     TOUCHPAD_TWO_FINGER_TAP_OR_RIGHT_BUTTON = 4,
 
