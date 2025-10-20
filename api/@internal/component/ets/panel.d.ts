@@ -682,7 +682,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      * @deprecated since 12
      */
       width: number,
@@ -698,7 +698,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      * @deprecated since 12
      */
       height: number,
@@ -714,7 +714,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      * @deprecated since 12
      */
       mode: PanelMode,
