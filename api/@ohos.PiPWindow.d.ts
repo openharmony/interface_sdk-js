@@ -808,41 +808,6 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Enum for active status.
-   *
-   * @enum { number }.
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since 22
-   */
-  enum PiPActiveStatus {
-    /**
-     * unknown status.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 22
-     */
-    STATUS_UNKNOWN = -1,
-    /**
-     * foreground status, pip is on foreground.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 22
-     */
-    STATUS_FOREGROUND = 0,
-    /**
-     * sidebar status, pip is in sidebar.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 22
-     */
-    STATUS_SIDEBAR = 1,
-  }  
-
-  /**
    * Describe picture-in-picture action event type.
    *
    * @typedef { PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingActionEvent | PiPLiveActionEvent }
@@ -1252,31 +1217,26 @@ declare namespace PiPWindow {
      * Register picture-in-picture active status change listener
      *
      * @param { 'activeStatusChange' } type - Registration type, active status change, 'activeStatusChange'
-     * @param { Callback<PiPActiveStatus> } callback - Used to handle {'activeStatusChange'} command.
-     * @throws { BusinessError } 801 - Capability not supported. 
-     *     function on('activeStatusChange', callback) can not work correctly due to limited device capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @param { Callback<boolean> } callback - Used to handle {'activeStatusChange'} command.
+     *     True indicates that the pip is onscreen, and vice verse.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22
      */
-    on(type: 'activeStatusChange', callback: Callback<PiPActiveStatus>): void;
+    on(type: 'activeStatusChange', callback: Callback<boolean>): void;
 
     /**
-     * Register picture-in-picture active status change listener
+     * Unregister picture-in-picture active status change listener
      *
      * @param { 'activeStatusChange' } type - Registration type, active status change, 'activeStatusChange'
-     * @param { Callback<PiPActiveStatus> } callback - Used to handle {'activeStatusChange'} command. If not provided,
+     * @param { Callback<boolean> } [callback] - Used to handle {'activeStatusChange'} command. If not provided,
      *     all callbacks for the given event type will be removed.
-     * @throws { BusinessError } 801 - Capability not supported. 
-     *     function on('activeStatusChange', callback) can not work correctly due to limited device capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22
      */
-    off(type: 'activeStatusChange', callback?: Callback<PiPActiveStatus>): void;
-    
+    off(type: 'activeStatusChange', callback?: Callback<boolean>): void;
+
     /**
      * Returns a Boolean value that indicates whether picture-in-picture is supported
      *
