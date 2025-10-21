@@ -24,7 +24,7 @@ import image from '../../@ohos.multimedia.image';
 import { CommonMethod, Callback, TouchEvent, MouseEvent, NestedScrollOptions, KeyEvent, HapticFeedbackMode } from './common';
 import { CustomBuilder } from './builder'
 import { Resource } from '../../global/resource';
-import { Position, ResourceStr } from './units';
+import { Position, ResourceStr, VoidCallback } from './units';
 import { PreviewMenuOptions } from './richEditor';
 import { MenuType, EditMenuOptions, TextDataDetectorConfig } from './textCommon';
 import { CopyOptions, NestedScrollMode } from './enums';
@@ -8045,20 +8045,36 @@ declare interface SelectionMenuOptionsExt {
    *
    * @type { ?Callback<void> }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'13', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
    */
   onAppear?: Callback<void>;
+
+  /**
+   * Callback function when the selection menu appears.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 static
+   */
+  onAppear?: VoidCallback;
 
   /**
    * Callback function when the selection menu disappears.
    *
    * @type { ?Callback<void> }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'13', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
    */
   onDisappear?: Callback<void>;
+
+  /**
+   * Callback function when the selection menu disappears.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 static
+   */
+  onDisappear?: VoidCallback;
 
   /**
    * The preview content of selection menu.
@@ -8095,20 +8111,36 @@ declare interface SelectionMenuOptionsExt {
    *
    * @type { ?Callback<void> }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
    */
   onMenuShow?: Callback<void>;
+
+  /**
+   * Callback function when the selection is displayed.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 static
+   */
+  onMenuShow?: VoidCallback;
 
   /**
    * Callback function when the selection menu is hidden.
    *
    * @type { ?Callback<void> }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
    */
   onMenuHide?: Callback<void>;
+
+  /**
+   * Callback function when the selection menu is hidden.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 static
+   */
+  onMenuHide?: VoidCallback;
 }
 
 /**
@@ -11612,9 +11644,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { Callback<void> } callback the triggered function when the web page is activated for window.open called by other web component.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   onActivateContent(callback: Callback<void>): WebAttribute;
+
+  /**
+   * Triggered when the web page is activated for window.open called by other web component.
+   *
+   * @param { VoidCallback } callback the triggered function
+   *     when the web page is activated for window.open called by other web component.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 static
+   */
+  onActivateContent(callback: VoidCallback): WebAttribute;
 
   /**
    * Set up a condition that bypass vsync
