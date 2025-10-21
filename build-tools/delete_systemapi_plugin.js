@@ -407,8 +407,10 @@ function tsTransform(utFiles, callback) {
     const uiFileDir = path.resolve(inputDir, 'arkui', 'component');
     // 过滤文件，仅处理涉及到静态独有语法的API文件，且暂时过滤组件接口文件
     if (/\@memo/.test(content) && !url.includes(uiFileDir)) {
-      // TODO: 执行ets2panda解析
-      currentApiFileContent = execSync('ls -l').toString('utf-8');
+      const nodePath = process.argv[0];
+      // T执行ets2panda解析
+      currentApiFileContent =
+        execSync(`cd ./package_tools/src/deleteTool && ${nodePath} ./entry.js --input ${url}`).toString('utf-8');
       needParseWithStatic = true;
     } else {
       currentApiFileContent = '';
