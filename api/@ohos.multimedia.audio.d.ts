@@ -9855,16 +9855,16 @@ declare namespace audio {
      * This function can only be called when the audio renderer is not in the running or released state.
      * Otherwise, it will return an error. The caller must have the
      * ohos.permission.INJECT_PLAYBACK_TO_AUDIO_CAPTURE permission when target is not {@link RenderTarget#PLAYBACK}.
-     * After changing render target to non-PLAYBACK, caller should note that if the render target is not supported,
-     * the error 6800103 will returned by following interfaces:
-     * 1. {@link start}. If the render target is set as {@link RenderTarget#INJECT_TO_VOICE_COMMUNICATION_CAPTURE},
-     * while the audio scene is not {@link AudioScene#AUDIO_SCENE_VOICE_CHAT}.
-     * 2. {@link getAudioTime} and {@link getAudioTimeSync}.
-     * 3. {@link getAudioTimestampInfo} and {@link getAudioTimestampInfoSync}
-     * 4. {@link setDefaultOutputDevice}.
-     * Also, if the target is non-PLAYBACK:
+     * This method can only be called when the audio renderer is ​​not​​ in the RUNNING or RELEASED state.
+     * Otherwise, an error will be returned.
+     * After changing render target to non-PLAYBACK：
      * 1. The audio route and interruption strategy of this renderer will not be affected by {@link AudioSessionManager}.
-     * 2. {@link DeviceType} will be SYSTEM_PRIVATE.
+     * 2. The device type of this renderer will be {@link DeviceType#SYSTEM_PRIVATE}.
+     * 3. Calling {@link start} when the audio scene is not {@link AudioScene#AUDIO_SCENE_VOICE_CHAT} will
+     * return error code 6800103.
+     * 4. Calling {@link getAudioTime} or {@link getAudioTimeSync} will return error code 6800103.
+     * 5. Calling {@link getAudioTimestampInfo} or {@link getAudioTimestampInfoSync} will return error code 6800103.
+     * 6. Calling {@link setDefaultOutputDevice} will return error code 6800103.
      * @permission ohos.permission.INJECT_PLAYBACK_TO_AUDIO_CAPTURE
      * @param { RenderTarget } target - Render target.
      * @returns { Promise<void> } Promise used to return the result.
@@ -9882,8 +9882,8 @@ declare namespace audio {
     /**
      * Gets the currently render target of this audio renderer.
      * If the render target has not been changed, the default value {@link RenderTarget#PLAYBACK} will be returned.
-     * Ensure that the {@link setTarget} promise is resolved successfully before calling this interface,
-     * otherwise, the obtained value may be inaccurate.
+     * If the {@link setTarget} has been called before calling this interface, ensure its promise object has been
+     * resolved successfully, otherwise, the obtained value may be inaccurate.
      * @returns { RenderTarget } Render target of this audio renderer.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
