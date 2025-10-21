@@ -1842,7 +1842,7 @@ declare namespace uniformTypeDescriptor {
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   class TypeDescriptor {
     /**
