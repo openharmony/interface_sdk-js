@@ -285,9 +285,9 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
     enableAnalyzer(enabled: boolean): MovingPhotoViewAttribute;
 
     /**
-     * set playback strategy.
+     * Sets playback strategy.
      * 
-     * @param { media.setPlaybackStrategy } strategy - playback strategy
+     * @param { media.PlaybackStrategy } strategy - playback strategy
      * @returns { MovingPhotoViewAttribute }
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
