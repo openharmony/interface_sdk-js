@@ -45,6 +45,8 @@ action("ohos_base_split") {
     rebase_path(npm, root_build_dir),
     "--output-interface-sdk",
     rebase_path(interface_sdk_path, root_build_dir),
+    "--build-sdk-path",
+    rebase_path(build_sdk_path, root_build_dir),
   ]
   outputs = [
     "${interface_sdk_path}",
