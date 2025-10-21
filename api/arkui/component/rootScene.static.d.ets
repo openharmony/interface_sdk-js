@@ -27,7 +27,7 @@ import { AttributeModifier, CommonMethod } from './common';
  * @interface RootSceneSession
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20 static
+ * @since 22 static
  */
 export declare interface RootSceneSession {
 }
