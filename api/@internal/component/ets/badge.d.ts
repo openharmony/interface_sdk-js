@@ -50,7 +50,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum BadgePosition {
   /**
@@ -81,7 +81,7 @@ declare enum BadgePosition {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   RightTop,
 
@@ -113,7 +113,7 @@ declare enum BadgePosition {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Right,
 
@@ -145,7 +145,7 @@ declare enum BadgePosition {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Left,
 }
@@ -182,7 +182,7 @@ declare enum BadgePosition {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface BadgeStyle {
   /**
@@ -218,7 +218,7 @@ declare interface BadgeStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   color?: ResourceColor;
 
@@ -272,7 +272,7 @@ declare interface BadgeStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   fontSize?: number | ResourceStr;
 
@@ -327,7 +327,7 @@ declare interface BadgeStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   badgeSize?: number | ResourceStr;
 
@@ -364,7 +364,7 @@ declare interface BadgeStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   badgeColor?: ResourceColor;
 
@@ -384,7 +384,7 @@ declare interface BadgeStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   borderColor?: ResourceColor;
 
@@ -406,7 +406,7 @@ declare interface BadgeStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   borderWidth?: Length;
 
@@ -441,7 +441,7 @@ declare interface BadgeStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   fontWeight?: number | FontWeight | ResourceStr;
 
@@ -516,7 +516,7 @@ declare interface BadgeStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface BadgeParam {
   /**
@@ -559,7 +559,7 @@ declare interface BadgeParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   position?: BadgePosition | Position;
 
@@ -595,7 +595,7 @@ declare interface BadgeParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   style: BadgeStyle;
 }
@@ -636,7 +636,7 @@ declare interface BadgeParam {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface BadgeParamWithNumber extends BadgeParam {
   /**
@@ -679,7 +679,7 @@ declare interface BadgeParamWithNumber extends BadgeParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   count: number;
 
@@ -723,7 +723,7 @@ declare interface BadgeParamWithNumber extends BadgeParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   maxCount?: number;
 }
@@ -764,7 +764,7 @@ declare interface BadgeParamWithNumber extends BadgeParam {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface BadgeParamWithString extends BadgeParam {
   /**
@@ -809,7 +809,7 @@ declare interface BadgeParamWithString extends BadgeParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   value: ResourceStr;
 }
@@ -846,7 +846,7 @@ declare interface BadgeParamWithString extends BadgeParam {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface BadgeInterface {
   /**
@@ -897,7 +897,7 @@ interface BadgeInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (value: BadgeParamWithNumber): BadgeAttribute;
 
@@ -949,7 +949,7 @@ interface BadgeInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (value: BadgeParamWithString): BadgeAttribute;
 }
@@ -986,7 +986,7 @@ interface BadgeInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
 
@@ -1018,7 +1018,7 @@ declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Badge: BadgeInterface;
 
@@ -1050,6 +1050,6 @@ declare const Badge: BadgeInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const BadgeInstance: BadgeAttribute;

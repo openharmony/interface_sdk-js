@@ -532,7 +532,7 @@ declare namespace camera {
    * @typedef ControlCenterStatusInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
     interface ControlCenterStatusInfo {
       /**
@@ -542,7 +542,7 @@ declare namespace camera {
        * @readonly
        * @syscap SystemCapability.Multimedia.Camera.Core
        * @atomicservice
-       * @since 20
+       * @since 20 dynamic
        */
       readonly effectType: ControlCenterEffectType;
    
@@ -553,7 +553,7 @@ declare namespace camera {
        * @readonly
        * @syscap SystemCapability.Multimedia.Camera.Core
        * @atomicservice
-       * @since 20
+       * @since 20 dynamic
        */
       readonly isActive: boolean;
     }
@@ -1624,7 +1624,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     on(type: 'controlCenterStatusChange', callback: AsyncCallback<boolean>): void;
  
@@ -1636,7 +1636,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     off(type: 'controlCenterStatusChange', callback?: AsyncCallback<boolean>): void;
  
@@ -1647,7 +1647,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     isControlCenterActive(): boolean;
  
@@ -1660,7 +1660,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     createControlCenterSession(): ControlCenterSession;
 
@@ -2722,8 +2722,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     readonly lensEquivalentFocalLength?: Array<int>;
   }
@@ -3123,8 +3122,7 @@ declare namespace camera {
      * @returns { boolean } Is physical camera orientation variable under different fold status.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 21
-     * @arkts 1.1&1.2
+     * @since 21 dynamic&static
      */
     isPhysicalCameraOrientationVariable(): boolean;
 
@@ -3134,8 +3132,7 @@ declare namespace camera {
      * @returns { int } The physical camera orientation.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 21
-     * @arkts 1.1&1.2
+     * @since 21 dynamic&static
      */
     getPhysicalCameraOrientation(): int;
   
@@ -3147,8 +3144,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 21
-     * @arkts 1.1&1.2
+     * @since 21 dynamic&static
      */
     usePhysicalCameraOrientation(isUsed: boolean): void;
   }
@@ -5343,7 +5339,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     isZoomCenterPointSupported(): boolean;
   }
@@ -5478,7 +5474,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     getZoomCenterPoint(): Point;
 
@@ -5490,7 +5486,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     setZoomCenterPoint(point: Point): void;
   }
@@ -6130,7 +6126,7 @@ declare namespace camera {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   enum ControlCenterEffectType {
     /**
@@ -6138,7 +6134,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     BEAUTY = 0,
     /**
@@ -6146,7 +6142,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     PORTRAIT = 1
   }
@@ -6370,7 +6366,7 @@ declare namespace camera {
      * @returns { boolean } Is control center supported.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     isControlCenterSupported(): boolean;
  
@@ -6380,7 +6376,7 @@ declare namespace camera {
      * @returns { Array<ControlCenterEffectType> } The array of the supported control center type for the session.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     getSupportedEffectTypes(): Array<ControlCenterEffectType>;
   }
@@ -6402,7 +6398,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice 
-     * @since 20
+     * @since 20 dynamic
      */
     enableControlCenter(enabled: boolean): void;
   }
@@ -8950,7 +8946,7 @@ declare namespace camera {
      * @param { AsyncCallback<ControlCenterStatusInfo> } callback - Callback used to get control center effect status.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
      on(type: 'controlCenterEffectStatusChange', callback: AsyncCallback<ControlCenterStatusInfo>): void;
  
@@ -8961,7 +8957,7 @@ declare namespace camera {
       * @param { AsyncCallback<ControlCenterStatusInfo> } [callback] - Callback used to get control center effect status.
       * @syscap SystemCapability.Multimedia.Camera.Core
       * @atomicservice
-      * @since 20
+      * @since 20 dynamic
       */
      off(type: 'controlCenterEffectStatusChange', callback?: AsyncCallback<ControlCenterStatusInfo>): void;
 
@@ -11677,7 +11673,7 @@ declare namespace camera {
      * @type { Point }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     centerPointOffset: Point;
   }
@@ -12751,7 +12747,7 @@ declare namespace camera {
    * @enum {number}
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   enum PhotoQualityPrioritization {
     /**
@@ -12759,7 +12755,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 21
+     * @since 21 dynamic
      */
     HIGH_QUALITY = 0,
 
@@ -12768,7 +12764,7 @@ declare namespace camera {
      * 
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 21
+     * @since 21 dynamic
      */
     SPEED = 1,
   }
@@ -13860,7 +13856,7 @@ declare namespace camera {
      * reconfiguring streams is needed to recover from failure.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 21
+     * @since 21 dynamic
     */
     isPhotoQualityPrioritizationSupported(qualityPrioritization: PhotoQualityPrioritization): boolean;
 
@@ -13873,7 +13869,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 21
+     * @since 21 dynamic
     */
     setPhotoQualityPrioritization(qualityPrioritization: PhotoQualityPrioritization): void;
   }
@@ -16132,7 +16128,7 @@ declare namespace camera {
    * @interface ControlCenterSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   interface ControlCenterSession extends Beauty, Aperture {
     /**
@@ -16142,7 +16138,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     release(): Promise<void>;
   } 

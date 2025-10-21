@@ -34,8 +34,8 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
  * @typedef TriggerInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export interface TriggerInfo {
   /**
@@ -51,8 +51,8 @@ export interface TriggerInfo {
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   code: int;
 
@@ -79,8 +79,8 @@ export interface TriggerInfo {
    * @type { ?Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   want?: Want;
 
@@ -101,8 +101,8 @@ export interface TriggerInfo {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   permission?: string;
 
@@ -119,7 +119,7 @@ export interface TriggerInfo {
    * @type { ?object }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   extraInfo?: { [key: string]: any };
 
@@ -128,8 +128,7 @@ export interface TriggerInfo {
    *
    * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   extraInfo?: Record<string, Object>;
 
@@ -148,8 +147,8 @@ export interface TriggerInfo {
    * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   extraInfos?: Record<string, Object>;
 
@@ -160,8 +159,8 @@ export interface TriggerInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
    startOptions?: StartOptions;
 }

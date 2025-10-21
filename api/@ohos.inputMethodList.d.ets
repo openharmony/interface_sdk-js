@@ -23,7 +23,7 @@
  *
  * @interface PatternOptions
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 11
+ * @since 11 dynamic
  */
 export interface PatternOptions {
   /**
@@ -31,7 +31,7 @@ export interface PatternOptions {
    *
    * @type { number }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
    */
   defaultSelected?: number;
   /**
@@ -39,7 +39,7 @@ export interface PatternOptions {
    *
    * @type { Array<Pattern> }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
    */
   patterns: Array<Pattern>;
   /**
@@ -47,7 +47,7 @@ export interface PatternOptions {
    *
    * @type { function }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
    */
   action: (index: number) => void;
 }
@@ -57,7 +57,7 @@ export interface PatternOptions {
  * 
  * @interface Pattern
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 11
+ * @since 11 dynamic
  */
 export interface Pattern {
   /**
@@ -65,7 +65,7 @@ export interface Pattern {
    *
    * @type { Resource }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
    */
   icon: Resource;
   /**
@@ -73,7 +73,7 @@ export interface Pattern {
    *
    * @type { Resource }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
    */
   selectedIcon: Resource;
 }
@@ -82,7 +82,7 @@ export interface Pattern {
  * Declare input method list dialog. The caller must be the current inputmethod.
  *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 11
+ * @since 11 dynamic
  */
 @CustomDialog
 export declare struct InputMethodListDialog {
@@ -91,7 +91,7 @@ export declare struct InputMethodListDialog {
    *
    * @type { CustomDialogController }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
    */
   controller: CustomDialogController;
   /**
@@ -99,7 +99,7 @@ export declare struct InputMethodListDialog {
    *
    * @type { PatternOptions }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since 11 dynamic
    */
   patternOptions?: PatternOptions;
 }

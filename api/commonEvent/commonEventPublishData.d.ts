@@ -40,8 +40,8 @@
  * @syscap SystemCapability.Notification.CommonEvent
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export interface CommonEventPublishData {
   /**
@@ -57,8 +57,8 @@ export interface CommonEventPublishData {
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   bundleName?: string;
 
@@ -77,8 +77,8 @@ export interface CommonEventPublishData {
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   code?: int;
 
@@ -104,8 +104,8 @@ export interface CommonEventPublishData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   data?: string;
 
@@ -122,8 +122,8 @@ export interface CommonEventPublishData {
    * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   subscriberPermissions?: Array<string>;
 
@@ -133,8 +133,8 @@ export interface CommonEventPublishData {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   isOrdered?: boolean;
 
@@ -145,8 +145,8 @@ export interface CommonEventPublishData {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   isSticky?: boolean;
 
@@ -163,7 +163,7 @@ export interface CommonEventPublishData {
    * @type { ?object }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   parameters?: { [key: string]: any };
 
@@ -172,8 +172,7 @@ export interface CommonEventPublishData {
    *
    * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   parameters?: Record<string, Object>;
 }

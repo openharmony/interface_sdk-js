@@ -26,7 +26,7 @@ import image from '../@ohos.multimedia.image';
  * @interface MissionListener
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since 8
+ * @since 8 dynamic
  */
 export interface MissionListener {
   /**
@@ -35,7 +35,7 @@ export interface MissionListener {
    * @param { number } mission - Indicates the id of created mission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
    */
   onMissionCreated(mission: number): void;
 
@@ -45,7 +45,7 @@ export interface MissionListener {
    * @param { number } mission - Indicates the id of destroyed mission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
    */
   onMissionDestroyed(mission: number): void;
 
@@ -55,7 +55,7 @@ export interface MissionListener {
    * @param { number } mission - Indicates the id of the mission which the snapshot changes
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
    */
   onMissionSnapshotChanged(mission: number): void;
 
@@ -65,7 +65,7 @@ export interface MissionListener {
    * @param { number } mission - Indicates the id of the mission being moved to the foreground.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
    */
   onMissionMovedToFront(mission: number): void;
 
@@ -75,7 +75,7 @@ export interface MissionListener {
    * @param { number } mission - Indicates the id of the mission whose label has changed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   onMissionLabelUpdated(mission: number): void;
 
@@ -86,7 +86,7 @@ export interface MissionListener {
    * @param { image.PixelMap } icon - Indicates the icon of the mission whose icon has changed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   onMissionIconUpdated(mission: number, icon: image.PixelMap): void;
 
@@ -96,7 +96,7 @@ export interface MissionListener {
    * @param { number } mission - Indicates the id of the mission whose ability instance is destroyed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   onMissionClosed(mission: number): void;
 }

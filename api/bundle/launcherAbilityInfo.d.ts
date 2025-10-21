@@ -31,7 +31,7 @@ import { ElementName } from './elementName';
  * @typedef LauncherAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
- * @since 8
+ * @since 8 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.LauncherAbilityInfo
  */
@@ -42,7 +42,7 @@ export interface LauncherAbilityInfo {
    * @type { ApplicationInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   readonly applicationInfo: ApplicationInfo;
@@ -53,7 +53,7 @@ export interface LauncherAbilityInfo {
    * @type { ElementName }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   readonly elementName: ElementName;
@@ -64,7 +64,7 @@ export interface LauncherAbilityInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   readonly labelId: number;
@@ -75,7 +75,7 @@ export interface LauncherAbilityInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   readonly iconId: number;
@@ -86,7 +86,7 @@ export interface LauncherAbilityInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   readonly userId: number;
@@ -97,7 +97,7 @@ export interface LauncherAbilityInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   readonly installTime: number;

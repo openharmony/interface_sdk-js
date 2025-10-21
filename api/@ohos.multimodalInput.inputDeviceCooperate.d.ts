@@ -25,7 +25,7 @@ import { AsyncCallback } from './@ohos.base';
  * 
  * @namespace inputDeviceCooperate
  * @syscap SystemCapability.MultimodalInput.Input.Cooperator
- * @since 9
+ * @since 9 dynamiconly
  */
 
 
@@ -36,7 +36,7 @@ declare namespace inputDeviceCooperate {
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamiconly
    */
   enum EventMsg {
     /**
@@ -44,7 +44,7 @@ declare namespace inputDeviceCooperate {
      * 
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
-     * @since 9
+     * @since 9 dynamiconly
     */
     MSG_COOPERATE_INFO_START = 200,
 
@@ -53,7 +53,7 @@ declare namespace inputDeviceCooperate {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
-     * @since 9
+     * @since 9 dynamiconly
     */
     MSG_COOPERATE_INFO_SUCCESS = 201,
 
@@ -62,7 +62,7 @@ declare namespace inputDeviceCooperate {
      * 
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
-     * @since 9
+     * @since 9 dynamiconly
     */
     MSG_COOPERATE_INFO_FAIL = 202,
 
@@ -71,7 +71,7 @@ declare namespace inputDeviceCooperate {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
-     * @since 9
+     * @since 9 dynamiconly
     */
     MSG_COOPERATE_STATE_ON = 500,
 
@@ -80,7 +80,7 @@ declare namespace inputDeviceCooperate {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
-     * @since 9
+     * @since 9 dynamiconly
     */
     MSG_COOPERATE_STATE_OFF = 501,
   }
@@ -108,7 +108,7 @@ declare namespace inputDeviceCooperate {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamiconly
    */
   function enable(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -135,7 +135,7 @@ declare namespace inputDeviceCooperate {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamiconly
    */
   function enable(enable: boolean): Promise<void>;
 
@@ -168,7 +168,7 @@ declare namespace inputDeviceCooperate {
    * @throws { BusinessError } 4400002 - Screen hop failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamiconly
    */
   function start(sinkDeviceDescriptor: string, srcInputDeviceId: number, callback: AsyncCallback<void>): void;
 
@@ -201,7 +201,7 @@ declare namespace inputDeviceCooperate {
    * @throws { BusinessError } 4400002 - Screen hop failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use 
-   * @since 12
+   * @since 12 dynamiconly
   */
   function start(sinkDeviceDescriptor: string, srcInputDeviceId: number): Promise<void>;
 
@@ -226,7 +226,7 @@ declare namespace inputDeviceCooperate {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamiconly
    */
   function stop(callback: AsyncCallback<void>): void;
 
@@ -247,7 +247,7 @@ declare namespace inputDeviceCooperate {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamiconly
    */
   function stop(): Promise<void>;
 
@@ -274,7 +274,7 @@ declare namespace inputDeviceCooperate {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamiconly
    */
   function getState(deviceDescriptor: string, callback: AsyncCallback<{ state: boolean }>): void;
 
@@ -303,7 +303,7 @@ declare namespace inputDeviceCooperate {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamiconly
    */
   function getState(deviceDescriptor: string): Promise<{ state: boolean }>;
 
@@ -328,7 +328,7 @@ declare namespace inputDeviceCooperate {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamiconly
    */
   function on(type: 'cooperation', callback: AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }>): void;
 
@@ -355,7 +355,7 @@ declare namespace inputDeviceCooperate {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamiconly
    */
   function off(type: 'cooperation', callback?: AsyncCallback<void>): void;
 

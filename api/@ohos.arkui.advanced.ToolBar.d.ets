@@ -42,7 +42,7 @@ import { LengthMetrics } from './@ohos.arkui.node';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 export declare enum ItemState {
   /**
@@ -61,7 +61,7 @@ export declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   ENABLE = 1,
   /**
@@ -80,7 +80,7 @@ export declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   DISABLE = 2,
   /**
@@ -99,7 +99,7 @@ export declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   ACTIVATE = 3
 }
@@ -118,7 +118,7 @@ export declare enum ItemState {
  * @interface ToolBarSymbolGlyphOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 export interface ToolBarSymbolGlyphOptions {
 
@@ -136,7 +136,7 @@ export interface ToolBarSymbolGlyphOptions {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   normal?: SymbolGlyphModifier;
 
@@ -154,7 +154,7 @@ export interface ToolBarSymbolGlyphOptions {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   activated?: SymbolGlyphModifier;
 }
@@ -175,7 +175,7 @@ export interface ToolBarSymbolGlyphOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 @Observed
 export declare class ToolBarOption {
@@ -198,7 +198,7 @@ export declare class ToolBarOption {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 18
+  * @since 18 dynamic
   */
   content: ResourceStr;
   /**
@@ -220,7 +220,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   action?: () => void;
   /**
@@ -242,7 +242,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   icon?: Resource;
   /**
@@ -264,7 +264,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   state?: ItemState;
   /**
@@ -280,7 +280,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   textColor?: ResourceColor;
   /**
@@ -296,7 +296,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   activatedTextColor?: ResourceColor;
   /**
@@ -312,7 +312,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   iconColor?: ResourceColor;
   /**
@@ -328,7 +328,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   activatedIconColor?: ResourceColor;
   /**
@@ -345,7 +345,7 @@ export declare class ToolBarOption {
    * @type { ?ToolBarSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   toolBarSymbolOptions?: ToolBarSymbolGlyphOptions;
   /**
@@ -354,7 +354,7 @@ export declare class ToolBarOption {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   accessibilityText?: ResourceStr;
   /**
@@ -363,7 +363,7 @@ export declare class ToolBarOption {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   accessibilityDescription?: ResourceStr;
   /**
@@ -373,7 +373,7 @@ export declare class ToolBarOption {
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   accessibilityLevel?: string;
 }
@@ -394,7 +394,7 @@ export declare class ToolBarOption {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 @Observed
 export declare class ToolBarOptions extends Array<ToolBarOption> {
@@ -411,7 +411,7 @@ export declare class ToolBarOptions extends Array<ToolBarOption> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 export declare class ToolBarModifier {
   /**
@@ -431,7 +431,7 @@ export declare class ToolBarModifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   height(height: LengthMetrics): ToolBarModifier;
   /**
@@ -451,7 +451,7 @@ export declare class ToolBarModifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   backgroundColor(backgroundColor: ResourceColor): ToolBarModifier;
   /**
@@ -471,7 +471,7 @@ export declare class ToolBarModifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   padding(padding: LengthMetrics): ToolBarModifier;
   /**
@@ -491,7 +491,7 @@ export declare class ToolBarModifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   stateEffect(stateEffect: boolean): ToolBarModifier;
 }
@@ -512,7 +512,7 @@ export declare class ToolBarModifier {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 @Component
 export declare struct ToolBar {
@@ -535,7 +535,7 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @ObjectLink toolBarList: ToolBarOptions;
   /**
@@ -557,7 +557,7 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Prop activateIndex?: number;
   /**
@@ -579,7 +579,7 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   controller: TabsController;
   /**
@@ -595,7 +595,7 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Prop dividerModifier?: DividerModifier;
   /**
@@ -611,7 +611,7 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Prop toolBarModifier?: ToolBarModifier;
 }

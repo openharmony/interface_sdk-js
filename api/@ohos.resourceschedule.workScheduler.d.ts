@@ -206,7 +206,7 @@ declare namespace workScheduler {
      * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 22
+     * @since 22 dynamic
      */
     earliestStartTime?: int;
   }
@@ -299,7 +299,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.resourceschedule.workScheduler#obtainAllWorks
    */
@@ -369,7 +369,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.resourceschedule.workScheduler#isLastWorkTimeOut
    */

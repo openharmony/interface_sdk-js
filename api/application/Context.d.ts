@@ -54,8 +54,8 @@ import contextConstant from '../@ohos.app.ability.contextConstant';
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare class Context extends BaseContext {
   /**
@@ -83,8 +83,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   resourceManager: resmgr.ResourceManager;
 
@@ -113,8 +113,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   applicationInfo: ApplicationInfo;
 
@@ -143,8 +143,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   cacheDir: string;
 
@@ -173,8 +173,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   tempDir: string;
 
@@ -203,8 +203,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   filesDir: string;
 
@@ -233,8 +233,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   databaseDir: string;
 
@@ -263,8 +263,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   preferencesDir: string;
 
@@ -297,8 +297,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   bundleCodeDir: string;
 
@@ -317,8 +317,8 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   distributedFilesDir: string;
 
@@ -335,8 +335,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   resourceDir: string;
 
@@ -347,8 +347,8 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   cloudFileDir: string;
 
@@ -388,8 +388,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   eventHub: EventHub;
 
@@ -408,7 +408,7 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   area: contextConstant.AreaMode;
 
@@ -419,8 +419,7 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   get area(): contextConstant.AreaMode;
 
@@ -431,8 +430,7 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   set area(mode: contextConstant.AreaMode);
 
@@ -444,8 +442,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   processName: string;
 
@@ -468,7 +466,7 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    * @useinstead ohos.app.ability.application/application#createBundleContext
    */
@@ -510,7 +508,7 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 12
    * @useinstead ohos.app.ability.application/application#createModuleContext
    */
@@ -531,7 +529,7 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    * @useinstead ohos.app.ability.application/application#createModuleContext
    */
@@ -549,7 +547,7 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   createSystemHspModuleResourceManager(bundleName: string, moduleName: string): resmgr.ResourceManager;
 
@@ -581,8 +579,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   getApplicationContext(): ApplicationContext;
 
@@ -611,8 +609,8 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   getGroupDir(dataGroupID: string, callback: AsyncCallback<string>): void;
 
@@ -640,8 +638,8 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   getGroupDir(dataGroupID: string): Promise<string>;
 
@@ -659,8 +657,8 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   createModuleResourceManager(bundleName: string, moduleName: string): resmgr.ResourceManager;
 
@@ -674,8 +672,8 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   createAreaModeContext(areaMode: contextConstant.AreaMode): Context;
 
@@ -690,8 +688,8 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 20 static
    */
   createDisplayContext(displayId: long): Context;
 }

@@ -40,8 +40,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 declare class HashMap<K, V> {
   /**
@@ -66,8 +66,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   constructor();
   /**
@@ -92,7 +92,7 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   length: number;
   /**
@@ -102,8 +102,7 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   get length(): int;
   /**
@@ -131,8 +130,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   isEmpty(): boolean;
   /**
@@ -163,8 +162,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   hasKey(key: K): boolean;
   /**
@@ -195,8 +194,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   hasValue(value: V): boolean;
   /**
@@ -227,7 +226,7 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get(key: K): V;
 
@@ -239,8 +238,7 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   get(key: K): V | undefined;
 
@@ -278,8 +276,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   setAll(map: HashMap<K, V>): void;
   /**
@@ -319,8 +317,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   set(key: K, value: V): Object;
   /**
@@ -351,7 +349,7 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   remove(key: K): V;
 
@@ -363,8 +361,7 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   remove(key: K): V | undefined;
 
@@ -390,8 +387,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   clear(): void;
   /**
@@ -419,8 +416,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   keys(): IterableIterator<K>;
   /**
@@ -448,8 +445,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   values(): IterableIterator<V>;
   /**
@@ -483,8 +480,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   replace(key: K, newValue: V): boolean;
   /**
@@ -534,7 +531,7 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   forEach(callbackFn: (value?: V, key?: K, map?: HashMap<K, V>) => void, thisArg?: Object): void;
 
@@ -545,8 +542,7 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   forEach(callbackFn: HashMapCbFn<K, V>): void;
 
@@ -575,8 +571,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   entries(): IterableIterator<[K, V]>;
   /**
@@ -604,7 +600,7 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   [Symbol.iterator](): IterableIterator<[K, V]>;
 
@@ -615,8 +611,7 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   $_iterator(): IterableIterator<[K, V]>;
 }
@@ -631,8 +626,7 @@ declare class HashMap<K, V> {
    * @returns { void } This callback does not return a value
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type HashMapCbFn<K, V> = (value: V, key: K, map: HashMap<K, V>) => void;
 

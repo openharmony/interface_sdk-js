@@ -27,7 +27,7 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * @namespace hiAppEvent
  * @syscap SystemCapability.HiviewDFX.HiAppEvent
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.hiviewdfx.hiAppEvent
  */
@@ -37,7 +37,7 @@ declare namespace hiAppEvent {
    *
    * @enum { number }
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   enum EventType {
@@ -45,7 +45,7 @@ declare namespace hiAppEvent {
      * Fault event.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      */
     FAULT = 1,
@@ -54,7 +54,7 @@ declare namespace hiAppEvent {
      * Statistic event.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      */
     STATISTIC = 2,
@@ -63,7 +63,7 @@ declare namespace hiAppEvent {
      * Security event.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      */
     SECURITY = 3,
@@ -72,7 +72,7 @@ declare namespace hiAppEvent {
      * User behavior event.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      */
     BEHAVIOR = 4
@@ -83,7 +83,7 @@ declare namespace hiAppEvent {
    *
    * @namespace Event
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   namespace Event {
@@ -92,7 +92,7 @@ declare namespace hiAppEvent {
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      */
     const USER_LOGIN: string;
@@ -102,7 +102,7 @@ declare namespace hiAppEvent {
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      */
     const USER_LOGOUT: string;
@@ -112,7 +112,7 @@ declare namespace hiAppEvent {
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      */
     const DISTRIBUTED_SERVICE_START: string;
@@ -123,7 +123,7 @@ declare namespace hiAppEvent {
    *
    * @namespace Param
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   namespace Param {
@@ -132,7 +132,7 @@ declare namespace hiAppEvent {
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      */
     const USER_ID: string;
@@ -142,7 +142,7 @@ declare namespace hiAppEvent {
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      */
     const DISTRIBUTED_SERVICE_NAME: string;
@@ -152,7 +152,7 @@ declare namespace hiAppEvent {
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      */
     const DISTRIBUTED_SERVICE_INSTANCE_ID: string;
@@ -167,7 +167,7 @@ declare namespace hiAppEvent {
    * @returns { Promise<void> } Return Promise.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   function write(eventName: string, eventType: EventType, keyValues: object): Promise<void>;
@@ -181,7 +181,7 @@ declare namespace hiAppEvent {
    * @param { AsyncCallback<void> } [callback] Callback function.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   function write(eventName: string, eventType: EventType, keyValues: object, callback: AsyncCallback<void>): void;
@@ -193,7 +193,7 @@ declare namespace hiAppEvent {
    * @returns { boolean } Configuration result.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   function configure(config: ConfigOption): boolean;
@@ -203,7 +203,7 @@ declare namespace hiAppEvent {
    *
    * @interface ConfigOption
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   interface ConfigOption {
@@ -212,7 +212,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      */
     disable?: boolean;
@@ -222,7 +222,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      */
     maxStorage?: string;

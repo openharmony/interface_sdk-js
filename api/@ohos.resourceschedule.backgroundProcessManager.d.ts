@@ -60,7 +60,7 @@ declare namespace backgroundProcessManager {
      *
      * @enum { number }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 20
+     * @since 20 dynamic
      */
     export enum PowerSaveMode {
         /**
@@ -68,7 +68,7 @@ declare namespace backgroundProcessManager {
          * This setting may be overridden by settings in Task Manager
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since 20
+         * @since 20 dynamic
          */
         EFFICIENCY_MODE = 1,
 
@@ -76,7 +76,7 @@ declare namespace backgroundProcessManager {
          * Means the process operating mode follows the system and may entry power saving mode
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since 20
+         * @since 20 dynamic
          */
         DEFAULT_MODE = 2,
     }
@@ -122,7 +122,7 @@ declare namespace backgroundProcessManager {
      * @throws { BusinessError } 31800004 - The setting failed due to system scheduling reasons.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 20
+     * @since 20 dynamic
      */
     function setPowerSaveMode(pid: number, powerSaveMode: PowerSaveMode): Promise<void>;
 
@@ -137,7 +137,7 @@ declare namespace backgroundProcessManager {
      * <br> 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 20
+     * @since 20 dynamic
      */
     function isPowerSaveMode(pid: number): Promise<boolean>;
 }

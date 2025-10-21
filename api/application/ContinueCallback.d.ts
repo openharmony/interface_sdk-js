@@ -24,7 +24,7 @@
  * @interface ContinueCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 export interface ContinueCallback {
   /**
@@ -33,7 +33,7 @@ export interface ContinueCallback {
    * @param { number } result - The result code of continue mission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   onContinueDone(result: number): void;
 }

@@ -38,7 +38,7 @@ import { AsyncCallback } from '../../@ohos.base';
  * @interface LifecycleForm
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @FAModelOnly
- * @since 7
+ * @since 7 dynamiconly
  */
 export declare interface LifecycleForm {
   /**
@@ -53,7 +53,7 @@ export declare interface LifecycleForm {
    * @returns { formBindingData.FormBindingData } Returns the created {@link formBindingData#FormBindingData} object.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 8
+   * @since 8 dynamiconly
    */
   onCreate?(want: Want): formBindingData.FormBindingData;
 
@@ -63,7 +63,7 @@ export declare interface LifecycleForm {
    * @param { string } formId - Indicates the ID of the form.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 8
+   * @since 8 dynamiconly
    */
   onCastToNormal?(formId: string): void;
 
@@ -73,7 +73,7 @@ export declare interface LifecycleForm {
    * @param { string } formId - Indicates the ID of the form to update.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 8
+   * @since 8 dynamiconly
    */
   onUpdate?(formId: string): void;
 
@@ -106,7 +106,7 @@ export declare interface LifecycleForm {
    *                                               means that the form becomes invisible.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 11
+   * @since 11 dynamiconly
    */
   onVisibilityChange?(newStatus: Record<string, number>): void;
 
@@ -120,7 +120,7 @@ export declare interface LifecycleForm {
    *                            is used to identify the specific component on which the event is triggered.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 8
+   * @since 8 dynamiconly
    */
   onEvent?(formId: string, message: string): void;
 
@@ -131,7 +131,7 @@ export declare interface LifecycleForm {
    * @param { string } formId - Indicates the ID of the deleted form.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 8
+   * @since 8 dynamiconly
    */
   onDestroy?(formId: string): void;
 
@@ -146,7 +146,7 @@ export declare interface LifecycleForm {
    * @returns { formInfo.FormState } Returns the {@link formInfo#FormState} object.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 8
+   * @since 8 dynamiconly
    */
   onAcquireFormState?(want: Want): formInfo.FormState;
 
@@ -158,7 +158,7 @@ export declare interface LifecycleForm {
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @systemapi
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   onShare?(formId: string): { [key: string]: any };
 
@@ -171,7 +171,7 @@ export declare interface LifecycleForm {
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @systemapi
    * @FAModelOnly
-   * @since 11
+   * @since 11 dynamiconly
    */
   onShareForm?(formId: string): Record<string, Object>;
 }
@@ -182,7 +182,7 @@ export declare interface LifecycleForm {
  * @interface LifecycleApp
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @FAModelOnly
- * @since 7
+ * @since 7 dynamiconly
  */
 export declare interface LifecycleApp {
   /**
@@ -190,7 +190,7 @@ export declare interface LifecycleApp {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onShow?(): void;
 
@@ -199,7 +199,7 @@ export declare interface LifecycleApp {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onHide?(): void;
 
@@ -208,7 +208,7 @@ export declare interface LifecycleApp {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onDestroy?(): void;
 
@@ -217,7 +217,7 @@ export declare interface LifecycleApp {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onCreate?(): void;
 
@@ -232,7 +232,7 @@ export declare interface LifecycleApp {
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @systemapi
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onWindowDisplayModeChanged?(isShownInMultiWindow: boolean, newConfig: resourceManager.Configuration): void;
 
@@ -242,7 +242,7 @@ export declare interface LifecycleApp {
    * @returns { boolean } Returns {@code true} if the user allows the migration; returns {@code false} otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onStartContinuation?(): boolean;
 
@@ -255,7 +255,7 @@ export declare interface LifecycleApp {
    * @returns { boolean } Returns {@code true} if the data is successfully saved; returns {@code false} otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onSaveData?(data: Object): boolean;
 
@@ -268,7 +268,7 @@ export declare interface LifecycleApp {
    *                            successful, and {@code -1} indicates that the migration fails.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onCompleteContinuation?(result: number): void;
 
@@ -280,7 +280,7 @@ export declare interface LifecycleApp {
    * @param { Object } data - Indicates the user data to restore.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onRestoreData?(data: Object): void;
 
@@ -290,7 +290,7 @@ export declare interface LifecycleApp {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onRemoteTerminated?(): void;
 
@@ -303,7 +303,7 @@ export declare interface LifecycleApp {
    *                              parameter cannot be null.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onSaveAbilityState?(outState: PacMap): void;
 
@@ -316,7 +316,7 @@ export declare interface LifecycleApp {
    *                             parameter can not be null.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onRestoreAbilityState?(inState: PacMap): void;
 
@@ -326,7 +326,7 @@ export declare interface LifecycleApp {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onInactive?(): void;
 
@@ -335,7 +335,7 @@ export declare interface LifecycleApp {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onActive?(): void;
 
@@ -345,7 +345,7 @@ export declare interface LifecycleApp {
    * @param { Want } want - Indicates the new {@code want} containing information about the ability.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onNewWant?(want: Want): void;
 
@@ -356,7 +356,7 @@ export declare interface LifecycleApp {
    * @param { number } level - Indicates the memory trim level, which shows the current memory usage status.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onMemoryLevel?(level: number): void;
 }
@@ -367,7 +367,7 @@ export declare interface LifecycleApp {
  * @interface LifecycleService
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @FAModelOnly
- * @since 7
+ * @since 7 dynamiconly
  */
 export declare interface LifecycleService {
   /**
@@ -376,7 +376,7 @@ export declare interface LifecycleService {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onStart?(): void;
 
@@ -389,7 +389,7 @@ export declare interface LifecycleService {
    *                             has been started for six times.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onCommand?(want: Want, startId: number): void;
 
@@ -398,7 +398,7 @@ export declare interface LifecycleService {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onStop?(): void;
 
@@ -409,7 +409,7 @@ export declare interface LifecycleService {
    * @returns { rpc.RemoteObject } Returns the proxy of the Service ability.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onConnect?(want: Want): rpc.RemoteObject;
 
@@ -419,7 +419,7 @@ export declare interface LifecycleService {
    * @param { Want } want - Indicates disconnection information about the Service ability.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onDisconnect?(want: Want): void;
 
@@ -432,7 +432,7 @@ export declare interface LifecycleService {
    * @param { Want } want - Indicates the want of the Service ability being connected.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onReconnect?(want: Want): void;
 }
@@ -443,7 +443,7 @@ export declare interface LifecycleService {
  * @interface LifecycleData
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @FAModelOnly
- * @since 7
+ * @since 7 dynamiconly
  */
 export declare interface LifecycleData {
   /**
@@ -457,7 +457,7 @@ export declare interface LifecycleData {
    *                                             call this function to return the result to framework.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   update?(
     uri: string,
@@ -478,7 +478,7 @@ export declare interface LifecycleData {
    *                                                should call this function to return the result to framework.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   query?(
     uri: string,
@@ -497,7 +497,7 @@ export declare interface LifecycleData {
    *                                             call this function to return the result to framework.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   delete?(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
 
@@ -511,7 +511,7 @@ export declare interface LifecycleData {
    *                                             should call this function to return the result to framework.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   normalizeUri?(uri: string, callback: AsyncCallback<string>): void;
 
@@ -524,7 +524,7 @@ export declare interface LifecycleData {
    *                                             call this function to return the result to framework.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   batchInsert?(uri: string, valueBuckets: Array<rdb.ValuesBucket>, callback: AsyncCallback<number>): void;
 
@@ -537,7 +537,7 @@ export declare interface LifecycleData {
    *                                             should call this function to return the result to framework.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   denormalizeUri?(uri: string, callback: AsyncCallback<string>): void;
 
@@ -550,7 +550,7 @@ export declare interface LifecycleData {
    *                                             should call this function to return the result to framework.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   insert?(uri: string, valueBucket: rdb.ValuesBucket, callback: AsyncCallback<number>): void;
 
@@ -567,7 +567,7 @@ export declare interface LifecycleData {
    *                                             call this function to return the result to framework.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   openFile?(uri: string, mode: string, callback: AsyncCallback<number>): void;
 
@@ -584,7 +584,7 @@ export declare interface LifecycleData {
    *                                                    should call this function to return the result to framework.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   getFileTypes?(uri: string, mimeTypeFilter: string, callback: AsyncCallback<Array<string>>): void;
 
@@ -594,7 +594,7 @@ export declare interface LifecycleData {
    * @param { AbilityInfo } info - Indicates the {@code AbilityInfo} object containing information about this ability.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   onInitialized?(info: AbilityInfo): void;
 
@@ -608,7 +608,7 @@ export declare interface LifecycleData {
    *                                             call this function to return the result to framework.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   getType?(uri: string, callback: AsyncCallback<string>): void;
 
@@ -622,7 +622,7 @@ export declare interface LifecycleData {
    *                                                               the result to framework.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   executeBatch?(ops: Array<DataAbilityOperation>, callback: AsyncCallback<Array<DataAbilityResult>>): void;
 
@@ -636,7 +636,7 @@ export declare interface LifecycleData {
    *                                             should call this function to return the result to framework.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   call?(method: string, arg: string, extras: PacMap, callback: AsyncCallback<PacMap>): void;
 }

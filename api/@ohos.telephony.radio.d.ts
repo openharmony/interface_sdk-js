@@ -27,8 +27,8 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace radio
  * @syscap SystemCapability.Telephony.CoreService
- * @since arkts{ '1.1':'6','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 6 dynamic
+ * @since 20 static
  */
 declare namespace radio {
   /**
@@ -97,7 +97,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 11
+   * @since 11 dynamic
    */
   function getRadioTech(slotId: number, callback: AsyncCallback<NetworkRadioTech>): void;
 
@@ -166,7 +166,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 11
+   * @since 11 dynamic
    */
   function getRadioTech(slotId: number): Promise<NetworkRadioTech>;
 
@@ -178,7 +178,7 @@ declare namespace radio {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { NetworkRadioTech } Returns the RAT of PS domain and CS domain of registered network.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 18
+   * @since 18 dynamic
    */
   function getRadioTechSync(slotId: number): NetworkRadioTech;
 
@@ -197,8 +197,8 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts{ '1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   function getNetworkState(slotId: int, callback: AsyncCallback<NetworkState>): void;
 
@@ -218,8 +218,8 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts{ '1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   function getNetworkState(slotId?: int): Promise<NetworkState>;
 
@@ -236,8 +236,8 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts{ '1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   function getNetworkState(callback: AsyncCallback<NetworkState>): void;
 
@@ -258,7 +258,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function sendUpdateCellLocationRequest(slotId: number, callback: AsyncCallback<void>): void;
 
@@ -279,7 +279,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function sendUpdateCellLocationRequest(slotId?: number): Promise<void>;
 
@@ -298,7 +298,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function sendUpdateCellLocationRequest(callback: AsyncCallback<void>): void;
 
@@ -319,7 +319,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getCellInformation(slotId: number, callback: AsyncCallback<Array<CellInformation>>): void;
 
@@ -340,7 +340,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getCellInformation(slotId?: number): Promise<Array<CellInformation>>;
 
@@ -359,7 +359,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getCellInformation(callback: AsyncCallback<Array<CellInformation>>): void;
 
@@ -382,7 +382,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since 6 dynamic
    */
   function getNetworkSelectionMode(slotId: number, callback: AsyncCallback<NetworkSelectionMode>): void;
 
@@ -405,7 +405,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since 6 dynamic
    */
   function getNetworkSelectionMode(slotId: number): Promise<NetworkSelectionMode>;
 
@@ -425,7 +425,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamic
    */
   function setNetworkSelectionMode(options: NetworkSelectionModeOptions, callback: AsyncCallback<void>): void;
 
@@ -445,7 +445,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamic
    */
   function setNetworkSelectionMode(options: NetworkSelectionModeOptions): Promise<void>;
 
@@ -467,7 +467,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamic
    */
   function getNetworkSearchInformation(slotId: number, callback: AsyncCallback<NetworkSearchResult>): void;
 
@@ -488,7 +488,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamic
    */
   function getNetworkSearchInformation(slotId: number): Promise<NetworkSearchResult>;
 
@@ -506,7 +506,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
    */
   function getISOCountryCodeForNetwork(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -524,7 +524,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
    */
   function getISOCountryCodeForNetwork(slotId: number): Promise<string>;
 
@@ -536,7 +536,7 @@ declare namespace radio {
    * @returns { string } Returns the country code defined in ISO 3166-2.
    * Returns an empty string if the device is not registered with any network.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
    */
   function getISOCountryCodeForNetworkSync(slotId: number): string;
 
@@ -555,7 +555,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 10
    * @useinstead telephony.radio#getNROptionMode
    */
@@ -576,7 +576,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 10
    * @useinstead telephony.radio#getNROptionMode
    */
@@ -595,7 +595,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 10
    * @useinstead telephony.radio#getNROptionMode
    */
@@ -619,7 +619,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getIMEI(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -640,7 +640,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getIMEI(slotId?: number): Promise<string>;
 
@@ -660,7 +660,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getIMEI(callback: AsyncCallback<string>): void;
 
@@ -682,7 +682,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getMEID(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -703,7 +703,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getMEID(slotId?: number): Promise<string>;
 
@@ -723,7 +723,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getMEID(callback: AsyncCallback<string>): void;
 
@@ -749,7 +749,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getUniqueDeviceId(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -775,7 +775,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getUniqueDeviceId(slotId?: number): Promise<string>;
 
@@ -799,7 +799,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getUniqueDeviceId(callback: AsyncCallback<string>): void;
 
@@ -817,8 +817,8 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts{ '1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function getPrimarySlotId(callback: AsyncCallback<int>): void;
 
@@ -832,8 +832,8 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts{ '1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function getPrimarySlotId(): Promise<int>;
 
@@ -855,7 +855,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function setPrimarySlotId(slotId: number, callback: AsyncCallback<void>): void;
 
@@ -877,7 +877,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function setPrimarySlotId(slotId: number): Promise<void>;
 
@@ -895,8 +895,8 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts{ '1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function getSignalInformation(slotId: int, callback: AsyncCallback<Array<SignalInformation>>): void;
 
@@ -914,8 +914,8 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts{ '1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function getSignalInformation(slotId: int): Promise<Array<SignalInformation>>;
 
@@ -927,7 +927,7 @@ declare namespace radio {
    * @returns { Array<SignalInformation> } Returns the callback for getting the instance list of
    * the child classes derived from {@link SignalInformation}.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
    */
   function getSignalInformationSync(slotId: number): Array<SignalInformation>;
 
@@ -936,7 +936,7 @@ declare namespace radio {
    *
    * @returns { boolean } Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead telephony.radio#isNRSupported
    */
@@ -949,7 +949,7 @@ declare namespace radio {
    * index number supported by the device.
    * @returns { boolean } Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead telephony.radio#isNRSupported
    */
@@ -960,8 +960,8 @@ declare namespace radio {
    *
    * @returns { boolean } Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts{ '1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function isNRSupported(): boolean;
 
@@ -972,8 +972,8 @@ declare namespace radio {
    * index number supported by the device.
    * @returns { boolean } Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts{ '1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function isNRSupported(slotId: int): boolean;
 
@@ -993,7 +993,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
    */
   function isRadioOn(slotId: number, callback: AsyncCallback<boolean>): void;
 
@@ -1012,7 +1012,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
    */
   function isRadioOn(slotId?: number): Promise<boolean>;
 
@@ -1030,7 +1030,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
    */
   function isRadioOn(callback: AsyncCallback<boolean>): void;
 
@@ -1051,7 +1051,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function turnOnRadio(slotId: number, callback: AsyncCallback<void>): void;
 
@@ -1072,7 +1072,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function turnOnRadio(slotId?: number): Promise<void>;
 
@@ -1091,7 +1091,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function turnOnRadio(callback: AsyncCallback<void>): void;
 
@@ -1112,7 +1112,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function turnOffRadio(slotId: number, callback: AsyncCallback<void>): void;
 
@@ -1133,7 +1133,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function turnOffRadio(slotId?: number): Promise<void>;
 
@@ -1152,7 +1152,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function turnOffRadio(callback: AsyncCallback<void>): void;
 
@@ -1169,7 +1169,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
    */
   function getOperatorName(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -1186,7 +1186,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
    */
   function getOperatorName(slotId: number): Promise<string>;
 
@@ -1197,7 +1197,7 @@ declare namespace radio {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { string } Returns the operator name.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
    */
   function getOperatorNameSync(slotId: number): string;
 
@@ -1219,7 +1219,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function setPreferredNetwork(slotId: number, networkMode: PreferredNetworkMode, callback: AsyncCallback<void>): void;
 
@@ -1241,7 +1241,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function setPreferredNetwork(slotId: number, networkMode: PreferredNetworkMode): Promise<void>;
 
@@ -1263,7 +1263,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getPreferredNetwork(slotId: number, callback: AsyncCallback<PreferredNetworkMode>): void;
 
@@ -1284,7 +1284,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getPreferredNetwork(slotId: number): Promise<PreferredNetworkMode>;
 
@@ -1305,8 +1305,8 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getImsRegInfo(slotId: int, imsType: ImsServiceType, callback: AsyncCallback<ImsRegInfo>): void;
 
@@ -1327,8 +1327,8 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getImsRegInfo(slotId: int, imsType: ImsServiceType): Promise<ImsRegInfo>;
 
@@ -1352,7 +1352,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function on(type: 'imsRegStateChange', slotId: number, imsType: ImsServiceType, callback: Callback<ImsRegInfo>): void;
 
@@ -1375,7 +1375,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function off(type: 'imsRegStateChange', slotId: number, imsType: ImsServiceType, callback?: Callback<ImsRegInfo>): void;
 
@@ -1396,7 +1396,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getBasebandVersion(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -1417,7 +1417,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getBasebandVersion(slotId: number): Promise<string>;
 
@@ -1439,7 +1439,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setNROptionMode(slotId: number, mode: NROptionMode, callback: AsyncCallback<void>): void;
 
@@ -1461,7 +1461,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setNROptionMode(slotId: number, mode: NROptionMode): Promise<void>;
 
@@ -1480,7 +1480,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getNROptionMode(slotId: number, callback: AsyncCallback<NROptionMode>): void;
 
@@ -1499,7 +1499,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getNROptionMode(slotId: number): Promise<NROptionMode>;
 
@@ -1522,7 +1522,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setNetworkCapability(slotId: number, type: NetworkCapabilityType, state: NetworkCapabilityState,
     callback: AsyncCallback<void>): void;
@@ -1546,7 +1546,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setNetworkCapability(slotId: number, type: NetworkCapabilityType, state: NetworkCapabilityState): Promise<void>;
 
@@ -1569,7 +1569,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getNetworkCapability(slotId: number, type: NetworkCapabilityType,
     callback: AsyncCallback<NetworkCapabilityState>): void;
@@ -1592,7 +1592,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getNetworkCapability(slotId: number, type: NetworkCapabilityType): Promise<NetworkCapabilityState>;
   
@@ -1613,7 +1613,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function factoryReset(slotId: number): Promise<void>;
 
@@ -1634,7 +1634,7 @@ declare namespace radio {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
    */
   function getIMEISV(slotId: number): string;
 
@@ -1644,7 +1644,7 @@ declare namespace radio {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export enum PreferredNetworkMode {
     /**
@@ -1652,7 +1652,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_GSM = 1,
 
@@ -1661,7 +1661,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_WCDMA = 2,
 
@@ -1670,7 +1670,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_LTE = 3,
 
@@ -1679,7 +1679,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_LTE_WCDMA = 4,
 
@@ -1688,7 +1688,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_LTE_WCDMA_GSM = 5,
 
@@ -1697,7 +1697,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_WCDMA_GSM = 6,
 
@@ -1706,7 +1706,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_CDMA = 7,
 
@@ -1715,7 +1715,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_EVDO = 8,
 
@@ -1724,7 +1724,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_EVDO_CDMA = 9,
 
@@ -1733,7 +1733,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_WCDMA_GSM_EVDO_CDMA = 10,
 
@@ -1742,7 +1742,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_LTE_EVDO_CDMA = 11,
 
@@ -1751,7 +1751,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_LTE_WCDMA_GSM_EVDO_CDMA = 12,
 
@@ -1760,7 +1760,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_TDSCDMA = 13,
 
@@ -1769,7 +1769,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_TDSCDMA_GSM = 14,
 
@@ -1778,7 +1778,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_TDSCDMA_WCDMA = 15,
 
@@ -1787,7 +1787,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_TDSCDMA_WCDMA_GSM = 16,
 
@@ -1796,7 +1796,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_LTE_TDSCDMA = 17,
 
@@ -1805,7 +1805,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_LTE_TDSCDMA_GSM = 18,
 
@@ -1814,7 +1814,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_LTE_TDSCDMA_WCDMA = 19,
 
@@ -1823,7 +1823,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_LTE_TDSCDMA_WCDMA_GSM = 20,
 
@@ -1832,7 +1832,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_TDSCDMA_WCDMA_GSM_EVDO_CDMA = 21,
 
@@ -1841,7 +1841,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_LTE_TDSCDMA_WCDMA_GSM_EVDO_CDMA = 22,
 
@@ -1850,7 +1850,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_NR = 31,
 
@@ -1859,7 +1859,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_NR_LTE = 32,
 
@@ -1868,7 +1868,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_NR_LTE_WCDMA = 33,
 
@@ -1877,7 +1877,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_NR_LTE_WCDMA_GSM = 34,
 
@@ -1886,7 +1886,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_NR_LTE_EVDO_CDMA = 35,
 
@@ -1895,7 +1895,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_NR_LTE_WCDMA_GSM_EVDO_CDMA = 36,
 
@@ -1904,7 +1904,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_NR_LTE_TDSCDMA = 37,
 
@@ -1913,7 +1913,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_NR_LTE_TDSCDMA_GSM = 38,
 
@@ -1922,7 +1922,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_NR_LTE_TDSCDMA_WCDMA = 39,
 
@@ -1931,7 +1931,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_NR_LTE_TDSCDMA_WCDMA_GSM = 40,
 
@@ -1940,7 +1940,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_NR_LTE_TDSCDMA_WCDMA_GSM_EVDO_CDMA = 41,
 
@@ -1949,7 +1949,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PREFERRED_NETWORK_MODE_MAX_VALUE = 99,
   }
@@ -1959,8 +1959,8 @@ declare namespace radio {
    *
    * @interface NetworkRadioTech
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export interface NetworkRadioTech {
     /**
@@ -1968,8 +1968,8 @@ declare namespace radio {
      *
      * @type { RadioTechnology }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     psRadioTech: RadioTechnology;
 
@@ -1978,7 +1978,7 @@ declare namespace radio {
      *
      * @type { RadioTechnology }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 11
+     * @since 11 dynamic
      */
     csRadioTech: RadioTechnology;
   }
@@ -1988,16 +1988,16 @@ declare namespace radio {
    *
    * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts{ '1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   export enum RadioTechnology {
     /**
      * Indicates unknown radio access technology (RAT).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     RADIO_TECHNOLOGY_UNKNOWN = 0,
 
@@ -2006,8 +2006,8 @@ declare namespace radio {
      * radio system (GPRS), and enhanced data rates for GSM evolution (EDGE).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     RADIO_TECHNOLOGY_GSM = 1,
 
@@ -2016,8 +2016,8 @@ declare namespace radio {
      * Single-Carrier Radio Transmission Technology (1xRTT).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     RADIO_TECHNOLOGY_1XRTT = 2,
 
@@ -2025,8 +2025,8 @@ declare namespace radio {
      * Indicates that RAT is wideband code division multiple address (WCDMA).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     RADIO_TECHNOLOGY_WCDMA = 3,
 
@@ -2035,8 +2035,8 @@ declare namespace radio {
      * access (HSDPA), and high-speed uplink packet access (HSUPA).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     RADIO_TECHNOLOGY_HSPA = 4,
 
@@ -2045,8 +2045,8 @@ declare namespace radio {
      * HSPA+ (DC-HSPA+).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     RADIO_TECHNOLOGY_HSPAP = 5,
 
@@ -2054,8 +2054,8 @@ declare namespace radio {
      * Indicates that RAT is time division-synchronous code division multiple access (TD-SCDMA).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     RADIO_TECHNOLOGY_TD_SCDMA = 6,
 
@@ -2063,8 +2063,8 @@ declare namespace radio {
      * Indicates that RAT is evolution data only (EVDO), including EVDO Rev.0, EVDO Rev.A, and EVDO Rev.B.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     RADIO_TECHNOLOGY_EVDO = 7,
 
@@ -2072,8 +2072,8 @@ declare namespace radio {
      * Indicates that RAT is evolved high rate packet data (EHRPD).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     RADIO_TECHNOLOGY_EHRPD = 8,
 
@@ -2081,8 +2081,8 @@ declare namespace radio {
      * Indicates that RAT is long term evolution (LTE).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     RADIO_TECHNOLOGY_LTE = 9,
 
@@ -2090,8 +2090,8 @@ declare namespace radio {
      * Indicates that RAT is LTE carrier aggregation (LTE-CA).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     RADIO_TECHNOLOGY_LTE_CA = 10,
 
@@ -2099,8 +2099,8 @@ declare namespace radio {
      * Indicates that RAT is interworking WLAN (I-WLAN).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     RADIO_TECHNOLOGY_IWLAN = 11,
 
@@ -2108,8 +2108,8 @@ declare namespace radio {
      * Indicates that RAT is 5G new radio (NR).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     RADIO_TECHNOLOGY_NR = 12
   }
@@ -2119,8 +2119,8 @@ declare namespace radio {
    *
    * @interface SignalInformation
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts{ '1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   export interface SignalInformation {
     /**
@@ -2128,8 +2128,8 @@ declare namespace radio {
      *
      * @type { NetworkType }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     signalType: NetworkType;
 
@@ -2138,8 +2138,8 @@ declare namespace radio {
      *
      * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     signalLevel: int;
 
@@ -2148,8 +2148,8 @@ declare namespace radio {
      *
      * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     dBm: int;
   }
@@ -2159,16 +2159,16 @@ declare namespace radio {
    *
    * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts{ '1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   export enum NetworkType {
     /**
      * Indicates unknown network type.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     NETWORK_TYPE_UNKNOWN,
 
@@ -2176,8 +2176,8 @@ declare namespace radio {
      * Indicates that the network type is GSM.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     NETWORK_TYPE_GSM,
 
@@ -2185,8 +2185,8 @@ declare namespace radio {
      * Indicates that the network type is CDMA.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     NETWORK_TYPE_CDMA,
 
@@ -2194,8 +2194,8 @@ declare namespace radio {
      * Indicates that the network type is WCDMA.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     NETWORK_TYPE_WCDMA,
 
@@ -2203,8 +2203,8 @@ declare namespace radio {
      * Indicates that the network type is TD-SCDMA.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     NETWORK_TYPE_TDSCDMA,
 
@@ -2212,8 +2212,8 @@ declare namespace radio {
      * Indicates that the network type is LTE.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     NETWORK_TYPE_LTE,
 
@@ -2221,8 +2221,8 @@ declare namespace radio {
      * Indicates that the network type is 5G NR.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     NETWORK_TYPE_NR
   }
@@ -2232,8 +2232,8 @@ declare namespace radio {
    *
    * @interface NetworkState
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts{ '1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   export interface NetworkState {
     /**
@@ -2244,8 +2244,8 @@ declare namespace radio {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     longOperatorName: string;
 
@@ -2257,8 +2257,8 @@ declare namespace radio {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     shortOperatorName: string;
 
@@ -2269,8 +2269,8 @@ declare namespace radio {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     plmnNumeric: string;
 
@@ -2279,8 +2279,8 @@ declare namespace radio {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     isRoaming: boolean;
 
@@ -2289,8 +2289,8 @@ declare namespace radio {
      *
      * @type { RegState }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     regState: RegState;
 
@@ -2299,8 +2299,8 @@ declare namespace radio {
      *
      * @type { RadioTechnology }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     cfgTech: RadioTechnology;
 
@@ -2311,8 +2311,8 @@ declare namespace radio {
      *
      * @type { NsaState }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     nsaState: NsaState;
 
@@ -2323,7 +2323,7 @@ declare namespace radio {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since 6 dynamic
      */
     isCaActive: boolean;
 
@@ -2335,8 +2335,8 @@ declare namespace radio {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     isEmergency: boolean;
   }
@@ -2346,16 +2346,16 @@ declare namespace radio {
    *
    * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts{ '1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   export enum RegState {
     /**
      * Indicates a state in which a device cannot use any service.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     REG_STATE_NO_SERVICE = 0,
 
@@ -2363,8 +2363,8 @@ declare namespace radio {
      * Indicates a state in which a device can use services properly.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     REG_STATE_IN_SERVICE = 1,
 
@@ -2372,8 +2372,8 @@ declare namespace radio {
      * Indicates a state in which a device can use only the emergency call service.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     REG_STATE_EMERGENCY_CALL_ONLY = 2,
 
@@ -2381,8 +2381,8 @@ declare namespace radio {
      * Indicates that the cellular radio is powered off.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     REG_STATE_POWER_OFF = 3
   }
@@ -2392,16 +2392,16 @@ declare namespace radio {
    *
    * @enum { number }
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts{ '1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   export enum NsaState {
     /**
      * Indicates that a device is idle under or is connected to an LTE cell that does not support NSA.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     NSA_STATE_NOT_SUPPORT = 1,
 
@@ -2409,8 +2409,8 @@ declare namespace radio {
      * Indicates that a device is idle under an LTE cell supporting NSA but not NR coverage detection.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     NSA_STATE_NO_DETECT = 2,
 
@@ -2419,8 +2419,8 @@ declare namespace radio {
      * that supports NSA and NR coverage detection.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     NSA_STATE_CONNECTED_DETECT = 3,
 
@@ -2428,8 +2428,8 @@ declare namespace radio {
      * Indicates that a device is idle under an LTE cell supporting NSA and NR coverage detection.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     NSA_STATE_IDLE_DETECT = 4,
 
@@ -2437,8 +2437,8 @@ declare namespace radio {
      * Indicates that a device is connected to an LTE + NR network under an LTE cell that supports NSA.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     NSA_STATE_DUAL_CONNECTED = 5,
 
@@ -2446,8 +2446,8 @@ declare namespace radio {
      * Indicates that a device is idle under or is connected to an NG-RAN cell while being attached to 5GC.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     NSA_STATE_SA_ATTACHED = 6
   }
@@ -2457,8 +2457,8 @@ declare namespace radio {
    *
    * @interface CellInformation
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts{ '1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export interface CellInformation {
     /**
@@ -2468,8 +2468,8 @@ declare namespace radio {
      *
      * @type { NetworkType }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     networkType: NetworkType;
 
@@ -2481,7 +2481,7 @@ declare namespace radio {
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     isCamped: boolean;
 
@@ -2493,7 +2493,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     timeStamp: number;
 
@@ -2504,8 +2504,8 @@ declare namespace radio {
      *
      * @type { SignalInformation }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts{ '1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     signalInformation: SignalInformation;
 
@@ -2516,7 +2516,7 @@ declare namespace radio {
      * | TdscdmaCellInformation | WcdmaCellInformation }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     data: CdmaCellInformation | GsmCellInformation | LteCellInformation | NrCellInformation | TdscdmaCellInformation
     | WcdmaCellInformation;
@@ -2528,7 +2528,7 @@ declare namespace radio {
    * @interface CdmaCellInformation
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface CdmaCellInformation {
     /**
@@ -2537,7 +2537,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     baseId: number;
 
@@ -2547,7 +2547,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     latitude: number;
 
@@ -2557,7 +2557,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     longitude: number;
 
@@ -2567,7 +2567,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     nid: number;
 
@@ -2577,7 +2577,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     sid: number;
   }
@@ -2588,7 +2588,7 @@ declare namespace radio {
    * @interface GsmCellInformation
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface GsmCellInformation {
     /**
@@ -2597,7 +2597,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     lac: number;
 
@@ -2607,7 +2607,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     cellId: number;
 
@@ -2617,7 +2617,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     arfcn: number;
 
@@ -2627,7 +2627,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     bsic: number;
 
@@ -2637,7 +2637,7 @@ declare namespace radio {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     mcc: string;
 
@@ -2647,7 +2647,7 @@ declare namespace radio {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     mnc: string;
   }
@@ -2658,7 +2658,7 @@ declare namespace radio {
    * @interface LteCellInformation
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface LteCellInformation {
     /**
@@ -2667,7 +2667,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     cgi: number;
 
@@ -2677,7 +2677,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     pci: number;
 
@@ -2687,7 +2687,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     tac: number;
 
@@ -2697,7 +2697,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     earfcn: number;
 
@@ -2707,7 +2707,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     bandwidth: number;
 
@@ -2717,7 +2717,7 @@ declare namespace radio {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     mcc: string;
 
@@ -2727,7 +2727,7 @@ declare namespace radio {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     mnc: string;
 
@@ -2737,7 +2737,7 @@ declare namespace radio {
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     isSupportEndc: boolean;
   }
@@ -2748,7 +2748,7 @@ declare namespace radio {
    * @interface NrCellInformation
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface NrCellInformation {
     /**
@@ -2757,7 +2757,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     nrArfcn: number;
 
@@ -2767,7 +2767,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     pci: number;
 
@@ -2777,7 +2777,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     tac: number;
 
@@ -2787,7 +2787,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     nci: number;
 
@@ -2797,7 +2797,7 @@ declare namespace radio {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     mcc: string;
 
@@ -2807,7 +2807,7 @@ declare namespace radio {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     mnc: string;
   }
@@ -2818,7 +2818,7 @@ declare namespace radio {
    * @interface TdscdmaCellInformation
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface TdscdmaCellInformation {
     /**
@@ -2827,7 +2827,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     lac: number;
 
@@ -2837,7 +2837,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     cellId: number;
 
@@ -2847,7 +2847,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     cpid: number;
 
@@ -2857,7 +2857,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     uarfcn: number;
 
@@ -2867,7 +2867,7 @@ declare namespace radio {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     mcc: string;
 
@@ -2877,7 +2877,7 @@ declare namespace radio {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     mnc: string;
   }
@@ -2888,7 +2888,7 @@ declare namespace radio {
    * @interface WcdmaCellInformation
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface WcdmaCellInformation {
     /**
@@ -2897,7 +2897,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     lac: number;
 
@@ -2907,7 +2907,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     cellId: number;
 
@@ -2917,7 +2917,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     psc: number;
 
@@ -2927,7 +2927,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     uarfcn: number;
 
@@ -2937,7 +2937,7 @@ declare namespace radio {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     mcc: string;
 
@@ -2947,7 +2947,7 @@ declare namespace radio {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     mnc: string;
   }
@@ -2958,7 +2958,7 @@ declare namespace radio {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 10
    * @useinstead telephony.radio#NROptionMode
    */
@@ -2968,7 +2968,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 10
      */
     NR_OPTION_UNKNOWN,
@@ -2978,7 +2978,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 10
      */
     NR_OPTION_NSA_ONLY,
@@ -2988,7 +2988,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 10
      */
     NR_OPTION_SA_ONLY,
@@ -2998,7 +2998,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 10
      */
     NR_OPTION_NSA_AND_SA,
@@ -3010,7 +3010,7 @@ declare namespace radio {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   export enum NROptionMode {
     /**
@@ -3018,7 +3018,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
     NR_OPTION_UNKNOWN,
 
@@ -3027,7 +3027,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
     NR_OPTION_NSA_ONLY,
 
@@ -3036,7 +3036,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
     NR_OPTION_SA_ONLY,
 
@@ -3045,7 +3045,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
     NR_OPTION_NSA_AND_SA,
   }
@@ -3056,7 +3056,7 @@ declare namespace radio {
    * @interface NetworkSearchResult
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamic
    */
   export interface NetworkSearchResult {
     /**
@@ -3065,7 +3065,7 @@ declare namespace radio {
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 6
+     * @since 6 dynamic
      */
     isNetworkSearchSuccess: boolean;
 
@@ -3075,7 +3075,7 @@ declare namespace radio {
      * @type { Array<NetworkInformation> }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 6
+     * @since 6 dynamic
      */
     networkSearchResult: Array<NetworkInformation>;
   }
@@ -3086,7 +3086,7 @@ declare namespace radio {
    * @interface NetworkInformation
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamic
    */
   export interface NetworkInformation {
     /**
@@ -3095,7 +3095,7 @@ declare namespace radio {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 6
+     * @since 6 dynamic
      */
     operatorName: string;
 
@@ -3105,7 +3105,7 @@ declare namespace radio {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 6
+     * @since 6 dynamic
      */
     operatorNumeric: string;
 
@@ -3115,7 +3115,7 @@ declare namespace radio {
      * @type { NetworkInformationState }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 6
+     * @since 6 dynamic
      */
     state: NetworkInformationState;
 
@@ -3125,7 +3125,7 @@ declare namespace radio {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 6
+     * @since 6 dynamic
      */
     radioTech: string;
   }
@@ -3136,7 +3136,7 @@ declare namespace radio {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamic
    */
   export enum NetworkInformationState {
     /**
@@ -3144,7 +3144,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 6
+     * @since 6 dynamic
      */
     NETWORK_UNKNOWN,
 
@@ -3153,7 +3153,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 6
+     * @since 6 dynamic
      */
     NETWORK_AVAILABLE,
 
@@ -3162,7 +3162,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 6
+     * @since 6 dynamic
      */
     NETWORK_CURRENT,
 
@@ -3171,7 +3171,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 6
+     * @since 6 dynamic
      */
     NETWORK_FORBIDDEN
   }
@@ -3182,7 +3182,7 @@ declare namespace radio {
    * @interface NetworkSelectionModeOptions
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamic
    */
   export interface NetworkSelectionModeOptions {
     /**
@@ -3192,7 +3192,7 @@ declare namespace radio {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 6
+     * @since 6 dynamic
      */
     slotId: number;
 
@@ -3202,7 +3202,7 @@ declare namespace radio {
      * @type { NetworkSelectionMode }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 6
+     * @since 6 dynamic
      */
     selectMode: NetworkSelectionMode;
 
@@ -3212,7 +3212,7 @@ declare namespace radio {
      * @type { NetworkInformation }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 6
+     * @since 6 dynamic
      */
     networkInformation: NetworkInformation;
 
@@ -3222,7 +3222,7 @@ declare namespace radio {
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 6
+     * @since 6 dynamic
      */
     resumeSelection: boolean;
   }
@@ -3232,14 +3232,14 @@ declare namespace radio {
    *
    * @enum { number }
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since 6 dynamic
    */
   export enum NetworkSelectionMode {
     /**
      * Indicates that the network is unavailable for registration.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since 6 dynamic
      */
     NETWORK_SELECTION_UNKNOWN,
 
@@ -3247,7 +3247,7 @@ declare namespace radio {
      * Indicates that the network is unavailable for registration.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since 6 dynamic
      */
     NETWORK_SELECTION_AUTOMATIC,
 
@@ -3255,7 +3255,7 @@ declare namespace radio {
      * Manual network selection modes.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since 6 dynamic
      */
     NETWORK_SELECTION_MANUAL
   }
@@ -3266,8 +3266,8 @@ declare namespace radio {
    * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   export enum ImsRegState {
     /**
@@ -3275,8 +3275,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     IMS_UNREGISTERED,
 
@@ -3285,8 +3285,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     IMS_REGISTERED,
   }
@@ -3297,8 +3297,8 @@ declare namespace radio {
    * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   export enum ImsRegTech {
     /**
@@ -3306,8 +3306,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     REGISTRATION_TECH_NONE,
 
@@ -3316,8 +3316,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     REGISTRATION_TECH_LTE,
 
@@ -3326,8 +3326,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     REGISTRATION_TECH_IWLAN,
 
@@ -3336,8 +3336,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     REGISTRATION_TECH_NR,
   }
@@ -3348,8 +3348,8 @@ declare namespace radio {
    * @interface ImsRegInfo
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface ImsRegInfo {
     /**
@@ -3358,8 +3358,8 @@ declare namespace radio {
      * @type { ImsRegState }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     imsRegState: ImsRegState;
 
@@ -3369,8 +3369,8 @@ declare namespace radio {
      * @type { ImsRegTech }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     imsRegTech: ImsRegTech;
   }
@@ -3381,8 +3381,8 @@ declare namespace radio {
    * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   export enum ImsServiceType {
     /**
@@ -3390,8 +3390,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     TYPE_VOICE,
 
@@ -3400,8 +3400,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     TYPE_VIDEO,
 
@@ -3410,8 +3410,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     TYPE_UT,
 
@@ -3420,8 +3420,8 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     TYPE_SMS,
   }
@@ -3432,7 +3432,7 @@ declare namespace radio {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   export enum NetworkCapabilityType {
     /**
@@ -3440,7 +3440,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
     SERVICE_TYPE_LTE,
 
@@ -3449,7 +3449,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
     SERVICE_TYPE_NR,
   }
@@ -3460,7 +3460,7 @@ declare namespace radio {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   export enum NetworkCapabilityState {
     /**
@@ -3468,7 +3468,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
     SERVICE_CAPABILITY_OFF,
 
@@ -3477,7 +3477,7 @@ declare namespace radio {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
     SERVICE_CAPABILITY_ON,
   }

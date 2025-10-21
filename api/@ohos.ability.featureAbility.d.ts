@@ -36,7 +36,7 @@ import window from './@ohos.window';
  * @namespace featureAbility
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @FAModelOnly
- * @since 6
+ * @since 6 dynamiconly
  */
 declare namespace featureAbility {
   /**
@@ -45,7 +45,7 @@ declare namespace featureAbility {
    * @param { AsyncCallback<Want> } callback - Indicates the ability to start.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 6
+   * @since 6 dynamiconly
    */
   function getWant(callback: AsyncCallback<Want>): void;
 
@@ -55,7 +55,7 @@ declare namespace featureAbility {
    * @returns { Promise<Want> } The promise form returns the Want result
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 6
+   * @since 6 dynamiconly
    */
   function getWant(): Promise<Want>;
 
@@ -66,7 +66,7 @@ declare namespace featureAbility {
    * @param { AsyncCallback<number> } callback - Returns the result of starting Ability in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 6
+   * @since 6 dynamiconly
    */
   function startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<number>): void;
 
@@ -77,7 +77,7 @@ declare namespace featureAbility {
    * @returns { Promise<number> } The promise form returns the Ability result
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 6
+   * @since 6 dynamiconly
    */
   function startAbility(parameter: StartAbilityParameter): Promise<number>;
 
@@ -87,7 +87,7 @@ declare namespace featureAbility {
    * @returns { Context } Returns the application context.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 6
+   * @since 6 dynamiconly
    */
   function getContext(): Context;
 
@@ -98,7 +98,7 @@ declare namespace featureAbility {
    * @param { AsyncCallback<AbilityResult> } callback - Returns the result of starting Ability in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function startAbilityForResult(parameter: StartAbilityParameter, callback: AsyncCallback<AbilityResult>): void;
 
@@ -109,7 +109,7 @@ declare namespace featureAbility {
    * @returns { Promise<AbilityResult> } Returns the {@link AbilityResult}.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function startAbilityForResult(parameter: StartAbilityParameter): Promise<AbilityResult>;
 
@@ -120,7 +120,7 @@ declare namespace featureAbility {
    * @param { AsyncCallback<void> } callback - Return the result of stopping Ability in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
 
@@ -131,7 +131,7 @@ declare namespace featureAbility {
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
 
@@ -141,7 +141,7 @@ declare namespace featureAbility {
    * @param { AsyncCallback<void> } callback - Returns the stop ability result in the form of a callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function terminateSelf(callback: AsyncCallback<void>): void;
 
@@ -151,7 +151,7 @@ declare namespace featureAbility {
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function terminateSelf(): Promise<void>;
 
@@ -162,7 +162,7 @@ declare namespace featureAbility {
    * @returns { DataAbilityHelper } Returns the dataAbilityHelper.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function acquireDataAbilityHelper(uri: string): DataAbilityHelper;
 
@@ -173,7 +173,7 @@ declare namespace featureAbility {
    *                                              has window focus,return true otherwise,return false.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function hasWindowFocus(callback: AsyncCallback<boolean>): void;
 
@@ -184,7 +184,7 @@ declare namespace featureAbility {
    *                               returns {@code false} otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function hasWindowFocus(): Promise<boolean>;
 
@@ -196,7 +196,7 @@ declare namespace featureAbility {
    * @returns { number } Returns the number code of the ability connected
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function connectAbility(request: Want, options: ConnectOptions): number;
 
@@ -207,7 +207,7 @@ declare namespace featureAbility {
    * @param { AsyncCallback<void> } callback - Returns the disconnection result in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function disconnectAbility(connection: number, callback: AsyncCallback<void>): void;
 
@@ -218,7 +218,7 @@ declare namespace featureAbility {
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function disconnectAbility(connection: number): Promise<void>;
 
@@ -229,7 +229,7 @@ declare namespace featureAbility {
    *                                                    in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function getWindow(callback: AsyncCallback<window.Window>): void;
 
@@ -239,7 +239,7 @@ declare namespace featureAbility {
    * @returns { Promise<window.Window> } Returns the window corresponding to the current ability.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function getWindow(): Promise<window.Window>;
 
@@ -249,7 +249,7 @@ declare namespace featureAbility {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   export enum AbilityWindowConfiguration {
     /**
@@ -257,7 +257,7 @@ declare namespace featureAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
-     * @since 7
+     * @since 7 dynamiconly
      */
     WINDOW_MODE_UNDEFINED = 0,
 
@@ -266,7 +266,7 @@ declare namespace featureAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
-     * @since 7
+     * @since 7 dynamiconly
      */
     WINDOW_MODE_FULLSCREEN = 1,
 
@@ -276,7 +276,7 @@ declare namespace featureAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
-     * @since 7
+     * @since 7 dynamiconly
      */
     WINDOW_MODE_SPLIT_PRIMARY = 100,
 
@@ -286,7 +286,7 @@ declare namespace featureAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
-     * @since 7
+     * @since 7 dynamiconly
      */
     WINDOW_MODE_SPLIT_SECONDARY = 101,
 
@@ -295,7 +295,7 @@ declare namespace featureAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
-     * @since 7
+     * @since 7 dynamiconly
      */
     WINDOW_MODE_FLOATING = 102
   }
@@ -306,7 +306,7 @@ declare namespace featureAbility {
    * @enum { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   export enum AbilityStartSetting {
     /**
@@ -314,7 +314,7 @@ declare namespace featureAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
-     * @since 7
+     * @since 7 dynamiconly
      */
     BOUNDS_KEY = 'abilityBounds',
 
@@ -323,7 +323,7 @@ declare namespace featureAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
-     * @since 7
+     * @since 7 dynamiconly
      */
     WINDOW_MODE_KEY = 'windowMode',
 
@@ -332,7 +332,7 @@ declare namespace featureAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
-     * @since 7
+     * @since 7 dynamiconly
      */
     DISPLAY_ID_KEY = 'displayId'
   }
@@ -343,7 +343,7 @@ declare namespace featureAbility {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   export enum ErrorCode {
     /**
@@ -351,7 +351,7 @@ declare namespace featureAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
-     * @since 7
+     * @since 7 dynamiconly
      */
     NO_ERROR = 0,
 
@@ -360,7 +360,7 @@ declare namespace featureAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
-     * @since 7
+     * @since 7 dynamiconly
      */
     INVALID_PARAMETER = -1,
 
@@ -369,7 +369,7 @@ declare namespace featureAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
-     * @since 7
+     * @since 7 dynamiconly
      */
     ABILITY_NOT_FOUND = -2,
 
@@ -378,7 +378,7 @@ declare namespace featureAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
-     * @since 7
+     * @since 7 dynamiconly
      */
     PERMISSION_DENY = -3
   }
@@ -389,7 +389,7 @@ declare namespace featureAbility {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   export enum DataAbilityOperationType {
     /**
@@ -397,7 +397,7 @@ declare namespace featureAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
-     * @since 7
+     * @since 7 dynamiconly
      */
     TYPE_INSERT = 1,
 
@@ -406,7 +406,7 @@ declare namespace featureAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
-     * @since 7
+     * @since 7 dynamiconly
      */
     TYPE_UPDATE = 2,
 
@@ -415,7 +415,7 @@ declare namespace featureAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
-     * @since 7
+     * @since 7 dynamiconly
      */
     TYPE_DELETE = 3,
 
@@ -424,7 +424,7 @@ declare namespace featureAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
-     * @since 7
+     * @since 7 dynamiconly
      */
     TYPE_ASSERT = 4
   }
@@ -437,7 +437,7 @@ declare namespace featureAbility {
    * @typedef { _Context }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   export type Context = _Context;
 
@@ -447,7 +447,7 @@ declare namespace featureAbility {
    * @typedef { _AppVersionInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   export type AppVersionInfo = _AppVersionInfo;
 
@@ -457,7 +457,7 @@ declare namespace featureAbility {
    * @typedef { _ProcessInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   export type ProcessInfo = _ProcessInfo;
 }

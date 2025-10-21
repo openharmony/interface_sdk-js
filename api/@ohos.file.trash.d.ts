@@ -25,7 +25,7 @@
  * @syscap SystemCapability.FileManagement.UserFileService
  * @systemapi
  * @StageModelOnly
- * @since 10
+ * @since 10 dynamic
  */
 declare namespace trash {
   /**
@@ -35,7 +35,7 @@ declare namespace trash {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
    */
   interface FileInfo {
     /**
@@ -46,7 +46,7 @@ declare namespace trash {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     readonly uri: string;
 
@@ -58,7 +58,7 @@ declare namespace trash {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     readonly srcPath: string;
 
@@ -70,7 +70,7 @@ declare namespace trash {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     readonly fileName: string;
 
@@ -82,7 +82,7 @@ declare namespace trash {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     readonly mode: number;
 
@@ -94,7 +94,7 @@ declare namespace trash {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     readonly size: number;
     
@@ -106,7 +106,7 @@ declare namespace trash {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     readonly mtime: number;
 
@@ -118,7 +118,7 @@ declare namespace trash {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     readonly ctime: number;
   }
@@ -134,7 +134,7 @@ declare namespace trash {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
   function listFile(): Array<FileInfo>;
 
@@ -149,7 +149,7 @@ declare namespace trash {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
    */
   function recover(uri: string): void;
 
@@ -164,7 +164,7 @@ declare namespace trash {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
    */
   function completelyDelete(uri: string): void;
 }

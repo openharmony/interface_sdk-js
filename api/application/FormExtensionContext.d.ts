@@ -18,7 +18,7 @@
  * @kit FormKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import { AsyncCallback } from '../@ohos.base';
 import type { ConnectOptions } from '../ability/connectOptions';
 import Want from '../@ohos.app.ability.Want';
@@ -42,8 +42,8 @@ import ExtensionContext from './ExtensionContext';
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare class FormExtensionContext extends ExtensionContext {
   /**
@@ -77,7 +77,7 @@ declare class FormExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -112,7 +112,7 @@ declare class FormExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   startAbility(want: Want): Promise<void>;
 
@@ -145,7 +145,7 @@ declare class FormExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
    */
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
 
@@ -161,7 +161,7 @@ declare class FormExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
    */
   disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
 
@@ -177,7 +177,7 @@ declare class FormExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
    */
   disconnectServiceExtensionAbility(connection: number): Promise<void>;
 }

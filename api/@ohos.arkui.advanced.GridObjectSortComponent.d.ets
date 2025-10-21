@@ -31,7 +31,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare enum GridObjectSortComponentType {
   /**
@@ -45,7 +45,7 @@ export declare enum GridObjectSortComponentType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   IMAGE_TEXT = "image_text",
 
@@ -60,7 +60,7 @@ export declare enum GridObjectSortComponentType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   TEXT = "text"
 }
@@ -78,7 +78,7 @@ export declare enum GridObjectSortComponentType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface GridObjectSortComponentItem {
   /**
@@ -94,7 +94,7 @@ export interface GridObjectSortComponentItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   id: number | string;
 
@@ -111,7 +111,7 @@ export interface GridObjectSortComponentItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   text: ResourceStr;
 
@@ -128,7 +128,7 @@ export interface GridObjectSortComponentItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   selected: boolean;
 
@@ -145,7 +145,7 @@ export interface GridObjectSortComponentItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   order: number;
 
@@ -162,7 +162,7 @@ export interface GridObjectSortComponentItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   url?: ResourceStr;
 
@@ -179,7 +179,7 @@ export interface GridObjectSortComponentItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   symbolStyle?: SymbolGlyphModifier;
 }
@@ -197,7 +197,7 @@ export interface GridObjectSortComponentItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface GridObjectSortComponentOptions {
   /**
@@ -215,7 +215,7 @@ export interface GridObjectSortComponentOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   type?: GridObjectSortComponentType;
 
@@ -232,7 +232,7 @@ export interface GridObjectSortComponentOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   imageSize?: number | Resource;
 
@@ -249,7 +249,7 @@ export interface GridObjectSortComponentOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   normalTitle?: ResourceStr;
 
@@ -266,7 +266,7 @@ export interface GridObjectSortComponentOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   editTitle?: ResourceStr;
 
@@ -283,7 +283,7 @@ export interface GridObjectSortComponentOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   showAreaTitle?: ResourceStr;
 
@@ -300,7 +300,7 @@ export interface GridObjectSortComponentOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   addAreaTitle?: ResourceStr;
 }
@@ -318,7 +318,7 @@ export interface GridObjectSortComponentOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 @Component
 export declare struct GridObjectSortComponent {
@@ -335,7 +335,7 @@ export declare struct GridObjectSortComponent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   @Prop
   options: GridObjectSortComponentOptions;
@@ -353,7 +353,7 @@ export declare struct GridObjectSortComponent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   dataList: Array<GridObjectSortComponentItem>;
 
@@ -370,7 +370,7 @@ export declare struct GridObjectSortComponent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onSave: (select: Array<GridObjectSortComponentItem>, unselect: Array<GridObjectSortComponentItem>) => void;
 
@@ -387,7 +387,7 @@ export declare struct GridObjectSortComponent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onCancel: () => void;
 
@@ -402,7 +402,7 @@ export declare struct GridObjectSortComponent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   build(): void;
 }

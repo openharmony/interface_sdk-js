@@ -26,8 +26,8 @@ import { AsyncCallback } from './@ohos.base';
  * @namespace quickFixManager
  * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
  * @systemapi
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 declare namespace quickFixManager {
   /**
@@ -36,8 +36,8 @@ declare namespace quickFixManager {
    * @typedef HapModuleQuickFixInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface HapModuleQuickFixInfo {
     /**
@@ -47,8 +47,8 @@ declare namespace quickFixManager {
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     readonly moduleName: string;
 
@@ -59,8 +59,8 @@ declare namespace quickFixManager {
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     readonly originHapHash: string;
 
@@ -71,8 +71,8 @@ declare namespace quickFixManager {
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     readonly quickFixFilePath: string;
   }
@@ -83,8 +83,8 @@ declare namespace quickFixManager {
    * @typedef ApplicationQuickFixInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
    */
   export interface ApplicationQuickFixInfo {
     /**
@@ -94,8 +94,8 @@ declare namespace quickFixManager {
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     readonly bundleName: string;
 
@@ -106,8 +106,8 @@ declare namespace quickFixManager {
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     readonly bundleVersionCode: long;
 
@@ -118,8 +118,8 @@ declare namespace quickFixManager {
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     readonly bundleVersionName: string;
 
@@ -130,8 +130,8 @@ declare namespace quickFixManager {
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     readonly quickFixVersionCode: long;
 
@@ -142,8 +142,8 @@ declare namespace quickFixManager {
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     readonly quickFixVersionName: string;
 
@@ -154,8 +154,8 @@ declare namespace quickFixManager {
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     readonly hapModuleQuickFixInfo: Array<HapModuleQuickFixInfo>;
   }
@@ -175,8 +175,8 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function applyQuickFix(hapModuleQuickFixFiles: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -195,8 +195,8 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function applyQuickFix(hapModuleQuickFixFiles: Array<string>): Promise<void>;
 
@@ -214,8 +214,8 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 18500009 - The application has an ongoing quick fix task.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function revokeQuickFix(bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -233,8 +233,8 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 18500009 - The application has an ongoing quick fix task.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function revokeQuickFix(bundleName: string): Promise<void>;
 
@@ -252,8 +252,8 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getApplicationQuickFixInfo(bundleName: string, callback: AsyncCallback<ApplicationQuickFixInfo>): void;
 
@@ -271,8 +271,8 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getApplicationQuickFixInfo(bundleName: string): Promise<ApplicationQuickFixInfo>;
 }

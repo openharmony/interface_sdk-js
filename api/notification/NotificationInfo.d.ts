@@ -26,8 +26,7 @@ import { NotificationExtensionContent } from './NotificationExtensionContent';
  *
  * @typedef NotificationInfo
  * @syscap SystemCapability.Notification.Notification
- * @since 22
- * @arkts 1.1&1.2
+ * @since 22 dynamic&static
  */
 export interface NotificationInfo {
   /**
@@ -36,8 +35,7 @@ export interface NotificationInfo {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   readonly hashCode: string;
 
@@ -47,8 +45,7 @@ export interface NotificationInfo {
    * @type { notificationManager.SlotType }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   readonly notificationSlotType: notificationManager.SlotType;
 
@@ -58,8 +55,7 @@ export interface NotificationInfo {
    * @type { NotificationExtensionContent }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   readonly content: NotificationExtensionContent;
   
@@ -69,8 +65,7 @@ export interface NotificationInfo {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   readonly bundleName: string;
 
@@ -80,8 +75,7 @@ export interface NotificationInfo {
    * @type { ?string }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   readonly appName?: string;
 
@@ -91,8 +85,7 @@ export interface NotificationInfo {
    * @type { ?number }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22
-   * @arkts 1.1
+   * @since 22 dynamic
    */
   readonly deliveryTime?: number;
 
@@ -102,8 +95,7 @@ export interface NotificationInfo {
    * @type { ?long }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   readonly deliveryTime?: long;
 
@@ -113,8 +105,7 @@ export interface NotificationInfo {
    * @type { ?string }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   readonly groupName?: string;
 }

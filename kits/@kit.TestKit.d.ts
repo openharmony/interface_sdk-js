@@ -18,7 +18,7 @@
  * @kit TestKit
  */
 
-/*** if arkts 1.1&1.2 */
+/*** if arkts dynamic&static */
 import abilityDelegatorRegistry from '@ohos.app.ability.abilityDelegatorRegistry';
 import TestRunner from '@ohos.application.testRunner';
 import {
@@ -41,7 +41,7 @@ export {
   PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest
 };
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 export {
   Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
   TestRunner, UIElementInfo, UIEventObserver, UiDirection, UiWindow, InputTextMode,

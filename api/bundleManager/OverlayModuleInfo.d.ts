@@ -23,8 +23,8 @@
  *
  * @typedef OverlayModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 20 static
  */
 export interface OverlayModuleInfo {
   /**
@@ -33,8 +33,8 @@ export interface OverlayModuleInfo {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   readonly bundleName: string;
 
@@ -44,8 +44,8 @@ export interface OverlayModuleInfo {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   readonly moduleName: string;
 
@@ -55,8 +55,8 @@ export interface OverlayModuleInfo {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   readonly targetModuleName: string;
 
@@ -66,8 +66,8 @@ export interface OverlayModuleInfo {
    * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   readonly priority: int;
 
@@ -77,8 +77,8 @@ export interface OverlayModuleInfo {
    * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   readonly state: int;
 }

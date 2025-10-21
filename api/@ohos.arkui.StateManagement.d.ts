@@ -28,7 +28,7 @@ import contextConstant from '@ohos.app.ability.contextConstant';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare type StorageDefaultCreator<T> = () => T;
 
@@ -38,7 +38,7 @@ export declare type StorageDefaultCreator<T> = () => T;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface TypeConstructorWithArgs<T> {
   /**
@@ -47,7 +47,7 @@ export interface TypeConstructorWithArgs<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   new(...args: any): T;
 }
@@ -56,14 +56,14 @@ export interface TypeConstructorWithArgs<T> {
  * Define  ConnectOptions class.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 export class ConnectOptions<T extends object> {
   /**
    * @type { TypeConstructorWithArgs<T> } type class type of the stored value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   type: TypeConstructorWithArgs<T>;
 
@@ -72,7 +72,7 @@ export class ConnectOptions<T extends object> {
    * @type { ?string } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
   */
   key?: string;
 
@@ -81,7 +81,7 @@ export class ConnectOptions<T extends object> {
    * @type { ?StorageDefaultCreator<T>} 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
   */
   defaultCreator?: StorageDefaultCreator<T>;
 
@@ -92,7 +92,7 @@ export class ConnectOptions<T extends object> {
    * @type { ?contextConstant.AreaMode} 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
   */
   areaMode?: contextConstant.AreaMode;
 }
@@ -104,7 +104,7 @@ export class ConnectOptions<T extends object> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare class AppStorageV2 {
   /**
@@ -119,7 +119,7 @@ export declare class AppStorageV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static connect<T extends object>(
     type: TypeConstructorWithArgs<T>,
@@ -134,7 +134,7 @@ export declare class AppStorageV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static remove<T>(keyOrType: string | TypeConstructorWithArgs<T>): void;
 
@@ -145,7 +145,7 @@ export declare class AppStorageV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static keys(): Array<string>;
 }
@@ -160,7 +160,7 @@ export declare class AppStorageV2 {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare type PersistenceErrorCallback = (key: string, reason: 'quota' | 'serialization' | 'unknown', message: string) => void;
  
@@ -172,7 +172,7 @@ export declare type PersistenceErrorCallback = (key: string, reason: 'quota' | '
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare class PersistenceV2 extends AppStorageV2 {
   /**
@@ -184,7 +184,7 @@ export declare class PersistenceV2 extends AppStorageV2 {
    * @returns { T | undefined } the value of the existed key or the default value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   static globalConnect<T extends object>(
     type: ConnectOptions<T>
@@ -197,7 +197,7 @@ export declare class PersistenceV2 extends AppStorageV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static save<T>(keyOrType: string | TypeConstructorWithArgs<T>): void;
 
@@ -208,7 +208,7 @@ export declare class PersistenceV2 extends AppStorageV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static notifyOnError(callback: PersistenceErrorCallback | undefined): void;
 }
@@ -220,7 +220,7 @@ export declare class PersistenceV2 extends AppStorageV2 {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface TypeConstructor<T> {
   /**
@@ -228,7 +228,7 @@ export interface TypeConstructor<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   new(): T;
 }
@@ -242,7 +242,7 @@ export interface TypeConstructor<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare type TypeDecorator = <T>(type: TypeConstructor<T>) => PropertyDecorator;
  
@@ -252,7 +252,7 @@ export declare type TypeDecorator = <T>(type: TypeConstructor<T>) => PropertyDec
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare const Type: TypeDecorator;
 
@@ -262,7 +262,7 @@ export declare const Type: TypeDecorator;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare class UIUtils {
   /**
@@ -274,7 +274,7 @@ export declare class UIUtils {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static getTarget<T extends object>(source: T): T;
 
@@ -287,7 +287,7 @@ export declare class UIUtils {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
    static makeObserved<T extends object>(source: T): T;
 
@@ -301,7 +301,7 @@ export declare class UIUtils {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
    static makeV1Observed<T extends object>(source: T): T;
 
@@ -314,7 +314,7 @@ export declare class UIUtils {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
    static enableV2Compatibility<T extends object>(source: T): T;
 
@@ -332,7 +332,7 @@ export declare class UIUtils {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   static addMonitor(target: object, path: string | string[], monitorCallback: MonitorCallback, options?: MonitorOptions): void;
 
@@ -349,7 +349,7 @@ export declare class UIUtils {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   static clearMonitor(target: object, path: string | string[], monitorCallback?: MonitorCallback) : void;
 
@@ -366,7 +366,7 @@ export declare class UIUtils {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   static makeBinding<T>(getter: GetterCallback<T>): Binding<T>;
 
@@ -389,7 +389,7 @@ export declare class UIUtils {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   static makeBinding<T>(getter: GetterCallback<T>, setter: SetterCallback<T>): MutableBinding<T>;
 
@@ -458,7 +458,7 @@ declare type TaskCallback = () => T;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare type MonitorCallback = (monitorValue: IMonitor) => void;
 
@@ -469,7 +469,7 @@ export declare type MonitorCallback = (monitorValue: IMonitor) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export interface MonitorOptions {
   /**
@@ -481,7 +481,7 @@ export interface MonitorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   isSynchronous?: boolean;
 }
@@ -494,7 +494,7 @@ export interface MonitorOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare type GetterCallback<T> = () => T;
 
@@ -506,7 +506,7 @@ export declare type GetterCallback<T> = () => T;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare type SetterCallback<T> = (newValue: T) => void;
 
@@ -516,7 +516,7 @@ export declare type SetterCallback<T> = (newValue: T) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class Binding<T> {
   /**
@@ -525,7 +525,7 @@ export declare class Binding<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   get value(): T;
 }
@@ -536,7 +536,7 @@ export declare class Binding<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class MutableBinding<T> {
   /**
@@ -545,7 +545,7 @@ export declare class MutableBinding<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   get value(): T;
   /**
@@ -553,7 +553,7 @@ export declare class MutableBinding<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   set value(newValue: T);
 }

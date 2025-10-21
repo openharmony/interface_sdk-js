@@ -18,10 +18,10 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type appManager from '../@ohos.app.ability.appManager';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import appManager from '../@ohos.app.ability.appManager';
 /*** endif */
 import bundleManager from '../@ohos.bundle.bundleManager';
@@ -48,8 +48,8 @@ import bundleManager from '../@ohos.bundle.bundleManager';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface ProcessInformation {
   /**
@@ -72,8 +72,8 @@ export interface ProcessInformation {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   pid: int;
 
@@ -88,8 +88,8 @@ export interface ProcessInformation {
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   uid: int;
 
@@ -113,8 +113,8 @@ export interface ProcessInformation {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   processName: string;
 
@@ -138,8 +138,8 @@ export interface ProcessInformation {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   bundleNames: Array<string>;
 
@@ -156,8 +156,8 @@ export interface ProcessInformation {
    * @type { appManager.ProcessState }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   state: appManager.ProcessState;
 
@@ -167,8 +167,8 @@ export interface ProcessInformation {
    * @type { bundleManager.BundleType }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   bundleType: bundleManager.BundleType;
 
@@ -177,8 +177,8 @@ export interface ProcessInformation {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   appCloneIndex?: int;
 }

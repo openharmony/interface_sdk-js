@@ -57,7 +57,7 @@ import { TouchObject, KeyEvent, MouseEvent } from '@ohos.arkui.component';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 22 static
  */
 export declare function setInterval(func: () => void, delay: int): int;
 
@@ -101,7 +101,7 @@ export declare function setInterval(func: () => void, delay: int): int;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 22 static
  */
 export declare function setTimeout(func: () => void, delay?: int): int;
 
@@ -127,7 +127,7 @@ export declare function setTimeout(func: () => void, delay?: int): int;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 22 static
  */
 export declare function clearInterval(intervalID: int): void;
 
@@ -153,7 +153,7 @@ export declare function clearInterval(intervalID: int): void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 22 static
  */
 export declare function clearTimeout(timeoutID: int): void;
 
@@ -182,7 +182,7 @@ export declare function clearTimeout(timeoutID: int): void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 22 static
  */
 export declare function canIUse(syscap: string): boolean;
 
@@ -213,7 +213,7 @@ export declare function canIUse(syscap: string): boolean;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 22 static
  * @test
  */
 export declare function getInspectorByKey(id: string): string;
@@ -242,7 +242,7 @@ export declare function getInspectorByKey(id: string): string;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 22 static
  * @test
  */
 export declare function getInspectorTree(): Object;
@@ -280,7 +280,7 @@ export declare function getInspectorTree(): Object;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 22 static
  * @test
  */
 export declare function sendEventByKey(id: string, action: number, params: string): boolean;
@@ -312,7 +312,7 @@ export declare function sendEventByKey(id: string, action: number, params: strin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 22 static
  * @test
  */
 export declare function sendTouchEvent(event: TouchObject): boolean;
@@ -344,7 +344,7 @@ export declare function sendTouchEvent(event: TouchObject): boolean;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 22 static
  * @test
  */
 export declare function sendKeyEvent(event: KeyEvent): boolean;
@@ -376,7 +376,7 @@ export declare function sendKeyEvent(event: KeyEvent): boolean;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 22 static
  * @test
  */
 export declare function sendMouseEvent(event: MouseEvent): boolean;

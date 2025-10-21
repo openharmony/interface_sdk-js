@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare interface RowOptions {
   /**
@@ -72,7 +72,7 @@ declare interface RowOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   space?: string | number;
 }
@@ -85,7 +85,7 @@ declare interface RowOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface RowOptionsV2 {
   /**
@@ -96,7 +96,7 @@ interface RowOptionsV2 {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   space?: SpaceType;
 }
@@ -133,7 +133,7 @@ interface RowOptionsV2 {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface RowInterface {
   /**
@@ -184,7 +184,7 @@ interface RowInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options?: RowOptions): RowAttribute;
   /**
@@ -197,7 +197,7 @@ interface RowInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options?: RowOptions | RowOptionsV2): RowAttribute;
 }
@@ -234,7 +234,7 @@ interface RowInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class RowAttribute extends CommonMethod<RowAttribute> {
   /**
@@ -273,7 +273,7 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   alignItems(value: VerticalAlign): RowAttribute;
 
@@ -313,7 +313,7 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   justifyContent(value: FlexAlign): RowAttribute;
   /**
@@ -323,7 +323,7 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @returns { RowAttribute } The attribute of the row.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   pointLight(value: PointLightStyle): RowAttribute;
   /**
@@ -335,7 +335,7 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   reverse(isReversed: Optional<boolean>): RowAttribute;
 }
@@ -368,7 +368,7 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Row: RowInterface;
 
@@ -400,6 +400,6 @@ declare const Row: RowInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const RowInstance: RowAttribute;

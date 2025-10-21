@@ -33,7 +33,7 @@ import continuationManager from '../@ohos.continuation.continuationManager';
  * @typedef ContinuationExtraParams
  * @syscap SystemCapability.Ability.DistributedAbilityManager
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export interface ContinuationExtraParams {
   /**
@@ -49,7 +49,7 @@ export interface ContinuationExtraParams {
    * @type { ?Array<string> }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   deviceType?: Array<string>;
 
@@ -66,7 +66,7 @@ export interface ContinuationExtraParams {
    * @type { ?string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   targetBundle?: string;
 
@@ -83,7 +83,7 @@ export interface ContinuationExtraParams {
    * @type { ?string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   description?: string;
 
@@ -100,7 +100,7 @@ export interface ContinuationExtraParams {
    * @type { ?any }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   filter?: any;
 
@@ -117,7 +117,7 @@ export interface ContinuationExtraParams {
    * @type { ?continuationManager.ContinuationMode }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   continuationMode?: continuationManager.ContinuationMode;
 
@@ -142,7 +142,7 @@ export interface ContinuationExtraParams {
    * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   authInfo?: Record<string, Object>;
 }

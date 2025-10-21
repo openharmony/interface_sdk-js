@@ -29,7 +29,7 @@ import type { AbilityResult } from '../ability/abilityResult';
  * @extends UIExtensionContext
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
- * @since 18
+ * @since 18 dynamic
  */
 declare class FormEditExtensionContext extends UIExtensionContext {
 	/**
@@ -43,7 +43,7 @@ declare class FormEditExtensionContext extends UIExtensionContext {
      * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @stagemodelonly
-     * @since 18
+     * @since 18 dynamic
      */
 	startSecondPage(want: Want): Promise<AbilityResult>;
 }

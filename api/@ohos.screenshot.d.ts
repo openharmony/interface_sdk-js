@@ -27,8 +27,8 @@ import image from './@ohos.multimedia.image';
  * @namespace screenshot
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 declare namespace screenshot {
   /**
@@ -215,7 +215,7 @@ declare namespace screenshot {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   function pick(): Promise<PickInfo>;
 
@@ -225,7 +225,7 @@ declare namespace screenshot {
    * @interface PickInfo
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   interface PickInfo {
     /**
@@ -234,7 +234,7 @@ declare namespace screenshot {
      * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     pickRect: Rect;
 
@@ -244,7 +244,7 @@ declare namespace screenshot {
      * @type { image.PixelMap }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     pixelMap: image.PixelMap;
   }
@@ -255,8 +255,8 @@ declare namespace screenshot {
    * @interface Rect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   interface Rect {
     /**
@@ -265,8 +265,8 @@ declare namespace screenshot {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     left: long;
 
@@ -276,8 +276,8 @@ declare namespace screenshot {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     top: long;
 
@@ -287,8 +287,8 @@ declare namespace screenshot {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     width: long;
 
@@ -298,8 +298,8 @@ declare namespace screenshot {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     height: long;
   }
@@ -310,8 +310,8 @@ declare namespace screenshot {
    * @interface Size
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   interface Size {
     /**
@@ -320,8 +320,8 @@ declare namespace screenshot {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     width: long;
 
@@ -331,8 +331,8 @@ declare namespace screenshot {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     height: long;
   }
@@ -343,7 +343,7 @@ declare namespace screenshot {
    * @interface CaptureOption
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   interface CaptureOption {
     /**
@@ -352,7 +352,7 @@ declare namespace screenshot {
      * @type { ?long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
      */
     displayId?: long;
 
@@ -373,8 +373,8 @@ declare namespace screenshot {
    * @interface ScreenshotOptions
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   interface ScreenshotOptions {
     /**
@@ -383,8 +383,8 @@ declare namespace screenshot {
      * @type { ?Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     screenRect?: Rect;
     /**
@@ -393,8 +393,8 @@ declare namespace screenshot {
      * @type { ?Size }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     imageSize?: Size;
     /**
@@ -403,8 +403,8 @@ declare namespace screenshot {
      * @type { ?int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     rotation?: int;
     /**
@@ -413,8 +413,8 @@ declare namespace screenshot {
      * @type { ?long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     displayId?: long;
     /**
@@ -423,8 +423,8 @@ declare namespace screenshot {
      * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     isNotificationNeeded?: boolean;
     /**
@@ -433,8 +433,7 @@ declare namespace screenshot {
      * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     isCaptureFullOfScreen?: boolean;
   }

@@ -23,8 +23,8 @@
  *
  * @interface InputMethodSubtype
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 export default interface InputMethodSubtype {
   /**
@@ -33,8 +33,8 @@ export default interface InputMethodSubtype {
    * @type { ?string }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   readonly label?: string;
 
@@ -44,8 +44,8 @@ export default interface InputMethodSubtype {
    * @type { ?double }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   readonly labelId?: double;
 
@@ -55,8 +55,8 @@ export default interface InputMethodSubtype {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   readonly name: string;
 
@@ -66,8 +66,8 @@ export default interface InputMethodSubtype {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   readonly id: string;
 
@@ -77,8 +77,8 @@ export default interface InputMethodSubtype {
    * @type { ?('upper' | 'lower') }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   readonly mode?: 'upper' | 'lower';
 
@@ -88,8 +88,8 @@ export default interface InputMethodSubtype {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   readonly locale: string;
 
@@ -99,8 +99,8 @@ export default interface InputMethodSubtype {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   readonly language: string;
 
@@ -110,8 +110,8 @@ export default interface InputMethodSubtype {
    * @type { ?string }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   readonly icon?: string;
 
@@ -121,8 +121,8 @@ export default interface InputMethodSubtype {
    * @type { ?double }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   readonly iconId?: double;
 
@@ -138,8 +138,8 @@ export default interface InputMethodSubtype {
    *
    * @type { ?object }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   extra?: object;
 }

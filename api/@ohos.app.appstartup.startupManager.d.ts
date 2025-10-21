@@ -27,7 +27,7 @@ import common from './@ohos.app.ability.common';
  * @namespace startupManager
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
- * @since 12
+ * @since 12 dynamic
  */
 declare namespace startupManager {
   /**
@@ -46,7 +46,7 @@ declare namespace startupManager {
    *
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   function run(startupTasks: Array<string>, config?: StartupConfig): Promise<void>;
 
@@ -64,7 +64,7 @@ declare namespace startupManager {
    * @throws { BusinessError } 28800004 - Running startup tasks timeout.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   function run(startupTasks: Array<string>, context: common.AbilityStageContext, config: StartupConfig): Promise<void>;
 
@@ -73,7 +73,7 @@ declare namespace startupManager {
    *
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   function removeAllStartupTaskResults(): void;
 
@@ -86,7 +86,7 @@ declare namespace startupManager {
    * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   function getStartupTaskResult(startupTask: string): Object;
 
@@ -99,7 +99,7 @@ declare namespace startupManager {
    * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   function isStartupTaskInitialized(startupTask: string): boolean;
 
@@ -111,7 +111,7 @@ declare namespace startupManager {
    * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   function removeStartupTaskResult(startupTask: string): void;
 }

@@ -15,7 +15,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { CommonMethod, PixelMap, AttributeModifier } from "./common";
 import { ResourceColor, Length } from "./units";
@@ -28,7 +27,7 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  *
  * @interface ViewportRect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ViewportRect {
     
@@ -37,7 +36,7 @@ export declare interface ViewportRect {
      *
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     x?: double | string;
     /**
@@ -45,7 +44,7 @@ export declare interface ViewportRect {
      *
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     y?: double | string;
     /**
@@ -53,7 +52,7 @@ export declare interface ViewportRect {
      *
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     width?: double | string;
     /**
@@ -61,7 +60,7 @@ export declare interface ViewportRect {
      *
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     height?: double | string;
 }
@@ -71,7 +70,7 @@ export declare interface ViewportRect {
  * @extends CommonMethod
  * @interface ShapeAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ShapeAttribute extends CommonMethod {
     /**
@@ -80,7 +79,7 @@ export declare interface ShapeAttribute extends CommonMethod {
      * @param { ViewportRect | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default viewPort(value: ViewportRect | undefined): this;
     /**
@@ -89,7 +88,7 @@ export declare interface ShapeAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default stroke(value: ResourceColor | undefined): this;
     /**
@@ -98,7 +97,7 @@ export declare interface ShapeAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default fill(value: ResourceColor | undefined): this;
     /**
@@ -107,7 +106,7 @@ export declare interface ShapeAttribute extends CommonMethod {
      * @param { double | string | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default strokeDashOffset(value: double | string | undefined): this;
     /**
@@ -116,7 +115,7 @@ export declare interface ShapeAttribute extends CommonMethod {
      * @param { Array<Length> | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default strokeDashArray(value: Array<Length> | undefined): this;
     /**
@@ -125,7 +124,7 @@ export declare interface ShapeAttribute extends CommonMethod {
      * @param { LineCapStyle | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default strokeLineCap(value: LineCapStyle | undefined): this;
     /**
@@ -134,7 +133,7 @@ export declare interface ShapeAttribute extends CommonMethod {
      * @param { LineJoinStyle | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default strokeLineJoin(value: LineJoinStyle | undefined): this;
     /**
@@ -143,7 +142,7 @@ export declare interface ShapeAttribute extends CommonMethod {
      * @param { double | string | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default strokeMiterLimit(value: double | string | undefined): this;
     /**
@@ -152,7 +151,7 @@ export declare interface ShapeAttribute extends CommonMethod {
      * @param { double | string | Resource | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default strokeOpacity(value: double | string | Resource | undefined): this;
     /**
@@ -161,7 +160,7 @@ export declare interface ShapeAttribute extends CommonMethod {
      * @param { double | string | Resource | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default fillOpacity(value: double | string | Resource | undefined): this;
     /**
@@ -170,7 +169,7 @@ export declare interface ShapeAttribute extends CommonMethod {
      * @param { double | string | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default strokeWidth(value: double | string | undefined): this;
     /**
@@ -179,7 +178,7 @@ export declare interface ShapeAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default antiAlias(value: boolean | undefined): this;
     /**
@@ -190,7 +189,7 @@ export declare interface ShapeAttribute extends CommonMethod {
      * @param { int | undefined } row
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default mesh(value: Array<double> | undefined, column: int | undefined, row: int | undefined): this;
     /**
@@ -199,7 +198,7 @@ export declare interface ShapeAttribute extends CommonMethod {
      * @param { AttributeModifier<ShapeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<ShapeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -211,7 +210,7 @@ export declare interface ShapeAttribute extends CommonMethod {
  * @param { function } [content_]
  * @returns { ShapeAttribute } The attribute of the Shape.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 @memo
 @ComponentBuilder

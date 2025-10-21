@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { __memo_context_type, __memo_id_type } from '../incremental/runtime/state';
@@ -43,7 +42,7 @@ export @interface ComponentBuilder {}
  * Defining MemoSkip annotation.
  * MemoSkip parameter will not be a state varaiable in Builder functions.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface MemoSkip {};
@@ -52,7 +51,7 @@ export declare @interface MemoSkip {};
  * Defining MemoIntrinsic.
  * MemoIntrinsic.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface MemoIntrinsic {};
