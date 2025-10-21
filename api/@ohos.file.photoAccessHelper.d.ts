@@ -9355,6 +9355,8 @@ declare namespace photoAccessHelper {
      * @param { int } hasAppLink - AppLink state of the asset to set.
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 23800301 - Internal system error.It is recommended to retry and check the logs.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.Possible causes:
+     * The input parameter is not within the valid range.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21
@@ -9368,6 +9370,8 @@ declare namespace photoAccessHelper {
      * @param { string } appLink - AppLink info of the asset to set.
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 23800301 - Internal system error.It is recommended to retry and check the logs.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.Possible causes:
+     * The input parameter's length is not within the valid range.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21
