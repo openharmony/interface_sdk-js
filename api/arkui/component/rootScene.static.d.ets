@@ -22,6 +22,17 @@ import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
+ * Defines the session of RootScene.
+ *
+ * @interface RootSceneSession
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20 static
+ */
+export declare interface RootSceneSession {
+}
+
+/**
  * Defines the attribute functions of RootScene.
  *
  * @extends CommonMethod<RootSceneAttribute>
