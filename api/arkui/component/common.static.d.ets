@@ -8979,9 +8979,10 @@ export declare type CustomProperty = undefined | null | Object | Record<string, 
 
 /**
  * CommonMethod
- * 
+ *
  * @interface CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 22 static
  */
 export declare interface CommonMethod {
@@ -9165,12 +9166,13 @@ export declare interface CommonMethod {
     /**
      * Background color
      *
-     * @param { Optional<ResourceColor | ColorMetrics> } value
+     * @param { ResourceColor | ColorMetrics | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 22 static
      */
-    default backgroundColor(value: Optional<ResourceColor | ColorMetrics>): this;
+    default backgroundColor(value: ResourceColor | ColorMetrics | undefined): this;
     /**
      * Sets the pixel rounding policy for the current component in the specified direction.
      * <br>If a direction is not set, the pixels are rounded to the nearest whole number in that direction.
@@ -12278,32 +12280,35 @@ export declare interface ItemDragEventHandler {
     onDrop?: Callback<number>;
 }
 /**
-* Define DynamicNode.
-*
-* @typedef DynamicNode
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 22 static
-*/
+ * Define DynamicNode.
+ *
+ * @typedef DynamicNode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 22 static
+ */
 export declare interface DynamicNode {
     /**
      * Set the move action.
      *
-     * @param { Optional<OnMoveHandler> } handler
+     * @param { OnMoveHandler | undefined } handler
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 22 static
      */
-    onMove(handler: Optional<OnMoveHandler>): this;
+    onMove(handler: OnMoveHandler | undefined): this;
     /**
      * Set the move action.
      *
-     * @param { Optional<OnMoveHandler> } handler
+     * @param { OnMoveHandler | undefined } handler
      * @param { ItemDragEventHandler } eventHandler
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 22 static
      */
-    onMove(handler: Optional<OnMoveHandler>, eventHandler: ItemDragEventHandler): this;
+    onMove(handler: OnMoveHandler | undefined, eventHandler: ItemDragEventHandler): this;
 }
 /**
  * Define EdgeEffect Options.

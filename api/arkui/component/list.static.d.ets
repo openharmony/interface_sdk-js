@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { ChildrenMainSize, ItemDragInfo, RectResult, ScrollableCommonMethod, Optional, OnWillScrollCallback, OnScrollCallback, OnItemDragStartCallback } from './common';
+import { ChildrenMainSize, ItemDragInfo, RectResult, ScrollableCommonMethod, OnWillScrollCallback, OnScrollCallback, OnItemDragStartCallback } from './common';
 import { Axis } from './enums';
 import { OnScrollFrameBeginCallback, ScrollAlign, Scroller } from "./scroll";
 import { Dimension, Length, LengthConstrain, ResourceColor } from './units';

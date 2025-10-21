@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { CommonMethod, Optional, Bindable } from './common';
+import { CommonMethod, Bindable } from './common';
 import { ResourceColor, MarkStyle } from './units';
 import { CheckBoxShape } from './enums';
 import { ComponentBuilder, CustomBuilder } from './builder';

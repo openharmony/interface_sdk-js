@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { CommonMethod, ShadowOptions, Optional, Callback, AttributeModifier, SelectionOptions } from "./common";
+import { CommonMethod, ShadowOptions, Callback, AttributeModifier, SelectionOptions } from "./common";
 import { CustomBuilder } from './builder';
 import { EllipsisMode, TextCase, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextSelectableMode } from "./enums";
 import { Resource, ResourceColor, Font, Length, LengthMetrics } from "./units";

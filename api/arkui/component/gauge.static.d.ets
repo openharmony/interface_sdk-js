@@ -18,7 +18,7 @@
  * @file
  * @kit ArkUI
  */
-import { CommonMethod, CommonConfiguration, ContentModifier, MultiShadowOptions, Optional } from './common';
+import { CommonMethod, CommonConfiguration, ContentModifier, MultiShadowOptions } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceStr, Dimension, ResourceColor, Length } from "./units";
 import { LinearGradient } from "./dataPanel";

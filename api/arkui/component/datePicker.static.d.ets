@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 
-import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, Callback, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, DateTimeOptions, Bindable } from './common';
+import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, Callback, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, DateTimeOptions, Bindable } from './common';
 import { ResourceColor, Offset, VoidCallback } from "./units";
 import { DialogAlignment } from "./alertDialog";
 import { CrownSensitivity } from "./enums";

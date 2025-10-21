@@ -22,7 +22,7 @@ import { CaretStyle, DeleteValue, EditMenuOptions, EditableTextOnChangeCallback,
 import { BarState, CopyOptions, FontStyle, FontWeight, LineBreakStrategy, TextContentStyle, TextAlign, TextOverflow, TextHeightAdaptivePolicy, WordBreak, EllipsisMode } from "./enums";
 import { EnterKeyType, SubmitEvent, ContentType } from "./textInput";
 import { Dimension, Font, Length, LengthMetrics, ResourceColor, ResourceStr } from "./units";
-import { InputCounterOptions, TextContentControllerBase, SelectionOptions, TextDecorationOptions, CommonMethod, Callback, Optional, Bindable, AttributeModifier } from "./common";
+import { InputCounterOptions, TextContentControllerBase, SelectionOptions, TextDecorationOptions, CommonMethod, Callback, Bindable, AttributeModifier } from "./common";
 import { CustomBuilder } from './builder';
 import { Resource } from '../../global/resource';
 import { ComponentBuilder } from './builder';
@@ -954,8 +954,8 @@ export declare interface TextAreaAttribute extends CommonMethod {
     /**
      * Set whether stop backPressed callback event or not.
      *
-     * @param { Optional<boolean> | undefined } isStopped - Default value is true, set false to trigger the latest callback event.
-     * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+     * @param { boolean | undefined } isStopped - Default value is true, set false to trigger the latest callback event.
+     * @returns { TextAreaAttribute } - returns the instance of the TextAreaAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */

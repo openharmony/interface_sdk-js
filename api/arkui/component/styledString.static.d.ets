@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { Callback, ShadowOptions, ClickEvent, Optional, PixelMap, AttributeModifier, CommonMethod } from './common';
+import { Callback, ShadowOptions, ClickEvent, PixelMap, AttributeModifier, CommonMethod } from './common';
 import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, WordBreak, TextOverflow, ImageFit, ImageSpanAlignment } from './enums';
 import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from './units';
 import { TextBackgroundStyle } from './span';
@@ -1170,11 +1170,11 @@ export declare interface ResourceImageAttachmentOptions {
     /**
      * The content of the ResourceImageAttachment.
      *
-     * @type { Optional<ResourceStr> }
+     * @type { ResourceStr | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    resourceValue: Optional<ResourceStr>;
+    resourceValue: ResourceStr | undefined;
     /**
      * size of the ResourceImage.
      *

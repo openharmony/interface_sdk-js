@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { CommonMethod, CommonConfiguration, ContentModifier, Optional, Bindable } from './common';
+import { CommonMethod, CommonConfiguration, ContentModifier, Bindable } from './common';
 import { Axis, CrownSensitivity } from './enums';
 import { ResourceStr, ResourceColor, Length, Dimension, SizeOptions } from './units';
 import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';

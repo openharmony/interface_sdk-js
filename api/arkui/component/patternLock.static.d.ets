@@ -20,7 +20,7 @@
  */
 import { ResourceColor, Length } from "./units";
 import { LengthMetrics } from '../Graphics';
-import { CommonMethod, Callback, Optional } from './common';
+import { CommonMethod, Callback } from './common';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
