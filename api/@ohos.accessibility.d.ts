@@ -1451,7 +1451,8 @@ declare namespace accessibility {
    *
    * @returns { CaptionsManager } Returns the captions manager.
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-   * @since 8 dynamiconly
+   * @since 8 dynamic
+   * @since 22 static
    * @deprecated since 12
    */
   function getCaptionsManager(): CaptionsManager;
@@ -1462,6 +1463,7 @@ declare namespace accessibility {
    * @typedef CaptionsManager
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
    * @since 8 dynamic
+   * @since 20 static
    */
   interface CaptionsManager {
     /**
@@ -1470,6 +1472,7 @@ declare namespace accessibility {
      * @type {boolean}
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8 dynamic
+     * @since 20 static
      */
     enabled: boolean;
     /**
@@ -1478,6 +1481,7 @@ declare namespace accessibility {
      * @type {CaptionsStyle}
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8 dynamic
+     * @since 20 static
      */
     style: CaptionsStyle;
 
@@ -1491,10 +1495,19 @@ declare namespace accessibility {
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-     * @since 8 dynamiconly
+     * @since 8 dynamic
      * @deprecated since 12
      */
     on(type: 'enableChange', callback: Callback<boolean>): void;
+
+    /**
+     * Register the observe of the enable state.
+     *
+     * @param { Callback<boolean> } callback
+     * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
+     * @since 22 static
+     */
+    onEnableChange(callback: Callback<boolean>): void;
 
     /**
      * Register the observer of the style.
@@ -1506,40 +1519,67 @@ declare namespace accessibility {
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-     * @since 8 dynamiconly
+     * @since 8 dynamic
      * @deprecated since 12
      */
     on(type: 'styleChange', callback: Callback<CaptionsStyle>): void;
 
     /**
+     * Register the observer of the style.
+     *
+     * @param { Callback<CaptionsStyle> } callback
+     * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
+     * @since 22 static
+     */
+    onStyleChange(callback: Callback<CaptionsStyle>): void;
+
+    /**
      * Unregister the observe of the enable state.
      *
      * @param { 'enableChange' } type
-     * @param { Callback<boolean> } callback
+     * @param { Callback<boolean> } [callback]
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-     * @since 8 dynamiconly
+     * @since 8 dynamic
      * @deprecated since 12
      */
     off(type: 'enableChange', callback?: Callback<boolean>): void;
 
     /**
+     * Unregister the observe of the enable state.
+     *
+     * @param { Callback<boolean> } [callback]
+     * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
+     * @since 22 static
+     */
+    offEnableChange(callback?: Callback<boolean>): void;
+
+    /**
      * Unregister the observer of the style.
      *
      * @param { 'styleChange' } type
-     * @param { Callback<CaptionsStyle> } callback
+     * @param { Callback<CaptionsStyle> } [callback]
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-     * @since 8 dynamiconly
+     * @since 8 dynamic
      * @deprecated since 12
      */
     off(type: 'styleChange', callback?: Callback<CaptionsStyle>): void;
+
+    /**
+     * Unregister the observer of the style.
+     *
+     * @param { Callback<CaptionsStyle> } [callback]
+     * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
+     * @since 22 static
+     */
+    offStyleChange(callback?: Callback<CaptionsStyle>): void;
   }
 
   /**

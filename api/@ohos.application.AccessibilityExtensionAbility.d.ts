@@ -160,7 +160,6 @@ declare class AccessibilityExtensionAbility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead ohos.application.AccessibilityExtensionAbility/AccessibilityExtensionAbility#onAccessibilityConnect
    */
   onConnect(): void;
 
@@ -170,7 +169,6 @@ declare class AccessibilityExtensionAbility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead ohos.application.AccessibilityExtensionAbility/AccessibilityExtensionAbility#onAccessibilityDisconnect
    */
   onDisconnect(): void;
 
@@ -181,7 +179,6 @@ declare class AccessibilityExtensionAbility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead ohos.application.AccessibilityExtensionAbility/AccessibilityExtensionAbility#onAccessibilityEventInfo
    */
   onAccessibilityEvent(event: AccessibilityEvent): void;
 
@@ -193,7 +190,6 @@ declare class AccessibilityExtensionAbility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead ohos.application.AccessibilityExtensionAbility/AccessibilityExtensionAbility#onAccessibilityKeyEvent
    */
   onKeyEvent(keyEvent: KeyEvent): boolean;
 
