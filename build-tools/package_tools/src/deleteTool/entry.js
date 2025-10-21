@@ -16,11 +16,11 @@
 const fs = require('fs');
 const path = require('path');
 const commander = require('commander');
-const { arkts, arktsGlobal } = require('../dependence/koala-wrapper/build/lib/es2panda');
 
-function deleteEntry(input) {
+function deleteEntry(input, dependencePath) {
+  const { arkts, arktsGlobal } = require(dependencePath + '/build-tools/koala-wrapper/build/lib/es2panda');
   const currentPath = process.env.PATH || '';
-  const etspandaPath = '../dependence/ets2panda/lib'
+  const etspandaPath = dependencePath + '/build-tools/ets2panda/lib';
   process.env.PATH = `${currentPath}${path.delimiter}${etspandaPath}`;
   process.env.LD_LIBRARY_PATH = etspandaPath;
 
@@ -30,7 +30,7 @@ function deleteEntry(input) {
     '--extension',
     'ets',
     '--arktsconfig',
-    '../dependence/arktsconfig.json'
+    dependencePath + '/build-tools/arktsconfig.json'
   ];
   ets2pandaCmd.push('--debug-info');
   ets2pandaCmd.push(filePath);
@@ -67,8 +67,9 @@ function main() {
     .version('0.0.1');
   program
     .option('--input <string>', 'path name')
+    .option('--build_sdk_path <string>', 'build sdk path')
     .action((opts) => {
-      deleteEntry(opts.input)
+      deleteEntry(opts.input, opts.build_sdk_path)
     });
   program.parse(process.argv);
 }

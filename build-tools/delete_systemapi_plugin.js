@@ -33,6 +33,7 @@ const COMPILER_OPTIONS = {
 };
 let needParseWithStatic = false;
 let currentApiFileContent = '';
+let buildSdkPath = '';
 /**
  * @enum {string} references地址的切换类型
  */
@@ -64,10 +65,12 @@ function start() {
     .option('--input <string>', 'path name')
     .option('--output <string>', 'output path')
     .option('--type <string>', 'ets type')
+    .option('--build-sdk-path <string>', 'build sdk path')
     .action((opts) => {
       outputPath = opts.output;
       inputDir = opts.input;
       etsType = opts.type;
+      buildSdkPath = opts.build_sdk_path;
       collectDeclaration(opts.input);
     });
   program.parse(process.argv);
@@ -406,11 +409,11 @@ function tsTransform(utFiles, callback) {
     }
     const uiFileDir = path.resolve(inputDir, 'arkui', 'component');
     // 过滤文件，仅处理涉及到静态独有语法的API文件，且暂时过滤组件接口文件
-    if (/\@memo/.test(content) && !url.includes(uiFileDir)) {
+    if (/\@memo/.test(content) && !url.includes(uiFileDir) && etsType === 'ets2') {
       const nodePath = process.argv[0];
-      // T执行ets2panda解析
+      // 执行ets2panda解析
       currentApiFileContent =
-        execSync(`cd ./package_tools/src/deleteTool && ${nodePath} ./entry.js --input ${url}`).toString('utf-8');
+        execSync(`cd ./package_tools/src/deleteTool && ${nodePath} ./entry.js --input ${url} --build_sdk_path ${buildSdkPath}`).toString('utf-8');
       needParseWithStatic = true;
     } else {
       currentApiFileContent = '';
