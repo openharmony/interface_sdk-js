@@ -18,7 +18,7 @@
  * @file
  * @kit ArkUI
  */
-import { ComponentV2 } from '@ohos.arkui.component';L
+import { ComponentV2 } from '@ohos.arkui.component';
 import { ResourceStr, ResourceColor, LocalizedPadding, SizeOptions } from '@ohos.arkui.component';
 import { ButtonStyleMode, ButtonRole } from '@ohos.arkui.component';
 import { PixelMap, ThemeColorMode, CustomPopupOptions } from '@ohos.arkui.component';
