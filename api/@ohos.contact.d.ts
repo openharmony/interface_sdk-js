@@ -134,7 +134,6 @@ declare namespace contact {
   /**
    * Select contact.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
    * Returns the contact list which user select; returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.Contacts
@@ -169,7 +168,6 @@ declare namespace contact {
   /**
    * Select contact.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
    * returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.Contacts
