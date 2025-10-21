@@ -1383,11 +1383,11 @@ export interface LongPressGestureHandlerOptions extends BaseHandlerOptions {
      * Indicates minimum press and hold time, in milliseconds.
      * The default value is 500ms.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    duration?: number;
+    duration?: int;
 }
 /**
  * Defines the LongPressGesture handler.
@@ -2078,11 +2078,11 @@ export declare class LongPressRecognizer extends GestureRecognizer {
      * Returns the long press gesture's duration.
      * The unit is ms.
      *
-     * @returns { number } - the duration of the long press gesture.
+     * @returns { int } - the duration of the long press gesture.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    getDuration(): number;
+    getDuration(): int;
 }
 /**
  * Defines the swipe gesture recognizer.
