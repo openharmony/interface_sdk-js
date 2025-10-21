@@ -19,6 +19,7 @@
  */
 
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
+import media from './@ohos.multimedia.media'
 
 /**
  * Defines the moving photo view options.
@@ -282,6 +283,19 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @since 18
      */
     enableAnalyzer(enabled: boolean): MovingPhotoViewAttribute;
+
+    /**
+     * Sets playback strategy.
+     * 
+     * @param { media.PlaybackStrategy } strategy - playback strategy
+     * @returns { MovingPhotoViewAttribute }
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    setPlaybackStrategy(strategy: media.PlaybackStrategy): MovingPhotoViewAttribute;
 }
 /**
  * Defines the MovingPhotoView controller.
@@ -394,6 +408,15 @@ export class MovingPhotoViewController {
      * @since 20
      */
     enableAutoPlay(enabled: boolean);
+    /**
+     * Notify the component to execute the picture transition animation.
+     * 
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    notifyMovingPhotoTransition();
 }
 /**
  * Defines MovingPhotoView Component.
