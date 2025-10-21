@@ -19,9 +19,10 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-/*** if arkts dynamic */
 import type common2D from './@ohos.graphics.common2D';
 import type image from './@ohos.multimedia.image';
+/*** if arkts static */
+import { LinearGradientBlurOptions } from '@ohos.arkui.component';
 /*** endif */
 
 /**
@@ -114,16 +115,19 @@ declare namespace uiEffect {
     distort(distortionK: double): Filter;
 
     /**
-     * Adds the content radius gradient blurring effect for the current component. The input parameter is the blurring radius.
+     * Adds the content radius gradient blurring effect for the current component.
+     * The input parameter is the blurring radius.
      *
      * @param { double } radius - the blurring radius.
-     * The larger the blurring radius, the more blurring the content, and if the value is 0, the content blurring effect is not blurring.
+     *     The larger the blurring radius, the more blurring the content, and if the value is 0,
+     *     the content blurring effect is not blurring.
      * @param { LinearGradientBlurOptions } gradientParam - the radius gradient blur options.
      * @returns { Filter } - Returns radius gradient blur Filter.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 19 dynamic
+     * @since 22 static
      */
     radiusGradientBlur(radius: double, gradientParam: LinearGradientBlurOptions): Filter;
 
@@ -136,6 +140,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     bezierWarp(controlPoints: Array<common2D.Point>): Filter;
 
@@ -151,6 +156,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     contentLight(lightPosition: common2D.Point3d, lightColor: common2D.Color, lightIntensity: double,
       displacementMap?: Mask): Filter;
@@ -167,6 +173,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     colorGradient(colors: Array<Color>, positions: Array<common2D.Point>, strengths: Array<double>,
         alphaMask?: Mask): Filter;
@@ -183,6 +190,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     edgeLight(alpha: double, color?: Color, mask?: Mask, bloom?: boolean): Filter;
 
@@ -196,6 +204,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     displacementDistort(displacementMap: Mask, factor?: [double, double]): Filter;
 
@@ -212,6 +221,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     maskDispersion(dispersionMap: Mask, alpha: double, rFactor?: [double, double], gFactor?: [double, double],
       bFactor?: [double, double]): Filter;
@@ -224,21 +234,22 @@ declare namespace uiEffect {
     * @syscap SystemCapability.Graphics.Drawing
     * @systemapi
     * @since 20 dynamic
+    * @since 22 static
     */
     hdrBrightnessRatio(ratio: double): Filter;
 
     /**
      * Sets variable radius blur effect with radius map.
      * 
-     * @param { double } radius - the blurring radius.
-     * The larger the blurring radius, the more blurring the content,
-     * and if the value is 0, the content blurring effect is not blurring.
+     * @param { double } radius - the blurring radius. The larger the blurring radius, the more blurring the content,
+     *     and if the value is 0, the content blurring effect is not blurring.
      * @param { Mask } radiusMap - the alpha of the mask determines the degree of blurring.
      * @returns { Filter } - Returns the Filter that the current effect have been added.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     variableRadiusBlur(radius: double, radiusMap: Mask): Filter;
 
@@ -255,6 +266,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     directionLight(direction: common2D.Point3d, color: Color, intensity: double, mask?: Mask, factor?: double): Filter;
 
@@ -269,6 +281,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     maskTransition(alphaMask: Mask, factor?: double, inverse?: boolean): Filter;
   }
@@ -437,6 +450,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     borderLight(lightPosition: common2D.Point3d, lightColor: common2D.Color, lightIntensity: double,
       borderWidth: double): VisualEffect;
@@ -453,6 +467,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     colorGradient(colors: Array<Color>, positions: Array<common2D.Point>, strengths: Array<double>,
       alphaMask?: Mask): VisualEffect;
@@ -588,6 +603,7 @@ declare namespace uiEffect {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   interface Color {
     /**
@@ -596,6 +612,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     red: double;
     /**
@@ -604,6 +621,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     green: double;
     /**
@@ -612,6 +630,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     blue: double;
     /**
@@ -620,16 +639,17 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     alpha: double;
   }
 
   /**
    * Defines the mask for Filter or VisualEffect.
-   * @typedef { Mask }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   class Mask {
     /**
@@ -644,6 +664,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     static createRippleMask(center: common2D.Point, radius: double, width: double, offset?: double): Mask;
 
@@ -659,6 +680,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     static createPixelMapMask(pixelMap: image.PixelMap, srcRect: common2D.Rect, dstRect: common2D.Rect,
       fillColor?: Color): Mask;
@@ -675,6 +697,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     static createRadialGradientMask(center: common2D.Point, radiusX: double, radiusY: double,
       gradients: Array<[double, double]>): Mask;
@@ -692,6 +715,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
+     * @since 22 static
      */
     static createWaveGradientMask(center: common2D.Point, width: double, propagationRadius: double,
       blurRadius: double, turbulenceStrength?: double): Mask;
@@ -746,7 +770,7 @@ declare namespace uiEffect {
  * @since 12 dynamic
  * @since 20 static
  */
-declare interface BrightnessBlenderParam {
+export declare interface BrightnessBlenderParam {
   /**
    * Defines third-order rate for grayscale adjustment.
    *
