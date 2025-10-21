@@ -2125,7 +2125,9 @@ export declare class DragController {
    * @param { CustomBuilder | DragItemInfo | undefined } custom - Object used for prompts displayed when the object
    * is dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @returns { Promise<dragController.DragEventParam> } A Promise with the drag event information.
+   * @returns { Promise<dragController.DragEventParam> | null } A Promise with the drag event information. Null will be returned
+   *     if the parameters' checking failed or some internal errors occur, for example: the runtime environment is
+   *     broken.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -2135,7 +2137,7 @@ export declare class DragController {
    * @since 20 static
    */
   executeDrag(custom: CustomBuilder | DragItemInfo | undefined, dragInfo: dragController.DragInfo)
-    : Promise<dragController.DragEventParam>;
+    : Promise<dragController.DragEventParam> | null;
 
   /**
    * Create one drag action object, which can be used for starting drag later or monitoring the drag status after
@@ -2418,7 +2420,9 @@ export declare class ComponentSnapshot {
    *
    * @param { string } id - Target component ID, set by developer through .id attribute.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @returns { Promise<image.PixelMap> | null } A Promise with the snapshot in PixelMap format. Null will be returned
+   *     if the parameters' checking failed or some internal errors occur, for example: the runtime environment is
+   *     broken.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -2427,7 +2431,7 @@ export declare class ComponentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  get(id: string, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+  get(id: string, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
 
   /**
    * Generate a snapshot from a custom component builder.
@@ -2457,7 +2461,9 @@ export declare class ComponentSnapshot {
    * @param { number } [delay] - Defines the delay time to render the snapshot.
    * @param { boolean } [checkImageStatus] - Defines if check the image decoding status before taking snapshot.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @returns { Promise<image.PixelMap> | null } A Promise with the snapshot in PixelMap format. Null will be returned
+   *     if the parameters' checking failed or some internal errors occur, for example: the runtime environment is
+   *     broken.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -2469,7 +2475,7 @@ export declare class ComponentSnapshot {
    * @since 20 static
    */
   createFromBuilder(builder: CustomBuilder, delay?: number,
-    checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+    checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
 
   /**
    * Take a screenshot of the specified component in synchronous mode,
@@ -2478,7 +2484,9 @@ export declare class ComponentSnapshot {
    *
    * @param { string } id - Target component ID, set by developer through .id attribute.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { image.PixelMap } The snapshot result in PixelMap format.
+   * @returns { image.PixelMap | null } The snapshot result in PixelMap format. Null will be returned
+   *     if the parameters' checking failed or some internal errors occur, for example: the runtime environment is
+   *     broken.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -2488,14 +2496,16 @@ export declare class ComponentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getSync(id: string, options?: componentSnapshot.SnapshotOptions): image.PixelMap;
+  getSync(id: string, options?: componentSnapshot.SnapshotOptions): image.PixelMap | null;
 
   /**
    * Get a component snapshot by uniqueId.
    *
    * @param { number } uniqueId - The uniqueId of the node, can get through getUniqueId.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @returns { Promise<image.PixelMap> | null } A Promise with the snapshot in PixelMap format. Null will be returned
+   *     if the parameters' checking failed or some internal errors occur, for example: the runtime environment is
+   *     broken.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -2504,7 +2514,7 @@ export declare class ComponentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getWithUniqueId(uniqueId: number, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+  getWithUniqueId(uniqueId: number, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
 
   /**
    * Take a screenshot of the specified component in synchronous mode,
@@ -2532,7 +2542,9 @@ export declare class ComponentSnapshot {
    * @param { number } [delay] - Defines the delay time to render the snapshot.
    * @param { boolean } [checkImageStatus] - Defines if check the image decoding status before taking snapshot.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @returns { Promise<image.PixelMap> | null } A Promise with the snapshot in PixelMap format. Null will be returned
+   *     if the parameters' checking failed or some internal errors occur, for example: the runtime environment is
+   *     broken.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -2544,7 +2556,7 @@ export declare class ComponentSnapshot {
    * @since 20 static
    */
   createFromComponent<T extends Object>(content: ComponentContent<T>, delay?: number,
-    checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+    checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null ;
 
   /**
    * Get a component snapshot by component range.
@@ -2556,7 +2568,9 @@ export declare class ComponentSnapshot {
    * @param { boolean } isStartRect - indicating the snapshot rect to use, true for using the
    *   rect of the start component, false for using the rect of the end component.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @returns { Promise<image.PixelMap> | null } A Promise with the snapshot in PixelMap format. Null will be returned
+   *     if the parameters' checking failed or some internal errors occur, for example: the runtime environment is
+   *     broken.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 100001 - Invalid ID detected.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2564,7 +2578,7 @@ export declare class ComponentSnapshot {
    * @since 20 static
    */
   getWithRange(start: NodeIdentity, end: NodeIdentity, isStartRect: boolean,
-    options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+    options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
 }
 
 /**
