@@ -486,7 +486,7 @@ declare namespace ble {
    * @throws { BusinessError } 2902054 - The length of the advertising data exceeds the upper limit.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   function startAdvertising(advertisingParams: AdvertisingParams, callback: AsyncCallback<int>): void;
 
@@ -549,7 +549,7 @@ declare namespace ble {
    * @throws { BusinessError } 2902054 - The length of the advertising data exceeds the upper limit.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   function startAdvertising(advertisingParams: AdvertisingParams): Promise<int>;
 
@@ -584,7 +584,7 @@ declare namespace ble {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @throws { BusinessError } 2902055 - Invalid advertising id.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   function enableAdvertising(advertisingEnableParams: AdvertisingEnableParams, callback: AsyncCallback<void>): void;
 
@@ -619,7 +619,7 @@ declare namespace ble {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @throws { BusinessError } 2902055 - Invalid advertising id.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   function enableAdvertising(advertisingEnableParams: AdvertisingEnableParams): Promise<void>;
 
@@ -654,7 +654,7 @@ declare namespace ble {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @throws { BusinessError } 2902055 - Invalid advertising id.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   function disableAdvertising(advertisingDisableParams: AdvertisingDisableParams, callback: AsyncCallback<void>): void;
 
@@ -689,7 +689,7 @@ declare namespace ble {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @throws { BusinessError } 2902055 - Invalid advertising id.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   function disableAdvertising(advertisingDisableParams: AdvertisingDisableParams): Promise<void>;
 
@@ -1193,6 +1193,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 20 static
      */
     notifyCharacteristicChanged(
       deviceId: string,
@@ -1256,6 +1257,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 20 static
      */
     notifyCharacteristicChanged(deviceId: string, notifyCharacteristic: NotifyCharacteristic): Promise<void>;
 
@@ -2011,6 +2013,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 20 static
      */
     getDeviceName(callback: AsyncCallback<string>): void;
 
@@ -2058,6 +2061,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
+     * @since 20 static
      */
     getDeviceName(): Promise<string>;
 
@@ -2228,7 +2232,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     readCharacteristicValue(characteristic: BLECharacteristic, callback: AsyncCallback<BLECharacteristic>): void;
 
@@ -2305,7 +2309,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     readCharacteristicValue(characteristic: BLECharacteristic): Promise<BLECharacteristic>;
 
@@ -2382,7 +2386,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     readDescriptorValue(descriptor: BLEDescriptor, callback: AsyncCallback<BLEDescriptor>): void;
 
@@ -2459,7 +2463,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     readDescriptorValue(descriptor: BLEDescriptor): Promise<BLEDescriptor>;
 
@@ -3092,7 +3096,7 @@ declare namespace ble {
      * @throws { BusinessError } 2901003 - The connection is not established.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     setCharacteristicChangeIndication(
       characteristic: BLECharacteristic,
@@ -3153,7 +3157,7 @@ declare namespace ble {
      * @throws { BusinessError } 2901003 - The connection is not established.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     setCharacteristicChangeIndication(characteristic: BLECharacteristic, enable: boolean): Promise<void>;
 
@@ -3472,6 +3476,7 @@ declare namespace ble {
      * @crossplatform
      * @atomicservice
      * @since 15 dynamic
+     * @since 20 static
      */
     stopScan(): Promise<void>;
     /**
