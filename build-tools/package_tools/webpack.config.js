@@ -14,69 +14,48 @@
  */
 
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
+const packageInfo = require('./package.json');
 
 module.exports = (env, argv) => {
-  const isProduction = argv.mode === 'production';
-
-  return {
-    entry: './src/deleteTool/entry.ts',
-
-    output: {
-      path: path.resolve(__dirname, 'dist'),
-      filename: isProduction
-        ? 'js/[name].[contenthash].js'
-        : 'js/[name].js',
-    },
-
-    resolve: {
-      extensions: ['.ts', '.js', '.tsx', '.jsx'],
-      alias: {
-        '@': path.resolve(__dirname, 'src')
-      }
-    },
-
+  const config = {
+    name: 'package_tools',
+    target: 'node',
+    mode: 'none',
+    entry: './main.ts',
     module: {
       rules: [
         {
           test: /\.ts$/,
+          include: path.resolve(__dirname, './'),
+          exclude: [/node_modules/, /test/],
+          loader: 'ts-loader',
+          options: {
+            onlyCompileBundledFiles: true,
+          },
+        },
+        {
+          test: /build\.json$/,
           use: [
             {
-              loader: 'ts-loader',
-              options: {
-                configFile: 'tsconfig.json'
-              }
-            }
+              loader: path.resolve(__dirname, 'loader/flavor.js'),
+            },
           ],
-          exclude: /node_modules/
-        }
-      ]
+        },
+      ],
     },
-
-    plugins: [],
-
-    devServer: {
-      static: {
-        directory: path.join(__dirname, 'dist')
-      },
-      compress: true,
-      port: 3000,
-      hot: true,
-      open: true
+    resolve: {
+      extensions: ['.js', '.ts', '.json'],
     },
-
-    devtool: isProduction ? 'source-map' : 'eval-source-map',
-
+    output: {
+      filename: `${packageInfo.name}.js`,
+      path: path.resolve(__dirname, './package'),
+    },
     optimization: {
-      splitChunks: {
-        chunks: 'all',
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all'
-          }
-        }
-      }
-    }
+      minimize: true,
+      minimizer: [new TerserPlugin({ extractComments: false })],
+    },
+    plugins: []
   };
+  return config;
 };

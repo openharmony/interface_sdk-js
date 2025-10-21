@@ -178,7 +178,7 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) 
     }
   }
 
-  if (!isEndWithEts && !isEndWithTs) {
+  if (!isEndWithEts && !isEndWithTs || apiRelativePath.includes("@ohos.annotation.d.ets")) {
     writeFile(outputPath, fileContent);
     return;
   }
@@ -950,7 +950,7 @@ function judgeIsDeleteApi(node) {
   }
 
   if (dirType === DirType.typeThree) {
-    return !/@arkts\s*(1\.1&)?1\.2/g.test(notesStr) && !/@since\s\S*\s(staticonly|(dynamic&)?static)/g.test(notesStr);
+    return !/@arkts\s*(1\.1&)?1\.2\s/g.test(notesStr) && !/@since\s\S*\s(staticonly|(dynamic&)?static)/g.test(notesStr);
   }
 
   return false;

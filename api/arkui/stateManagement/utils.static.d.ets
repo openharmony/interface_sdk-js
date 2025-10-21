@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (C) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,14 +16,13 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 /**
  * UIUtils is a state management tool class for operating the observed data.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class UIUtils {
   /**
@@ -33,7 +33,7 @@ export declare class UIUtils {
    * @returns { T } raw object.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static getTarget<T extends object>(source: T): T;
 
@@ -45,7 +45,104 @@ export declare class UIUtils {
    * @returns { T } proxy object from the source object data.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
    static makeObserved<T extends object>(source: T): T;
+
+   /**
+   * Creates read-only data binding.
+   *
+   *
+   * Example. UIUtils.makeBinding<number>(()=>this.num);
+   *
+   * Supports simple getters for read-only data.
+   * Intended for primitive value parameters when calling a @Builder function where arguments are of type Binding.
+   *
+   * @param { GetterCallback<T> } getter - A value or a function that returns the current value of type T.
+   * @returns { Binding<T> } read-only data binding value
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  static makeBinding<T>(getter: GetterCallback<T>): Binding<T>;
+
+  /**
+   * Creates a mutable data binding.
+   *
+   * Two functions to implement function overloading.
+   *
+   * Example. UIUtils.makeBinding<number>(()=>this.num, val => this.num = val);
+   *
+   * Supports getter-setter pairs for mutable data.
+   * Intended for primitive value parameters when calling a @Builder
+   * function where arguments are of type MutableBinding.
+   * If provided, a MutableBinding is created.
+   *
+   * @param { GetterCallback<T> } getter - A value or a function that returns the current value of type T.
+   * @param { SetterCallback<T> } setter - A function to set a new value of type T. 
+   * @returns { MutableBinding<T> } mutable data binding value
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  static makeBinding<T>(getter: GetterCallback<T>, setter: SetterCallback<T>): MutableBinding<T>;
+}
+
+/**
+ * Getter callback type. It is used to get value.
+ *
+ * @typedef { function } GetterCallback
+ * @returns { T }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare type GetterCallback<T> = () => T;
+
+/**
+ * Setter callback type. It is used to assign a new value.
+ *
+ * @typedef { function } SetterCallback
+ * @param { T } newValue - update the value with newValue.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare type SetterCallback<T> = (newValue: T) => void;
+
+/**
+ * Represents a read-only data binding.
+ * Use with @Builder argument list for primitive types. Use makeBinding to pass values when calling the function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare class Binding<T> {
+  /**
+   * Get function that can acquire the value.
+   * @returns T
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  get value(): T;
+}
+
+/**
+ * Represents a mutable data binding allowing both read and write operations.
+ * Use with @Builder argument list for primitive types. Use makeBinding to pass values when calling the function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare class MutableBinding<T> {
+  /**
+   * Get function that can acquire the value.
+   * @returns T
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  get value(): T;
+  /**
+   * Set function that can set the new value.
+   * @param { T } newValue new value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
+  set value(newValue: T);
 }

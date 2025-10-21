@@ -174,6 +174,17 @@ declare namespace PiPWindow {
     navigationId?: string;
 
     /**
+     * Indicates the page ID.
+     *
+     * @type { ?number } The page ID to which the PiP needs to restore.
+     * @default -1
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    handleId?: number;
+
+    /**
      * Picture-in-picture template type.
      *
      * @type { ?PiPTemplateType }

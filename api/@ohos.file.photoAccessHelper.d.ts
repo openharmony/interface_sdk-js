@@ -1778,8 +1778,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     getThumbnail(callback: AsyncCallback<image.PixelMap>): void;
     /**
@@ -1810,8 +1809,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     getThumbnail(size: image.Size, callback: AsyncCallback<image.PixelMap>): void;
     /**
@@ -1842,8 +1840,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     getThumbnail(size?: image.Size): Promise<image.PixelMap>;
     /**
@@ -3053,7 +3050,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 20
+     * @since 21
      * @arkts 1.1&1.2
      */
     EXIF_ROTATE = 'exif_rotate',
@@ -3090,7 +3087,15 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 22
      */
-    CLOUD_ID = 'cloud_id'
+    CLOUD_ID = 'cloud_id',
+    /**
+     * Compatible duplicate of asset exists, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    EXIST_COMPATIBLE_DUPLICATE = 'exist_compatible_duplicate',
   }
 
   /**

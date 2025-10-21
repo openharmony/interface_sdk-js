@@ -7643,6 +7643,8 @@ declare function animateTo(value: AnimateParam, event: () => void): void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @deprecated since 22
+ * @useinstead ohos.arkui.UIContext.UIContext#animateToImmediately
  */
 declare function animateToImmediately(value: AnimateParam, event: () => void): void;
 
@@ -8267,7 +8269,7 @@ declare enum SourceType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 22
    */
   KEY = 4,
 
@@ -8277,7 +8279,7 @@ declare enum SourceType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 22
    */
   JOYSTICK = 5,
 }
@@ -12587,7 +12589,7 @@ declare interface AxisEvent extends BaseEvent {
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 21
+   * @since 22
    */
   hasAxis(axisType: AxisType): boolean;
 }
@@ -12897,6 +12899,15 @@ declare type DataLoadParams = import('../api/@ohos.data.unifiedDataChannel').def
  * @since 14
  */
 declare enum DragResult {
+  /**
+   * If the drag is not finished and the result is not set by receiver, return DragResult.UNKNOWN.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  UNKNOWN = -1,
   /**
    * If the drag is successful, return DragResult.DRAG_SUCCESSFUL.
    *
@@ -25810,7 +25821,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 22 dynamic
    */
   allowDrop(value: Array<UniformDataType> | null | Array<string>): T;
 

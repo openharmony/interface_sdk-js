@@ -568,10 +568,6 @@ export declare interface IDecoratedUpdatableVariable<T> {
  */
 export declare interface IStateDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
-export declare interface IPropDecoratedVariable<T> extends IDecoratedMutableVariable<T>,
-    IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T> {
-}
-
 /**
  * Define PropRef decoration variable interface.
  *
@@ -928,9 +924,6 @@ export declare interface IStateMgmtFactory {
   makeLink<T>(owningView: ExtendableComponent, varName: string, source: LinkSourceType<T>,
     watchFunc?: WatchFuncType): ILinkDecoratedVariable<T>;
 
-  makeProp<T>(owningView: ExtendableComponent, varName: string, initValue: T,
-        watchFunc?: WatchFuncType): IPropDecoratedVariable<T>;
-  
   /**
    * Create a Provide variable instance.
    *

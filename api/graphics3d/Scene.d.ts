@@ -231,8 +231,19 @@ export interface RenderResourceFactory {
  * @interface CameraParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 21 dynamic
+ * @since 22 static
  */
 export interface CameraParameters {
+  /**
+   * Select whether MSAA is enabled.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  msaa?: boolean;
+
   /**
    * Select the initial rendering pipeline type to use.
    * 
@@ -291,6 +302,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    * @returns { Promise<Camera> } promise a camera
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
+   * @since 22 static
    */
   createCamera(params: SceneNodeParameters, cameraParams: CameraParameters): Promise<Camera>;
   
@@ -381,13 +393,15 @@ export interface SceneComponent {
   /**
    * Component properties
    * 
-   * @type { Record<string, string | double | Vec2 | Vec3 | Vec4 | SceneResource | boolean | double[] | string[] | SceneResource[] | Vec2[] | Vec3[] | Vec4[] | null | undefined> }
+   * @type { Record<string, string | double | Vec2 | Vec3 | Vec4 | SceneResource | boolean | double[] | string[] |
+   * SceneResource[] | Vec2[] | Vec3[] | Vec4[] | null | undefined> }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 20 static
    */
-  readonly property: Record<string, string | double | Vec2 | Vec3 | Vec4 | SceneResource | boolean | double[] | string[] | SceneResource[] | Vec2[] | Vec3[] | Vec4[] | null | undefined>;
+  readonly property: Record<string, string | double | Vec2 | Vec3 | Vec4 | SceneResource | boolean | double[] |
+  string[] | SceneResource[] | Vec2[] | Vec3[] | Vec4[] | null | undefined>;
 }
 
 /** 

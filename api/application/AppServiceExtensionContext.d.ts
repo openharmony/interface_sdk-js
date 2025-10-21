@@ -74,8 +74,8 @@ declare class AppServiceExtensionContext extends ExtensionContext {
   /**
    * Start a UIAbility.
    * If the target ability is visible, you can start the target ability: If the target ability is invisible,
-   * you need to apply for permission:ohos.pernission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to appply for permission:ohos.pernission.DISTRIBUTED_DATASYNC.
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to appply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    *
    * @param { Want } want - Indicates the ability to start.
    * @param { StartOptions } [options] - Indicates the start options.

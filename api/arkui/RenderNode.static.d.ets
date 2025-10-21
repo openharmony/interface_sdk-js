@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { DrawContext, Size, NodeOffset, NodePosition, Pivot, Scale, Translation, Matrix4, Rotation, Frame, NodeBorderRadiuses, ShapeMask, ShapeClip, NodeEdges, LengthMetricsUnit } from 'arkui.Graphics';
 import { BorderStyle } from '@ohos.arkui.component';
@@ -435,9 +434,9 @@ export declare class RenderNode {
    *
    * @returns { NodeEdges<BorderStyle> } - Returns the border style of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  get borderStyle(): NodeEdges<BorderStyle>;
+  get borderStyle(): NodeEdges<BorderStyle> | undefined;
 
   /**
    * Set border width of the RenderNode.
@@ -454,9 +453,9 @@ export declare class RenderNode {
    * @returns { NodeEdges<number> } - Returns the border width of the RenderNode.
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  get borderWidth(): NodeEdges<number>;
+  get borderWidth(): NodeEdges<double> | undefined;
 
   /**
    * Set border color of the RenderNode.
@@ -473,9 +472,9 @@ export declare class RenderNode {
    * @returns { NodeEdges<number> } - Returns the border color of the RenderNode.
    * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  get borderColor(): NodeEdges<number>;
+  get borderColor(): NodeEdges<int> | undefined;
 
   /**
    * Set border radius of the RenderNode.
@@ -510,9 +509,9 @@ export declare class RenderNode {
    *
    * @returns { ShapeMask } - Returns the shape mask of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  get shapeMask(): ShapeMask;
+  get shapeMask(): ShapeMask | undefined;
 
   /**
    * Set shape clip of the RenderNode.

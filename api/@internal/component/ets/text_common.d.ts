@@ -921,14 +921,14 @@ declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox;
 declare type Paragraph = import('../api/@ohos.graphics.text').default.Paragraph;
 
 /**
- * The type for ExtraConfig, see the detailed description in ExtraConfig.
+ * The type for input method extra config, see the detailed description in ExtraConfig.
  *
- * @typedef { import('../api/@ohos.inputMethod.ExtraConfig').ExtraConfig } ExtraConfig
+ * @typedef { import('../api/@ohos.inputMethod.ExtraConfig').InputMethodExtraConfig } InputMethodExtraConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 22 dynamic
  */
-declare type ExtraConfig = import('../api/@ohos.inputMethod.ExtraConfig').ExtraConfig;
+declare type InputMethodExtraConfig = import('../api/@ohos.inputMethod.ExtraConfig').InputMethodExtraConfig;
 
 /**
  * Defines the cursor style
@@ -2257,12 +2257,12 @@ declare interface IMEClient {
   /**
    * Called when the extra config is set.
    *
-   * @param { ExtraConfig } config - The extra config object.
+   * @param { InputMethodExtraConfig } config - The extra config object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 22 dynamic
    */
-  setExtraConfig(config: ExtraConfig): void;
+  setExtraConfig(config: InputMethodExtraConfig): void;
 }
 
 /**

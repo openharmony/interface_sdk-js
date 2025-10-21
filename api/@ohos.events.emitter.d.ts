@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -998,6 +998,231 @@ declare namespace emitter {
      * @arkts 1.2
      */
     data?: T | ESValue;
+  }
+
+  /**
+   * Provides methods for creating and managing independent event emitter instances.
+   * Each instance maintains its own set of event listeners and can emit events independently.
+   *
+   * @class Emitter
+   * @syscap SystemCapability.Notification.Emitter
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  export class Emitter {
+    /**
+     * Creates a new independent Emitter instance.
+     *
+     * @syscap SystemCapability.Notification.Emitter
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    constructor();
+
+    /**
+     * Subscribes to an event in persistent manner and executes a callback after the event is received.
+     *
+     * @param { string } eventId - Event to subscribe to in persistent manner. 
+     *     The value cannot be an empty string and exceed 10240 bytes.
+     * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
+     * @syscap SystemCapability.Notification.Emitter
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    on(eventId: string, callback: Callback<EventData>): void;
+
+    /**
+     * Subscribes to an event in persistent manner and executes a callback after the event is received.
+     *
+     * @param { string } eventId - Event to subscribe to in persistent manner.
+     *     The value cannot be an empty string and exceed 10240 bytes.
+     * @param { Callback<GenericEventData<T>> } callback - Callback to be executed when the event is received.
+     * @syscap SystemCapability.Notification.Emitter
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    on<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
+
+    /**
+     * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
+     *
+     * @param { string } eventId - Event to subscribe to in one-shot manner.
+     *     The value cannot be an empty string and exceed 10240 bytes.
+     * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
+     * @syscap SystemCapability.Notification.Emitter
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    once(eventId: string, callback: Callback<EventData>): void;
+
+    /**
+     * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
+     *
+     * @param { string } eventId - Event to subscribe to in one-shot manner.
+     *     The value cannot be an empty string and exceed 10240 bytes.
+     * @param { Callback<GenericEventData<T>> } callback - Callback to be executed when the event is received.
+     * @syscap SystemCapability.Notification.Emitter
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    once<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
+
+    /**
+     * Subscribes to an event in persistent manner and executes a callback after the event is received.
+     *
+     * @param { string } eventId - Event to subscribe to in persistent manner.
+     *     The value cannot be an empty string and exceed 10240 bytes.
+     * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
+     * @syscap SystemCapability.Notification.Emitter
+     * @since 22 static
+     */
+    onEventData(eventId: string, callback: Callback<EventData>): void;
+
+    /**
+     * Subscribes to an event in persistent manner and executes a callback after the event is received.
+     *
+     * @param { string } eventId - Event to subscribe to in persistent manner.
+     *     The value cannot be an empty string and exceed 10240 bytes.
+     * @param { Callback<GenericEventData<T>> } callback - Callback to be executed when the event is received.
+     * @syscap SystemCapability.Notification.Emitter
+     * @since 22 static
+     */
+    onGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
+
+    /**
+     * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
+     *
+     * @param { string } eventId - Event to subscribe to in one-shot manner.
+     *     The value cannot be an empty string and exceed 10240 bytes.
+     * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
+     * @syscap SystemCapability.Notification.Emitter
+     * @since 22 static
+     */
+    onceEventData(eventId: string, callback: Callback<EventData>): void;
+
+    /**
+     * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
+     *
+     * @param { string } eventId - Event to subscribe to in one-shot manner.
+     *     The value cannot be an empty string and exceed 10240 bytes.
+     * @param { Callback<GenericEventData<T>> } callback - Callback to be executed when the event is received.
+     * @syscap SystemCapability.Notification.Emitter
+     * @since 22 static
+     */
+    onceGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
+
+    /**
+     * Unsubscribes from all events with the specified event ID.
+     *
+     * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
+     * @syscap SystemCapability.Notification.Emitter
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    off(eventId: string): void;
+
+    /**
+     * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+     *
+     * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
+     * @param { Callback<EventData> } callback - Callback to unregister.
+     * @syscap SystemCapability.Notification.Emitter
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    off(eventId: string, callback: Callback<EventData>): void;
+
+    /**
+     * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+     *
+     * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
+     * @param { Callback<EventData> } callback - Callback to unregister.
+     * @syscap SystemCapability.Notification.Emitter
+     * @since 22 static
+     */
+    offEventData(eventId: string, callback: Callback<EventData>): void;
+
+    /**
+     * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+     *
+     * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
+     * @param { Callback<GenericEventData<T>> } callback - Callback to unregister.
+     * @syscap SystemCapability.Notification.Emitter
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    off<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
+
+    /**
+     * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+     *
+     * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
+     * @param { Callback<GenericEventData<T>> } callback - Callback to unregister.
+     * @syscap SystemCapability.Notification.Emitter
+     * @since 22 static
+     */
+    offGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
+
+    /**
+     * Emits the specified event.
+     *
+     * @param { string } eventId - ID of the event to emit.
+     *     The value cannot be an empty string and exceed 10240 bytes.
+     * @param { EventData } [data] - Data passed in the event.
+     * @syscap SystemCapability.Notification.Emitter
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    emit(eventId: string, data?: EventData): void;
+
+    /**
+     * Emits the specified event.
+     *
+     * @param { string } eventId - ID of the event to emit.
+     *     The value cannot be an empty string and exceed 10240 bytes.
+     * @param { GenericEventData<T> } [data] - Data passed in the event.
+     * @syscap SystemCapability.Notification.Emitter
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    emit<T>(eventId: string, data?: GenericEventData<T>): void;
+
+    /**
+     * Emits an event of a specified priority.
+     *
+     * @param { string } eventId - ID of the event to emit.
+     *     The value cannot be an empty string and exceed 10240 bytes.
+     * @param { Options } options - Event emit priority.
+     * @param { EventData } [data] - Data passed in the event.
+     * @syscap SystemCapability.Notification.Emitter
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    emit(eventId: string, options: Options, data?: EventData): void;
+
+    /**
+     * Emits an event of a specified priority.
+     *
+     * @param { string } eventId - ID of the event to emit.
+     *     The value cannot be an empty string and exceed 10240 bytes.
+     * @param { Options } options - Event emit priority.
+     * @param { GenericEventData<T> } [data] - Data passed in the event.
+     * @syscap SystemCapability.Notification.Emitter
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    emit<T>(eventId: string, options: Options, data?: GenericEventData<T>): void;
+
+    /**
+     * Obtains the number of subscriptions to a specified event.
+     *
+     * @param { string } eventId - Event ID. The value cannot be an empty string.
+     * @returns { long } Returns the number of listener count.
+     * @syscap SystemCapability.Notification.Emitter
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    getListenerCount(eventId: string): long;
   }
 }
 

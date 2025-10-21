@@ -842,7 +842,8 @@ declare namespace display {
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function convertGlobalToRelativeCoordinate(position: Position, displayId?: long): RelativePosition;
 
@@ -856,7 +857,8 @@ declare namespace display {
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function convertRelativeToGlobalCoordinate(relativePosition: RelativePosition): Position;
 
@@ -2494,7 +2496,7 @@ declare namespace display {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic&static
      */
     getLiveCreaseRegion(): FoldCreaseRegion;
 
@@ -2550,7 +2552,8 @@ declare namespace display {
    * 
    * @interface Position
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface Position {
     /**
@@ -2558,7 +2561,8 @@ declare namespace display {
      * 
      * @type { long }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     x: long;
 
@@ -2567,7 +2571,8 @@ declare namespace display {
      * 
      * @type { long }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     y: long;
   }
@@ -2577,7 +2582,8 @@ declare namespace display {
    * 
    * @interface RelativePosition
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface RelativePosition {
     /**
@@ -2585,7 +2591,8 @@ declare namespace display {
      * 
      * @type { long }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     displayId: long;
 
@@ -2594,7 +2601,8 @@ declare namespace display {
      * 
      * @type { Position }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     position: Position;
   }

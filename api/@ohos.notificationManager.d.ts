@@ -2865,7 +2865,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function setDistributedEnableByBundles(bundleEnableInfos: Array<DistributedBundleEnableInfo>, deviceType: string): Promise<void>;
 
@@ -4097,7 +4098,7 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER or ohos.permission.MANAGE_EDM_POLICY
    * @param { boolean } disabled - The switch of disableNotification.
    * @param { Array<string> } bundleList - The bundles of disableNotification.
-   * @param { number } userId - the userId.
+   * @param { int } userId - the userId.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
@@ -4106,9 +4107,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
-  function disableNotificationFeature(disabled: boolean, bundleList: Array<string>, userId: number): Promise<void>;
+  function disableNotificationFeature(disabled: boolean, bundleList: Array<string>, userId: int): Promise<void>;
 
   /**
    * Set target device status.
@@ -4175,7 +4177,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function isDistributedEnabled(deviceType: string): Promise<boolean>;
  
@@ -4190,7 +4193,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function setDistributedEnabled(enable: boolean, deviceType: string): Promise<void>;
  
@@ -4203,7 +4207,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getDistributedDeviceList(): Promise<Array<string>>;
 
@@ -4223,7 +4228,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function setSilentReminderEnabled(bundle: BundleOption, enabled: boolean): Promise<void>;
  
@@ -4242,10 +4248,119 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function isSilentReminderEnabled(bundle: BundleOption): Promise<SwitchState>;
  
+  /**
+   * Set the custom ringtone information of application.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { RingtoneInfo } ringtoneInfo - Custom ringtone information.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600022 - The specified bundle is invalid.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function setRingtoneInfoByBundle(bundle: BundleOption, ringtoneInfo: RingtoneInfo): Promise<void>;
+
+  /**
+   * Get the custom ringtone information of application.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @returns { Promise<RingtoneInfo> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600022 - The specified bundle is invalid.
+   * @throws { BusinessError } 1600024 - The specified bundle has no custom ringtone information.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function getRingtoneInfoByBundle(bundle: BundleOption): Promise<RingtoneInfo>;
+
+  /**
+   * Set reminder info for all applications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<NotificationReminderInfo> } reminderInfos - The array of reminderInfo objects.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function setReminderInfoByBundles(reminderInfos: Array<NotificationReminderInfo>) : Promise<void>;
+
+  /**
+   * Obtains the reminder info of all applications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<BundleOption> } bundles - The array of BundleOption objects.
+   * @returns { Promise<Array<NotificationReminderInfo>> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function getReminderInfoByBundles(bundles: Array<BundleOption>) : Promise<Array<NotificationReminderInfo>>;
+
+  /**
+   * Set badge display status for all applications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Map<BundleOption, boolean> } badges - The map of BundleOption to badge enabled status.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function setBadgeDisplayStatusByBundles(badges: Map<BundleOption, boolean>) : Promise<void>;
+
+  /**
+   * Obtains the badge display status of all applications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<BundleOption> } bundles - The array of BundleOption objects.
+   * @returns { Promise<Map<BundleOption, boolean>> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function getBadgeDisplayStatusByBundles(bundles: Array<BundleOption>) : Promise<Map<BundleOption, boolean>>;
+
   /**
    * Represents the state of a switch,
    * distinguishing system defaults from user modifications.
@@ -4945,8 +5060,8 @@ declare namespace notificationManager {
    * @typedef DistributedBundleEnableInfo
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   export interface DistributedBundleEnableInfo {
     /**
@@ -4955,21 +5070,21 @@ declare namespace notificationManager {
      * @type { string }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     bundleName: string;
 
     /**
      * The uid.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
-    uid: number;
+    uid: int;
 
     /**
      * Indicates whether application is enabled.
@@ -4977,8 +5092,8 @@ declare namespace notificationManager {
      * @type { ?boolean }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     enable?: boolean;
   }
@@ -5025,6 +5140,92 @@ declare namespace notificationManager {
      * @arkts 1.1&1.2
      */
     trustlist?: Array<BundleOption>;
+  }
+
+  /**
+   * Describes reminder info.
+   *
+   * @typedef NotificationReminderInfo
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  export interface NotificationReminderInfo {
+    /**
+     * The application bundle option.
+     *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER
+     * @type { BundleOption }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    bundle: BundleOption;
+
+    /**
+     * Obtains the notification reminder flags.
+     *
+     * @type { long }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    reminderFlags: long;
+
+    /**
+     * The application silent reminder enable status.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    silentReminderEnabled: boolean;
+  }
+
+  /**
+   * Describes the ringtone information.
+   *
+   * @typedef RingtoneInfo
+   * @syscap SystemCapability.Notification.Notification
+   * @since 22 dynamic&static
+   */
+  export interface RingtoneInfo {
+    /**
+     * Ringtone type.
+     *
+     * @type { RingtoneType }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 22 dynamic&static
+     */
+    ringtoneType: RingtoneType;
+
+    /**
+     * Title of ringtone.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 22 dynamic&static
+     */
+    ringtoneTitle?: string;
+
+    /**
+     * File name of ringtone.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 22 dynamic&static
+     */
+    ringtoneFileName?: string;
+
+    /**
+     * Uri of ringtone.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 22 dynamic&static
+     */
+    ringtoneUri?: string;
   }
 
   /**
@@ -5182,6 +5383,52 @@ declare namespace notificationManager {
      * @arkts 1.1&1.2
      */
     NOTIFICATION_STATUS_CLOSE_STATUSBAR_ICON = 1 << 5
+  }
+
+  /**
+   * Enumerates the ringtone types.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Notification.Notification
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  export enum RingtoneType {
+    /**
+     * System custom ringtone.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    RINGTONE_TYPE_SYSTEM = 0,
+
+    /**
+     * Local custom ringtone.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    RINGTONE_TYPE_LOCAL = 1,
+
+    /**
+     * Online custom ringtone.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    RINGTONE_TYPE_ONLINE = 2,
+
+    /**
+     * No custom ringtone.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    RINGTONE_TYPE_NONE = 3,
   }
 
   /**

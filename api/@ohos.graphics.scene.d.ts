@@ -23,7 +23,7 @@
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
  */
-export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings } from './graphics3d/ScenePostProcessSettings';
+export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings, VignetteSettings, ColorFringeSettings } from './graphics3d/ScenePostProcessSettings';
 /**
  * Export post processing settings
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -56,6 +56,14 @@ export { SceneResourceType, SceneResource, Shader, MaterialType, Material, Shade
   SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, CullMode, Blend,
   RenderSort, MaterialProperty, MetallicRoughnessMaterial, MeshResource, Morpher,
   Sampler, SamplerFilter, SamplerAddressMode, Effect } from './graphics3d/SceneResources';
+
+/**
+ * Export scene resources
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 22 dynamic&static
+ */
+export { PolygonMode, UnlitMaterial } from './graphics3d/SceneResources';
+
 /**
  * Export scene resources
  * @syscap SystemCapability.ArkUi.Graphics3D

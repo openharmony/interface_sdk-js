@@ -125,7 +125,7 @@ declare namespace hidebug {
    * @since 9 dynamic
    * @since 20 static
    */
-  function getCpuUsage(): number;
+  function getCpuUsage(): double;
 
   /**
    *
@@ -137,7 +137,7 @@ declare namespace hidebug {
    * @param { string } filename - User-defined file name of the sampling data. The .json file is generated
    * in the files directory of the application based on the specified file name.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.hidebug/hidebug.startJsCpuProfiling
    */
@@ -149,7 +149,7 @@ declare namespace hidebug {
    * methods repeatedly. Otherwise, an exception may occur. It takes effect only when the CPU profiler is turned on.
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.hidebug/hidebug.stopJsCpuProfiling
    */
@@ -178,7 +178,8 @@ declare namespace hidebug {
    * directory of the application based on the specified file name.
    * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   function startJsCpuProfiling(filename: string): void;
 
@@ -188,7 +189,8 @@ declare namespace hidebug {
    * methods repeatedly. Otherwise, an exception may occur. It takes effect only when the CPU profiler is turned on
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   function stopJsCpuProfiling(): void;
 
@@ -233,7 +235,7 @@ declare namespace hidebug {
    * @since 12 dynamic
    * @since 20 static
    */
-  function getSystemCpuUsage(): number;
+  function getSystemCpuUsage(): double;
 
   /**
    * Describes the CPU usage of a thread.
@@ -953,7 +955,8 @@ declare namespace hidebug {
    *
    * @returns { boolean } true if the application is in the debugging state.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   function isDebugState(): boolean;
 

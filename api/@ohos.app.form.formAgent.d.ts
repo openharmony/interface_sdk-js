@@ -27,7 +27,8 @@ import type Want from './@ohos.app.ability.Want';
  * @namespace formAgent
  * @syscap SystemCapability.Ability.Form
  * @systemapi
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace formAgent {
 
@@ -62,7 +63,8 @@ declare namespace formAgent {
    * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function requestPublishForm(want: Want, callback: AsyncCallback<string>): void;
 
@@ -97,7 +99,8 @@ declare namespace formAgent {
    * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function requestPublishForm(want: Want): Promise<string>;
 }

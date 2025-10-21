@@ -3555,6 +3555,16 @@ declare namespace webview {
      * @arkts 1.1&1.2
      */
     getArray(): Array<string | double | long | boolean>;
+    /**
+     * Get the exception or object of the the JavaScript code execution result and serialize it into a string.
+     * @returns { string | null } - if an exception occurs, or the returned type is object, return the
+     *     serialized string in the format of "Not support type: <{exception|object}>", Parts exceeding a length of
+     *     2048 will be truncated; otherwise, return null.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    getErrorDescription(): string | null;
   }
 
   /**
@@ -6043,8 +6053,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     /**
      * Start a download.
@@ -6746,8 +6755,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
      *                           length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Inject offline resources into cache.
@@ -6760,6 +6768,7 @@ declare namespace webview {
      *     length exceeds 2*1024*1024.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 22
+     * @arkts 1.1&1.2
      */
     injectOfflineResources(resourceMaps: Array<OfflineResourceMap>): void;
 
@@ -7300,7 +7309,10 @@ declare namespace webview {
      *
      * @param { SiteIsolationMode } mode The site isolation mode of the application, 
      *      default value depends on different devices type.
-     * @throws { BusinessError } 17100001 - Init error.
+     * @throws { BusinessError } 17100001 - Init error. Possible causes:
+     *     1. Site Isolation mode is already set by the developer.
+     *     2. Site Isolation mode cannot be strict in single-render-process mode.
+     *     3. Site Isolation mode cannot be changed while Secure Shield mode is active.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21 dynamic&static

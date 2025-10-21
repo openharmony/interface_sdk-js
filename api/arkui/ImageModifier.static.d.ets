@@ -16,11 +16,10 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from '@ohos.arkui.component';
-import { ImageAttribute } from '@ohos.arkui.component';
+import { AttributeModifier } from './component/common';
+import { ImageAttribute } from './component/image';
 
 /**
  * Defines Image Modifier

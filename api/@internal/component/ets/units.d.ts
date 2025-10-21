@@ -3581,6 +3581,54 @@ declare interface AccessibilityOptions {
    * @since 14
    */
   accessibilityPreferred?: boolean;
+
+  /**
+   * stateControllerRoleType - the first component of a specific type found within the composition defined by
+   * accessibility group will take over the state attributes and announcement of the composition
+   *
+   * @type { ?AccessibilityRoleType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  stateControllerRoleType?: AccessibilityRoleType;
+
+  /**
+   * stateControllerId - the first component of a specific id found within the composition defined by
+   * accessibility group will take over the state attributes and announcement of the composition
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  stateControllerId?: string;
+
+  /**
+   * actionControllerRoleType - the first component of a specific type found within the composition defined by
+   * accessibility group will take over part of the accessibility action of the composition
+   *
+   * @type { ?AccessibilityRoleType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  actionControllerRoleType?: AccessibilityRoleType;
+
+  /**
+   * actionControllerId - the first component of a specific id found within the composition defined by
+   * accessibility group will take over part of the accessibility action of the composition
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  actionControllerId?: string;
 }
 
 /**

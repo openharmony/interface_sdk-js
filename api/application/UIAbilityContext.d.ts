@@ -19,12 +19,12 @@
  */
 
 /*** if arkts 1.1 */
-import image from '../@ohos.multimedia.image';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
 import contextConstant from '../@ohos.app.ability.contextConstant';
 import type UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 /*** endif */
+import image from '../@ohos.multimedia.image';
 import { AbilityInfo } from '../bundleManager/AbilityInfo';
 import { AbilityResult } from '../ability/abilityResult';
 import { AsyncCallback } from '../@ohos.base';
@@ -4988,10 +4988,46 @@ declare class UIAbilityContext extends Context {
   * @throws { BusinessError } 16000131 - The UIAbility is already exist, can not start again.
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   * @stagemodelonly
-  * @since 21
+  * @since 22
   * @arkts 1.1&1.2
   */
   startSelfUIAbilityInCurrentProcess(want: Want, specifiedFlag: string, options?: StartOptions): Promise<void>;
+
+  /**
+   * Restart current application process. If the destination UIAbility is the same as the caller ability,
+   * the caller window will be reused as the destination window. Otherwise, the caller window will be
+   * destroyed after navigating to the destination window.
+   *
+   * @param { Want } want - Indicates the ability to start.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Connect to system server error.
+   * @throws { BusinessError } 16000063 - The target to restart does not belong to the caller or is not a UIAbility.
+   * @throws { BusinessError } 16000064 - Restart too frequently.
+   * @throws { BusinessError } 16000065 - The API can be called only when the ability is focused.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  restartApp(want: Want): Promise<void>;
+
+  /**
+   * Set the main window icon for the current UIAbility.
+   *
+   * @param { image.PixelMap } windowIcon - The icon of ability main window.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error. 1. Connect to system service failed;
+   *     2.System service failed to communicate with dependency module.
+   * @throws { BusinessError } 16000135 - The main window of this ability not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22
+   * @arkts 1.1&1.2
+   */
+  setMissionWindowIcon(windowIcon: image.PixelMap): Promise<void>;
 }
 
 export default UIAbilityContext;

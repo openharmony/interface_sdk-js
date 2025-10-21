@@ -421,6 +421,25 @@ export interface Light extends Node {
  * @since 12 dynamic
  */
 export interface SpotLight extends Light {
+  /**
+   * The inner angle of the spot light
+   * 
+   * @type { ?double }
+   * @default 0
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  innerAngle?: double;
+
+  /**
+   * The outer angle of the spot light
+   * 
+   * @type { ?double }
+   * @default PI / 4.0
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  outerAngle?: double;
 }
 
 /**
@@ -511,6 +530,16 @@ export interface Camera extends Node {
    * @since 12 dynamic
    */
   clearColor: Color | null;
+
+  /**
+   * Controls whether MSAA is enabled or not.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  msaa?: boolean;
 
   /**
    * Controls the rendering pipeline. 

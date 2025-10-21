@@ -20,10 +20,10 @@
 
 /*** if arkts static */
 import { Resource } from '../global/resource';
-import { Vec2, Vec3, Vec4 } from './SceneTypes';
+import { Vec2, Vec3, Vec4, Quaternion } from './SceneTypes';
 /*** endif */
 /*** if arkts dynamic */
-import { Vec2, Vec3, Vec4, Aabb } from './SceneTypes';
+import { Vec2, Vec3, Vec4, Aabb, Quaternion } from './SceneTypes';
 /*** endif */
 import { Callback } from '../@ohos.base';
 
@@ -231,6 +231,14 @@ export enum MaterialType {
    * @since 20 static
    */
   METALLIC_ROUGHNESS = 2,
+
+  /**
+   * The material is an unlit material.
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  UNLIT = 3,
 }
 
 /**
@@ -268,6 +276,39 @@ export enum CullMode {
    * @since 20 static
    */
   BACK = 2
+}
+
+/**
+ * The enum of polygon mode.
+ * 
+ * @enum { int }
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 22 dynamic&static
+ */
+export enum PolygonMode {
+  /**
+   * Render the whole polygon
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  FILL = 0,
+
+  /**
+   * Render only edges(wireframe) of the polygon
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  LINE = 1,
+
+  /**
+   * Render only vertices of the polygon
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  POINT = 2
 }
 
 /**
@@ -398,6 +439,16 @@ export interface Material extends SceneResource {
    * @since 20 static
    */
   renderSort?: RenderSort;
+
+  /**
+   * Polygon Mode of the material
+   * 
+   * @type { ?PolygonMode}
+   * @default PolygonMode.FILL
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  polygonMode?: PolygonMode;
 }
 
 /**
@@ -560,6 +611,26 @@ export interface MetallicRoughnessMaterial extends Material {
    * @since 20 static
    */
   specular: MaterialProperty;
+}
+
+/**
+ * Unlit material resource
+ * 
+ * @extends Material
+ * @interface UnlitMaterial
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 22 dynamic&static
+ */
+export interface UnlitMaterial extends Material {
+  /**
+   * Base color factor of unlit material.
+   * Value of factor.xyzw defines rgba color.
+   * 
+   * @type { MaterialProperty }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  baseColor: MaterialProperty
 }
 
 /**
@@ -1069,6 +1140,16 @@ export interface Environment extends SceneResource {
    * @since 12 dynamic
    */
   irradianceCoefficients?: Vec3[];
+
+  /**
+   * The rotation of the environment
+   * 
+   * @type { ?Quaternion }
+   * @default Quaternion {x:0, y:0, z:0, w:1}
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  environmentRotation?: Quaternion
 }
 
 /**

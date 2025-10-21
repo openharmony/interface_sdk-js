@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { CommonMethod, Callback } from './common';
@@ -27,14 +26,14 @@ import { memo, ComponentBuilder } from './../stateManagement/runtime';
  * Provides methods for switching components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class IndicatorComponentController {
   /**
    * constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   constructor();
 
@@ -42,7 +41,7 @@ export declare class IndicatorComponentController {
    * Called when the next child component is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   showNext(): void;
 
@@ -50,20 +49,21 @@ export declare class IndicatorComponentController {
    * Called when the previous subcomponent is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   showPrevious(): void;
 
   /**
    * Controlling IndicatorComponent to change to the specified subcomponent.
    *
-   * @param { number } index - The index of item to be redirected.
+   * @param { number | undefined } index - The index of item to be redirected, default value is 0.
+   *      undefined means set to default value.
    * @param { boolean } [useAnimation] - If true, swipe to index item with animation. If false, swipe to index item without animation.
    *      The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  changeIndex(index: number, useAnimation?: boolean): void;
+  changeIndex(index: number | undefined, useAnimation?: boolean): void;
 }
 
 /**
@@ -71,7 +71,8 @@ export declare class IndicatorComponentController {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
+ * @noninterop
  */
 export declare interface IndicatorComponentAttribute extends CommonMethod {
   /**
@@ -80,7 +81,7 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
    * @param { number | undefined } index
    * @returns { IndicatorComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   initialIndex(index: number | undefined): this;
 
@@ -90,7 +91,7 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
    * @param { number | undefined } totalCount
    * @returns { IndicatorComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   count(totalCount: number | undefined): this;
 
@@ -100,7 +101,7 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
    * @param { DotIndicator | DigitIndicator | undefined } indicatorStyle - the style value
    * @returns { IndicatorComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   style(indicatorStyle: DotIndicator | DigitIndicator | undefined): this;
 
@@ -110,7 +111,7 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
    * @param { boolean | undefined } isLoop
    * @returns { IndicatorComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   loop(isLoop: boolean | undefined): this;
 
@@ -120,7 +121,7 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
    * @param { boolean | undefined } isVertical
    * @returns { IndicatorComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   vertical(isVertical: boolean | undefined): this;
 
@@ -130,7 +131,7 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
    * @param { Callback<number> | undefined } event
    * @returns { IndicatorComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   onChange(event: Callback<number> | undefined): this;
 }
@@ -142,7 +143,8 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
  * @param { function } [content_] - container
  * @returns { IndicatorComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
+ * @noninterop
  */
 @memo
 @ComponentBuilder
