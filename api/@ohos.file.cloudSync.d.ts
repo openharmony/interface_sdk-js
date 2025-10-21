@@ -1426,49 +1426,49 @@ declare namespace cloudSync {
    * Defines the HistoryVersion data structure.
    * @typedef HistoryVersion
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   interface HistoryVersion {
     /**
      * The time when the content of this version file is edited.
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     editedTime: number;
     /**
      * The size of this history version file.
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     fileSize: number;
     /**
      * The version ID of this version.
      * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     versionId: string;
     /**
      * The original file name used to create this version.
      * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     originalFileName: string;
     /**
      * The Sha256 check value of this version file.
      * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     sha256: string;
     /**
      * Indicates whether this version automatically resolves the conflict.
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     autoResolved: boolean;
   }
@@ -1477,28 +1477,28 @@ declare namespace cloudSync {
    * Defines the VersionDownloadProgress data structure.
    * @typedef VersionDownloadProgress
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   interface VersionDownloadProgress {
     /**
      * The current download task state.
      * @type { State }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     state: State;
     /**
      * The percentage of downloaded files.
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     progress: number;
     /**
      * The error type of download.
      * @type { DownloadErrorType }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     errType: DownloadErrorType;
   }
@@ -1506,7 +1506,7 @@ declare namespace cloudSync {
   /**
    * FileVersion object.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   class FileVersion {
     /**
@@ -1516,7 +1516,7 @@ declare namespace cloudSync {
      *     <br>1.Failed to access the database or execute the SQL statement.
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     constructor();
     /**
@@ -1538,7 +1538,7 @@ declare namespace cloudSync {
      *     <br>1.Failed to access the database or execute the SQL statement.
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     getHistoryVersionList(uri: string, versionNumLimit: number): Promise<Array<HistoryVersion>>;
     /**
@@ -1561,7 +1561,7 @@ declare namespace cloudSync {
      *     <br>1.Failed to access the database or execute the SQL statement.
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     downloadHistoryVersion(uri: string, versionId: string, callback: Callback<VersionDownloadProgress>): Promise<string>;
     /**
@@ -1585,7 +1585,7 @@ declare namespace cloudSync {
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @throws { BusinessError } 22400007 - The version file specified to replace the original file does not exist.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     replaceFileWithHistoryVersion(originalUri: string, versionUri: string): Promise<void>;
     /**
@@ -1605,7 +1605,7 @@ declare namespace cloudSync {
      *     <br>1.Failed to access the database or execute the SQL statement.
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     isFileConflict(uri: string): Promise<boolean>;
     /**
@@ -1625,7 +1625,7 @@ declare namespace cloudSync {
      *     <br>1.Failed to access the database or execute the SQL statement.
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     clearFileConflict(uri: string): Promise<void>;
   }

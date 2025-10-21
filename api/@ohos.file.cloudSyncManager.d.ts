@@ -315,56 +315,56 @@ declare namespace cloudSyncManager {
    * Describes the reason why the download task stop.
    * @enum { number } DownloadStopReason
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   enum DownloadStopReason {
 
     /**
      * download task is not stopped.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     NO_STOP = 0,
 
     /**
      * Network is unavailable.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     NETWORK_UNAVAILABLE = 1,
 
     /**
      * The local storage space is full.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     LOCAL_STORAGE_FULL = 2,
 
     /**
      * Temperature control Limits.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     TEMPERATURE_LIMIT = 3,
 
     /**
      * User stopped the download task.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     USER_STOPPED = 4,
 
     /**
      * The local application has been unloaded.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     APP_UNLOAD = 5,
 
     /**
      * Other reasons of some internal error.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     OTHER_REASON = 6
   }
@@ -373,28 +373,28 @@ declare namespace cloudSyncManager {
    * Describes the state type of downgrade download.
    * @enum { number } DownloadState
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   enum DownloadState {
 
     /**
      * Indicates that the download task in process now.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     RUNNING = 0,
 
     /**
      * Indicates that the download task finished.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     COMPLETED = 1,
 
     /**
      * Indicates that the download task stopped.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     STOPPED = 2
   }
@@ -403,7 +403,7 @@ declare namespace cloudSyncManager {
    * Defines the CloudFileInfo data structure.
    * @typedef CloudFileInfo
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   interface CloudFileInfo {
 
@@ -411,7 +411,7 @@ declare namespace cloudSyncManager {
      * Total number of files located in the cloud.
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     cloudFileCount: number;
 
@@ -419,7 +419,7 @@ declare namespace cloudSyncManager {
      * Total size of files located in the cloud, in units of bytes.
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     cloudFileTotalSize: number;
 
@@ -427,7 +427,7 @@ declare namespace cloudSyncManager {
      * Total number of files located locally.
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     localFileCount: number;
 
@@ -435,7 +435,7 @@ declare namespace cloudSyncManager {
      * Total size of files located locally, in units of bytes.
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     localFileTotalSize: number;
 
@@ -443,7 +443,7 @@ declare namespace cloudSyncManager {
      * Total number of files located both locally and in the cloud.
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     bothFileCount: number;
 
@@ -451,7 +451,7 @@ declare namespace cloudSyncManager {
      * Total size of files located both locally and in the cloud, in units of bytes.
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     bothFileTotalSize: number;
   }
@@ -459,7 +459,7 @@ declare namespace cloudSyncManager {
   /**
    * Defines DownloadProgress object.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   class DownloadProgress {
 
@@ -467,7 +467,7 @@ declare namespace cloudSyncManager {
      * The current download task state.
      * @type { DownloadState }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     state: DownloadState;
 
@@ -475,7 +475,7 @@ declare namespace cloudSyncManager {
      * The number of files that downloaded successfully
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     successfulCount: number;
 
@@ -483,7 +483,7 @@ declare namespace cloudSyncManager {
      * The number of files that fail to be downloaded.
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     failedCount: number;
 
@@ -491,7 +491,7 @@ declare namespace cloudSyncManager {
      * Total number of all files to be downloaded.
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     totalCount: number;
 
@@ -499,7 +499,7 @@ declare namespace cloudSyncManager {
      * Total size of downloaded files.
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     downloadedSize: number;
 
@@ -507,7 +507,7 @@ declare namespace cloudSyncManager {
      * Total size of all files to be downloaded.
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     totalSize: number;
 
@@ -515,7 +515,7 @@ declare namespace cloudSyncManager {
      * The reason for stopping the download task.
      * @type { DownloadStopReason }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     stopReason: DownloadStopReason;
   }
@@ -525,7 +525,7 @@ declare namespace cloudSyncManager {
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   class DowngradeDownload {
 
@@ -543,7 +543,7 @@ declare namespace cloudSyncManager {
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     constructor(bundleName: string);
 
@@ -562,7 +562,7 @@ declare namespace cloudSyncManager {
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     getCloudFileInfo(): Promise<CloudFileInfo>;
 
@@ -585,7 +585,7 @@ declare namespace cloudSyncManager {
      * @throws { BusinessError } 22400006 - The same task is already in progress.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     startDownload(callback: Callback<DownloadProgress>): Promise<void>;
 
@@ -603,7 +603,7 @@ declare namespace cloudSyncManager {
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     stopDownload(): Promise<void>;
   }
