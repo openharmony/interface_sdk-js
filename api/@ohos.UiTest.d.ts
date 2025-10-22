@@ -42,8 +42,8 @@ import { Callback } from './@ohos.base';
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
- * @since 20 static
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum MatchPattern {
   /**
@@ -67,9 +67,9 @@ declare enum MatchPattern {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   EQUALS = 0,
   /**
@@ -93,9 +93,9 @@ declare enum MatchPattern {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   CONTAINS = 1,
   /**
@@ -119,9 +119,9 @@ declare enum MatchPattern {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   STARTS_WITH = 2,
   /**
@@ -145,9 +145,9 @@ declare enum MatchPattern {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   ENDS_WITH = 3,
   /**
@@ -155,9 +155,9 @@ declare enum MatchPattern {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 18 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   REG_EXP = 4,
   /**
@@ -165,9 +165,9 @@ declare enum MatchPattern {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 18 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   REG_EXP_ICASE = 5,
 }
@@ -176,7 +176,7 @@ declare enum MatchPattern {
  * Describes the attribute requirements for the target UiComponents.
  *
  * @syscap SystemCapability.Test.UiTest
- * @since 8 dynamiconly
+ * @since 8
  * @deprecated since 9
  * @useinstead ohos.UiTest.On
  */
@@ -188,7 +188,7 @@ declare class By {
    * @param { MatchPattern } pattern The {@link MatchPattern} of the text value,default to {@link MatchPattern.EQUALS}
    * @returns { By } this {@link By} object.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.On#text
    * @test
@@ -201,7 +201,7 @@ declare class By {
    * @param { string } key The inspectorKey value.
    * @returns { By } this {@link By} object.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.On#id
    * @test
@@ -214,7 +214,7 @@ declare class By {
    * @param { number } id The id value.
    * @returns { By } this {@link By} object.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamic
+   * @since 8
    * @deprecated since 9
    * @test
    */
@@ -226,7 +226,7 @@ declare class By {
    * @param { string } tp The type value.
    * @returns { By } this {@link By} object.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.On#type
    * @test
@@ -239,7 +239,7 @@ declare class By {
    * @param { boolean } b The clickable status,default to true.
    * @returns { By } this {@link By} object.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.On#clickable
    * @test
@@ -252,7 +252,7 @@ declare class By {
    * @param { boolean } b The scrollable status,default to true.
    * @returns { By } this {@link By} object.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.On#scrollable
    * @test
@@ -265,7 +265,7 @@ declare class By {
    * @param { boolean } b The enabled status,default to true.
    * @returns { By } this {@link By} object.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.On#enabled
    * @test
@@ -278,7 +278,7 @@ declare class By {
    * @param { boolean } b The focused status,default to true.
    * @returns { By } this {@link By} object.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.On#focused
    * @test
@@ -291,7 +291,7 @@ declare class By {
    * @param { boolean } b The selected status,default to true.
    * @returns { By } this {@link By} object.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.On#selected
    * @test
@@ -305,7 +305,7 @@ declare class By {
    * @param { By } by Describes the attribute requirements of UiComponent which the target one is in front of.
    * @returns { By } this {@link By} object.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.On#isBefore
    * @test
@@ -319,7 +319,7 @@ declare class By {
    * @param { By } by Describes the attribute requirements of UiComponent which the target one is in back of.
    * @returns { By } this {@link By} object.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.On#isAfter
    * @test
@@ -331,7 +331,7 @@ declare class By {
  * Represents a UiComponent of the ohos application,user can perform operations or query attributes on it.
  *
  * @syscap SystemCapability.Test.UiTest
- * @since 8 dynamiconly
+ * @since 8
  * @deprecated since 9
  * @useinstead ohos.uitest.Component
  * @test
@@ -342,7 +342,7 @@ declare class UiComponent {
    *
    * @returns { Promise<void> }
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Component#click
    * @test
@@ -354,7 +354,7 @@ declare class UiComponent {
    *
    * @returns { Promise<void> }
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Component#doubleClick
    * @test
@@ -366,7 +366,7 @@ declare class UiComponent {
    *
    * @returns { Promise<void> }
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Component#longClick
    * @test
@@ -378,7 +378,7 @@ declare class UiComponent {
    *
    * @returns { Promise<number> } the id value.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamic
+   * @since 8
    * @deprecated since 9
    * @test
    */
@@ -389,7 +389,7 @@ declare class UiComponent {
    *
    * @returns { Promise<string> } the inspectorKey value.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Component#getId
    * @test
@@ -401,7 +401,7 @@ declare class UiComponent {
    *
    * @returns { Promise<string> } the text value.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Component#getText
    * @test
@@ -413,7 +413,7 @@ declare class UiComponent {
    *
    * @returns { Promise<string> } the type name.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Component#getType
    * @test
@@ -425,7 +425,7 @@ declare class UiComponent {
    *
    * @returns { Promise<boolean> } the clickable status.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Component#isClickable
    * @test
@@ -437,7 +437,7 @@ declare class UiComponent {
    *
    * @returns { Promise<boolean> } the scrollable status.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Component#isScrollable
    * @test
@@ -449,7 +449,7 @@ declare class UiComponent {
    *
    * @returns { Promise<boolean> } the enabled status.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Component#isEnabled
    * @test
@@ -461,7 +461,7 @@ declare class UiComponent {
    *
    * @returns { Promise<boolean> } the focused status.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Component#isFocused
    * @test
@@ -473,7 +473,7 @@ declare class UiComponent {
    *
    * @returns { Promise<boolean> } the selected status.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Component#isSelected
    * @test
@@ -486,7 +486,7 @@ declare class UiComponent {
    * @param { string } text The text to inject.
    * @returns { Promise<void> }
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Component#inputText
    * @test
@@ -499,7 +499,7 @@ declare class UiComponent {
    * @param { By } by The attribute requirements of the target {@link UiComponent}.
    * @returns { Promise<UiComponent> } the found result,or undefined if not found.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Component#scrollSearch
    * @test
@@ -512,7 +512,7 @@ declare class UiComponent {
  * coordinates-based UI actions,capture screen and so on.
  *
  * @syscap SystemCapability.Test.UiTest
- * @since 8 dynamiconly
+ * @since 8
  * @deprecated since 9
  * @useinstead ohos.uitest.Driver
  * @test
@@ -523,7 +523,7 @@ declare class UiDriver {
    *
    * @returns { UiDriver } the {@link UiDriver} object.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Driver#create
    * @test
@@ -536,7 +536,7 @@ declare class UiDriver {
    * @param { number } duration The delay duration in milliseconds.
    * @returns { Promise<void> }
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Driver#delayMs
    * @test
@@ -549,7 +549,7 @@ declare class UiDriver {
    * @param { By } by The attribute requirements of the target {@link UiComponent}.
    * @returns { Promise<UiComponent> } the first matched {@link UiComponent} or undefined.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Driver#findComponent
    * @test
@@ -562,7 +562,7 @@ declare class UiDriver {
    * @param { By } by The attribute requirements of the target {@link UiComponent}.
    * @returns { Promise<Array<UiComponent>> } the matched {@link UiComponent}s list.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Driver#findComponents
    * @test
@@ -578,7 +578,7 @@ declare class UiDriver {
    * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @throws {BusinessError} 17000003 - if the assertion failed.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Driver#assertComponentExist
    * @test
@@ -590,7 +590,7 @@ declare class UiDriver {
    *
    * @returns { Promise<void> }
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Driver#pressBack
    * @test
@@ -603,7 +603,7 @@ declare class UiDriver {
    * @param { number } keyCode the target keyCode.
    * @returns { Promise<void> }
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Driver#triggerKey
    * @test
@@ -617,7 +617,7 @@ declare class UiDriver {
    * @param { number } y The y-coordinate.
    * @returns { Promise<void> }
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Driver#click
    * @test
@@ -631,7 +631,7 @@ declare class UiDriver {
    * @param { number } y The y-coordinate.
    * @returns { Promise<void> }
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Driver#doubleClick
    * @test
@@ -645,7 +645,7 @@ declare class UiDriver {
    * @param { number } y The y-coordinate.
    * @returns { Promise<void> }
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Driver#longClick
    * @test
@@ -661,7 +661,7 @@ declare class UiDriver {
    * @param { number } endy The y-coordinate of the ending point.
    * @returns { Promise<void> }
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.UiTest.Driver#swipe
    * @test
@@ -674,7 +674,7 @@ declare class UiDriver {
    * @param { string } savePath the path where to store the picture.
    * @returns { Promise<boolean> } true if screen-capturing and file-storing are completed successfully,false otherwise.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamiconly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.uitest.Driver#screenCap
    * @test
@@ -695,8 +695,8 @@ declare class UiDriver {
  * @enum { int }
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 11 dynamic
- * @since 20 static
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum WindowMode {
   /**
@@ -711,9 +711,9 @@ declare enum WindowMode {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   FULLSCREEN = 0,
   /**
@@ -728,9 +728,9 @@ declare enum WindowMode {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   PRIMARY = 1,
   /**
@@ -745,9 +745,9 @@ declare enum WindowMode {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   SECONDARY = 2,
   /**
@@ -762,9 +762,9 @@ declare enum WindowMode {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   FLOATING = 3
 }
@@ -782,8 +782,8 @@ declare enum WindowMode {
  * @enum { int }
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 11 dynamic
- * @since 20 static
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum ResizeDirection {
   /**
@@ -798,9 +798,9 @@ declare enum ResizeDirection {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   LEFT = 0,
   /**
@@ -815,9 +815,9 @@ declare enum ResizeDirection {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   RIGHT = 1,
   /**
@@ -832,9 +832,9 @@ declare enum ResizeDirection {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   UP = 2,
   /**
@@ -849,9 +849,9 @@ declare enum ResizeDirection {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   DOWN = 3,
   /**
@@ -866,9 +866,9 @@ declare enum ResizeDirection {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   LEFT_UP = 4,
   /**
@@ -883,9 +883,9 @@ declare enum ResizeDirection {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   LEFT_DOWN = 5,
   /**
@@ -900,9 +900,9 @@ declare enum ResizeDirection {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   RIGHT_UP = 6,
   /**
@@ -917,9 +917,9 @@ declare enum ResizeDirection {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   RIGHT_DOWN = 7
 }
@@ -937,8 +937,8 @@ declare enum ResizeDirection {
  * @enum { int }
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 11 dynamic
- * @since 20 static
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum DisplayRotation {
   /**
@@ -953,9 +953,9 @@ declare enum DisplayRotation {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   ROTATION_0 = 0,
   /**
@@ -970,9 +970,9 @@ declare enum DisplayRotation {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   ROTATION_90 = 1,
   /**
@@ -987,9 +987,9 @@ declare enum DisplayRotation {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   ROTATION_180 = 2,
   /**
@@ -1004,9 +1004,9 @@ declare enum DisplayRotation {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   ROTATION_270 = 3
 }
@@ -1033,8 +1033,8 @@ declare enum DisplayRotation {
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
- * @since 20 static
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface Point {
   /**
@@ -1071,7 +1071,8 @@ declare interface Point {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since arkts {'1.1':'20','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   x: int;
   /**
@@ -1108,7 +1109,8 @@ declare interface Point {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since arkts {'1.1':'20','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   y: int;
   /**
@@ -1117,7 +1119,8 @@ declare interface Point {
    * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since arkts {'1.1':'20','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   displayId?: int;
 }
@@ -1144,8 +1147,8 @@ declare interface Point {
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform
  * @atomicservice
- * @since 12 dynamic
- * @since 20 static
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface Rect {
   /**
@@ -1182,7 +1185,8 @@ declare interface Rect {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since arkts {'1.1':'20','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   left: int;
   /**
@@ -1219,7 +1223,8 @@ declare interface Rect {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since arkts {'1.1':'20','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   top: int;
   /**
@@ -1256,7 +1261,8 @@ declare interface Rect {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since arkts {'1.1':'20','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   right: int;
   /**
@@ -1293,7 +1299,8 @@ declare interface Rect {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since arkts {'1.1':'20','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bottom: int;
   /**
@@ -1302,8 +1309,8 @@ declare interface Rect {
    * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since arkts {'1.1':'20','1.2':'22'}
+   * @arkts 1.1&1.2
    */
   displayId?: int;
 }
@@ -1321,8 +1328,8 @@ declare interface Rect {
  * @typedef WindowFilter
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 11 dynamic
- * @since 20 static
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface WindowFilter {
   /**
@@ -1338,8 +1345,8 @@ declare interface WindowFilter {
    * @type { ?string }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleName?: string;
 
@@ -1356,8 +1363,8 @@ declare interface WindowFilter {
    * @type { ?string }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   title?: string;
 
@@ -1374,8 +1381,8 @@ declare interface WindowFilter {
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   focused?: boolean;
 
@@ -1391,7 +1398,7 @@ declare interface WindowFilter {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
-   * @since 11 dynamiconly
+   * @since 11
    * @deprecated since 11
    * @useinstead ohos.UiTest.WindowFilter#active
    */
@@ -1403,8 +1410,8 @@ declare interface WindowFilter {
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   active?: boolean;
   
@@ -1414,8 +1421,8 @@ declare interface WindowFilter {
    * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since arkts {'1.1':'20','1.2':'22'}
+   * @arkts 1.1&1.2
    */
   displayId?: int;
 }
@@ -1426,7 +1433,8 @@ declare interface WindowFilter {
  * @enum {int}
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 22 dynamic&static
+ * @since arkts {'1.1':'22','1.2':'22'}
+ * @arkts 1.1&1.2
  */
 declare enum WindowChangeType {
   /**
@@ -1434,7 +1442,8 @@ declare enum WindowChangeType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2 
    * @test
    */
   WINDOW_UNDEFINED = 0,
@@ -1443,7 +1452,8 @@ declare enum WindowChangeType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   WINDOW_ADDED = 1,
@@ -1452,7 +1462,8 @@ declare enum WindowChangeType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   WINDOW_REMOVED = 2,
@@ -1461,7 +1472,8 @@ declare enum WindowChangeType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   WINDOW_BOUNDS_CHANGED = 3,
@@ -1473,7 +1485,8 @@ declare enum WindowChangeType {
  * @enum {int}
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 22 dynamic&static
+ * @since arkts {'1.1':'22','1.2':'22'}
+ * @arkts 1.1&1.2
  */
 declare enum ComponentEventType {
   /**
@@ -1481,7 +1494,8 @@ declare enum ComponentEventType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   COMPONENT_UNDEFINED = 0,
@@ -1490,7 +1504,8 @@ declare enum ComponentEventType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   COMPONENT_CLICKED = 1,
@@ -1499,7 +1514,8 @@ declare enum ComponentEventType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   COMPONENT_LONG_CLICKED = 2,
@@ -1508,7 +1524,8 @@ declare enum ComponentEventType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   COMPONENT_SCROLL_START = 3,
@@ -1517,7 +1534,8 @@ declare enum ComponentEventType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   COMPONENT_SCROLL_END = 4,
@@ -1526,7 +1544,8 @@ declare enum ComponentEventType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   COMPONENT_TEXT_CHANGED = 5,
@@ -1535,7 +1554,8 @@ declare enum ComponentEventType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   COMPONENT_HOVER_ENTER = 6,
@@ -1544,7 +1564,8 @@ declare enum ComponentEventType {
    * 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   COMPONENT_HOVER_EXIT = 7,
@@ -1556,7 +1577,8 @@ declare enum ComponentEventType {
  * @typedef WindowChangeOptions
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 22 dynamic&static
+ * @since arkts {'1.1':'22','1.2':'22'}
+ * @arkts 1.1&1.2
  * @test
  */
 declare interface WindowChangeOptions {
@@ -1566,7 +1588,8 @@ declare interface WindowChangeOptions {
    * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   timeout?: int;
@@ -1575,7 +1598,8 @@ declare interface WindowChangeOptions {
    * @type { ?string }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   bundleName?: string;
@@ -1587,7 +1611,8 @@ declare interface WindowChangeOptions {
  * @typedef ComponentEventOptions
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 22 dynamic&static
+ * @since arkts {'1.1':'22','1.2':'22'}
+ * @arkts 1.1&1.2
  * @test
  */
 declare interface ComponentEventOptions {
@@ -1597,7 +1622,8 @@ declare interface ComponentEventOptions {
    * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   timeout?: int;
@@ -1606,7 +1632,8 @@ declare interface ComponentEventOptions {
    * @type { ?On }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   on?: On;
@@ -1626,9 +1653,9 @@ declare interface ComponentEventOptions {
  * @typedef UIElementInfo
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 11 dynamic
- * @since 20 static
+ * @since arkts {'1.1':'11','1.2':'20'}
  * @test
+ * @arkts 1.1&1.2
  */
 declare interface UIElementInfo {
   /**
@@ -1645,9 +1672,9 @@ declare interface UIElementInfo {
    * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   readonly bundleName: string;
   /**
@@ -1664,9 +1691,9 @@ declare interface UIElementInfo {
    * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   readonly type: string;
   /**
@@ -1683,9 +1710,9 @@ declare interface UIElementInfo {
    * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   readonly text: string;
   /**
@@ -1694,7 +1721,8 @@ declare interface UIElementInfo {
    * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   readonly windowChangeType?: WindowChangeType;
@@ -1704,7 +1732,8 @@ declare interface UIElementInfo {
    * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   readonly componentEventType?: ComponentEventType;
@@ -1714,7 +1743,8 @@ declare interface UIElementInfo {
    * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   readonly windowId?: int;
@@ -1724,7 +1754,8 @@ declare interface UIElementInfo {
    * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   readonly componentId?: string;
@@ -1734,7 +1765,8 @@ declare interface UIElementInfo {
    * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
+   * @arkts 1.1&1.2
    * @test
    */
   readonly componentRect?: Rect;
@@ -1754,9 +1786,9 @@ declare interface UIElementInfo {
  * @typedef UIEventObserver
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 11 dynamic
- * @since 20 static
+ * @since arkts {'1.1':'11','1.2':'20'}
  * @test
+ * @arkts 1.1&1.2
  */
 declare interface UIEventObserver {
   /**
@@ -1777,7 +1809,7 @@ declare interface UIEventObserver {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    * @test
    */
   once(type: 'toastShow', callback: Callback<UIElementInfo>): void;
@@ -1788,8 +1820,9 @@ declare interface UIEventObserver {
    * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
-   * @since 22 static
+   * @since 22
    * @test
+   * @arkts 1.2
    */
   onceToastShow(callback: Callback<UIElementInfo>): void;
 
@@ -1811,7 +1844,7 @@ declare interface UIEventObserver {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    * @test
    */
   once(type: 'dialogShow', callback: Callback<UIElementInfo>): void;
@@ -1822,8 +1855,9 @@ declare interface UIEventObserver {
    * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
-   * @since 22 static
+   * @since 22
    * @test
+   * @arkts 1.2
    */
   onceDialogShow(callback: Callback<UIElementInfo>): void;
   
@@ -1838,7 +1872,7 @@ declare interface UIEventObserver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic
+   * @since 22
    * @test
    */
   once(type: 'windowChange', windowChangeType: WindowChangeType, options: WindowChangeOptions, callback: Callback<UIElementInfo>): void;
@@ -1852,8 +1886,9 @@ declare interface UIEventObserver {
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
-   * @since 22 static
+   * @since 22
    * @test
+   * @arkts 1.2
    */
   onceWindowChange(windowChangeType: WindowChangeType, options: WindowChangeOptions, callback: Callback<UIElementInfo>): void;
 
@@ -1868,7 +1903,7 @@ declare interface UIEventObserver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic
+   * @since 22
    * @test
    */
   once(type: 'componentEventOccur', componentEventType: ComponentEventType, options: ComponentEventOptions, callback: Callback<UIElementInfo>): void;
@@ -1882,8 +1917,9 @@ declare interface UIEventObserver {
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
-   * @since 22 static
+   * @since 22
    * @test
+   * @arkts 1.2
    */
   onceComponentEventOccur(componentEventType: ComponentEventType, options: ComponentEventOptions, callback: Callback<UIElementInfo>): void;
 }
@@ -1910,8 +1946,8 @@ declare interface UIEventObserver {
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform
  * @atomicservice
- * @since 12 dynamic
- * @since 20 static
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum UiDirection {
   /**
@@ -1935,9 +1971,9 @@ declare enum UiDirection {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 12 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   LEFT = 0,
   /**
@@ -1961,9 +1997,9 @@ declare enum UiDirection {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 12 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   RIGHT = 1,
   /**
@@ -1987,9 +2023,9 @@ declare enum UiDirection {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 12 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   UP = 2,
   /**
@@ -2013,9 +2049,9 @@ declare enum UiDirection {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 12 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   DOWN = 3
 }
@@ -2033,9 +2069,9 @@ declare enum UiDirection {
  * @enum { int }
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 11 dynamic
- * @since 20 static
+ * @since arkts {'1.1':'11','1.2':'20'}
  * @test
+ * @arkts 1.1&1.2
  */
 declare enum MouseButton {
   /**
@@ -2050,9 +2086,9 @@ declare enum MouseButton {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   MOUSE_BUTTON_LEFT = 0,
   /**
@@ -2067,9 +2103,9 @@ declare enum MouseButton {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   MOUSE_BUTTON_RIGHT = 1,
   /**
@@ -2084,9 +2120,9 @@ declare enum MouseButton {
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   MOUSE_BUTTON_MIDDLE = 2
 }
@@ -2096,9 +2132,9 @@ declare enum MouseButton {
  * @interface TouchPadSwipeOptions
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 18 dynamic
- * @since 20 static
+ * @since arkts {'1.1':'18','1.2':'20'}
  * @test
+ * @arkts 1.1&1.2
  */
 declare interface TouchPadSwipeOptions {
   /**
@@ -2106,9 +2142,9 @@ declare interface TouchPadSwipeOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 18 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   stay?: boolean;
 
@@ -2117,9 +2153,9 @@ declare interface TouchPadSwipeOptions {
    * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 18 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   speed?: int;
 }
@@ -2129,8 +2165,9 @@ declare interface TouchPadSwipeOptions {
  * @interface InputTextMode
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 20 dynamic&static
+ * @since arkts {'1.1':'20','1.2':'20'}
  * @test
+ * @arkts 1.1&1.2
  */
 declare interface InputTextMode {
   /**
@@ -2138,8 +2175,9 @@ declare interface InputTextMode {
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   paste?: boolean;
 
@@ -2148,8 +2186,9 @@ declare interface InputTextMode {
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   addition?: boolean;
 }
@@ -2173,8 +2212,8 @@ declare interface InputTextMode {
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform
  * @atomicservice
- * @since 12 dynamic
- * @since 20 static
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class On {
   /**
@@ -2210,9 +2249,9 @@ declare class On {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   text(txt: string, pattern?: MatchPattern): On;
 
@@ -2246,9 +2285,9 @@ declare class On {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   id(id: string): On;
 
@@ -2282,9 +2321,9 @@ declare class On {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   type(tp: string): On;
 
@@ -2318,9 +2357,9 @@ declare class On {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   clickable(b?: boolean): On;
 
@@ -2354,9 +2393,9 @@ declare class On {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   longClickable(b?: boolean): On;
 
@@ -2390,9 +2429,9 @@ declare class On {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   scrollable(b?: boolean): On;
 
@@ -2426,9 +2465,9 @@ declare class On {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   enabled(b?: boolean): On;
 
@@ -2462,9 +2501,9 @@ declare class On {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   focused(b?: boolean): On;
 
@@ -2498,9 +2537,9 @@ declare class On {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   selected(b?: boolean): On;
 
@@ -2534,9 +2573,9 @@ declare class On {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   checked(b?: boolean): On;
 
@@ -2570,9 +2609,9 @@ declare class On {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   checkable(b?: boolean): On;
 
@@ -2597,9 +2636,9 @@ declare class On {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   isBefore(on: On): On;
 
@@ -2624,9 +2663,9 @@ declare class On {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   isAfter(on: On): On;
 
@@ -2651,9 +2690,9 @@ declare class On {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   within(on: On): On;
 
@@ -2675,9 +2714,9 @@ declare class On {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   inWindow(bundleName: string): On;
 
@@ -2689,9 +2728,9 @@ declare class On {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   belongingDisplay(displayId: int): On;
 
@@ -2704,9 +2743,9 @@ declare class On {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   description(val: string, pattern?: MatchPattern): On;
   /**
@@ -2718,9 +2757,9 @@ declare class On {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 18 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   id(id: string, pattern: MatchPattern): On;
   /**
@@ -2732,9 +2771,9 @@ declare class On {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 18 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   type(tp: string, pattern: MatchPattern): On;
   /**
@@ -2746,9 +2785,9 @@ declare class On {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 18 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   hint(val: string, pattern?: MatchPattern): On;
 
@@ -2764,9 +2803,9 @@ declare class On {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   originalText(text: string, pattern?: MatchPattern): On;
 }
@@ -2792,9 +2831,9 @@ declare class On {
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform
  * @atomicservice
- * @since 12 dynamic
- * @since 20 static
+ * @since arkts {'1.1':'12','1.2':'20'}
  * @test
+ * @arkts 1.1&1.2
  */
 declare class Component {
   /**
@@ -2827,9 +2866,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   click(): Promise<void>;
 
@@ -2863,9 +2902,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   doubleClick(): Promise<void>;
 
@@ -2899,9 +2938,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   longClick(): Promise<void>;
 
@@ -2935,9 +2974,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   getId(): Promise<string>;
 
@@ -2949,9 +2988,9 @@ declare class Component {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   getDisplayId(): Promise<int>;
 
@@ -2985,9 +3024,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   getText(): Promise<string>;
 
@@ -3021,9 +3060,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   getType(): Promise<string>;
 
@@ -3057,9 +3096,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   isClickable(): Promise<boolean>;
 
@@ -3093,9 +3132,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   isLongClickable(): Promise<boolean>;
 
@@ -3129,9 +3168,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   isScrollable(): Promise<boolean>;
 
@@ -3165,9 +3204,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   isEnabled(): Promise<boolean>;
 
@@ -3201,9 +3240,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   isFocused(): Promise<boolean>;
 
@@ -3237,9 +3276,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   isSelected(): Promise<boolean>;
 
@@ -3273,9 +3312,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   isChecked(): Promise<boolean>;
 
@@ -3309,9 +3348,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   isCheckable(): Promise<boolean>;
 
@@ -3351,9 +3390,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   inputText(text: string): Promise<void>;
 
@@ -3369,8 +3408,9 @@ declare class Component {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   inputText(text: string, mode: InputTextMode): Promise<void>;
 
@@ -3404,9 +3444,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   clearText(): Promise<void>;
 
@@ -3446,9 +3486,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   scrollToTop(speed?: int): Promise<void>;
 
@@ -3488,9 +3528,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   scrollToBottom(speed?: int): Promise<void>;
 
@@ -3524,9 +3564,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 12 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */ 
   getBounds(): Promise<Rect>;
 
@@ -3566,7 +3606,7 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    * @test
    */
   scrollSearch(on: On): Promise<Component>;
@@ -3601,9 +3641,9 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   getBoundsCenter(): Promise<Point>;
   
@@ -3629,9 +3669,9 @@ declare class Component {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   dragTo(target: Component): Promise<void>;
   
@@ -3658,9 +3698,9 @@ declare class Component {
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11 dynamic
-    * @since 20 static
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @test
+    * @arkts 1.1&1.2
     */
    pinchOut(scale: double): Promise<void>;
    /**
@@ -3686,9 +3726,9 @@ declare class Component {
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11 dynamic
-    * @since 20 static
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @test
+    * @arkts 1.1&1.2
     */
    pinchIn(scale: double): Promise<void>;
 
@@ -3700,9 +3740,9 @@ declare class Component {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   getDescription(): Promise<string>;
   /**
@@ -3713,9 +3753,9 @@ declare class Component {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 18 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   getHint(): Promise<string>;
   /**
@@ -3730,7 +3770,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18
    * @test
    */
   scrollSearch(on: On, vertical?: boolean, offset?: number): Promise<Component>;
@@ -3745,8 +3785,9 @@ declare class Component {
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
-    * @since 20 static
+    * @since 20
     * @test
+    * @arkts 1.2
     */
   scrollSearch(on: On, vertical?: boolean, offset?: int): Promise<Component | null>;
    /**
@@ -3760,9 +3801,9 @@ declare class Component {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   getOriginalText(): Promise<string>;
 }
@@ -3791,9 +3832,9 @@ declare class Component {
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform
  * @atomicservice
- * @since 12 dynamic
- * @since 20 static
+ * @since arkts {'1.1':'12','1.2':'20'}
  * @test
+ * @arkts 1.1&1.2
  */
 declare class Driver {
   /**
@@ -3824,9 +3865,9 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   static create(): Driver;
 
@@ -3863,9 +3904,9 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   delayMs(duration: int): Promise<void>;
 
@@ -3902,7 +3943,7 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    * @test
    */
   findComponent(on: On): Promise<Component>;
@@ -3914,8 +3955,9 @@ declare class Driver {
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
-    * @since 20 static
+    * @since 20
     * @test
+    * @arkts 1.2
     */
    findComponent(on: On): Promise<Component | null>;
   /**
@@ -3938,7 +3980,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    * @test
    */
   findWindow(filter: WindowFilter): Promise<UiWindow>;
@@ -3950,8 +3992,9 @@ declare class Driver {
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
-    * @since 20 static
+    * @since 20
     * @test
+    * @arkts 1.2
     */
    findWindow(filter: WindowFilter): Promise<UiWindow | null>;
   /**
@@ -3976,7 +4019,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    * @test
    */
   waitForComponent(on: On, time: number): Promise<Component>;
@@ -3989,8 +4032,9 @@ declare class Driver {
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
-    * @since 20 static
+    * @since 20
     * @test
+    * @arkts 1.2
     */
   waitForComponent(on: On, time: int): Promise<Component | null>;
   /**
@@ -4026,7 +4070,7 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    * @test
    */
   findComponents(on: On): Promise<Array<Component>>;
@@ -4038,8 +4082,9 @@ declare class Driver {
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
-    * @since 20 static
+    * @since 20
     * @test
+    * @arkts 1.2
     */
   findComponents(on: On): Promise<Array<Component> | null>;
   /**
@@ -4078,9 +4123,9 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   assertComponentExist(on: On): Promise<void>;
 
@@ -4111,9 +4156,9 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   pressBack(): Promise<void>;
 
@@ -4126,8 +4171,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   pressBack(displayId: int): Promise<void>;
 
@@ -4152,9 +4198,9 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   triggerKey(keyCode: int): Promise<void>;
 
@@ -4168,8 +4214,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   triggerKey(keyCode: int, displayId: int): Promise<void>;
 
@@ -4189,20 +4236,19 @@ declare class Driver {
   /**
    * Press two or three key combinations
    *
-   * @param { int } key0 - the first keyCode.
-   * @param { int } key1 - the second keyCode.
-   * @param { int } [key2] - the third keyCode,set it default 0 if null or undefined.
+   * @param { number } key0 - the first keyCode.
+   * @param { number } key1 - the second keyCode.
+   * @param { number } [key2] - the third keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since 11
    * @test
    */
-  triggerCombineKeys(key0: int, key1: int, key2?: int): Promise<void>;
+  triggerCombineKeys(key0: number, key1: number, key2?: number): Promise<void>;
 
   /**
    * Press two or three key combinations on the specified display.
@@ -4216,9 +4262,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   triggerCombineKeys(key0: int, key1: int, key2?: int, displayId?: int): Promise<void>;
 
@@ -4258,9 +4304,9 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   click(x: int, y: int): Promise<void>;
 
@@ -4300,9 +4346,9 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   doubleClick(x: int, y: int): Promise<void>;
 
@@ -4342,9 +4388,9 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   longClick(x: int, y: int): Promise<void>;
 
@@ -4393,9 +4439,9 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   swipe(startx: int, starty: int, endx: int, endy: int, speed?: int): Promise<void>;
 
@@ -4427,9 +4473,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   drag(startx: int, starty: int, endx: int, endy: int, speed?: int): Promise<void>;
 
@@ -4442,9 +4488,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   clickAt(point: Point): Promise<void>;
 
@@ -4457,9 +4503,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   doubleClickAt(point: Point): Promise<void>;
 
@@ -4473,9 +4519,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   longClickAt(point: Point, duration?: int): Promise<void>;
   
@@ -4491,9 +4537,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   swipeBetween(from: Point, to: Point, speed?: int): Promise<void>;
 
@@ -4511,9 +4557,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   dragBetween(from: Point, to: Point, speed?: int, duration?: int): Promise<void>;
 
@@ -4537,9 +4583,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   screenCap(savePath: string): Promise<boolean>;
 
@@ -4553,9 +4599,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   screenCap(savePath: string, displayId: int): Promise<boolean>;
 
@@ -4579,9 +4625,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   setDisplayRotation(rotation: DisplayRotation): Promise<void>;
 
@@ -4601,9 +4647,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   getDisplayRotation(): Promise<DisplayRotation>;
 
@@ -4616,9 +4662,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   getDisplayRotation(displayId: int): Promise<DisplayRotation>;
 
@@ -4642,9 +4688,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   setDisplayRotationEnabled(enabled: boolean): Promise<void>;
 
@@ -4664,9 +4710,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   getDisplaySize(): Promise<Point>;
 
@@ -4679,8 +4725,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   getDisplaySize(displayId: int): Promise<Point>;
 
@@ -4700,9 +4747,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   getDisplayDensity(): Promise<Point>;
 
@@ -4715,9 +4762,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   getDisplayDensity(displayId: int): Promise<Point>;
 
@@ -4737,9 +4784,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   wakeUpDisplay(): Promise<void>;
 
@@ -4759,9 +4806,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   pressHome(): Promise<void>;
 
@@ -4774,8 +4821,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   pressHome(displayId: int): Promise<void>;
 
@@ -4801,9 +4849,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   waitForIdle(idleTime: int, timeout: int): Promise<boolean>;
 
@@ -4849,9 +4897,9 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   fling(from: Point, to: Point, stepLen: int, speed: int): Promise<void>;
 
@@ -4878,9 +4926,9 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   injectMultiPointerAction(pointers: PointerMatrix, speed?: int): Promise<boolean>;
 
@@ -4920,9 +4968,9 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 12 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   fling(direction: UiDirection, speed: int): Promise<void>;
 
@@ -4937,8 +4985,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   fling(direction: UiDirection, speed: int, displayId: int): Promise<void>;
 
@@ -4968,9 +5017,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   mouseClick(p: Point, btnId: MouseButton, key1?: int, key2?: int): Promise<void>;
 
@@ -4994,9 +5043,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   mouseMoveTo(p: Point): Promise<void>;
 
@@ -5028,7 +5077,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    * @test
    */
   mouseScroll(p: Point, down: boolean, d: int, key1?: int, key2?: int): Promise<void>;
@@ -5047,9 +5096,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   mouseScroll(p: Point, down: boolean, d: int, key1?: int, key2?: int, speed?: int): Promise<void>;
 
@@ -5075,9 +5124,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   screenCapture(savePath: string, rect?: Rect): Promise<boolean>;
 
@@ -5097,9 +5146,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   createUIEventObserver(): UIEventObserver;
 
@@ -5115,9 +5164,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   mouseDoubleClick(p: Point, btnId: MouseButton, key1?: int, key2?: int): Promise<void>;
 
@@ -5126,14 +5175,14 @@ declare class Driver {
    *
    * @param { Point } p - the coordinate of the specified location.
    * @param { MouseButton } btnId - the button of Mouse.
-   * @param { int } [key1] - the first keyCode,set it default 0 if null or undefined.
-   * @param { int } [key2] - the second keyCode,set it default 0 if null or undefined.
+   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    * @test
    */
   mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
@@ -5151,9 +5200,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   mouseLongClick(p: Point, btnId: MouseButton, key1?: int, key2?: int, duration?: int): Promise<void>;
 
@@ -5168,9 +5217,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   mouseMoveWithTrack(from: Point, to: Point, speed?: int): Promise<void>;
 
@@ -5179,13 +5228,13 @@ declare class Driver {
    *
    * @param { Point } from - the starting point.
    * @param { Point } to - the ending point.
-   * @param { int } [speed] - speed of drag (pixels per second),the value ranges from 200 to 40000,Set it default 600 if out of range or null or undefined.
+   * @param { number } [speed] - speed of drag (pixels per second),the value ranges from 200 to 40000,Set it default 600 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11
    * @test
    */
   mouseDrag(from: Point, to: Point, speed?: number): Promise<void>;
@@ -5203,9 +5252,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   mouseDrag(from: Point, to: Point, speed?: int, duration?: int): Promise<void>;
 
@@ -5219,9 +5268,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   inputText(p: Point, text: string): Promise<void>;
 
@@ -5237,8 +5286,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   inputText(p: Point, text: string, mode: InputTextMode): Promise<void>;
 
@@ -5253,9 +5303,9 @@ declare class Driver {
    * @throws { BusinessError } 17000005 This operation is not supported.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 18 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   touchPadMultiFingerSwipe(fingers: int, direction: UiDirection, options?: TouchPadSwipeOptions): Promise<void>;
 
@@ -5267,9 +5317,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 18 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   penClick(point: Point): Promise<void>;
 
@@ -5282,9 +5332,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 18 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   penLongClick(point: Point, pressure?: double): Promise<void>;
 
@@ -5296,9 +5346,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 18 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   penDoubleClick(point: Point): Promise<void>;
 
@@ -5313,9 +5363,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 18 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   penSwipe(startPoint: Point, endPoint: Point, speed?: int, pressure?: double): Promise<void>;
 
@@ -5329,9 +5379,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 18 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   injectPenPointerAction(pointers: PointerMatrix, speed?: int, pressure?: double): Promise<void>;
 
@@ -5348,9 +5398,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @since arkts {'1.1':'20','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   crownRotate(d: int, speed?: int): Promise<void>;
 
@@ -5367,8 +5417,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   isComponentPresentWhenLongClick(on: On, point: Point, duration?: int): Promise<boolean>;
 
@@ -5387,8 +5438,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   isComponentPresentWhenDrag(on: On, from: Point, to: Point, speed?: int, duration?: int): Promise<boolean>;
 
@@ -5405,8 +5457,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   isComponentPresentWhenSwipe(on: On, from: Point, to: Point, speed?: int): Promise<boolean>;
 
@@ -5424,8 +5477,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   touchPadTwoFingersScroll(point: Point, direction: UiDirection, d: int, speed?: int): Promise<void>;
 
@@ -5441,8 +5495,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   knuckleKnock(pointers: Array<Point>, times: int): Promise<void>;
 
@@ -5458,8 +5513,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since arkts {'1.1':'22','1.2':'22'}
    * @test
+   * @arkts 1.1&1.2
    */
   injectKnucklePointerAction(pointers: PointerMatrix, speed?: int): Promise<void>;
 }
@@ -5474,9 +5530,9 @@ declare class Driver {
  *
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 11 dynamic
- * @since 20 static
+ * @since arkts {'1.1':'11','1.2':'20'}
  * @test
+ * @arkts 1.1&1.2
  */
 declare class UiWindow {
   /**
@@ -5497,9 +5553,9 @@ declare class UiWindow {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   getBundleName(): Promise<string>;
 
@@ -5522,9 +5578,9 @@ declare class UiWindow {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   getBounds(): Promise<Rect>;
 
@@ -5546,9 +5602,9 @@ declare class UiWindow {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   getTitle(): Promise<string>;
 
@@ -5570,9 +5626,9 @@ declare class UiWindow {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   getWindowMode(): Promise<WindowMode>;
 
@@ -5594,9 +5650,9 @@ declare class UiWindow {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   isFocused(): Promise<boolean>;
 
@@ -5617,7 +5673,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
-   * @since 11 dynamiconly
+   * @since 11
    * @deprecated since 11
    * @useinstead ohos.UiTest.UiWindow#isActive
    * @test
@@ -5642,9 +5698,9 @@ declare class UiWindow {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   focus(): Promise<void>;
 
@@ -5674,9 +5730,9 @@ declare class UiWindow {
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   moveTo(x: int, y: int): Promise<void>;
 
@@ -5708,9 +5764,9 @@ declare class UiWindow {
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   resize(wide: int, height: int, direction: ResizeDirection): Promise<void>;
 
@@ -5734,9 +5790,9 @@ declare class UiWindow {
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   split(): Promise<void>;
 
@@ -5760,9 +5816,9 @@ declare class UiWindow {
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   maximize(): Promise<void>;
 
@@ -5786,9 +5842,9 @@ declare class UiWindow {
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+    * @arkts 1.1&1.2
    */
   minimize(): Promise<void>;
 
@@ -5812,9 +5868,9 @@ declare class UiWindow {
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   resume(): Promise<void>;
 
@@ -5838,9 +5894,9 @@ declare class UiWindow {
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   close(): Promise<void>;
 
@@ -5852,9 +5908,9 @@ declare class UiWindow {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   isActive(): Promise<boolean>;
 
@@ -5866,7 +5922,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20 dynamic
+   * @since 20
    * @test
    */
   getDisplayId(): Promise<number>;
@@ -5887,9 +5943,9 @@ declare class UiWindow {
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
- * @since 20 static
+ * @since arkts {'1.1':'11','1.2':'20'}
  * @test
+ * @arkts 1.1&1.2
  */
 declare class PointerMatrix {
   /**
@@ -5914,9 +5970,9 @@ declare class PointerMatrix {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   static create(fingers: int, steps: int): PointerMatrix;
 
@@ -5941,9 +5997,9 @@ declare class PointerMatrix {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   setPoint(finger: int, step: int, point: Point): void;
 }
@@ -5952,7 +6008,7 @@ declare class PointerMatrix {
  * The static builder for building {@link By}object conveniently,usage example:BY.text('txt').enabled(true).
  *
  * @syscap SystemCapability.Test.UiTest
- * @since 8 dynamiconly
+ * @since 8
  * @deprecated since 9
  * @useinstead ohos.uitest.ON
  * @test
@@ -5972,13 +6028,13 @@ declare const BY: By;
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
- * @since 20 static
+ * @since arkts {'1.1':'11','1.2':'20'}
  * @test
+ * @arkts 1.1&1.2
  */
 declare const ON: On;
 
- /*** if arkts dynamic */
+ /*** if arkts 1.1 */
  export {
    UiComponent,
    UiDriver,
