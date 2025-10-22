@@ -20,7 +20,6 @@
 
 import type NotificationSubscriberExtensionContext from './@ohos.application.NotificationSubscriberExtensionContext';
 import { NotificationInfo } from './notification/NotificationInfo'
-import { NotificationExtensionContent } from './NotificationExtensionContent';
 
 /**
  * class of notification subscriber extension ability.
@@ -29,7 +28,7 @@ import { NotificationExtensionContent } from './NotificationExtensionContent';
  * @stagemodelonly
  * @since 22 dynamic&static
  */
-export default class NotificationSubscriberExtensionAbility {
+declare class NotificationSubscriberExtensionAbility {
   /**
    * Indicates configuration information about an ability context.
    *
@@ -69,3 +68,5 @@ export default class NotificationSubscriberExtensionAbility {
    */
   onCancelMessages(hashCodes: Array<string>): void;
 }
+
+export default NotificationSubscriberExtensionAbility;
