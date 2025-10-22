@@ -1862,7 +1862,15 @@ declare namespace uniformTypeDescriptor {
      * @crossplatform
      * @since 20 dynamic
      */
-    readonly typeId: string;
+    /**
+     * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    typeId: string;
 
     /**
      * Uniform data type IDs that the uniform data type belongs to.
@@ -1881,7 +1889,15 @@ declare namespace uniformTypeDescriptor {
      * @crossplatform
      * @since 20 dynamic
      */
-    readonly belongingToTypes: Array<string>;
+    /**
+     * Uniform data type IDs that the uniform data type belongs to.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    belongingToTypes: Array<string>;
 
     /**
      * A textual description for the uniform data type.
@@ -1900,7 +1916,15 @@ declare namespace uniformTypeDescriptor {
      * @crossplatform
      * @since 20 dynamic
      */
-    readonly description: string;
+    /**
+     * A textual description for the uniform data type.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    description: string;
 
     /**
      * Reference URL for the uniform data type, which describes the detail information of the type.
@@ -1919,7 +1943,15 @@ declare namespace uniformTypeDescriptor {
      * @crossplatform
      * @since 20 dynamic
      */
-    readonly referenceURL: string;
+    /**
+     * Reference URL for the uniform data type, which describes the detail information of the type.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    referenceURL: string;
 
     /**
      * Default icon file path for the uniform data type.
@@ -1938,7 +1970,15 @@ declare namespace uniformTypeDescriptor {
      * @crossplatform
      * @since 20 dynamic
      */
-    readonly iconFile: string;
+    /**
+     * Default icon file path for the uniform data type.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    iconFile: string;
 
     /**
      * File name extensions for the uniform data type.
@@ -1957,7 +1997,15 @@ declare namespace uniformTypeDescriptor {
      * @crossplatform
      * @since 20 dynamic
      */
-     readonly filenameExtensions: Array<string>;
+    /**
+     * File name extensions for the uniform data type.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    filenameExtensions: Array<string>;
 
      /**
      * MIMETypes of the uniform data type.
@@ -1976,7 +2024,15 @@ declare namespace uniformTypeDescriptor {
      * @crossplatform
      * @since 20 dynamic
      */
-    readonly mimeTypes: Array<string>;
+    /**
+     * MIMETypes of the uniform data type.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @since 22 dynamic
+     */
+    mimeTypes: Array<string>;
 
     /**
      * Checks whether the uniform data type belongs to the given uniform data type.
@@ -2215,6 +2271,41 @@ declare namespace uniformTypeDescriptor {
    * @since 20 dynamic
    */
   function getUniformDataTypesByMIMEType(mimeType: string, belongsTo?: string): Array<string>;
+
+  /**
+   * Register type descriptors into the system.
+   *
+   * @permission ohos.permission.MANAGE_DYNAMIC_UTD_TYPE
+   * @param { Array<TypeDescriptor> } typeDescriptors - The list of type descriptors to be registered.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called the system api.
+   * @throws { BusinessError } 20400002 - The format of one or more type descriptors are invalid.
+   * @throws { BusinessError } 20400003 - The content of one or more type descriptors violate rules.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @systemapi
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  function registerTypeDescriptors(typeDescriptors: Array<TypeDescriptor>): Promise<void>;
+
+  /**
+   * Unregister one or more type descriptors from the system by the given type IDs.
+   *
+   * @permission ohos.permission.MANAGE_DYNAMIC_UTD_TYPE
+   * @param { Array<string> } typeIds - The list of type IDs to be unregistered.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called the system api.
+   * @throws { BusinessError } 20400004 - One or more typeIds are invalid or do not exist.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @systemapi
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  function unregisterTypeDescriptors(typeIds: Array<string>): Promise<void>;
 }
 
 export default uniformTypeDescriptor;
