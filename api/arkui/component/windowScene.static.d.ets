@@ -41,7 +41,7 @@ export declare interface WindowSceneAttribute extends CommonMethod {
    * @systemapi
    * @since 22 static
    */
-  attractionEffect(destination: Position | undefined, fraction: double | undefined): this;
+  default attractionEffect(destination: Position | undefined, fraction: double | undefined): this;
 
   /**
    * Set the attribute modifier
