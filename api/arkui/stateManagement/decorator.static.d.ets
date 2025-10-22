@@ -1168,9 +1168,9 @@ type ComputedCallback<T> = () => T;
  * @typedef { function } MonitorCallback
  * @param { IMonitor } iMonitor MonitorValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
-type MonitorCallback = (iMonitor: IMonitor) => void;
+export type MonitorCallback = (iMonitor: IMonitor) => void;
 
 /**
  * Defines IMonitor value callback function
@@ -1178,9 +1178,9 @@ type MonitorCallback = (iMonitor: IMonitor) => void;
  * @typedef { function } MonitorValueCallback
  * @returns { Any }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
-type MonitorValueCallback = () => Any;
+export type MonitorValueCallback = () => Any;
 
 /**
  * Defines the callback that is called when state variable is change
@@ -1279,7 +1279,17 @@ export declare interface IComputedDecoratedVariable<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare interface IMonitorDecoratedVariable {}
+export declare interface IMonitorDecoratedVariable {
+  /**
+   * Path for generated monitors, either generated or set by addMonitor parameters.
+   *
+   * @type { string[] }
+   * @readonly
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  readonly path: string[];
+}
 
 /**
  * Defines Monitor path with its accessor interface.
