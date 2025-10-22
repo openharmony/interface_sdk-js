@@ -1571,7 +1571,7 @@ declare enum MouseAction {
    * @atomicservice
    * @since 11 dynamic
    */
-  Press,
+  Press = 1,
 
   /**
    * Triggered when the mouse is released.
@@ -1594,7 +1594,7 @@ declare enum MouseAction {
    * @atomicservice
    * @since 11 dynamic
    */
-  Release,
+  Release = 2,
 
   /**
    * Triggered when the mouse is Moved.
@@ -1617,7 +1617,7 @@ declare enum MouseAction {
    * @atomicservice
    * @since 11 dynamic
    */
-  Move,
+  Move = 3,
 
   /**
    * Triggered when the mouse is Hovered.
@@ -1640,7 +1640,27 @@ declare enum MouseAction {
    * @atomicservice
    * @since 11 dynamic
    */
-  Hover,
+  Hover = 4,
+
+  /**
+   * Triggered when mouse enters the window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  ENTER_WINDOW = 4,
+
+  /**
+   * Triggered when mouse leaves the window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  LEAVE_WINDOW = 5,
   
   /**
    * Triggered when the mouse event is canceled.
