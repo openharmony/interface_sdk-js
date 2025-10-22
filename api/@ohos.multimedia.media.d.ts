@@ -10820,43 +10820,72 @@ declare namespace media {
     skipPrivacyMode(windowIDs: Array<int>): Promise<void>;
 
     /**
-     * Configures display mode for system-level picker
-     * @param { PickerMode } pickerMode - Selection mode enumeration
+     * Configures display mode for system-level picker.
+     * @param { PickerMode } pickerMode - Selection mode enumeration.
      *     Defines content types in picker:
      *     - SCREEN_ONLY: Physical displays only
      *     - WINDOW_ONLY: Application windows only
      *     - SCREEN_AND_WINDOW: Both (default)
-     * @returns { Promise<void> } Promise without return value
-     * @throws { BusinessError } 5400103 - Invalid parameter
-     * @throws { BusinessError } 5400105 - Service unavailable
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 22 dynamic&static
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * let pickerMode: media.PickerMode = media.PickerMode.WINDOW_ONLY;
+     * avScreenCaptureRecorder.setPickerMode(pickerMode).then(() => {
+     *     console.info('Succeeded in setting picker mode');
+     * }).catch((err: BusinessError) => {
+     *     console.error('Failed to set picker mode, error: ' + err.message);
+     * })
      */
     setPickerMode(pickerMode: PickerMode): Promise<void>;
 
     /**
-     * Configures window exclusion list for system-level picker
-     * @param { Array<int> } excludedWindows - Window IDs to exclude from picker
-     *     Filters specified windows before displaying system-level picker
-     * @returns { Promise<void> } Promise without return value
-     * @throws { BusinessError } 5400103 - IO error
-     * @throws { BusinessError } 5400105 - Service unavailable
+     * Configures window exclusion list for system-level picker.
+     * @param { Array<int> } excludedWindows - Window IDs to exclude from picker.
+     *     Filters specified windows before displaying system-level picker.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 22 dynamic&static
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * let windowIDs: Array<number> = [101, 102, 103];
+     * avScreenCaptureRecorder.excludePickerWindows(windowIDs).then(() => {
+     *     console.info('Succeeded in excluding picker windows');
+     * }).catch((err: BusinessError) => {
+     *     console.error('Failed to exclude picker windows, error: ' + err.message);
+     * })
      */
     excludePickerWindows(excludedWindows: Array<int>): Promise<void>;
 
     /**
-     * Displays system-level capture source picker interface
+     * Displays system-level capture source picker interface.
      *
      * Activates visual selector for two scenarios:
-     * 1. Initial configuration: Select source before capture starts
-     * 2. Dynamic switching: Change capture target during active recording
-     * @returns { Promise<void> } Promise without return value
-     * @throws { BusinessError } 5400103 - IO operation failed
-     * @throws { BusinessError } 5400105 - Service unavailable
+     * 1. Initial configuration: Select source before capture starts.
+     * 2. Dynamic switching: Change capture target during active recording.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 22 dynamic&static
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avScreenCaptureRecorder.presentPicker().then(() => {
+     *     console.info('Succeeded in presenting picker');
+     * }).catch((err: BusinessError) => {
+     *     console.error('Failed to present picker, error: ' + err.message);
+     * })
      */
     presentPicker(): Promise<void>;
 
