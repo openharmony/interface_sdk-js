@@ -4201,7 +4201,7 @@ declare class Driver {
    * @since 11 dynamic
    * @test
    */
-  triggerCombineKeys(key0: int, key1: int, key2?: int): Promise<void>;
+  triggerCombineKeys(key0: number, key1: number, key2?: number): Promise<void>;
 
   /**
    * Press two or three key combinations on the specified display.
