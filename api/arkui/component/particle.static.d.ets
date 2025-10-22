@@ -721,6 +721,16 @@ export declare enum ParticleUpdater {
      */
     CURVE = 'curve'
 }
+
+/**
+ * The ParticleAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface ParticleAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ * @noninterop
+ */
 export declare interface ParticleAttribute extends CommonMethod {
     /**
      * Particle disturbance Field.
@@ -729,7 +739,6 @@ export declare interface ParticleAttribute extends CommonMethod {
      * @returns { ParticleAttribute } Returns the particle attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
-     * @noninterop
      */
     default disturbanceFields(fields: Array<DisturbanceFieldOptions> | undefined): this;
     /**
@@ -739,7 +748,6 @@ export declare interface ParticleAttribute extends CommonMethod {
      * @returns { ParticleAttribute } Returns the particle attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
-     * @noninterop
      */
     default emitter(value: Array<EmitterProperty> | undefined): this;
 
@@ -751,7 +759,6 @@ export declare interface ParticleAttribute extends CommonMethod {
      * @returns { ParticleAttribute } Returns the particle attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
-     * @noninterop
      */
     default attributeModifier(modifier: AttributeModifier<ParticleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
