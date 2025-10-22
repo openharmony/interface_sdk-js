@@ -25,7 +25,7 @@ import { BusinessError } from './@ohos.base';
  *
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
- * @since 12
+ * @since 12 dynamic
  */
 export default class StartupListener {
   /**
@@ -34,7 +34,7 @@ export default class StartupListener {
    * @param { BusinessError<void> } error - Indicates the error during execution.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   onCompleted?(error: BusinessError<void>): void;
 }

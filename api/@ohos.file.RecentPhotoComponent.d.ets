@@ -26,7 +26,7 @@ import { BaseItemInfo, PickerColorMode } from '@ohos.file.PhotoPickerComponent';
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 @Component
 export declare struct RecentPhotoComponent {
@@ -36,7 +36,7 @@ export declare struct RecentPhotoComponent {
    * @type { ?recentPhotoOptions }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   recentPhotoOptions?: RecentPhotoOptions;
 
@@ -46,7 +46,7 @@ export declare struct RecentPhotoComponent {
    * @type { ?function }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onRecentPhotoCheckResult?: RecentPhotoCheckResultCallback;
 
@@ -56,7 +56,7 @@ export declare struct RecentPhotoComponent {
    * @type { ?function }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onRecentPhotoClick: RecentPhotoClickCallback;
 
@@ -66,7 +66,7 @@ export declare struct RecentPhotoComponent {
    * @type { ?function }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   onRecentPhotoCheckInfo?: RecentPhotoCheckInfoCallback;
 }
@@ -78,7 +78,7 @@ export declare struct RecentPhotoComponent {
  * @param { boolean } recentPhotoExists - Does the recent photo exist?
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export type RecentPhotoCheckResultCallback = (recentPhotoExists: boolean) => void;
 
@@ -89,7 +89,7 @@ export type RecentPhotoCheckResultCallback = (recentPhotoExists: boolean) => voi
  * @param { BaseItemInfo } recentPhotoInfo - The item information of recent photo
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export type RecentPhotoClickCallback = (recentPhotoInfo: BaseItemInfo) => boolean;
 
@@ -101,7 +101,7 @@ export type RecentPhotoClickCallback = (recentPhotoInfo: BaseItemInfo) => boolea
  * @param { RecentPhotoInfo } info - the recent photo info
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
- * @since 13
+ * @since 13 dynamic
  */
 export type RecentPhotoCheckInfoCallback = (recentPhotoExists: boolean, info: RecentPhotoInfo) => void;
 
@@ -110,7 +110,7 @@ export type RecentPhotoCheckInfoCallback = (recentPhotoExists: boolean, info: Re
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare class RecentPhotoOptions {
   /**
@@ -119,7 +119,7 @@ export declare class RecentPhotoOptions {
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   period?: number;
 
@@ -129,7 +129,7 @@ export declare class RecentPhotoOptions {
    * @type { ?photoAccessHelper.PhotoViewMIMETypes }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   MIMEType?: photoAccessHelper.PhotoViewMIMETypes;
 
@@ -139,7 +139,7 @@ export declare class RecentPhotoOptions {
    * @type { ?PhotoSource }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   photoSource?: PhotoSource;
 
@@ -149,7 +149,7 @@ export declare class RecentPhotoOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   isAutoRefreshSupported?: boolean;
 
@@ -159,7 +159,7 @@ export declare class RecentPhotoOptions {
    * @type { ?PickerColorMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   colorMode?: PickerColorMode;
 }
@@ -169,7 +169,7 @@ export declare class RecentPhotoOptions {
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
- * @since 13
+ * @since 13 dynamic
  */
 export declare class RecentPhotoInfo {
   /**
@@ -178,7 +178,7 @@ export declare class RecentPhotoInfo {
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   dateTaken?: number;
 
@@ -188,7 +188,7 @@ export declare class RecentPhotoInfo {
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   identifier?: string;
 }
@@ -199,7 +199,7 @@ export declare class RecentPhotoInfo {
  * @enum { number } PhotoSource
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare enum PhotoSource {
   /**
@@ -207,7 +207,7 @@ export declare enum PhotoSource {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   ALL = 0,
 
@@ -216,7 +216,7 @@ export declare enum PhotoSource {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   CAMERA = 1,
   
@@ -225,7 +225,7 @@ export declare enum PhotoSource {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   SCREENSHOT = 2
 }

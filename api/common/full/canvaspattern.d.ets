@@ -40,7 +40,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 11
+ * @since 22 static
  */
 export interface CanvasPattern {
   /**
@@ -65,7 +65,7 @@ export interface CanvasPattern {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 11
+   * @since 22 static
    */
   setTransform(transform?: Matrix2D): void;
 }
@@ -89,7 +89,7 @@ export interface CanvasPattern {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 11
+ * @since 22 static
  */
 export declare class Matrix2D {
   /**
@@ -114,7 +114,7 @@ export declare class Matrix2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 11
+   * @since 22 static
    */
   scaleX?: number;
 
@@ -140,7 +140,7 @@ export declare class Matrix2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 11
+   * @since 22 static
    */
   rotateY?: number;
 
@@ -166,7 +166,7 @@ export declare class Matrix2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 11
+   * @since 22 static
    */
   rotateX?: number;
 
@@ -192,7 +192,7 @@ export declare class Matrix2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 11
+   * @since 22 static
    */
   scaleY?: number;
 
@@ -218,7 +218,7 @@ export declare class Matrix2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 11
+   * @since 22 static
    */
   translateX?: number;
 
@@ -244,7 +244,7 @@ export declare class Matrix2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 11
+   * @since 22 static
    */
   translateY?: number;
 
@@ -273,7 +273,7 @@ export declare class Matrix2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 11
+   * @since 22 static
    */
   identity(): Matrix2D;
 
@@ -302,7 +302,7 @@ export declare class Matrix2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 11
+   * @since 22 static
    */
   invert(): Matrix2D;
 
@@ -334,7 +334,7 @@ export declare class Matrix2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 11
+   * @since 22 static
    */
   multiply(other?: Matrix2D): Matrix2D;
 
@@ -366,7 +366,7 @@ export declare class Matrix2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 11
+   * @since 22 static
    */
   rotate(rx?: number, ry?: number): Matrix2D;
 
@@ -398,7 +398,7 @@ export declare class Matrix2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 11
+   * @since 22 static
    */
   translate(tx?: number, ty?: number): Matrix2D;
 
@@ -430,7 +430,7 @@ export declare class Matrix2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 11
+   * @since 22 static
    */
   scale(sx?: number, sy?: number): Matrix2D;
 
@@ -453,7 +453,7 @@ export declare class Matrix2D {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 11
+   * @since 22 static
    */
   constructor();
 }

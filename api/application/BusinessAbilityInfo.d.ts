@@ -27,7 +27,7 @@ import type businessAbilityRouter from '../@ohos.app.businessAbilityRouter';
  * @typedef BusinessAbilityInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 10
+ * @since 10 dynamic
  */
 export interface BusinessAbilityInfo {
   /**
@@ -37,7 +37,7 @@ export interface BusinessAbilityInfo {
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   readonly bundleName: string;
 
@@ -48,7 +48,7 @@ export interface BusinessAbilityInfo {
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   readonly moduleName: string;
 
@@ -59,7 +59,7 @@ export interface BusinessAbilityInfo {
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   readonly name: string;
 
@@ -70,7 +70,7 @@ export interface BusinessAbilityInfo {
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   readonly labelId: number;
 
@@ -81,7 +81,7 @@ export interface BusinessAbilityInfo {
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   readonly descriptionId: number;
 
@@ -92,7 +92,7 @@ export interface BusinessAbilityInfo {
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   readonly iconId: number;
 
@@ -103,7 +103,7 @@ export interface BusinessAbilityInfo {
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   readonly businessType: businessAbilityRouter.BusinessType;
 
@@ -114,7 +114,7 @@ export interface BusinessAbilityInfo {
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   readonly applicationInfo: ApplicationInfo;
 }

@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from '../stateManagement/runtime';
+import { memo, ComponentBuilder } from '../stateManagement/runtime';
 import OriginalContext from '../../application/Context';
 import { Resource } from '../../global/resource';
 import pointer from '../../@ohos.multimodalInput.pointer';
@@ -2689,6 +2689,8 @@ export declare function animateTo(value: AnimateParam, event: () => void): void;
  *     and the system will automatically insert transition animations for state changes caused by the closure function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @deprecated since 22
+ * @useinstead ohos.arkui.UIContext.UIContext#animateToImmediately
  */
 export declare function animateToImmediately(value: AnimateParam, event: () => void): void;
 /**

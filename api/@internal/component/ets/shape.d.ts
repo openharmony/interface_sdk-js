@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare interface ViewportRect {
   /**
@@ -82,7 +82,7 @@ declare interface ViewportRect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   x?: Length;
 
@@ -139,7 +139,7 @@ declare interface ViewportRect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   y?: Length;
 
@@ -196,7 +196,7 @@ declare interface ViewportRect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   width?: Length;
 
@@ -253,7 +253,7 @@ declare interface ViewportRect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   height?: Length;
 }
@@ -290,7 +290,7 @@ declare interface ViewportRect {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface ShapeInterface {
   /**
@@ -312,7 +312,7 @@ interface ShapeInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   new (value?: PixelMap): ShapeAttribute;
 
@@ -341,7 +341,7 @@ interface ShapeInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (value: PixelMap): ShapeAttribute;
 
@@ -377,7 +377,7 @@ interface ShapeInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (): ShapeAttribute;
 }
@@ -406,7 +406,7 @@ interface ShapeInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
@@ -457,7 +457,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   viewPort(value: ViewportRect): ShapeAttribute;
 
@@ -497,7 +497,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   stroke(value: ResourceColor): ShapeAttribute;
 
@@ -537,7 +537,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fill(value: ResourceColor): ShapeAttribute;
 
@@ -588,7 +588,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   strokeDashOffset(value: Length): ShapeAttribute;
 
@@ -628,7 +628,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   strokeDashArray(value: Array<any>): ShapeAttribute;
 
@@ -668,7 +668,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   strokeLineCap(value: LineCapStyle): ShapeAttribute;
 
@@ -708,7 +708,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   strokeLineJoin(value: LineJoinStyle): ShapeAttribute;
 
@@ -759,7 +759,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   strokeMiterLimit(value: Length): ShapeAttribute;
 
@@ -799,7 +799,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   strokeOpacity(value: number | string | Resource): ShapeAttribute;
 
@@ -839,7 +839,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fillOpacity(value: number | string | Resource): ShapeAttribute;
 
@@ -890,7 +890,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   strokeWidth(value: Length): ShapeAttribute;
 
@@ -930,7 +930,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   antiAlias(value: boolean): ShapeAttribute;
 
@@ -978,7 +978,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   mesh(value: Array<any>, column: number, row: number): ShapeAttribute;
 }
@@ -1011,7 +1011,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Shape: ShapeInterface;
 
@@ -1043,6 +1043,6 @@ declare const Shape: ShapeInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const ShapeInstance: ShapeAttribute;

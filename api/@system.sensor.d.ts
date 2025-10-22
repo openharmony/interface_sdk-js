@@ -22,7 +22,7 @@
  * @interface AccelerometerResponse
  * @permission ohos.permission.ACCELEROMETER
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor#AccelerometerResponse
  */
@@ -33,7 +33,7 @@ export interface AccelerometerResponse {
    * @permission ohos.permission.ACCELEROMETER
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   x: number;
@@ -44,7 +44,7 @@ export interface AccelerometerResponse {
     * @permission ohos.permission.ACCELEROMETER
     * @type { number }
     * @syscap SystemCapability.Sensors.Sensor.Lite
-    * @since 3
+    * @since 3 dynamic
     * @deprecated since 8
     */
   y: number;
@@ -55,7 +55,7 @@ export interface AccelerometerResponse {
     * @permission ohos.permission.ACCELEROMETER
     * @type { number }
     * @syscap SystemCapability.Sensors.Sensor.Lite
-    * @since 3
+    * @since 3 dynamic
     * @deprecated since 8
     */
   z: number;
@@ -65,7 +65,7 @@ export interface AccelerometerResponse {
  * @interface subscribeAccelerometerOptions
  * @permission ohos.permission.ACCELEROMETER
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor.SensorId#ACCELEROMETER
  */
@@ -81,7 +81,7 @@ export interface subscribeAccelerometerOptions {
    * @permission ohos.permission.ACCELEROMETER
    * @type { string }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   interval: string;
@@ -92,7 +92,7 @@ export interface subscribeAccelerometerOptions {
    * @permission ohos.permission.ACCELEROMETER
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   success: (data: AccelerometerResponse) => void;
@@ -103,7 +103,7 @@ export interface subscribeAccelerometerOptions {
    * @permission ohos.permission.ACCELEROMETER
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -112,7 +112,7 @@ export interface subscribeAccelerometerOptions {
 /**
  * @interface CompassResponse
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor#MagneticFieldResponse
  */
@@ -122,7 +122,7 @@ export interface CompassResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   direction: number;
@@ -131,7 +131,7 @@ export interface CompassResponse {
 /**
  * @interface SubscribeCompassOptions
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor.SensorId#MAGNETIC_FIELD
  */
@@ -141,7 +141,7 @@ export interface SubscribeCompassOptions {
    * 
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   success: (data: CompassResponse) => void;
@@ -151,7 +151,7 @@ export interface SubscribeCompassOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -160,7 +160,7 @@ export interface SubscribeCompassOptions {
 /**
  * @interface ProximityResponse
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor#ProximityResponse
  */
@@ -170,7 +170,7 @@ export interface ProximityResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   distance: number;
@@ -179,7 +179,7 @@ export interface ProximityResponse {
 /**
  * @interface SubscribeProximityOptions
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor.SensorId#PROXIMITY
  */
@@ -189,7 +189,7 @@ export interface SubscribeProximityOptions {
    *
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   success: (data: ProximityResponse) => void;
@@ -199,7 +199,7 @@ export interface SubscribeProximityOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -208,7 +208,7 @@ export interface SubscribeProximityOptions {
 /**
  * @interface LightResponse
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor#LightResponse
  */
@@ -218,7 +218,7 @@ export interface LightResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   intensity: number;
@@ -227,7 +227,7 @@ export interface LightResponse {
 /**
  * @interface SubscribeLightOptions
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor.SensorId#AMBIENT_LIGHT
  */
@@ -237,7 +237,7 @@ export interface SubscribeLightOptions {
    * 
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   success: (data: LightResponse) => void;
@@ -247,7 +247,7 @@ export interface SubscribeLightOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -257,7 +257,7 @@ export interface SubscribeLightOptions {
  * @interface StepCounterResponse
  * @permission ohos.permission.ACTIVITY_MOTION
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor#PedometerResponse
  */
@@ -269,7 +269,7 @@ export interface StepCounterResponse {
    * @permission ohos.permission.ACTIVITY_MOTION
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   steps: number;
@@ -279,7 +279,7 @@ export interface StepCounterResponse {
  * @interface SubscribeStepCounterOptions
  * @permission ohos.permission.ACTIVITY_MOTION
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/SensorId#PEDOMETER
  */
@@ -290,7 +290,7 @@ export interface SubscribeStepCounterOptions {
    * @permission ohos.permission.ACTIVITY_MOTION
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   success: (data: StepCounterResponse) => void;
@@ -301,7 +301,7 @@ export interface SubscribeStepCounterOptions {
    * @permission ohos.permission.ACTIVITY_MOTION
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -310,7 +310,7 @@ export interface SubscribeStepCounterOptions {
 /**
  * @interface BarometerResponse
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor#BarometerResponse
  */
@@ -320,7 +320,7 @@ export interface BarometerResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   pressure: number;
@@ -329,7 +329,7 @@ export interface BarometerResponse {
 /**
  * @interface SubscribeBarometerOptions
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor.SensorId#BAROMETER
  */
@@ -339,7 +339,7 @@ export interface SubscribeBarometerOptions {
    * 
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   success: (data: BarometerResponse) => void;
@@ -349,7 +349,7 @@ export interface SubscribeBarometerOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -359,7 +359,7 @@ export interface SubscribeBarometerOptions {
  * @interface HeartRateResponse
  * @permission ohos.permission.READ_HEALTH_DATA
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor#HeartRateResponse
  */
@@ -371,7 +371,7 @@ export interface HeartRateResponse {
    * @permission ohos.permission.READ_HEALTH_DATA
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   heartRate: number;
@@ -381,7 +381,7 @@ export interface HeartRateResponse {
  * @interface SubscribeHeartRateOptions
  * @permission ohos.permission.READ_HEALTH_DATA
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor.SensorId#HEART_RATE
  */
@@ -392,7 +392,7 @@ export interface SubscribeHeartRateOptions {
    * @permission ohos.permission.READ_HEALTH_DATA
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   success: (data: HeartRateResponse) => void;
@@ -403,7 +403,7 @@ export interface SubscribeHeartRateOptions {
    * @permission ohos.permission.READ_HEALTH_DATA
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -412,7 +412,7 @@ export interface SubscribeHeartRateOptions {
 /**
  * @interface OnBodyStateResponse
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor#WearDetectionResponse
  */
@@ -422,7 +422,7 @@ export interface OnBodyStateResponse {
    * 
    * @type { boolean }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   value: boolean;
@@ -431,7 +431,7 @@ export interface OnBodyStateResponse {
 /**
  * @interface SubscribeOnBodyStateOptions
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor.SensorId#WEAR_DETECTION
  */
@@ -441,7 +441,7 @@ export interface SubscribeOnBodyStateOptions {
    * 
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   success: (data: OnBodyStateResponse) => void;
@@ -451,7 +451,7 @@ export interface SubscribeOnBodyStateOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -460,7 +460,7 @@ export interface SubscribeOnBodyStateOptions {
 /**
  * @interface GetOnBodyStateOptions
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor.SensorId#WEAR_DETECTION
  */
@@ -470,7 +470,7 @@ export interface GetOnBodyStateOptions {
    * 
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   success: (data: OnBodyStateResponse) => void;
@@ -480,7 +480,7 @@ export interface GetOnBodyStateOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -490,7 +490,7 @@ export interface GetOnBodyStateOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   complete?: () => void;
@@ -499,7 +499,7 @@ export interface GetOnBodyStateOptions {
 /**
  * @interface DeviceOrientationResponse
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 6
+ * @since 6 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor#OrientationResponse
  */
@@ -509,7 +509,7 @@ export interface DeviceOrientationResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 8
    */
   alpha: number;
@@ -519,7 +519,7 @@ export interface DeviceOrientationResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 8
    */
   beta: number;
@@ -529,7 +529,7 @@ export interface DeviceOrientationResponse {
    * 
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 8
    */
   gamma: number;
@@ -538,7 +538,7 @@ export interface DeviceOrientationResponse {
 /**
  * @interface SubscribeDeviceOrientationOptions
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 6
+ * @since 6 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor.SensorId#ORIENTATION
  */
@@ -553,7 +553,7 @@ export interface SubscribeDeviceOrientationOptions {
    * 
    * @type { string }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 8
    */
   interval: string;
@@ -563,7 +563,7 @@ export interface SubscribeDeviceOrientationOptions {
    * 
    * @type { function}
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 8
    */
   success: (data: DeviceOrientationResponse) => void;
@@ -573,7 +573,7 @@ export interface SubscribeDeviceOrientationOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -583,7 +583,7 @@ export interface SubscribeDeviceOrientationOptions {
  * @interface GyroscopeResponse
  * @permission ohos.permission.GYROSCOPE
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 6
+ * @since 6 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor#GyroscopeResponse
  */
@@ -594,7 +594,7 @@ export interface GyroscopeResponse {
    * @permission ohos.permission.GYROSCOPE
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 8
    */
   x: number;
@@ -605,7 +605,7 @@ export interface GyroscopeResponse {
    * @permission ohos.permission.GYROSCOPE
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 8
    */
   y: number;
@@ -616,7 +616,7 @@ export interface GyroscopeResponse {
    * @permission ohos.permission.GYROSCOPE
    * @type { number }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 8
    */
   z: number;
@@ -626,7 +626,7 @@ export interface GyroscopeResponse {
  * @interface SubscribeGyroscopeOptions
  * @permission ohos.permission.GYROSCOPE
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 6
+ * @since 6 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor.SensorId#GYROSCOPE
  */
@@ -642,7 +642,7 @@ export interface SubscribeGyroscopeOptions {
    * @permission ohos.permission.GYROSCOPE
    * @type { string }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 8
    */
   interval: string;
@@ -653,7 +653,7 @@ export interface SubscribeGyroscopeOptions {
    * @permission ohos.permission.GYROSCOPE
    * @type { function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 8
    */
   success: (data: GyroscopeResponse) => void;
@@ -664,7 +664,7 @@ export interface SubscribeGyroscopeOptions {
    * @permission ohos.permission.GYROSCOPE
    * @type { ?function }
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
@@ -672,7 +672,7 @@ export interface SubscribeGyroscopeOptions {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor.Lite
- * @since 6
+ * @since 6 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.sensor/sensor
  */
@@ -684,7 +684,7 @@ export default class Sensor {
    * @permission ohos.permission.ACCELEROMETER
    * @param { subscribeAccelerometerOptions } options - options Options.
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#ACCELEROMETER
    */
@@ -695,7 +695,7 @@ export default class Sensor {
    * 
    * @permission ohos.permission.ACCELEROMETER
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#ACCELEROMETER
    */
@@ -707,7 +707,7 @@ export default class Sensor {
    * 
    * @param { SubscribeCompassOptions } options - Options.
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#MAGNETIC_FIELD
    */
@@ -717,7 +717,7 @@ export default class Sensor {
    * Cancels listening to compass sensor data.
    * 
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#MAGNETIC_FIELD
    */
@@ -729,7 +729,7 @@ export default class Sensor {
    * 
    * @param { SubscribeProximityOptions } options - options Options.
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#PROXIMITY
    */
@@ -739,7 +739,7 @@ export default class Sensor {
    * Cancels listening to distance sensor data.
    * 
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#PROXIMITY
    */
@@ -751,7 +751,7 @@ export default class Sensor {
    * 
    * @param { SubscribeLightOptions } options - options Options.
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#AMBIENT_LIGHT
    */
@@ -761,7 +761,7 @@ export default class Sensor {
    * Cancels listening to ambient light sensor data.
    * 
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#AMBIENT_LIGHT
    */
@@ -774,7 +774,7 @@ export default class Sensor {
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SubscribeStepCounterOptions } options - options Options.
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#PEDOMETER
    */
@@ -785,7 +785,7 @@ export default class Sensor {
    * 
    * @permission ohos.permission.ACTIVITY_MOTION
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#PEDOMETER
    */
@@ -797,7 +797,7 @@ export default class Sensor {
    * 
    * @param { SubscribeBarometerOptions } options - options Options.
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#BAROMETER
    */
@@ -807,7 +807,7 @@ export default class Sensor {
    * Cancels listening to barometer sensor data.
    * 
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#BAROMETER
    */
@@ -820,7 +820,7 @@ export default class Sensor {
    * @permission ohos.permission.READ_HEALTH_DATA
    * @param { SubscribeHeartRateOptions } options - options Options.
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#HEART_RATE
    */
@@ -831,7 +831,7 @@ export default class Sensor {
    * 
    * @permission ohos.permission.READ_HEALTH_DATA
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#HEART_RATE
    */
@@ -843,7 +843,7 @@ export default class Sensor {
    * 
    * @param { SubscribeOnBodyStateOptions } options - options Options.
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#WEAR_DETECTION
    */
@@ -853,7 +853,7 @@ export default class Sensor {
    * Cancels listening to whether the sensor is worn.
    * 
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#WEAR_DETECTION
    */
@@ -864,7 +864,7 @@ export default class Sensor {
    * 
    * @param { GetOnBodyStateOptions } options - options Options.
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#WEAR_DETECTION
    */
@@ -876,7 +876,7 @@ export default class Sensor {
    * 
    * @param { SubscribeDeviceOrientationOptions } options - options Options.
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#ORIENTATION
    */
@@ -886,7 +886,7 @@ export default class Sensor {
    * Cancels listening to device orientation sensor data.
    * 
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#ORIENTATION
    */
@@ -899,7 +899,7 @@ export default class Sensor {
    * @permission ohos.permission.GYROSCOPE
    * @param { SubscribeGyroscopeOptions } options - options Options.
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#GYROSCOPE
    */
@@ -910,7 +910,7 @@ export default class Sensor {
    * 
    * @permission ohos.permission.GYROSCOPE
    * @syscap SystemCapability.Sensors.Sensor.Lite
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.sensor/sensor.SensorId#GYROSCOPE
    */

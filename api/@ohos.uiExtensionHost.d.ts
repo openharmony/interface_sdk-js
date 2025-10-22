@@ -120,7 +120,6 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
      */
     on(type: 'windowSizeChange', callback: Callback<window.Size>): void;
 

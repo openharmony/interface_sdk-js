@@ -18,13 +18,13 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
-import image from '../@ohos.multimedia.image';
+/*** if arkts dynamic */
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
 import contextConstant from '../@ohos.app.ability.contextConstant';
 import type UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 /*** endif */
+import image from '../@ohos.multimedia.image';
 import { AbilityInfo } from '../bundleManager/AbilityInfo';
 import { AbilityResult } from '../ability/abilityResult';
 import { AsyncCallback } from '../@ohos.base';
@@ -41,7 +41,7 @@ import { Caller } from '../@ohos.app.ability.UIAbility';
 import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import type AbilityStartCallback from './AbilityStartCallback';
-/*** if arkts 1.2 */
+/*** if arkts static */
 import UIServiceProxy from './UIServiceProxy';
 import UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 /*** endif */
@@ -70,8 +70,8 @@ import UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallba
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare class UIAbilityContext extends Context {
   /**
@@ -99,8 +99,8 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   abilityInfo: AbilityInfo;
 
@@ -129,8 +129,8 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   currentHapModuleInfo: HapModuleInfo;
 
@@ -159,8 +159,8 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   config: Configuration;
 
@@ -184,8 +184,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic&static
    */
   windowStage: window.WindowStage;
 
@@ -350,8 +349,8 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -562,8 +561,8 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -785,8 +784,8 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -820,8 +819,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   openLink(link: string, options?: OpenLinkOptions, callback?: AsyncCallback<AbilityResult>): Promise<void>;
 
@@ -934,7 +933,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbilityAsCaller(want: Want, callback: AsyncCallback<void>): void;
 
@@ -1044,7 +1043,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbilityAsCaller(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -1160,7 +1159,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbilityAsCaller(want: Want, options?: StartOptions): Promise<void>;
 
@@ -1302,8 +1301,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   startAbilityByCall(want: Want): Promise<Caller>;
 
@@ -1410,7 +1409,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbilityByCallWithAccount(want: Want, accountId: number): Promise<Caller>;
 
@@ -1528,7 +1527,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
 
@@ -1672,7 +1671,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbilityWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -1793,7 +1792,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbilityWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<void>;
 
@@ -2001,8 +2000,8 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
 
@@ -2206,8 +2205,8 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
 
@@ -2421,8 +2420,8 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
 
@@ -2558,7 +2557,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbilityForResultWithAccount(want: Want, accountId: number, callback: AsyncCallback<AbilityResult>): void;
 
@@ -2702,7 +2701,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbilityForResultWithAccount(
     want: Want,
@@ -2847,7 +2846,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbilityForResultWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<AbilityResult>;
 
@@ -2927,8 +2926,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   startServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -3008,8 +3007,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   startServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -3095,7 +3094,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   startServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
 
@@ -3181,7 +3180,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   startServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
 
@@ -3229,7 +3228,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
    */
   stopServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -3275,7 +3274,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
    */
   stopServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -3326,7 +3325,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
    */
   stopServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
 
@@ -3377,7 +3376,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
    */
   stopServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
 
@@ -3421,8 +3420,8 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   terminateSelf(callback: AsyncCallback<void>): void;
 
@@ -3463,8 +3462,8 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   terminateSelf(): Promise<void>;
 
@@ -3509,8 +3508,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
 
@@ -3555,8 +3554,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
 
@@ -3577,7 +3576,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   backToCallerAbilityWithResult(abilityResult: AbilityResult, requestCode: string): Promise<void>;
 
@@ -3621,8 +3620,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
@@ -3674,7 +3673,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
    */
   connectServiceExtensionAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
 
@@ -3688,8 +3687,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>): void;
 
@@ -3703,8 +3702,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   disconnectServiceExtensionAbility(connection: long): Promise<void>;
 
@@ -3731,8 +3730,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   setMissionLabel(label: string, callback: AsyncCallback<void>): void;
 
@@ -3759,8 +3758,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   setMissionLabel(label: string): Promise<void>;
 
@@ -3789,7 +3788,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
    */
   setMissionIcon(icon: image.PixelMap, callback: AsyncCallback<void>): void;
 
@@ -3818,7 +3817,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
    */
   setMissionIcon(icon: image.PixelMap): Promise<void>;
 
@@ -3845,7 +3844,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   setMissionContinueState(state: AbilityConstant.ContinueState, callback: AsyncCallback<void>): void;
 
@@ -3872,7 +3871,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   setMissionContinueState(state: AbilityConstant.ContinueState): Promise<void>;
 
@@ -3897,7 +3896,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   restoreWindowStage(localStorage: LocalStorage): void;
 
@@ -3918,8 +3917,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   isTerminating(): boolean;
 
@@ -4056,7 +4055,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startRecentAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -4191,7 +4190,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startRecentAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -4332,7 +4331,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startRecentAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -4388,8 +4387,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   requestDialogService(want: Want, result: AsyncCallback<dialogRequest.RequestResult>): void;
 
@@ -4446,8 +4445,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   requestDialogService(want: Want): Promise<dialogRequest.RequestResult>;
 
@@ -4482,8 +4481,8 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   reportDrawnCompleted(callback: AsyncCallback<void>): void;
 
@@ -4523,8 +4522,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
     abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>): void;
@@ -4565,7 +4564,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
     abilityStartCallback: AbilityStartCallback): Promise<void>;
@@ -4607,8 +4606,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   requestModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
 
@@ -4649,8 +4648,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   requestModalUIExtension(pickerWant: Want): Promise<void>;
 
@@ -4673,8 +4672,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<AbilityResult>;
 
@@ -4690,8 +4689,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   moveAbilityToBackground(): Promise<void>;
 
@@ -4705,7 +4704,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000067 - The StartOptions check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   showAbility(): Promise<void>;
 
@@ -4719,7 +4718,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000067 - The StartOptions check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   hideAbility(): Promise<void>;
 
@@ -4733,7 +4732,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   setRestoreEnabled(enabled: boolean): void;
 
@@ -4763,8 +4762,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   startUIServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -4793,8 +4792,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnectCallback) : Promise<UIServiceProxy>;
 
@@ -4810,8 +4809,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise<void>;
 
@@ -4831,7 +4830,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 15
+   * @since 15 dynamic
    */
   setAbilityInstanceInfo(label: string, icon: image.PixelMap): Promise<void>;
 
@@ -4847,7 +4846,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000085 - An error occurred during the interaction between the ability and window.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 17
+   * @since 17 dynamic
    */
   revokeDelegator(): Promise<void>;
 
@@ -4859,8 +4858,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 
@@ -4886,7 +4885,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000200 - The caller is not in the appIdentifierAllowList of the target application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   startAppServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -4908,7 +4907,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000200 - The caller is not in the appIdentifierAllowList of the target application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   stopAppServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -4932,7 +4931,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000201 - The target service has not been started yet.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   connectAppServiceExtensionAbility(want: Want, callback: ConnectOptions): number;
 
@@ -4946,7 +4945,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   disconnectAppServiceExtensionAbility(connection: number): Promise<void>;
 
@@ -4960,7 +4959,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   setOnNewWantSkipScenarios(scenarios: number): Promise<void>;
 
@@ -4988,8 +4987,7 @@ declare class UIAbilityContext extends Context {
   * @throws { BusinessError } 16000131 - The UIAbility is already exist, can not start again.
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   * @stagemodelonly
-  * @since 22
-  * @arkts 1.1&1.2
+  * @since 22 dynamic&static
   */
   startSelfUIAbilityInCurrentProcess(want: Want, specifiedFlag: string, options?: StartOptions): Promise<void>;
 
@@ -5012,6 +5010,21 @@ declare class UIAbilityContext extends Context {
    * @since 22 dynamic&static
    */
   restartApp(want: Want): Promise<void>;
+
+  /**
+   * Set the main window icon for the current UIAbility.
+   *
+   * @param { image.PixelMap } windowIcon - The icon of ability main window.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error. 1. Connect to system service failed;
+   *     2.System service failed to communicate with dependency module.
+   * @throws { BusinessError } 16000135 - The main window of this ability not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  setMissionWindowIcon(windowIcon: image.PixelMap): Promise<void>;
 }
 
 export default UIAbilityContext;

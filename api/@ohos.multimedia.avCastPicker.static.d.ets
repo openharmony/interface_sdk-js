@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit AVSessionKit
- * @arkts 1.2
  */
 
 import { PropRef } from './arkui/stateManagement/decorator';
@@ -30,7 +29,7 @@ import { AVCastPickerState, AVCastPickerStyle, AVCastPickerColorMode } from './@
  * A picker view to show availale streaming device list.
  * @struct { AVCastPicker }
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
- * @since 22
+ * @since 22 static
  */
 @Component
 declare struct AVCastPicker {
@@ -40,7 +39,7 @@ declare struct AVCastPicker {
    * @type { ? (Color | int | string) }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @crossplatform
-   * @since 22
+   * @since 22 static
    */
   @PropRef
   normalColor?: Color | int | string;
@@ -50,7 +49,7 @@ declare struct AVCastPicker {
    * @type { ? (Color | int | string) }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @crossplatform
-   * @since 22
+   * @since 22 static
    */
   @PropRef
   activeColor?: Color | int | string;
@@ -59,7 +58,7 @@ declare struct AVCastPicker {
    * Set the picker style.
    * @type { ? AVCastPickerStyle }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
-   * @since 22
+   * @since 22 static
    */
   @PropRef
   pickerStyle?: AVCastPickerStyle;
@@ -68,7 +67,7 @@ declare struct AVCastPicker {
    * Set the picker color mode.
    * @type { ? AVCastPickerColorMode }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
-   * @since 22
+   * @since 22 static
    */
   @PropRef
   colorMode?: AVCastPickerColorMode;
@@ -78,7 +77,7 @@ declare struct AVCastPicker {
    * If not set, default value is 'audio'.
    * @type { ? string }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
-   * @since 22
+   * @since 22 static
    */
   @PropRef
   sessionType?: string;
@@ -88,7 +87,7 @@ declare struct AVCastPicker {
    * If not set, system will show the default appearance for different device type.
    * @type { ? CustomBuilder }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
-   * @since 22
+   * @since 22 static
    */
   @BuilderParam
   customPicker?: CustomBuilder;
@@ -97,14 +96,14 @@ declare struct AVCastPicker {
    * Picker state change callback.
    * @type { ? OnPickerStateCallback }
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
-   * @since 22
+   * @since 22 static
    */
   onStateChange?: OnPickerStateCallback;
 
   /**
    * The method to build component.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
-   * @since 22
+   * @since 22 static
    */
   @Builder
   build(): void;
@@ -117,7 +116,7 @@ declare struct AVCastPicker {
  * @param { AVCastPickerState } state - the picker state.
  * @returns { void }
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
- * @since 22
+ * @since 22 static
  */
 export type OnPickerStateCallback = (state: AVCastPickerState) => void;
 

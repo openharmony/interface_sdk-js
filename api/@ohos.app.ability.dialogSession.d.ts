@@ -29,7 +29,7 @@ import type { MultiAppMode } from './bundleManager/ApplicationInfo';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 11
+ * @since 11 dynamic
  */
 declare namespace dialogSession {
 
@@ -40,7 +40,7 @@ declare namespace dialogSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   export interface DialogAbilityInfo {
 
@@ -51,7 +51,7 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 11 dynamic
      */
     bundleName: string;
 
@@ -62,7 +62,7 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 11 dynamic
      */
     moduleName: string;
 
@@ -73,7 +73,7 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 11 dynamic
      */
     abilityName: string;
 
@@ -84,7 +84,7 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 11 dynamic
      */
     abilityIconId: number;
 
@@ -95,7 +95,7 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 11 dynamic
      */
     abilityLabelId: number;
 
@@ -106,7 +106,7 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 11 dynamic
      */
     bundleIconId: number;
 
@@ -117,7 +117,7 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 11 dynamic
      */
     bundleLabelId: number;
 
@@ -128,7 +128,7 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since 12 dynamic
      */
     visible: boolean;
 
@@ -139,7 +139,7 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since 12 dynamic
      */
     appIndex: number;
 
@@ -150,7 +150,7 @@ declare namespace dialogSession {
       * @syscap SystemCapability.Ability.AbilityRuntime.Core
       * @systemapi
       * @stagemodelonly
-      * @since 12
+      * @since 12 dynamic
       */
     multiAppMode: MultiAppMode;
   }
@@ -162,7 +162,7 @@ declare namespace dialogSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   export interface DialogSessionInfo {
 
@@ -173,7 +173,7 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 11 dynamic
      */
     callerAbilityInfo: DialogAbilityInfo;
 
@@ -184,7 +184,7 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 11 dynamic
      */
     targetAbilityInfos: Array<DialogAbilityInfo>;
 
@@ -195,7 +195,7 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 11 dynamic
      */
     parameters?: Record<string, Object>;
   }
@@ -214,7 +214,7 @@ declare namespace dialogSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   function getDialogSessionInfo(dialogSessionId: string): DialogSessionInfo;
 
@@ -234,7 +234,7 @@ declare namespace dialogSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   function sendDialogResult(dialogSessionId: string, targetWant: Want, isAllowed: boolean): Promise<void>;
 
@@ -254,7 +254,7 @@ declare namespace dialogSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   function sendDialogResult(dialogSessionId: string, targetWant: Want, isAllowed: boolean, callback: AsyncCallback<void>): void;
 }

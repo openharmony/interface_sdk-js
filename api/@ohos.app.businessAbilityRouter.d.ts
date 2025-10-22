@@ -27,7 +27,7 @@ import type * as _BusinessAbilityInfo from './application/BusinessAbilityInfo';
  * @namespace businessAbilityRouter
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 10
+ * @since 10 dynamic
  */
 declare namespace businessAbilityRouter {
   /**
@@ -36,7 +36,7 @@ declare namespace businessAbilityRouter {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   export enum BusinessType {
     /**
@@ -44,7 +44,7 @@ declare namespace businessAbilityRouter {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     SHARE = 0,
 
@@ -53,7 +53,7 @@ declare namespace businessAbilityRouter {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     UNSPECIFIED = 255
   }
@@ -64,7 +64,7 @@ declare namespace businessAbilityRouter {
    * @typedef BusinessAbilityFilter
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   export interface BusinessAbilityFilter {
     /**
@@ -73,7 +73,7 @@ declare namespace businessAbilityRouter {
      * @type { BusinessType }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     businessType: BusinessType;
 
@@ -83,7 +83,7 @@ declare namespace businessAbilityRouter {
      * @type { ?string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     mimeType?: string;
 
@@ -93,7 +93,7 @@ declare namespace businessAbilityRouter {
      * @type { ?string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     uri?: string;
   }
@@ -112,7 +112,7 @@ declare namespace businessAbilityRouter {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function queryBusinessAbilityInfo(
     filter: BusinessAbilityFilter,
@@ -132,7 +132,7 @@ declare namespace businessAbilityRouter {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function queryBusinessAbilityInfo(filter: BusinessAbilityFilter): Promise<Array<BusinessAbilityInfo>>;
 
@@ -142,7 +142,7 @@ declare namespace businessAbilityRouter {
    * @typedef { _BusinessAbilityInfo.BusinessAbilityInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   export type BusinessAbilityInfo = _BusinessAbilityInfo.BusinessAbilityInfo;
 }

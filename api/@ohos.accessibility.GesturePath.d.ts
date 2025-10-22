@@ -24,7 +24,7 @@ import type { GesturePoint } from './@ohos.accessibility.GesturePoint';
  * Indicates the path of the gesture.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9
+ * @since 9 dynamiconly
  */
 export declare class GesturePath {
   /**
@@ -32,7 +32,7 @@ export declare class GesturePath {
    *
    * @param { number } durationTime - Indicates the duration of the gesture.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    */
   constructor(durationTime: number);
@@ -41,7 +41,7 @@ export declare class GesturePath {
    *
    * @type { Array<GesturePoint> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    */
   points: Array<GesturePoint>;
   /**
@@ -49,7 +49,7 @@ export declare class GesturePath {
    *
    * @type { number }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    */
   durationTime: number;
 }

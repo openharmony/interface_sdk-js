@@ -25,7 +25,7 @@ import { AsyncCallback } from './@ohos.base';
  * 
  * @namespace continueManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
- * @since 18
+ * @since 18 dynamic
  */
 declare namespace continueManager {
     /**
@@ -37,7 +37,7 @@ declare namespace continueManager {
      * @param { AsyncCallback<ContinueResultInfo> } callback - Used to handle ('prepareContinue') command.
      * @throws { BusinessError } 16300501 - the system ability work abnormally.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @since 18
+     * @since 18 dynamic
      */
     function on(type: 'prepareContinue', context: Context, callback: AsyncCallback<ContinueResultInfo>): void;
 
@@ -49,7 +49,7 @@ declare namespace continueManager {
      * @param { AsyncCallback<ContinueResultInfo> } callback - Used to handle ('prepareContinue') command.
      * @throws { BusinessError } 16300501 - the system ability work abnormally.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @since 18
+     * @since 18 dynamic
      */
     function off(type: 'prepareContinue', context: Context, callback?: AsyncCallback<ContinueResultInfo>): void;
 
@@ -57,14 +57,14 @@ declare namespace continueManager {
      * Continue result info.
      * @interface ContinueEventInfo
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @since 18
+     * @since 18 dynamic
      */
     interface ContinueResultInfo {
         /**
          * Continue state code.
          * @type { ContinueStateCode }
          * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-         * @since 18
+         * @since 18 dynamic
          */
         resultState: ContinueStateCode;
 
@@ -72,7 +72,7 @@ declare namespace continueManager {
          * Result info.
          * @type { ?string }
          * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-         * @since 18
+         * @since 18 dynamic
          */
         resultInfo?: string;
     }
@@ -81,20 +81,20 @@ declare namespace continueManager {
      * Continue state code.
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @since 18
+     * @since 18 dynamic
      */
     enum ContinueStateCode {
         /**
          * Continue success
          * @syscap SystemCapability.Ability.AbilityRuntime.Mission 
-         * @since 18
+         * @since 18 dynamic
          */
         SUCCESS = 0,
 
         /**
          * System error
          * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-         * @since 18
+         * @since 18 dynamic
          */
         SYSTEM_ERROR,
     }

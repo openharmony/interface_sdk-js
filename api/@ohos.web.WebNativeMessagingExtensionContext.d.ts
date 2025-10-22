@@ -29,7 +29,7 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  * @extends ExtensionContext
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
- * @since 21
+ * @since 21 dynamic
  */
 export default class WebNativeMessagingExtensionContext extends ExtensionContext {
   /**
@@ -63,7 +63,7 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @since 21
+   * @since 21 dynamic
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -77,7 +77,7 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    *     2. The system service failed to communicate with dependency module.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @since 21
+   * @since 21 dynamic
    */
   terminateSelf(): Promise<void>;
 
@@ -92,7 +92,7 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    *     2. The system service failed to communicate with dependency module.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @since 21
+   * @since 21 dynamic
    */
   stopNativeConnection(connectionId: int): Promise<void>;
 }

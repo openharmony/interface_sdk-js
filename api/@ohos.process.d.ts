@@ -43,7 +43,7 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamiconly
  */
 declare namespace process {
   /**
@@ -52,7 +52,7 @@ declare namespace process {
    * @typedef ChildProcess
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamiconly
    * @test
    */
   export interface ChildProcess {
@@ -63,7 +63,7 @@ declare namespace process {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
-     * @since 7
+     * @since 7 dynamiconly
      * @test
      */
     readonly pid: number;
@@ -75,7 +75,7 @@ declare namespace process {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
-     * @since 7
+     * @since 7 dynamiconly
      * @test
      */
     readonly ppid: number;
@@ -87,7 +87,7 @@ declare namespace process {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
-     * @since 7
+     * @since 7 dynamiconly
      * @test
      */
     readonly exitCode: number;
@@ -99,7 +99,7 @@ declare namespace process {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
-     * @since 7
+     * @since 7 dynamiconly
      * @test
      */
     readonly killed: boolean;
@@ -110,7 +110,7 @@ declare namespace process {
      * @returns { Promise<number> } Return the target process exit code.
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
-     * @since 7
+     * @since 7 dynamiconly
      * @test
      */
     wait(): Promise<number>;
@@ -121,7 +121,7 @@ declare namespace process {
      * @returns { Promise<Uint8Array> } Return subprocess standard output.
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
-     * @since 7
+     * @since 7 dynamiconly
      * @test
      */
     getOutput(): Promise<Uint8Array>;
@@ -132,7 +132,7 @@ declare namespace process {
      * @returns { Promise<Uint8Array> } Return subprocess standard error output.
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
-     * @since 7
+     * @since 7 dynamiconly
      * @test
      */
     getErrorOutput(): Promise<Uint8Array>;
@@ -142,7 +142,7 @@ declare namespace process {
      *
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
-     * @since 7
+     * @since 7 dynamiconly
      * @test
      */
     close(): void;
@@ -153,7 +153,7 @@ declare namespace process {
      * @param { number | string } signal - Number or string represents the signal sent.
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
-     * @since 7
+     * @since 7 dynamiconly
      * @test
      */
     kill(signal: number | string): void;
@@ -183,7 +183,7 @@ declare namespace process {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @name ProcessManager
    */
   export class ProcessManager {
@@ -221,7 +221,7 @@ declare namespace process {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      */
     isAppUid(v: number): boolean;
 
@@ -259,7 +259,7 @@ declare namespace process {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      */
     getUidForName(v: string): number;
 
@@ -297,7 +297,7 @@ declare namespace process {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      */
     getThreadPriority(v: number): number;
 
@@ -335,7 +335,7 @@ declare namespace process {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      */
     getSystemConfig(name: number): number;
 
@@ -373,7 +373,7 @@ declare namespace process {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      */
     getEnvironmentVar(name: string): string;
 
@@ -408,7 +408,7 @@ declare namespace process {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      */
     exit(code: number): void;
 
@@ -449,7 +449,7 @@ declare namespace process {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      */
     kill(signal: number, pid: number): boolean;
   }
@@ -459,7 +459,7 @@ declare namespace process {
    *
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamiconly
    * @test
    */
   const egid: number;
@@ -469,7 +469,7 @@ declare namespace process {
    *
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamiconly
    * @test
    */
   const euid: number;
@@ -479,7 +479,7 @@ declare namespace process {
    *
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamiconly
    * @test
    */
   const gid: number;
@@ -503,7 +503,7 @@ declare namespace process {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   const uid: number;
 
@@ -512,7 +512,7 @@ declare namespace process {
    *
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamiconly
    * @test
    */
   const groups: number[];
@@ -536,7 +536,7 @@ declare namespace process {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   const pid: number;
 
@@ -545,7 +545,7 @@ declare namespace process {
    *
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamiconly
    * @test
    */
   const ppid: number;
@@ -569,7 +569,7 @@ declare namespace process {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   const tid: number;
 
@@ -586,7 +586,7 @@ declare namespace process {
    * @returns { boolean } Return boolean whether the process is isolated.
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   function isIsolatedProcess(): boolean;
 
@@ -596,7 +596,7 @@ declare namespace process {
    * @param { number } v - An id.
    * @returns { boolean } Return a boolean whether the specified uid belongs to a particular application.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.process.ProcessManager.isAppUid
    */
@@ -624,7 +624,7 @@ declare namespace process {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   function is64Bit(): boolean;
 
@@ -634,7 +634,7 @@ declare namespace process {
    * @param { string } v - Process name.
    * @returns { number } Return the uid based on the specified user name.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.process.ProcessManager.getUidForName
    */
@@ -646,7 +646,7 @@ declare namespace process {
    * @param { number } v - The tid of the process.
    * @returns { number } Return the thread priority based on the specified tid.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.process.ProcessManager.getThreadPriority
    */
@@ -674,7 +674,7 @@ declare namespace process {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   function getStartRealtime(): number;
 
@@ -700,7 +700,7 @@ declare namespace process {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   function getPastCpuTime(): number;
 
@@ -710,7 +710,7 @@ declare namespace process {
    * @param { number } name - Parameters defined by the system configuration.
    * @returns { number } Return the system configuration at runtime.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.process.ProcessManager.getSystemConfig
    */
@@ -722,7 +722,7 @@ declare namespace process {
    * @param { string } name - Parameters defined by the system environment variables.
    * @returns { string } Return the system value for environment variables.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.process.ProcessManager.getEnvironmentVar
    */
@@ -757,7 +757,7 @@ declare namespace process {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   type EventListener = (evt: Object) => void;
   
@@ -767,7 +767,7 @@ declare namespace process {
    * @typedef ConditionType
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
-   * @since 10
+   * @since 10 dynamiconly
    * @test
    */
   interface ConditionType {
@@ -778,7 +778,7 @@ declare namespace process {
      * @type { ?number }
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
-     * @since 10
+     * @since 10 dynamiconly
      * @test
      */
     timeout?: number;
@@ -789,7 +789,7 @@ declare namespace process {
      * @type { ?(number | string) }
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
-     * @since 10
+     * @since 10 dynamiconly
      * @test
      */
     killSignal?: number | string;
@@ -800,7 +800,7 @@ declare namespace process {
      * @type { ?number }
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
-     * @since 10
+     * @since 10 dynamiconly
      * @test
      */
     maxBuffer?: number;
@@ -815,7 +815,7 @@ declare namespace process {
    * @returns { ChildProcess } Returns a child process object.
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamiconly
    * @test
    */
   function runCmd(
@@ -843,7 +843,7 @@ declare namespace process {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   function abort(): void;
 
@@ -854,7 +854,7 @@ declare namespace process {
    * @param { EventListener } listener - Represents the registered event function
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamiconly
    * @test
    */
   function on(type: string, listener: EventListener): void;
@@ -866,7 +866,7 @@ declare namespace process {
    * @returns { boolean } Return removed result.
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamiconly
    * @test
    */
   function off(type: string): boolean;
@@ -876,7 +876,7 @@ declare namespace process {
    *
    * @param { number } code - Process exit code.
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.process.ProcessManager.exit
    */
@@ -888,7 +888,7 @@ declare namespace process {
    * @returns { string } Return the current work directory.
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamiconly
    * @test
    */
   function cwd(): string;
@@ -899,7 +899,7 @@ declare namespace process {
    * @param { string } dir - The path you want to change.
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamiconly
    * @test
    */
   function chdir(dir: string): void;
@@ -926,7 +926,7 @@ declare namespace process {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   function uptime(): number;
 
@@ -937,7 +937,7 @@ declare namespace process {
    * @param { number } pid - Send signal to target pid.
    * @returns { boolean } Return the result of the signal.
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.process.ProcessManager.kill
    */

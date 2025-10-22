@@ -24,7 +24,7 @@
  * @namespace fileExtensionInfo
  * @syscap SystemCapability.FileManagement.UserFileService
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 declare namespace fileExtensionInfo {
   /**
@@ -34,7 +34,7 @@ declare namespace fileExtensionInfo {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
    */
   enum DeviceType {
     /**
@@ -43,7 +43,7 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9
+     * @since 9 dynamic
      */
     DEVICE_LOCAL_DISK = 1,
 
@@ -53,7 +53,7 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9
+     * @since 9 dynamic
      */
     DEVICE_SHARED_DISK,
 
@@ -63,7 +63,7 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9
+     * @since 9 dynamic
      */
     DEVICE_SHARED_TERMINAL,
 
@@ -73,7 +73,7 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9
+     * @since 9 dynamic
      */
     DEVICE_NETWORK_NEIGHBORHOODS,
 
@@ -83,7 +83,7 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9
+     * @since 9 dynamic
      */
     DEVICE_EXTERNAL_MTP,
 
@@ -93,7 +93,7 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9
+     * @since 9 dynamic
      */
     DEVICE_EXTERNAL_USB,
 
@@ -103,7 +103,7 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9
+     * @since 9 dynamic
      */
     DEVICE_EXTERNAL_CLOUD
   }
@@ -115,7 +115,7 @@ declare namespace fileExtensionInfo {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
    */
   namespace DeviceFlag {
     /**
@@ -125,7 +125,7 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9
+     * @since 9 dynamic
      */
     const SUPPORTS_READ = 0b1;
 
@@ -136,7 +136,7 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9
+     * @since 9 dynamic
      */
     const SUPPORTS_WRITE = 0b10;
   }
@@ -148,7 +148,7 @@ declare namespace fileExtensionInfo {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
    */
   namespace DocumentFlag {
     /**
@@ -158,7 +158,7 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9
+     * @since 9 dynamic
      */
     const REPRESENTS_FILE = 0b1;
 
@@ -169,7 +169,7 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9
+     * @since 9 dynamic
      */
     const REPRESENTS_DIR = 0b10;
 
@@ -180,7 +180,7 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9
+     * @since 9 dynamic
      */
     const SUPPORTS_READ = 0b100;
 
@@ -191,7 +191,7 @@ declare namespace fileExtensionInfo {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 9
+     * @since 9 dynamic
      */
     const SUPPORTS_WRITE = 0b1000;
   }

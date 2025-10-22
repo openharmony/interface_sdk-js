@@ -826,8 +826,7 @@ declare namespace applicationManager {
    *              The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
    function addUserNonStopApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
 
@@ -847,8 +846,7 @@ declare namespace applicationManager {
    *              The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   function removeUserNonStopApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
 
@@ -866,8 +864,7 @@ declare namespace applicationManager {
    *              The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   function getUserNonStopApps(admin: Want): Array<common.ApplicationInstance>;
 
@@ -887,8 +884,7 @@ declare namespace applicationManager {
    *              required to call the API
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
    function addFreezeExemptedApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
 
@@ -908,8 +904,7 @@ declare namespace applicationManager {
    *              The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   function removeFreezeExemptedApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
 
@@ -927,8 +922,7 @@ declare namespace applicationManager {
    *              The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   function getFreezeExemptedApps(admin: Want): Array<common.ApplicationInstance>;
 

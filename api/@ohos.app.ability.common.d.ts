@@ -18,12 +18,13 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import * as _UIAbilityContext from './application/UIAbilityContext';
 import type * as _UIExtensionContext from './application/UIExtensionContext';
 import type * as _AutoFillExtensionContext from './application/AutoFillExtensionContext';
 import * as _AbilityStageContext from './application/AbilityStageContext';
 import * as _ApplicationContext from './application/ApplicationContext';
+import * as _AppServiceExtensionContext from './application/AppServiceExtensionContext';
 import * as _BaseContext from './application/BaseContext';
 import * as _Context from './application/Context';
 import * as _ExtensionContext from './application/ExtensionContext';
@@ -41,7 +42,7 @@ import * as _UIServiceHostProxy from './application/UIServiceHostProxy';
 import * as _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
 import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import _UIAbilityContext from './application/UIAbilityContext';
 import _UIExtensionContext from './application/UIExtensionContext';
 import _AutoFillExtensionContext from './application/AutoFillExtensionContext';
@@ -85,8 +86,8 @@ import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace common {
   /**
@@ -112,7 +113,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   export type UIAbilityContext = _UIAbilityContext.default;
 
@@ -124,8 +125,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type UIAbilityContext = _UIAbilityContext;
 
@@ -152,7 +152,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   export type AbilityStageContext = _AbilityStageContext.default;
 
@@ -164,8 +164,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type AbilityStageContext = _AbilityStageContext;
 
@@ -192,7 +191,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   export type ApplicationContext = _ApplicationContext.default;
 
@@ -204,8 +203,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type ApplicationContext = _ApplicationContext;
 
@@ -232,7 +230,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   export type BaseContext = _BaseContext.default;
   
@@ -243,8 +241,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type BaseContext = _BaseContext;
 
@@ -274,7 +271,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   export type Context = _Context.default;
 
@@ -287,8 +284,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type Context = _Context;
 
@@ -306,7 +302,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   export type ExtensionContext = _ExtensionContext.default;
 
@@ -317,8 +313,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type ExtensionContext = _ExtensionContext;
 
@@ -338,7 +333,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   export type FormExtensionContext = _FormExtensionContext.default;
 
@@ -350,8 +345,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type FormExtensionContext = _FormExtensionContext;
 
@@ -364,7 +358,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
    */
   export type ServiceExtensionContext = _ServiceExtensionContext.default;
 
@@ -376,8 +370,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type ServiceExtensionContext = _ServiceExtensionContext;
 
@@ -404,7 +397,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export type EventHub = _EventHub.default;
 
@@ -421,7 +414,7 @@ declare namespace common {
    * @typedef { _PacMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   export type PacMap = _PacMap;
 
@@ -439,8 +432,8 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export type AbilityResult = _AbilityResult;
 
@@ -450,8 +443,8 @@ declare namespace common {
    * @typedef { _ConnectOptions }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   export type ConnectOptions = _ConnectOptions;
 
@@ -462,7 +455,7 @@ declare namespace common {
    * @typedef { _UIExtensionContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
    */
   export type UIExtensionContext = _UIExtensionContext.default;
 
@@ -473,8 +466,7 @@ declare namespace common {
    * @typedef { _UIExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type UIExtensionContext = _UIExtensionContext;
 
@@ -486,7 +478,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   export type AutoFillExtensionContext = _AutoFillExtensionContext.default;
 
@@ -498,8 +490,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type AutoFillExtensionContext = _AutoFillExtensionContext;
 
@@ -510,8 +501,8 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export type AbilityStartCallback = _AbilityStartCallback;
 
@@ -522,7 +513,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   export type AutoStartupInfo = _AutoStartupInfo;
 
@@ -533,7 +524,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   export type AutoStartupCallback = _AutoStartupCallback;
 
@@ -545,7 +536,7 @@ declare namespace common {
    * @typedef { _VpnExtensionContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   export type VpnExtensionContext = _VpnExtensionContext.default;
 
@@ -556,7 +547,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export type EmbeddableUIAbilityContext = _EmbeddableUIAbilityContext.default;
 
@@ -566,7 +557,7 @@ declare namespace common {
    * @typedef { _PhotoEditorExtensionContext.default }
    * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
     export type PhotoEditorExtensionContext = _PhotoEditorExtensionContext.default;
 
@@ -577,7 +568,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   export type UIServiceExtensionContext = _UIServiceExtensionContext.default;
 
@@ -588,8 +579,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type UIServiceExtensionContext = _UIServiceExtensionContext;
 
@@ -600,7 +590,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   export type UIServiceProxy = _UIServiceProxy.default;
 
@@ -611,8 +601,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type UIServiceProxy = _UIServiceProxy;
 
@@ -623,7 +612,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   export type UIServiceHostProxy = _UIServiceHostProxy.default;
 
@@ -634,8 +623,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type UIServiceHostProxy = _UIServiceHostProxy;
 
@@ -646,7 +634,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   export type UIServiceExtensionConnectCallback = _UIServiceExtensionConnectCallback.default;
 
@@ -657,8 +645,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type UIServiceExtensionConnectCallback = _UIServiceExtensionConnectCallback;
 
@@ -669,7 +656,7 @@ declare namespace common {
    * @typedef { _AppServiceExtensionContext.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   export type AppServiceExtensionContext = _AppServiceExtensionContext.default;
 
@@ -680,8 +667,7 @@ declare namespace common {
    * @typedef { _AppServiceExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type AppServiceExtensionContext = _AppServiceExtensionContext;
 }

@@ -28,7 +28,7 @@ import { FrameNode } from './FrameNode';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export class NodeContent extends Content {
   /**
@@ -37,7 +37,7 @@ export class NodeContent extends Content {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor();
 
@@ -48,7 +48,7 @@ export class NodeContent extends Content {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   addFrameNode(node: FrameNode): void;
 
@@ -59,7 +59,7 @@ export class NodeContent extends Content {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   removeFrameNode(node: FrameNode): void;
 }

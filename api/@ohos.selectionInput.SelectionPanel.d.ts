@@ -23,7 +23,7 @@
  * @typedef PanelInfo
  * @syscap SystemCapability.SelectionInput.Selection
  * @systemapi
- * @since 20
+ * @since 20 dynamic
  */
 
 export interface PanelInfo {
@@ -33,7 +33,7 @@ export interface PanelInfo {
    * @default MENU_PANEL
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   panelType: PanelType;
 
@@ -42,7 +42,7 @@ export interface PanelInfo {
    * @type { number }
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   x: number;
 
@@ -51,7 +51,7 @@ export interface PanelInfo {
    * @type { number }
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   y: number;
 
@@ -60,7 +60,7 @@ export interface PanelInfo {
    * @type { number }
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   width: number;
 
@@ -69,7 +69,7 @@ export interface PanelInfo {
    * @type { number }
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   height: number;
 }
@@ -79,7 +79,7 @@ export interface PanelInfo {
  * @enum { number }
  * @syscap SystemCapability.SelectionInput.Selection
  * @systemapi
- * @since 20
+ * @since 20 dynamic
  */
 
 export enum PanelType {
@@ -87,7 +87,7 @@ export enum PanelType {
    * Menu panel.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   MENU_PANEL = 1,
 
@@ -95,7 +95,7 @@ export enum PanelType {
    * Main panel.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   MAIN_PANEL = 2
 }

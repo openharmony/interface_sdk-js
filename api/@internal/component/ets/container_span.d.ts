@@ -33,7 +33,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 interface ContainerSpanInterface {
   /**
@@ -51,7 +51,7 @@ interface ContainerSpanInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   (): ContainerSpanAttribute;
 }
@@ -69,7 +69,7 @@ interface ContainerSpanInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class ContainerSpanAttribute {
   /**
@@ -89,7 +89,7 @@ declare class ContainerSpanAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   textBackgroundStyle(style: TextBackgroundStyle): ContainerSpanAttribute;
 
@@ -101,7 +101,7 @@ declare class ContainerSpanAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   attributeModifier(modifier: AttributeModifier<ContainerSpanAttribute>): ContainerSpanAttribute;
 }
@@ -119,7 +119,7 @@ declare class ContainerSpanAttribute {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare const ContainerSpan: ContainerSpanInterface;
 
@@ -136,6 +136,6 @@ declare const ContainerSpan: ContainerSpanInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare const ContainerSpanInstance: ContainerSpanAttribute;

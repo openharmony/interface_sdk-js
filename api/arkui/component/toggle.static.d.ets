@@ -27,28 +27,28 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum ToggleType {
     /**
      * Checkbox
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     Checkbox,
     /**
      * Switch
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     Switch,
     /**
      * Button
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     Button
 }
@@ -57,7 +57,7 @@ export declare enum ToggleType {
  *
  * @interface SwitchStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface SwitchStyle {
     /**
@@ -65,7 +65,7 @@ export declare interface SwitchStyle {
      *
      * @type { ?(number | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     pointRadius?: number | Resource;
     /**
@@ -73,7 +73,7 @@ export declare interface SwitchStyle {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     unselectedColor?: ResourceColor;
     /**
@@ -81,7 +81,7 @@ export declare interface SwitchStyle {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     pointColor?: ResourceColor;
     /**
@@ -89,7 +89,7 @@ export declare interface SwitchStyle {
      *
      * @type { ?(number | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     trackBorderRadius?: number | Resource;
 }
@@ -99,7 +99,7 @@ export declare interface SwitchStyle {
  * @extends CommonConfiguration<ToggleConfiguration>
  * @interface ToggleConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfiguration> {
     /**
@@ -107,7 +107,7 @@ export declare interface ToggleConfiguration extends CommonConfiguration<ToggleC
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     isOn: boolean;
     /**
@@ -115,7 +115,7 @@ export declare interface ToggleConfiguration extends CommonConfiguration<ToggleC
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     enabled: boolean;
     /**
@@ -123,7 +123,7 @@ export declare interface ToggleConfiguration extends CommonConfiguration<ToggleC
      *
      * @type { Callback<boolean> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     triggerChange: Callback<boolean>;
 }
@@ -132,7 +132,7 @@ export declare interface ToggleConfiguration extends CommonConfiguration<ToggleC
  *
  * @interface ToggleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ToggleOptions {
     /**
@@ -141,7 +141,7 @@ export declare interface ToggleOptions {
      *
      * @type { ToggleType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     type: ToggleType;
     /**
@@ -149,7 +149,7 @@ export declare interface ToggleOptions {
      *
      * @type { ?(boolean | undefined | Bindable<boolean>) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     isOn?: boolean | undefined | Bindable<boolean>;
 }
@@ -160,7 +160,7 @@ export declare interface ToggleOptions {
  * @extends CommonMethod
  * @interface ToggleAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ToggleAttribute extends CommonMethod {
     /**
@@ -227,7 +227,7 @@ export declare interface ToggleAttribute extends CommonMethod {
  * @param { function } [content_] - container
  * @returns { ToggleAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 @memo
 @ComponentBuilder

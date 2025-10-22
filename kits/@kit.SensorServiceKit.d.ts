@@ -18,7 +18,7 @@
  * @kit SensorServiceKit
  */
 
-/*** if arkts 1.1&1.2 */
+/*** if arkts dynamic&static */
 import sensor from '@ohos.sensor';
 import vibrator from '@ohos.vibrator';
 
@@ -27,7 +27,7 @@ export {
 };
 /*** endif */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import Sensor, {
   AccelerometerResponse, BarometerResponse, CompassResponse, DeviceOrientationResponse,
   GetOnBodyStateOptions, GyroscopeResponse, HeartRateResponse, LightResponse,

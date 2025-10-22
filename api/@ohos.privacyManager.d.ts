@@ -24,8 +24,8 @@ import { Permissions } from './permissions';
 /**
  * @namespace privacyManager
  * @syscap SystemCapability.Security.AccessToken
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 declare namespace privacyManager {
   /**
@@ -70,8 +70,8 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function addPermissionUsedRecord(
     tokenID: int,
@@ -100,8 +100,8 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function addPermissionUsedRecord(
     tokenID: int,
@@ -127,7 +127,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getPermissionUsedRecord(request: PermissionUsedRequest): Promise<PermissionUsedResponse>;
 
@@ -147,7 +147,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getPermissionUsedRecord(
     request: PermissionUsedRequest,
@@ -174,7 +174,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function startUsingPermission(tokenID: number, permissionName: Permissions): Promise<void>;
 
@@ -200,7 +200,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
    */
   function startUsingPermission(
     tokenID: number,
@@ -229,7 +229,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function startUsingPermission(tokenID: number, permissionName: Permissions, callback: AsyncCallback<void>): void;
 
@@ -252,7 +252,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function stopUsingPermission(tokenID: number, permissionName: Permissions): Promise<void>;
 
@@ -276,7 +276,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
    */
   function stopUsingPermission(
     tokenID: number,
@@ -303,7 +303,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function stopUsingPermission(tokenID: number, permissionName: Permissions, callback: AsyncCallback<void>): void;
 
@@ -324,8 +324,8 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function on(
     type: 'activeStateChange',
@@ -349,8 +349,8 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function off(
     type: 'activeStateChange',
@@ -393,7 +393,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100003 - The input permissionName does not exist.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   function getPermissionUsedTypeInfos(tokenId?: int | null, permissionName?: Permissions): Promise<Array<PermissionUsedTypeInfo>>;
 
@@ -410,7 +410,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100009 - Common inner error.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
    */
   function setPermissionUsedRecordToggleStatus(status: boolean): Promise<void>;
 
@@ -424,7 +424,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
    */
   function getPermissionUsedRecordToggleStatus(): Promise<boolean>;
 
@@ -434,8 +434,8 @@ declare namespace privacyManager {
    * @enum { int } PermissionActiveStatus
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   enum PermissionActiveStatus {
     /**
@@ -443,8 +443,8 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     PERM_INACTIVE = 0,
 
@@ -453,8 +453,8 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     PERM_ACTIVE_IN_FOREGROUND = 1,
 
@@ -463,8 +463,8 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     PERM_ACTIVE_IN_BACKGROUND = 2
   }
@@ -475,8 +475,8 @@ declare namespace privacyManager {
    * @interface ActiveChangeResponse
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   interface ActiveChangeResponse {
     /**
@@ -485,8 +485,8 @@ declare namespace privacyManager {
      * @type { ?int }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     callingTokenId?: int;
 
@@ -496,8 +496,8 @@ declare namespace privacyManager {
      * @type { int }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     tokenId: int;
 
@@ -507,8 +507,8 @@ declare namespace privacyManager {
      * @type { Permissions }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     permissionName: Permissions;
 
@@ -518,8 +518,8 @@ declare namespace privacyManager {
      * @type { string }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     deviceId: string;
 
@@ -529,8 +529,8 @@ declare namespace privacyManager {
      * @type { PermissionActiveStatus }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     activeStatus: PermissionActiveStatus;
 
@@ -540,8 +540,8 @@ declare namespace privacyManager {
      * @type { ?PermissionUsedType }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     usedType?: PermissionUsedType;
   }
@@ -552,7 +552,7 @@ declare namespace privacyManager {
    * @enum { number } PermissionUsageFlag
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   enum PermissionUsageFlag {
     /**
@@ -560,7 +560,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     FLAG_PERMISSION_USAGE_SUMMARY = 0,
     /**
@@ -568,7 +568,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     FLAG_PERMISSION_USAGE_DETAIL = 1
   }
@@ -579,7 +579,7 @@ declare namespace privacyManager {
    * @interface PermissionUsedRequest
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   interface PermissionUsedRequest {
     /**
@@ -588,7 +588,7 @@ declare namespace privacyManager {
      * @type { ?number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     tokenId?: number;
 
@@ -599,7 +599,7 @@ declare namespace privacyManager {
      * @default false
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     isRemote?: boolean;
 
@@ -609,7 +609,7 @@ declare namespace privacyManager {
      * @type { ?string }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     deviceId?: string;
 
@@ -619,7 +619,7 @@ declare namespace privacyManager {
      * @type { ?string }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     bundleName?: string;
 
@@ -629,7 +629,7 @@ declare namespace privacyManager {
      * @type { ?Array<Permissions> }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     permissionNames?: Array<Permissions>;
 
@@ -640,7 +640,7 @@ declare namespace privacyManager {
      * @default 0
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     beginTime?: number;
 
@@ -651,7 +651,7 @@ declare namespace privacyManager {
      * @default 0
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     endTime?: number;
 
@@ -661,7 +661,7 @@ declare namespace privacyManager {
      * @type { PermissionUsageFlag }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     flag: PermissionUsageFlag;
   }
@@ -672,7 +672,7 @@ declare namespace privacyManager {
    * @interface PermissionUsedResponse
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   interface PermissionUsedResponse {
     /**
@@ -681,7 +681,7 @@ declare namespace privacyManager {
      * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     beginTime: number;
 
@@ -691,7 +691,7 @@ declare namespace privacyManager {
      * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     endTime: number;
 
@@ -701,7 +701,7 @@ declare namespace privacyManager {
      * @type { Array<BundleUsedRecord> }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     bundleRecords: Array<BundleUsedRecord>;
   }
@@ -712,7 +712,7 @@ declare namespace privacyManager {
    * @interface BundleUsedRecord
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   interface BundleUsedRecord {
     /**
@@ -721,7 +721,7 @@ declare namespace privacyManager {
      * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     tokenId: number;
 
@@ -731,7 +731,7 @@ declare namespace privacyManager {
      * @type { boolean }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     isRemote: boolean;
 
@@ -741,7 +741,7 @@ declare namespace privacyManager {
      * @type { string }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     deviceId: string;
 
@@ -751,7 +751,7 @@ declare namespace privacyManager {
      * @type { string }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     bundleName: string;
 
@@ -761,7 +761,7 @@ declare namespace privacyManager {
      * @type { Array<PermissionUsedRecord> }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     permissionRecords: Array<PermissionUsedRecord>;
   }
@@ -772,7 +772,7 @@ declare namespace privacyManager {
    * @interface PermissionUsedRecord
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   interface PermissionUsedRecord {
     /**
@@ -781,7 +781,7 @@ declare namespace privacyManager {
      * @type { Permissions }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     permissionName: Permissions;
 
@@ -791,7 +791,7 @@ declare namespace privacyManager {
      * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     accessCount: number;
 
@@ -801,7 +801,7 @@ declare namespace privacyManager {
      * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     rejectCount: number;
 
@@ -811,7 +811,7 @@ declare namespace privacyManager {
      * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     lastAccessTime: number;
 
@@ -821,7 +821,7 @@ declare namespace privacyManager {
      * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     lastRejectTime: number;
 
@@ -831,7 +831,7 @@ declare namespace privacyManager {
      * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     lastAccessDuration: number;
 
@@ -841,7 +841,7 @@ declare namespace privacyManager {
      * @type { Array<UsedRecordDetail> }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     accessRecords: Array<UsedRecordDetail>;
 
@@ -851,7 +851,7 @@ declare namespace privacyManager {
      * @type { Array<UsedRecordDetail> }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     rejectRecords: Array<UsedRecordDetail>;
   }
@@ -862,7 +862,7 @@ declare namespace privacyManager {
    * @interface UsedRecordDetail
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   interface UsedRecordDetail {
     /**
@@ -871,7 +871,7 @@ declare namespace privacyManager {
      * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     status: number;
 
@@ -881,7 +881,7 @@ declare namespace privacyManager {
      * @type { ?number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     lockScreenStatus?: number;
 
@@ -891,7 +891,7 @@ declare namespace privacyManager {
      * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     timestamp: number;
 
@@ -901,7 +901,7 @@ declare namespace privacyManager {
      * @type { ?number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     count?: number;
 
@@ -911,7 +911,7 @@ declare namespace privacyManager {
      * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     accessDuration: number;
 
@@ -921,7 +921,7 @@ declare namespace privacyManager {
      * @type { ?PermissionUsedType }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     usedType?: PermissionUsedType;
   }
@@ -932,8 +932,8 @@ declare namespace privacyManager {
    * @enum { int } PermissionUsedType
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   enum PermissionUsedType {
     /**
@@ -941,8 +941,8 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     NORMAL_TYPE = 0,
 
@@ -951,8 +951,8 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     PICKER_TYPE = 1,
 
@@ -961,8 +961,8 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     SECURITY_COMPONENT_TYPE = 2
   }
@@ -973,7 +973,7 @@ declare namespace privacyManager {
    * @interface PermissionUsedTypeInfo
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   interface PermissionUsedTypeInfo {
     /**
@@ -982,7 +982,7 @@ declare namespace privacyManager {
      * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     tokenId: number;
 
@@ -992,7 +992,7 @@ declare namespace privacyManager {
      * @type { Permissions }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     permissionName: Permissions;
 
@@ -1002,7 +1002,7 @@ declare namespace privacyManager {
      * @type { PermissionUsedType }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     usedType: PermissionUsedType;
   }
@@ -1013,8 +1013,8 @@ declare namespace privacyManager {
    * @interface AddPermissionUsedRecordOptions
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   interface AddPermissionUsedRecordOptions {
     /**
@@ -1023,8 +1023,8 @@ declare namespace privacyManager {
      * @type { ?PermissionUsedType }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     usedType?: PermissionUsedType;
   }

@@ -27,7 +27,7 @@ import type { AutoStartupInfo } from './AutoStartupInfo';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @StageModelOnly
- * @since 11
+ * @since 11 dynamic
  */
 export interface AutoStartupCallback {
   /**
@@ -37,7 +37,7 @@ export interface AutoStartupCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
    */
   onAutoStartupOn(info: AutoStartupInfo): void;
 
@@ -48,7 +48,7 @@ export interface AutoStartupCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
    */
   onAutoStartupOff(info: AutoStartupInfo): void;
 }

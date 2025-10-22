@@ -34,8 +34,8 @@ import type baseProfile from './@ohos.bluetooth.baseProfile';
  * @namespace a2dp
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @crossplatform
- * @since arkts {'1.1':'13','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 13 dynamic
+ * @since 20 static
  */
 declare namespace a2dp {
   /**
@@ -43,8 +43,8 @@ declare namespace a2dp {
    *
    * @typedef { baseProfile.BaseProfile } BaseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   type BaseProfile = baseProfile.BaseProfile;
 
@@ -67,8 +67,8 @@ declare namespace a2dp {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 20 static
    */
   function createA2dpSrcProfile(): A2dpSourceProfile;
 
@@ -86,8 +86,8 @@ declare namespace a2dp {
    * @typedef A2dpSourceProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 20 static
    */
   interface A2dpSourceProfile extends BaseProfile {
     /**
@@ -106,7 +106,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     connect(deviceId: string): void;
 
@@ -126,7 +126,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     disconnect(deviceId: string): void;
 
@@ -145,7 +145,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
+     * @since 10 dynamic
      */
     getPlayingState(deviceId: string): PlayingState;
 
@@ -165,7 +165,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     isAbsoluteVolumeSupported(deviceId: string): Promise<boolean>;
 
@@ -185,7 +185,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     isAbsoluteVolumeSupported(deviceId: string, callback: AsyncCallback<boolean>): void;
 
@@ -205,7 +205,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     isAbsoluteVolumeEnabled(deviceId: string): Promise<boolean>;
 
@@ -225,7 +225,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     isAbsoluteVolumeEnabled(deviceId: string, callback: AsyncCallback<boolean>): void;
 
@@ -245,7 +245,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     enableAbsoluteVolume(deviceId: string): Promise<void>;
 
@@ -265,7 +265,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     enableAbsoluteVolume(deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -285,7 +285,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     disableAbsoluteVolume(deviceId: string): Promise<void>;
 
@@ -305,7 +305,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     disableAbsoluteVolume(deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -324,7 +324,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2902008 - Current device is not an active device.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 19
+     * @since 19 dynamic
      */
     getCurrentFullCodecInfo(deviceId: string): CodecInfoList[];
 
@@ -344,7 +344,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     getCurrentCodecInfo(deviceId: string): CodecInfo;
     
@@ -364,7 +364,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     setCurrentCodecInfo(deviceId: string, codecInfo: CodecInfo): void;
 
@@ -385,7 +385,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     disableAutoPlay(deviceId: string, duration: number): Promise<void>;
 
@@ -405,7 +405,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     enableAutoPlay(deviceId: string): Promise<void>;
 
@@ -426,7 +426,7 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     getAutoPlayDisabledDuration(deviceId: string): Promise<number>;
   }
@@ -445,7 +445,7 @@ declare namespace a2dp {
      *
      * @type { CodecType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since 11 dynamic
      */
     codecType: CodecType;
     /**
@@ -453,7 +453,7 @@ declare namespace a2dp {
      *
      * @type { CodecBitsPerSample }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since 11 dynamic
      */
     codecBitsPerSample: CodecBitsPerSample;
     /**
@@ -461,7 +461,7 @@ declare namespace a2dp {
      *
      * @type { CodecChannelMode }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since 11 dynamic
      */
     codecChannelMode: CodecChannelMode;
     /**
@@ -469,7 +469,7 @@ declare namespace a2dp {
      *
      * @type { CodecSampleRate }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since 11 dynamic
      */
     codecSampleRate: CodecSampleRate;
     /**
@@ -515,7 +515,7 @@ declare namespace a2dp {
      *
      * @type { CodecBitsPerSample[] }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 19
+     * @since 19 dynamic
      */
     codecBitsPerSampleArray: CodecBitsPerSample[];
     /**
@@ -561,21 +561,21 @@ declare namespace a2dp {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since 10 dynamic
    */
   enum PlayingState {
     /**
      * Not playing.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
+     * @since 10 dynamic
      */
     STATE_NOT_PLAYING,
     /**
      * Playing.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
+     * @since 10 dynamic
      */
     STATE_PLAYING
   }
@@ -679,35 +679,35 @@ declare namespace a2dp {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 11
+   * @since 11 dynamic
    */
   enum CodecBitsPerSample {
     /**
      * Codec bits per sample none.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since 11 dynamic
      */
     CODEC_BITS_PER_SAMPLE_NONE = 0,
     /**
      * Codec 16 bits per sample.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since 11 dynamic
      */
     CODEC_BITS_PER_SAMPLE_16 = 1,
     /**
      * Codec 24 bits per sample.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since 11 dynamic
      */
     CODEC_BITS_PER_SAMPLE_24 = 2,
     /**
      * Codec 32 bits per sample.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since 11 dynamic
      */
     CODEC_BITS_PER_SAMPLE_32 = 3
   }
@@ -863,14 +863,14 @@ declare namespace a2dp {
      * Codec bit rate 1.5M.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 21
+     * @since 21 dynamic
      */
     CODEC_BIT_RATE_1500000 = 9,
     /**
      * Codec bit rate 2.3M.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 21
+     * @since 21 dynamic
      */
     CODEC_BIT_RATE_2300000 = 10
     }

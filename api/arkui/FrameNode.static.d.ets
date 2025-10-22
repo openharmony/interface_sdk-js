@@ -787,7 +787,6 @@ export declare namespace typeNode {
     createXComponentNodeDefault,
     createXComponentNodeWithOptions,
     createXComponentNodeWithNativeParameters,
-    createImageNode,
     createButtonNode,
     createCheckboxNode,
     createCheckboxGroupNode,
@@ -1237,12 +1236,11 @@ export declare namespace typeNode {
    * Create a FrameNode of Image type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'Image' } nodeType - node type.
    * @returns { Image } - Return Image type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  export function createImageNode(context: UIContext, nodeType: 'Image'): Image;
+  export function createImageNode(context: UIContext): Image;
 
   /**
    * Define the List type of FrameNode.

@@ -26,7 +26,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
 */
 export declare class ContainerSpanModifier extends ContainerSpanAttribute implements AttributeModifier<ContainerSpanAttribute> {
 
@@ -37,7 +37,7 @@ export declare class ContainerSpanModifier extends ContainerSpanAttribute implem
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(containerSpanAttribute: ContainerSpanAttribute): void;
 }

@@ -25,7 +25,7 @@ import userAuth from '@ohos.userIAM.userAuth';
  *
  * @syscap SystemCapability.UserIAM.UserAuth.Core
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 @Component
 export default struct UserAuthIcon {
@@ -35,7 +35,7 @@ export default struct UserAuthIcon {
      * @type { userAuth.AuthParam }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     authParam: userAuth.AuthParam;
 
@@ -45,7 +45,7 @@ export default struct UserAuthIcon {
      * @type { userAuth.WidgetParam }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     widgetParam: userAuth.WidgetParam;
 
@@ -56,7 +56,7 @@ export default struct UserAuthIcon {
      * @default 64
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     iconHeight?: Dimension;
 
@@ -67,7 +67,7 @@ export default struct UserAuthIcon {
      * @default $r('sys.color.ohos_id_color_activated')
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     iconColor?: ResourceColor;
 
@@ -79,7 +79,7 @@ export default struct UserAuthIcon {
      * @param { userAuth.UserAuthResult } result - Authentication result information.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onAuthResult: (result: userAuth.UserAuthResult) => void;
 
@@ -88,7 +88,7 @@ export default struct UserAuthIcon {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onIconClick?: () => void;
 }

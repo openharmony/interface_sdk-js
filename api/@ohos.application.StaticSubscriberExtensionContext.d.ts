@@ -29,8 +29,8 @@ import ExtensionContext from './application/ExtensionContext';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @StageModelOnly
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 20 static
  */
 declare class StaticSubscriberExtensionContext extends ExtensionContext {
   /**
@@ -61,8 +61,8 @@ declare class StaticSubscriberExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -94,8 +94,8 @@ declare class StaticSubscriberExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   startAbility(want: Want): Promise<void>;
 }

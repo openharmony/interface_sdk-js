@@ -35,7 +35,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum CheckBoxShape {
   /**
@@ -53,7 +53,7 @@ declare enum CheckBoxShape {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   CIRCLE = 0,
 
@@ -72,7 +72,7 @@ declare enum CheckBoxShape {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   ROUNDED_SQUARE = 1,
 }
@@ -109,7 +109,7 @@ declare enum CheckBoxShape {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum Color {
   /**
@@ -140,7 +140,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   White,
 
@@ -172,7 +172,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Black,
 
@@ -204,7 +204,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Blue,
 
@@ -236,7 +236,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Brown,
 
@@ -268,7 +268,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Gray,
 
@@ -300,7 +300,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Green,
 
@@ -332,7 +332,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Grey,
 
@@ -364,7 +364,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Orange,
 
@@ -396,7 +396,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Pink,
 
@@ -428,7 +428,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Red,
 
@@ -460,7 +460,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Yellow,
 
@@ -486,7 +486,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Transparent,
 }
@@ -506,7 +506,7 @@ declare enum Color {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ColoringStrategy {
   /**
@@ -522,7 +522,7 @@ declare enum ColoringStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   INVERT = 'invert',
 
@@ -539,7 +539,7 @@ declare enum ColoringStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   AVERAGE = 'average',
 
@@ -556,7 +556,7 @@ declare enum ColoringStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   PRIMARY = 'primary',
 }
@@ -593,7 +593,7 @@ declare enum ColoringStrategy {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ImageFit {
   /**
@@ -624,7 +624,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Contain,
 
@@ -656,7 +656,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Cover,
 
@@ -688,7 +688,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Auto,
 
@@ -720,7 +720,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Fill,
 
@@ -752,7 +752,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   ScaleDown,
 
@@ -784,7 +784,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   None,
     
@@ -795,7 +795,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   TOP_START = 7,
 
@@ -806,7 +806,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   TOP = 8,
 
@@ -817,7 +817,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   TOP_END = 9,
 
@@ -828,7 +828,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   START = 10,
 
@@ -839,7 +839,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   CENTER = 11,
 
@@ -850,7 +850,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   END = 12,
 
@@ -861,7 +861,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   BOTTOM_START = 13,
 
@@ -872,7 +872,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   BOTTOM = 14,
 
@@ -883,7 +883,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   BOTTOM_END = 15,
 
@@ -893,7 +893,7 @@ declare enum ImageFit {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   MATRIX = 16,
 }
@@ -930,7 +930,7 @@ declare enum ImageFit {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum BorderStyle {
   /**
@@ -961,7 +961,7 @@ declare enum BorderStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Dotted,
 
@@ -993,7 +993,7 @@ declare enum BorderStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Dashed,
 
@@ -1025,7 +1025,7 @@ declare enum BorderStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Solid,
 }
@@ -1062,7 +1062,7 @@ declare enum BorderStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum LineJoinStyle {
   /**
@@ -1093,7 +1093,7 @@ declare enum LineJoinStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Miter,
 
@@ -1125,7 +1125,7 @@ declare enum LineJoinStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Round,
 
@@ -1157,7 +1157,7 @@ declare enum LineJoinStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Bevel,
 }
@@ -1184,7 +1184,7 @@ declare enum LineJoinStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum TouchType {
   /**
@@ -1206,7 +1206,7 @@ declare enum TouchType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Down,
 
@@ -1229,7 +1229,7 @@ declare enum TouchType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Up,
 
@@ -1252,7 +1252,7 @@ declare enum TouchType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Move,
 
@@ -1275,7 +1275,7 @@ declare enum TouchType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Cancel,
 
@@ -1285,7 +1285,7 @@ declare enum TouchType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   HOVER_ENTER = 9,
 
@@ -1295,7 +1295,7 @@ declare enum TouchType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   HOVER_MOVE = 10,
 
@@ -1305,7 +1305,7 @@ declare enum TouchType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   HOVER_EXIT = 11,
 
@@ -1315,7 +1315,7 @@ declare enum TouchType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   HOVER_CANCEL = 12,
 }
@@ -1327,7 +1327,7 @@ declare enum TouchType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 15
+ * @since 15 dynamic
  */
 declare enum InteractionHand {
   /**
@@ -1336,7 +1336,7 @@ declare enum InteractionHand {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   NONE = 0,
 
@@ -1346,7 +1346,7 @@ declare enum InteractionHand {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   LEFT = 1,
 
@@ -1356,7 +1356,7 @@ declare enum InteractionHand {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   RIGHT = 2,
 }
@@ -1383,7 +1383,7 @@ declare enum InteractionHand {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum MouseButton {
   /**
@@ -1405,7 +1405,7 @@ declare enum MouseButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Left,
 
@@ -1428,7 +1428,7 @@ declare enum MouseButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Right,
 
@@ -1451,7 +1451,7 @@ declare enum MouseButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Middle,
 
@@ -1474,7 +1474,7 @@ declare enum MouseButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Back,
 
@@ -1497,7 +1497,7 @@ declare enum MouseButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Forward,
 
@@ -1520,7 +1520,7 @@ declare enum MouseButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   None,
 }
@@ -1547,7 +1547,7 @@ declare enum MouseButton {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum MouseAction {
   /**
@@ -1569,7 +1569,7 @@ declare enum MouseAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Press,
 
@@ -1592,7 +1592,7 @@ declare enum MouseAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Release,
 
@@ -1615,7 +1615,7 @@ declare enum MouseAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Move,
 
@@ -1638,7 +1638,7 @@ declare enum MouseAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Hover,
   
@@ -1647,7 +1647,7 @@ declare enum MouseAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   CANCEL = 13
 }
@@ -1676,7 +1676,7 @@ declare enum MouseAction {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum AnimationStatus {
   /**
@@ -1700,7 +1700,7 @@ declare enum AnimationStatus {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Initial,
 
@@ -1725,7 +1725,7 @@ declare enum AnimationStatus {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Running,
 
@@ -1750,7 +1750,7 @@ declare enum AnimationStatus {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Paused,
 
@@ -1775,7 +1775,7 @@ declare enum AnimationStatus {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Stopped,
 }
@@ -1812,7 +1812,7 @@ declare enum AnimationStatus {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum Curve {
   /**
@@ -1843,7 +1843,7 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Linear,
 
@@ -1875,7 +1875,7 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Ease,
 
@@ -1907,7 +1907,7 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   EaseIn,
 
@@ -1939,7 +1939,7 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   EaseOut,
 
@@ -1971,7 +1971,7 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   EaseInOut,
 
@@ -2003,7 +2003,7 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   FastOutSlowIn,
 
@@ -2035,7 +2035,7 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   LinearOutSlowIn,
 
@@ -2067,7 +2067,7 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   FastOutLinearIn,
 
@@ -2099,7 +2099,7 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   ExtremeDeceleration,
 
@@ -2131,7 +2131,7 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Sharp,
 
@@ -2163,7 +2163,7 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Rhythm,
 
@@ -2195,7 +2195,7 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Smooth,
 
@@ -2227,7 +2227,7 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Friction,
 }
@@ -2256,7 +2256,7 @@ declare enum Curve {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum FillMode {
   /**
@@ -2280,7 +2280,7 @@ declare enum FillMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   None,
 
@@ -2305,7 +2305,7 @@ declare enum FillMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Forwards,
 
@@ -2330,7 +2330,7 @@ declare enum FillMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Backwards,
 
@@ -2355,7 +2355,7 @@ declare enum FillMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Both,
 }
@@ -2392,7 +2392,7 @@ declare enum FillMode {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum PlayMode {
   /**
@@ -2423,7 +2423,7 @@ declare enum PlayMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Normal,
 
@@ -2455,7 +2455,7 @@ declare enum PlayMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Reverse,
 
@@ -2487,7 +2487,7 @@ declare enum PlayMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Alternate,
 
@@ -2519,7 +2519,7 @@ declare enum PlayMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   AlternateReverse,
 }
@@ -2546,7 +2546,7 @@ declare enum PlayMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum KeyType {
   /**
@@ -2568,7 +2568,7 @@ declare enum KeyType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Down,
 
@@ -2591,7 +2591,7 @@ declare enum KeyType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Up,
 }
@@ -2618,7 +2618,7 @@ declare enum KeyType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum KeySource {
   /**
@@ -2640,7 +2640,7 @@ declare enum KeySource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Unknown,
 
@@ -2663,7 +2663,7 @@ declare enum KeySource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Keyboard,
 
@@ -2673,7 +2673,7 @@ declare enum KeySource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   JOYSTICK,
 }
@@ -2700,7 +2700,7 @@ declare enum KeySource {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum Edge {
   /**
@@ -2722,7 +2722,7 @@ declare enum Edge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Top,
 
@@ -2730,7 +2730,7 @@ declare enum Edge {
    * Center horizontal and vertical.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   Center,
@@ -2754,7 +2754,7 @@ declare enum Edge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Bottom,
 
@@ -2762,7 +2762,7 @@ declare enum Edge {
    * Cross axis direction text baseline alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   Baseline,
@@ -2786,7 +2786,7 @@ declare enum Edge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Start,
 
@@ -2794,7 +2794,7 @@ declare enum Edge {
    * Middle
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   Middle,
@@ -2818,7 +2818,7 @@ declare enum Edge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   End,
 }
@@ -2845,7 +2845,7 @@ declare enum Edge {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum Week {
   /**
@@ -2867,7 +2867,7 @@ declare enum Week {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Mon,
 
@@ -2890,7 +2890,7 @@ declare enum Week {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Tue,
 
@@ -2913,7 +2913,7 @@ declare enum Week {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Wed,
 
@@ -2936,7 +2936,7 @@ declare enum Week {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Thur,
 
@@ -2959,7 +2959,7 @@ declare enum Week {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Fri,
 
@@ -2982,7 +2982,7 @@ declare enum Week {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Sat,
 
@@ -3005,7 +3005,7 @@ declare enum Week {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Sun,
 }
@@ -3042,7 +3042,7 @@ declare enum Week {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum Direction {
   /**
@@ -3073,7 +3073,7 @@ declare enum Direction {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Ltr,
 
@@ -3105,7 +3105,7 @@ declare enum Direction {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Rtl,
 
@@ -3137,7 +3137,7 @@ declare enum Direction {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Auto,
 }
@@ -3174,7 +3174,7 @@ declare enum Direction {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum BarState {
   /**
@@ -3205,7 +3205,7 @@ declare enum BarState {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Off,
 
@@ -3237,7 +3237,7 @@ declare enum BarState {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Auto,
 
@@ -3269,7 +3269,7 @@ declare enum BarState {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   On,
 }
@@ -3306,7 +3306,7 @@ declare enum BarState {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum EdgeEffect {
   /**
@@ -3337,7 +3337,7 @@ declare enum EdgeEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Spring,
 
@@ -3369,7 +3369,7 @@ declare enum EdgeEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Fade,
 
@@ -3401,7 +3401,7 @@ declare enum EdgeEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   None,
 }
@@ -3438,7 +3438,7 @@ declare enum EdgeEffect {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum Alignment {
   /**
@@ -3469,7 +3469,7 @@ declare enum Alignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   TopStart,
 
@@ -3501,7 +3501,7 @@ declare enum Alignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Top,
 
@@ -3533,7 +3533,7 @@ declare enum Alignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   TopEnd,
 
@@ -3565,7 +3565,7 @@ declare enum Alignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Start,
 
@@ -3597,7 +3597,7 @@ declare enum Alignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Center,
 
@@ -3629,7 +3629,7 @@ declare enum Alignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   End,
 
@@ -3661,7 +3661,7 @@ declare enum Alignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   BottomStart,
 
@@ -3693,7 +3693,7 @@ declare enum Alignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Bottom,
 
@@ -3725,7 +3725,7 @@ declare enum Alignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   BottomEnd,
 }
@@ -3738,7 +3738,7 @@ declare enum Alignment {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare enum LocalizedAlignment {
   /**
@@ -3748,7 +3748,7 @@ declare enum LocalizedAlignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   TOP_START = "top_start",
   /**
@@ -3758,7 +3758,7 @@ declare enum LocalizedAlignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   TOP = "top",
   /**
@@ -3768,7 +3768,7 @@ declare enum LocalizedAlignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   TOP_END = "top_end",
   /**
@@ -3778,7 +3778,7 @@ declare enum LocalizedAlignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   START = "start",
   /**
@@ -3788,7 +3788,7 @@ declare enum LocalizedAlignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   CENTER = "center",
   /**
@@ -3798,7 +3798,7 @@ declare enum LocalizedAlignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   END = "end",
   /**
@@ -3808,7 +3808,7 @@ declare enum LocalizedAlignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   BOTTOM_START = "bottom_start",
   /**
@@ -3818,7 +3818,7 @@ declare enum LocalizedAlignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   BOTTOM = "bottom",
   /**
@@ -3828,7 +3828,7 @@ declare enum LocalizedAlignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   BOTTOM_END = "bottom_end",
 }
@@ -3865,7 +3865,7 @@ declare enum LocalizedAlignment {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum TransitionType {
   /**
@@ -3896,7 +3896,7 @@ declare enum TransitionType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   All,
 
@@ -3928,7 +3928,7 @@ declare enum TransitionType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Insert,
 
@@ -3960,7 +3960,7 @@ declare enum TransitionType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Delete,
 }
@@ -3987,7 +3987,7 @@ declare enum TransitionType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum RelateType {
   /**
@@ -4009,7 +4009,7 @@ declare enum RelateType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   FILL,
 
@@ -4032,7 +4032,7 @@ declare enum RelateType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   FIT,
 }
@@ -4069,7 +4069,7 @@ declare enum RelateType {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum Visibility {
   /**
@@ -4100,7 +4100,7 @@ declare enum Visibility {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Visible,
 
@@ -4132,7 +4132,7 @@ declare enum Visibility {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Hidden,
 
@@ -4164,7 +4164,7 @@ declare enum Visibility {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   None,
 }
@@ -4201,7 +4201,7 @@ declare enum Visibility {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum LineCapStyle {
   /**
@@ -4232,7 +4232,7 @@ declare enum LineCapStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Butt,
 
@@ -4264,7 +4264,7 @@ declare enum LineCapStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Round,
 
@@ -4296,7 +4296,7 @@ declare enum LineCapStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Square,
 }
@@ -4333,7 +4333,7 @@ declare enum LineCapStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum Axis {
   /**
@@ -4364,7 +4364,7 @@ declare enum Axis {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Vertical,
 
@@ -4396,7 +4396,7 @@ declare enum Axis {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Horizontal,
 }
@@ -4433,7 +4433,7 @@ declare enum Axis {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum HorizontalAlign {
   /**
@@ -4464,7 +4464,7 @@ declare enum HorizontalAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Start,
 
@@ -4496,7 +4496,7 @@ declare enum HorizontalAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Center,
 
@@ -4528,7 +4528,7 @@ declare enum HorizontalAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   End,
 }
@@ -4565,7 +4565,7 @@ declare enum HorizontalAlign {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum FlexAlign {
   /**
@@ -4600,7 +4600,7 @@ declare enum FlexAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Start,
 
@@ -4636,7 +4636,7 @@ declare enum FlexAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Center,
 
@@ -4672,7 +4672,7 @@ declare enum FlexAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   End,
 
@@ -4712,7 +4712,7 @@ declare enum FlexAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   SpaceBetween,
 
@@ -4752,7 +4752,7 @@ declare enum FlexAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   SpaceAround,
 
@@ -4792,7 +4792,7 @@ declare enum FlexAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   SpaceEvenly,
 }
@@ -4829,7 +4829,7 @@ declare enum FlexAlign {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ItemAlign {
   /**
@@ -4860,7 +4860,7 @@ declare enum ItemAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Auto,
 
@@ -4892,7 +4892,7 @@ declare enum ItemAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Start,
 
@@ -4924,7 +4924,7 @@ declare enum ItemAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Center,
 
@@ -4956,7 +4956,7 @@ declare enum ItemAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   End,
 
@@ -4988,7 +4988,7 @@ declare enum ItemAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Baseline,
 
@@ -5020,7 +5020,7 @@ declare enum ItemAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Stretch,
 }
@@ -5057,7 +5057,7 @@ declare enum ItemAlign {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum FlexDirection {
   /**
@@ -5088,7 +5088,7 @@ declare enum FlexDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Row,
 
@@ -5120,7 +5120,7 @@ declare enum FlexDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Column,
 
@@ -5152,7 +5152,7 @@ declare enum FlexDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   RowReverse,
 
@@ -5184,7 +5184,7 @@ declare enum FlexDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   ColumnReverse,
 }
@@ -5197,7 +5197,7 @@ declare enum FlexDirection {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum PixelRoundCalcPolicy {
   /**
@@ -5207,7 +5207,7 @@ declare enum PixelRoundCalcPolicy {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   NO_FORCE_ROUND = 0,
   /**
@@ -5217,7 +5217,7 @@ declare enum PixelRoundCalcPolicy {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   FORCE_CEIL = 1,
   /**
@@ -5227,7 +5227,7 @@ declare enum PixelRoundCalcPolicy {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   FORCE_FLOOR = 2,
 }
@@ -5240,7 +5240,7 @@ declare enum PixelRoundCalcPolicy {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare enum PixelRoundMode {
   /**
@@ -5250,7 +5250,7 @@ declare enum PixelRoundMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   PIXEL_ROUND_ON_LAYOUT_FINISH = 0,
   /**
@@ -5260,7 +5260,7 @@ declare enum PixelRoundMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   PIXEL_ROUND_AFTER_MEASURE = 1,
 }
@@ -5297,7 +5297,7 @@ declare enum PixelRoundMode {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum FlexWrap {
   /**
@@ -5328,7 +5328,7 @@ declare enum FlexWrap {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   NoWrap,
 
@@ -5360,7 +5360,7 @@ declare enum FlexWrap {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Wrap,
 
@@ -5392,7 +5392,7 @@ declare enum FlexWrap {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   WrapReverse,
 }
@@ -5429,7 +5429,7 @@ declare enum FlexWrap {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum VerticalAlign {
   /**
@@ -5460,7 +5460,7 @@ declare enum VerticalAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Top,
 
@@ -5492,7 +5492,7 @@ declare enum VerticalAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Center,
 
@@ -5524,7 +5524,7 @@ declare enum VerticalAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Bottom,
 }
@@ -5561,7 +5561,7 @@ declare enum VerticalAlign {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ImageRepeat {
   /**
@@ -5592,7 +5592,7 @@ declare enum ImageRepeat {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   NoRepeat,
 
@@ -5624,7 +5624,7 @@ declare enum ImageRepeat {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   X,
 
@@ -5656,7 +5656,7 @@ declare enum ImageRepeat {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Y,
 
@@ -5688,7 +5688,7 @@ declare enum ImageRepeat {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   XY,
 }
@@ -5725,7 +5725,7 @@ declare enum ImageRepeat {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ImageSize {
   /**
@@ -5756,7 +5756,7 @@ declare enum ImageSize {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Auto,
 
@@ -5788,7 +5788,7 @@ declare enum ImageSize {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Cover,
 
@@ -5820,7 +5820,7 @@ declare enum ImageSize {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Contain,
 
@@ -5830,7 +5830,7 @@ declare enum ImageSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   FILL = 3,
 }
@@ -5867,7 +5867,7 @@ declare enum ImageSize {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum GradientDirection {
   /**
@@ -5898,7 +5898,7 @@ declare enum GradientDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Left,
 
@@ -5930,7 +5930,7 @@ declare enum GradientDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Top,
 
@@ -5962,7 +5962,7 @@ declare enum GradientDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Right,
 
@@ -5994,7 +5994,7 @@ declare enum GradientDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Bottom,
 
@@ -6026,7 +6026,7 @@ declare enum GradientDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   LeftTop,
 
@@ -6058,7 +6058,7 @@ declare enum GradientDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   LeftBottom,
 
@@ -6090,7 +6090,7 @@ declare enum GradientDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   RightTop,
 
@@ -6122,7 +6122,7 @@ declare enum GradientDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   RightBottom,
 
@@ -6154,7 +6154,7 @@ declare enum GradientDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   None,
 }
@@ -6181,7 +6181,7 @@ declare enum GradientDirection {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum SharedTransitionEffectType {
   /**
@@ -6206,7 +6206,7 @@ declare enum SharedTransitionEffectType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Static,
 
@@ -6229,7 +6229,7 @@ declare enum SharedTransitionEffectType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Exchange,
 }
@@ -6266,7 +6266,7 @@ declare enum SharedTransitionEffectType {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum FontStyle {
   /**
@@ -6297,7 +6297,7 @@ declare enum FontStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Normal,
 
@@ -6329,7 +6329,7 @@ declare enum FontStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Italic,
 }
@@ -6366,7 +6366,7 @@ declare enum FontStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum FontWeight {
   /**
@@ -6397,7 +6397,7 @@ declare enum FontWeight {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Lighter,
 
@@ -6429,7 +6429,7 @@ declare enum FontWeight {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Normal,
 
@@ -6461,7 +6461,7 @@ declare enum FontWeight {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Regular,
 
@@ -6493,7 +6493,7 @@ declare enum FontWeight {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Medium,
 
@@ -6525,7 +6525,7 @@ declare enum FontWeight {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Bold,
 
@@ -6557,7 +6557,7 @@ declare enum FontWeight {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Bolder,
 }
@@ -6594,7 +6594,7 @@ declare enum FontWeight {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum TextAlign {
   /**
@@ -6625,7 +6625,7 @@ declare enum TextAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Center,
 
@@ -6657,7 +6657,7 @@ declare enum TextAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Start,
 
@@ -6689,7 +6689,7 @@ declare enum TextAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   End,
 
@@ -6708,7 +6708,7 @@ declare enum TextAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   JUSTIFY,
 }
@@ -6745,7 +6745,7 @@ declare enum TextAlign {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum TextOverflow {
   /**
@@ -6776,7 +6776,7 @@ declare enum TextOverflow {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   None,
 
@@ -6808,7 +6808,7 @@ declare enum TextOverflow {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Clip,
 
@@ -6840,7 +6840,7 @@ declare enum TextOverflow {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Ellipsis,
 
@@ -6857,7 +6857,7 @@ declare enum TextOverflow {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   MARQUEE,
 }
@@ -6894,7 +6894,7 @@ declare enum TextOverflow {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum TextDecorationType {
   /**
@@ -6925,7 +6925,7 @@ declare enum TextDecorationType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   None,
 
@@ -6957,7 +6957,7 @@ declare enum TextDecorationType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Underline,
 
@@ -6989,7 +6989,7 @@ declare enum TextDecorationType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Overline,
 
@@ -7021,7 +7021,7 @@ declare enum TextDecorationType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   LineThrough,
 }
@@ -7058,7 +7058,7 @@ declare enum TextDecorationType {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum TextCase {
   /**
@@ -7089,7 +7089,7 @@ declare enum TextCase {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Normal,
 
@@ -7121,7 +7121,7 @@ declare enum TextCase {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   LowerCase,
 
@@ -7153,7 +7153,7 @@ declare enum TextCase {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   UpperCase,
 }
@@ -7173,7 +7173,7 @@ declare enum TextCase {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum TextHeightAdaptivePolicy {
   /**
@@ -7193,7 +7193,7 @@ declare enum TextHeightAdaptivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   MAX_LINES_FIRST,
 
@@ -7214,7 +7214,7 @@ declare enum TextHeightAdaptivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   MIN_FONT_SIZE_FIRST,
 
@@ -7237,7 +7237,7 @@ declare enum TextHeightAdaptivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   LAYOUT_CONSTRAINT_FIRST,
 }
@@ -7264,7 +7264,7 @@ declare enum TextHeightAdaptivePolicy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ResponseType {
   /**
@@ -7286,7 +7286,7 @@ declare enum ResponseType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   RightClick,
 
@@ -7309,7 +7309,7 @@ declare enum ResponseType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   LongPress,
 }
@@ -7336,7 +7336,7 @@ declare enum ResponseType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum HoverEffect {
   /**
@@ -7358,7 +7358,7 @@ declare enum HoverEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Auto,
 
@@ -7381,7 +7381,7 @@ declare enum HoverEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Scale,
 
@@ -7404,7 +7404,7 @@ declare enum HoverEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Highlight,
 
@@ -7427,7 +7427,7 @@ declare enum HoverEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   None,
 }
@@ -7454,7 +7454,7 @@ declare enum HoverEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum Placement {
   /**
@@ -7476,7 +7476,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Left,
 
@@ -7499,7 +7499,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Right,
 
@@ -7522,7 +7522,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Top,
 
@@ -7545,7 +7545,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Bottom,
 
@@ -7568,7 +7568,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   TopLeft,
 
@@ -7591,7 +7591,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   TopRight,
 
@@ -7614,7 +7614,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   BottomLeft,
 
@@ -7637,7 +7637,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   BottomRight,
 
@@ -7660,7 +7660,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   LeftTop,
 
@@ -7683,7 +7683,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   LeftBottom,
 
@@ -7706,7 +7706,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   RightTop,
 
@@ -7729,7 +7729,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   RightBottom,
 }
@@ -7749,7 +7749,7 @@ declare enum Placement {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum ArrowPointPosition {
   /**
@@ -7765,7 +7765,7 @@ declare enum ArrowPointPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   START = 'Start',
 
@@ -7782,7 +7782,7 @@ declare enum ArrowPointPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   CENTER = 'Center',
 
@@ -7799,7 +7799,7 @@ declare enum ArrowPointPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   END = 'End',
 }
@@ -7829,7 +7829,7 @@ declare enum ArrowPointPosition {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum CopyOptions {
   /**
@@ -7854,7 +7854,7 @@ declare enum CopyOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   None = 0,
 
@@ -7880,7 +7880,7 @@ declare enum CopyOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   InApp = 1,
 
@@ -7906,7 +7906,7 @@ declare enum CopyOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   LocalDevice = 2,
 
@@ -7916,7 +7916,7 @@ declare enum CopyOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   CROSS_DEVICE = 3,
@@ -7944,7 +7944,7 @@ declare enum CopyOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum HitTestMode {
   /**
@@ -7969,7 +7969,7 @@ declare enum HitTestMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Default,
 
@@ -7995,7 +7995,7 @@ declare enum HitTestMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Block,
 
@@ -8021,7 +8021,7 @@ declare enum HitTestMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Transparent,
 
@@ -8047,7 +8047,7 @@ declare enum HitTestMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   None,
 
@@ -8057,7 +8057,7 @@ declare enum HitTestMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   BLOCK_HIERARCHY,
 
@@ -8068,7 +8068,7 @@ declare enum HitTestMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   BLOCK_DESCENDANTS,
 }
@@ -8095,7 +8095,7 @@ declare enum HitTestMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum TitleHeight {
   /**
@@ -8117,7 +8117,7 @@ declare enum TitleHeight {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   MainOnly,
 
@@ -8140,7 +8140,7 @@ declare enum TitleHeight {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   MainWithSub,
 }
@@ -8160,7 +8160,7 @@ declare enum TitleHeight {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ModifierKey {
   /**
@@ -8176,7 +8176,7 @@ declare enum ModifierKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   CTRL,
 
@@ -8193,7 +8193,7 @@ declare enum ModifierKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   SHIFT,
 
@@ -8210,7 +8210,7 @@ declare enum ModifierKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   ALT,
 }
@@ -8230,7 +8230,7 @@ declare enum ModifierKey {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum FunctionKey {
   /**
@@ -8246,7 +8246,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   ESC,
 
@@ -8263,7 +8263,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   F1,
 
@@ -8280,7 +8280,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   F2,
 
@@ -8297,7 +8297,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   F3,
 
@@ -8314,7 +8314,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   F4,
 
@@ -8331,7 +8331,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   F5,
 
@@ -8348,7 +8348,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   F6,
 
@@ -8365,7 +8365,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   F7,
 
@@ -8382,7 +8382,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   F8,
 
@@ -8399,7 +8399,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   F9,
 
@@ -8416,7 +8416,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   F10,
 
@@ -8433,7 +8433,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   F11,
 
@@ -8450,7 +8450,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   F12,
     
@@ -8460,7 +8460,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   TAB,
 
@@ -8470,7 +8470,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   DPAD_UP,
 
@@ -8480,7 +8480,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   DPAD_DOWN,
 
@@ -8490,7 +8490,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   DPAD_LEFT,
 
@@ -8500,7 +8500,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   DPAD_RIGHT,
 }
@@ -8520,7 +8520,7 @@ declare enum FunctionKey {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ImageSpanAlignment {
   /**
@@ -8536,7 +8536,7 @@ declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   BASELINE,
 
@@ -8553,7 +8553,7 @@ declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   BOTTOM,
 
@@ -8570,7 +8570,7 @@ declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   CENTER,
 
@@ -8587,7 +8587,7 @@ declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   TOP,
 
@@ -8597,7 +8597,7 @@ declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   FOLLOW_PARAGRAPH,
 }
@@ -8616,7 +8616,7 @@ declare enum ImageSpanAlignment {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ObscuredReasons {
   /**
@@ -8631,7 +8631,7 @@ declare enum ObscuredReasons {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   PLACEHOLDER = 0,
 }
@@ -8650,7 +8650,7 @@ declare enum ObscuredReasons {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum TextContentStyle {
   /**
@@ -8665,7 +8665,7 @@ declare enum TextContentStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   DEFAULT,
 
@@ -8681,7 +8681,7 @@ declare enum TextContentStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   INLINE
 }
@@ -8701,7 +8701,7 @@ declare enum TextContentStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ClickEffectLevel {
   /**
@@ -8721,7 +8721,7 @@ declare enum ClickEffectLevel {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   LIGHT,
 
@@ -8742,7 +8742,7 @@ declare enum ClickEffectLevel {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   MIDDLE,
 
@@ -8763,7 +8763,7 @@ declare enum ClickEffectLevel {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   HEAVY,
 }
@@ -8790,7 +8790,7 @@ declare enum ClickEffectLevel {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum XComponentType {
   /**
@@ -8812,7 +8812,7 @@ declare enum XComponentType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   SURFACE,
 
@@ -8827,7 +8827,7 @@ declare enum XComponentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   COMPONENT,
@@ -8843,7 +8843,7 @@ declare enum XComponentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   TEXTURE,
 
@@ -8852,7 +8852,7 @@ declare enum XComponentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    * @deprecated since 20
    */
   NODE,
@@ -8872,7 +8872,7 @@ declare enum XComponentType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum NestedScrollMode {
   /**
@@ -8887,7 +8887,7 @@ declare enum NestedScrollMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   SELF_ONLY,
 
@@ -8903,7 +8903,7 @@ declare enum NestedScrollMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   SELF_FIRST,
 
@@ -8919,7 +8919,7 @@ declare enum NestedScrollMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   PARENT_FIRST,
 
@@ -8935,7 +8935,7 @@ declare enum NestedScrollMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   PARALLEL,
 }
@@ -8946,7 +8946,7 @@ declare enum NestedScrollMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum ScrollSource {
   /**
@@ -8954,7 +8954,7 @@ declare enum ScrollSource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   DRAG = 0,
 
@@ -8963,7 +8963,7 @@ declare enum ScrollSource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   FLING,
 
@@ -8972,7 +8972,7 @@ declare enum ScrollSource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   EDGE_EFFECT,
 
@@ -8981,7 +8981,7 @@ declare enum ScrollSource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   OTHER_USER_INPUT,
 
@@ -8990,7 +8990,7 @@ declare enum ScrollSource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   SCROLL_BAR,
 
@@ -8999,7 +8999,7 @@ declare enum ScrollSource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   SCROLL_BAR_FLING,
 
@@ -9008,7 +9008,7 @@ declare enum ScrollSource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   SCROLLER,
 
@@ -9017,7 +9017,7 @@ declare enum ScrollSource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   SCROLLER_ANIMATION,
 }
@@ -9047,7 +9047,7 @@ declare enum ScrollSource {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare enum RenderFit {
   /**
@@ -9072,7 +9072,7 @@ declare enum RenderFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   CENTER = 0,
   /**
@@ -9097,7 +9097,7 @@ declare enum RenderFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   TOP = 1,
   /**
@@ -9122,7 +9122,7 @@ declare enum RenderFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   BOTTOM = 2,
   /**
@@ -9147,7 +9147,7 @@ declare enum RenderFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   LEFT = 3,
   /**
@@ -9172,7 +9172,7 @@ declare enum RenderFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   RIGHT = 4,
   /**
@@ -9197,7 +9197,7 @@ declare enum RenderFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   TOP_LEFT = 5,
   /**
@@ -9222,7 +9222,7 @@ declare enum RenderFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   TOP_RIGHT = 6,
   /**
@@ -9247,7 +9247,7 @@ declare enum RenderFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   BOTTOM_LEFT = 7,
   /**
@@ -9272,7 +9272,7 @@ declare enum RenderFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   BOTTOM_RIGHT = 8,
   /**
@@ -9297,7 +9297,7 @@ declare enum RenderFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   RESIZE_FILL = 9,
   /**
@@ -9328,7 +9328,7 @@ declare enum RenderFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   RESIZE_CONTAIN = 10,
   /**
@@ -9365,7 +9365,7 @@ declare enum RenderFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   RESIZE_CONTAIN_TOP_LEFT = 11,
   /**
@@ -9402,7 +9402,7 @@ declare enum RenderFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   RESIZE_CONTAIN_BOTTOM_RIGHT = 12,
   /**
@@ -9433,7 +9433,7 @@ declare enum RenderFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   RESIZE_COVER = 13,
   /**
@@ -9470,7 +9470,7 @@ declare enum RenderFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   RESIZE_COVER_TOP_LEFT = 14,
   /**
@@ -9507,7 +9507,7 @@ declare enum RenderFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   RESIZE_COVER_BOTTOM_RIGHT = 15,
 }
@@ -9525,7 +9525,7 @@ declare enum RenderFit {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum DialogButtonStyle {
   /**
@@ -9539,7 +9539,7 @@ declare enum DialogButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   DEFAULT = 0,
 
@@ -9554,7 +9554,7 @@ declare enum DialogButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   HIGHLIGHT = 1
 }
@@ -9566,7 +9566,7 @@ declare enum DialogButtonStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum WordBreak {
   /**
@@ -9575,7 +9575,7 @@ declare enum WordBreak {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   NORMAL = 0,
 
@@ -9585,7 +9585,7 @@ declare enum WordBreak {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   BREAK_ALL = 1,
 
@@ -9596,7 +9596,7 @@ declare enum WordBreak {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   BREAK_WORD = 2,
 
@@ -9606,7 +9606,7 @@ declare enum WordBreak {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   HYPHENATION = 3,
 }
@@ -9618,7 +9618,7 @@ declare enum WordBreak {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum LineBreakStrategy  {
   /**
@@ -9628,7 +9628,7 @@ declare enum LineBreakStrategy  {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   GREEDY = 0,
 
@@ -9639,7 +9639,7 @@ declare enum LineBreakStrategy  {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   HIGH_QUALITY  = 1,
 
@@ -9650,7 +9650,7 @@ declare enum LineBreakStrategy  {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   BALANCED  = 2,
 }
@@ -9661,7 +9661,7 @@ declare enum LineBreakStrategy  {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 11
+ * @since 11 dynamic
  */
 declare enum IlluminatedType {
   /**
@@ -9669,7 +9669,7 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   NONE = 0,
   /**
@@ -9677,7 +9677,7 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   BORDER = 1,
   /**
@@ -9685,7 +9685,7 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   CONTENT = 2,
   /**
@@ -9693,7 +9693,7 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   BORDER_CONTENT = 3,
   /**
@@ -9701,7 +9701,7 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   BLOOM_BORDER = 4,
   /**
@@ -9709,7 +9709,7 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   BLOOM_BORDER_CONTENT = 5
 }
@@ -9729,7 +9729,7 @@ declare enum IlluminatedType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum EllipsisMode {
   /**
@@ -9745,7 +9745,7 @@ declare enum EllipsisMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   START = 0,
 
@@ -9762,7 +9762,7 @@ declare enum EllipsisMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   CENTER = 1,
 
@@ -9779,7 +9779,7 @@ declare enum EllipsisMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   END = 2,
 }
@@ -9799,7 +9799,7 @@ declare enum EllipsisMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare type Nullable<T> = T | undefined;
 
@@ -9819,7 +9819,7 @@ declare type Nullable<T> = T | undefined;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum OptionWidthMode {
   /**
@@ -9835,7 +9835,7 @@ declare enum OptionWidthMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   FIT_CONTENT = 'fit_content',
 
@@ -9852,7 +9852,7 @@ declare enum OptionWidthMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   FIT_TRIGGER = 'fit_trigger',
 }
@@ -9872,7 +9872,7 @@ declare enum OptionWidthMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum FoldStatus {
   /**
@@ -9888,7 +9888,7 @@ declare enum FoldStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   FOLD_STATUS_UNKNOWN = 0,
   /**
@@ -9904,7 +9904,7 @@ declare enum FoldStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   FOLD_STATUS_EXPANDED = 1,
   /**
@@ -9920,7 +9920,7 @@ declare enum FoldStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   FOLD_STATUS_FOLDED = 2,
   /**
@@ -9936,7 +9936,7 @@ declare enum FoldStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   FOLD_STATUS_HALF_FOLDED = 3,
 }
@@ -9947,7 +9947,7 @@ declare enum FoldStatus {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum AppRotation {
 
@@ -9956,7 +9956,7 @@ declare enum AppRotation {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   ROTATION_0 = 0,
 
@@ -9965,7 +9965,7 @@ declare enum AppRotation {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   ROTATION_90 = 1,
 
@@ -9974,7 +9974,7 @@ declare enum AppRotation {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   ROTATION_180 = 2,
 
@@ -9983,7 +9983,7 @@ declare enum AppRotation {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   ROTATION_270 = 3
 }
@@ -9994,7 +9994,7 @@ declare enum AppRotation {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum EmbeddedType {
   /**
@@ -10002,7 +10002,7 @@ declare enum EmbeddedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   EMBEDDED_UI_EXTENSION = 0,
 }
@@ -10014,7 +10014,7 @@ declare enum EmbeddedType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum MarqueeUpdateStrategy  {
   /**
@@ -10023,7 +10023,7 @@ declare enum MarqueeUpdateStrategy  {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   DEFAULT = 0,
 
@@ -10033,7 +10033,7 @@ declare enum MarqueeUpdateStrategy  {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   PRESERVE_POSITION = 1
 }
@@ -10045,7 +10045,7 @@ declare enum MarqueeUpdateStrategy  {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum TextDecorationStyle {
   /**
@@ -10054,7 +10054,7 @@ declare enum TextDecorationStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   SOLID = 0,
 
@@ -10064,7 +10064,7 @@ declare enum TextDecorationStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   DOUBLE = 1,
 
@@ -10074,7 +10074,7 @@ declare enum TextDecorationStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   DOTTED = 2,
 
@@ -10084,7 +10084,7 @@ declare enum TextDecorationStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   DASHED = 3,
 
@@ -10094,7 +10094,7 @@ declare enum TextDecorationStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   WAVY = 4,
 }
@@ -10106,7 +10106,7 @@ declare enum TextDecorationStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum TextSelectableMode {
   /**
@@ -10115,7 +10115,7 @@ declare enum TextSelectableMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   SELECTABLE_UNFOCUSABLE = 0,
 
@@ -10125,7 +10125,7 @@ declare enum TextSelectableMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   SELECTABLE_FOCUSABLE = 1,
 
@@ -10135,7 +10135,7 @@ declare enum TextSelectableMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   UNSELECTABLE = 2,
 }
@@ -10147,7 +10147,7 @@ declare enum TextSelectableMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum AccessibilityHoverType {
   /**
@@ -10156,7 +10156,7 @@ declare enum AccessibilityHoverType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   HOVER_ENTER = 0,
 
@@ -10166,7 +10166,7 @@ declare enum AccessibilityHoverType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   HOVER_MOVE = 1,
 
@@ -10176,7 +10176,7 @@ declare enum AccessibilityHoverType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   HOVER_EXIT = 2,
 
@@ -10186,7 +10186,7 @@ declare enum AccessibilityHoverType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   HOVER_CANCEL = 3,
 }
@@ -10197,7 +10197,7 @@ declare enum AccessibilityHoverType {
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 13
+ * @since 13 dynamic
  */
 declare enum WidthBreakpoint {
   /**
@@ -10205,7 +10205,7 @@ declare enum WidthBreakpoint {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   WIDTH_XS = 0,
 
@@ -10214,7 +10214,7 @@ declare enum WidthBreakpoint {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   WIDTH_SM = 1,
 
@@ -10223,7 +10223,7 @@ declare enum WidthBreakpoint {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   WIDTH_MD = 2,
 
@@ -10232,7 +10232,7 @@ declare enum WidthBreakpoint {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   WIDTH_LG = 3,
 
@@ -10241,7 +10241,7 @@ declare enum WidthBreakpoint {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   WIDTH_XL = 4,
 }
@@ -10252,7 +10252,7 @@ declare enum WidthBreakpoint {
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 13
+ * @since 13 dynamic
  */
 declare enum HeightBreakpoint {
   /**
@@ -10260,7 +10260,7 @@ declare enum HeightBreakpoint {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   HEIGHT_SM = 0,
 
@@ -10269,7 +10269,7 @@ declare enum HeightBreakpoint {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   HEIGHT_MD = 1,
 
@@ -10278,7 +10278,7 @@ declare enum HeightBreakpoint {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   HEIGHT_LG = 2,
 }
@@ -10289,7 +10289,7 @@ declare enum HeightBreakpoint {
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 15
+ * @since 15 dynamic
  */
 declare enum AxisModel {
   /**
@@ -10297,7 +10297,7 @@ declare enum AxisModel {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   ABS_X = 0,
 
@@ -10306,7 +10306,7 @@ declare enum AxisModel {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   ABS_Y = 1,
 
@@ -10315,7 +10315,7 @@ declare enum AxisModel {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   ABS_Z = 2,
 
@@ -10324,7 +10324,7 @@ declare enum AxisModel {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   ABS_RZ = 3,
 
@@ -10333,7 +10333,7 @@ declare enum AxisModel {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   ABS_GAS = 4,
 
@@ -10342,7 +10342,7 @@ declare enum AxisModel {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   ABS_BRAKE = 5,
 
@@ -10351,7 +10351,7 @@ declare enum AxisModel {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   ABS_HAT0X = 6,
 
@@ -10360,7 +10360,7 @@ declare enum AxisModel {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   ABS_HAT0Y = 7,
 }
@@ -10372,7 +10372,7 @@ declare enum AxisModel {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare enum FocusWrapMode {
   /**
@@ -10381,7 +10381,7 @@ declare enum FocusWrapMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   DEFAULT = 0,
 
@@ -10391,7 +10391,7 @@ declare enum FocusWrapMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   WRAP_WITH_ARROW = 1,
 }
@@ -10403,7 +10403,7 @@ declare enum FocusWrapMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
  */
 declare enum PresetFillType {
   /**
@@ -10414,7 +10414,7 @@ declare enum PresetFillType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   BREAKPOINT_DEFAULT = 0,
   /**
@@ -10423,7 +10423,7 @@ declare enum PresetFillType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   BREAKPOINT_SM1MD2LG3 = 1,
   /**
@@ -10432,7 +10432,7 @@ declare enum PresetFillType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   BREAKPOINT_SM2MD3LG5 = 2,
 }
@@ -10443,7 +10443,7 @@ declare enum PresetFillType {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare enum CrownAction {
   /**
@@ -10451,7 +10451,7 @@ declare enum CrownAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   BEGIN = 0,
 
@@ -10460,7 +10460,7 @@ declare enum CrownAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   UPDATE = 1,
 
@@ -10469,7 +10469,7 @@ declare enum CrownAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   END = 2
 }
@@ -10480,7 +10480,7 @@ declare enum CrownAction {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare enum CrownSensitivity {
   /**
@@ -10488,7 +10488,7 @@ declare enum CrownSensitivity {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   LOW = 0,
 
@@ -10497,7 +10497,7 @@ declare enum CrownSensitivity {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   MEDIUM = 1,
 
@@ -10506,7 +10506,7 @@ declare enum CrownSensitivity {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   HIGH = 2
 }
@@ -10519,7 +10519,7 @@ declare enum CrownSensitivity {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 15
+ * @since 15 dynamic
  */
 declare enum PageFlipMode {
   /**
@@ -10529,7 +10529,7 @@ declare enum PageFlipMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   CONTINUOUS = 0,
 
@@ -10540,7 +10540,7 @@ declare enum PageFlipMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   SINGLE = 1,
 }
@@ -10551,7 +10551,7 @@ declare enum PageFlipMode {
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 17
+ * @since 17 dynamic
  */
 declare enum AxisAction {
   /**
@@ -10559,7 +10559,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 17
+   * @since 17 dynamic
    */
   NONE = 0,
 
@@ -10568,7 +10568,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 17
+   * @since 17 dynamic
    */
   BEGIN = 1,
 
@@ -10577,7 +10577,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 17
+   * @since 17 dynamic
    */
   UPDATE = 2,
 
@@ -10586,7 +10586,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 17
+   * @since 17 dynamic
    */
   END = 3,
 
@@ -10595,7 +10595,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 17
+   * @since 17 dynamic
    */
   CANCEL = 4,
 }
@@ -10608,7 +10608,7 @@ declare enum AxisAction {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 19
+ * @since 19 dynamic
  */
  declare enum FocusDrawLevel {
   /**
@@ -10618,7 +10618,7 @@ declare enum AxisAction {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   SELF = 0,
 
@@ -10629,7 +10629,7 @@ declare enum AxisAction {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   TOP = 1,
 }
@@ -10641,7 +10641,7 @@ declare enum AxisAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 19
+ * @since 19 dynamic
  */
 declare enum DividerMode {
   /**
@@ -10650,7 +10650,7 @@ declare enum DividerMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   FLOATING_ABOVE_MENU = 0,
 
@@ -10660,7 +10660,7 @@ declare enum DividerMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   EMBEDDED_IN_MENU = 1,
 }
@@ -10672,7 +10672,7 @@ declare enum DividerMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 19
+ * @since 19 dynamic
  */
 declare enum EventQueryType {
   /**
@@ -10681,7 +10681,7 @@ declare enum EventQueryType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   ON_CLICK = 0,
 }
@@ -10693,7 +10693,7 @@ declare enum EventQueryType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare enum TipsAnchorType {
   /**
@@ -10702,7 +10702,7 @@ declare enum TipsAnchorType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   TARGET,
 
@@ -10712,7 +10712,7 @@ declare enum TipsAnchorType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   CURSOR
 }
@@ -10724,7 +10724,7 @@ declare enum TipsAnchorType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare enum ColorSpace {
   /**
@@ -10733,7 +10733,7 @@ declare enum ColorSpace {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   SRGB = 0,
   /**
@@ -10742,7 +10742,7 @@ declare enum ColorSpace {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   DISPLAY_P3 = 1,
 }
@@ -10754,7 +10754,7 @@ declare enum ColorSpace {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare enum AnimationPropertyType {
   /**
@@ -10763,7 +10763,7 @@ declare enum AnimationPropertyType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   ROTATION = 0,
 
@@ -10773,7 +10773,7 @@ declare enum AnimationPropertyType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   TRANSLATION = 1,
 
@@ -10783,7 +10783,7 @@ declare enum AnimationPropertyType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   SCALE = 2,
 
@@ -10793,7 +10793,7 @@ declare enum AnimationPropertyType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   OPACITY = 3,
 }
@@ -10804,7 +10804,7 @@ declare enum AnimationPropertyType {
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
  */
 declare enum AxisType {
   /**
@@ -10813,7 +10813,7 @@ declare enum AxisType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   VERTICAL_AXIS = 0,
 
@@ -10823,7 +10823,7 @@ declare enum AxisType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   HORIZONTAL_AXIS = 1,
 
@@ -10832,7 +10832,7 @@ declare enum AxisType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   PINCH_AXIS = 2,
 }

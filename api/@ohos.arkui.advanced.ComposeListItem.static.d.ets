@@ -28,63 +28,63 @@ import { Builder } from '@ohos.arkui.component';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum IconType {
   /**
    * Badge type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   BADGE = 1,
   /**
    * Normal icon type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   NORMAL_ICON = 2,
   /**
    * System icon type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   SYSTEM_ICON = 3,
   /**
    * HeadSculpture type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   HEAD_SCULPTURE = 4,
   /**
    * App icon type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   APP_ICON = 5,
   /**
    * Preview type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   PREVIEW = 6,
   /**
    * Longitudinal type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   LONGITUDINAL = 7,
   /**
    * Vertical type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   VERTICAL = 8
 }
@@ -92,7 +92,7 @@ export declare enum IconType {
  * Declare type OperateIcon
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class OperateIcon {
   /**

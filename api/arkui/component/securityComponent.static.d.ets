@@ -143,7 +143,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20
+   * @since 20 static
    */
   fontWeight(value: int | FontWeight | string | Resource | undefined): this;
   /**
@@ -367,7 +367,7 @@ export declare interface SecurityComponentMethod {
    * @returns { SecurityComponentMethod } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20
+   * @since 20 static
    */
   maxLines(line: int | Resource | undefined): this;
   /**

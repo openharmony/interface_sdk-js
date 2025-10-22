@@ -15,7 +15,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
@@ -25,7 +24,7 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  *
  * @interface EllipseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface EllipseOptions {
     /**
@@ -33,7 +32,7 @@ export interface EllipseOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     width?: string | double;
     /**
@@ -41,7 +40,7 @@ export interface EllipseOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     height?: string | double;
 }
@@ -51,7 +50,7 @@ export interface EllipseOptions {
  * @extends CommonShapeMethod
  * @interface EllipseAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface EllipseAttribute extends CommonShapeMethod {
     /**
@@ -60,7 +59,7 @@ export declare interface EllipseAttribute extends CommonShapeMethod {
      * @param { AttributeModifier<EllipseAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { EllipseAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<EllipseAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -72,7 +71,7 @@ export declare interface EllipseAttribute extends CommonShapeMethod {
  * @param { function } [content_]
  * @returns { EllipseAttribute } The attribute of the Ellipse.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 @memo
 @ComponentBuilder

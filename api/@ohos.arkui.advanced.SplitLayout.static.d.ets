@@ -26,7 +26,7 @@ import { BuilderParam, Builder } from '@ohos.arkui.component';
  * Declare SplitLayout.The SplitLayout is used for upper and lower graphic layouts.
  * @struct { SplitLayout }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 @Component
 export declare struct SplitLayout {
@@ -35,7 +35,7 @@ export declare struct SplitLayout {
      *
      * @type { function }.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     @BuilderParam
     container: () => void;
@@ -44,7 +44,7 @@ export declare struct SplitLayout {
      *
      * @type { ResourceStr }.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     @State
     mainImage: ResourceStr;
@@ -53,7 +53,7 @@ export declare struct SplitLayout {
      *
      * @type { ResourceStr }.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     @PropRef
     primaryText: ResourceStr;
@@ -62,7 +62,7 @@ export declare struct SplitLayout {
      *
      * @type { ?ResourceStr }.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     @PropRef
     secondaryText?: ResourceStr;
@@ -71,7 +71,7 @@ export declare struct SplitLayout {
      *
      * @type { ?ResourceStr }.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     @PropRef
     tertiaryText?: ResourceStr;
@@ -79,7 +79,7 @@ export declare struct SplitLayout {
      * The method to build component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     @Builder
     build(): void;

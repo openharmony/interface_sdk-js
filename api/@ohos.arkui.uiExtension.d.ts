@@ -147,7 +147,6 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
 

@@ -18,6 +18,7 @@
  * @kit AbilityKit
  */
 
+/*** if arkts dynamic */
 import { DataAbilityHelper as _DataAbilityHelper } from './ability/dataAbilityHelper';
 import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 import { DataAbilityOperation as _DataAbilityOperation } from './ability/dataAbilityOperation';
@@ -25,6 +26,10 @@ import { DataAbilityResult as _DataAbilityResult } from './ability/dataAbilityRe
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
 import { StartAbilityParameter as _StartAbilityParameter } from './ability/startAbilityParameter';
+/*** endif */
+/*** if arkts static */
+import { PacMap as _PacMap } from './ability/dataAbilityHelper';
+/*** endif */
 
 /**
  * The class of an ability.
@@ -39,8 +44,8 @@ import { StartAbilityParameter as _StartAbilityParameter } from './ability/start
  *
  * @namespace ability
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace ability {
   /**
@@ -49,7 +54,7 @@ declare namespace ability {
    * @typedef { _DataAbilityHelper }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   export type DataAbilityHelper = _DataAbilityHelper;
 
@@ -66,8 +71,8 @@ declare namespace ability {
    *
    * @typedef { _PacMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export type PacMap = _PacMap;
 
@@ -78,7 +83,7 @@ declare namespace ability {
    * @typedef { _DataAbilityOperation }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   export type DataAbilityOperation = _DataAbilityOperation;
 
@@ -90,7 +95,7 @@ declare namespace ability {
    * @typedef { _DataAbilityResult }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   export type DataAbilityResult = _DataAbilityResult;
 
@@ -103,7 +108,7 @@ declare namespace ability {
    * @typedef { _AbilityResult }
    * @syscap SystemCapability.Ability.AbilityBase
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   export type AbilityResult = _AbilityResult;
 
@@ -114,7 +119,7 @@ declare namespace ability {
    * @typedef { _ConnectOptions }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   export type ConnectOptions = _ConnectOptions;
 
@@ -125,7 +130,7 @@ declare namespace ability {
    * @typedef { _StartAbilityParameter }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   export type StartAbilityParameter = _StartAbilityParameter;
 }

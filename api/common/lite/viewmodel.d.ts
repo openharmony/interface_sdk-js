@@ -23,7 +23,7 @@
  *
  * @interface FocusParamObj
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 3
+ * @since 3 dynamic
  */
 export interface FocusParamObj {
   /**
@@ -31,7 +31,7 @@ export interface FocusParamObj {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 3
+   * @since 3 dynamic
    */
   focus: boolean;
 }
@@ -41,7 +41,7 @@ export interface FocusParamObj {
  * View model
  * @interface ViewModel
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 4
+ * @since 4 dynamic
  */
 export interface ViewModel {
   /**
@@ -53,7 +53,7 @@ export interface ViewModel {
    *              2. Digit placeholder, for example, {0}. The actual content must be of the array type, for example, $t('strings.array', ['Hello world']).
    * @returns { string } content to display
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 4
+   * @since 4 dynamic
    */
   $t(path: string, param?: object | Array<any>): string;
 
@@ -62,7 +62,7 @@ export interface ViewModel {
    *
    * @type { ElementReferences }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 4
+   * @since 4 dynamic
    */
   $refs: ElementReferences;
 }
@@ -71,7 +71,7 @@ export interface ViewModel {
  * List scroll to options
  * @interface ListScrollToOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 4
+ * @since 4 dynamic
  */
 export interface ListScrollToOptions {
   /**
@@ -79,7 +79,7 @@ export interface ListScrollToOptions {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 4
+   * @since 4 dynamic
    */
   index: number;
 }
@@ -88,7 +88,7 @@ export interface ListScrollToOptions {
  * List element
  * @interface ListElement
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 4
+ * @since 4 dynamic
  */
 export interface ListElement {
   /**
@@ -96,7 +96,7 @@ export interface ListElement {
    *
    * @param { ListScrollToOptions } position
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 4
+   * @since 4 dynamic
    */
   scrollTo(position: ListScrollToOptions): void;
 
@@ -108,7 +108,7 @@ export interface ListElement {
    *
    * @param { FocusParamObj } [obj] - { focus: true | false }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 4
+   * @since 4 dynamic
    */
   rotation(obj?: FocusParamObj): void;
 }
@@ -118,7 +118,7 @@ export interface ListElement {
  *
  * @interface SwiperElement
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 4
+ * @since 4 dynamic
  */
 export interface SwiperElement {
   /**
@@ -129,7 +129,7 @@ export interface SwiperElement {
    *
    * @param { FocusParamObj } [obj] - { focus: true | false }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 4
+   * @since 4 dynamic
    */
   rotation(obj?: FocusParamObj): void;
 }
@@ -139,7 +139,7 @@ export interface SwiperElement {
  *
  * @interface PickerElement
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 4
+ * @since 4 dynamic
  */
 export interface PickerElement {
   /**
@@ -150,7 +150,7 @@ export interface PickerElement {
    *
    * @param { FocusParamObj } [obj] - { focus: true | false }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 4
+   * @since 4 dynamic
    */
   rotation(obj?: FocusParamObj): void;
 }
@@ -159,35 +159,35 @@ export interface PickerElement {
  * Image animator element
  * @interface ImageAnimatorElement
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 4
+ * @since 4 dynamic
  */
 export interface ImageAnimatorElement {
   /**
    * Starts to play the frame animation of an image. If this method is called again, the playback starts from the first frame.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 4
+   * @since 4 dynamic
    */
   start(): void;
   /**
    * Pauses the frame animation playback of an image.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 4
+   * @since 4 dynamic
    */
   pause(): void;
   /**
    * Stops the frame animation playback of an image.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 4
+   * @since 4 dynamic
    */
   stop(): void;
   /**
    * Resumes the frame animation playback of an image.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 4
+   * @since 4 dynamic
    */
   resume(): void;
   /**
@@ -198,7 +198,7 @@ export interface ImageAnimatorElement {
    *
    * @returns { "Playing" | "Paused" | "Stopped" }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 4
+   * @since 4 dynamic
    */
   getState(): "Playing" | "Paused" | "Stopped";
 }
@@ -207,7 +207,7 @@ export interface ImageAnimatorElement {
  * Element References
  * @interface ElementReferences
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 4
+ * @since 4 dynamic
  */
 export interface ElementReferences {
   [k: string]: object & ListElement & ImageAnimatorElement;
@@ -217,7 +217,7 @@ export interface ElementReferences {
  * Options type
  * @interface Options
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 4
+ * @since 4 dynamic
  */
 export interface Options<T extends ViewModel, Data = DefaultData<T>> {
   /**
@@ -228,7 +228,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    *
    * @type { ?Data }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 4
+   * @since 4 dynamic
    */
   data?: Data;
 
@@ -236,7 +236,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Called when the page is initialized. This function can be called only once in a lifecycle.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 4
+   * @since 4 dynamic
    */
   onInit?(): void;
 
@@ -244,7 +244,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Called when the page is created. This function can be called only once in a lifecycle.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 4
+   * @since 4 dynamic
    */
   onReady?(): void;
 
@@ -252,7 +252,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Called when the page is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 4
+   * @since 4 dynamic
    */
   onShow?(): void;
 
@@ -260,7 +260,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Called when the application is created
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 4
+   * @since 4 dynamic
    */
   onCreate?(): void;
 
@@ -268,7 +268,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Called when the application is destroyed or called when the page is redirected to another one (without entering the navigation stack).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 4
+   * @since 4 dynamic
    */
   onDestroy?(): void;
 
@@ -278,7 +278,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * @param { Object } data - Indicates the user data to save.
    * @returns { boolean } Returns {@code true} if the data is successfully saved; returns {@code false} otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 10
+   * @since 10 dynamic
    */
   onSaveData?(data: Object): boolean;
 
@@ -287,7 +287,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    *
    * @param { Object } data - Indicates the user data to restore.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 10
+   * @since 10 dynamic
    */
   onRestoreData?(data: Object): void;
 }
@@ -298,7 +298,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
  * @typedef { object } DefaultData<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
- * @since 4
+ * @since 4 dynamic
  */
 type DefaultData<T> = object;
 
@@ -308,7 +308,7 @@ type DefaultData<T> = object;
  * @typedef { object & Options<T, Data> & ThisType<T & ViewModel & Data> } CombinedOptions<T extends ViewModel, Data>
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
- * @since 4
+ * @since 4 dynamic
  */
 type CombinedOptions<T extends ViewModel, Data> = object &
   Options<T, Data> &
@@ -319,7 +319,7 @@ type CombinedOptions<T extends ViewModel, Data> = object &
  * @returns { ViewModel & Data }
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
- * @since 4
+ * @since 4 dynamic
  */
 export declare function extendViewModel<T extends ViewModel, Data>(
   options: CombinedOptions<T, Data>

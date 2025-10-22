@@ -25,7 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Canvas;
 
@@ -73,7 +73,7 @@ declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Can
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare type CanvasFillRule = "evenodd" | "nonzero";
 
@@ -125,7 +125,7 @@ declare type CanvasFillRule = "evenodd" | "nonzero";
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare type CanvasLineCap = "butt" | "round" | "square";
 
@@ -189,7 +189,7 @@ declare type CanvasLineCap = "butt" | "round" | "square";
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare type CanvasLineJoin = "bevel" | "miter" | "round";
 
@@ -237,7 +237,7 @@ declare type CanvasLineJoin = "bevel" | "miter" | "round";
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare type CanvasDirection = "inherit" | "ltr" | "rtl";
 
@@ -301,7 +301,7 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
 
@@ -369,7 +369,7 @@ declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top";
 
@@ -417,7 +417,7 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare type ImageSmoothingQuality = "high" | "low" | "medium";
 
@@ -428,7 +428,7 @@ declare type ImageSmoothingQuality = "high" | "low" | "medium";
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 13 dynamic
  */
 declare type FrameNode = import('../api/arkui/FrameNode').FrameNode;
 
@@ -460,7 +460,7 @@ declare type FrameNode = import('../api/arkui/FrameNode').FrameNode;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class CanvasGradient {
   /**
@@ -503,7 +503,7 @@ declare class CanvasGradient {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   addColorStop(offset: number, color: string): void;
 
@@ -517,7 +517,7 @@ declare class CanvasGradient {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   addColorStop(offset: number, color: string | ColorMetrics): void;
 }
@@ -550,7 +550,7 @@ declare class CanvasGradient {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class CanvasPath {
   /**
@@ -609,7 +609,7 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void;
 
@@ -661,7 +661,7 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
 
@@ -717,7 +717,7 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
 
@@ -749,7 +749,7 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   closePath(): void;
 
@@ -821,7 +821,7 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   ellipse(
     x: number,
@@ -870,7 +870,7 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   lineTo(x: number, y: number): void;
 
@@ -910,7 +910,7 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   moveTo(x: number, y: number): void;
 
@@ -958,7 +958,7 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
 
@@ -1006,7 +1006,7 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   rect(x: number, y: number, w: number, h: number): void;
 
@@ -1026,7 +1026,7 @@ declare class CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   roundRect(x: number, y: number, w: number, h: number, radii?: number | Array<number>): void;
 }
@@ -1063,7 +1063,7 @@ declare class CanvasPath {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class Path2D extends CanvasPath {
   /**
@@ -1102,7 +1102,7 @@ declare class Path2D extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   addPath(path: Path2D, transform?: Matrix2D): void;
 
@@ -1134,7 +1134,7 @@ declare class Path2D extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor();
 
@@ -1146,7 +1146,7 @@ declare class Path2D extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(unit: LengthMetricsUnit);
 
@@ -1182,7 +1182,7 @@ declare class Path2D extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor(path: Path2D);
 
@@ -1195,7 +1195,7 @@ declare class Path2D extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(path: Path2D, unit: LengthMetricsUnit);
 
@@ -1231,7 +1231,7 @@ declare class Path2D extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor(d: string);
 
@@ -1244,7 +1244,7 @@ declare class Path2D extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(description: string, unit: LengthMetricsUnit);
 }
@@ -1281,7 +1281,7 @@ declare class Path2D extends CanvasPath {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface CanvasPattern {
   /**
@@ -1316,7 +1316,7 @@ declare interface CanvasPattern {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   setTransform(transform?: Matrix2D): void;
 }
@@ -1353,7 +1353,7 @@ declare interface CanvasPattern {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface TextMetrics {
   /**
@@ -1396,7 +1396,7 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly actualBoundingBoxAscent: number;
 
@@ -1440,7 +1440,7 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly actualBoundingBoxDescent: number;
 
@@ -1484,7 +1484,7 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly actualBoundingBoxLeft: number;
 
@@ -1528,7 +1528,7 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly actualBoundingBoxRight: number;
 
@@ -1572,7 +1572,7 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly alphabeticBaseline: number;
 
@@ -1616,7 +1616,7 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly emHeightAscent: number;
 
@@ -1660,7 +1660,7 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly emHeightDescent: number;
 
@@ -1704,7 +1704,7 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly fontBoundingBoxAscent: number;
 
@@ -1748,7 +1748,7 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly fontBoundingBoxDescent: number;
 
@@ -1792,7 +1792,7 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly hangingBaseline: number;
 
@@ -1836,7 +1836,7 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly ideographicBaseline: number;
 
@@ -1876,7 +1876,7 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly width: number;
 
@@ -1916,7 +1916,7 @@ declare interface TextMetrics {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly height: number;
 }
@@ -1949,7 +1949,7 @@ declare interface TextMetrics {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class ImageBitmap {
   /**
@@ -1988,7 +1988,7 @@ declare class ImageBitmap {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly height: number;
 
@@ -2028,7 +2028,7 @@ declare class ImageBitmap {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly width: number;
 
@@ -2060,7 +2060,7 @@ declare class ImageBitmap {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   close(): void;
 
@@ -2096,7 +2096,7 @@ declare class ImageBitmap {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor(src: string);
 
@@ -2109,7 +2109,7 @@ declare class ImageBitmap {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(src: string, unit: LengthMetricsUnit);
   
@@ -2135,7 +2135,7 @@ declare class ImageBitmap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor(data: PixelMap);
 
@@ -2147,7 +2147,7 @@ declare class ImageBitmap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(data: PixelMap, unit: LengthMetricsUnit);
 }
@@ -2180,7 +2180,7 @@ declare class ImageBitmap {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class ImageData {
   /**
@@ -2219,7 +2219,7 @@ declare class ImageData {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly data: Uint8ClampedArray;
 
@@ -2259,7 +2259,7 @@ declare class ImageData {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly height: number;
 
@@ -2299,7 +2299,7 @@ declare class ImageData {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly width: number;
 
@@ -2343,7 +2343,7 @@ declare class ImageData {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor(width: number, height: number, data?: Uint8ClampedArray);
 
@@ -2358,7 +2358,7 @@ declare class ImageData {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(width: number, height: number, data?: Uint8ClampedArray, unit?: LengthMetricsUnit);
 }
@@ -2391,7 +2391,7 @@ declare class ImageData {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class RenderingContextSettings {
   /**
@@ -2426,7 +2426,7 @@ declare class RenderingContextSettings {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   antialias?: boolean;
 
@@ -2462,7 +2462,7 @@ declare class RenderingContextSettings {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor(antialias?: boolean);
 }
@@ -2499,7 +2499,7 @@ declare class RenderingContextSettings {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class CanvasRenderer extends CanvasPath {
   /**
@@ -2510,7 +2510,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   letterSpacing: LengthMetrics | string;
 
@@ -2554,7 +2554,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   globalAlpha: number;
 
@@ -2650,7 +2650,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   globalCompositeOperation: string;
 
@@ -2694,7 +2694,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number): void;
 
@@ -2746,7 +2746,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number, dw: number, dh: number): void;
 
@@ -2814,7 +2814,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   drawImage(
     image: ImageBitmap | PixelMap,
@@ -2856,7 +2856,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   beginPath(): void;
 
@@ -2892,7 +2892,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   clip(fillRule?: CanvasFillRule): void;
 
@@ -2932,7 +2932,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   clip(path: Path2D, fillRule?: CanvasFillRule): void;
 
@@ -2968,7 +2968,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fill(fillRule?: CanvasFillRule): void;
 
@@ -3008,7 +3008,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fill(path: Path2D, fillRule?: CanvasFillRule): void;
 
@@ -3040,7 +3040,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   stroke(): void;
 
@@ -3076,7 +3076,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   stroke(path: Path2D): void;
 
@@ -3130,7 +3130,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fillStyle: string | number | CanvasGradient | CanvasPattern;
 
@@ -3184,7 +3184,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   strokeStyle: string | number | CanvasGradient | CanvasPattern;
 
@@ -3236,7 +3236,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   createLinearGradient(x0: number, y0: number, x1: number, y1: number): CanvasGradient;
 
@@ -3300,7 +3300,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   createPattern(image: ImageBitmap, repetition: string | null): CanvasPattern | null;
 
@@ -3360,7 +3360,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient;
 
@@ -3387,7 +3387,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   createConicGradient(
     startAngle: number,
@@ -3495,7 +3495,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   filter: string;
 
@@ -3539,7 +3539,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   createImageData(sw: number, sh: number): ImageData;
 
@@ -3583,7 +3583,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   createImageData(imageData: ImageData): ImageData;
 
@@ -3635,7 +3635,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
 
@@ -3673,7 +3673,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap;
 
@@ -3717,7 +3717,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   putImageData(imageData: ImageData, dx: number | string, dy: number | string): void;
 
@@ -3793,7 +3793,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   putImageData(
     imageData: ImageData,
@@ -3845,7 +3845,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   imageSmoothingEnabled: boolean;
 
@@ -3885,7 +3885,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   imageSmoothingQuality: ImageSmoothingQuality;
 
@@ -3925,7 +3925,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   lineCap: CanvasLineCap;
 
@@ -3965,7 +3965,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   lineDashOffset: number;
 
@@ -4005,7 +4005,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   lineJoin: CanvasLineJoin;
 
@@ -4045,7 +4045,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   lineWidth: number;
 
@@ -4085,7 +4085,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   miterLimit: number;
 
@@ -4121,7 +4121,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   getLineDash(): number[];
 
@@ -4161,7 +4161,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   setLineDash(segments: number[]): void;
 
@@ -4209,7 +4209,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   clearRect(x: number, y: number, w: number, h: number): void;
 
@@ -4257,7 +4257,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fillRect(x: number, y: number, w: number, h: number): void;
 
@@ -4305,7 +4305,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   strokeRect(x: number, y: number, w: number, h: number): void;
 
@@ -4345,7 +4345,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   shadowBlur: number;
 
@@ -4385,7 +4385,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   shadowColor: string;
 
@@ -4425,7 +4425,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   shadowOffsetX: number;
 
@@ -4465,7 +4465,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   shadowOffsetY: number;
 
@@ -4497,7 +4497,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   restore(): void;
 
@@ -4529,7 +4529,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   save(): void;
 
@@ -4577,7 +4577,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fillText(text: string, x: number, y: number, maxWidth?: number): void;
 
@@ -4617,7 +4617,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   measureText(text: string): TextMetrics;
 
@@ -4665,7 +4665,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   strokeText(text: string, x: number, y: number, maxWidth?: number): void;
 
@@ -4705,7 +4705,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   direction: CanvasDirection;
 
@@ -4745,7 +4745,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   font: string;
 
@@ -4785,7 +4785,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   textAlign: CanvasTextAlign;
 
@@ -4825,7 +4825,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   textBaseline: CanvasTextBaseline;
 
@@ -4861,7 +4861,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   getTransform(): Matrix2D;
 
@@ -4893,7 +4893,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   resetTransform(): void;
 
@@ -4933,7 +4933,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   rotate(angle: number): void;
 
@@ -4973,7 +4973,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   scale(x: number, y: number): void;
 
@@ -5033,7 +5033,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
@@ -5073,7 +5073,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   setTransform(transform?: Matrix2D): void;
 
@@ -5133,7 +5133,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   transform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
@@ -5173,7 +5173,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   translate(x: number, y: number): void;
 
@@ -5199,7 +5199,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   setPixelMap(value?: PixelMap): void;
 
@@ -5235,7 +5235,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   transferFromImageBitmap(bitmap: ImageBitmap): void;
 
@@ -5245,7 +5245,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   saveLayer(): void;
 
@@ -5255,7 +5255,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   restoreLayer(): void;
 
@@ -5265,7 +5265,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   reset(): void;
 }
@@ -5302,7 +5302,7 @@ declare class CanvasRenderer extends CanvasPath {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
@@ -5341,7 +5341,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly height: number;
 
@@ -5381,7 +5381,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly width: number;
 
@@ -5393,7 +5393,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   readonly canvas: FrameNode;
 
@@ -5441,7 +5441,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   toDataURL(type?: string, quality?: any): string;
 
@@ -5455,7 +5455,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @throws { BusinessError } 110003 - Image analysis is stopped.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   startImageAnalyzer(config: ImageAnalyzerConfig): Promise<void>;
 
@@ -5463,7 +5463,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * Stop image analyzer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   stopImageAnalyzer(): void;
 
@@ -5499,7 +5499,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor(settings?: RenderingContextSettings);
 
@@ -5512,7 +5512,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(settings?: RenderingContextSettings, unit?: LengthMetricsUnit);
 
@@ -5528,7 +5528,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   on(type: 'onAttach', callback: Callback<void>): void;
 
@@ -5544,7 +5544,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   off(type: 'onAttach', callback?: Callback<void>): void;
 
@@ -5560,7 +5560,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   on(type: 'onDetach', callback: Callback<void>): void;
 
@@ -5576,7 +5576,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   off(type: 'onDetach', callback?: Callback<void>): void;
 }
@@ -5613,7 +5613,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   /**
@@ -5660,7 +5660,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   toDataURL(type?: string, quality?: any): string;
 
@@ -5696,7 +5696,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   transferToImageBitmap(): ImageBitmap;
 
@@ -5740,7 +5740,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor(width: number, height: number, settings?: RenderingContextSettings);
 
@@ -5755,7 +5755,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(width: number, height: number, settings?: RenderingContextSettings, unit?: LengthMetricsUnit);
 }
@@ -5791,7 +5791,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class OffscreenCanvas {
   /**
@@ -5826,7 +5826,7 @@ declare class OffscreenCanvas {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   height: number;
 
@@ -5862,7 +5862,7 @@ declare class OffscreenCanvas {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   width: number;
 
@@ -5898,7 +5898,7 @@ declare class OffscreenCanvas {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   transferToImageBitmap(): ImageBitmap;
 
@@ -5923,7 +5923,7 @@ declare class OffscreenCanvas {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   getContext(contextType: "2d", options?: RenderingContextSettings): OffscreenCanvasRenderingContext2D;
 
@@ -5963,7 +5963,7 @@ declare class OffscreenCanvas {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor(width: number, height: number);
 
@@ -5977,7 +5977,7 @@ declare class OffscreenCanvas {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(width: number, height: number, unit: LengthMetricsUnit);
 }
@@ -5989,7 +5989,7 @@ declare class OffscreenCanvas {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface Size {
   /**
@@ -5999,7 +5999,7 @@ declare interface Size {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   width: number;
 
@@ -6010,7 +6010,7 @@ declare interface Size {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   height: number;
 }
@@ -6021,7 +6021,7 @@ declare interface Size {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class DrawingRenderingContext {
 
@@ -6032,7 +6032,7 @@ declare class DrawingRenderingContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get size(): Size;
 
@@ -6043,7 +6043,7 @@ declare class DrawingRenderingContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get canvas(): DrawingCanvas;
 
@@ -6053,7 +6053,7 @@ declare class DrawingRenderingContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   invalidate(): void;
 
@@ -6064,7 +6064,7 @@ declare class DrawingRenderingContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(unit?: LengthMetricsUnit);
 }
@@ -6101,7 +6101,7 @@ declare class DrawingRenderingContext {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface CanvasInterface {
   /**
@@ -6151,7 +6151,7 @@ interface CanvasInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   (context?: CanvasRenderingContext2D | DrawingRenderingContext): CanvasAttribute;
 
@@ -6163,7 +6163,7 @@ interface CanvasInterface {
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   (context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptions: ImageAIOptions): CanvasAttribute;
 }
@@ -6200,7 +6200,7 @@ interface CanvasInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   /**
@@ -6250,7 +6250,7 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onReady(event: VoidCallback): CanvasAttribute;
 
@@ -6261,7 +6261,7 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   enableAnalyzer(enable: boolean): CanvasAttribute;
 }
@@ -6294,7 +6294,7 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Canvas: CanvasInterface;
 
@@ -6326,6 +6326,6 @@ declare const Canvas: CanvasInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const CanvasInstance: CanvasAttribute;
