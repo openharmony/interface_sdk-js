@@ -1768,6 +1768,48 @@ export declare class UIObserver {
    * @since 20 static
    */
   removeGlobalGestureListener(type: GestureListenerType, callback?: GestureListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called when the tabContent is showed or hidden.
+   *
+   * @param { observer.ObserverOptions } config - The options object.
+   * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called when when the tabContent is
+   *     showed or hidden.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  onTabChange(config: observer.ObserverOptions, callback: Callback<observer.TabContentInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { observer.ObserverOptions } config - The options object.
+   * @param { Callback<observer.TabContentInfo> } [callback] - The callback function to remove.
+   *     If not provided, all callbacks for the given event type and Tabs ID will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  offTabChange(config: observer.ObserverOptions, callback?: Callback<observer.TabContentInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the tabContent is showed or hidden.
+   *
+   * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called when the tabContent is
+   *     showed or hidden.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  onTabChange(callback: Callback<observer.TabContentInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { Callback<observer.TabContentInfo> } [callback] - The callback function to remove. If not provided, all callbacks
+   *     for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  offTabChange(callback?: Callback<observer.TabContentInfo>): void;
 }
 
 /**
