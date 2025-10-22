@@ -8279,7 +8279,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     setTranslation(dx: double, dy: double): void;
 
