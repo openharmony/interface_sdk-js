@@ -18,7 +18,7 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { RecordData } from '../@ohos.base';
 /*** endif */
 
@@ -31,8 +31,8 @@ import { RecordData } from '../@ohos.base';
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'13', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 13 dynamic
+ * @since 20 static
  */
 export default interface CustomData {
     /**
@@ -43,7 +43,7 @@ export default interface CustomData {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi
      * @stagemodelonly
-     * @since 13
+     * @since 13 dynamic
      */
     data: Record<string, Object>;
 
@@ -55,8 +55,7 @@ export default interface CustomData {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi
      * @stagemodelonly
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     data: Record<string, RecordData>;
   }

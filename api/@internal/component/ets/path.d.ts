@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare interface PathOptions {
   /**
@@ -77,7 +77,7 @@ declare interface PathOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   width?: Length;
 
@@ -129,7 +129,7 @@ declare interface PathOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   height?: Length;
 
@@ -181,7 +181,7 @@ declare interface PathOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   commands?: ResourceStr;
 }
@@ -218,7 +218,7 @@ declare interface PathOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface PathInterface {
   /**
@@ -269,7 +269,7 @@ interface PathInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   new (options?: PathOptions): PathAttribute;
 
@@ -321,7 +321,7 @@ interface PathInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options?: PathOptions): PathAttribute;
 }
@@ -358,7 +358,7 @@ interface PathInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
   /**
@@ -408,7 +408,7 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   commands(value: ResourceStr): PathAttribute;
 }
@@ -441,7 +441,7 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Path: PathInterface;
 
@@ -473,6 +473,6 @@ declare const Path: PathInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const PathInstance: PathAttribute;

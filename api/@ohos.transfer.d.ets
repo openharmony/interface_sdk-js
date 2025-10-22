@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkTS
- * @arkts 1.2
  */
 
 /**
@@ -26,7 +25,7 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 staticonly
  */
 declare namespace transfer {
 
@@ -40,7 +39,7 @@ declare namespace transfer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 staticonly
      */
     function transferStatic(input: Any, inputName: string): Object;
 
@@ -54,7 +53,7 @@ declare namespace transfer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 staticonly
      */
     function transferDynamic(input: Object, inputName: string): Any;
 

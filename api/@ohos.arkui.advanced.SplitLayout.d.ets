@@ -38,7 +38,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
  */
 @Component
 export declare struct SplitLayout {
@@ -61,7 +61,7 @@ export declare struct SplitLayout {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   @BuilderParam container: () => void;
 
@@ -84,7 +84,7 @@ export declare struct SplitLayout {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   @State mainImage: ResourceStr;
 
@@ -107,7 +107,7 @@ export declare struct SplitLayout {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   @Prop primaryText: ResourceStr;
 
@@ -130,7 +130,7 @@ export declare struct SplitLayout {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   @Prop secondaryText?: ResourceStr;
 
@@ -153,7 +153,7 @@ export declare struct SplitLayout {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   @Prop tertiaryText?: ResourceStr;
 }

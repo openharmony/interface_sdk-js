@@ -21,7 +21,7 @@
 /**
  * @interface UploadResponse
  * @syscap SystemCapability.MiscServices.Upload
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.request
  */
@@ -30,7 +30,7 @@ export interface UploadResponse {
    * Status code returned by the server.
    *
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.HttpResponse.statusCode
    */
@@ -41,7 +41,7 @@ export interface UploadResponse {
    * The value type is determined by the returned content.
    *
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Progress.extras
    */
@@ -51,7 +51,7 @@ export interface UploadResponse {
    * Headers returned by the server.
    *
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.HttpResponse.headers
    */
@@ -61,7 +61,7 @@ export interface UploadResponse {
 /**
  * @interface DownloadResponse
  * @syscap SystemCapability.MiscServices.Download
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.request.agent.Progress
  */
@@ -70,7 +70,7 @@ export interface DownloadResponse {
    * Download token, which is used to obtain the download status.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Task.tid
    */
@@ -80,7 +80,7 @@ export interface DownloadResponse {
 /**
  * @interface OnDownloadCompleteResponse
  * @syscap SystemCapability.MiscServices.Download
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.request.agent.Progress
  */
@@ -89,7 +89,7 @@ export interface OnDownloadCompleteResponse {
    * URI of the download file.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Task.config.saveas
    */
@@ -99,7 +99,7 @@ export interface OnDownloadCompleteResponse {
 /**
  * @interface RequestFile
  * @syscap SystemCapability.MiscServices.Upload
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.request.agent.FileSpec
  */
@@ -108,7 +108,7 @@ export interface RequestFile {
    * File name in the header when multipart is used.
    *
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.FileSpec.filename
    */
@@ -118,7 +118,7 @@ export interface RequestFile {
    * Name of a form item when multipart is used. The default value is file.
    *
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.FormItem.name
    */
@@ -128,7 +128,7 @@ export interface RequestFile {
    * Local storage directory of a file.
    *
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.FileSpec.path
    */
@@ -139,7 +139,7 @@ export interface RequestFile {
    * By default, the type is obtained based on the suffix of the file name or URI.
    *
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.FileSpec.contentType
    */
@@ -149,7 +149,7 @@ export interface RequestFile {
 /**
  * @interface RequestData
  * @syscap SystemCapability.MiscServices.Upload
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.request.agent.FormItem
  */
@@ -158,7 +158,7 @@ export interface RequestData {
    * Name of the form element.
    *
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.FormItem.name
    */
@@ -168,7 +168,7 @@ export interface RequestData {
    * Value of the form element.
    *
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.FormItem.value
    */
@@ -178,7 +178,7 @@ export interface RequestData {
 /**
  * @interface UploadRequestOptions
  * @syscap SystemCapability.MiscServices.Upload
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.request.agent.Config
  */
@@ -187,7 +187,7 @@ export interface UploadRequestOptions {
    * Resource URL.
    *
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Config.url
    */
@@ -197,7 +197,7 @@ export interface UploadRequestOptions {
    * Form data in the request body.
    *
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Config.data
    */
@@ -207,7 +207,7 @@ export interface UploadRequestOptions {
    * List of files to upload, which is submitted through multipart/form-data.
    *
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Config.data
    */
@@ -217,7 +217,7 @@ export interface UploadRequestOptions {
    * Request header.
    *
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Config.headers
    */
@@ -227,7 +227,7 @@ export interface UploadRequestOptions {
    * Request methods available: POST and PUT. The default value is POST.
    *
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Config.method
    */
@@ -237,7 +237,7 @@ export interface UploadRequestOptions {
    * Called when the files are uploaded successfully.
    *
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Task.on
    */
@@ -247,7 +247,7 @@ export interface UploadRequestOptions {
    * Called when uploading fails.
    *
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Task.on
    */
@@ -257,7 +257,7 @@ export interface UploadRequestOptions {
    * Called when the execution is completed.
    *
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Task.on
    */
@@ -267,7 +267,7 @@ export interface UploadRequestOptions {
 /**
  * @interface DownloadRequestOptions
  * @syscap SystemCapability.MiscServices.Download
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.request.agent.Config
  */
@@ -276,7 +276,7 @@ export interface DownloadRequestOptions {
    * Resource URL.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Config.url
    */
@@ -287,7 +287,7 @@ export interface DownloadRequestOptions {
    * The value is obtained from the current request or resource URL by default.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Config.saveas
    */
@@ -297,7 +297,7 @@ export interface DownloadRequestOptions {
    * Request header.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Config.headers
    */
@@ -308,7 +308,7 @@ export interface DownloadRequestOptions {
    * The default value is the file name.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Config.description
    */
@@ -318,7 +318,7 @@ export interface DownloadRequestOptions {
    * Called when the files are successfully downloaded.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Task.on
    */
@@ -328,7 +328,7 @@ export interface DownloadRequestOptions {
    * Called when downloading fails.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Task.on
    */
@@ -338,7 +338,7 @@ export interface DownloadRequestOptions {
    * Called when the execution is completed.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Task.on
    */
@@ -348,7 +348,7 @@ export interface DownloadRequestOptions {
 /**
  * @interface OnDownloadCompleteOptions
  * @syscap SystemCapability.MiscServices.Download
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.request.agent.Progress
  */
@@ -357,7 +357,7 @@ export interface OnDownloadCompleteOptions {
    * Token of the result returned by the download function.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Task.tid
    */
@@ -367,7 +367,7 @@ export interface OnDownloadCompleteOptions {
    * Called when the downloads are successfully obtained
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Task.on
    */
@@ -377,7 +377,7 @@ export interface OnDownloadCompleteOptions {
    * Called when the downloads fail to be obtained.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Task.on
    */
@@ -387,7 +387,7 @@ export interface OnDownloadCompleteOptions {
    * Called when the execution is completed.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Task.on
    */
@@ -395,7 +395,7 @@ export interface OnDownloadCompleteOptions {
 }
 
 /**
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.request.agent
  */
@@ -405,7 +405,7 @@ export default class Request {
    *
    * @param { UploadRequestOptions } options Options.
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.create
    */
@@ -416,7 +416,7 @@ export default class Request {
    *
    * @param { DownloadRequestOptions } options Options.
    * @syscap SystemCapability.MiscServices.Download
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.create
    */
@@ -427,7 +427,7 @@ export default class Request {
    *
    * @param { OnDownloadCompleteOptions } options Options.
    * @syscap SystemCapability.MiscServices.Download
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.agent.Task.on
    */

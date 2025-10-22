@@ -18,7 +18,7 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 /**
  * The application state change callback.
  *
@@ -41,12 +41,12 @@
  * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 export default class ApplicationStateChangeCallback {
 /*** endif */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 /**
  * The application state change callback.
  *
@@ -72,8 +72,7 @@ export default class ApplicationStateChangeCallback {
  * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 declare interface ApplicationStateChangeCallback {
 /*** endif */
@@ -99,8 +98,8 @@ declare interface ApplicationStateChangeCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   onApplicationForeground(): void;
 
@@ -126,12 +125,12 @@ declare interface ApplicationStateChangeCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   onApplicationBackground(): void;
 }
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 export default ApplicationStateChangeCallback;
 /*** endif */

@@ -26,9 +26,9 @@ import { Callback } from './@ohos.base';
  * @enum { int }
  * @syscap SystemCapability.Test.PerfTest
  * @atomicservice
- * @since arkts {'1.1':'20','1.2':'22'}
+ * @since 20 dynamic
+ * @since 22 static
  * @test
- * @arkts 1.1&1.2
  */
 declare enum PerfMetric {
   /**
@@ -36,9 +36,9 @@ declare enum PerfMetric {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   DURATION = 0,
 
@@ -47,9 +47,9 @@ declare enum PerfMetric {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   CPU_LOAD = 1,
 
@@ -58,9 +58,9 @@ declare enum PerfMetric {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   CPU_USAGE = 2,
 
@@ -69,9 +69,9 @@ declare enum PerfMetric {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   MEMORY_RSS = 3,
 
@@ -80,9 +80,9 @@ declare enum PerfMetric {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   MEMORY_PSS = 4,
 
@@ -100,9 +100,9 @@ declare enum PerfMetric {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   APP_START_RESPONSE_TIME = 5,
 
@@ -120,9 +120,9 @@ declare enum PerfMetric {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   APP_START_COMPLETE_TIME = 6,
 
@@ -137,9 +137,9 @@ declare enum PerfMetric {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   PAGE_SWITCH_COMPLETE_TIME = 7,
 
@@ -152,9 +152,9 @@ declare enum PerfMetric {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   LIST_SWIPE_FPS = 8,
 }
@@ -165,9 +165,9 @@ declare enum PerfMetric {
  * @typedef PerfTestStrategy
  * @syscap SystemCapability.Test.PerfTest
  * @atomicservice
- * @since arkts {'1.1':'20','1.2':'22'}
+ * @since 20 dynamic
+ * @since 22 static
  * @test
- * @arkts 1.1&1.2
  */
 declare interface PerfTestStrategy {
   /**
@@ -176,9 +176,9 @@ declare interface PerfTestStrategy {
    * @type { Array<PerfMetric> }
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   metrics: Array<PerfMetric>;
 
@@ -194,9 +194,9 @@ declare interface PerfTestStrategy {
    * @type { Callback<Callback<boolean>> }
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   actionCode: Callback<Callback<boolean>>;
 
@@ -212,9 +212,9 @@ declare interface PerfTestStrategy {
    * @type { ?Callback<Callback<boolean>> }
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   resetCode?: Callback<Callback<boolean>>;
 
@@ -224,9 +224,9 @@ declare interface PerfTestStrategy {
    * @type { ?string }
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   bundleName?: string;
 
@@ -236,9 +236,9 @@ declare interface PerfTestStrategy {
    * @type { ?int }
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   iterations?: int;
 
@@ -248,9 +248,9 @@ declare interface PerfTestStrategy {
    * @type { ?int }
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   timeout?: int;
 }
@@ -261,9 +261,9 @@ declare interface PerfTestStrategy {
  * @typedef PerfMeasureResult 
  * @syscap SystemCapability.Test.PerfTest
  * @atomicservice
- * @since arkts {'1.1':'20','1.2':'22'}
+ * @since 20 dynamic
+ * @since 22 static
  * @test
- * @arkts 1.1&1.2
  */
 declare interface PerfMeasureResult {
   /**
@@ -273,9 +273,9 @@ declare interface PerfMeasureResult {
    * @readonly
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */ 
   readonly metric: PerfMetric;
 
@@ -286,9 +286,9 @@ declare interface PerfMeasureResult {
    * @readonly
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */ 
   readonly roundValues: Array<double>;
 
@@ -299,9 +299,9 @@ declare interface PerfMeasureResult {
    * @readonly
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */ 
   readonly maximum: double;
 
@@ -312,9 +312,9 @@ declare interface PerfMeasureResult {
    * @readonly
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */ 
   readonly minimum: double;
 
@@ -325,9 +325,9 @@ declare interface PerfMeasureResult {
    * @readonly
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */ 
   readonly average: double;
 }
@@ -337,9 +337,9 @@ declare interface PerfMeasureResult {
  *
  * @syscap SystemCapability.Test.PerfTest
  * @atomicservice
- * @since arkts {'1.1':'20','1.2':'22'}
+ * @since 20 dynamic
+ * @since 22 static
  * @test
- * @arkts 1.1&1.2
  */
 declare class PerfTest {
   /**
@@ -354,9 +354,9 @@ declare class PerfTest {
    * @static
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   static create(strategy: PerfTestStrategy): PerfTest;
 
@@ -371,9 +371,9 @@ declare class PerfTest {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   run(): Promise<void>;
 
@@ -388,9 +388,9 @@ declare class PerfTest {
    * @throws { BusinessError } 32400007 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   getMeasureResult(metric: PerfMetric): PerfMeasureResult;
 
@@ -400,9 +400,9 @@ declare class PerfTest {
    * @throws { BusinessError } 32400007 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
+   * @since 20 dynamic
+   * @since 22 static
    * @test
-   * @arkts 1.1&1.2
    */
   destroy(): void;
 }

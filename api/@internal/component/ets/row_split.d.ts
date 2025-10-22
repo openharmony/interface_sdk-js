@@ -40,7 +40,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface RowSplitInterface {
   /**
@@ -65,7 +65,7 @@ interface RowSplitInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (): RowSplitAttribute;
 }
@@ -86,7 +86,7 @@ interface RowSplitInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
   /**
@@ -114,7 +114,7 @@ declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   resizeable(value: boolean): RowSplitAttribute;
 }
@@ -138,7 +138,7 @@ declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const RowSplit: RowSplitInterface;
 
@@ -161,6 +161,6 @@ declare const RowSplit: RowSplitInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const RowSplitInstance: RowSplitAttribute;

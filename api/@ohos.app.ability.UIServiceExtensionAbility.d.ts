@@ -19,12 +19,12 @@
  */
 
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type Want from './@ohos.app.ability.Want';
 import type UIServiceExtensionContext from './application/UIServiceExtensionContext';
 import type UIServiceHostProxy from './application/UIServiceHostProxy';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import Want from './@ohos.app.ability.Want';
 import UIServiceExtensionContext from './application/UIServiceExtensionContext';
 import UIServiceHostProxy from './application/UIServiceHostProxy';
@@ -38,8 +38,8 @@ import window from './@ohos.window';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'14', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14 dynamic
+ * @since 20 static
  */
 declare class UIServiceExtensionAbility extends ExtensionAbility {
   /**
@@ -49,8 +49,8 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   context: UIServiceExtensionContext;
 
@@ -61,8 +61,8 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   onCreate(want: Want): void;
 
@@ -76,8 +76,8 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   onRequest(want: Want, startId: int): void;
 
@@ -89,8 +89,8 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   onConnect(want: Want, proxy: UIServiceHostProxy): void;
 
@@ -102,8 +102,8 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   onDisconnect(want: Want, proxy: UIServiceHostProxy): void;
 
@@ -114,8 +114,8 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   onWindowWillCreate(config: window.ExtensionWindowConfig): void;
 
@@ -126,8 +126,8 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   onWindowDidCreate(window: window.Window): void;
 
@@ -139,8 +139,8 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   onData(proxy: UIServiceHostProxy, data: Record<string, Object>): void;
 
@@ -150,8 +150,8 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   onDestroy(): void;
 }

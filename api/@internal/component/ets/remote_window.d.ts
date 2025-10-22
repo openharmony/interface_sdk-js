@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { CommonMethod } from './common';
 /*** endif */
 /**
@@ -26,16 +26,16 @@ import { CommonMethod } from './common';
  * @interface RRect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'9','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 interface RRect {
   /**
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   left: number;
 
@@ -43,8 +43,8 @@ interface RRect {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   top: number;
 
@@ -52,8 +52,8 @@ interface RRect {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   width: number;
 
@@ -61,8 +61,8 @@ interface RRect {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   height: number;
 
@@ -70,8 +70,8 @@ interface RRect {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   radius: number;
 }
@@ -82,8 +82,8 @@ interface RRect {
  * @interface WindowAnimationTarget
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'9','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 interface WindowAnimationTarget {
   /**
@@ -91,8 +91,8 @@ interface WindowAnimationTarget {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   readonly bundleName: string;
 
@@ -101,8 +101,8 @@ interface WindowAnimationTarget {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   readonly abilityName: string;
 
@@ -111,8 +111,8 @@ interface WindowAnimationTarget {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   readonly windowBounds: RRect;
 
@@ -121,8 +121,8 @@ interface WindowAnimationTarget {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   readonly missionId: number;
 }
@@ -133,8 +133,8 @@ interface WindowAnimationTarget {
  * @interface RemoteWindowInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'9','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 interface RemoteWindowInterface {
   /**
@@ -144,8 +144,8 @@ interface RemoteWindowInterface {
    * @returns { RemoteWindowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   (target: WindowAnimationTarget): RemoteWindowAttribute;
 }
@@ -156,8 +156,8 @@ interface RemoteWindowInterface {
  * @extends CommonMethod<RemoteWindowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'9','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 declare class RemoteWindowAttribute extends CommonMethod<RemoteWindowAttribute> {}
 
@@ -166,7 +166,7 @@ declare class RemoteWindowAttribute extends CommonMethod<RemoteWindowAttribute> 
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 declare const RemoteWindow: RemoteWindowInterface;
 
@@ -175,6 +175,6 @@ declare const RemoteWindow: RemoteWindowInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 declare const RemoteWindowInstance: RemoteWindowAttribute;

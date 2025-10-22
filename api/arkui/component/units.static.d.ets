@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { Resource as _Resource } from '../../global/resource';
@@ -31,7 +30,7 @@ import _drawing from '../../../api/@ohos.graphics.drawing'
  *
  * @typedef { _Resource } Resource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type Resource = _Resource;
 
@@ -40,7 +39,7 @@ export type Resource = _Resource;
  *
  * @typedef { string | number | Resource } Length
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type Length = string | number | Resource;
 
@@ -49,7 +48,7 @@ export type Length = string | number | Resource;
  *
  * @typedef { string } PX
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type PX = string;
 
@@ -58,7 +57,7 @@ export type PX = string;
  *
  * @typedef { string | number } VP
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type VP = string | number;
 
@@ -67,7 +66,7 @@ export type VP = string | number;
  *
  * @typedef { string } FP
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type FP = string;
 
@@ -76,7 +75,7 @@ export type FP = string;
  *
  * @typedef { string } LPX
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type LPX = string;
 
@@ -85,7 +84,7 @@ export type LPX = string;
  *
  * @typedef { string } Percentage
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type Percentage = string;
 
@@ -94,7 +93,7 @@ export type Percentage = string;
  *
  * @typedef { string } Degree
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type Degree = string;
 
@@ -103,7 +102,7 @@ export type Degree = string;
  *
  * @typedef { PX | VP | FP | LPX | Percentage | Resource } Dimension
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type Dimension = PX | VP | FP | LPX | Percentage | Resource;
 
@@ -112,7 +111,7 @@ export type Dimension = PX | VP | FP | LPX | Percentage | Resource;
  *
  * @typedef { string | Resource } ResourceStr
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type ResourceStr = string | Resource;
 
@@ -130,7 +129,7 @@ export type DrawingCanvas = _drawing.Canvas;
  *
  * @interface Padding
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface Padding {
   /**
@@ -138,7 +137,7 @@ export declare interface Padding {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   top?: Length;
 
@@ -147,7 +146,7 @@ export declare interface Padding {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   right?: Length;
 
@@ -156,7 +155,7 @@ export declare interface Padding {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottom?: Length;
 
@@ -165,7 +164,7 @@ export declare interface Padding {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   left?: Length;
 }
@@ -175,7 +174,7 @@ export declare interface Padding {
  *
  * @interface LocalizedPadding
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface LocalizedPadding {
   /**
@@ -183,7 +182,7 @@ export declare interface LocalizedPadding {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   top?: LengthMetrics;
 
@@ -192,7 +191,7 @@ export declare interface LocalizedPadding {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   end?: LengthMetrics;
 
@@ -201,7 +200,7 @@ export declare interface LocalizedPadding {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottom?: LengthMetrics;
 
@@ -210,7 +209,7 @@ export declare interface LocalizedPadding {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   start?: LengthMetrics;
 }
@@ -220,7 +219,7 @@ export declare interface LocalizedPadding {
  *
  * @typedef { Padding } Margin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type Margin = Padding;
 
@@ -229,7 +228,7 @@ export type Margin = Padding;
  *
  * @typedef { EdgeWidths } EdgeWidth
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type EdgeWidth = EdgeWidths;
 
@@ -238,7 +237,7 @@ export type EdgeWidth = EdgeWidths;
  *
  * @interface EdgeWidths
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface EdgeWidths {
   /**
@@ -246,7 +245,7 @@ export declare interface EdgeWidths {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   top?: Length;
 
@@ -255,7 +254,7 @@ export declare interface EdgeWidths {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   right?: Length;
 
@@ -264,7 +263,7 @@ export declare interface EdgeWidths {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottom?: Length;
 
@@ -273,7 +272,7 @@ export declare interface EdgeWidths {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   left?: Length;
 }
@@ -283,7 +282,7 @@ export declare interface EdgeWidths {
  *
  * @interface LocalizedEdgeWidths
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface LocalizedEdgeWidths {
   /**
@@ -291,7 +290,7 @@ export declare interface LocalizedEdgeWidths {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   top?: LengthMetrics;
 
@@ -300,7 +299,7 @@ export declare interface LocalizedEdgeWidths {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   end?: LengthMetrics;
 
@@ -309,7 +308,7 @@ export declare interface LocalizedEdgeWidths {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottom?: LengthMetrics;
 
@@ -318,7 +317,7 @@ export declare interface LocalizedEdgeWidths {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   start?: LengthMetrics;
 }
@@ -328,7 +327,7 @@ export declare interface LocalizedEdgeWidths {
  *
  * @interface EdgeOutlineWidths
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface EdgeOutlineWidths {
   /**
@@ -336,7 +335,7 @@ export declare interface EdgeOutlineWidths {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   top?: Dimension;
 
@@ -345,7 +344,7 @@ export declare interface EdgeOutlineWidths {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   right?: Dimension;
 
@@ -354,7 +353,7 @@ export declare interface EdgeOutlineWidths {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottom?: Dimension;
 
@@ -363,7 +362,7 @@ export declare interface EdgeOutlineWidths {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   left?: Dimension;
 }
@@ -373,7 +372,7 @@ export declare interface EdgeOutlineWidths {
  *
  * @interface BorderRadiuses
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface BorderRadiuses {
   /**
@@ -381,7 +380,7 @@ export declare interface BorderRadiuses {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   topLeft?: Length;
 
@@ -390,7 +389,7 @@ export declare interface BorderRadiuses {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   topRight?: Length;
 
@@ -399,7 +398,7 @@ export declare interface BorderRadiuses {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottomLeft?: Length;
 
@@ -408,7 +407,7 @@ export declare interface BorderRadiuses {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottomRight?: Length;
 }
@@ -418,7 +417,7 @@ export declare interface BorderRadiuses {
  *
  * @interface LocalizedBorderRadiuses
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface LocalizedBorderRadiuses {
   /**
@@ -426,7 +425,7 @@ export declare interface LocalizedBorderRadiuses {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   topStart?: LengthMetrics;
 
@@ -435,7 +434,7 @@ export declare interface LocalizedBorderRadiuses {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   topEnd?: LengthMetrics;
 
@@ -444,7 +443,7 @@ export declare interface LocalizedBorderRadiuses {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottomStart?: LengthMetrics;
 
@@ -453,7 +452,7 @@ export declare interface LocalizedBorderRadiuses {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottomEnd?: LengthMetrics;
 }
@@ -463,7 +462,7 @@ export declare interface LocalizedBorderRadiuses {
  *
  * @interface OutlineRadiuses
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface OutlineRadiuses {
   /**
@@ -471,7 +470,7 @@ export declare interface OutlineRadiuses {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   topLeft?: Dimension;
 
@@ -480,7 +479,7 @@ export declare interface OutlineRadiuses {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   topRight?: Dimension;
 
@@ -489,7 +488,7 @@ export declare interface OutlineRadiuses {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottomLeft?: Dimension;
 
@@ -498,7 +497,7 @@ export declare interface OutlineRadiuses {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottomRight?: Dimension;
 }
@@ -508,7 +507,7 @@ export declare interface OutlineRadiuses {
  *
  * @interface EdgeColors
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface EdgeColors {
   /**
@@ -516,7 +515,7 @@ export declare interface EdgeColors {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   top?: ResourceColor;
 
@@ -525,7 +524,7 @@ export declare interface EdgeColors {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   right?: ResourceColor;
 
@@ -534,7 +533,7 @@ export declare interface EdgeColors {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottom?: ResourceColor;
 
@@ -543,7 +542,7 @@ export declare interface EdgeColors {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   left?: ResourceColor;
 }
@@ -553,7 +552,7 @@ export declare interface EdgeColors {
  *
  * @interface LocalizedEdgeColors
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface LocalizedEdgeColors {
   /**
@@ -561,7 +560,7 @@ export declare interface LocalizedEdgeColors {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   top?: ResourceColor;
 
@@ -570,7 +569,7 @@ export declare interface LocalizedEdgeColors {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   end?: ResourceColor;
 
@@ -579,7 +578,7 @@ export declare interface LocalizedEdgeColors {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottom?: ResourceColor;
 
@@ -588,7 +587,7 @@ export declare interface LocalizedEdgeColors {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   start?: ResourceColor;
 }
@@ -598,7 +597,7 @@ export declare interface LocalizedEdgeColors {
  *
  * @typedef { LocalizedPadding } LocalizedMargin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type LocalizedMargin = LocalizedPadding;
 
@@ -607,7 +606,7 @@ export type LocalizedMargin = LocalizedPadding;
  *
  * @interface EdgeStyles
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface EdgeStyles {
   /**
@@ -615,7 +614,7 @@ export declare interface EdgeStyles {
    *
    * @type { ?BorderStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   top?: BorderStyle;
 
@@ -624,7 +623,7 @@ export declare interface EdgeStyles {
    *
    * @type { ?BorderStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   right?: BorderStyle;
 
@@ -633,7 +632,7 @@ export declare interface EdgeStyles {
    *
    * @type { ?BorderStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottom?: BorderStyle;
 
@@ -642,7 +641,7 @@ export declare interface EdgeStyles {
    *
    * @type { ?BorderStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   left?: BorderStyle;
 }
@@ -652,7 +651,7 @@ export declare interface EdgeStyles {
  *
  * @interface EdgeOutlineStyles
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface EdgeOutlineStyles {
   /**
@@ -660,7 +659,7 @@ export declare interface EdgeOutlineStyles {
    *
    * @type { ?OutlineStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   top?: OutlineStyle;
 
@@ -669,7 +668,7 @@ export declare interface EdgeOutlineStyles {
    *
    * @type { ?OutlineStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   right?: OutlineStyle;
 
@@ -678,7 +677,7 @@ export declare interface EdgeOutlineStyles {
    *
    * @type { ?OutlineStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottom?: OutlineStyle;
 
@@ -687,7 +686,7 @@ export declare interface EdgeOutlineStyles {
    *
    * @type { ?OutlineStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   left?: OutlineStyle;
 }
@@ -697,7 +696,7 @@ export declare interface EdgeOutlineStyles {
  *
  * @interface Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface Offset {
   /**
@@ -705,7 +704,7 @@ export declare interface Offset {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   dx: Length;
 
@@ -714,7 +713,7 @@ export declare interface Offset {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   dy: Length;
 }
@@ -724,7 +723,7 @@ export declare interface Offset {
  *
  * @typedef { Color | number | string | Resource } ResourceColor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type ResourceColor = Color | number | string | Resource;
 
@@ -733,7 +732,7 @@ export type ResourceColor = Color | number | string | Resource;
  *
  * @typedef { object } LengthConstrain
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface LengthConstrain {
   /**
@@ -741,7 +740,7 @@ export declare interface LengthConstrain {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   minLength: Length;
 
@@ -750,7 +749,7 @@ export declare interface LengthConstrain {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   maxLength: Length;
 }
@@ -760,7 +759,7 @@ export declare interface LengthConstrain {
  *
  * @typedef { function } VoidCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type VoidCallback = () => void;
 
@@ -769,7 +768,7 @@ export type VoidCallback = () => void;
  *
  * @typedef { _LengthMetricsUnit } LengthMetricsUnit
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type LengthMetricsUnit = _LengthMetricsUnit;
 
@@ -778,7 +777,7 @@ export type LengthMetricsUnit = _LengthMetricsUnit;
  *
  * @typedef { _LengthMetrics } LengthMetrics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type LengthMetrics = _LengthMetrics;
 
@@ -787,7 +786,7 @@ export type LengthMetrics = _LengthMetrics;
  *
  * @typedef { _ColorMetrics } ColorMetrics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type ColorMetrics = _ColorMetrics;
 
@@ -796,7 +795,7 @@ export type ColorMetrics = _ColorMetrics;
  *
  * @interface Font
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface Font {
   /**
@@ -804,7 +803,7 @@ export declare interface Font {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   size?: Length;
 
@@ -813,7 +812,7 @@ export declare interface Font {
    *
    * @type { ?(FontWeight | int | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   weight?: FontWeight | int | string;
 
@@ -822,7 +821,7 @@ export declare interface Font {
    *
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   family?: string | Resource;
 
@@ -831,7 +830,7 @@ export declare interface Font {
    *
    * @type { ?FontStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   style?: FontStyle;
 }
@@ -841,7 +840,7 @@ export declare interface Font {
  *
  * @interface Area
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface Area {
   /**
@@ -849,7 +848,7 @@ export declare interface Area {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   width: Length;
 
@@ -858,7 +857,7 @@ export declare interface Area {
    *
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   height: Length;
 
@@ -867,7 +866,7 @@ export declare interface Area {
    *
    * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   position: Position;
 
@@ -876,7 +875,7 @@ export declare interface Area {
    *
    * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   globalPosition: Position;
 }
@@ -886,7 +885,7 @@ export declare interface Area {
  *
  * @interface Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface Position {
   /**
@@ -894,7 +893,7 @@ export declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   x?: Length;
 
@@ -903,7 +902,7 @@ export declare interface Position {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   y?: Length;
 }
@@ -913,7 +912,7 @@ export declare interface Position {
  *
  * @interface LocalizedPosition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface LocalizedPosition {
   /**
@@ -921,7 +920,7 @@ export declare interface LocalizedPosition {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   start?: LengthMetrics;
 
@@ -930,7 +929,7 @@ export declare interface LocalizedPosition {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   top?: LengthMetrics;
 }
@@ -940,7 +939,7 @@ export declare interface LocalizedPosition {
  *
  * @interface Edges
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface Edges {
   /**
@@ -948,7 +947,7 @@ export declare interface Edges {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   top?: Dimension;
 
@@ -957,7 +956,7 @@ export declare interface Edges {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   left?: Dimension;
 
@@ -966,7 +965,7 @@ export declare interface Edges {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottom?: Dimension;
 
@@ -975,7 +974,7 @@ export declare interface Edges {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   right?: Dimension;
 }
@@ -985,7 +984,7 @@ export declare interface Edges {
  *
  * @interface LocalizedEdges
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface LocalizedEdges {
   /**
@@ -993,7 +992,7 @@ export declare interface LocalizedEdges {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   top?: LengthMetrics;
 
@@ -1002,7 +1001,7 @@ export declare interface LocalizedEdges {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   start?: LengthMetrics;
 
@@ -1011,7 +1010,7 @@ export declare interface LocalizedEdges {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottom?: LengthMetrics;
 
@@ -1020,7 +1019,7 @@ export declare interface LocalizedEdges {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   end?: LengthMetrics;
 }
@@ -1030,7 +1029,7 @@ export declare interface LocalizedEdges {
  *
  * @interface Bias
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface Bias {
   /**
@@ -1039,7 +1038,7 @@ export declare interface Bias {
    * @type { ?number }
    * @default 0.5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   horizontal?: number;
 
@@ -1049,7 +1048,7 @@ export declare interface Bias {
    * @type { ?number }
    * @default 0.5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   vertical?: number;
 }
@@ -1059,7 +1058,7 @@ export declare interface Bias {
  *
  * @interface ConstraintSizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ConstraintSizeOptions {
   /**
@@ -1067,7 +1066,7 @@ export declare interface ConstraintSizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   minWidth?: Length;
 
@@ -1076,7 +1075,7 @@ export declare interface ConstraintSizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   maxWidth?: Length;
 
@@ -1085,7 +1084,7 @@ export declare interface ConstraintSizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   minHeight?: Length;
 
@@ -1094,7 +1093,7 @@ export declare interface ConstraintSizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   maxHeight?: Length;
 }
@@ -1104,7 +1103,7 @@ export declare interface ConstraintSizeOptions {
  *
  * @interface SizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface SizeOptions {
   /**
@@ -1112,7 +1111,7 @@ export declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   width?: Length;
 
@@ -1121,7 +1120,7 @@ export declare interface SizeOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   height?: Length;
 }
@@ -1131,7 +1130,7 @@ export declare interface SizeOptions {
  *
  * @interface BorderOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface BorderOptions {
   /**
@@ -1139,7 +1138,7 @@ export declare interface BorderOptions {
    *
    * @type { ?(EdgeWidths | Length | LocalizedEdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   width?: EdgeWidths | Length | LocalizedEdgeWidths;
 
@@ -1148,7 +1147,7 @@ export declare interface BorderOptions {
    *
    * @type { ?(EdgeColors | ResourceColor | LocalizedEdgeColors) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   color?: EdgeColors | ResourceColor | LocalizedEdgeColors;
 
@@ -1157,7 +1156,7 @@ export declare interface BorderOptions {
    *
    * @type { ?(BorderRadiuses | Length | LocalizedBorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   radius?: BorderRadiuses | Length | LocalizedBorderRadiuses;
 
@@ -1166,7 +1165,7 @@ export declare interface BorderOptions {
    *
    * @type { ?(EdgeStyles | BorderStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   style?: EdgeStyles | BorderStyle;
 
@@ -1175,7 +1174,7 @@ export declare interface BorderOptions {
    *
    * @type { ?(EdgeWidths | LengthMetrics | LocalizedEdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   dashGap?: EdgeWidths | LengthMetrics | LocalizedEdgeWidths;
 
@@ -1184,7 +1183,7 @@ export declare interface BorderOptions {
    *
    * @type { ?(EdgeWidths | LengthMetrics | LocalizedEdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   dashWidth?: EdgeWidths | LengthMetrics | LocalizedEdgeWidths;
 
@@ -1194,7 +1193,7 @@ export declare interface BorderOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   showInForeground?: boolean;
 }
@@ -1204,7 +1203,7 @@ export declare interface BorderOptions {
  *
  * @interface OutlineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface OutlineOptions {
   /**
@@ -1212,7 +1211,7 @@ export declare interface OutlineOptions {
    *
    * @type { ?(EdgeOutlineWidths | Dimension) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   width?: EdgeOutlineWidths | Dimension;
 
@@ -1221,7 +1220,7 @@ export declare interface OutlineOptions {
    *
    * @type { ?(EdgeColors | ResourceColor | LocalizedEdgeColors) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   color?: EdgeColors | ResourceColor | LocalizedEdgeColors;
 
@@ -1230,7 +1229,7 @@ export declare interface OutlineOptions {
    *
    * @type { ?(OutlineRadiuses | Dimension) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   radius?: OutlineRadiuses | Dimension;
 
@@ -1239,7 +1238,7 @@ export declare interface OutlineOptions {
    *
    * @type { ?(EdgeOutlineStyles | OutlineStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   style?: EdgeOutlineStyles | OutlineStyle;
 }
@@ -1249,7 +1248,7 @@ export declare interface OutlineOptions {
  *
  * @interface MarkStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface MarkStyle {
   /**
@@ -1257,7 +1256,7 @@ export declare interface MarkStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   strokeColor?: ResourceColor;
 
@@ -1266,7 +1265,7 @@ export declare interface MarkStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   size?: Length;
 
@@ -1275,7 +1274,7 @@ export declare interface MarkStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   strokeWidth?: Length;
 }
@@ -1284,7 +1283,7 @@ export declare interface MarkStyle {
  * Defines the ColorFilter object.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class ColorFilter {
   /**
@@ -1293,7 +1292,7 @@ export declare class ColorFilter {
    * @param { number[] } value 4*5 color matrix values. The value[m*n] is located in the m row and n column.
    *     The matrix is row-first.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   constructor(value: number[]);
 }
@@ -1303,7 +1302,7 @@ export declare class ColorFilter {
  *
  * @interface TouchPoint
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface TouchPoint {
   /**
@@ -1311,7 +1310,7 @@ export declare interface TouchPoint {
    *
    * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   x: Dimension;
 
@@ -1320,7 +1319,7 @@ export declare interface TouchPoint {
    *
    * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   y: Dimension;
 }
@@ -1330,7 +1329,7 @@ export declare interface TouchPoint {
  *
  * @interface DirectionalEdgesT
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface DirectionalEdgesT<T> {
   /**
@@ -1338,7 +1337,7 @@ export declare interface DirectionalEdgesT<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   start: T;
 
@@ -1347,7 +1346,7 @@ export declare interface DirectionalEdgesT<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   end: T;
 
@@ -1356,7 +1355,7 @@ export declare interface DirectionalEdgesT<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   top: T;
 
@@ -1365,7 +1364,7 @@ export declare interface DirectionalEdgesT<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottom: T;
 }
@@ -1375,7 +1374,7 @@ export declare interface DirectionalEdgesT<T> {
  *
  * @interface DividerStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface DividerStyleOptions {
   /**
@@ -1383,7 +1382,7 @@ export declare interface DividerStyleOptions {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   strokeWidth?: LengthMetrics;
 
@@ -1392,7 +1391,7 @@ export declare interface DividerStyleOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   color?: ResourceColor;
 
@@ -1401,7 +1400,7 @@ export declare interface DividerStyleOptions {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   startMargin?: LengthMetrics;
 
@@ -1410,7 +1409,7 @@ export declare interface DividerStyleOptions {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   endMargin?: LengthMetrics;
 
@@ -1419,7 +1418,7 @@ export declare interface DividerStyleOptions {
    *
    * @type { ?DividerMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   mode?: DividerMode;
 }
@@ -1429,7 +1428,7 @@ export declare interface DividerStyleOptions {
  *
  * @interface ScrollBarMargin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 declare interface ScrollBarMargin {
   /**
@@ -1437,7 +1436,7 @@ declare interface ScrollBarMargin {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   start?: LengthMetrics;
 
@@ -1446,7 +1445,7 @@ declare interface ScrollBarMargin {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   end?: LengthMetrics;
 }
@@ -1456,7 +1455,7 @@ declare interface ScrollBarMargin {
  *
  * @interface ChainWeightOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ChainWeightOptions {
 
@@ -1465,7 +1464,7 @@ export declare interface ChainWeightOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   horizontal?: number;
 
@@ -1474,7 +1473,7 @@ export declare interface ChainWeightOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   vertical?: number;
 }
@@ -1484,7 +1483,7 @@ export declare interface ChainWeightOptions {
  *
  * @interface AccessibilityOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface AccessibilityOptions {
 
@@ -1493,7 +1492,7 @@ export declare interface AccessibilityOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   accessibilityPreferred?: boolean;
 }

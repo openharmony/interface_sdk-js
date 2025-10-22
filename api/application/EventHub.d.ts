@@ -42,8 +42,8 @@ import { BusinessError } from '../@ohos.base';
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 declare class EventHub {
   /**
@@ -80,8 +80,8 @@ declare class EventHub {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts{ '1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   on(event: string, callback: Function): void;
 
@@ -119,8 +119,8 @@ declare class EventHub {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts{ '1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   off(event: string, callback?: Function): void;
 
@@ -158,7 +158,7 @@ declare class EventHub {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   emit(event: string, ...args: Object[]): void;
  
@@ -170,8 +170,7 @@ declare class EventHub {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   emit(event: string, ...args: (Object|null|undefined)[]): void;
 }

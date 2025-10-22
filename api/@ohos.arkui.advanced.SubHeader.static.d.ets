@@ -31,35 +31,35 @@ import { BuilderParam, Builder } from '@ohos.arkui.component';
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum OperationType {
     /**
      * The TextArrow style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     TEXT_ARROW = 0,
     /**
      * The Button style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     BUTTON = 1,
     /**
      * The IconGroup style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     ICON_GROUP = 2,
     /**
      * The LoadingProgress style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     LOADING = 3
 }
@@ -67,7 +67,7 @@ export declare enum OperationType {
  * Declare type OperationOption
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class OperationOption {
     /**

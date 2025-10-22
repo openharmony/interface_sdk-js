@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 
@@ -31,7 +30,7 @@ import { Resource } from '../global/resource';
  *
  * @implements { SymbolGlyphAttribute, AttributeModifier<SymbolGlyphAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
 */
 export declare class SymbolGlyphModifier implements SymbolGlyphAttribute, AttributeModifier<SymbolGlyphAttribute> {
     /**
@@ -39,7 +38,7 @@ export declare class SymbolGlyphModifier implements SymbolGlyphAttribute, Attrib
      *
      * @param { Resource } [src]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor(src?: Resource);
 }

@@ -40,8 +40,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace buffer {
   /**
@@ -66,8 +66,8 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   type BufferEncoding =
     | 'ascii'
@@ -102,7 +102,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   interface TypedArray extends Int8Array {}
   /**
@@ -112,8 +112,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   type TypedArray = Int8Array
     | Uint8Array
@@ -135,8 +134,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   type ArrayUnionType =  Array<Int8Array>
     | Array<Uint8Array>
@@ -197,8 +195,8 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function alloc(size: int, fill?: string | Buffer | int | double | long, encoding?: BufferEncoding): Buffer;
 
@@ -241,8 +239,8 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function allocUninitializedFromPool(size: int): Buffer;
 
@@ -283,8 +281,8 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function allocUninitialized(size: int): Buffer;
 
@@ -329,7 +327,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function byteLength(
     string: string | Buffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer,
@@ -345,8 +343,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   function byteLength(
     doc: string | Buffer | TypedArray | DataView | ArrayBuffer,
@@ -396,8 +393,8 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function concat(list: Buffer[] | Uint8Array[], totalLength?: int): Buffer;
 
@@ -435,7 +432,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function from(array: double[]): Buffer;
 
@@ -488,7 +485,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function from(arrayBuffer: ArrayBuffer | SharedArrayBuffer, byteOffset?: number, length?: number): Buffer;
 
@@ -526,7 +523,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function from(buffer: Buffer | Uint8Array): Buffer;
 
@@ -571,7 +568,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function from(object: Object, offsetOrEncoding: int | string, length: int): Buffer;
 
@@ -613,7 +610,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function from(string: String, encoding?: BufferEncoding): Buffer;
 
@@ -625,8 +622,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   function fromWithArray(array: double[]): Buffer;
 
@@ -642,8 +638,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   function fromWithArrayBufferByteOffsetLength(arrayBuffer: ArrayBuffer, byteOffset?: int, length?: int): Buffer;
 
@@ -655,8 +650,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   function fromWithBuffer(buffer: Buffer | Uint8Array): Buffer;
 
@@ -670,8 +664,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   function fromWithObjectTypedInputOffsetOrEncodingLength(input: Object, offsetOrEncoding: int | string, length: int): Buffer;
 
@@ -684,8 +677,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   function fromWithStringTypedInputEncoding(input: string, encoding?: BufferEncoding): Buffer;
 
@@ -697,8 +689,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export overload from { fromWithArray, fromWithArrayBufferByteOffsetLength, fromWithBuffer,
                   fromWithObjectTypedInputOffsetOrEncodingLength, fromWithStringTypedInputEncoding }
@@ -728,8 +719,8 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function isBuffer(obj: Object): boolean;
 
@@ -758,8 +749,8 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function isEncoding(encoding: string): boolean;
 
@@ -806,7 +797,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function compare(buf1: Buffer | Uint8Array, buf2: Buffer | Uint8Array): -1 | 0 | 1;
 
@@ -821,8 +812,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   function compare(buf1: Buffer | Uint8Array, buf2: Buffer | Uint8Array): int;
 
@@ -866,8 +856,8 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function transcode(source: Buffer | Uint8Array, fromEnc: string, toEnc: string): Buffer;
 
@@ -891,8 +881,8 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   class Buffer {
     /**
@@ -920,7 +910,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     length: number;
 
@@ -931,8 +921,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     get length(): int;
 
@@ -961,7 +950,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     buffer: ArrayBuffer;
 
@@ -973,8 +962,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     get buffer(): ArrayBuffer;
 
@@ -1003,7 +991,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     byteOffset: number;
 
@@ -1015,8 +1003,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     get byteOffset(): int;
 
@@ -1066,8 +1053,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     fill(
       value: string | Buffer | Uint8Array | int | double | long,
@@ -1137,7 +1124,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     compare(
       target: Buffer | Uint8Array,
@@ -1165,8 +1152,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     compare(
       target: Buffer | Uint8Array,
@@ -1228,8 +1214,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     copy(target: Buffer | Uint8Array, targetStart?: int, sourceStart?: int, sourceEnd?: int): int;
 
@@ -1261,8 +1247,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     equals(otherBuffer: Uint8Array | Buffer): boolean;
 
@@ -1310,8 +1296,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     includes(value: string | int | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): boolean;
 
@@ -1358,8 +1344,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     indexOf(value: string | int | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): int;
 
@@ -1385,8 +1371,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     keys(): IterableIterator<int>;
 
@@ -1412,8 +1398,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     values(): IterableIterator<long>;
 
@@ -1439,8 +1425,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     entries(): IterableIterator<[int, long]>;
 
@@ -1490,8 +1476,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     lastIndexOf(value: string | int | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): int;
 
@@ -1526,8 +1512,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readBigInt64BE(offset?: int): bigint;
 
@@ -1562,8 +1548,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readBigInt64LE(offset?: int): bigint;
 
@@ -1598,8 +1584,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readBigUInt64BE(offset?: int): bigint;
 
@@ -1634,8 +1620,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readBigUInt64LE(offset?: int): bigint;
 
@@ -1670,8 +1656,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readDoubleBE(offset?: int): double;
 
@@ -1706,8 +1692,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readDoubleLE(offset?: int): double;
 
@@ -1742,8 +1728,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readFloatBE(offset?: int): double;
 
@@ -1778,8 +1764,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readFloatLE(offset?: int): double;
 
@@ -1814,8 +1800,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readInt8(offset?: int): long;
 
@@ -1850,8 +1836,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readInt16BE(offset?: int): long;
 
@@ -1886,8 +1872,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readInt16LE(offset?: int): long;
 
@@ -1922,8 +1908,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readInt32BE(offset?: int): long;
 
@@ -1958,8 +1944,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readInt32LE(offset?: int): long;
 
@@ -2008,8 +1994,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readIntBE(offset: int, byteLength: int): long;
 
@@ -2058,8 +2044,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readIntLE(offset: int, byteLength: int): long;
 
@@ -2094,8 +2080,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readUInt8(offset?: int): long;
 
@@ -2130,8 +2116,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readUInt16BE(offset?: int): long;
 
@@ -2166,8 +2152,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readUInt16LE(offset?: int): long;
 
@@ -2202,8 +2188,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readUInt32BE(offset?: int): long;
 
@@ -2238,8 +2224,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readUInt32LE(offset?: int): long;
 
@@ -2288,8 +2274,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readUIntBE(offset: int, byteLength: int): long;
 
@@ -2338,8 +2324,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readUIntLE(offset: int, byteLength: int): long;
 
@@ -2371,8 +2357,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     subarray(start?: int, end?: int): Buffer;
 
@@ -2401,8 +2387,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     swap16(): Buffer;
 
@@ -2431,8 +2417,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     swap32(): Buffer;
 
@@ -2461,8 +2447,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     swap64(): Buffer;
 
@@ -2488,7 +2474,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     toJSON(): Object;
     
@@ -2499,8 +2485,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     toJSON(): jsonx.JsonElement;
 
@@ -2538,7 +2523,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     toString(encoding?: string, start?: number, end?: number): string;
 
@@ -2552,8 +2537,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     toString(encoding?: BufferEncoding, start?: int, end?: int): string;
 
@@ -2603,8 +2587,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     write(str: string, offset?: int, length?: int, encoding?: string): int;
 
@@ -2650,8 +2634,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeBigInt64BE(value: bigint, offset?: int): int;
 
@@ -2698,8 +2682,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeBigInt64LE(value: bigint, offset?: int): int;
 
@@ -2746,8 +2730,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeBigUInt64BE(value: bigint, offset?: int): int;
 
@@ -2794,8 +2778,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeBigUInt64LE(value: bigint, offset?: int): int;
 
@@ -2839,8 +2823,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeDoubleBE(value: double, offset?: int): int;
 
@@ -2884,8 +2868,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeDoubleLE(value: double, offset?: int): int;
 
@@ -2929,8 +2913,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeFloatBE(value: double, offset?: int): int;
 
@@ -2974,8 +2958,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeFloatLE(value: double, offset?: int): int;
 
@@ -3022,8 +3006,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeInt8(value: long, offset?: int): int;
 
@@ -3070,8 +3054,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeInt16BE(value: long, offset?: int): int;
 
@@ -3118,8 +3102,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeInt16LE(value: long, offset?: int): int;
 
@@ -3166,8 +3150,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeInt32BE(value: long, offset?: int): int;
 
@@ -3214,8 +3198,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeInt32LE(value: long, offset?: int): int;
 
@@ -3264,8 +3248,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeIntBE(value: long, offset: int, byteLength: int): int;
 
@@ -3314,8 +3298,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeIntLE(value: long, offset: int, byteLength: int): int;
 
@@ -3362,8 +3346,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeUInt8(value: long, offset?: int): int;
 
@@ -3410,8 +3394,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeUInt16BE(value: long, offset?: int): int;
 
@@ -3458,8 +3442,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeUInt16LE(value: long, offset?: int): int;
 
@@ -3506,8 +3490,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeUInt32BE(value: long, offset?: int): int;
 
@@ -3554,8 +3538,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeUInt32LE(value: long, offset?: int): int;
 
@@ -3604,8 +3588,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeUIntBE(value: long, offset: int, byteLength: int): int;
 
@@ -3654,8 +3638,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     writeUIntLE(value: long, offset: int, byteLength: int): int;
 
@@ -3669,8 +3653,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     [index: int]: long;
   }
@@ -3682,8 +3665,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   interface BlobOptions {
     /**
@@ -3692,8 +3674,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     type?: string;
 
@@ -3703,8 +3684,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     endings?: string;
   }
@@ -3728,8 +3708,8 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   class Blob {
     /**
@@ -3775,7 +3755,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     constructor(sources: string[] | ArrayBuffer[] | TypedArray[] | DataView[] | Blob[], options?: Object);
 
@@ -3789,8 +3769,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     constructor(sources: ArrayUnionType, options?: BlobOptions);
 
@@ -3816,8 +3795,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     get size(): int;
 
@@ -3843,8 +3822,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     get type(): string;
 
@@ -3870,8 +3849,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     arrayBuffer(): Promise<ArrayBuffer>;
 
@@ -3906,8 +3885,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     slice(start?: int, end?: int, type?: string): Blob;
 
@@ -3933,8 +3912,8 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     text(): Promise<string>;
   }

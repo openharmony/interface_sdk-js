@@ -18,7 +18,7 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type { UIContext } from './@ohos.arkui.UIContext';
 import type * as _ViewData from './application/ViewData';
 import type * as _PageNodeInfo from './application/PageNodeInfo';
@@ -29,7 +29,7 @@ import type * as _AutoFillRect from './application/AutoFillRect';
 import type * as _AutoFillPopupConfig from './application/AutoFillPopupConfig';
 import { PopupPlacement } from './application/AutoFillPopupConfig';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { UIContext } from './@ohos.arkui.UIContext';
 import _ViewData from './application/ViewData';
 import _PageNodeInfo from './application/PageNodeInfo';
@@ -60,8 +60,8 @@ import { PopupPlacement as _PopupPlacement } from './application/AutoFillPopupCo
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 declare namespace autoFillManager {
   /**
@@ -71,8 +71,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   type OnSuccessFn = () => void;
 
@@ -83,8 +82,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   type OnFailureFn = () => void;
 
@@ -103,8 +101,8 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   export interface AutoSaveCallback {
     /**
@@ -129,8 +127,7 @@ declare namespace autoFillManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     onSuccess: OnSuccessFn;
 
@@ -156,8 +153,7 @@ declare namespace autoFillManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     onFailure: OnFailureFn;
   }
@@ -185,8 +181,8 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   export function requestAutoSave(context: UIContext, callback?: AutoSaveCallback): void;
 
@@ -205,7 +201,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   export type ViewData = _ViewData.default;
 
@@ -216,8 +212,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type ViewData = _ViewData;
 
@@ -236,7 +231,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   export type PageNodeInfo = _PageNodeInfo.default;
 
@@ -247,8 +242,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type PageNodeInfo = _PageNodeInfo;
 
@@ -266,7 +260,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   export { AutoFillType };
 
@@ -276,8 +270,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type AutoFillType = _AutoFillType;
 
@@ -296,7 +289,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   export type FillRequest = _AutoFillRequest.FillRequest;
 
@@ -307,8 +300,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type FillRequest = _FillRequest;
 
@@ -327,7 +319,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   export type SaveRequest = _AutoFillRequest.SaveRequest;
 
@@ -338,8 +330,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type SaveRequest = _SaveRequest;
 
@@ -350,7 +341,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   export type UpdateRequest = _AutoFillRequest.UpdateRequest;
 
@@ -361,8 +352,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type UpdateRequest = _UpdateRequest;
 
@@ -381,7 +371,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   export type FillResponse = _AutoFillRequest.FillResponse;
 
@@ -392,8 +382,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type FillResponse = _FillResponse;
 
@@ -412,7 +401,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   export type FillRequestCallback = _AutoFillRequest.FillRequestCallback;
 
@@ -423,8 +412,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type FillRequestCallback = _FillRequestCallback;
 
@@ -443,7 +431,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   export type SaveRequestCallback = _AutoFillRequest.SaveRequestCallback;
 
@@ -454,8 +442,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type SaveRequestCallback = _SaveRequestCallback;
 
@@ -466,7 +453,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 13
+   * @since 13 dynamic
    */
   export type CustomData = _CustomData.default;
 
@@ -477,8 +464,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type CustomData = _CustomData;
 
@@ -489,7 +475,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   export type AutoFillRect = _AutoFillRect.default;
 
@@ -500,8 +486,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type AutoFillRect = _AutoFillRect;
 
@@ -512,7 +497,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   export type AutoFillPopupConfig = _AutoFillPopupConfig.default;
 
@@ -523,8 +508,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type AutoFillPopupConfig = _AutoFillPopupConfig;
 
@@ -535,7 +519,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   export type PopupSize = _AutoFillPopupConfig.PopupSize;
 
@@ -546,8 +530,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type PopupSize = _PopupSize;
 
@@ -557,7 +540,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   export { PopupPlacement };
 
@@ -567,8 +550,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type PopupPlacement = _PopupPlacement;
 }

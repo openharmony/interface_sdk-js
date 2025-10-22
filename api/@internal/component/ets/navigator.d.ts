@@ -40,7 +40,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @deprecated since 13
  */
 declare enum NavigationType {
@@ -63,7 +63,7 @@ declare enum NavigationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 13
    */
   Push,
@@ -87,7 +87,7 @@ declare enum NavigationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 13
    */
   Back,
@@ -111,7 +111,7 @@ declare enum NavigationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 13
    */
   Replace,
@@ -139,7 +139,7 @@ declare enum NavigationType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @deprecated since 13
  */
 interface NavigatorInterface {
@@ -168,7 +168,7 @@ interface NavigatorInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 13
    */
   (value?: { target: string; type?: NavigationType }): NavigatorAttribute;
@@ -195,7 +195,7 @@ interface NavigatorInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 13
    */
   (): NavigatorAttribute;
@@ -223,7 +223,7 @@ interface NavigatorInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @deprecated since 13
  */
 declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
@@ -252,7 +252,7 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 13
    */
   active(value: boolean): NavigatorAttribute;
@@ -282,7 +282,7 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 13
    */
   type(value: NavigationType): NavigatorAttribute;
@@ -312,7 +312,7 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 13
    */
   target(value: string): NavigatorAttribute;
@@ -342,7 +342,7 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 13
    */
   params(value: object): NavigatorAttribute;
@@ -367,7 +367,7 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @deprecated since 13
  */
 declare const Navigator: NavigatorInterface;
@@ -391,7 +391,7 @@ declare const Navigator: NavigatorInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @deprecated since 13
  */
 declare const NavigatorInstance: NavigatorAttribute;

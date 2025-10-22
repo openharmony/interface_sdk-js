@@ -28,7 +28,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 interface ShapeSize {
   /**
@@ -37,7 +37,7 @@ interface ShapeSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   width?: number | string;
 
@@ -47,7 +47,7 @@ interface ShapeSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   height?: number | string;
 }
@@ -61,7 +61,7 @@ interface ShapeSize {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 interface RectShapeOptions extends ShapeSize {
   /**
@@ -70,7 +70,7 @@ interface RectShapeOptions extends ShapeSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   radius?: number | string | Array<number | string>;
 }
@@ -84,7 +84,7 @@ interface RectShapeOptions extends ShapeSize {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 interface RoundRectShapeOptions extends ShapeSize {
   /**
@@ -93,7 +93,7 @@ interface RoundRectShapeOptions extends ShapeSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   radiusWidth?: number | string;
 
@@ -103,7 +103,7 @@ interface RoundRectShapeOptions extends ShapeSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   radiusHeight?: number | string;
 }
@@ -116,7 +116,7 @@ interface RoundRectShapeOptions extends ShapeSize {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 interface PathShapeOptions {
   /**
@@ -125,7 +125,7 @@ interface PathShapeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   commands?: string;
 }
@@ -137,7 +137,7 @@ interface PathShapeOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class CommonShapeMethod<T> {
   /**
@@ -149,7 +149,7 @@ declare class CommonShapeMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   offset(offset: Position): T;
 
@@ -162,7 +162,7 @@ declare class CommonShapeMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   fill(color: ResourceColor): T;
 
@@ -175,7 +175,7 @@ declare class CommonShapeMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   position(position: Position): T;
 }
@@ -188,7 +188,7 @@ declare class CommonShapeMethod<T> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class BaseShape<T> extends CommonShapeMethod<T> {
   /**
@@ -200,7 +200,7 @@ declare class BaseShape<T> extends CommonShapeMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   width(width: Length): T;
 
@@ -213,7 +213,7 @@ declare class BaseShape<T> extends CommonShapeMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   height(height: Length): T;
 
@@ -226,7 +226,7 @@ declare class BaseShape<T> extends CommonShapeMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   size(size: SizeOptions): T;
 }
@@ -239,7 +239,7 @@ declare class BaseShape<T> extends CommonShapeMethod<T> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare class RectShape extends BaseShape<RectShape> {
   /**
@@ -250,7 +250,7 @@ export declare class RectShape extends BaseShape<RectShape> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(options?: RectShapeOptions | RoundRectShapeOptions);
 
@@ -263,7 +263,7 @@ export declare class RectShape extends BaseShape<RectShape> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   radiusWidth(rWidth: number | string): RectShape;
 
@@ -276,7 +276,7 @@ export declare class RectShape extends BaseShape<RectShape> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   radiusHeight(rHeight: number | string): RectShape;
 
@@ -289,7 +289,7 @@ export declare class RectShape extends BaseShape<RectShape> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   radius(radius: number | string | Array<number | string>): RectShape;
 }
@@ -302,7 +302,7 @@ export declare class RectShape extends BaseShape<RectShape> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare class CircleShape extends BaseShape<CircleShape> {
   /**
@@ -313,7 +313,7 @@ export declare class CircleShape extends BaseShape<CircleShape> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(options?: ShapeSize);
 }
@@ -326,7 +326,7 @@ export declare class CircleShape extends BaseShape<CircleShape> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare class EllipseShape extends BaseShape<EllipseShape> {
   /**
@@ -337,7 +337,7 @@ export declare class EllipseShape extends BaseShape<EllipseShape> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(options?: ShapeSize);
 }
@@ -350,7 +350,7 @@ export declare class EllipseShape extends BaseShape<EllipseShape> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare class PathShape extends CommonShapeMethod<PathShape> {
   /**
@@ -361,7 +361,7 @@ export declare class PathShape extends CommonShapeMethod<PathShape> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(options?: PathShapeOptions);
 
@@ -374,7 +374,7 @@ export declare class PathShape extends CommonShapeMethod<PathShape> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   commands(commands: string): PathShape;
 }

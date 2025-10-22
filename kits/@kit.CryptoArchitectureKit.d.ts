@@ -18,14 +18,14 @@
  * @kit CryptoArchitectureKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import cryptoFramework from '@ohos.security.cryptoFramework';
 import Cipher, { CipherAesOptions, CipherResponse, CipherRsaOptions } from '@system.cipher';
 
 export { Cipher, CipherAesOptions, CipherResponse, CipherRsaOptions, cryptoFramework };
 /*** endif */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import cryptoFramework from '@ohos.security.cryptoFramework';
 
 export { cryptoFramework };

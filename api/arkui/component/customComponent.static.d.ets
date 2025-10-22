@@ -31,7 +31,7 @@ import { RecordData } from '@ohos.base';
   * Define ReuseObject for aboutToReuse method.
   *
   * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 20
+  * @since 20 static
   */
 export declare class ReuseObject {
     /**
@@ -39,7 +39,7 @@ export declare class ReuseObject {
      *
      * @returns { RecordData } - Returns the raw data of ReuseObject.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     get raw(): RecordData;
 
@@ -49,7 +49,7 @@ export declare class ReuseObject {
      * @param { string } key - the key of target value.
      * @returns { RecordData } - the target value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     $_get(key: string): RecordData;
 
@@ -59,7 +59,7 @@ export declare class ReuseObject {
     * @param { string } key - the key of target value.
     * @returns { boolean } - if the key is in the ReuseObject.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 20 static
     */
     has(key: string): boolean;
 
@@ -68,7 +68,7 @@ export declare class ReuseObject {
     *
     * @returns { string[] } - the keys array of the ReuseObject.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 20 static
     */
     keys(): string[];
 }
@@ -177,7 +177,7 @@ export @interface CustomLayout {}
  * Defining of entry of page
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare abstract class EntryPoint {
 
@@ -185,7 +185,7 @@ export declare abstract class EntryPoint {
      * Define entry function of page
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     @Builder entry(): void;
 }
@@ -288,7 +288,7 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
      * @param { string } [reuseId] - reuse id for reusable. Only valid if custom component decorated with @Reusable
      * @param { CustomBuilder } [content] - tail closure for custom component
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     @Builder
     static _invokeImpl<S extends CustomComponent<S, S_Options>, S_Options>(
@@ -330,7 +330,7 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
      * @param { string } [reuseId] - reuse id for reusable. Only valid if custom component decorated with @Reusable
      * @param { CustomBuilder } [content] - tail closure for custom component
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     @Builder
     static _invokeImpl<S extends CustomComponentV2<S, S_Options>, S_Options>(

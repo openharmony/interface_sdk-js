@@ -32,7 +32,7 @@ import dataShare from './@ohos.data.dataShare';
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
 type UpdateOperation = dataShare.UpdateOperation;
 
@@ -42,7 +42,7 @@ type UpdateOperation = dataShare.UpdateOperation;
  * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
  * @systemapi
  * @StageModelOnly
- * @since 9
+ * @since 9 dynamic
  */
 export default class DataShareExtensionAbility {
   /**
@@ -52,7 +52,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
    */
   context: ExtensionContext;
 
@@ -64,7 +64,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   onCreate?(want: Want, callback: AsyncCallback<void>): void;
 
@@ -77,7 +77,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   insert?(uri: string, valueBucket: ValuesBucket, callback: AsyncCallback<number>): void;
 
@@ -92,7 +92,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   update?(
     uri: string,
@@ -109,7 +109,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 12
+   * @since 12 dynamic
    */
   batchUpdate?(
     operations: Record<string, Array<UpdateOperation>>,
@@ -126,7 +126,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   delete?(uri: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
 
@@ -143,7 +143,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   query?(
     uri: string,
@@ -161,7 +161,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   batchInsert?(uri: string, valueBuckets: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
 
@@ -175,7 +175,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   normalizeUri?(uri: string, callback: AsyncCallback<string>): void;
 
@@ -191,7 +191,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   denormalizeUri?(uri: string, callback: AsyncCallback<string>): void;
 }

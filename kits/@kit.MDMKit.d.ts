@@ -44,7 +44,7 @@ export {
   networkManager, restrictions, securityManager, systemManager, usbManager, wifiManager, telephonyManager
 };
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import adminManager from '@ohos.enterprise.adminManager';
 import securityManager from '@ohos.enterprise.securityManager';
 

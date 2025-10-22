@@ -24,8 +24,7 @@
  * @namespace common
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @stagemodelonly
- * @since 22
- * @arkts 1.1&1.2
+ * @since 22 dynamic&static
  */
 declare namespace common {
     /**
@@ -34,8 +33,7 @@ declare namespace common {
      * @typedef ApplicationInstance
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     export interface ApplicationInstance {
       /**
@@ -46,8 +44,7 @@ declare namespace common {
        * @type { string }
        * @syscap SystemCapability.Customization.EnterpriseDeviceManager
        * @stagemodelonly
-       * @since 22
-       * @arkts 1.1&1.2
+       * @since 22 dynamic&static
        */
       appIdentifier: string;
 
@@ -57,8 +54,7 @@ declare namespace common {
        * @type { number }
        * @syscap SystemCapability.Customization.EnterpriseDeviceManager
        * @stagemodelonly
-       * @since 22
-       * @arkts 1.1&1.2
+       * @since 22 dynamic&static
        */
       accountId: number;
   
@@ -68,8 +64,7 @@ declare namespace common {
        * @type { number }
        * @syscap SystemCapability.Customization.EnterpriseDeviceManager
        * @stagemodelonly
-       * @since 22
-       * @arkts 1.1&1.2
+       * @since 22 dynamic&static
        */
       appIndex: number;
     }

@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface EllipseOptions {
   /**
@@ -82,7 +82,7 @@ interface EllipseOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   width?: Length;
 
@@ -139,7 +139,7 @@ interface EllipseOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   height?: Length;
 }
@@ -176,7 +176,7 @@ interface EllipseOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface EllipseInterface {
   /**
@@ -227,7 +227,7 @@ interface EllipseInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   new (options?: EllipseOptions): EllipseAttribute;
 
@@ -279,7 +279,7 @@ interface EllipseInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options?: EllipseOptions): EllipseAttribute;
 }
@@ -308,7 +308,7 @@ interface EllipseInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
 
@@ -340,7 +340,7 @@ declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Ellipse: EllipseInterface;
 
@@ -372,6 +372,6 @@ declare const Ellipse: EllipseInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const EllipseInstance: EllipseAttribute;

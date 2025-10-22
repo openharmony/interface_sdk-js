@@ -27,8 +27,7 @@ import { KioskStatus as _KioskStatus } from './application/KioskStatus';
  * @namespace kioskManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic&static
  */
 declare namespace kioskManager {
   /**
@@ -43,8 +42,7 @@ declare namespace kioskManager {
    * @throws { BusinessError } 16000113 - Current ability is not in foreground.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function enterKioskMode(context: UIAbilityContext): Promise<void>;
 
@@ -59,8 +57,7 @@ declare namespace kioskManager {
    * @throws { BusinessError } 16000112 - The current application is not in Kiosk mode and cannot exit Kiosk mode.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function exitKioskMode(context: UIAbilityContext): Promise<void>;
 
@@ -74,8 +71,7 @@ declare namespace kioskManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function getKioskStatus(): Promise<KioskStatus>;
 
@@ -85,8 +81,7 @@ declare namespace kioskManager {
    * @typedef { _KioskStatus }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   export type KioskStatus = _KioskStatus;
 }

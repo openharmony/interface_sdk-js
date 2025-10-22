@@ -18,10 +18,10 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import AbilityFirstFrameStateData from './AbilityFirstFrameStateData';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { AbilityFirstFrameStateData } from './AbilityFirstFrameStateData';
 /*** endif */
 
@@ -31,8 +31,8 @@ import { AbilityFirstFrameStateData } from './AbilityFirstFrameStateData';
  * @interface AbilityFirstFrameStateObserver
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export interface AbilityFirstFrameStateObserver {
 
@@ -42,8 +42,8 @@ export interface AbilityFirstFrameStateObserver {
      * @param { AbilityFirstFrameStateData } data - The ability first frame state data.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     onAbilityFirstFrameDrawn(data: AbilityFirstFrameStateData): void;
 }

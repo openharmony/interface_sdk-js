@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit FormKit
- * @arkts 1.1&1.2
  */
 
 /**
@@ -32,8 +31,8 @@
  * @namespace formBindingData
  * @syscap SystemCapability.Ability.Form
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace formBindingData {
   /**
@@ -55,8 +54,8 @@ declare namespace formBindingData {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function createFormBindingData(obj?: Object | string): FormBindingData;
 
@@ -73,8 +72,8 @@ declare namespace formBindingData {
    * @typedef FormBindingData
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   interface FormBindingData {
     /**
@@ -90,8 +89,8 @@ declare namespace formBindingData {
      * @type { Object }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     data: Object;
 
@@ -110,8 +109,8 @@ declare namespace formBindingData {
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     proxies?: Array<ProxyData>;
   }
@@ -131,8 +130,8 @@ declare namespace formBindingData {
    * @syscap SystemCapability.Ability.Form
    * @StageModelOnly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   interface ProxyData {
     /**
@@ -150,8 +149,8 @@ declare namespace formBindingData {
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     key: string;
 
@@ -170,8 +169,8 @@ declare namespace formBindingData {
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     subscriberId?: string;
   }

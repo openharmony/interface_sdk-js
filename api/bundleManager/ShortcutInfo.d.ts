@@ -31,8 +31,7 @@
  *
  * @typedef ShortcutInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic&static
  */
 export interface ShortcutInfo {
   /**
@@ -57,8 +56,7 @@ export interface ShortcutInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   id: string;
 
@@ -84,8 +82,7 @@ export interface ShortcutInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   bundleName: string;
 
@@ -111,8 +108,7 @@ export interface ShortcutInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   moduleName?: string;
 
@@ -138,8 +134,7 @@ export interface ShortcutInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   hostAbility?: string;
 
@@ -165,8 +160,7 @@ export interface ShortcutInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   icon?: string;
 
@@ -192,8 +186,7 @@ export interface ShortcutInfo {
    *
    * @type { ?long }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   iconId?: long;
 
@@ -219,8 +212,7 @@ export interface ShortcutInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   label?: string;
 
@@ -246,8 +238,7 @@ export interface ShortcutInfo {
    *
    * @type { ?long }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   labelId?: long;
 
@@ -273,8 +264,7 @@ export interface ShortcutInfo {
    *
    * @type { ?Array<ShortcutWant> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   wants?: Array<ShortcutWant>;
 
@@ -291,8 +281,7 @@ export interface ShortcutInfo {
    *
    * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   appIndex: int;
 
@@ -309,8 +298,7 @@ export interface ShortcutInfo {
    *
    * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   sourceType: int;
 
@@ -319,8 +307,7 @@ export interface ShortcutInfo {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   visible?: boolean;
 }
@@ -338,8 +325,7 @@ export interface ShortcutInfo {
  *
  * @typedef ShortcutWant
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic&static
  */
 export interface ShortcutWant {
   /**
@@ -364,8 +350,7 @@ export interface ShortcutWant {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   targetBundle: string;
 
@@ -391,8 +376,7 @@ export interface ShortcutWant {
    *
    * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   targetModule?: string;
 
@@ -418,8 +402,7 @@ export interface ShortcutWant {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   targetAbility: string;
 
@@ -436,8 +419,7 @@ export interface ShortcutWant {
    *
    * @type { ?Array<ParameterItem> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   parameters?: Array<ParameterItem>;
 }
@@ -455,8 +437,7 @@ export interface ShortcutWant {
  *
  * @typedef ParameterItem
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic&static
  */
 export interface ParameterItem {
   /**
@@ -472,8 +453,7 @@ export interface ParameterItem {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   key: string;
 
@@ -490,8 +470,7 @@ export interface ParameterItem {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   value: string;
 }

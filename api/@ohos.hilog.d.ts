@@ -18,7 +18,7 @@
  * @kit PerformanceAnalysisKit
  */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { RecordData } from '@ohos.base';
 /*** endif */
 
@@ -44,8 +44,8 @@ import { RecordData } from '@ohos.base';
  * @syscap SystemCapability.HiviewDFX.HiLog
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace hilog {
 
@@ -83,7 +83,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function debug(domain: number, tag: string, format: string, ...args: any[]): void;
 
@@ -98,8 +98,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   function debug(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
@@ -137,7 +136,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function info(domain: number, tag: string, format: string, ...args: any[]): void;
 
@@ -152,8 +151,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   function info(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
@@ -191,7 +189,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function warn(domain: number, tag: string, format: string, ...args: any[]): void;
 
@@ -206,8 +204,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   function warn(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
@@ -245,7 +242,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function error(domain: number, tag: string, format: string, ...args: any[]): void;
 
@@ -260,8 +257,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   function error(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
@@ -299,7 +295,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function fatal(domain: number, tag: string, format: string, ...args: any[]): void;
 
@@ -314,8 +310,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   function fatal(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
@@ -340,8 +335,8 @@ declare namespace hilog {
    * @returns { boolean }
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function isLoggable(domain: int, tag: string, level: LogLevel): boolean;
 
@@ -351,8 +346,8 @@ declare namespace hilog {
    * @param { LogLevel } level log level
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 20 static
    */
    function setMinLogLevel(level: LogLevel): void;
 
@@ -363,8 +358,7 @@ declare namespace hilog {
    * @param { PreferStrategy } prefer preference strategy. See detail in PreferStrategy.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic&static
    */
   function setLogLevel(level: LogLevel, prefer: PreferStrategy): void;
 
@@ -389,8 +383,8 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   enum LogLevel {
     /**
@@ -412,8 +406,8 @@ declare namespace hilog {
      * @syscap SystemCapability.HiviewDFX.HiLog
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DEBUG = 3,
     /**
@@ -435,8 +429,8 @@ declare namespace hilog {
      * @syscap SystemCapability.HiviewDFX.HiLog
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     INFO = 4,
     /**
@@ -458,8 +452,8 @@ declare namespace hilog {
      * @syscap SystemCapability.HiviewDFX.HiLog
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     WARN = 5,
     /**
@@ -481,8 +475,8 @@ declare namespace hilog {
      * @syscap SystemCapability.HiviewDFX.HiLog
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     ERROR = 6,
     /**
@@ -504,8 +498,8 @@ declare namespace hilog {
      * @syscap SystemCapability.HiviewDFX.HiLog
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     FATAL = 7
   }
@@ -517,8 +511,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic&static
    */
   enum PreferStrategy {
       /**
@@ -527,8 +520,7 @@ declare namespace hilog {
        * @syscap SystemCapability.HiviewDFX.HiLog
        * @crossplatform
        * @atomicservice
-       * @since 21
-       * @arkts 1.1&1.2
+       * @since 21 dynamic&static
        */
       UNSET_LOGLEVEL = 0,
       /**
@@ -538,8 +530,7 @@ declare namespace hilog {
        * @syscap SystemCapability.HiviewDFX.HiLog
        * @crossplatform
        * @atomicservice
-       * @since 21
-       * @arkts 1.1&1.2
+       * @since 21 dynamic&static
        */
       PREFER_CLOSE_LOG = 1,
       /**
@@ -548,8 +539,7 @@ declare namespace hilog {
        * @syscap SystemCapability.HiviewDFX.HiLog
        * @crossplatform
        * @atomicservice
-       * @since 21
-       * @arkts 1.1&1.2
+       * @since 21 dynamic&static
        */
       PREFER_OPEN_LOG = 2,
   }

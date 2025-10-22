@@ -25,7 +25,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace deviceManager
  * @syscap SystemCapability.DistributedHardware.DeviceManager
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 11
  * @useinstead ohos.distributedDeviceManager/distributedDeviceManager
  */
@@ -36,7 +36,7 @@ declare namespace deviceManager {
    * @interface DeviceInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 11
    * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceBasicInfo
    */
@@ -46,7 +46,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceBasicInfo#deviceId
      */
@@ -57,7 +57,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceBasicInfo#deviceName
      */
@@ -68,7 +68,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceBasicInfo#deviceType
      */
@@ -79,7 +79,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceBasicInfo#networkId
      */
@@ -90,7 +90,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 11
      */
     range: number;
@@ -100,7 +100,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 10
+     * @since 10 dynamic
      * @deprecated since 11
      */
     authForm: AuthForm;
@@ -112,7 +112,7 @@ declare namespace deviceManager {
    * @enum { number }
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
-   * @since 10
+   * @since 10 dynamic
    * @deprecated since 11
    */
   enum AuthForm {
@@ -121,7 +121,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 10
+     * @since 10 dynamic
      * @deprecated since 11
      */
     INVALID_TYPE = -1,
@@ -131,7 +131,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 10
+     * @since 10 dynamic
      * @deprecated since 11
      */
     PEER_TO_PEER = 0,
@@ -141,7 +141,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 10
+     * @since 10 dynamic
      * @deprecated since 11
      */
     IDENTICAL_ACCOUNT = 1,
@@ -151,7 +151,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 10
+     * @since 10 dynamic
      * @deprecated since 11
      */
     ACROSS_ACCOUNT = 2
@@ -163,7 +163,7 @@ declare namespace deviceManager {
    * @enum { number }
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 11
    */
   enum DeviceType {
@@ -172,7 +172,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     UNKNOWN_TYPE = 0,
@@ -182,7 +182,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     SPEAKER = 0x0A,
@@ -192,7 +192,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     PHONE = 0x0E,
@@ -202,7 +202,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     TABLET = 0x11,
@@ -212,7 +212,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     WEARABLE = 0x6D,
@@ -222,7 +222,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     CAR = 0x83,
@@ -232,7 +232,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     TV = 0x9C
@@ -244,7 +244,7 @@ declare namespace deviceManager {
    * @enum { number }
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 11
    * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceStateChange
    */
@@ -254,7 +254,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceStateChange#UNKNOWN
      */
@@ -266,7 +266,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceStateChange#AVAILABLE
      */
@@ -277,7 +277,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceStateChange#UNAVAILABLE
      */
@@ -288,7 +288,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     CHANGE = 3
@@ -300,7 +300,7 @@ declare namespace deviceManager {
    * @interface SubscribeInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 11
    */
   interface SubscribeInfo {
@@ -309,7 +309,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     subscribeId: number;
@@ -319,7 +319,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     mode: DiscoverMode;
@@ -329,7 +329,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     medium: ExchangeMedium;
@@ -339,7 +339,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     freq: ExchangeFreq;
@@ -349,7 +349,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     isSameAccount: boolean;
@@ -359,7 +359,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     isWakeRemote: boolean;
@@ -369,7 +369,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     capability: SubscribeCap;
@@ -381,7 +381,7 @@ declare namespace deviceManager {
    * @interface PublishInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 11
    */
   interface PublishInfo {
@@ -390,7 +390,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 11
      */
     publishId: number;
@@ -400,7 +400,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 11
      */
     mode: DiscoverMode;
@@ -410,7 +410,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 11
      */
     freq: ExchangeFreq;
@@ -420,7 +420,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 11
      */
     ranging: boolean;
@@ -432,7 +432,7 @@ declare namespace deviceManager {
    * @enum { number }
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 11
    */
   enum DiscoverMode {
@@ -443,7 +443,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     DISCOVER_MODE_PASSIVE = 0x55,
@@ -455,7 +455,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     DISCOVER_MODE_ACTIVE = 0xAA
@@ -467,7 +467,7 @@ declare namespace deviceManager {
    * @enum { number }
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 11
    */
   enum ExchangeMedium {
@@ -476,7 +476,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     AUTO = 0,
@@ -486,7 +486,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     BLE = 1,
@@ -496,7 +496,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     COAP = 2,
@@ -506,7 +506,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     USB = 3
@@ -518,7 +518,7 @@ declare namespace deviceManager {
    * @enum { number }
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 11
    */
   enum ExchangeFreq {
@@ -527,7 +527,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     LOW = 0,
@@ -537,7 +537,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     MID = 1,
@@ -547,7 +547,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     HIGH = 2,
@@ -557,7 +557,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     SUPER_HIGH = 3
@@ -569,7 +569,7 @@ declare namespace deviceManager {
    * @enum { number }
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 11
    */
   enum SubscribeCap {
@@ -578,7 +578,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     SUBSCRIBE_CAPABILITY_DDMP = 0,
@@ -588,7 +588,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     SUBSCRIBE_CAPABILITY_OSD = 1
@@ -600,7 +600,7 @@ declare namespace deviceManager {
    * @interface AuthParam
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 11
    */
   interface AuthParam {
@@ -609,7 +609,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     authType: number;
@@ -619,7 +619,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     extraInfo: { [key: string]: any };
@@ -631,7 +631,7 @@ declare namespace deviceManager {
    * @interface AuthInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 11
    */
   interface AuthInfo {
@@ -640,7 +640,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     authType: number;
@@ -650,7 +650,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     token: number;
@@ -660,7 +660,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     extraInfo: { [key: string]: any };
@@ -680,7 +680,7 @@ declare namespace deviceManager {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 11
    * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.createDeviceManager
    */
@@ -691,7 +691,7 @@ declare namespace deviceManager {
    *
    * @interface DeviceManager
    * @syscap SystemCapability.DistributedHardware.DeviceManager
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 11
    * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager
    */
@@ -705,7 +705,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.releaseDeviceManager
      */
@@ -721,7 +721,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getAvailableDeviceListSync
      */
@@ -742,7 +742,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 10
+     * @since 10 dynamic
      * @deprecated since 11
      */
     getTrustedDeviceListSync(isRefresh: boolean): Array<DeviceInfo>;
@@ -759,7 +759,7 @@ declare namespace deviceManager {
      *                                                  3. Parameter verification failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getAvailableDeviceList
      */
@@ -773,7 +773,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getAvailableDeviceList
      */
@@ -789,7 +789,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getLocalDeviceNetworkId
      */
@@ -807,7 +807,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getLocalDeviceNetworkId
      */
@@ -821,7 +821,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getLocalDeviceNetworkId
      */
@@ -841,7 +841,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getDeviceName
      */
@@ -861,7 +861,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#getDeviceName
      */
@@ -883,7 +883,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#startDiscovering
      */
@@ -906,7 +906,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#startDiscovering
      */
@@ -927,7 +927,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#stopDiscovering
      */
@@ -948,7 +948,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 11
      */
     publishDeviceDiscovery(publishInfo: PublishInfo): void;
@@ -967,7 +967,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 11
      */
     unPublishDeviceDiscovery(publishId: number): void;
@@ -986,7 +986,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#bindTarget
      */
@@ -1010,7 +1010,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#unbindTarget
      */
@@ -1029,7 +1029,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 11
      */
     verifyAuthInfo(authInfo: AuthInfo, callback: AsyncCallback<{ deviceId: string, level: number }>): void;
@@ -1049,7 +1049,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#replyUiAction
      */
@@ -1069,7 +1069,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 10
+     * @since 10 dynamic
      * @deprecated since 11
      */
     requestCredentialRegisterInfo(requestInfo: string, callback: AsyncCallback<{ registerInfo: string }>): void;
@@ -1090,7 +1090,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 10
+     * @since 10 dynamic
      * @deprecated since 11
      */
     importCredential(credentialInfo: string, callback: AsyncCallback<{ resultInfo: string }>): void;
@@ -1109,7 +1109,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 10
+     * @since 10 dynamic
      * @deprecated since 11
      */
     deleteCredential(queryInfo: string, callback: AsyncCallback<{ resultInfo: string }>): void;
@@ -1129,7 +1129,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#on
      */
@@ -1150,7 +1150,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#off
      */
@@ -1172,7 +1172,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#on
      */
@@ -1192,7 +1192,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#off
      */
@@ -1212,7 +1212,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#on
      */
@@ -1232,7 +1232,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#off
      */
@@ -1252,7 +1252,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#on
      */
@@ -1272,7 +1272,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#off
      */
@@ -1292,7 +1292,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 11
      */
     on(type: 'publishSuccess', callback: Callback<{ publishId: number }>): void;
@@ -1311,7 +1311,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 11
      */
     off(type: 'publishSuccess', callback?: Callback<{ publishId: number }>): void;
@@ -1330,7 +1330,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 11
      */
     on(type: 'publishFail', callback: Callback<{ publishId: number, reason: number }>): void;
@@ -1349,7 +1349,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 11
      */
     off(type: 'publishFail', callback?: Callback<{ publishId: number, reason: number }>): void;
@@ -1368,7 +1368,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#on
      */
@@ -1388,7 +1388,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.distributedDeviceManager/distributedDeviceManager.DeviceManager#off
      */

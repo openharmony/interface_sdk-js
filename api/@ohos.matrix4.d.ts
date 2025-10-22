@@ -40,7 +40,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare namespace matrix4 {
   /**
@@ -65,7 +65,7 @@ declare namespace matrix4 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   interface TranslateOption {
     /**
@@ -93,7 +93,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     x?: number;
 
@@ -122,7 +122,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     y?: number;
 
@@ -151,7 +151,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     z?: number;
   }
@@ -178,7 +178,7 @@ declare namespace matrix4 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   interface ScaleOption {
     /**
@@ -207,7 +207,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     x?: number;
 
@@ -237,7 +237,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     y?: number;
 
@@ -267,7 +267,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     z?: number;
 
@@ -296,7 +296,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     centerX?: number;
 
@@ -325,7 +325,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     centerY?: number;
   }
@@ -352,7 +352,7 @@ declare namespace matrix4 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   interface RotateOption {
     /**
@@ -379,7 +379,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     x?: number;
 
@@ -407,7 +407,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     y?: number;
 
@@ -436,7 +436,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     z?: number;
 
@@ -467,7 +467,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     centerX?: number;
 
@@ -498,7 +498,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     centerY?: number;
 
@@ -525,7 +525,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     angle?: number;
   }
@@ -538,7 +538,7 @@ declare namespace matrix4 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export interface Point {
 
@@ -549,7 +549,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     x: number;
 
@@ -560,7 +560,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     y: number;
   }
@@ -572,7 +572,7 @@ declare namespace matrix4 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export interface PolyToPolyOptions {
 
@@ -583,7 +583,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     src: Array<Point>;
 
@@ -594,7 +594,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     srcIndex?: number;
 
@@ -605,7 +605,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     dst:Array<Point>;
 
@@ -617,7 +617,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     dstIndex?: number;
 
@@ -631,7 +631,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     pointCount?:number;
 
@@ -658,7 +658,7 @@ declare namespace matrix4 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   interface Matrix4Transit {
     /**
@@ -683,7 +683,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     copy(): Matrix4Transit;
 
@@ -709,7 +709,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     invert(): Matrix4Transit;
 
@@ -738,7 +738,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     combine(options: Matrix4Transit): Matrix4Transit;
 
@@ -767,7 +767,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     translate(options: TranslateOption): Matrix4Transit;
 
@@ -796,7 +796,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     scale(options: ScaleOption): Matrix4Transit;
 
@@ -811,7 +811,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     skew(x: number, y: number): Matrix4Transit;
 
@@ -840,7 +840,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     rotate(options: RotateOption): Matrix4Transit;
 
@@ -869,7 +869,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     transformPoint(options: [number, number]): [number, number];
 
@@ -881,7 +881,7 @@ declare namespace matrix4 {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     setPolyToPoly(options: PolyToPolyOptions): Matrix4Transit;
   }
@@ -976,7 +976,7 @@ declare namespace matrix4 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   function init(
     options: [
@@ -1021,7 +1021,7 @@ declare namespace matrix4 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function identity(): Matrix4Transit;
 
@@ -1030,7 +1030,7 @@ declare namespace matrix4 {
    *
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 10
    */
   function copy(): Matrix4Transit;
@@ -1040,7 +1040,7 @@ declare namespace matrix4 {
    *
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 10
    */
   function invert(): Matrix4Transit;
@@ -1051,7 +1051,7 @@ declare namespace matrix4 {
    * @param { Matrix4Transit } options
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 10
    */
   function combine(options: Matrix4Transit): Matrix4Transit;
@@ -1062,7 +1062,7 @@ declare namespace matrix4 {
    * @param { TranslateOption } options
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 10
    */
   function translate(options: TranslateOption): Matrix4Transit;
@@ -1073,7 +1073,7 @@ declare namespace matrix4 {
    * @param { ScaleOption } options
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 10
    */
   function scale(options: ScaleOption): Matrix4Transit;
@@ -1084,7 +1084,7 @@ declare namespace matrix4 {
    * @param { RotateOption } options
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 10
    */
   function rotate(options: RotateOption): Matrix4Transit;
@@ -1095,7 +1095,7 @@ declare namespace matrix4 {
    * @param { [number, number] } options
    * @returns { [number, number] } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 10
    */
   function transformPoint(options: [number, number]): [number, number];

@@ -25,7 +25,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace storageStatistics
  * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
- * @since 8
+ * @since 8 dynamic
  */
 declare namespace storageStatistics {
   /**
@@ -44,7 +44,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
    */
   function getTotalSizeOfVolume(volumeUuid: string, callback: AsyncCallback<number>): void;
 
@@ -64,7 +64,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
    */
   function getTotalSizeOfVolume(volumeUuid: string): Promise<number>;
   /**
@@ -83,7 +83,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
    */
   function getFreeSizeOfVolume(volumeUuid: string, callback: AsyncCallback<number>): void;
 
@@ -103,7 +103,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
    */
   function getFreeSizeOfVolume(volumeUuid: string): Promise<number>;
 
@@ -112,7 +112,7 @@ parameters are left unspecified;
    *
    * @interface BundleStats
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 9
+   * @since 9 dynamic
    */
   export interface BundleStats {
     /**
@@ -120,7 +120,7 @@ parameters are left unspecified;
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-     * @since 9
+     * @since 9 dynamic
      */
     appSize: number;
 
@@ -129,7 +129,7 @@ parameters are left unspecified;
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-     * @since 9
+     * @since 9 dynamic
      */
     cacheSize: number;
 
@@ -138,7 +138,7 @@ parameters are left unspecified;
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-     * @since 9
+     * @since 9 dynamic
      */
     dataSize: number;
   }
@@ -175,7 +175,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   function getBundleStats(packageName: string, callback: AsyncCallback<BundleStats>, index?: number): void;
 
@@ -212,7 +212,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   function getBundleStats(packageName: string, index?: number): Promise<BundleStats>;
 
@@ -225,7 +225,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 9
+   * @since 9 dynamic
    */
   function getCurrentBundleStats(callback: AsyncCallback<BundleStats>): void;
 
@@ -238,7 +238,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 9
+   * @since 9 dynamic
    */
   function getCurrentBundleStats(): Promise<BundleStats>;
 
@@ -255,7 +255,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getSystemSize(callback: AsyncCallback<number>): void;
 
@@ -272,7 +272,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getSystemSize(): Promise<number>;
 
@@ -282,7 +282,7 @@ parameters are left unspecified;
    * @interface StorageStats
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   export interface StorageStats {
     /**
@@ -291,7 +291,7 @@ parameters are left unspecified;
      * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     total: number;
 
@@ -301,7 +301,7 @@ parameters are left unspecified;
      * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     audio: number;
 
@@ -311,7 +311,7 @@ parameters are left unspecified;
      * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     video: number;
 
@@ -321,7 +321,7 @@ parameters are left unspecified;
      * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     image: number;
 
@@ -331,7 +331,7 @@ parameters are left unspecified;
      * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     file: number;
 
@@ -341,7 +341,7 @@ parameters are left unspecified;
      * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     app: number;
   }
@@ -360,7 +360,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getUserStorageStats(): Promise<StorageStats>;
 
@@ -378,7 +378,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getUserStorageStats(callback: AsyncCallback<StorageStats>): void;
 
@@ -398,7 +398,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getUserStorageStats(userId: number): Promise<StorageStats>;
 
@@ -418,7 +418,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getUserStorageStats(userId: number, callback: AsyncCallback<StorageStats>): void;
 
@@ -446,7 +446,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15
+   * @since 15 dynamic
    */
   function getTotalSize(callback: AsyncCallback<number>): void;
 
@@ -472,7 +472,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15
+   * @since 15 dynamic
    */
   function getTotalSize(): Promise<number>;
 
@@ -498,7 +498,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15
+   * @since 15 dynamic
    */
   function getTotalSizeSync(): number;
 
@@ -526,7 +526,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15
+   * @since 15 dynamic
    */
   function getFreeSize(callback: AsyncCallback<number>): void;
 
@@ -552,7 +552,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15
+   * @since 15 dynamic
    */
   function getFreeSize(): Promise<number>;
 
@@ -578,7 +578,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15
+   * @since 15 dynamic
    */
   function getFreeSizeSync(): number;
 }

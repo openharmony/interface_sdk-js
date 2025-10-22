@@ -44,7 +44,7 @@ declare namespace backgroundTaskManager {
    * The request object of continuous task.
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 21
+   * @since 21 dynamic
    */
   export class ContinuousTaskRequest {
     /**
@@ -52,7 +52,7 @@ declare namespace backgroundTaskManager {
      *
      * @type { BackgroundTaskMode[] }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
+     * @since 21 dynamic
      */
     backgroundTaskModes: BackgroundTaskMode[];
 
@@ -61,7 +61,7 @@ declare namespace backgroundTaskManager {
      *
      * @type { BackgroundTaskSubmode[] }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
+     * @since 21 dynamic
      */
     backgroundTaskSubmodes: BackgroundTaskSubmode[];
 
@@ -70,7 +70,7 @@ declare namespace backgroundTaskManager {
      *
      * @type { WantAgent }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
+     * @since 21 dynamic
      */
     wantAgent: WantAgent;
 
@@ -79,7 +79,7 @@ declare namespace backgroundTaskManager {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
+     * @since 21 dynamic
      */
     combinedTaskNotification?: boolean;
 
@@ -88,7 +88,7 @@ declare namespace backgroundTaskManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
+     * @since 21 dynamic
      */
     continuousTaskId?: number;
 
@@ -100,7 +100,7 @@ declare namespace backgroundTaskManager {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 9800005 - Continuous task verification failed.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
+     * @since 21 dynamic
      */
     isModeSupported(): boolean;
 
@@ -112,7 +112,7 @@ declare namespace backgroundTaskManager {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 9800005 - Continuous task verification failed.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22
+     * @since 22 dynamic
      */
     requestAuthFromUser(callback: Callback<UserAuthResult>): void;
 
@@ -124,7 +124,7 @@ declare namespace backgroundTaskManager {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 9800005 - Continuous task verification failed.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22
+     * @since 22 dynamic
      */
     checkSpecialScenarioAuth(): Promise<UserAuthResult>;
   }
@@ -762,7 +762,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 21
+   * @since 21 dynamic
    */
   function startBackgroundRunning(context: Context, request: ContinuousTaskRequest): Promise<ContinuousTaskNotification>;
 
@@ -805,7 +805,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 21
+   * @since 21 dynamic
    */
   function updateBackgroundRunning(context: Context, request: ContinuousTaskRequest): Promise<ContinuousTaskNotification>;
 
@@ -933,7 +933,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 21
+   * @since 21 dynamic
    */
   function stopBackgroundRunning(context: Context, continuousTaskId: number): Promise<void>;
 
@@ -1303,14 +1303,14 @@ declare namespace backgroundTaskManager {
    *
    * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 21
+   * @since 21 dynamic
    */
   export enum BackgroundTaskMode {
     /**
      * data transfer mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
+     * @since 21 dynamic
      */
     MODE_DATA_TRANSFER = 1,
 
@@ -1318,7 +1318,7 @@ declare namespace backgroundTaskManager {
      * audio playback mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
+     * @since 21 dynamic
      */
     MODE_AUDIO_PLAYBACK = 2,
 
@@ -1326,7 +1326,7 @@ declare namespace backgroundTaskManager {
      * audio recording mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
+     * @since 21 dynamic
      */
     MODE_AUDIO_RECORDING = 3,
 
@@ -1334,7 +1334,7 @@ declare namespace backgroundTaskManager {
      * share location mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
+     * @since 21 dynamic
      */
     MODE_LOCATION = 4,
 
@@ -1342,7 +1342,7 @@ declare namespace backgroundTaskManager {
      * bluetooth interaction mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
+     * @since 21 dynamic
      */
     MODE_BLUETOOTH_INTERACTION = 5,
 
@@ -1350,7 +1350,7 @@ declare namespace backgroundTaskManager {
      * multi-device connection mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
+     * @since 21 dynamic
      */
     MODE_MULTI_DEVICE_CONNECTION = 6,
 
@@ -1359,7 +1359,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi Hide this for inner system use.
-     * @since 21
+     * @since 21 dynamic
      */
     MODE_ALLOW_WIFI_AWARE = 7,
 
@@ -1367,7 +1367,7 @@ declare namespace backgroundTaskManager {
      * Voice over Internet Phone mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
+     * @since 21 dynamic
      */
     MODE_VOIP = 8,
 
@@ -1376,7 +1376,7 @@ declare namespace backgroundTaskManager {
      * only supported in particular device
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
+     * @since 21 dynamic
      */
     MODE_TASK_KEEPING = 9,
 
@@ -1384,7 +1384,7 @@ declare namespace backgroundTaskManager {
      * 'av playback and record' mode, for example audio playback, audio recording.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22
+     * @since 22 dynamic
      */
     MODE_AV_PLAYBACK_AND_RECORD = 12,
 
@@ -1392,7 +1392,7 @@ declare namespace backgroundTaskManager {
      * special scenario processing mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22
+     * @since 22 dynamic
      */
     MODE_SPECIAL_SCENARIO_PROCESSING = 13
   }
@@ -1402,14 +1402,14 @@ declare namespace backgroundTaskManager {
    *
    * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 21
+   * @since 21 dynamic
    */
   export enum BackgroundTaskSubmode {
     /**
      * submode of 'MODE_BLUETOOTH_INTERACTION'.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
+     * @since 21 dynamic
      */
     SUBMODE_CAR_KEY_NORMAL_NOTIFICATION = 1,
 
@@ -1417,7 +1417,7 @@ declare namespace backgroundTaskManager {
      * normal notification submode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
+     * @since 21 dynamic
      */
     SUBMODE_NORMAL_NOTIFICATION = 2,
 
@@ -1425,7 +1425,7 @@ declare namespace backgroundTaskManager {
      * obvious notification submode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
+     * @since 21 dynamic
      */
     SUBMODE_LIVE_VIEW_NOTIFICATION = 3,
 
@@ -1433,7 +1433,7 @@ declare namespace backgroundTaskManager {
      * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22
+     * @since 22 dynamic
      */
     SUBMODE_AUDIO_PLAYBACK_NORMAL_NOTIFICATION = 4,
 
@@ -1441,7 +1441,7 @@ declare namespace backgroundTaskManager {
      * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22
+     * @since 22 dynamic
      */
     SUBMODE_AVSESSION_AUDIO_PLAYBACK = 5,
 
@@ -1449,7 +1449,7 @@ declare namespace backgroundTaskManager {
      * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22
+     * @since 22 dynamic
      */
     SUBMODE_AUDIO_RECORD_NORMAL_NOTIFICATION = 6,
 
@@ -1457,7 +1457,7 @@ declare namespace backgroundTaskManager {
      * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22
+     * @since 22 dynamic
      */
     SUBMODE_SCREEN_RECORD_NORMAL_NOTIFICATION = 7,
 
@@ -1465,7 +1465,7 @@ declare namespace backgroundTaskManager {
      * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22
+     * @since 22 dynamic
      */
     SUBMODE_VOICE_CHAT_NORMAL_NOTIFICATION = 8,
 
@@ -1473,7 +1473,7 @@ declare namespace backgroundTaskManager {
      * submode of 'MODE_SPECIAL_SCENARIO_PROCESSING'.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22
+     * @since 22 dynamic
      */
     SUBMODE_MEDIA_PROCESS_NORMAL_NOTIFICATION = 9,
 
@@ -1481,7 +1481,7 @@ declare namespace backgroundTaskManager {
      * submode of 'MODE_MULTI_DEVICE_CONNECTION'.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22
+     * @since 22 dynamic
      */
     SUBMODE_VIDEO_BROADCAST_NORMAL_NOTIFICATION = 10,
   }
@@ -1905,14 +1905,14 @@ declare namespace backgroundTaskManager {
    *
    * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 22
+   * @since 22 dynamic
    */
   export enum UserAuthResult {
     /**
      * Request is not supported.
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22
+     * @since 22 dynamic
      */
     NOT_SUPPORTED = 0,
 
@@ -1920,7 +1920,7 @@ declare namespace backgroundTaskManager {
      * Permission is not determined.
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22
+     * @since 22 dynamic
      */
     NOT_DETERMINED = 1,
 
@@ -1928,7 +1928,7 @@ declare namespace backgroundTaskManager {
      * Permission has been denied, only can change it in settings.
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22
+     * @since 22 dynamic
      */
     DENIED = 2,
 
@@ -1936,7 +1936,7 @@ declare namespace backgroundTaskManager {
      * The permission was granted once.
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22
+     * @since 22 dynamic
      */
     GRANTED_ONCE = 3,
 
@@ -1944,7 +1944,7 @@ declare namespace backgroundTaskManager {
      * Permissions are always granted.
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22
+     * @since 22 dynamic
      */
     GRANTED_ALWAYS = 4
   }

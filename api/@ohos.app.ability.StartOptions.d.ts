@@ -20,7 +20,7 @@
 import contextConstant from "./@ohos.app.ability.contextConstant";
 import image from "./@ohos.multimedia.image";
 import bundleManager from './@ohos.bundle.bundleManager';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import CompletionHandler from './@ohos.app.ability.CompletionHandler';
 import window from './@ohos.window';
 /*** endif */
@@ -38,8 +38,8 @@ import window from './@ohos.window';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare class StartOptions {
   /**
@@ -51,8 +51,8 @@ declare class StartOptions {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   windowMode?: int;
 
@@ -71,8 +71,8 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   displayId?: long;
 
@@ -82,8 +82,8 @@ declare class StartOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   withAnimation?: boolean;
 
@@ -93,8 +93,8 @@ declare class StartOptions {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   windowLeft?: int;
 
@@ -104,8 +104,8 @@ declare class StartOptions {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   windowTop?: int;
 
@@ -115,8 +115,8 @@ declare class StartOptions {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   windowWidth?: int;
 
@@ -126,8 +126,8 @@ declare class StartOptions {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   windowHeight?: int;
 
@@ -138,8 +138,8 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   windowFocused?: boolean;
 
@@ -151,8 +151,8 @@ declare class StartOptions {
    * @type { ?contextConstant.ProcessMode }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   processMode?: contextConstant.ProcessMode;
 
@@ -164,8 +164,8 @@ declare class StartOptions {
    * @type { ?contextConstant.StartupVisibility }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   startupVisibility?: contextConstant.StartupVisibility;
 
@@ -175,8 +175,8 @@ declare class StartOptions {
    * @type { ?image.PixelMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   startWindowIcon?: image.PixelMap;
 
@@ -186,8 +186,8 @@ declare class StartOptions {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   startWindowBackgroundColor?: string;
 
@@ -197,8 +197,8 @@ declare class StartOptions {
    * @type { ?Array<bundleManager.SupportWindowMode> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   supportWindowModes?: Array<bundleManager.SupportWindowMode>;
 
@@ -208,8 +208,8 @@ declare class StartOptions {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts{ '1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17 dynamic
+   * @since 20 static
    */
   minWindowWidth?: int;
 
@@ -219,8 +219,8 @@ declare class StartOptions {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts{ '1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17 dynamic
+   * @since 20 static
    */
   minWindowHeight?: int;
 
@@ -230,8 +230,8 @@ declare class StartOptions {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts{ '1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17 dynamic
+   * @since 20 static
    */
   maxWindowWidth?: int;
 
@@ -241,8 +241,8 @@ declare class StartOptions {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts{ '1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17 dynamic
+   * @since 20 static
    */
   maxWindowHeight?: int;
 
@@ -253,7 +253,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   completionHandler?: CompletionHandler;
 
@@ -263,7 +263,7 @@ declare class StartOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   hideStartWindow?: boolean;
 
@@ -273,7 +273,7 @@ declare class StartOptions {
    * @type { ?window.WindowCreateParams }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   windowCreateParams?: window.WindowCreateParams;
 }

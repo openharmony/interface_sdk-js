@@ -90,7 +90,7 @@ export {
   PanelInfo, PanelType, SelectionExtensionContext, Available
 };
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import configPolicy from '@ohos.configPolicy';
 import customConfig from '@ohos.customization.customConfig';
 import zlib from '@ohos.zlib';

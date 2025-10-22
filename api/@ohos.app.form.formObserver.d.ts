@@ -28,8 +28,8 @@ import formInfo from './@ohos.app.form.formInfo';
  * @namespace formObserver
  * @syscap SystemCapability.Ability.Form
  * @systemapi
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 20 static
  */
 declare namespace formObserver {
   /**
@@ -45,7 +45,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function on(type: 'formAdd', observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -62,8 +62,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function onFormAdd(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -81,7 +80,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function on(type: 'formAdd', hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -98,8 +97,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function onFormAdd(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -117,7 +115,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function off(type: 'formAdd', hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
@@ -134,8 +132,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function offFormAdd(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
@@ -152,7 +149,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function on(type: 'formRemove', observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -168,8 +165,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function onFormRemove(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -187,7 +183,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function on(type: 'formRemove', hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -204,8 +200,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function onFormRemove(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -223,7 +218,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function off(type: 'formRemove', hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
@@ -240,8 +235,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function offFormRemove(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
@@ -258,7 +252,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function on(type: 'notifyVisible', observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
 
@@ -275,8 +269,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function onNotifyVisible(observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
 
@@ -294,7 +287,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function on(
     type: 'notifyVisible',
@@ -315,8 +308,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function onNotifyVisible(hostBundleName: string, observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
 
@@ -333,7 +325,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function on(type: 'notifyInvisible', observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
 
@@ -350,8 +342,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function onNotifyInvisible(observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
 
@@ -369,7 +360,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function on(
     type: 'notifyInvisible',
@@ -391,8 +382,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function onNotifyInvisible(hostBundleName: string, observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
 
@@ -410,7 +400,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function off(
     type: 'notifyVisible',
@@ -431,8 +421,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function offNotifyVisible(hostBundleName?: string, observerCallback?: Callback<Array<formInfo.RunningFormInfo>>): void;
 
@@ -450,7 +439,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function off(
     type: 'notifyInvisible',
@@ -471,8 +460,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function offNotifyInvisible(hostBundleName?: string, observerCallback?: Callback<Array<formInfo.RunningFormInfo>>): void;
 
@@ -491,8 +479,8 @@ declare namespace formObserver {
    * @throws { BusinessError } 16500060 - Service connection error.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getRunningFormInfos(callback: AsyncCallback<Array<formInfo.RunningFormInfo>>, hostBundleName?: string): void;
 
@@ -512,8 +500,8 @@ declare namespace formObserver {
    * @throws { BusinessError } 16500060 - Service connection error.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getRunningFormInfos(
     callback: AsyncCallback<Array<formInfo.RunningFormInfo>>,
@@ -535,8 +523,8 @@ declare namespace formObserver {
    * @throws { BusinessError } 16500060 - Service connection error.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getRunningFormInfos(hostBundleName?: string): Promise<Array<formInfo.RunningFormInfo>>;
 
@@ -555,8 +543,8 @@ declare namespace formObserver {
    * @throws { BusinessError } 16500060 - Service connection error.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getRunningFormInfos(
     isUnusedIncluded: boolean,
@@ -579,8 +567,8 @@ declare namespace formObserver {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getRunningFormInfosByFilter(
     formProviderFilter: formInfo.FormProviderFilter
@@ -602,8 +590,8 @@ declare namespace formObserver {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getRunningFormInfosByFilter(
     formProviderFilter: formInfo.FormProviderFilter,
@@ -626,8 +614,8 @@ declare namespace formObserver {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getRunningFormInfoById(formId: string): Promise<formInfo.RunningFormInfo>;
 
@@ -648,8 +636,8 @@ declare namespace formObserver {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getRunningFormInfoById(formId: string, isUnusedIncluded: boolean): Promise<formInfo.RunningFormInfo>;
 
@@ -669,8 +657,8 @@ declare namespace formObserver {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getRunningFormInfoById(formId: string, callback: AsyncCallback<formInfo.RunningFormInfo>): void;
 
@@ -691,8 +679,8 @@ declare namespace formObserver {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getRunningFormInfoById(
     formId: string,
@@ -713,7 +701,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'router', observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -729,8 +717,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function onRouter(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -748,7 +735,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'router', hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -765,8 +752,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function onRouter(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -783,7 +769,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function off(type: 'router', hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
@@ -800,8 +786,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function offRouter(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
@@ -818,7 +803,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'message', observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -835,8 +820,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function onMessage(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -854,7 +838,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'message', hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -872,8 +856,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function onMessage(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -890,7 +873,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function off(type: 'message', hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
@@ -907,8 +890,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function offMessage(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
@@ -925,7 +907,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'call', observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -942,8 +924,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function onCall(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -961,7 +942,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'call', hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -979,8 +960,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function onCall(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
@@ -997,7 +977,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function off(type: 'call', hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
@@ -1014,8 +994,7 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   function offCall(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 }

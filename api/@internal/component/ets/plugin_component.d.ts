@@ -24,7 +24,7 @@
  * @interface PluginComponentTemplate
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 interface PluginComponentTemplate {
   /**
@@ -33,7 +33,7 @@ interface PluginComponentTemplate {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   source: string;
   /**
@@ -42,7 +42,7 @@ interface PluginComponentTemplate {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   bundleName: string;
 }
@@ -54,7 +54,7 @@ interface PluginComponentTemplate {
  * @interface PluginComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 18
+ * @since 18 dynamic
  */
 declare interface PluginComponentOptions {
   /**
@@ -70,7 +70,7 @@ declare interface PluginComponentOptions {
    * @type { PluginComponentTemplate }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
    */
   template: PluginComponentTemplate;
 
@@ -87,7 +87,7 @@ declare interface PluginComponentOptions {
    * @type { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
    */
   data: any;
 }
@@ -99,7 +99,7 @@ declare interface PluginComponentOptions {
  * @interface PluginErrorData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 18
+ * @since 18 dynamic
  */
 declare interface PluginErrorData {
   /**
@@ -115,7 +115,7 @@ declare interface PluginErrorData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
    */
   errcode: number;
 
@@ -132,7 +132,7 @@ declare interface PluginErrorData {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
    */
   msg: string;
 }
@@ -145,7 +145,7 @@ declare interface PluginErrorData {
  * @param { PluginErrorData } info - Plugin error data
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 18
+ * @since 18 dynamic
  */
 declare type PluginErrorCallback = (info: PluginErrorData) => void;
 
@@ -155,7 +155,7 @@ declare type PluginErrorCallback = (info: PluginErrorData) => void;
  * @interface PluginComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 interface PluginComponentInterface {
   /**
@@ -175,7 +175,7 @@ interface PluginComponentInterface {
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
    */
   (options: PluginComponentOptions): PluginComponentAttribute;
 }
@@ -186,7 +186,7 @@ interface PluginComponentInterface {
  * @extends CommonMethod<PluginComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttribute> {
   /**
@@ -206,7 +206,7 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
    */
   onComplete(callback: VoidCallback): PluginComponentAttribute;
 
@@ -227,7 +227,7 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
    */
   onError(callback: PluginErrorCallback): PluginComponentAttribute;
 }
@@ -237,7 +237,7 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 declare const PluginComponent: PluginComponentInterface;
 
@@ -246,6 +246,6 @@ declare const PluginComponent: PluginComponentInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 declare const PluginComponentInstance: PluginComponentAttribute;

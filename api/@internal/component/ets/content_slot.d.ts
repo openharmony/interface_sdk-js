@@ -25,7 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare type Content = import('../api/@ohos.arkui.node').Content;
 
@@ -35,7 +35,7 @@ declare type Content = import('../api/@ohos.arkui.node').Content;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class ContentSlotAttribute {
 }
@@ -47,7 +47,7 @@ declare class ContentSlotAttribute {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 interface ContentSlotInterface {
   /**
@@ -58,7 +58,7 @@ interface ContentSlotInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   (content: Content): ContentSlotAttribute;
 }
@@ -69,6 +69,6 @@ interface ContentSlotInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare const ContentSlot: ContentSlotInterface;

@@ -19,7 +19,7 @@
  */
 
 /* 共用部分*/
-/*** if arkts 1.1&1.2 */
+/*** if arkts dynamic&static */
 import buffer from '@ohos.buffer';
 import uri from '@ohos.uri';
 import url from '@ohos.url';
@@ -66,7 +66,7 @@ export {
 };
 
 /* 1.2 独有部分 */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import transfer from '@ohos.transfer';
 export {
   ArrayList, Deque, HashMap, HashSet, LightWeightMap, LightWeightSet, LinkedList, List,

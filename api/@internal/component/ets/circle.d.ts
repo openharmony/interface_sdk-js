@@ -50,7 +50,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface CircleOptions {
   /**
@@ -95,7 +95,7 @@ declare interface CircleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   width?: Length;
 
@@ -141,7 +141,7 @@ declare interface CircleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   height?: Length;
 }
@@ -178,7 +178,7 @@ declare interface CircleOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface CircleInterface {
   /**
@@ -217,7 +217,7 @@ interface CircleInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   new (value?: CircleOptions): CircleAttribute;
 
@@ -257,7 +257,7 @@ interface CircleInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (value?: CircleOptions): CircleAttribute;
 }
@@ -294,7 +294,7 @@ interface CircleInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
 
@@ -326,7 +326,7 @@ declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Circle: CircleInterface;
 
@@ -358,6 +358,6 @@ declare const Circle: CircleInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const CircleInstance: CircleAttribute;

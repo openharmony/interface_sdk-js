@@ -31,8 +31,8 @@
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export declare enum IntentionCode {
   /**
@@ -46,8 +46,8 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   INTENTION_UNKNOWN = -1,
 
@@ -62,8 +62,8 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   INTENTION_UP = 1,
 
@@ -78,8 +78,8 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   INTENTION_DOWN = 2,
 
@@ -94,8 +94,8 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   INTENTION_LEFT = 3,
 
@@ -110,8 +110,8 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   INTENTION_RIGHT = 4,
 
@@ -126,8 +126,8 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   INTENTION_SELECT = 5,
 
@@ -142,8 +142,8 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   INTENTION_ESCAPE = 6,
 
@@ -158,8 +158,8 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   INTENTION_BACK = 7,
 
@@ -174,8 +174,8 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   INTENTION_FORWARD = 8,
 
@@ -190,8 +190,8 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   INTENTION_MENU = 9,
 
@@ -206,8 +206,8 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   INTENTION_PAGE_UP = 11,
 
@@ -222,8 +222,8 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   INTENTION_PAGE_DOWN = 12,
 
@@ -238,8 +238,8 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   INTENTION_ZOOM_OUT = 13,
 
@@ -254,8 +254,8 @@ export declare enum IntentionCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   INTENTION_ZOOM_IN = 14
 }

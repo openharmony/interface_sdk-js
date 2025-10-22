@@ -26,7 +26,7 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
  * @namespace systemParameter
  * @syscap SystemCapability.Startup.SystemInfo
  * @systemapi Hide this for inner system use.
- * @since 6
+ * @since 6 dynamic
  * @deprecated since 9
  */
 declare namespace systemParameter {
@@ -38,7 +38,7 @@ declare namespace systemParameter {
    * @returns { string } if the parameter is empty or doesn't exist, empty string will be returned.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 9
    */
   function getSync(key: string, def?: string): string;
@@ -50,7 +50,7 @@ declare namespace systemParameter {
    * @param { AsyncCallback<string> } callback Callback function.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 9
    */
   function get(key: string, callback: AsyncCallback<string>): void;
@@ -63,7 +63,7 @@ declare namespace systemParameter {
    * @param { AsyncCallback<string> } callback Callback function.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 9
    */
   function get(key: string, def: string, callback: AsyncCallback<string>): void;
@@ -76,7 +76,7 @@ declare namespace systemParameter {
    * @returns { Promise<string> } , which is used to obtain the result asynchronously.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 9
    */
   function get(key: string, def?: string): Promise<string>;
@@ -88,7 +88,7 @@ declare namespace systemParameter {
    * @param { string } value value System attribute value to set.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 9
    */
   function setSync(key: string, value: string): void;
@@ -101,7 +101,7 @@ declare namespace systemParameter {
    * @param { AsyncCallback<void> } callback Callback function.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 9
    */
   function set(key: string, value: string, callback: AsyncCallback<void>): void;
@@ -114,7 +114,7 @@ declare namespace systemParameter {
    * @returns { Promise<void> } which is used to obtain the result asynchronously.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 9
    */
   function set(key: string, value: string): Promise<void>;

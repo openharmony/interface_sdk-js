@@ -38,7 +38,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class SelectTitleBarMenuItem {
   /**
@@ -60,7 +60,7 @@ export declare class SelectTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   value: ResourceStr;
 
@@ -77,7 +77,7 @@ export declare class SelectTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   symbolStyle?: SymbolGlyphModifier;
 
@@ -94,7 +94,7 @@ export declare class SelectTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   label?: ResourceStr;
 
@@ -117,7 +117,7 @@ export declare class SelectTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   isEnabled?: boolean;
 
@@ -140,7 +140,7 @@ export declare class SelectTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   action?: () => void;
 
@@ -157,7 +157,7 @@ export declare class SelectTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityText?: ResourceStr;
 
@@ -174,7 +174,7 @@ export declare class SelectTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityDescription?: ResourceStr;
 
@@ -193,7 +193,7 @@ export declare class SelectTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityLevel?: string;
 }
@@ -214,7 +214,7 @@ export declare class SelectTitleBarMenuItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 @Component
 export declare struct SelectTitleBar {
@@ -240,7 +240,7 @@ export declare struct SelectTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   @Prop selected: number;
 
@@ -263,7 +263,7 @@ export declare struct SelectTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   options: Array<SelectOption>;
 
@@ -286,7 +286,7 @@ export declare struct SelectTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   menuItems?: Array<SelectTitleBarMenuItem>;
 
@@ -309,7 +309,7 @@ export declare struct SelectTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   subtitle?: ResourceStr;
 
@@ -332,7 +332,7 @@ export declare struct SelectTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   badgeValue?: number;
 
@@ -355,7 +355,7 @@ export declare struct SelectTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   hidesBackButton?: boolean;
 
@@ -378,7 +378,7 @@ export declare struct SelectTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   onSelected?: ((index: number) => void);
 }

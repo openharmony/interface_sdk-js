@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
 */
 
 import promptAction from '@ohos.promptAction';

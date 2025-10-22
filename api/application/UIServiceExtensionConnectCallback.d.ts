@@ -25,8 +25,8 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'14', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14 dynamic
+ * @since 20 static
  */
 export default interface UIServiceExtensionConnectCallback {
   /**
@@ -36,8 +36,8 @@ export default interface UIServiceExtensionConnectCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   onData(data: Record<string, Object>): void;
 
@@ -47,8 +47,8 @@ export default interface UIServiceExtensionConnectCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   onDisconnect(): void;
 }
