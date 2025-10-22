@@ -40,7 +40,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare namespace curves {
   /**
@@ -65,7 +65,7 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   enum Curve {
     /**
@@ -87,7 +87,7 @@ declare namespace curves {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     Linear,
     /**
@@ -112,7 +112,7 @@ declare namespace curves {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     Ease,
     /**
@@ -134,7 +134,7 @@ declare namespace curves {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     EaseIn,
     /**
@@ -156,7 +156,7 @@ declare namespace curves {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     EaseOut,
     /**
@@ -178,7 +178,7 @@ declare namespace curves {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     EaseInOut,
     /**
@@ -200,7 +200,7 @@ declare namespace curves {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     FastOutSlowIn,
     /**
@@ -222,7 +222,7 @@ declare namespace curves {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     LinearOutSlowIn,
     /**
@@ -244,7 +244,7 @@ declare namespace curves {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     FastOutLinearIn,
     /**
@@ -266,7 +266,7 @@ declare namespace curves {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     ExtremeDeceleration,
     /**
@@ -288,7 +288,7 @@ declare namespace curves {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     Sharp,
     /**
@@ -310,7 +310,7 @@ declare namespace curves {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     Rhythm,
     /**
@@ -332,7 +332,7 @@ declare namespace curves {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     Smooth,
     /**
@@ -354,7 +354,7 @@ declare namespace curves {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     Friction,
   }
@@ -381,7 +381,7 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   interface ICurve {
     /**
@@ -414,7 +414,7 @@ declare namespace curves {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     interpolate(fraction: number): number;
   }
@@ -445,7 +445,7 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function initCurve(curve?: Curve): ICurve;
 
@@ -455,7 +455,7 @@ declare namespace curves {
    * @param { Curve } [curve]
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead initCurve
    */
@@ -494,7 +494,7 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function stepsCurve(count: number, end: boolean): ICurve;
 
@@ -522,7 +522,7 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function customCurve(interpolate: (fraction: number) => number): ICurve;
   
@@ -533,7 +533,7 @@ declare namespace curves {
    * @param { boolean } end
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead stepsCurve
    */
@@ -582,7 +582,7 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function cubicBezierCurve(x1: number, y1: number, x2: number, y2: number): ICurve;
 
@@ -598,7 +598,7 @@ declare namespace curves {
    * @param { number } y2 -Value range (-∞, +∞).
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead cubicBezierCurve
    */
@@ -657,7 +657,7 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function springCurve(velocity: number, mass: number, stiffness: number, damping: number): ICurve;
 
@@ -672,7 +672,7 @@ declare namespace curves {
    * @param { number } damping -Pure number, Used to describe oscillation and decay of a system after being disturbed.
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead springCurve
    */
@@ -738,7 +738,7 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function springMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
 
@@ -797,7 +797,7 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function responsiveSpringMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
 
@@ -850,7 +850,7 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   function interpolatingSpring(velocity: number, mass: number, stiffness: number, damping: number): ICurve;
 }

@@ -25,7 +25,7 @@ import { AsyncCallback } from './@ohos.base';
  *
  * @namespace systemTime
  * @syscap SystemCapability.MiscServices.Time
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.systemDateTime
  */
@@ -38,7 +38,7 @@ declare namespace systemTime {
    * @param { AsyncCallback<void> } callback
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.setTime
    */
@@ -52,7 +52,7 @@ declare namespace systemTime {
    * @returns { Promise<void> }
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.setTime
    */
@@ -65,7 +65,7 @@ declare namespace systemTime {
    * @param { AsyncCallback<number> } callback
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.getCurrentTime
    */
@@ -77,7 +77,7 @@ declare namespace systemTime {
    * @param { AsyncCallback<number> } callback
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.getCurrentTime
    */
@@ -90,7 +90,7 @@ declare namespace systemTime {
    * @returns { Promise<number> }
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.getCurrentTime
    */
@@ -103,7 +103,7 @@ declare namespace systemTime {
    * @param { AsyncCallback<number> } callback
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.getRealActiveTime
    */
@@ -115,7 +115,7 @@ declare namespace systemTime {
    * @param { AsyncCallback<number> } callback
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.getRealActiveTime
    */
@@ -128,7 +128,7 @@ declare namespace systemTime {
    * @returns { Promise<number> }
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.getRealActiveTime
    */
@@ -141,7 +141,7 @@ declare namespace systemTime {
    * @param { AsyncCallback<number> } callback
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.getRealTime
    */
@@ -153,7 +153,7 @@ declare namespace systemTime {
    * @param { AsyncCallback<number> } callback
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.getRealTime
    */
@@ -166,7 +166,7 @@ declare namespace systemTime {
    * @returns { Promise<number> }
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.getRealTime
    */
@@ -180,7 +180,7 @@ declare namespace systemTime {
    * @param { AsyncCallback<void> } callback
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.setTime
    */
@@ -194,7 +194,7 @@ declare namespace systemTime {
    * @returns { Promise<void> }
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.setTime
    */
@@ -206,7 +206,7 @@ declare namespace systemTime {
    * @param { AsyncCallback<Date> } callback
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.getDate
    */
@@ -218,7 +218,7 @@ declare namespace systemTime {
    * @returns { Promise<Date> }
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.getDate
    */
@@ -232,7 +232,7 @@ declare namespace systemTime {
    * @param { AsyncCallback<void> } callback
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.setTimezone
    */
@@ -246,7 +246,7 @@ declare namespace systemTime {
    * @returns { Promise<void> }
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.setTimezone
    */
@@ -258,7 +258,7 @@ declare namespace systemTime {
    * @param { AsyncCallback<string> } callback
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.getTimezone
    */
@@ -270,7 +270,7 @@ declare namespace systemTime {
    * @returns { Promise<string> }
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.systemDateTime/systemDateTime.getTimezone
    */

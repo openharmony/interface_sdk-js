@@ -28,8 +28,8 @@ import Context from './application/Context';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 declare namespace application {
   /**
@@ -38,8 +38,7 @@ declare namespace application {
    * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   export enum AppPreloadType {
     /**
@@ -47,8 +46,7 @@ declare namespace application {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     UNSPECIFIED = 0,
 
@@ -57,8 +55,7 @@ declare namespace application {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     TYPE_CREATE_PROCESS = 1,
 
@@ -67,8 +64,7 @@ declare namespace application {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     TYPE_CREATE_ABILITY_STAGE = 2,
 
@@ -77,8 +73,7 @@ declare namespace application {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     TYPE_CREATE_WINDOW_STAGE = 3
   }
@@ -93,8 +88,8 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   export function createModuleContext(context: Context, moduleName: string): Promise<Context>;
 
@@ -112,8 +107,8 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   export function createModuleContext(context: Context, bundleName: string, moduleName: string): Promise<Context>;
 
@@ -126,7 +121,7 @@ declare namespace application {
    * @returns { Promise<Context> } Returns the module context of plugin.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 19
+   * @since 19 dynamic
    */
   export function createPluginModuleContext(context: Context, pluginBundleName: string, pluginModuleName: string): Promise<Context>;
 
@@ -144,7 +139,7 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   export function createPluginModuleContextForHostBundle(context: Context, pluginBundleName: string, pluginModuleName: string, hostBundleName: string): Promise<Context>;
 
@@ -161,8 +156,8 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   export function createBundleContext(context: Context, bundleName: string): Promise<Context>;
 
@@ -174,8 +169,8 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   export function getApplicationContext(): ApplicationContext;
 
@@ -195,7 +190,7 @@ declare namespace application {
    * @throws { BusinessError } 16000115 - The current process cannot be set as a candidate master process.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   export function promoteCurrentToCandidateMasterProcess(insertToHead: boolean): Promise<void>;
 
@@ -208,7 +203,7 @@ declare namespace application {
    * @throws { BusinessError } 16000117 - The current process is not a candidate master process and does not support cancellation.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   export function demoteCurrentFromCandidateMasterProcess(): Promise<void>;
 
@@ -224,7 +219,7 @@ declare namespace application {
    * @throws { BusinessError } 16000119 - Cannot exit because there is an unfinished request.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 21
+   * @since 21 dynamic
    */
    export function exitMasterProcessRole(): Promise<void>
 
@@ -237,8 +232,7 @@ declare namespace application {
    * @returns { AppPreloadType } The preload type of the process.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   export function getAppPreloadType(): AppPreloadType;
 }

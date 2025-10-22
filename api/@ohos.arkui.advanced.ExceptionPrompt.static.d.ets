@@ -17,19 +17,18 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
-import { ResourceStr, Dimension } from './arkui/component/units';
+import { ResourceStr, Dimension } from '@ohos.arkui.component';
 import { PropRef } from './arkui/stateManagement/decorator';
-import { Component } from './arkui/component/customComponent';
-import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
-import { Builder } from './arkui/component/builder';
+import { Component } from '@ohos.arkui.component';
+import { SymbolGlyphModifier } from 'arkui.SymbolGlyphModifier';
+import { Builder } from '@ohos.arkui.component';
 /**
  * Control margin status of  ExceptionPrompt.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum MarginType {
   /**
@@ -38,7 +37,7 @@ export declare enum MarginType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    *
-   * @since 20
+   * @since 20 static
    */
   DEFAULT_MARGIN = 0,
   /**
@@ -46,7 +45,7 @@ export declare enum MarginType {
    * margin 2: references ohos_id_max_padding_end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   FIT_MARGIN = 1,
 }
@@ -55,7 +54,7 @@ export declare enum MarginType {
  *
  * @interface PromptOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface PromptOptions {
   /**
@@ -63,7 +62,7 @@ export interface PromptOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   icon?: ResourceStr;
   /**
@@ -71,7 +70,7 @@ export interface PromptOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   symbolStyle?: SymbolGlyphModifier;
   /**
@@ -79,7 +78,7 @@ export interface PromptOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   tip?: ResourceStr;
   /**
@@ -87,7 +86,7 @@ export interface PromptOptions {
    *
    * @type { MarginType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   marginType: MarginType;
   /**
@@ -95,7 +94,7 @@ export interface PromptOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   actionText?: ResourceStr;
   /**
@@ -103,7 +102,7 @@ export interface PromptOptions {
    *
    * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   marginTop: Dimension
   /**
@@ -111,7 +110,7 @@ export interface PromptOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   isShown?: boolean
 }
@@ -119,7 +118,7 @@ export interface PromptOptions {
  * Declare struct ExceptionPrompt higher-order component.
  * @struct { ExceptionPrompt }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 @Component
 export declare struct ExceptionPrompt {
@@ -128,7 +127,7 @@ export declare struct ExceptionPrompt {
    *
    * @type { PromptOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @PropRef options: PromptOptions;
   /**
@@ -136,7 +135,7 @@ export declare struct ExceptionPrompt {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   onTipClick?: () => void;
   /**
@@ -144,14 +143,14 @@ export declare struct ExceptionPrompt {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   onActionTextClick?: () => void;
   /**
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Builder build(): void;
 }

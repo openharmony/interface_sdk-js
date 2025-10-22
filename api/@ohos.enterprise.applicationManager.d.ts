@@ -20,6 +20,7 @@
 
 import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
+import common from './@ohos.enterprise.common';
 
 /**
  * This module provides the capability to manage the applications of the enterprise devices.
@@ -808,6 +809,122 @@ declare namespace applicationManager {
    * @since 14
    */
   function getKeepAliveApps(admin: Want, accountId: number): Array<string>;
+
+  /**
+   * Adds the list of applications that user not stop.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *              The admin must have the corresponding permission.
+   * @param { Array<common.ApplicationInstance> } applicationInstances - applicationInstances indicates
+   *              the list of application instance.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *              The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+   function addUserNonStopApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
+
+  /**
+   * Removes applications from the list that user not stop.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *              The admin must have the corresponding permission.
+   * @param { Array<common.ApplicationInstance> } applicationInstances - applicationInstances indicates
+   *              the list of application instance.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *              The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  function removeUserNonStopApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
+
+  /**
+   * Gets the list of applications that user not stop.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *              The admin must have the corresponding permission.
+   * @returns { Array<common.ApplicationInstance> } returns the list of application instance.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *              The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  function getUserNonStopApps(admin: Want): Array<common.ApplicationInstance>;
+
+  /**
+   * Adds freeze exempted applications list.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *              The admin must have the corresponding permission.
+   * @param { Array<common.ApplicationInstance> } applicationInstances - applicationInstances indicates
+   *              the list of application instance.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
+   *              required to call the API
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+   function addFreezeExemptedApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
+
+  /**
+   * Removes applications from the freeze exempted list.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *              The admin must have the corresponding permission.
+   * @param  { Array<common.ApplicationInstance> } applicationInstances - applicationInstances indicates
+   *              the list of application instance.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *              The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  function removeFreezeExemptedApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
+
+  /**
+   * Gets the list of freeze exempted applications.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *              The admin must have the corresponding permission.
+   * @returns { Array<common.ApplicationInstance> } returns the list of application instance.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *              The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  function getFreezeExemptedApps(admin: Want): Array<common.ApplicationInstance>;
 
   /**
    * Checks whether the specified application is allowed to modify its keep alive setting.

@@ -2680,7 +2680,31 @@ declare namespace hiAppEvent {
      * @atomicservice
      * @since 22 dynamic&static
      */
-    threadLoadInterval ?: int;
+    threadLoadInterval?: int;
+  }
+
+  /**
+   * Definition of resource overlimit event policy
+   *
+   * @interface ResourceOverlimitPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  interface ResourceOverlimitPolicy {
+    /**
+     * The policy for RESOURCE_OVERLIMIT event
+     * This parameter is used to specify whether to pass profiler logs for native leak.
+     * When certain conditions are met and this parameter is set to true, profiler logs will
+     * be passed into the sandbox.
+     * If not set the param, the default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    collectNativeHeapProfile?: boolean;
   }
 
   /**
@@ -2711,6 +2735,16 @@ declare namespace hiAppEvent {
      * @since 22 dynamic&static
      */
     cpuUsageHighPolicy?: CpuUsageHighPolicy;
+
+    /**
+     * The policy for RESOURCE_OVERLIMIT event
+     *
+     * @type { ?ResourceOverlimitPolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    resourceOverlimitPolicy?: ResourceOverlimitPolicy;
   }
 
   /**
@@ -2723,7 +2757,7 @@ declare namespace hiAppEvent {
    * @atomicservice
    * @since 22 dynamic&static
    */
-  function configEventPolicy(policy : EventPolicy): Promise<void>;
+  function configEventPolicy(policy: EventPolicy): Promise<void>;
 }
 
 export default hiAppEvent;

@@ -18,7 +18,7 @@
  * @kit CoreFileKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import BackupExtensionAbility, { BundleVersion } from '@ohos.application.BackupExtensionAbility';
 import BackupExtensionContext from '@ohos.file.BackupExtensionContext';
 import backup from '@ohos.file.backup';
@@ -54,7 +54,7 @@ export {
 };
 /*** endif */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import BackupExtensionAbility from '@ohos.application.BackupExtensionAbility';
 import { BundleVersion } from '@ohos.application.BackupExtensionAbility';
 import cloudSync from '@ohos.file.cloudSync';

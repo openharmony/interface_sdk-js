@@ -27,8 +27,7 @@ import { NotificationExtensionContent } from './NotificationExtensionContent';
  *
  * @syscap SystemCapability.Notification.Notification
  * @stagemodelonly
- * @since 22
- * @arkts 1.1&1.2
+ * @since 22 dynamic&static
  */
 export default class NotificationSubscriberExtensionAbility {
   /**
@@ -37,8 +36,7 @@ export default class NotificationSubscriberExtensionAbility {
    * @type { NotificationSubscriberExtensionContext }
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   context: NotificationSubscriberExtensionContext;
  
@@ -47,8 +45,7 @@ export default class NotificationSubscriberExtensionAbility {
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   onDestroy(): void;
 
@@ -58,8 +55,7 @@ export default class NotificationSubscriberExtensionAbility {
    * @param { NotificationInfo } notificationInfo - The notification info to be published.
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   onReceiveMessage(notificationInfo: NotificationInfo): void;
 
@@ -69,8 +65,7 @@ export default class NotificationSubscriberExtensionAbility {
    * @param { Array<string> } hashCodes - The list of notification to be cancelled.
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   onCancelMessages(hashCodes: Array<string>): void;
 }

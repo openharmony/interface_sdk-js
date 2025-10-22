@@ -44,8 +44,8 @@ import type hdrCapability from './@ohos.graphics.hdrCapability';
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace display {
   /**
@@ -53,7 +53,7 @@ declare namespace display {
    *
    * @param { AsyncCallback<Display> } callback the result of display
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.display#getDefaultDisplaySync
    */
@@ -64,7 +64,7 @@ declare namespace display {
    *
    * @returns { Promise<Display> } the result of display
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.display#getDefaultDisplaySync
    */
@@ -95,8 +95,8 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getDefaultDisplaySync(): Display;
 
@@ -109,7 +109,7 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   function getPrimaryDisplaySync(): Display;
 
@@ -124,8 +124,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function getDisplayByIdSync(displayId: long): Display;
 
@@ -134,7 +134,7 @@ declare namespace display {
    *
    * @param { AsyncCallback<Array<Display>> } callback the result of all displays
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.display#getAllDisplays
    */
@@ -145,7 +145,7 @@ declare namespace display {
    *
    * @returns { Promise<Array<Display>> } the result of all displays
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.display#getAllDisplays
    */
@@ -166,8 +166,8 @@ declare namespace display {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function getAllDisplays(callback: AsyncCallback<Array<Display>>): void;
 
@@ -186,8 +186,8 @@ declare namespace display {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function getAllDisplays(): Promise<Array<Display>>;
 
@@ -198,8 +198,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function getAllDisplayPhysicalResolution(): Promise<Array<DisplayPhysicalResolution>>;
 
@@ -214,8 +214,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function hasPrivateWindow(displayId: long): boolean;
 
@@ -250,8 +250,7 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function on(type: 'add' | 'remove' | 'change', callback: Callback<long>): void;
 
@@ -286,8 +285,7 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function off(type: 'add' | 'remove' | 'change', callback?: Callback<long>): void;
 
@@ -301,8 +299,8 @@ declare namespace display {
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function on(type: 'privateModeChange', callback: Callback<boolean>): void;
 
@@ -316,8 +314,8 @@ declare namespace display {
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function off(type: 'privateModeChange', callback?: Callback<boolean>): void;
 
@@ -346,8 +344,7 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function isFoldable(): boolean;
 
@@ -376,8 +373,7 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function getFoldStatus(): FoldStatus;
 
@@ -415,8 +411,7 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function on(type: 'foldStatusChange', callback: Callback<FoldStatus>): void;
 
@@ -454,8 +449,7 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function off(type: 'foldStatusChange', callback?: Callback<FoldStatus>): void;
 
@@ -482,8 +476,7 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function on(type: 'foldAngleChange', callback: Callback<Array<double>>): void;
 
@@ -510,8 +503,7 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function off(type: 'foldAngleChange', callback?: Callback<Array<double>>): void;
 
@@ -525,8 +517,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function on(type: 'captureStatusChange', callback: Callback<boolean>): void;
 
@@ -540,8 +532,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function off(type: 'captureStatusChange', callback?: Callback<boolean>): void;
 
@@ -553,8 +545,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function isCaptured(): boolean;
 
@@ -583,8 +575,7 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function getFoldDisplayMode(): FoldDisplayMode;
 
@@ -598,8 +589,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function setFoldDisplayMode(mode: FoldDisplayMode): void;
 
@@ -612,8 +603,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 20 static
    */
   function setFoldDisplayMode(mode: FoldDisplayMode, reason: string): void;
 
@@ -651,8 +642,7 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function on(type: 'foldDisplayModeChange', callback: Callback<FoldDisplayMode>): void;
 
@@ -690,8 +680,7 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function off(type: 'foldDisplayModeChange', callback?: Callback<FoldDisplayMode>): void;
 
@@ -710,8 +699,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function getCurrentFoldCreaseRegion(): FoldCreaseRegion;
 
@@ -725,8 +714,8 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function setFoldStatusLocked(locked: boolean): void;
 
@@ -742,7 +731,7 @@ declare namespace display {
    * @throws { BusinessError } 801 - Capability not supported.function createVirtualScreen can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap  SystemCapability.Window.SessionManager
-   * @since 16
+   * @since 16 dynamic
    */
   function createVirtualScreen(config: VirtualScreenConfig): Promise<long>;
 
@@ -759,7 +748,7 @@ declare namespace display {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap  SystemCapability.Window.SessionManager
-   * @since 16
+   * @since 16 dynamic
    */
   function destroyVirtualScreen(screenId: long): Promise<void>;
   
@@ -777,7 +766,7 @@ declare namespace display {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap  SystemCapability.Window.SessionManager
-   * @since 16
+   * @since 16 dynamic
    */
   function setVirtualScreenSurface(screenId: long, surfaceId: string): Promise<void>;
 
@@ -794,7 +783,7 @@ declare namespace display {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
-   * @since 16
+   * @since 16 dynamic
    */
   function makeUnique(screenId: long): Promise<void>;
 
@@ -810,7 +799,7 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 18 dynamic
    */
   function addVirtualScreenBlocklist(windowIds: Array<int>): Promise<void>;
 
@@ -826,7 +815,7 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 18 dynamic
    */
   function removeVirtualScreenBlocklist(windowIds: Array<int>): Promise<void>;
 
@@ -842,7 +831,8 @@ declare namespace display {
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function convertGlobalToRelativeCoordinate(position: Position, displayId?: long): RelativePosition;
 
@@ -856,7 +846,8 @@ declare namespace display {
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   function convertRelativeToGlobalCoordinate(relativePosition: RelativePosition): Position;
 
@@ -909,8 +900,8 @@ declare namespace display {
    *
    * @interface VirtualScreenConfig
    * @syscap SystemCapability.Window.SessionManager
-   * @since arkts {'1.1':'16', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 16 dynamic
+   * @since 20 static
    */
   interface VirtualScreenConfig {
     /**
@@ -918,8 +909,8 @@ declare namespace display {
      *
      * @type { string }
      * @syscap  SystemCapability.Window.SessionManager
-     * @since arkts {'1.1':'16', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16 dynamic
+     * @since 20 static
      */
     name: string;
 
@@ -928,8 +919,8 @@ declare namespace display {
      *
      * @type { long }
      * @syscap SystemCapability.Window.SessionManager
-     * @since arkts {'1.1':'16', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16 dynamic
+     * @since 20 static
      */
     width: long;
 
@@ -938,8 +929,8 @@ declare namespace display {
      *
      * @type { long }
      * @syscap SystemCapability.Window.SessionManager
-     * @since arkts {'1.1':'16', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16 dynamic
+     * @since 20 static
      */
     height: long;
 
@@ -948,8 +939,8 @@ declare namespace display {
      *
      * @type { double }
      * @syscap SystemCapability.Window.SessionManager
-     * @since arkts {'1.1':'16', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16 dynamic
+     * @since 20 static
      */
     density: double;
 
@@ -958,8 +949,8 @@ declare namespace display {
      *
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
-     * @since arkts {'1.1':'16', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16 dynamic
+     * @since 20 static
      */
     surfaceId: string;
   }
@@ -989,8 +980,7 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   enum FoldStatus {
     /**
@@ -1012,8 +1002,7 @@ declare namespace display {
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     FOLD_STATUS_UNKNOWN = 0,
     /**
@@ -1038,8 +1027,7 @@ declare namespace display {
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     FOLD_STATUS_EXPANDED = 1,
     /**
@@ -1053,8 +1041,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     FOLD_STATUS_FOLDED = 2,
     /**
@@ -1079,8 +1067,7 @@ declare namespace display {
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     FOLD_STATUS_HALF_FOLDED = 3,
     /**
@@ -1088,8 +1075,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 20 static
      */
     FOLD_STATUS_EXPANDED_WITH_SECOND_EXPANDED = 11,
     /**
@@ -1097,8 +1084,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 20 static
      */
     FOLD_STATUS_EXPANDED_WITH_SECOND_HALF_FOLDED = 21,
     /**
@@ -1106,8 +1093,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 20 static
      */
     FOLD_STATUS_FOLDED_WITH_SECOND_EXPANDED = 12,
     /**
@@ -1115,8 +1102,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 20 static
      */
     FOLD_STATUS_FOLDED_WITH_SECOND_HALF_FOLDED = 22,
     /**
@@ -1124,8 +1111,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 20 static
      */
     FOLD_STATUS_HALF_FOLDED_WITH_SECOND_EXPANDED = 13,
     /**
@@ -1133,8 +1120,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 20 static
      */
     FOLD_STATUS_HALF_FOLDED_WITH_SECOND_HALF_FOLDED = 23
   }
@@ -1161,8 +1148,7 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   enum FoldDisplayMode {
     /**
@@ -1176,8 +1162,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     FOLD_DISPLAY_MODE_UNKNOWN = 0,
     /**
@@ -1191,8 +1177,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     FOLD_DISPLAY_MODE_FULL = 1,
     /**
@@ -1206,8 +1192,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     FOLD_DISPLAY_MODE_MAIN= 2,
     /**
@@ -1221,8 +1207,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     FOLD_DISPLAY_MODE_SUB= 3,
     /**
@@ -1236,8 +1222,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     FOLD_DISPLAY_MODE_COORDINATION
   }
@@ -1255,8 +1241,8 @@ declare namespace display {
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   enum DisplayState {
     /**
@@ -1270,8 +1256,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     STATE_UNKNOWN = 0,
     /**
@@ -1285,8 +1271,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     STATE_OFF = 1,
     /**
@@ -1300,8 +1286,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     STATE_ON = 2,
     /**
@@ -1315,8 +1301,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     STATE_DOZE = 3,
     /**
@@ -1330,8 +1316,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     STATE_DOZE_SUSPEND = 4,
     /**
@@ -1345,8 +1331,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     STATE_VR = 5,
     /**
@@ -1360,8 +1346,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     STATE_ON_SUSPEND = 6
   }
@@ -1381,8 +1367,8 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   enum Orientation {
     /**
@@ -1398,8 +1384,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     PORTRAIT = 0,
 
@@ -1416,8 +1402,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     LANDSCAPE = 1,
 
@@ -1434,8 +1420,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     PORTRAIT_INVERTED = 2,
 
@@ -1452,8 +1438,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     LANDSCAPE_INVERTED = 3
   }
@@ -1464,8 +1450,8 @@ declare namespace display {
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 20 static
    */
   enum DisplaySourceMode {
     /**
@@ -1473,8 +1459,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 20 static
      */
     NONE = 0,
  
@@ -1483,8 +1469,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 20 static
      */
     MAIN = 1,
 
@@ -1493,8 +1479,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 20 static
      */
     MIRROR = 2,
 
@@ -1503,8 +1489,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 20 static
      */
     EXTEND = 3,
 
@@ -1513,8 +1499,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 20 static
      */
     ALONE = 4
   }
@@ -1525,8 +1511,8 @@ declare namespace display {
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   enum ScreenShape {
     /**
@@ -1534,8 +1520,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     RECTANGLE = 0,
     /**
@@ -1543,8 +1529,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     ROUND = 1
   }
@@ -1562,8 +1548,8 @@ declare namespace display {
    * @interface FoldCreaseRegion
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   interface FoldCreaseRegion {
     /**
@@ -1581,8 +1567,8 @@ declare namespace display {
      * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     readonly displayId: long;
 
@@ -1601,8 +1587,8 @@ declare namespace display {
      * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     readonly creaseRects: Array<Rect>;
   }
@@ -1661,8 +1647,8 @@ declare namespace display {
    * @interface Rect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   interface Rect {
     /**
@@ -1678,8 +1664,8 @@ declare namespace display {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     left: long;
 
@@ -1696,8 +1682,8 @@ declare namespace display {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     top: long;
 
@@ -1714,8 +1700,8 @@ declare namespace display {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     width: long;
 
@@ -1732,8 +1718,8 @@ declare namespace display {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     height: long;
   }
@@ -1751,8 +1737,8 @@ declare namespace display {
    * @interface WaterfallDisplayAreaRects
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   interface WaterfallDisplayAreaRects {
     /**
@@ -1770,8 +1756,8 @@ declare namespace display {
      * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     readonly left: Rect;
 
@@ -1790,8 +1776,8 @@ declare namespace display {
      * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     readonly right: Rect;
 
@@ -1810,8 +1796,8 @@ declare namespace display {
      * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     readonly top: Rect;
 
@@ -1830,8 +1816,8 @@ declare namespace display {
      * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     readonly bottom: Rect;
   }
@@ -1849,8 +1835,8 @@ declare namespace display {
    * @interface CutoutInfo
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   interface CutoutInfo {
     /**
@@ -1868,8 +1854,8 @@ declare namespace display {
      * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     readonly boundingRects: Array<Rect>;
 
@@ -1888,8 +1874,8 @@ declare namespace display {
      * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     readonly waterfallDisplayAreaRects: WaterfallDisplayAreaRects;
   }
@@ -1901,8 +1887,8 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   interface DisplayPhysicalResolution {
     /**
@@ -1911,8 +1897,8 @@ declare namespace display {
      * @type { FoldDisplayMode }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     foldDisplayMode: FoldDisplayMode;
 
@@ -1923,8 +1909,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     physicalWidth: long;
 
@@ -1935,8 +1921,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     physicalHeight: long;
   }
@@ -1963,8 +1949,8 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   interface Display {
     /**
@@ -1989,8 +1975,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     id: long;
 
@@ -2007,8 +1993,8 @@ declare namespace display {
      * @type { string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     name: string;
 
@@ -2025,8 +2011,8 @@ declare namespace display {
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     alive: boolean;
 
@@ -2043,8 +2029,8 @@ declare namespace display {
      * @type { DisplayState }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     state: DisplayState;
 
@@ -2061,8 +2047,8 @@ declare namespace display {
      * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     refreshRate: int;
 
@@ -2083,8 +2069,8 @@ declare namespace display {
      * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     rotation: int;
 
@@ -2110,8 +2096,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     width: long;
 
@@ -2137,8 +2123,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     height: long;
 
@@ -2149,8 +2135,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     availableWidth: long;
 
@@ -2161,8 +2147,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     availableHeight: long;
 
@@ -2188,8 +2174,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     densityDPI: double;
 
@@ -2208,8 +2194,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     orientation: Orientation;
 
@@ -2227,8 +2213,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     densityPixels: double;
 
@@ -2254,8 +2240,8 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     scaledDensity: double;
 
@@ -2281,8 +2267,7 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     xDPI: double;
 
@@ -2308,8 +2293,7 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     yDPI: double;
 
@@ -2319,8 +2303,8 @@ declare namespace display {
      * @type { ?ScreenShape }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     screenShape?: ScreenShape;
 
@@ -2337,8 +2321,8 @@ declare namespace display {
      * @type { Array<colorSpaceManager.ColorSpace> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     colorSpaces: Array<colorSpaceManager.ColorSpace>;
 
@@ -2355,8 +2339,8 @@ declare namespace display {
      * @type { Array<hdrCapability.HDRFormat> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     hdrFormats: Array<hdrCapability.HDRFormat>;
 
@@ -2366,8 +2350,8 @@ declare namespace display {
      * @type { ?DisplaySourceMode }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 20 static
      */
     sourceMode?: DisplaySourceMode;
  
@@ -2377,8 +2361,8 @@ declare namespace display {
      * @type { ?long }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 20 static
      */
     x?: long;
   
@@ -2388,8 +2372,8 @@ declare namespace display {
      * @type { ?long }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19 dynamic
+     * @since 20 static
      */
     y?: long;
 
@@ -2399,8 +2383,7 @@ declare namespace display {
      * @type { ?Array<int> }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     supportedRefreshRates?: Array<int>;
 
@@ -2419,8 +2402,8 @@ declare namespace display {
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getCutoutInfo(callback: AsyncCallback<CutoutInfo>): void;
 
@@ -2439,8 +2422,8 @@ declare namespace display {
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getCutoutInfo(): Promise<CutoutInfo>;
 
@@ -2454,8 +2437,8 @@ declare namespace display {
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     hasImmersiveWindow(callback: AsyncCallback<boolean>): void;
 
@@ -2469,8 +2452,8 @@ declare namespace display {
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     hasImmersiveWindow(): Promise<boolean>;
 
@@ -2482,8 +2465,8 @@ declare namespace display {
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getAvailableArea(): Promise<Rect>;
 
@@ -2494,7 +2477,7 @@ declare namespace display {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic&static
      */
     getLiveCreaseRegion(): FoldCreaseRegion;
 
@@ -2509,8 +2492,8 @@ declare namespace display {
     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
     * @syscap SystemCapability.Window.SessionManager
     * @atomicservice
-    * @since arkts {'1.1':'12', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12 dynamic
+    * @since 20 static
     */
     on(type: 'availableAreaChange', callback: Callback<Rect>): void;
 
@@ -2525,8 +2508,8 @@ declare namespace display {
     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
     * @syscap SystemCapability.Window.SessionManager
     * @atomicservice
-    * @since arkts {'1.1':'12', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12 dynamic
+    * @since 20 static
     */
     off(type: 'availableAreaChange', callback?: Callback<Rect>): void;
 
@@ -2539,7 +2522,7 @@ declare namespace display {
     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
     * @syscap SystemCapability.Window.SessionManager
     * @atomicservice
-    * @since 18
+    * @since 18 dynamic
     * @test
     */
     getDisplayCapability(): string;
@@ -2550,7 +2533,8 @@ declare namespace display {
    * 
    * @interface Position
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface Position {
     /**
@@ -2558,7 +2542,8 @@ declare namespace display {
      * 
      * @type { long }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     x: long;
 
@@ -2567,7 +2552,8 @@ declare namespace display {
      * 
      * @type { long }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     y: long;
   }
@@ -2577,7 +2563,8 @@ declare namespace display {
    * 
    * @interface RelativePosition
    * @syscap SystemCapability.Window.SessionManager
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface RelativePosition {
     /**
@@ -2585,7 +2572,8 @@ declare namespace display {
      * 
      * @type { long }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     displayId: long;
 
@@ -2594,7 +2582,8 @@ declare namespace display {
      * 
      * @type { Position }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     position: Position;
   }

@@ -37,7 +37,7 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare namespace router {
   /**
@@ -62,7 +62,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   export enum RouterMode {
     /**
@@ -87,7 +87,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     Standard,
 
@@ -119,7 +119,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     Single,
   }
@@ -140,7 +140,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   interface RouterOptions {
     /**
@@ -180,7 +180,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
      * @crossplatform
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
      */
     url: string;
 
@@ -212,7 +212,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
      * @crossplatform
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
      */
     params?: Object;
 
@@ -222,7 +222,7 @@ declare namespace router {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @since 14
+     * @since 14 dynamic
      */
     recoverable?: boolean;
   }
@@ -243,7 +243,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   interface RouterState {
     /**
@@ -271,7 +271,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     index: number;
 
@@ -297,7 +297,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     name: string;
 
@@ -323,7 +323,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     path: string;
     
@@ -334,7 +334,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     params: Object;
   }
@@ -355,7 +355,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   interface EnableAlertOptions {
     /**
@@ -380,7 +380,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     message: string;
   }
@@ -390,7 +390,7 @@ declare namespace router {
    *
    * @param { RouterOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.router.router#pushUrl
    */
@@ -442,7 +442,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#pushUrl
    */
@@ -494,7 +494,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#pushUrl
    */
@@ -549,7 +549,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#pushUrl
    */
@@ -604,7 +604,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#pushUrl
    */
@@ -615,7 +615,7 @@ declare namespace router {
    *
    * @param { RouterOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.router.router#replaceUrl
    */
@@ -648,7 +648,7 @@ declare namespace router {
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#replaceUrl
    */
@@ -681,7 +681,7 @@ declare namespace router {
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#replaceUrl
    */
@@ -716,7 +716,7 @@ declare namespace router {
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#replaceUrl
    */
@@ -751,7 +751,7 @@ declare namespace router {
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#replaceUrl
    */
@@ -779,7 +779,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#back
    */
@@ -793,7 +793,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#back
    */
@@ -818,7 +818,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#clear
    */
@@ -846,7 +846,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#getLength
    */
@@ -874,7 +874,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#getState
    */
@@ -888,7 +888,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#getStateByIndex
    */
@@ -902,7 +902,7 @@ declare namespace router {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since 12 dynamiconly
     * @deprecated since 18
     * @useinstead ohos.arkui.UIContext.Router#getStateByUrl
     */
@@ -913,7 +913,7 @@ declare namespace router {
    *
    * @param { EnableAlertOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.router.router#showAlertBeforeBackPage
    */
@@ -956,7 +956,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#showAlertBeforeBackPage
    */
@@ -966,7 +966,7 @@ declare namespace router {
    * Cancel enableAlertBeforeBackPage
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.router.router#hideAlertBeforeBackPage
    */
@@ -991,7 +991,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#hideAlertBeforeBackPage
    */
@@ -1019,7 +1019,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#getParams
    */
@@ -1036,7 +1036,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   interface NamedRouterOptions {
     /**
@@ -1054,7 +1054,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     name: string;
 
@@ -1073,7 +1073,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     params?: Object;
 
@@ -1083,7 +1083,7 @@ declare namespace router {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @since 14
+     * @since 14 dynamic
      */
     recoverable?: boolean;
   }
@@ -1119,7 +1119,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#pushNamedRoute
    */
@@ -1156,7 +1156,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#pushNamedRoute
    */
@@ -1195,7 +1195,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#pushNamedRoute
    */
@@ -1234,7 +1234,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#pushNamedRoute
    */
@@ -1269,7 +1269,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#replaceNamedRoute
    */
@@ -1304,7 +1304,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#replaceNamedRoute
    */
@@ -1341,7 +1341,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#replaceNamedRoute
    */
@@ -1378,7 +1378,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#replaceNamedRoute
    */

@@ -30,7 +30,7 @@ import lang from '../../arkts/@arkts.lang';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  */
 interface SendableContext extends lang.ISendable {
 }

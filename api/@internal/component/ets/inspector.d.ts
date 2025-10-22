@@ -24,7 +24,7 @@
  * @returns { object }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead getInspectorTree
  */
@@ -37,7 +37,7 @@ declare function getInspectorNodes(): object;
  * @returns { object }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead getInspectorByKey
  */
@@ -49,7 +49,7 @@ declare function getInspectorNodeById(id: number): object;
  * @namespace Profiler
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 8
+ * @since 8 dynamic
  * @test
  */
 declare namespace Profiler {
@@ -59,7 +59,7 @@ declare namespace Profiler {
    * @param { function } callback - the callback info is json string with ui update info.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
    * @test
    */
   function registerVsyncCallback(callback: (info: string) => void): void;
@@ -69,7 +69,7 @@ declare namespace Profiler {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
    * @test
    */
   function unregisterVsyncCallback(): void;
@@ -81,7 +81,7 @@ declare namespace Profiler {
  * @param { string } value
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 8
+ * @since 8 dynamic
  * @test
  */
 declare function setAppBgColor(value: string): void;

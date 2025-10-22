@@ -19,7 +19,6 @@ import { RectAttribute } from '@ohos.arkui.component';
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 /**
@@ -27,6 +26,6 @@ import { RectAttribute } from '@ohos.arkui.component';
  *
  * @implements RectAttribute, AttributeModifier<RectAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class RectModifier implements RectAttribute, AttributeModifier<RectAttribute> {}

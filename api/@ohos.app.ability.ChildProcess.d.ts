@@ -26,7 +26,7 @@ import type { ChildProcessArgs } from './@ohos.app.ability.ChildProcessArgs';
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 11
+ * @since 11 dynamic
  */
 export default class ChildProcess {
 
@@ -43,7 +43,7 @@ export default class ChildProcess {
    * @param { ChildProcessArgs } [args] - Indicates args passed to child process.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
   */
   onStart(args?: ChildProcessArgs): void;
 }

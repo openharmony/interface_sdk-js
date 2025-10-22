@@ -24,7 +24,7 @@
  * @typedef MissionParameter
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 export interface MissionParameter {
   /**
@@ -34,7 +34,7 @@ export interface MissionParameter {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   deviceId: string;
 
@@ -45,7 +45,7 @@ export interface MissionParameter {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   fixConflict: boolean;
 
@@ -56,7 +56,7 @@ export interface MissionParameter {
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   tag: number;
 }

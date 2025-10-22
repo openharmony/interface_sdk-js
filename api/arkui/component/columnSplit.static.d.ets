@@ -15,7 +15,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Dimension } from './units';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
@@ -25,7 +24,7 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @interface ColumnSplitDividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface ColumnSplitDividerStyle {
     /**
@@ -34,7 +33,7 @@ export interface ColumnSplitDividerStyle {
      * @type { ?Dimension }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     startMargin?: Dimension;
     /**
@@ -43,10 +42,20 @@ export interface ColumnSplitDividerStyle {
      * @type { ?Dimension }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     endMargin?: Dimension;
 }
+
+/**
+ * The ColumnSplitAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface ColumnSplitAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ * @noninterop
+ */
 export declare interface ColumnSplitAttribute extends CommonMethod {
     /**
      * Indicates whether the split line can be dragged. The default value is false.
@@ -54,7 +63,7 @@ export declare interface ColumnSplitAttribute extends CommonMethod {
      * @param { boolean } value
      * @returns { ColumnSplitAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default resizeable(value: boolean | undefined): this;
     /**
@@ -63,7 +72,7 @@ export declare interface ColumnSplitAttribute extends CommonMethod {
      * if value is set to null, the value of startMargin and endMargin is set to 0.0 by default.
      * @returns { ColumnSplitAttribute } the attribute of the ColumnSplit
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default divider(value: ColumnSplitDividerStyle | null | undefined): this;
     /**
@@ -72,16 +81,25 @@ export declare interface ColumnSplitAttribute extends CommonMethod {
      * @param { AttributeModifier<ColumnSplitAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { ColumnSplitAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<ColumnSplitAttribute>
         | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Defines ColumnSplit Component.
+ *
+ * @param { function } [content_] - container
+ * @returns { ColumnSplitAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
 export declare function ColumnSplit(
-
+    
     @memo
     content_?: () => void,
 ): ColumnSplitAttribute

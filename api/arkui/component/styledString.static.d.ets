@@ -16,20 +16,19 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { Callback, ShadowOptions, ClickEvent, Optional, PixelMap, AttributeModifier, CommonMethod } from './common';
-import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, WordBreak, TextOverflow, ImageFit, ImageSpanAlignment } from "./enums";
-import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from "./units";
-import { TextBackgroundStyle } from "./span";
-import { GestureEvent } from "./gesture";
-import { DrawingColorFilter } from "./image";
-import { LeadingMarginPlaceholder } from "./richEditor";
+import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, WordBreak, TextOverflow, ImageFit, ImageSpanAlignment } from './enums';
+import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from './units';
+import { TextBackgroundStyle } from './span';
+import { GestureEvent } from './gesture';
+import { DrawingColorFilter } from './image';
+import { LeadingMarginPlaceholder } from './richEditor';
 import image from '../../@ohos.multimedia.image';
 import drawing from '../../@ohos.graphics.drawing';
 import { DrawContext } from '../../arkui/Graphics';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
 
 /**
  * Defines the StyledStringMarshallingValue Type.
@@ -37,7 +36,7 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  * @typedef { UserDataSpan } StyledStringMarshallingValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 20 static
  */
 export type StyledStringMarshallingValue = UserDataSpan;
 /**
@@ -48,7 +47,7 @@ export type StyledStringMarshallingValue = UserDataSpan;
  * @returns { ArrayBuffer } Array buffer from the serialized marshalling value
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 20 static
  */
 export type StyledStringMarshallCallback = (marshallableVal: StyledStringMarshallingValue) => ArrayBuffer;
 /**
@@ -59,14 +58,14 @@ export type StyledStringMarshallCallback = (marshallableVal: StyledStringMarshal
  * @returns { StyledStringMarshallingValue } Marshalling value from the deserialized ArrayBuffer.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 20 static
  */
 export type StyledStringUnmarshallCallback = (buf: ArrayBuffer) => StyledStringMarshallingValue;
 /**
  * StyledString
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class StyledString {
     /**
@@ -75,64 +74,64 @@ export declare class StyledString {
      * @param { string | ImageAttachment | CustomSpan } value - indicates the current object value of the StyledString.
      * @param { Array<StyleOptions> } [styles] - indicates the SpanStyle objects.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor(value: string | ImageAttachment | CustomSpan, styles?: Array<StyleOptions>);
     /**
      * Get the length of the StyledString's characters.
      *
-     * @type { number } - the length of the StyledString's characters.
+     * @type { int } - the length of the StyledString's characters.
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    readonly length: number;
+    readonly length: int;
     /**
     * Get the literal content of the StyledString.
     *
     * @returns { string } - the literal content of the StyledString
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 20 static
     */
     getString(): string;
     /**
      * Get the attribute objects of the subStyledString.
      *
-     * @param { number } start - the start position of the subStyledString.
-     * @param { number } length - the length of the subStyledString's characters.
+     * @param { int } start - the start position of the subStyledString.
+     * @param { int } length - the length of the subStyledString's characters.
      * @param { StyledStringKey } [styledKey] - the specified type.
      * @returns { Array<SpanStyle> }
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    getStyles(start: number, length: number, styledKey?: StyledStringKey): Array<SpanStyle>;
+    getStyles(start: int, length: int, styledKey?: StyledStringKey): Array<SpanStyle>;
     /**
      * Judge if two attribute strings are equal.
      *
      * @param { StyledString } other - another StyledString.
      * @returns { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     equals(other: StyledString): boolean;
     /**
      * Get the substring of the StyledString.
      *
-     * @param { number } start - the start position of the subStyledString.
-     * @param { number } [length] - the length of the subStyledString's characters.
+     * @param { int } start - the start position of the subStyledString.
+     * @param { int } [length] - the length of the subStyledString's characters.
      * @returns { StyledString }
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    subStyledString(start: number, length?: number): StyledString;
+    subStyledString(start: int, length?: int): StyledString;
     /**
      * Returns StyledString from the provided HTML string.
      *
@@ -145,7 +144,7 @@ export declare class StyledString {
      * @throws { BusinessError } 170001 - Convert Error.
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     static fromHtml(html: string): Promise<StyledString>;
     /**
@@ -159,26 +158,28 @@ export declare class StyledString {
      * <br> 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     static toHtml(styledString: StyledString): string;
     /**
      * Returns ArrayBuffer from the serialized styled string.
      *
      * @param { StyledString } styledString - StyledString parameter.
-     * @param { StyledStringMarshallCallback } callback - When marshalling StyledStringMarshingValue, will trigger this callback to get ArrayBuffer
+     * @param { StyledStringMarshallCallback } callback - When marshalling StyledStringMarshingValue, will trigger
+     *    this callback to get ArrayBuffer
      * @returns { ArrayBuffer }
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     static marshalling(styledString: StyledString, callback: StyledStringMarshallCallback): ArrayBuffer;
     /**
      * Returns StyledString from the deserialized ArrayBuffer.
      *
      * @param { ArrayBuffer } buffer - The buffer will be deserialized to a StyledString.
-     * @param { StyledStringUnmarshallCallback } callback - When unmarshalling ArrayBuffer, will trigger this callback to get StyledStringMarshingValue
+     * @param { StyledStringUnmarshallCallback } callback - When unmarshalling ArrayBuffer, will trigger this callback
+     *    to get StyledStringMarshingValue
      * @returns { Promise<StyledString> }
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
@@ -188,7 +189,7 @@ export declare class StyledString {
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     static unmarshalling(buffer: ArrayBuffer, callback: StyledStringUnmarshallCallback): Promise<StyledString>;
     /**
@@ -199,7 +200,7 @@ export declare class StyledString {
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     static marshalling(styledString: StyledString): ArrayBuffer;
     /**
@@ -215,7 +216,7 @@ export declare class StyledString {
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     static unmarshalling(buffer: ArrayBuffer): Promise<StyledString>;
 }
@@ -224,7 +225,7 @@ export declare class StyledString {
  *
  * @interface StyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface StyleOptions {
     /**
@@ -232,7 +233,7 @@ export declare interface StyleOptions {
      *
      * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     start?: int;
     /**
@@ -240,7 +241,7 @@ export declare interface StyleOptions {
      *
      * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     length?: int;
     /**
@@ -248,7 +249,7 @@ export declare interface StyleOptions {
      *
      * @type { StyledStringKey }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     styledKey: StyledStringKey;
     /**
@@ -256,7 +257,7 @@ export declare interface StyleOptions {
      *
      * @type { StyledStringValue }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     styledValue: StyledStringValue;
 }
@@ -265,31 +266,31 @@ export declare interface StyleOptions {
  *
  * @interface SpanStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface SpanStyle {
     /**
      * The start position of the SpanStyle.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    start: number;
+    start: int;
     /**
      * The length of the modifiedStyledString's characters.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    length: number;
+    length: int;
     /**
      * The attribute key of the SpanStyle.
      *
      * @type { StyledStringKey }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     styledKey: StyledStringKey;
     /**
@@ -297,7 +298,7 @@ export declare interface SpanStyle {
      *
      * @type { StyledStringValue }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     styledValue: StyledStringValue;
 }
@@ -305,7 +306,7 @@ export declare interface SpanStyle {
  * Defines TextStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class TextStyle {
     /**
@@ -313,7 +314,7 @@ export declare class TextStyle {
      *
      * @param { TextStyleInterface } [value] - font property object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor(value?: TextStyleInterface);
     /**
@@ -322,7 +323,7 @@ export declare class TextStyle {
      * @type { ?ResourceColor } - the set fontColor of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     readonly fontColor?: ResourceColor;
     /**
@@ -331,35 +332,35 @@ export declare class TextStyle {
      * @type { ?string } - the fontFamily of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     readonly fontFamily?: string;
     /**
      * Get the fontSize of the StyledString.
      * If not undefined, the unit is vp.
      *
-     * @type { ?number } - the fontSize of the StyledString or undefined
+     * @type { ?double } - the fontSize of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    readonly fontSize?: number;
+    readonly fontSize?: double;
     /**
      * Get the fontWeight of the StyledString.
      *
-     * @type { ?number } - the fontWeight of the StyledString or undefined
+     * @type { ?int } - the fontWeight of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    readonly fontWeight?: number;
+    readonly fontWeight?: int;
     /**
      * Get the fontStyle of the StyledString.
      *
      * @type { ?FontStyle  } - the fontStyle of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     readonly fontStyle?: FontStyle;
 }
@@ -368,7 +369,7 @@ export declare class TextStyle {
  *
  * @interface TextStyleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface TextStyleInterface {
     /**
@@ -376,7 +377,7 @@ export declare interface TextStyleInterface {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     fontColor?: ResourceColor;
     /**
@@ -384,7 +385,7 @@ export declare interface TextStyleInterface {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     fontFamily?: ResourceStr;
     /**
@@ -392,23 +393,23 @@ export declare interface TextStyleInterface {
      *
      * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     fontSize?: LengthMetrics;
     /**
      * The fontWeight value of the font property object.
      *
-     * @type { ?(number | FontWeight | string) }
+     * @type { ?(int | FontWeight | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    fontWeight?: number | FontWeight | string;
+    fontWeight?: int | FontWeight | string;
     /**
      * The fontStyle value of the font property object.
      *
      * @type { ?FontStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     fontStyle?: FontStyle;
 }
@@ -416,7 +417,7 @@ export declare interface TextStyleInterface {
  * Defines DecorationStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class DecorationStyle {
     /**
@@ -424,7 +425,7 @@ export declare class DecorationStyle {
      *
      * @param { DecorationStyleInterface } value - text decoration value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor(value: DecorationStyleInterface);
     /**
@@ -433,7 +434,7 @@ export declare class DecorationStyle {
      * @type { TextDecorationType } - the decoration type of the StyledString
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     readonly type: TextDecorationType;
     /**
@@ -442,7 +443,7 @@ export declare class DecorationStyle {
      * @type { ?ResourceColor } - the decorationColor of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     readonly color?: ResourceColor;
     /**
@@ -451,7 +452,7 @@ export declare class DecorationStyle {
      * @type { ?TextDecorationStyle } - the decorationStyle of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     readonly style?: TextDecorationStyle;
 }
@@ -460,7 +461,7 @@ export declare class DecorationStyle {
  *
  * @interface DecorationStyleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface DecorationStyleInterface {
     /**
@@ -468,7 +469,7 @@ export declare interface DecorationStyleInterface {
      *
      * @type { TextDecorationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     type: TextDecorationType;
     /**
@@ -476,7 +477,7 @@ export declare interface DecorationStyleInterface {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     color?: ResourceColor;
     /**
@@ -484,7 +485,7 @@ export declare interface DecorationStyleInterface {
      *
      * @type { ?TextDecorationStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     style?: TextDecorationStyle;
 }
@@ -492,7 +493,7 @@ export declare interface DecorationStyleInterface {
  * Defines BaselineOffsetStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class BaselineOffsetStyle {
     /**
@@ -500,25 +501,25 @@ export declare class BaselineOffsetStyle {
      *
      * @param { LengthMetrics } value - baseline offset value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor(value: LengthMetrics);
     /**
      * Get the baselineOffset value of the StyledString.
      * The unit is vp.
      *
-     * @type { number } - the baselineOffset value of the StyledString
+     * @type { double } - the baselineOffset value of the StyledString
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    readonly baselineOffset: number;
+    readonly baselineOffset: double;
 }
 /**
  * Defines LetterSpacingStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class LetterSpacingStyle {
     /**
@@ -526,25 +527,25 @@ export declare class LetterSpacingStyle {
      *
      * @param { LengthMetrics } value - letter space value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor(value: LengthMetrics);
     /**
      * Get the letterSpacing value of the StyledString.
      * The unit is vp.
      *
-     * @type { number } - the letterSpacing value of the StyledString
+     * @type { double } - the letterSpacing value of the StyledString
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    readonly letterSpacing: number;
+    readonly letterSpacing: double;
 }
 /**
  * Defines TextShadowStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class TextShadowStyle {
     /**
@@ -552,7 +553,7 @@ export declare class TextShadowStyle {
      *
      * @param { ShadowOptions | Array<ShadowOptions> } value - text shadow value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor(value: ShadowOptions | Array<ShadowOptions>);
     /**
@@ -561,7 +562,7 @@ export declare class TextShadowStyle {
      * @type { Array<ShadowOptions> } - the textShadow value of the StyledString
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     readonly textShadow: Array<ShadowOptions>;
 }
@@ -569,7 +570,7 @@ export declare class TextShadowStyle {
  * Defines Sets the property string background color.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class BackgroundColorStyle {
     /**
@@ -577,7 +578,7 @@ export declare class BackgroundColorStyle {
      *
      * @param { TextBackgroundStyle } textBackgroundStyle - textBackgroundStyle value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor(textBackgroundStyle: TextBackgroundStyle);
     /**
@@ -586,7 +587,7 @@ export declare class BackgroundColorStyle {
      * @type { TextBackgroundStyle } - the textBackgroundStyle value of the StyledString
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     readonly textBackgroundStyle: TextBackgroundStyle;
 }
@@ -594,7 +595,7 @@ export declare class BackgroundColorStyle {
  * Defines GestureStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class GestureStyle {
     /**
@@ -602,7 +603,7 @@ export declare class GestureStyle {
      *
      * @param { GestureStyleInterface } [value] - gesture event object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor(value?: GestureStyleInterface);
 }
@@ -611,7 +612,7 @@ export declare class GestureStyle {
  *
  * @interface GestureStyleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface GestureStyleInterface {
     /**
@@ -619,7 +620,7 @@ export declare interface GestureStyleInterface {
      *
      * @type { ?Callback<ClickEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onClick?: Callback<ClickEvent>;
     /**
@@ -627,7 +628,7 @@ export declare interface GestureStyleInterface {
      *
      * @type { ?Callback<GestureEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onLongPress?: Callback<GestureEvent>;
 }
@@ -635,7 +636,7 @@ export declare interface GestureStyleInterface {
  * Defines ParagraphStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class ParagraphStyle {
     /**
@@ -643,7 +644,7 @@ export declare class ParagraphStyle {
      *
      * @param { ParagraphStyleInterface } [value] - paragraph property object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor(value?: ParagraphStyleInterface);
     /**
@@ -652,35 +653,35 @@ export declare class ParagraphStyle {
      * @type { ?TextAlign } - the text alignment of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     readonly textAlign?: TextAlign;
     /**
      * Get the first line indentation of the StyledString.
      * The unit is vp.
      *
-     * @type { ?number } - the first line indentation of the StyledString or undefined
+     * @type { ?double } - the first line indentation of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    readonly textIndent?: number;
+    readonly textIndent?: double;
     /**
      * Get the maximum number of lines of the StyledString.
      *
-     * @type { ?number } - the maximum number of the StyledString or undefined
+     * @type { ?int } - the maximum number of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    readonly maxLines?: number;
+    readonly maxLines?: int;
     /**
      * Get the overflow mode of the StyledString.
      *
      * @type { ?TextOverflow } - the overflow mode of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     readonly overflow?: TextOverflow;
     /**
@@ -689,35 +690,35 @@ export declare class ParagraphStyle {
      * @type { ?WordBreak } - the wordBreak mode of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     readonly wordBreak?: WordBreak;
     /**
      * Get the leading margin of the StyledString.
      *
-     * @type { ?(number | LeadingMarginPlaceholder) } - the leading margin of the StyledString or undefined
+     * @type { ?(double | LeadingMarginPlaceholder) } - the leading margin of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    readonly leadingMargin?: number | LeadingMarginPlaceholder;
+    readonly leadingMargin?: double | LeadingMarginPlaceholder;
     /**
      * Get the paragraph spacing of the StyledString.
      * The unit is vp.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    readonly paragraphSpacing?: number;
+    readonly paragraphSpacing?: double;
 }
 /**
  * ParagraphStyleInterface
  *
  * @interface ParagraphStyleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ParagraphStyleInterface {
     /**
@@ -725,7 +726,7 @@ export declare interface ParagraphStyleInterface {
      *
      * @type { ?TextAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     textAlign?: TextAlign;
     /**
@@ -733,23 +734,23 @@ export declare interface ParagraphStyleInterface {
      *
      * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     textIndent?: LengthMetrics;
     /**
      * The maximum number of lines of content.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    maxLines?: number;
+    maxLines?: int;
     /**
      * The overflow mode of the content.
      *
      * @type { ?TextOverflow }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     overflow?: TextOverflow;
     /**
@@ -757,7 +758,7 @@ export declare interface ParagraphStyleInterface {
      *
      * @type { ?WordBreak }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     wordBreak?: WordBreak;
     /**
@@ -765,7 +766,7 @@ export declare interface ParagraphStyleInterface {
      *
      * @type { ?(LengthMetrics | LeadingMarginPlaceholder) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     leadingMargin?: LengthMetrics | LeadingMarginPlaceholder;
     /**
@@ -773,7 +774,7 @@ export declare interface ParagraphStyleInterface {
      *
      * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     paragraphSpacing?: LengthMetrics;
 }
@@ -781,7 +782,7 @@ export declare interface ParagraphStyleInterface {
  * Defines LineHeightStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class LineHeightStyle {
     /**
@@ -789,26 +790,26 @@ export declare class LineHeightStyle {
      *
      * @param { LengthMetrics } lineHeight - line height value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor(lineHeight: LengthMetrics);
     /**
      * Get the lineHeight value of the StyledString.
      * The unit is vp.
      *
-     * @type { number } - the lineHeight value of the StyledString
+     * @type { double } - the lineHeight value of the StyledString
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    readonly lineHeight: number;
+    readonly lineHeight: double;
 }
 /**
  * Defines the URLStyle hyperlink that allows setting a URL string. When clicking on the text to
  * which the span is attached, the URLStyle will try to open the URL.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class UrlStyle {
     /**
@@ -816,7 +817,7 @@ export declare class UrlStyle {
      *
      * @param { string } url - URL value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor(url: string);
     /**
@@ -825,7 +826,7 @@ export declare class UrlStyle {
      * @type { string } - the URL value of the StyledString
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     readonly url: string;
 }
@@ -836,66 +837,69 @@ export declare class UrlStyle {
  * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
  * UserDataSpan | BackgroundColorStyle } StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
-export type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan | UserDataSpan | BackgroundColorStyle;
+export type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
+                            TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle |
+                            UrlStyle |CustomSpan | UserDataSpan | BackgroundColorStyle;
 /**
  * MutableStyledString
  *
  * @extends StyledString
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class MutableStyledString extends StyledString {
     /**
      * constructor.
      *
-     * @param { string | ImageAttachment | CustomSpan } value - indicates the current object value of the MutableStyledString.
+     * @param { string | ImageAttachment | CustomSpan } value - indicates the current object value of
+     *    the MutableStyledString.
      * @param { Array<StyleOptions> } [styles] - indicates the SpanStyle objects.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor(value: string | ImageAttachment | CustomSpan, styles?: Array<StyleOptions>);
     /**
      * Replace the string of the specified range.
      *
-     * @param { number } start - the start position of the replacedString.
-     * @param { number } length - the length of the replacedString's characters.
+     * @param { int } start - the start position of the replacedString.
+     * @param { int } length - the length of the replacedString's characters.
      * @param { string } other - must be unicode string.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    replaceString(start: number, length: number, other: string): void;
+    replaceString(start: int, length: int, other: string): void;
     /**
     * Insert the string at the specified location.
     *
-    * @param { number } start - the start position of the insertedString.
+    * @param { int } start - the start position of the insertedString.
     * @param { string } other - must be unicode string.
     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-    * <br> 1. Mandatory parameters are left unspecified.
-    * <br> 2. Incorrect parameters types.
-    * <br> 3. Parameter verification failed.
+    *     <br> 1. Mandatory parameters are left unspecified.
+    *     <br> 2. Incorrect parameters types.
+    *     <br> 3. Parameter verification failed.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 20 static
     */
-    insertString(start: number, other: string): void;
+    insertString(start: int, other: string): void;
     /**
     * Remove the string of the specified range.
     *
-    * @param { number } start - the start position of the removedString.
-    * @param { number } length - the length of the removedString's characters.
+    * @param { int } start - the start position of the removedString.
+    * @param { int } length - the length of the removedString's characters.
     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-    * <br> 1. Mandatory parameters are left unspecified.
-    * <br> 2. Incorrect parameters types.
-    * <br> 3. Parameter verification failed.
+    *     <br> 1. Mandatory parameters are left unspecified.
+    *     <br> 2. Incorrect parameters types.
+    *     <br> 3. Parameter verification failed.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 20 static
     */
-    removeString(start: number, length: number): void;
+    removeString(start: int, length: int): void;
     /**
      * Replace the specified range string attribute.
      *
@@ -905,7 +909,7 @@ export declare class MutableStyledString extends StyledString {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     replaceStyle(spanStyle: SpanStyle): void;
     /**
@@ -914,76 +918,76 @@ export declare class MutableStyledString extends StyledString {
      * @param { SpanStyle } spanStyle - the SpanStyle Object.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     setStyle(spanStyle: SpanStyle): void;
     /**
      * Delete the specified type attributes for the specified range string.
      *
-     * @param { number } start - the start position of the removedAttributeStyledString.
-     * @param { number } length - the length of the removedAttributeStyledString's characters.
+     * @param { int } start - the start position of the removedAttributeStyledString.
+     * @param { int } length - the length of the removedAttributeStyledString's characters.
      * @param { StyledStringKey } styledKey - the specified attribute type's key.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    removeStyle(start: number, length: number, styledKey: StyledStringKey): void;
+    removeStyle(start: int, length: int, styledKey: StyledStringKey): void;
     /**
      * Delete all attributes for the specified range styledString.
      *
-     * @param { number } start - the start position of the attributeRemovedStyledString's characters.
-     * @param { number } length - the length of the attributeRemovedStyledString's characters.
+     * @param { int } start - the start position of the attributeRemovedStyledString's characters.
+     * @param { int } length - the length of the attributeRemovedStyledString's characters.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    removeStyles(start: number, length: number): void;
+    removeStyles(start: int, length: int): void;
     /**
      * Delete all attributes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     clearStyles(): void;
     /**
      * Replace the StyledString of the specified range.
      *
-     * @param { number } start - the start position of the replacedStyledString.
-     * @param { number } length - the length of the replacedStyledString's characters.
+     * @param { int } start - the start position of the replacedStyledString.
+     * @param { int } length - the length of the replacedStyledString's characters.
      * @param { StyledString } other - new StyledString.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    replaceStyledString(start: number, length: number, other: StyledString): void;
+    replaceStyledString(start: int, length: int, other: StyledString): void;
     /**
      * Insert new StyledString at the specified location.
      *
-     * @param { number } start - the start position of the insertedStyledString.
+     * @param { int } start - the start position of the insertedStyledString.
      * @param { StyledString } other - new StyledString.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    insertStyledString(start: number, other: StyledString): void;
+    insertStyledString(start: int, other: StyledString): void;
     /**
      * Append new StyledString at the end.
      *
      * @param { StyledString } other - new StyledString.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     appendStyledString(other: StyledString): void;
 }
@@ -992,98 +996,98 @@ export declare class MutableStyledString extends StyledString {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum StyledStringKey {
     /**
      * The key of TextStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     FONT = 0,
     /**
      * The key of DecorationStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     DECORATION = 1,
     /**
      * The key of BaselineOffsetStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     BASELINE_OFFSET = 2,
     /**
      * The key of LetterSpacingStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     LETTER_SPACING = 3,
     /**
      * The key of TextShadowStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     TEXT_SHADOW = 4,
     /**
      * The key of LineHeightStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     LINE_HEIGHT = 5,
     /**
      * The key of BackgroundColorStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     BACKGROUND_COLOR = 6,
     /**
      * The key of UrlStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     URL = 7,
     /**
      * The key of GestureStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     GESTURE = 100,
     /**
      * The key of ParagraphStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     PARAGRAPH_STYLE = 200,
     /**
      * The key of ImageAttachment.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     IMAGE = 300,
     /**
      * The key of CustomSpan.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     CUSTOM_SPAN = 400,
     /**
      * The key of UserDataSpan.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     USER_DATA = 500
 }
@@ -1091,24 +1095,24 @@ export declare enum StyledStringKey {
  * Defines ImageAttachment.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class ImageAttachment {
     /**
      * constructor supported by AttachmentType.
      *
-     * @param { ImageAttachmentInterface | Optional<AttachmentType> } value - image attachment object.
+     * @param { AttachmentType | undefined } value - image attachment object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    constructor(value: ImageAttachmentInterface | Optional<AttachmentType>);
+    constructor(value: AttachmentType | undefined);
     /**
      * Get the image content of the StyledString.
      *
      * @type { PixelMap } - the image content of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     readonly value: PixelMap;
     /**
@@ -1117,7 +1121,7 @@ export declare class ImageAttachment {
      * @type { ?SizeOptions } - the imageSize of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     readonly size?: SizeOptions;
     /**
@@ -1126,7 +1130,7 @@ export declare class ImageAttachment {
      * @type { ?ImageSpanAlignment } - the ImageSpanAlignment of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     readonly verticalAlign?: ImageSpanAlignment;
     /**
@@ -1135,7 +1139,7 @@ export declare class ImageAttachment {
      * @type { ?ImageFit } - the imageFit of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     readonly objectFit?: ImageFit;
     /**
@@ -1144,7 +1148,7 @@ export declare class ImageAttachment {
      * @type { ?ImageAttachmentLayoutStyle } - the imageAttachmentLayoutStyle of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     readonly layoutStyle?: ImageAttachmentLayoutStyle;
     /**
@@ -1153,7 +1157,7 @@ export declare class ImageAttachment {
      * @type { ?ColorFilterType } - the imageAttachment colorFilter of the StyledString or undefined
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     readonly colorFilter?: ColorFilterType;
 }
@@ -1162,7 +1166,7 @@ export declare class ImageAttachment {
  *
  * @interface ResourceImageAttachmentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ResourceImageAttachmentOptions {
     /**
@@ -1170,7 +1174,7 @@ export declare interface ResourceImageAttachmentOptions {
      *
      * @type { Optional<ResourceStr> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     resourceValue: Optional<ResourceStr>;
     /**
@@ -1178,7 +1182,7 @@ export declare interface ResourceImageAttachmentOptions {
      *
      * @type { ?SizeOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     size?: SizeOptions;
     /**
@@ -1186,7 +1190,7 @@ export declare interface ResourceImageAttachmentOptions {
      *
      * @type { ?ImageSpanAlignment }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     verticalAlign?: ImageSpanAlignment;
     /**
@@ -1194,7 +1198,7 @@ export declare interface ResourceImageAttachmentOptions {
      *
      * @type { ?ImageFit }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     objectFit?: ImageFit;
     /**
@@ -1202,7 +1206,7 @@ export declare interface ResourceImageAttachmentOptions {
      *
      * @type { ?ImageAttachmentLayoutStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     layoutStyle?: ImageAttachmentLayoutStyle;
     /**
@@ -1210,7 +1214,7 @@ export declare interface ResourceImageAttachmentOptions {
      *
      * @type { ?ColorFilterType } filter ColorFilter object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     colorFilter?: ColorFilterType;
     /**
@@ -1219,7 +1223,7 @@ export declare interface ResourceImageAttachmentOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     syncLoad?: boolean;
 }
@@ -1228,7 +1232,7 @@ export declare interface ResourceImageAttachmentOptions {
  *
  * @interface ImageAttachmentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ImageAttachmentInterface {
     /**
@@ -1236,7 +1240,7 @@ export declare interface ImageAttachmentInterface {
      *
      * @type { PixelMap }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     value: PixelMap;
     /**
@@ -1244,7 +1248,7 @@ export declare interface ImageAttachmentInterface {
      *
      * @type { ?SizeOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     size?: SizeOptions;
     /**
@@ -1252,7 +1256,7 @@ export declare interface ImageAttachmentInterface {
      *
      * @type { ?ImageSpanAlignment }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     verticalAlign?: ImageSpanAlignment;
     /**
@@ -1260,7 +1264,7 @@ export declare interface ImageAttachmentInterface {
      *
      * @type { ?ImageFit }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     objectFit?: ImageFit;
     /**
@@ -1268,7 +1272,7 @@ export declare interface ImageAttachmentInterface {
      *
      * @type { ?ImageAttachmentLayoutStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     layoutStyle?: ImageAttachmentLayoutStyle;
     /**
@@ -1276,7 +1280,7 @@ export declare interface ImageAttachmentInterface {
      *
      * @type { ?ColorFilterType } filter ColorFilter object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     colorFilter?: ColorFilterType;
 }
@@ -1285,7 +1289,7 @@ export declare interface ImageAttachmentInterface {
  *
  * @typedef { ImageAttachmentInterface | ResourceImageAttachmentOptions } AttachmentType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type AttachmentType = ImageAttachmentInterface | ResourceImageAttachmentOptions;
 /**
@@ -1293,7 +1297,7 @@ export type AttachmentType = ImageAttachmentInterface | ResourceImageAttachmentO
  *
  * @typedef { ColorFilter | DrawingColorFilter } ColorFilterType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type ColorFilterType = ColorFilter | DrawingColorFilter;
 /**
@@ -1301,7 +1305,7 @@ export type ColorFilterType = ColorFilter | DrawingColorFilter;
  *
  * @interface ImageAttachmentLayoutStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ImageAttachmentLayoutStyle {
     /**
@@ -1309,7 +1313,7 @@ export declare interface ImageAttachmentLayoutStyle {
      *
      * @type { ?(LengthMetrics | Margin) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     margin?: LengthMetrics | Margin;
     /**
@@ -1317,7 +1321,7 @@ export declare interface ImageAttachmentLayoutStyle {
      *
      * @type { ?(LengthMetrics | Padding) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     padding?: LengthMetrics | Padding;
     /**
@@ -1325,7 +1329,7 @@ export declare interface ImageAttachmentLayoutStyle {
      *
      * @type { ?(LengthMetrics | BorderRadiuses) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     borderRadius?: LengthMetrics | BorderRadiuses;
 }
@@ -1334,97 +1338,97 @@ export declare interface ImageAttachmentLayoutStyle {
  *
  * @interface CustomSpanMetrics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface CustomSpanMetrics {
     /**
      * CustomSpan Width.
      * The unit is vp.
      *
-     * @type { number }
+     * @type { double }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    width: number;
+    width: double;
     /**
      * CustomSpan Height.
      * The unit is vp.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    height?: number;
+    height?: double;
 }
 /**
  * Defines the CustomSpanDrawInfo interface.
  *
  * @interface CustomSpanDrawInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface CustomSpanDrawInfo {
     /**
      * CustomSpan's offset relative to the parent component.
      * The unit is px.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    x: number;
+    x: double;
     /**
      * The top position of the line where customSpan is located.
      * The unit is px.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    lineTop: number;
+    lineTop: double;
     /**
      * The bottom position of the line where customSpan is located.
      * The unit is px.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    lineBottom: number;
+    lineBottom: double;
     /**
      * The baseline offset of the line where customSpan is located.
      * The unit is px.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    baseline: number;
+    baseline: double;
 }
 /**
  * Defines the CustomSpanMeasureInfo interface.
  *
  * @interface CustomSpanMeasureInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface CustomSpanMeasureInfo {
     /**
      * Current component's fontSize value.
      * The unit is fp.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    fontSize: number;
+    fontSize: double;
 }
 /**
  * Defines CustomSpan.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare abstract class CustomSpan {
     /**
@@ -1433,7 +1437,7 @@ export declare abstract class CustomSpan {
      * @param { CustomSpanMeasureInfo } measureInfo
      * @returns { CustomSpanMetrics } - CustomSpan Size
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     abstract onMeasure(measureInfo: CustomSpanMeasureInfo): CustomSpanMetrics;
     /**
@@ -1442,14 +1446,14 @@ export declare abstract class CustomSpan {
      * @param { DrawContext } context
      * @param { CustomSpanDrawInfo } drawInfo
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     abstract onDraw(context: DrawContext, drawInfo: CustomSpanDrawInfo): void;
     /**
      * Invalidate all components that use the object, which will cause a re-render of all components.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     invalidate(): void;
 }
@@ -1457,7 +1461,7 @@ export declare abstract class CustomSpan {
  * Defines UserDataSpan. Used to store and obtain user data.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare abstract class UserDataSpan {
 }

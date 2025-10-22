@@ -50,7 +50,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
   /**
@@ -85,7 +85,7 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   value: number;
 
@@ -121,7 +121,7 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   total?: number;
 
@@ -130,7 +130,7 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    *
    * @type { ?ProgressStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 8
    * @useinstead type
    */
@@ -168,7 +168,7 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   type?: Type
 }
@@ -205,7 +205,7 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ProgressType {
   /**
@@ -236,7 +236,7 @@ declare enum ProgressType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Linear = 0,
 
@@ -268,7 +268,7 @@ declare enum ProgressType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Ring = 1,
 
@@ -300,7 +300,7 @@ declare enum ProgressType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Eclipse = 2,
 
@@ -332,7 +332,7 @@ declare enum ProgressType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   ScaleRing = 3,
 
@@ -364,7 +364,7 @@ declare enum ProgressType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Capsule = 4
 }
@@ -383,7 +383,7 @@ declare enum ProgressType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ProgressStatus {
   /**
@@ -398,7 +398,7 @@ declare enum ProgressStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   LOADING,
 
@@ -414,7 +414,7 @@ declare enum ProgressStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   PROGRESSING
 }
@@ -455,7 +455,7 @@ declare enum ProgressStatus {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
   /**
@@ -490,7 +490,7 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   strokeWidth?: Length;
 
@@ -526,7 +526,7 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   scaleCount?: number;
 
@@ -562,7 +562,7 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   scaleWidth?: Length;
 }
@@ -581,7 +581,7 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface CommonProgressStyleOptions {
   /**
@@ -600,7 +600,7 @@ declare interface CommonProgressStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   enableSmoothEffect?: boolean;
 }
@@ -619,7 +619,7 @@ declare interface CommonProgressStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface ScanEffectOptions {
   /**
@@ -638,7 +638,7 @@ declare interface ScanEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   enableScanEffect?: boolean;
 }
@@ -658,7 +658,7 @@ declare interface ScanEffectOptions {
  * @interface EclipseStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface EclipseStyleOptions extends CommonProgressStyleOptions {
 
@@ -680,7 +680,7 @@ declare interface EclipseStyleOptions extends CommonProgressStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
   /**
@@ -697,7 +697,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   strokeWidth?: Length;
 
@@ -715,7 +715,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   scaleWidth?: Length;
 
@@ -733,7 +733,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   scaleCount?: number;
 }
@@ -754,7 +754,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
   /**
@@ -771,7 +771,7 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   strokeWidth?: Length;
 
@@ -789,7 +789,7 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   shadow?: boolean;
 
@@ -807,7 +807,7 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   status?: ProgressStatus;
 }
@@ -828,7 +828,7 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
   /**
@@ -845,7 +845,7 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   strokeWidth?: Length;
   /**
@@ -864,7 +864,7 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   strokeRadius?: PX | VP | LPX | Resource;
 }
@@ -885,7 +885,7 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
   /**
@@ -902,7 +902,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   borderColor?: ResourceColor;
 
@@ -920,7 +920,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   borderWidth?: Length;
 
@@ -947,7 +947,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   content?: ResourceStr;
 
@@ -965,7 +965,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   font?: Font;
 
@@ -983,7 +983,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontColor?: ResourceColor;
 
@@ -1003,7 +1003,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   showDefaultPercentage?: boolean;
 
@@ -1015,7 +1015,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   borderRadius?: LengthMetrics;
 }
@@ -1052,7 +1052,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ProgressStyle {
   /**
@@ -1083,7 +1083,7 @@ declare enum ProgressStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Linear,
 
@@ -1115,7 +1115,7 @@ declare enum ProgressStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Ring,
 
@@ -1147,7 +1147,7 @@ declare enum ProgressStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Eclipse,
 
@@ -1179,7 +1179,7 @@ declare enum ProgressStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   ScaleRing,
 
@@ -1211,7 +1211,7 @@ declare enum ProgressStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Capsule,
 }
@@ -1229,7 +1229,7 @@ declare enum ProgressStyle {
  * @interface ProgressStyleMap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface ProgressStyleMap {
   /**
@@ -1244,7 +1244,7 @@ declare interface ProgressStyleMap {
    * @type { LinearStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   [ProgressType.Linear]: LinearStyleOptions | ProgressStyleOptions;
 
@@ -1260,7 +1260,7 @@ declare interface ProgressStyleMap {
    * @type { RingStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   [ProgressType.Ring]: RingStyleOptions | ProgressStyleOptions;
 
@@ -1276,7 +1276,7 @@ declare interface ProgressStyleMap {
    * @type { EclipseStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   [ProgressType.Eclipse]: EclipseStyleOptions | ProgressStyleOptions;
 
@@ -1292,7 +1292,7 @@ declare interface ProgressStyleMap {
    * @type { ScaleRingStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   [ProgressType.ScaleRing]: ScaleRingStyleOptions | ProgressStyleOptions;
 
@@ -1308,7 +1308,7 @@ declare interface ProgressStyleMap {
    * @type { CapsuleStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   [ProgressType.Capsule]: CapsuleStyleOptions | ProgressStyleOptions;
 }
@@ -1345,7 +1345,7 @@ declare interface ProgressStyleMap {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface ProgressInterface {
   /**
@@ -1384,7 +1384,7 @@ interface ProgressInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   <Type extends keyof ProgressStyleMap>(options: ProgressOptions<Type>): ProgressAttribute<Type>;
 }
@@ -1421,7 +1421,7 @@ interface ProgressInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof ProgressStyleMap,
   Style extends ProgressStyleMap[Type] = ProgressStyleMap[Type]> extends CommonMethod<ProgressAttribute<Type>> {
@@ -1461,7 +1461,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   value(value: number): ProgressAttribute<Type>;
 
@@ -1501,7 +1501,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   color(value: ResourceColor | LinearGradient): ProgressAttribute<Type>;
 
@@ -1541,7 +1541,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   style(value: Style): ProgressAttribute<Type>;
 
@@ -1554,7 +1554,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   privacySensitive(isPrivacySensitiveMode: Optional<boolean>): ProgressAttribute<Type>;
 
@@ -1566,7 +1566,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   contentModifier(modifier: ContentModifier<ProgressConfiguration>): ProgressAttribute<Type>;
 }
@@ -1579,7 +1579,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface ProgressConfiguration extends CommonConfiguration<ProgressConfiguration> {
   /**
@@ -1589,7 +1589,7 @@ declare interface ProgressConfiguration extends CommonConfiguration<ProgressConf
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   value: number;
 
@@ -1600,7 +1600,7 @@ declare interface ProgressConfiguration extends CommonConfiguration<ProgressConf
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   total: number;
 }
@@ -1633,7 +1633,7 @@ declare interface ProgressConfiguration extends CommonConfiguration<ProgressConf
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Progress: ProgressInterface;
 
@@ -1665,6 +1665,6 @@ declare const Progress: ProgressInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const ProgressInstance: ProgressAttribute<keyof ProgressStyleMap>;

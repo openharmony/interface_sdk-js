@@ -15,7 +15,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Content } from '../../@ohos.arkui.node';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
@@ -26,7 +25,7 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @interface ContentSlotAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ContentSlotAttribute {
 }
@@ -38,7 +37,7 @@ export declare interface ContentSlotAttribute {
  * @param { function } [content_]
  * @returns { ContentSlotAttribute } The attribute of the ContentSlot.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 @memo
 @ComponentBuilder

@@ -25,7 +25,7 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  */
 declare namespace json {
   /**
@@ -38,7 +38,7 @@ declare namespace json {
    * @returns { Object | undefined | null } Return an Object, undefined or null value
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   type Transformer = (this: Object, key: string, value: Object) => Object | undefined | null;
 
@@ -58,7 +58,7 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   function parse(text: string, reviver?: Transformer, options?: ParseOptions): Object | null;
 
@@ -83,7 +83,7 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   function stringify(value: Object, replacer?: (number | string)[] | null, space?: string | number): string;
 
@@ -107,7 +107,7 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   function stringify(value: Object, replacer?: Transformer, space?: string | number): string;
 
@@ -121,7 +121,7 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   function has(obj: object, property: string): boolean;
 
@@ -134,7 +134,7 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   function remove(obj: object, property: string): void;
 
@@ -145,7 +145,7 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   const enum BigIntMode {
     /**
@@ -154,7 +154,7 @@ declare namespace json {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     DEFAULT = 0,
     /**
@@ -163,7 +163,7 @@ declare namespace json {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     PARSE_AS_BIGINT = 1,
     /**
@@ -172,7 +172,7 @@ declare namespace json {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     ALWAYS_PARSE_AS_BIGINT = 2,
   }
@@ -184,7 +184,7 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   interface ParseOptions {
     /**
@@ -193,7 +193,7 @@ declare namespace json {
     * @syscap SystemCapability.Utils.Lang
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since 12 dynamiconly
     */
     bigIntMode: BigIntMode;
   }

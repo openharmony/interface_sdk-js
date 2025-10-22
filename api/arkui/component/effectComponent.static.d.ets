@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
@@ -28,7 +27,7 @@ import { AttributeModifier, CommonMethod } from './common';
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 20 static
  */
 export declare interface EffectComponentAttribute extends CommonMethod {
     /**
@@ -39,7 +38,7 @@ export declare interface EffectComponentAttribute extends CommonMethod {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     alwaysSnapshot(enable: boolean): this;
     /**
@@ -49,7 +48,7 @@ export declare interface EffectComponentAttribute extends CommonMethod {
      * @returns { EffectComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     attributeModifier(modifier: AttributeModifier<EffectComponentAttribute>
         | AttributeModifier<CommonMethod> | undefined): this;
@@ -62,7 +61,7 @@ export declare interface EffectComponentAttribute extends CommonMethod {
  * @returns { EffectComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 20 static
  */
 @memo
 @ComponentBuilder

@@ -24,7 +24,7 @@
  * @typedef ContinueMissionInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi Hide this for inner system use.
- * @since 10
+ * @since 10 dynamic
  */
 export interface ContinueMissionInfo {
   /**
@@ -33,7 +33,7 @@ export interface ContinueMissionInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
-   * @since 10
+   * @since 10 dynamic
    */
   srcDeviceId: string;
   /**
@@ -42,7 +42,7 @@ export interface ContinueMissionInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
-   * @since 10
+   * @since 10 dynamic
    */
   dstDeviceId: string;
   /**
@@ -51,7 +51,7 @@ export interface ContinueMissionInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
-   * @since 10
+   * @since 10 dynamic
    */
   bundleName: string;
   /**
@@ -60,7 +60,7 @@ export interface ContinueMissionInfo {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
-   * @since 12
+   * @since 12 dynamic
    */
   srcBundleName?: string;
   /**
@@ -69,7 +69,7 @@ export interface ContinueMissionInfo {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
-   * @since 12
+   * @since 12 dynamic
    */
   continueType?: string;
   /**
@@ -86,7 +86,7 @@ export interface ContinueMissionInfo {
    * @type { Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
-   * @since 11
+   * @since 11 dynamic
    */
   wantParam: Record<string, Object>;
 }

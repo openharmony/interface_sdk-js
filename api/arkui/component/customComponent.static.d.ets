@@ -16,16 +16,62 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from "../stateManagement/runtime";
+import { memo, ComponentBuilder } from "../stateManagement/runtime";
 import { ExtendableComponent } from './extendableComponent';
-import { GeometryInfo, Layoutable, Measurable, SizeResult } from './common'
+import { CommonAttribute, GeometryInfo, Layoutable, Measurable, SizeResult } from './common'
 import { ConstraintSizeOptions } from './units'
-import { Builder, WrappedBuilder } from './builder'
+import { Builder, WrappedBuilder, CustomBuilder } from './builder'
 import { LocalStorage } from './../stateManagement/storage/localStorage';
 import { CustomDialogController } from './customDialogController';
+import { RecordData } from '@ohos.base';
+
+/**
+  * Define ReuseObject for aboutToReuse method.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 20 static
+  */
+export declare class ReuseObject {
+    /**
+     * Get the raw data of ReuseObject to get values.
+     *
+     * @returns { RecordData } - Returns the raw data of ReuseObject.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    get raw(): RecordData;
+
+    /**
+     * Get value from the ReuseObject by key.
+     *
+     * @param { string } key - the key of target value.
+     * @returns { RecordData } - the target value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    $_get(key: string): RecordData;
+
+   /**
+    * Returns if the key is in the ReuseObject.
+    *
+    * @param { string } key - the key of target value.
+    * @returns { boolean } - if the key is in the ReuseObject.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 20 static
+    */
+    has(key: string): boolean;
+
+   /**
+    * Returns the keys array of the ReuseObject.
+    *
+    * @returns { string[] } - the keys array of the ReuseObject.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 20 static
+    */
+    keys(): string[];
+}
 
 /**
  * Defines Entry Annotation.
@@ -34,7 +80,7 @@ import { CustomDialogController } from './customDialogController';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 @Retention({policy: "SOURCE"})
 export @interface Entry {
@@ -44,7 +90,7 @@ export @interface Entry {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     routeName: string = "";
 
@@ -54,7 +100,7 @@ export @interface Entry {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     storage: string = "";
 
@@ -65,7 +111,7 @@ export @interface Entry {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     useSharedStorage: boolean = false;
 }
@@ -77,7 +123,7 @@ export @interface Entry {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 @Retention({policy: "SOURCE"})
 export @interface Component {}
@@ -89,7 +135,7 @@ export @interface Component {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 @Retention({policy: "SOURCE"})
 export @interface ComponentV2 {}
@@ -100,7 +146,7 @@ export @interface ComponentV2 {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 @Retention({policy: "SOURCE"})
 export @interface Reusable {}
@@ -111,7 +157,7 @@ export @interface Reusable {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 @Retention({policy: "SOURCE"})
 export @interface ReusableV2 {}
@@ -122,7 +168,7 @@ export @interface ReusableV2 {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 @Retention({policy: "SOURCE"})
 export @interface CustomLayout {}
@@ -131,7 +177,7 @@ export @interface CustomLayout {}
  * Defining of entry of page
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare abstract class EntryPoint {
 
@@ -139,7 +185,7 @@ export declare abstract class EntryPoint {
      * Define entry function of page
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     @Builder entry(): void;
 }
@@ -151,7 +197,7 @@ export declare abstract class EntryPoint {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 @Retention({policy: "SOURCE"})
 export @interface CustomDialog {}
@@ -163,7 +209,7 @@ export @interface CustomDialog {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_Options>, T_Options> extends ExtendableComponent {
    /**
@@ -171,27 +217,25 @@ export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_O
     * @param {boolean} [useSharedStorage] - determine whether to use the LocalStorage instance object returned by UIContext.getSharedLocalStorage() interface.
     * @param {LocalStorage} [storage] - localStorage instance.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 20 static
     */
    constructor(useSharedStorage?: boolean, storage?: LocalStorage);
 
     /**
-     * Define the constructor of custom dialog
+     * Implementation for creating a custom dialog
      *
-     * @param { () => T } factory - factory to create instance of custom dialog
-     * @param { T_Options } initializers - initial data for all the fields in custom dialog
-     * @param { @Builder () => void } content - tail closure for custom dialog
+     * @param { function } factory - factory to create instance of custom dialog
+     * @param { function } [initializers] - initial data for all the fields in custom dialog
+     * @param { CustomBuilder } [content] - tail closure for custom dialog
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
+     * @since 20 static
      */
-    @ComponentBuilder
-    static $_instantiate(
-        factory: () => T,
-        initializers?: T_Options,
-        @Builder content?: () => void
-    ): T
+    @Builder
+    static _invokeImpl<S extends BaseCustomDialog<S, S_Options>, S_Options>(
+        factory: () => S,
+        initializers?: () => S_Options,
+        content?: CustomBuilder
+    ): void;
 }
 
 /**
@@ -202,16 +246,16 @@ export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_O
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
-export declare abstract class BaseCustomComponent extends ExtendableComponent {
+export declare abstract class BaseCustomComponent<T_Options> extends ExtendableComponent implements CommonAttribute {
     /**
      * aboutToRecycle Method.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     aboutToRecycle(): void;
 }
@@ -223,48 +267,48 @@ export declare abstract class BaseCustomComponent extends ExtendableComponent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
-export declare abstract class CustomComponent<T extends CustomComponent<T, T_Options>, T_Options> extends BaseCustomComponent {
+export declare abstract class CustomComponent<T extends CustomComponent<T, T_Options>, T_Options> extends BaseCustomComponent<T_Options> {
    /**
     * Constructor to use to create a customComponent instance.
     * @param {boolean} [useSharedStorage] - determine whether to use the LocalStorage instance object returned by UIContext.getSharedLocalStorage() interface.
     * @param {LocalStorage} [storage] - localStorage instance.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 20 static
     */
    constructor(useSharedStorage?: boolean, storage?: LocalStorage);
     
     /**
-     * Define the constructor of custom component
+     * Implementation for creating a custom component
      *
-     * @param { () => T } factory - factory to create instance of custom component
-     * @param { T_Options } initializers - initial data for all the fields in custom component
-     * @param { string } reuseId - reuse id for reusable. Only valid if custom component decorated with @Reusable
-     * @param { @Builder () => void } content - tail closure for custom component
+     * @param { function } styles - styles of custom component
+     * @param { function } factory - factory to create instance of custom component
+     * @param { function } [initializers] - initial data for all the fields in custom component
+     * @param { string } [reuseId] - reuse id for reusable. Only valid if custom component decorated with @Reusable
+     * @param { CustomBuilder } [content] - tail closure for custom component
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
+     * @since 20 static
      */
-    @ComponentBuilder
-    static $_instantiate(
-        factory: () => T,
-        initializers?: T_Options,
+    @Builder
+    static _invokeImpl<S extends CustomComponent<S, S_Options>, S_Options>(
+        @Builder styles: (instance: S) => void,
+        factory: () => S,
+        initializers?: () => S_Options,
         reuseId?: string,
-        @Builder content?: () => void
-    ): T
+        content?: CustomBuilder
+    ): void;
 
     /**
      * aboutToReuse Method
      *
-     * @param { Record<string, Object> } params - Custom component init params.
+     * @param { ReuseObject } params - Custom component init params.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
-    aboutToReuse(params: Record<string, Object>): void;
+    aboutToReuse(params: ReuseObject): void;
 }
 
 /**
@@ -274,28 +318,28 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
-export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T_Options>, T_Options> extends BaseCustomComponent {
+export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T_Options>, T_Options> extends BaseCustomComponent<T_Options> {
     /**
-     * Define the constructor of custom component
+     * Implementation for creating a v2 custom component
      *
-     * @param { () => T } factory - factory to create instance of custom component
-     * @param { T_Options } initializers - initial data for all the fields in custom component
-     * @param { string } reuseId - reuse id for reusable. Only valid if custom component decorated with @Reusable
-     * @param { @Builder () => void } content - tail closure for custom component
+     * @param { function } styles - styles of custom component
+     * @param { function } factory - factory to create instance of custom component
+     * @param { function } [initializers] - initial data for all the fields in custom component
+     * @param { string } [reuseId] - reuse id for reusable. Only valid if custom component decorated with @Reusable
+     * @param { CustomBuilder } [content] - tail closure for custom component
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
+     * @since 20 static
      */
-    @ComponentBuilder
-    static $_instantiate(
-        factory: () => T,
-        initializers?: T_Options,
+    @Builder
+    static _invokeImpl<S extends CustomComponentV2<S, S_Options>, S_Options>(
+        @Builder styles: (instance: S) => void,
+        factory: () => S,
+        initializers?: () => S_Options,
         reuseId?: string,
-        @Builder content?: () => void
-    ): T
+        content?: CustomBuilder
+    ): void;
 
     /**
      * aboutToReuse Method
@@ -303,7 +347,7 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     aboutToReuse(): void;
 }
@@ -314,7 +358,7 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 export interface PageLifeCycle {
     /**
@@ -325,7 +369,7 @@ export interface PageLifeCycle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     onPageShow(): void {}
 
@@ -337,7 +381,7 @@ export interface PageLifeCycle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     onPageHide(): void {}
 
@@ -351,7 +395,7 @@ export interface PageLifeCycle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     onBackPress(): boolean { return false }
 
@@ -362,7 +406,7 @@ export interface PageLifeCycle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     pageTransition(): void {}
 
@@ -373,7 +417,7 @@ export interface PageLifeCycle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     onNewParam(param: object | undefined | null): void {}
 }

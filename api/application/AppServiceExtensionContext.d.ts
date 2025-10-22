@@ -29,8 +29,7 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
  * @extends ExtensionContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic&static
  */
 declare class AppServiceExtensionContext extends ExtensionContext {
   /**
@@ -52,8 +51,7 @@ declare class AppServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   connectServiceExtensionAbility(want: Want, callback: ConnectOptions): long;
 
@@ -66,16 +64,15 @@ declare class AppServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   disconnectServiceExtensionAbility(connection: long): Promise<void>;
 
   /**
    * Start a UIAbility.
    * If the target ability is visible, you can start the target ability: If the target ability is invisible,
-   * you need to apply for permission:ohos.pernission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target ability is in cross-device, you need to appply for permission:ohos.pernission.DISTRIBUTED_DATASYNC.
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to appply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    *
    * @param { Want } want - Indicates the ability to start.
    * @param { StartOptions } [options] - Indicates the start options.
@@ -104,8 +101,7 @@ declare class AppServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -118,8 +114,7 @@ declare class AppServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   terminateSelf(): Promise<void>;
 }

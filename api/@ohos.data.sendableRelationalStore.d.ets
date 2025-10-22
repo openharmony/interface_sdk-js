@@ -27,7 +27,7 @@ import relationalStore from './@ohos.data.relationalStore';
  *
  * @namespace sendableRelationalStore
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
- * @since 12
+ * @since 12 dynamiconly
  */
 declare namespace sendableRelationalStore {
   /**
@@ -36,14 +36,14 @@ declare namespace sendableRelationalStore {
    * @interface Asset
    * @extends lang.ISendable
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 12
+   * @since 12 dynamiconly
    */
   interface Asset extends lang.ISendable {
     /**
      * Name of the asset.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since 12 dynamiconly
      */
     name: string;
 
@@ -51,7 +51,7 @@ declare namespace sendableRelationalStore {
      * URI of the asset.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since 12 dynamiconly
      */
     uri: string;
 
@@ -59,7 +59,7 @@ declare namespace sendableRelationalStore {
      * Path of the asset.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since 12 dynamiconly
      */
     path: string;
 
@@ -67,7 +67,7 @@ declare namespace sendableRelationalStore {
      * Time when the asset was created.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since 12 dynamiconly
      */
     createTime: string;
 
@@ -75,7 +75,7 @@ declare namespace sendableRelationalStore {
      * Time when the asset was last modified.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since 12 dynamiconly
      */
     modifyTime: string;
 
@@ -83,7 +83,7 @@ declare namespace sendableRelationalStore {
      * Size of the asset.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since 12 dynamiconly
      */
     size: string;
 
@@ -91,7 +91,7 @@ declare namespace sendableRelationalStore {
      * Status of the asset.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since 12 dynamiconly
      */
     status?: number;
   }
@@ -101,7 +101,7 @@ declare namespace sendableRelationalStore {
    *
    * @typedef { collections.Array<Asset> } Assets
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 12
+   * @since 12 dynamiconly
    */
   type Assets = collections.Array<Asset>;
 
@@ -111,7 +111,7 @@ declare namespace sendableRelationalStore {
    * @typedef { null | number | string | boolean | collections.Uint8Array | Asset | Assets |
    * collections.Float32Array | bigint } ValueType
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 12
+   * @since 12 dynamiconly
    */
   type ValueType = null | number | string | boolean | collections.Uint8Array | Asset | Assets |
     collections.Float32Array | bigint;
@@ -121,7 +121,7 @@ declare namespace sendableRelationalStore {
    *
    * @typedef { collections.Map<string, ValueType> } ValuesBucket
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 12
+   * @since 12 dynamiconly
    */
   type ValuesBucket = collections.Map<string, ValueType>;
 
@@ -130,7 +130,7 @@ declare namespace sendableRelationalStore {
    *
    * @typedef { relationalStore.ValuesBucket } NonSendableBucket
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 12
+   * @since 12 dynamiconly
    */
   type NonSendableBucket = relationalStore.ValuesBucket;
 
@@ -139,7 +139,7 @@ declare namespace sendableRelationalStore {
    *
    * @typedef { relationalStore.Asset } NonSendableAsset
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 12
+   * @since 12 dynamiconly
    */
   type NonSendableAsset = relationalStore.Asset;
 
@@ -153,7 +153,7 @@ declare namespace sendableRelationalStore {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 12
+   * @since 12 dynamiconly
    */
   function fromSendableValuesBucket(valuesBucket: ValuesBucket): NonSendableBucket;
 
@@ -166,7 +166,7 @@ declare namespace sendableRelationalStore {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 12
+   * @since 12 dynamiconly
    */
   function toSendableValuesBucket(valuesBucket: NonSendableBucket): ValuesBucket;
 
@@ -179,7 +179,7 @@ declare namespace sendableRelationalStore {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 12
+   * @since 12 dynamiconly
    */
   function fromSendableAsset(asset: Asset): NonSendableAsset;
 
@@ -192,7 +192,7 @@ declare namespace sendableRelationalStore {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 12
+   * @since 12 dynamiconly
    */
   function toSendableAsset(asset: NonSendableAsset): Asset;
 
@@ -201,7 +201,7 @@ declare namespace sendableRelationalStore {
    *
    * @typedef { Array<relationalStore.ValueType> } NonSendableValues
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 20
+   * @since 20 dynamiconly
    */
   type NonSendableValues = Array<relationalStore.ValueType>;
 
@@ -213,7 +213,7 @@ declare namespace sendableRelationalStore {
    *   see {@link NonSendableValues}.
    * @throws { BusinessError } 14800000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 20
+   * @since 20 dynamiconly
    */
   function fromSendableValues(values: collections.Array<ValueType>): NonSendableValues;
 
@@ -224,7 +224,7 @@ declare namespace sendableRelationalStore {
    * @returns { collections.Array<ValueType> } a sendable collections.Array<ValueType>.
    * @throws { BusinessError } 14800000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 20
+   * @since 20 dynamiconly
    */
   function toSendableValues(values: NonSendableValues): collections.Array<ValueType>;
 }

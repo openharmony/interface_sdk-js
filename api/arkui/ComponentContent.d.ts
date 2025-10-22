@@ -30,7 +30,7 @@ import { WrappedBuilder } from 'wrappedBuilderObject';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export class ComponentContent<T extends Object> extends Content {
   /**
@@ -41,7 +41,7 @@ export class ComponentContent<T extends Object> extends Content {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(uiContext: UIContext, builder: WrappedBuilder<[]>);
 
@@ -54,7 +54,7 @@ export class ComponentContent<T extends Object> extends Content {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(uiContext: UIContext, builder: WrappedBuilder<[T]>, args: T);
 
@@ -68,7 +68,7 @@ export class ComponentContent<T extends Object> extends Content {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(uiContext: UIContext, builder: WrappedBuilder<[T]>, args: T, options: BuildOptions);
 
@@ -80,7 +80,7 @@ export class ComponentContent<T extends Object> extends Content {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   update(args: T): void;
 
@@ -91,7 +91,7 @@ export class ComponentContent<T extends Object> extends Content {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   reuse(param?: Object): void;
 
@@ -101,7 +101,7 @@ export class ComponentContent<T extends Object> extends Content {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   recycle(): void;
 
@@ -111,7 +111,7 @@ export class ComponentContent<T extends Object> extends Content {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   dispose(): void;
 
@@ -121,7 +121,7 @@ export class ComponentContent<T extends Object> extends Content {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   updateConfiguration(): void;
 
@@ -134,7 +134,7 @@ export class ComponentContent<T extends Object> extends Content {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   inheritFreezeOptions(enabled: boolean): void;
 
@@ -145,7 +145,7 @@ export class ComponentContent<T extends Object> extends Content {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   isDisposed(): boolean;
 }
@@ -157,7 +157,7 @@ export class ComponentContent<T extends Object> extends Content {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
  */
 export class ReactiveComponentContent<T extends Object[]> extends Content {
    /**
@@ -170,7 +170,7 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 22
+    * @since 22 dynamic
     */
      constructor(uiContext: UIContext, builder: WrappedBuilder<T>, config: BuildOptions, ...args: T);
    /**
@@ -180,7 +180,7 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 22
+    * @since 22 dynamic
     */
    reuse(param?: Object): void;
   
@@ -190,7 +190,7 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 22
+    * @since 22 dynamic
     */
    recycle(): void;
   
@@ -200,7 +200,7 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 22
+    * @since 22 dynamic
     */
    dispose(): void;
   
@@ -210,9 +210,20 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 22
+    * @since 22 dynamic
     */
    updateConfiguration(): void;
+
+   /**
+    * Flushes the current state changes to update the ReactiveComponentContent immediately.
+    * This forces a synchronous update of the compponent with the latest state values.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 22 dynamic
+    */
+   flushState(): void;
   
    /**
     * Set if the ReactiveComponentContent inherits the freezing policy of the parent CustomComponent, ComponentContent,
@@ -224,7 +235,7 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 22
+    * @since 22 dynamic
     */
    inheritFreezeOptions(enabled: boolean): void;
   
@@ -235,7 +246,7 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 22
+    * @since 22 dynamic
     */
    isDisposed(): boolean;
 }

@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { AttributeModifier } from '@ohos.arkui.component';
@@ -29,7 +28,7 @@ import { SideBarContainerAttribute } from '@ohos.arkui.component';
  *
  * @implements { SideBarContainerAttribute, AttributeModifier<SideBarContainerAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class SideBarContainerModifier implements SideBarContainerAttribute, AttributeModifier<SideBarContainerAttribute> {
   /**
@@ -37,7 +36,7 @@ export declare class SideBarContainerModifier implements SideBarContainerAttribu
    * 
    * @param { SideBarContainerAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   applyNormalAttribute(instance: SideBarContainerAttribute): void;  
 }

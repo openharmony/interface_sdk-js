@@ -29,7 +29,7 @@ import Want from '../@ohos.app.ability.Want';
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare class LiveFormExtensionContext extends ExtensionContext {
   /**
@@ -45,7 +45,7 @@ declare class LiveFormExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   startAbilityByLiveForm(want: Want): Promise<void>;
 
@@ -64,7 +64,7 @@ declare class LiveFormExtensionContext extends ExtensionContext {
   * @syscap SystemCapability.Ability.Form
   * @systemapi
   * @stagemodelonly
-  * @since 22
+  * @since 22 dynamic
   */
   public connectServiceExtensionAbility(want: Want, connection: ConnectOptions): number;
 
@@ -80,7 +80,7 @@ declare class LiveFormExtensionContext extends ExtensionContext {
   * @syscap SystemCapability.Ability.Form
   * @systemapi
   * @stagemodelonly
-  * @since 22
+  * @since 22 dynamic
   */
   public disconnectServiceExtensionAbility(connectionId: number): Promise<void>;
 }

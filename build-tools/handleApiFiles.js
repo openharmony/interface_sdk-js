@@ -178,7 +178,7 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) 
     }
   }
 
-  if (!isEndWithEts && !isEndWithTs) {
+  if (!isEndWithEts && !isEndWithTs || apiRelativePath.includes("@ohos.annotation.d.ets")) {
     writeFile(outputPath, fileContent);
     return;
   }
@@ -785,7 +785,7 @@ const transformExportApi = (context) => {
         importNameSet.add(node.name?.getText());
       }
       // 剩下未被删除的API中，如果还有与被删除API名字一样的API，就将其从set集合中删掉
-      if (apiNodeTypeArr.includes(node.kind) && deleteApiSet.has(node.name?.getText())) {
+      if (apiNodeTypeArr.includes(node.kind) && deleteApiSet.has(getApiNodeName(node))) {
         deleteApiSet.delete(node.name?.getText());
       }
       // 非目标节点：继续遍历子节点
@@ -811,6 +811,42 @@ const transformExportApi = (context) => {
     return ts.visitNode(rootNode, allNodeVisitor);
   };
 };
+
+/**
+ * 获取api节点名称，VariableStatement需要特殊处理
+ *
+ * @param { ts.Node } node 
+ * @returns { string }
+ */
+function getApiNodeName(node) {
+  let apiName = '';
+  if (ts.isVariableStatement(node)) {
+    apiName = variableStatementGetEscapedText(node);
+  } else {
+    apiName = node.name?.getText();
+  }
+  return apiName;
+}
+
+/**
+ * 获取 variableStatement节点名称
+ * @param {ts.Node} statement 
+ * @returns 
+ */
+function variableStatementGetEscapedText(statement) {
+  let name = '';
+  if (
+    statement &&
+    statement.declarationList &&
+    statement.declarationList.declarations &&
+    statement.declarationList.declarations.length > 0 &&
+    statement.declarationList.declarations[0].name &&
+    statement.declarationList.declarations[0].name.escapedText
+  ) {
+    name = statement.declarationList.declarations[0].name.escapedText.toString();
+  }
+  return name;
+}
 
 /**
  * 判断是否为use static标记
@@ -950,7 +986,7 @@ function judgeIsDeleteApi(node) {
   }
 
   if (dirType === DirType.typeThree) {
-    return !/@arkts\s*(1\.1&)?1\.2/g.test(notesStr) && !/@since\s\S*\s(staticonly|(dynamic&)?static)/g.test(notesStr);
+    return !/@arkts\s*(1\.1&)?1\.2\s/g.test(notesStr) && !/@since\s\S*\s(staticonly|(dynamic&)?static)/g.test(notesStr);
   }
 
   return false;

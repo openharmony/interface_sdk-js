@@ -23,8 +23,7 @@
  *
  * @typedef NotificationExtensionContent
  * @syscap SystemCapability.Notification.Notification
- * @since 22
- * @arkts 1.1&1.2
+ * @since 22 dynamic&static
  */
 export interface NotificationExtensionContent {
   /**
@@ -33,8 +32,7 @@ export interface NotificationExtensionContent {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   title: string;
 
@@ -44,8 +42,7 @@ export interface NotificationExtensionContent {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   text: string;
 }

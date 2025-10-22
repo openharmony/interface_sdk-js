@@ -35,7 +35,7 @@ import type { NavigationOperation, NavBar } from '../component/navigation';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare namespace uiObserver {
   /**
@@ -53,7 +53,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export enum NavDestinationState {
     /**
@@ -69,7 +69,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ON_SHOWN = 0,
 
@@ -86,7 +86,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ON_HIDDEN = 1,
 
@@ -96,7 +96,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ON_APPEAR = 2,
 
@@ -106,7 +106,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ON_DISAPPEAR = 3,
 
@@ -116,7 +116,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ON_WILL_SHOW = 4,
 
@@ -126,7 +126,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ON_WILL_HIDE = 5,
 
@@ -136,7 +136,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ON_WILL_APPEAR = 6,
 
@@ -146,7 +146,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ON_WILL_DISAPPEAR = 7,
 
@@ -156,7 +156,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 17 dynamic
      */
     ON_ACTIVE = 8,
 
@@ -166,7 +166,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 17 dynamic
      */
     ON_INACTIVE = 9,
 
@@ -176,7 +176,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ON_BACKPRESS = 100
   }
@@ -196,7 +196,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export enum RouterPageState {
     /**
@@ -212,7 +212,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ABOUT_TO_APPEAR = 0,
 
@@ -229,7 +229,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ABOUT_TO_DISAPPEAR = 1,
 
@@ -246,7 +246,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ON_PAGE_SHOW = 2,
 
@@ -263,7 +263,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ON_PAGE_HIDE = 3,
 
@@ -280,7 +280,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ON_BACK_PRESS = 4
   }
@@ -292,7 +292,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
     export enum ScrollEventType {
       /**
@@ -301,7 +301,7 @@ declare namespace uiObserver {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since 12 dynamic
        */
       SCROLL_START = 0,
   
@@ -311,7 +311,7 @@ declare namespace uiObserver {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since 12 dynamic
        */
       SCROLL_STOP = 1
     }
@@ -323,7 +323,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export enum TabContentState {
     /**
@@ -332,7 +332,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ON_SHOW = 0,
 
@@ -342,7 +342,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ON_HIDE = 1
   }
@@ -362,7 +362,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export interface NavDestinationInfo {
     /**
@@ -380,7 +380,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     navigationId: ResourceStr,
 
@@ -399,7 +399,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     name: ResourceStr,
 
@@ -418,7 +418,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     state: NavDestinationState,
 
@@ -429,7 +429,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     index: number;
 
@@ -440,7 +440,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     param?: Object;
 
@@ -451,7 +451,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     navDestinationId: string;
 
@@ -462,7 +462,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     mode?: NavDestinationMode;
 
@@ -473,7 +473,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     uniqueId?: number;
   }
@@ -485,7 +485,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export interface NavigationInfo {
     /**
@@ -495,7 +495,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     navigationId: string;
     
@@ -506,7 +506,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     pathStack: NavPathStack;
 
@@ -517,7 +517,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     uniqueId?: number;
   }
@@ -529,7 +529,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export interface ScrollEventInfo {
     /**
@@ -539,7 +539,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     id: string,
 
@@ -550,7 +550,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     uniqueId: number,
 
@@ -561,7 +561,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     scrollEvent: ScrollEventType,
 
@@ -572,7 +572,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     offset: number,
 
@@ -583,7 +583,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     axis?: Axis
   }
@@ -595,7 +595,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export interface TabContentInfo {
     /**
@@ -605,7 +605,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     tabContentId: string,
 
@@ -616,7 +616,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     tabContentUniqueId: number,
 
@@ -627,7 +627,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     state: TabContentState,
 
@@ -638,7 +638,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     index: number,
 
@@ -649,7 +649,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     id: string,
 
@@ -660,7 +660,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     uniqueId: number,
 
@@ -671,7 +671,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     lastIndex?: number,
 
@@ -684,7 +684,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     export interface ObserverOptions {
       /**
@@ -694,7 +694,7 @@ declare namespace uiObserver {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since 12 dynamic
        */
       id: string
     }
@@ -712,7 +712,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export class RouterPageInfo {
     /**
@@ -730,7 +730,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     context: UIAbilityContext | UIContext;
 
@@ -749,7 +749,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     index: number;
 
@@ -768,7 +768,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     name: string;
 
@@ -787,7 +787,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     path: string;
 
@@ -806,7 +806,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     state: RouterPageState;
 
@@ -817,7 +817,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
      pageId: string;
   }
@@ -828,7 +828,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export class DensityInfo {
     /**
@@ -838,7 +838,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     context: UIContext;
 
@@ -849,7 +849,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     density: number;
   }
@@ -861,7 +861,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export interface NavDestinationSwitchInfo {
     /**
@@ -871,7 +871,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     context: UIAbilityContext | UIContext;
 
@@ -882,7 +882,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     from: NavDestinationInfo | NavBar;
 
@@ -893,7 +893,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     to: NavDestinationInfo | NavBar;
 
@@ -904,7 +904,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     operation: NavigationOperation;
   }
@@ -925,11 +925,12 @@ declare namespace uiObserver {
      * the configured width breakpoint thresholds.
      *
      * @type { WidthBreakpoint }
+     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 22 dynamic
      */
-    widthBreakpoint: WidthBreakpoint;
+    readonly widthBreakpoint: WidthBreakpoint;
 
     /**
      * The height breakpoint classification of the current window.
@@ -937,11 +938,12 @@ declare namespace uiObserver {
      * the configured height breakpoint thresholds and aspect ratio.
      *
      * @type { HeightBreakpoint }
+     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 22 dynamic
      */
-    heightBreakpoint: HeightBreakpoint;
+    readonly heightBreakpoint: HeightBreakpoint;
   }
 
   /**
@@ -951,7 +953,7 @@ declare namespace uiObserver {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 22
+  * @since 22 dynamic
   */
   export interface TextChangeEventInfo {
       /**
@@ -994,7 +996,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export interface NavDestinationSwitchObserverOptions {
     /**
@@ -1004,7 +1006,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     navigationId: ResourceStr;
   }
@@ -1028,7 +1030,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function on(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback: Callback<NavDestinationInfo>): void;
   /**
@@ -1052,7 +1054,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback?: Callback<NavDestinationInfo>): void;
 
@@ -1073,7 +1075,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function on(type: 'navDestinationUpdate', callback: Callback<NavDestinationInfo>): void;
 
@@ -1096,7 +1098,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function off(type: 'navDestinationUpdate', callback?: Callback<NavDestinationInfo>): void;
 
@@ -1109,7 +1111,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function on(type: 'scrollEvent', options: ObserverOptions, callback: Callback<ScrollEventInfo>): void;
 
@@ -1123,7 +1125,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function off(type: 'scrollEvent', options: ObserverOptions, callback?: Callback<ScrollEventInfo>): void;
 
@@ -1135,7 +1137,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function on(type: 'scrollEvent', callback: Callback<ScrollEventInfo>): void;
 
@@ -1148,7 +1150,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function off(type: 'scrollEvent', callback?: Callback<ScrollEventInfo>): void;
 
@@ -1171,7 +1173,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function on(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback: Callback<RouterPageInfo>): void;
 
@@ -1196,7 +1198,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function off(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback?: Callback<RouterPageInfo>): void;
 
@@ -1209,7 +1211,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function on(type: 'densityUpdate', context: UIContext, callback: Callback<DensityInfo>): void;
 
@@ -1223,7 +1225,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function off(type: 'densityUpdate', context: UIContext, callback?: Callback<DensityInfo>): void;
 
@@ -1236,7 +1238,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function on(type: 'willDraw', context: UIContext, callback: Callback<void>): void;
 
@@ -1250,7 +1252,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function off(type: 'willDraw', context: UIContext, callback?: Callback<void>): void;
 
@@ -1263,7 +1265,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function on(type: 'didLayout', context: UIContext, callback: Callback<void>): void;
 
@@ -1277,7 +1279,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function off(type: 'didLayout', context: UIContext, callback?: Callback<void>): void;
 
@@ -1292,7 +1294,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   export function on(type: 'tabChange', config: ObserverOptions, callback: Callback<TabContentInfo>): void;
 
@@ -1306,7 +1308,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   export function off(type: 'tabChange', config: ObserverOptions, callback?: Callback<TabContentInfo>): void;
 
@@ -1320,7 +1322,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   export function on(type: 'tabChange', callback: Callback<TabContentInfo>): void;
 
@@ -1333,7 +1335,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   export function off(type: 'tabChange', callback?: Callback<TabContentInfo>): void;
 
@@ -1346,7 +1348,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function on(type: 'tabContentUpdate', options: ObserverOptions, callback: Callback<TabContentInfo>): void;
 
@@ -1360,7 +1362,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function off(type: 'tabContentUpdate', options: ObserverOptions, callback?: Callback<TabContentInfo>): void;
 
@@ -1372,7 +1374,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function on(type: 'tabContentUpdate', callback: Callback<TabContentInfo>): void;
 
@@ -1385,7 +1387,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function off(type: 'tabContentUpdate', callback?: Callback<TabContentInfo>): void;
 
@@ -1398,7 +1400,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function on(
     type: 'navDestinationSwitch',
@@ -1416,7 +1418,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function off(
     type: 'navDestinationSwitch',
@@ -1434,7 +1436,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function on(
     type: 'navDestinationSwitch',
@@ -1454,7 +1456,7 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export function off(
     type: 'navDestinationSwitch',

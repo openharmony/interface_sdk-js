@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { FillMode, PlayMode } from '@ohos.arkui.component';
@@ -28,7 +27,7 @@ import { ExpectedFrameRateRange } from '@ohos.arkui.component';
  * Defines the animator options.
  * @interface AnimatorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface AnimatorOptions {
     
@@ -38,7 +37,7 @@ export interface AnimatorOptions {
      * The default value is 0.
      * @type {number}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     duration: number;
     
@@ -66,7 +65,7 @@ export interface AnimatorOptions {
      * The default value is ease.
      * @type {string}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     easing: string;
     
@@ -76,7 +75,7 @@ export interface AnimatorOptions {
      * The default value is 0.
      * @type {number}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     delay: number;
     
@@ -88,7 +87,7 @@ export interface AnimatorOptions {
      * is retained after the animation is executed.
      * @type {"none" | "forwards" | "backwards" | "both"}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     fill: "none" | "forwards" | "backwards" | "both";
     
@@ -98,7 +97,7 @@ export interface AnimatorOptions {
      * The default value is "normal".
      * @type {"normal" | "reverse" | "alternate" | "alternate-reverse"}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     direction: "normal" | "reverse" | "alternate" | "alternate-reverse";
     
@@ -109,7 +108,7 @@ export interface AnimatorOptions {
      * The default value is 1.
      * @type {number}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     iterations: number;
     
@@ -119,7 +118,7 @@ export interface AnimatorOptions {
      * The default value is 0.
      * @type {number}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     begin: number;
     
@@ -129,7 +128,7 @@ export interface AnimatorOptions {
      * The default value is 1.
      * @type {number}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     end: number;
 }
@@ -137,7 +136,7 @@ export interface AnimatorOptions {
  * Defines the SimpleAnimatorOptions class.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class SimpleAnimatorOptions {
     /**
@@ -146,7 +145,7 @@ export declare class SimpleAnimatorOptions {
      * @param { number } begin - Starting point of animator interpolation.
      * @param { number } end - Ending point of animator interpolation.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor(begin: number, end: number);
     /**
@@ -155,7 +154,7 @@ export declare class SimpleAnimatorOptions {
      * @param { number } duration - if not set, default is 1000.
      * @returns { SimpleAnimatorOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     duration(duration: number): SimpleAnimatorOptions;
     /**
@@ -180,7 +179,7 @@ export declare class SimpleAnimatorOptions {
      * @param { string } curve - if not set, default is ease.
      * @returns { SimpleAnimatorOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     easing(curve: string): SimpleAnimatorOptions;
     /**
@@ -189,7 +188,7 @@ export declare class SimpleAnimatorOptions {
      * @param { number } delay - if not set, default is 0.
      * @returns { SimpleAnimatorOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     delay(delay: number): SimpleAnimatorOptions;
     /**
@@ -199,7 +198,7 @@ export declare class SimpleAnimatorOptions {
      * @param { FillMode } fillMode - if not set, default is FillMode.Forwards.
      * @returns { SimpleAnimatorOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     fill(fillMode: FillMode): SimpleAnimatorOptions;
     /**
@@ -208,7 +207,7 @@ export declare class SimpleAnimatorOptions {
      * @param { PlayMode } direction - if not set, default is PlayMode.Normal.
      * @returns { SimpleAnimatorOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     direction(direction: PlayMode): SimpleAnimatorOptions;
     /**
@@ -218,7 +217,7 @@ export declare class SimpleAnimatorOptions {
      * @param { number } iterations - if not set, default is 1.
      * @returns { SimpleAnimatorOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     iterations(iterations: number): SimpleAnimatorOptions;
 }
@@ -228,23 +227,10 @@ export declare class SimpleAnimatorOptions {
  * Defines the Animator result interface.
  * @interface AnimatorResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface AnimatorResult {
     
-    
-    /**
-     * Reset the options for current animator.
-     * @param { AnimatorOptions } options - Options.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 100001 - The specified page is not found or the object property list is not obtained.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
-     */
-    reset(options: AnimatorOptions): void;
     /**
      * Reset the options for current animator.
      * @param { AnimatorOptions | SimpleAnimatorOptions } options - Options.
@@ -254,7 +240,7 @@ export interface AnimatorResult {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100001 - The specified page is not found or the object property list is not obtained.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     reset(options: AnimatorOptions | SimpleAnimatorOptions): void;
     
@@ -262,7 +248,7 @@ export interface AnimatorResult {
     /**
      * Starts the animation.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     play(): void;
     
@@ -270,7 +256,7 @@ export interface AnimatorResult {
     /**
      * Ends the animation.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     finish(): void;
     
@@ -278,7 +264,7 @@ export interface AnimatorResult {
     /**
      * Pauses the animation.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     pause(): void;
     
@@ -286,7 +272,7 @@ export interface AnimatorResult {
     /**
      * Cancels the animation.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     cancel(): void;
     
@@ -295,7 +281,7 @@ export interface AnimatorResult {
      * Plays the animation in reverse direction.
      * Invalid when using interpolating-spring curve.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     reverse(): void;
     /**
@@ -303,7 +289,7 @@ export interface AnimatorResult {
      *
      * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onFrame: (progress: number) => void;
     /**
@@ -311,7 +297,7 @@ export interface AnimatorResult {
      *
      * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onFinish: () => void;
     /**
@@ -319,7 +305,7 @@ export interface AnimatorResult {
      *
      * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onCancel: () => void;
     /**
@@ -327,14 +313,14 @@ export interface AnimatorResult {
      *
      * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onRepeat: () => void;
     /**
      * The expected frame rate of dynamical of rate range.
      * @param { ExpectedFrameRateRange } rateRange - Indicates ExpectedFrameRateRange.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange): void;
 }
@@ -344,7 +330,7 @@ export interface AnimatorResult {
 /**
  * Defines the Animator class.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 declare class Animator {
     /**
@@ -356,7 +342,7 @@ declare class Animator {
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      * @deprecated since 22
      * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
      */

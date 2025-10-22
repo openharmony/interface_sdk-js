@@ -25,10 +25,10 @@ import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConsta
 import Want from '../@ohos.app.ability.Want';
 import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
 import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 /*** endif */
 
@@ -58,8 +58,8 @@ import ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStat
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare class ApplicationContext extends Context {
   /**
@@ -102,7 +102,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback): number;
 
@@ -113,8 +113,7 @@ declare class ApplicationContext extends Context {
    * @returns { int } Returns the number code of the callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   onAbilityLifecycle(callback: AbilityLifecycleCallback): int;
 
@@ -159,7 +158,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback<void>): void;
 
@@ -170,8 +169,7 @@ declare class ApplicationContext extends Context {
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the deregistration is successful,
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   offAbilityLifecycle(callbackId: int, callback: AsyncCallback<void>): void;
 
@@ -215,7 +213,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   off(type: 'abilityLifecycle', callbackId: number): Promise<void>;
 
@@ -231,8 +229,7 @@ declare class ApplicationContext extends Context {
    * @returns { Promise<void> } ThePromise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   offAbilityLifecycle(callbackId: int): Promise<void>;
 
@@ -257,8 +254,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   on(type: 'environment', callback: EnvironmentCallback): int;
 
@@ -283,8 +280,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   off(type: 'environment', callbackId: int, callback: AsyncCallback<void>): void;
 
@@ -309,8 +306,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   off(type: 'environment', callbackId: int): Promise<void>;
 
@@ -353,8 +350,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback): void;
 
@@ -399,8 +396,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   off(type: 'applicationStateChange', callback?: ApplicationStateChangeCallback): void;
 
@@ -441,8 +438,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
 
@@ -483,8 +480,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 
@@ -516,8 +513,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   killAllProcesses(): Promise<void>;
 
@@ -540,8 +537,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   killAllProcesses(clearPageStack: boolean): Promise<void>;
 
@@ -574,8 +571,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   killAllProcesses(callback: AsyncCallback<void>): void;
 
@@ -606,8 +603,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 
@@ -643,8 +640,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic&static
    */
   setLanguage(language: string): void;
 
@@ -663,8 +659,8 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   clearUpApplicationData(): Promise<void>;
 
@@ -686,8 +682,8 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   clearUpApplicationData(callback: AsyncCallback<void>): void;
 
@@ -710,8 +706,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   restartApp(want: Want): void;
 
@@ -737,8 +733,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   preloadUIExtensionAbility(want: Want): Promise<void>;
 
@@ -765,8 +761,8 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   setSupportedProcessCache(isSupported : boolean): void;
 
@@ -800,8 +796,7 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic&static
    */
   setFont(font: string): void;
 
@@ -814,8 +809,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   getCurrentAppCloneIndex(): int;
 
@@ -843,8 +838,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic&static
    */
   setFontSizeScale(fontSizeScale: double): void;
 
@@ -861,8 +855,8 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 16000078 - The multi-instance is not supported.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   getCurrentInstanceKey(): string;
 
@@ -882,8 +876,8 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 16000078 - The multi-instance is not supported.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
     getAllRunningInstanceKeys(): Promise<Array<string>>;
 }

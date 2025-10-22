@@ -27,7 +27,7 @@ import bundle from './../@ohos.bundle';
  * @typedef InstallParam
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.bundle.installer#InstallParam
  */
@@ -37,7 +37,7 @@ export interface InstallParam {
    * @default Indicates the user id
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.installer.InstallParam#userId
    */
@@ -48,7 +48,7 @@ export interface InstallParam {
    * @default Indicates the install flag
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.installer.InstallParam#installFlag
    */
@@ -59,7 +59,7 @@ export interface InstallParam {
    * @default Indicates whether the param has data
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.installer.InstallParam#isKeepData
    */
@@ -72,7 +72,7 @@ export interface InstallParam {
  * @typedef InstallStatus
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
- * @since 7
+ * @since 7 dynamic
  * @deprecated since 9
  */
 export interface InstallStatus {
@@ -81,7 +81,7 @@ export interface InstallStatus {
    * @default Indicates the install or uninstall error code
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   status: bundle.InstallErrorCode;
@@ -91,7 +91,7 @@ export interface InstallStatus {
    * @default Indicates the install or uninstall result string message
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   statusMessage: string;
@@ -103,7 +103,7 @@ export interface InstallStatus {
  * @interface BundleInstaller
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.bundle.installer#BundleInstaller
  */
@@ -118,7 +118,7 @@ export interface BundleInstaller {
    * @param { AsyncCallback<InstallStatus> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.installer.BundleInstaller#install
    */
@@ -133,7 +133,7 @@ export interface BundleInstaller {
    * @param { AsyncCallback<InstallStatus> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.installer.BundleInstaller#uninstall
    */
@@ -148,7 +148,7 @@ export interface BundleInstaller {
    * @param { AsyncCallback<InstallStatus> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.installer.BundleInstaller#recover
    */

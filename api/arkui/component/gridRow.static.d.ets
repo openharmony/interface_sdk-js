@@ -15,7 +15,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { ItemAlign } from './enums';
 import { Length } from './units';
@@ -26,7 +25,7 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @interface GridRowSizeOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface GridRowSizeOption {
     /**
@@ -34,7 +33,7 @@ export declare interface GridRowSizeOption {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     xs?: Length;
     /**
@@ -42,7 +41,7 @@ export declare interface GridRowSizeOption {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     sm?: Length;
     /**
@@ -50,7 +49,7 @@ export declare interface GridRowSizeOption {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     md?: Length;
     /**
@@ -58,7 +57,7 @@ export declare interface GridRowSizeOption {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     lg?: Length;
     /**
@@ -66,7 +65,7 @@ export declare interface GridRowSizeOption {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     xl?: Length;
     /**
@@ -74,7 +73,7 @@ export declare interface GridRowSizeOption {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     xxl?: Length;
 }
@@ -83,7 +82,7 @@ export declare interface GridRowSizeOption {
  *
  * @interface GridRowColumnOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface GridRowColumnOption {
     /**
@@ -91,7 +90,7 @@ export declare interface GridRowColumnOption {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     xs?: number;
     /**
@@ -99,7 +98,7 @@ export declare interface GridRowColumnOption {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     sm?: number;
     /**
@@ -107,7 +106,7 @@ export declare interface GridRowColumnOption {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     md?: number;
     /**
@@ -115,7 +114,7 @@ export declare interface GridRowColumnOption {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     lg?: number;
     /**
@@ -123,7 +122,7 @@ export declare interface GridRowColumnOption {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     xl?: number;
     /**
@@ -131,7 +130,7 @@ export declare interface GridRowColumnOption {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     xxl?: number;
 }
@@ -140,7 +139,7 @@ export declare interface GridRowColumnOption {
  *
  * @interface GutterOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface GutterOption {
     /**
@@ -148,7 +147,7 @@ export declare interface GutterOption {
      *
      * @type { ?(Length | GridRowSizeOption) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     x?: Length | GridRowSizeOption;
     /**
@@ -156,7 +155,7 @@ export declare interface GutterOption {
      *
      * @type { ?(Length | GridRowSizeOption) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     y?: Length | GridRowSizeOption;
 }
@@ -165,21 +164,21 @@ export declare interface GutterOption {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum BreakpointsReference {
     /**
      * Respond to breakpoint changes according to window width
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     WindowSize,
     /**
      * Respond to breakpoint changes according to component width
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     ComponentSize
 }
@@ -188,21 +187,21 @@ export declare enum BreakpointsReference {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum GridRowDirection {
     /**
      * The elements in the grid component are arranged in rows
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     Row,
     /**
      * The elements in the grid component are arranged in reverse order of rows
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     RowReverse
 }
@@ -211,7 +210,7 @@ export declare enum GridRowDirection {
  *
  * @interface BreakPoints
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface BreakPoints {
     /**
@@ -219,7 +218,7 @@ export declare interface BreakPoints {
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     value?: Array<string>;
     /**
@@ -227,7 +226,7 @@ export declare interface BreakPoints {
      *
      * @type { ?BreakpointsReference }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     reference?: BreakpointsReference;
 }
@@ -236,7 +235,7 @@ export declare interface BreakPoints {
  *
  * @interface GridRowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface GridRowOptions {
     /**
@@ -244,7 +243,7 @@ export declare interface GridRowOptions {
      *
      * @type { ?(Length | GutterOption) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     gutter?: Length | GutterOption;
     /**
@@ -252,7 +251,7 @@ export declare interface GridRowOptions {
      *
      * @type { ?(number | GridRowColumnOption) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     columns?: number | GridRowColumnOption;
     /**
@@ -260,7 +259,7 @@ export declare interface GridRowOptions {
      *
      * @type { ?BreakPoints }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     breakpoints?: BreakPoints;
     /**
@@ -268,10 +267,20 @@ export declare interface GridRowOptions {
      *
      * @type { ?GridRowDirection }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     direction?: GridRowDirection;
 }
+
+/**
+ * The GridRowAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface GridRowAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ * @noninterop
+ */
 export declare interface GridRowAttribute extends CommonMethod {
     /**
      * Callback triggered when the breakpoint changes, breakpoints value can be xs, sm, md, lg, xl, xxl
@@ -279,7 +288,7 @@ export declare interface GridRowAttribute extends CommonMethod {
      * @param { function } callback
      * @returns { GridRowAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onBreakpointChange(callback: ((breakpoints: string) => void) | undefined): this;
     /**
@@ -288,7 +297,7 @@ export declare interface GridRowAttribute extends CommonMethod {
      * @param { ItemAlign } value - element alignment
      * @returns { GridRowAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default alignItems(value: ItemAlign | undefined): this;
     /**
@@ -297,16 +306,26 @@ export declare interface GridRowAttribute extends CommonMethod {
      * @param { AttributeModifier<GridRowAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { GridRowAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<GridRowAttribute> | AttributeModifier<CommonMethod>
         | undefined): this;
 }
 
+/**
+ * Defines GridRow Component.
+ *
+ * @param { GridRowOptions } [option] - GridRow options.
+ * @param { function } [content_] - container
+ * @returns { GridRowAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
 export declare function GridRow(
-    option?: GridRowOptions,
+    option?: GridRowOptions, 
     @memo
     content_?: () => void,
 ): GridRowAttribute

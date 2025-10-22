@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 /**
@@ -25,7 +24,7 @@
  *
  * @namespace curves
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 declare namespace curves {
 
@@ -34,7 +33,7 @@ declare namespace curves {
      *
      * @enum { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     export enum Curve {
 
@@ -42,7 +41,7 @@ declare namespace curves {
          * Linear. Indicates that the animation has the same velocity from start to finish.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         Linear,
 
@@ -51,7 +50,7 @@ declare namespace curves {
          * CubicBezier(0.25, 0.1, 0.25, 1.0).
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         Ease,
 
@@ -59,7 +58,7 @@ declare namespace curves {
          * EaseIn. Indicates that the animation starts at a low speed, Cubic Bezier (0.42, 0.0, 1.0, 1.0).
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         EaseIn,
 
@@ -67,7 +66,7 @@ declare namespace curves {
          * EaseOut. Indicates that the animation ends at low speed, CubicBezier (0.0, 0.0, 0.58, 1.0).
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         EaseOut,
 
@@ -75,7 +74,7 @@ declare namespace curves {
          * EaseInOut. Indicates that the animation starts and ends at low speed, CubicBezier (0.42, 0.0, 0.58, 1.0).
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         EaseInOut,
          
@@ -83,7 +82,7 @@ declare namespace curves {
          * FastOutSlowIn. Standard curve, cubic-bezier (0.4, 0.0, 0.2, 1.0).
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         FastOutSlowIn,
 
@@ -91,7 +90,7 @@ declare namespace curves {
          * LinearOutSlowIn. Deceleration curve, cubic-bezier (0.0, 0.0, 0.2, 1.0).
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         LinearOutSlowIn,
 
@@ -99,7 +98,7 @@ declare namespace curves {
          * FastOutLinearIn. Acceleration curve, cubic-bezier (0.4, 0.0, 1.0, 1.0).
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         FastOutLinearIn,
 
@@ -107,7 +106,7 @@ declare namespace curves {
          * ExtremeDeceleration. Abrupt curve, cubic-bezier (0.0, 0.0, 0.0, 1.0).
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         ExtremeDeceleration,
 
@@ -115,7 +114,7 @@ declare namespace curves {
          * Sharp. Sharp curves, cubic-bezier (0.33, 0.0, 0.67, 1.0).
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         Sharp,
 
@@ -123,7 +122,7 @@ declare namespace curves {
          * Rhythm. Rhythmic curve, cubic-bezier (0.7, 0.0, 0.2, 1.0).
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         Rhythm,
 
@@ -131,7 +130,7 @@ declare namespace curves {
          * Smooth. Smooth curves, cubic-bezier (0.4, 0.0, 0.4, 1.0).
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         Smooth,
 
@@ -139,7 +138,7 @@ declare namespace curves {
          * Friction. Damping curves, CubicBezier (0.2, 0.0, 0.2, 1.0).
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         Friction
     }
@@ -149,7 +148,7 @@ declare namespace curves {
      *
      * @interface ICurve
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     export interface ICurve {
         /**
@@ -159,7 +158,7 @@ declare namespace curves {
          *     Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
          * @returns { number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         interpolate(fraction: number): number;
     }
@@ -171,7 +170,7 @@ declare namespace curves {
      * @param { Curve } [curve] - Curve type.<br>Default value: **Curve.Linear**.
      * @returns { ICurve }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     export function initCurve(curve?: Curve): ICurve;
 
@@ -187,7 +186,7 @@ declare namespace curves {
      * *false**: Jumping occurs when the interpolation starts.
      * @returns { ICurve } Interpolation curve.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     export function stepsCurve(count: number, end: boolean): ICurve;
     
@@ -205,7 +204,7 @@ declare namespace curves {
      * </p>
      * @returns { ICurve } Interpolation curve.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     export function customCurve(interpolate: (fraction: number) => number): ICurve;
 
@@ -224,7 +223,7 @@ declare namespace curves {
      * @param { number } y2 - Y coordinate of the second point on the Bezier curve.<br>Value range: (-∞, +∞).
      * @returns { ICurve } Interpolation curve.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     export function cubicBezierCurve(x1: number, y1: number, x2: number, y2: number): ICurve;
 
@@ -256,7 +255,7 @@ declare namespace curves {
      * </p>
      * @returns { ICurve } Interpolation curve.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     export function springCurve(velocity: number, mass: number, stiffness: number, damping: number): ICurve;
 
@@ -291,7 +290,7 @@ declare namespace curves {
      * </p>
      * @returns { ICurve }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     export function springMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
 
@@ -321,7 +320,7 @@ declare namespace curves {
      * </p>
      * @returns { ICurve }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     export function responsiveSpringMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
     
@@ -354,7 +353,7 @@ declare namespace curves {
      * </p>
      * @returns { ICurve }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     export function interpolatingSpring(velocity: number, mass: number, stiffness: number, damping: number): ICurve;
 }

@@ -24,7 +24,7 @@
  * and the current memory area is reclaimed.
  *
  * @syscap SystemCapability.Utils.Lang
- * @since 8
+ * @since 8 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.util.ArrayList
  */
@@ -33,7 +33,7 @@ declare class Vector<T> {
    * A constructor used to create a Vector object.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   constructor();
@@ -41,7 +41,7 @@ declare class Vector<T> {
    * Gets the element number of the Vector. This is a number one higher than the highest index in the vector.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   length: number;
@@ -51,7 +51,7 @@ declare class Vector<T> {
    * @param { T } element - Element to be appended to this vector
    * @returns { boolean } the boolean type, returns true if the addition is successful, and returns false if it fails.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   add(element: T): boolean;
@@ -63,7 +63,7 @@ declare class Vector<T> {
    * @param { T } element - Element at which the specified element is to be inserted
    * @param { number } index - Index to be inserted
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   insert(element: T, index: number): void;
@@ -73,7 +73,7 @@ declare class Vector<T> {
    * @param { T } element - Element to be contained
    * @returns { boolean } the boolean type,if vector contains the specified element,return true,else return false
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   has(element: T): boolean;
@@ -83,7 +83,7 @@ declare class Vector<T> {
    * @param { number } index - Index to be contained
    * @returns { T } the number type ,returns the lowest index such that or -1 if there is no such index.
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   get(index: number): T;
@@ -94,7 +94,7 @@ declare class Vector<T> {
    * @param { T } element - Element current index
    * @returns { number } the number type
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   getIndexOf(element: T): number;
@@ -104,7 +104,7 @@ declare class Vector<T> {
    *
    * @returns { T } the T type ,returns undefined if vector is empty
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   getFirstElement(): T;
@@ -114,7 +114,7 @@ declare class Vector<T> {
    *
    * @returns { T } the T type ,returns undefined if vector is empty
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   getLastElement(): T;
@@ -126,7 +126,7 @@ declare class Vector<T> {
    * @returns { T } the T type ,returns undefined if vector is empty,If the index is
    * out of bounds (greater than or equal to length or less than 0), throw an exception
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   removeByIndex(index: number): T;
@@ -138,7 +138,7 @@ declare class Vector<T> {
    * @param { T } element - Element to remove
    * @returns { boolean } the boolean type ,If there is no such element, return false
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   remove(element: T): boolean;
@@ -149,7 +149,7 @@ declare class Vector<T> {
    * @param { T } element - Element replaced element
    * @returns { T } the T type
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   set(index: number, element: T): T;
@@ -160,7 +160,7 @@ declare class Vector<T> {
    * @param { T } element - Element to find
    * @returns { number } The number type
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   getLastIndexOf(element: T): number;
@@ -172,7 +172,7 @@ declare class Vector<T> {
    * @param { number } index - Index start index
    * @returns { number } the number type
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   getLastIndexFrom(element: T, index: number): number;
@@ -184,7 +184,7 @@ declare class Vector<T> {
    * @param { number } index - Index start index
    * @returns { number } the number type
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   getIndexFrom(element: T, index: number): number;
@@ -194,7 +194,7 @@ declare class Vector<T> {
    * @param { number } fromIndex - The starting position of the index, containing the value at that index position
    * @param { number } toIndex - The end of the index, excluding the value at that index
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   removeByRange(fromIndex: number, toIndex: number): void;
@@ -206,7 +206,7 @@ declare class Vector<T> {
    * @param { Object } thisArg - The value passed to the function generally uses the
    * "this" value.If this parameter is empty, "undefined" will be passed to the "this" value
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   replaceAllElements(callbackFn: (value: T, index?: number, vector?: Vector<T>) => T, thisArg?: Object): void;
@@ -219,7 +219,7 @@ declare class Vector<T> {
    * @param { Object } thisArg - The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   forEach(callbackFn: (value: T, index?: number, vector?: Vector<T>) => void, thisArg?: Object): void;
@@ -233,7 +233,7 @@ declare class Vector<T> {
    * in ascending order;If it returns secondValue minus firstValue, it returns an vector sorted in descending order;
    * If this parameter is empty, it will default to ASCII sorting
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   sort(comparator?: (firstValue: T, secondValue: T) => number): void;
@@ -244,7 +244,7 @@ declare class Vector<T> {
    * @param { number } toIndex - The end of the index, excluding the value at that index
    * @returns { Vector<T> }
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   subVector(fromIndex: number, toIndex: number): Vector<T>;
@@ -253,7 +253,7 @@ declare class Vector<T> {
    * be empty after this call returns.length becomes 0
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   clear(): void;
@@ -262,7 +262,7 @@ declare class Vector<T> {
    *
    * @returns { Vector<T> } this vector instance
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   clone(): Vector<T>;
@@ -271,7 +271,7 @@ declare class Vector<T> {
    *
    * @param { number } newSize - newSize
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   setLength(newSize: number): void;
@@ -280,7 +280,7 @@ declare class Vector<T> {
    *
    * @returns { number } the number type
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   getCapacity(): number;
@@ -289,7 +289,7 @@ declare class Vector<T> {
    *
    * @returns { Array<T> } the Array type
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   convertToArray(): Array<T>;
@@ -298,7 +298,7 @@ declare class Vector<T> {
    *
    * @returns { boolean } the boolean type
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   isEmpty(): boolean;
@@ -308,7 +308,7 @@ declare class Vector<T> {
    *
    * @param { number } newCapacity - newCapacity
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   increaseCapacityTo(newCapacity: number): void;
@@ -318,7 +318,7 @@ declare class Vector<T> {
    *
    * @returns { string }
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   toString(): string;
@@ -326,7 +326,7 @@ declare class Vector<T> {
    * Limit the capacity to the current length
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   trimToCurrentLength(): void;
@@ -336,7 +336,7 @@ declare class Vector<T> {
    *
    * @param { Array<T> } array - Replaced array
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   copyToArray(array: Array<T>): void;
@@ -345,7 +345,7 @@ declare class Vector<T> {
    *
    * @returns { IterableIterator<T> }
    * @syscap SystemCapability.Utils.Lang
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   [Symbol.iterator](): IterableIterator<T>;

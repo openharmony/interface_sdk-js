@@ -25,7 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare type ParticleTuple<T1, T2> = [T1, T2];
 
@@ -36,7 +36,7 @@ declare type ParticleTuple<T1, T2> = [T1, T2];
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare interface VelocityOptions {
   /**
@@ -62,7 +62,7 @@ declare interface VelocityOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   speed: ParticleTuple<number, number>;
 
@@ -89,7 +89,7 @@ declare interface VelocityOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   angle: ParticleTuple<number, number>;
 }
@@ -101,7 +101,7 @@ declare interface VelocityOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare interface AccelerationOptions<
   ACC_SPEED_UPDATER extends ParticleUpdater,
@@ -130,7 +130,7 @@ declare interface AccelerationOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   speed?: ParticlePropertyOptions<number, ACC_SPEED_UPDATER>;
 
@@ -157,7 +157,7 @@ declare interface AccelerationOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   angle?: ParticlePropertyOptions<number, ACC_ANGLE_UPDATER>;
 }
@@ -175,7 +175,7 @@ declare interface AccelerationOptions<
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface ParticleOptions<
   PARTICLE extends ParticleType,
@@ -199,7 +199,7 @@ interface ParticleOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   emitter: EmitterOptions<PARTICLE>;
 
@@ -218,7 +218,7 @@ interface ParticleOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   color?: ParticleColorPropertyOptions<COLOR_UPDATER>;
 
@@ -237,7 +237,7 @@ interface ParticleOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   opacity?: ParticlePropertyOptions<number, OPACITY_UPDATER>;
 
@@ -256,7 +256,7 @@ interface ParticleOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   scale?: ParticlePropertyOptions<number, SCALE_UPDATER>;
 
@@ -286,7 +286,7 @@ interface ParticleOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   velocity?: VelocityOptions;
 
@@ -316,7 +316,7 @@ interface ParticleOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   acceleration?: AccelerationOptions<ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER>;
 
@@ -335,7 +335,7 @@ interface ParticleOptions<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   spin?: ParticlePropertyOptions<number, SPIN_UPDATER>;
 }
@@ -353,7 +353,7 @@ interface ParticleOptions<
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface PointParticleParameters {
   /**
@@ -369,7 +369,7 @@ interface PointParticleParameters {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   radius: VP;
 }
@@ -387,7 +387,7 @@ interface PointParticleParameters {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface ImageParticleParameters {
   /**
@@ -403,7 +403,7 @@ interface ImageParticleParameters {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   src: ResourceStr;
 
@@ -430,7 +430,7 @@ interface ImageParticleParameters {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   size: ParticleTuple<Dimension, Dimension>;
 
@@ -449,7 +449,7 @@ interface ImageParticleParameters {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   objectFit?: ImageFit;
 }
@@ -467,7 +467,7 @@ interface ImageParticleParameters {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface ParticleConfigs {
   /**
@@ -483,7 +483,7 @@ interface ParticleConfigs {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   [ParticleType.POINT]: PointParticleParameters;
 
@@ -500,7 +500,7 @@ interface ParticleConfigs {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   [ParticleType.IMAGE]: ImageParticleParameters;
 }
@@ -512,7 +512,7 @@ interface ParticleConfigs {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 interface EmitterProperty {
 
@@ -523,7 +523,7 @@ interface EmitterProperty {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   index: number;
 
@@ -534,7 +534,7 @@ interface EmitterProperty {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   emitRate?: number;
 
@@ -545,7 +545,7 @@ interface EmitterProperty {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   position?: PositionT<number>;
 
@@ -556,7 +556,7 @@ interface EmitterProperty {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   size?: SizeT<number>;
 
@@ -567,7 +567,7 @@ interface EmitterProperty {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
    annulusRegion?: ParticleAnnulusRegion;
 }
@@ -579,7 +579,7 @@ interface EmitterProperty {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface EmitterParticleOptions<PARTICLE extends ParticleType> {
   /**
@@ -605,7 +605,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   type: PARTICLE;
   /**
@@ -631,7 +631,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   config: ParticleConfigs[PARTICLE];
 
@@ -658,7 +658,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   count: number;
 
@@ -688,7 +688,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   lifetime?: number;
 
@@ -712,7 +712,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   lifetimeRange?: number;
 }
@@ -730,7 +730,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface EmitterOptions<PARTICLE extends ParticleType> {
   /**
@@ -756,7 +756,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   particle: EmitterParticleOptions<PARTICLE>;
 
@@ -775,7 +775,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   emitRate?: number;
 
@@ -794,7 +794,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   shape?: ParticleEmitterShape;
 
@@ -830,7 +830,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   position?: ParticleTuple<Dimension, Dimension>;
 
@@ -866,7 +866,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   size?: ParticleTuple<Dimension, Dimension>;
 
@@ -878,7 +878,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   annulusRegion?: ParticleAnnulusRegion;
 }
@@ -896,7 +896,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface ParticlePropertyUpdaterConfigs<T> {
   /**
@@ -914,7 +914,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   [ParticleUpdater.NONE]: void;
 
@@ -941,7 +941,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   [ParticleUpdater.RANDOM]: ParticleTuple<T, T>;
 
@@ -958,7 +958,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   [ParticleUpdater.CURVE]: Array<ParticlePropertyAnimation<T>>;
 }
@@ -970,7 +970,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
   /**
@@ -996,7 +996,7 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   type: UPDATER;
 
@@ -1023,7 +1023,7 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   config: ParticlePropertyUpdaterConfigs<TYPE>[UPDATER];
 }
@@ -1035,7 +1035,7 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface ParticleColorOptions {
   /**
@@ -1061,7 +1061,7 @@ interface ParticleColorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   r: ParticleTuple<number, number>;
 
@@ -1088,7 +1088,7 @@ interface ParticleColorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   g: ParticleTuple<number, number>;
 
@@ -1115,7 +1115,7 @@ interface ParticleColorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   b: ParticleTuple<number, number>;
 
@@ -1142,7 +1142,7 @@ interface ParticleColorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   a: ParticleTuple<number, number>;
 }
@@ -1154,7 +1154,7 @@ interface ParticleColorOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
   /**
@@ -1180,7 +1180,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   type: UPDATER;
 
@@ -1207,7 +1207,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   config: ParticleColorPropertyUpdaterConfigs[UPDATER];
 }
@@ -1225,7 +1225,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
   /**
@@ -1251,7 +1251,7 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   range: ParticleTuple<TYPE, TYPE>;
 
@@ -1281,7 +1281,7 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   updater?: ParticleUpdaterOptions<TYPE, UPDATER>;
 }
@@ -1299,7 +1299,7 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface ParticleColorPropertyUpdaterConfigs {
   /**
@@ -1317,7 +1317,7 @@ interface ParticleColorPropertyUpdaterConfigs {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   [ParticleUpdater.NONE]: void;
 
@@ -1344,7 +1344,7 @@ interface ParticleColorPropertyUpdaterConfigs {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   [ParticleUpdater.RANDOM]: ParticleColorOptions;
 
@@ -1363,7 +1363,7 @@ interface ParticleColorPropertyUpdaterConfigs {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   [ParticleUpdater.CURVE]: Array<ParticlePropertyAnimation<ResourceColor>>;
 }
@@ -1381,7 +1381,7 @@ interface ParticleColorPropertyUpdaterConfigs {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
   /**
@@ -1407,7 +1407,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   range: ParticleTuple<ResourceColor, ResourceColor>;
 
@@ -1418,7 +1418,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   distributionType?: DistributionType;
 
@@ -1448,7 +1448,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   updater?: ParticleColorUpdaterOptions<UPDATER>;
 }
@@ -1466,7 +1466,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface ParticlePropertyAnimation<T> {
   /**
@@ -1482,7 +1482,7 @@ interface ParticlePropertyAnimation<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   from: T;
 
@@ -1499,7 +1499,7 @@ interface ParticlePropertyAnimation<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   to: T;
 
@@ -1516,7 +1516,7 @@ interface ParticlePropertyAnimation<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   startMillis: number;
 
@@ -1533,7 +1533,7 @@ interface ParticlePropertyAnimation<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   endMillis: number;
 
@@ -1552,7 +1552,7 @@ interface ParticlePropertyAnimation<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   curve?: Curve | ICurve;
 }
@@ -1564,7 +1564,7 @@ interface ParticlePropertyAnimation<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface Particles<
   PARTICLE extends ParticleType,
@@ -1598,7 +1598,7 @@ interface Particles<
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   particles: Array<
     ParticleOptions<
@@ -1626,7 +1626,7 @@ interface Particles<
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface ParticleInterface {
   /**
@@ -1658,7 +1658,7 @@ interface ParticleInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   <
     PARTICLE extends ParticleType,
@@ -1692,7 +1692,7 @@ interface ParticleInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ParticleType {
   /**
@@ -1706,7 +1706,7 @@ declare enum ParticleType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   POINT = 'point',
 
@@ -1721,7 +1721,7 @@ declare enum ParticleType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   IMAGE = 'image',
 }
@@ -1739,7 +1739,7 @@ declare enum ParticleType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ParticleEmitterShape {
   /**
@@ -1753,7 +1753,7 @@ declare enum ParticleEmitterShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   RECTANGLE = 'rectangle',
 
@@ -1768,7 +1768,7 @@ declare enum ParticleEmitterShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   CIRCLE = 'circle',
 
@@ -1783,7 +1783,7 @@ declare enum ParticleEmitterShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   ELLIPSE = 'ellipse',
 
@@ -1792,7 +1792,7 @@ declare enum ParticleEmitterShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
    ANNULUS = 'annulus',
 }
@@ -1804,7 +1804,7 @@ declare enum ParticleEmitterShape {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum DistributionType {
   /**
@@ -1813,7 +1813,7 @@ declare enum DistributionType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   UNIFORM = 0,
 
@@ -1823,7 +1823,7 @@ declare enum DistributionType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   GAUSSIAN = 1,
 }
@@ -1841,7 +1841,7 @@ declare enum DistributionType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ParticleUpdater {
   /**
@@ -1855,7 +1855,7 @@ declare enum ParticleUpdater {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   NONE = 'none',
 
@@ -1870,7 +1870,7 @@ declare enum ParticleUpdater {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   RANDOM = 'random',
 
@@ -1885,7 +1885,7 @@ declare enum ParticleUpdater {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   CURVE = 'curve',
 }
@@ -1897,7 +1897,7 @@ declare enum ParticleUpdater {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare type SizeT<T> = import('../api/arkui/Graphics').SizeT<T>;
 
@@ -1908,7 +1908,7 @@ declare type SizeT<T> = import('../api/arkui/Graphics').SizeT<T>;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare type PositionT<T> = import('../api/arkui/Graphics').PositionT<T>;
 
@@ -1936,7 +1936,7 @@ declare type Vector2T<T> = import('../api/arkui/Graphics').Vector2T<T>;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
   /**
@@ -1947,7 +1947,7 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   disturbanceFields(fields: Array<DisturbanceFieldOptions>): ParticleAttribute;
 
@@ -1959,7 +1959,7 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   emitter(value: Array<EmitterProperty>): ParticleAttribute;
 
@@ -2001,7 +2001,7 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Particle: ParticleInterface;
 
@@ -2011,7 +2011,7 @@ declare const Particle: ParticleInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface DisturbanceFieldOptions {
 
@@ -2025,7 +2025,7 @@ declare interface DisturbanceFieldOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   strength?: number;
 
@@ -2037,7 +2037,7 @@ declare interface DisturbanceFieldOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   shape?: DisturbanceFieldShape;
 
@@ -2049,7 +2049,7 @@ declare interface DisturbanceFieldOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   size?: SizeT<number>;
 
@@ -2061,7 +2061,7 @@ declare interface DisturbanceFieldOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   position?: PositionT<number>;
 
@@ -2077,7 +2077,7 @@ declare interface DisturbanceFieldOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   feather?: number;
 
@@ -2089,7 +2089,7 @@ declare interface DisturbanceFieldOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   noiseScale?: number;
 
@@ -2101,7 +2101,7 @@ declare interface DisturbanceFieldOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   noiseFrequency?: number;
 
@@ -2113,7 +2113,7 @@ declare interface DisturbanceFieldOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   noiseAmplitude?: number;
 }
@@ -2125,7 +2125,7 @@ declare interface DisturbanceFieldOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum DisturbanceFieldShape {
 
@@ -2135,7 +2135,7 @@ declare enum DisturbanceFieldShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   RECT = 0,
 
@@ -2145,7 +2145,7 @@ declare enum DisturbanceFieldShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   CIRCLE = 1,
 
@@ -2155,7 +2155,7 @@ declare enum DisturbanceFieldShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   ELLIPSE = 2
 
@@ -2167,7 +2167,7 @@ declare enum DisturbanceFieldShape {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare interface ParticleAnnulusRegion {
   /**
@@ -2178,7 +2178,7 @@ declare interface ParticleAnnulusRegion {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   center?: PositionT<LengthMetrics>,
   /**
@@ -2188,7 +2188,7 @@ declare interface ParticleAnnulusRegion {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   outerRadius: LengthMetrics,
   /**
@@ -2198,7 +2198,7 @@ declare interface ParticleAnnulusRegion {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   innerRadius: LengthMetrics,
   /**
@@ -2209,7 +2209,7 @@ declare interface ParticleAnnulusRegion {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   startAngle?: number,
   /**
@@ -2220,7 +2220,7 @@ declare interface ParticleAnnulusRegion {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   endAngle?: number,
 }

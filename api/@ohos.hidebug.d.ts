@@ -163,7 +163,7 @@ declare namespace hidebug {
    *
    * @param { string } filename - Indicates the user-defined file name, excluding the file suffix.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.hidebug/hidebug.dumpJsHeapData
    */
@@ -203,7 +203,7 @@ declare namespace hidebug {
    * in the files directory of the application based on the specified file name.
    * @throws {BusinessError} 401 - the parameter check failed, Parameter type error.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 9
+   * @since 9 dynamic
    */
   function dumpJsHeapData(filename: string): void;
 
@@ -945,7 +945,7 @@ declare namespace hidebug {
    * @throws { BusinessError } 11400104 - Set limit failed due to remote exception
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   function setAppResourceLimit(type: string, value: int, enableDebugLog: boolean): void;
 
@@ -1054,7 +1054,7 @@ declare namespace hidebug {
    * @throws { BusinessError } 11400113 - Failed to create dump file.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   function dumpJsRawHeapData(needGC?: boolean): Promise<string>;
 
@@ -1131,14 +1131,14 @@ declare namespace hidebug {
    *
    * @enum { number }
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 20
+   * @since 20 dynamic
    */
   enum JsRawHeapTrimLevel {
     /**
      * Basic heap snapshot trimming(e.g. reducing content of string object).
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 20
+     * @since 20 dynamic
      */
     TRIM_LEVEL_1 = 0,
     /**
@@ -1150,7 +1150,7 @@ declare namespace hidebug {
      * Ensure that this duration falls below the app freeze threshold.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 20
+     * @since 20 dynamic
      */
     TRIM_LEVEL_2 = 1,
   }
@@ -1159,7 +1159,7 @@ declare namespace hidebug {
    * Sets the raw heap snapshot trimming level for the current process.
    * @param { JsRawHeapTrimLevel } level - The trimming level of raw heap snapshot.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 20
+   * @since 20 dynamic
    */
   function setJsRawHeapTrimLevel(level: JsRawHeapTrimLevel): void;
 }

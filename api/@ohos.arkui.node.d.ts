@@ -56,8 +56,7 @@ export { InputEventType } from './arkui/BuilderNode';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'22','1.2':'22' }
- * @arkts 1.1&1.2
+ * @since 22 dynamic&static
  */
 export { ReactiveBuilderNode } from './arkui/BuilderNode';
 
@@ -194,8 +193,7 @@ export { ComponentContent , ComponentContentBase } from './arkui/ComponentConten
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'22','1.2':'22' }
- * @arkts 1.1&1.2
+ * @since 22 dynamic&static
  */
 export { ReactiveComponentContent } from './arkui/ComponentContent';
 

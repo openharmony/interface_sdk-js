@@ -138,7 +138,7 @@ export {
   CompletionHandlerForAtomicService, CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode
 };
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import appControl from '@ohos.bundle.appControl';
 import bundleManager from '@ohos.bundle.bundleManager';
 import bundleMonitor from '@ohos.bundle.bundleMonitor';

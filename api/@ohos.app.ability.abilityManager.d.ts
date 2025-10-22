@@ -23,13 +23,13 @@ import { ElementName } from './bundleManager/ElementName';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
 import Context from './application/Context';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import { AbilityResult } from './ability/abilityResult';
 import { Configuration } from './@ohos.app.ability.Configuration';
 import * as _AbilityForegroundStateObserver from './application/AbilityForegroundStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import _AbilityForegroundStateObserver from './application/AbilityForegroundStateObserver';
 import _AbilityStateData from './application/AbilityStateData';
 /*** endif */
@@ -47,8 +47,7 @@ import _AbilityStateData from './application/AbilityStateData';
  * @namespace abilityManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic&static
  */
 declare namespace abilityManager {
   /**
@@ -56,16 +55,16 @@ declare namespace abilityManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   export enum AbilityState {
     /**
      * Ability is initialized.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     INITIAL = 0,
 
@@ -73,8 +72,8 @@ declare namespace abilityManager {
      * Ability is in the state of getting focus.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     FOCUS = 2,
 
@@ -82,8 +81,8 @@ declare namespace abilityManager {
      * Ability is in the foreground state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     FOREGROUND = 9,
 
@@ -91,8 +90,8 @@ declare namespace abilityManager {
      * Ability is in the background state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     BACKGROUND = 10,
 
@@ -100,8 +99,8 @@ declare namespace abilityManager {
      * Ability is in the process of scheduling at the foreground.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     FOREGROUNDING = 11,
 
@@ -109,8 +108,8 @@ declare namespace abilityManager {
      * Ability is in the process of scheduling in the background.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     BACKGROUNDING = 12
   }
@@ -122,8 +121,8 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   export enum UserStatus {
     /**
@@ -132,8 +131,8 @@ declare namespace abilityManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     ASSERT_TERMINATE = 0,
 
@@ -143,8 +142,8 @@ declare namespace abilityManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     ASSERT_CONTINUE = 1,
 
@@ -154,8 +153,8 @@ declare namespace abilityManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     ASSERT_RETRY = 2
   }
@@ -167,7 +166,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 18
+   * @since 18 dynamic
    */
   export interface AtomicServiceStartupRule {
     /**
@@ -176,7 +175,7 @@ declare namespace abilityManager {
      * @type { boolean }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     isOpenAllowed: boolean;
 
@@ -186,7 +185,7 @@ declare namespace abilityManager {
      * @type { boolean }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     isEmbeddedAllowed: boolean;
   }
@@ -204,8 +203,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function on(type: 'abilityForegroundState', observer: AbilityForegroundStateObserver): void;
 
@@ -222,8 +221,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function off(type: 'abilityForegroundState', observer?: AbilityForegroundStateObserver): void;
 
@@ -240,7 +239,7 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function updateConfiguration(config: Configuration, callback: AsyncCallback<void>): void;
 
@@ -257,7 +256,7 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function updateConfiguration(config: Configuration): Promise<void>;
 
@@ -269,8 +268,8 @@ declare namespace abilityManager {
    * @returns { Promise<Array<AbilityRunningInfo>> } Returns the array of AbilityRunningInfo.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
 
@@ -287,8 +286,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getAbilityRunningInfos(callback: AsyncCallback<Array<AbilityRunningInfo>>): void;
 
@@ -305,8 +304,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getExtensionRunningInfos(upperLimit: int): Promise<Array<ExtensionRunningInfo>>;
 
@@ -324,8 +323,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getExtensionRunningInfos(upperLimit: int, callback: AsyncCallback<Array<ExtensionRunningInfo>>): void;
 
@@ -337,8 +336,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getTopAbility(): Promise<ElementName>;
 
@@ -352,8 +351,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getTopAbility(callback: AsyncCallback<ElementName>): void;
 
@@ -383,7 +382,7 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function acquireShareData(missionId: number, callback: AsyncCallback<Record<string, Object>>): void;
 
@@ -411,7 +410,7 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function acquireShareData(missionId: number): Promise<Record<string, Object>>;
 
@@ -428,7 +427,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
    */
   function notifySaveAsResult(parameter: AbilityResult, requestCode: number, callback: AsyncCallback<void>): void;
 
@@ -445,7 +444,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
    */
   function notifySaveAsResult(parameter: AbilityResult, requestCode: number): Promise<void>;
 
@@ -461,8 +460,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getForegroundUIAbilities(callback: AsyncCallback<Array<AbilityStateData>>): void;
 
@@ -476,8 +475,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getForegroundUIAbilities(): Promise<Array<AbilityStateData>>;
 
@@ -493,8 +492,8 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function isEmbeddedOpenAllowed(context: Context, appId: string): Promise<boolean>;
 
@@ -513,7 +512,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   function notifyDebugAssertResult(sessionId: string, status: UserStatus): Promise<void>;
 
@@ -530,7 +529,7 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16200006 - The caller application can only set the resident status of the configured process.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   function setResidentProcessEnabled(bundleName: string, enable: boolean): Promise<void>;
 
@@ -547,7 +546,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 18
+   * @since 18 dynamic
    */
   function queryAtomicServiceStartupRule(context: Context, appId: string): Promise<AtomicServiceStartupRule>;
 
@@ -564,7 +563,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   function restartSelfAtomicService(context: Context): void;
 
@@ -573,8 +572,8 @@ declare namespace abilityManager {
    *
    * @typedef { _AbilityRunningInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   export type AbilityRunningInfo = _AbilityRunningInfo;
 
@@ -583,7 +582,7 @@ declare namespace abilityManager {
    *
    * @typedef { _AbilityStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since 14 dynamic
    */
   export type AbilityStateData = _AbilityStateData.default;
 
@@ -592,8 +591,7 @@ declare namespace abilityManager {
    *
    * @typedef { _AbilityStateData }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type AbilityStateData = _AbilityStateData;
 
@@ -603,8 +601,8 @@ declare namespace abilityManager {
    * @typedef { _ExtensionRunningInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   export type ExtensionRunningInfo = _ExtensionRunningInfo;
 
@@ -614,7 +612,7 @@ declare namespace abilityManager {
    * @typedef { _AbilityForegroundStateObserver.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   export type AbilityForegroundStateObserver = _AbilityForegroundStateObserver.default;
 
@@ -624,8 +622,7 @@ declare namespace abilityManager {
    * @typedef { _AbilityForegroundStateObserver }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type AbilityForegroundStateObserver = _AbilityForegroundStateObserver;
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,14 +19,27 @@
  */
 
 import formBindingData from './@ohos.app.form.formBindingData';
-/*** if arkts 1.1 */
 import formInfo from './@ohos.app.form.formInfo';
-/*** endif */
 import FormExtensionContext from './application/FormExtensionContext';
 import Want from './@ohos.app.ability.Want';
-/*** if arkts 1.1 */
 import { Configuration } from './@ohos.app.ability.Configuration';
-/*** endif */
+
+/**
+ * Called to return a {@link FormState} object.
+ * <p>You must override this callback if you want this ability to return the actual form state. Otherwise,
+ * this method returns {@link FormState#DEFAULT} by default.</p>
+ *
+ * @typedef { function }
+ * @param { Want } want - Indicates the description of the form for which the {@link formInfo#FormState}
+ *                        is obtained. The description covers the bundle name, ability name, module name,
+ *                        form name, and form dimensions.
+ * @returns { formInfo.FormState } Returns the {@link formInfo#FormState} object.
+ * @syscap SystemCapability.Ability.Form
+ * @stagemodelonly
+ * @atomicservice
+ * @since 20 static
+ */
+type OnAcquireFormStateFn = (want: Want) => formInfo.FormState;
 
 /**
  * Called when this ability breaks the last link, notifying the provider that the provider process is about to stop.
@@ -35,8 +48,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 type OnStopFn = () => void;
 
@@ -53,8 +65,8 @@ type OnStopFn = () => void;
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare class FormExtensionAbility {
   /**
@@ -72,8 +84,8 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   context: FormExtensionContext;
 
@@ -100,8 +112,8 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onAddForm(want: Want): formBindingData.FormBindingData;
 
@@ -120,8 +132,8 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onCastToNormalForm(formId: string): void;
 
@@ -150,8 +162,8 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   onUpdateForm(formId: string, wantParams?: Record<string, Object>): void;
 
@@ -184,8 +196,8 @@ declare class FormExtensionAbility {
    *                                               becomes invisible.
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onChangeFormVisibility(newStatus: Record<string, int>): void;
 
@@ -212,8 +224,8 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onFormEvent(formId: string, message: string): void;
 
@@ -234,8 +246,8 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onRemoveForm(formId: string): void;
 
@@ -254,7 +266,8 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   onConfigurationUpdate(newConfig: Configuration): void;
 
@@ -283,7 +296,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onAcquireFormState?(want: Want): formInfo.FormState;
 
@@ -305,7 +318,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   onShareForm?(formId: string): Record<string, Object>;
 
@@ -327,9 +340,22 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   onAcquireFormData?(formId: string): Record<string, Object>;
+
+  /**
+   * Called to return a {@link FormState} object.
+   * <p>You must override this callback if you want this ability to return the actual form state. Otherwise,
+   * this method returns {@link FormState#DEFAULT} by default.</p>
+   *
+   * @type { ?OnAcquireFormStateFn }
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20 static
+   */
+  onAcquireFormState?: OnAcquireFormStateFn;
 
   /**
    * Called when this ability breaks the last link, notifying the provider that the provider process is about to stop.
@@ -337,7 +363,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onStop?(): void;
 
@@ -348,8 +374,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   onStop?: OnStopFn;
 
@@ -362,7 +387,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   onFormLocationChanged(formId: string, newFormLocation: formInfo.FormLocation): void;
 
@@ -376,7 +401,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   onSizeChanged(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void;
 }

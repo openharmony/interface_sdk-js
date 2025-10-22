@@ -33,7 +33,7 @@ import { Callback } from './@ohos.base';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare namespace inspector {
 
@@ -50,7 +50,7 @@ declare namespace inspector {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   interface ComponentObserver {
 
@@ -71,7 +71,7 @@ declare namespace inspector {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     on(type: 'layout', callback: () => void): void;
 
@@ -92,7 +92,7 @@ declare namespace inspector {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     off(type: 'layout', callback?: () => void): void;
 
@@ -113,7 +113,7 @@ declare namespace inspector {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     on(type: 'draw', callback: () => void): void;
 
@@ -134,7 +134,7 @@ declare namespace inspector {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     off(type: 'draw', callback?: () => void): void;
     
@@ -146,7 +146,7 @@ declare namespace inspector {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     on(type: 'drawChildren', callback: Callback<void>): void;
     
@@ -158,7 +158,7 @@ declare namespace inspector {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     off(type: 'drawChildren', callback?: Callback<void>): void;
   }
@@ -178,7 +178,7 @@ declare namespace inspector {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.UIInspector#createComponentObserver
    */

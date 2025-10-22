@@ -24,7 +24,7 @@
  * @struct { AtomicServiceTabs }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 @Component
 export declare struct AtomicServiceTabs {
@@ -34,7 +34,7 @@ export declare struct AtomicServiceTabs {
    * @type { ?[TabContentBuilder?, TabContentBuilder?, TabContentBuilder?, TabContentBuilder?, TabContentBuilder?] }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   @BuilderParam
   tabContents?: [ 
@@ -50,7 +50,7 @@ export declare struct AtomicServiceTabs {
    * @type { [TabBarOptions, TabBarOptions, TabBarOptions?, TabBarOptions?, TabBarOptions?] }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   @Prop
   tabBarOptionsArray: [
@@ -66,7 +66,7 @@ export declare struct AtomicServiceTabs {
    * @type { ?TabBarPosition }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   @Prop
   tabBarPosition?: TabBarPosition;
@@ -76,7 +76,7 @@ export declare struct AtomicServiceTabs {
    * @type { ?LayoutMode }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Prop
   layoutMode?: LayoutMode;
@@ -86,7 +86,7 @@ export declare struct AtomicServiceTabs {
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   @Prop
   barBackgroundColor?: ResourceColor;
@@ -96,7 +96,7 @@ export declare struct AtomicServiceTabs {
    * @type { ?number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   @Prop
   index?: number;
@@ -106,7 +106,7 @@ export declare struct AtomicServiceTabs {
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   @Prop
   barOverlap?: boolean;
@@ -116,7 +116,7 @@ export declare struct AtomicServiceTabs {
    * @type { ?TabsController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   controller?: TabsController;
   /**
@@ -125,7 +125,7 @@ export declare struct AtomicServiceTabs {
    * @type { ?Callback<number> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onChange?: Callback<number>;
   /**
@@ -134,7 +134,7 @@ export declare struct AtomicServiceTabs {
    * @type { ?Callback<number> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onTabBarClick?: Callback<number>;
   /**
@@ -143,7 +143,7 @@ export declare struct AtomicServiceTabs {
    * @type { ?OnContentWillChangeCallback }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onContentWillChange?: OnContentWillChangeCallback;
 }
@@ -153,7 +153,7 @@ export declare struct AtomicServiceTabs {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare class TabBarOptions {
   /**
@@ -165,7 +165,7 @@ export declare class TabBarOptions {
    * @param { ?ResourceColor } - selectedColor - the color of icon and text when tabbar is selected
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    **/
   constructor(icon: ResourceStr | TabBarSymbol, text: ResourceStr,
     unselectedColor?: ResourceColor, selectedColor?: ResourceColor);
@@ -177,7 +177,7 @@ export declare class TabBarOptions {
  * @enum { number }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare enum TabBarPosition {
 
@@ -186,7 +186,7 @@ export declare enum TabBarPosition {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   LEFT = 0,
 
@@ -195,7 +195,7 @@ export declare enum TabBarPosition {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   BOTTOM = 1,
 }
@@ -206,7 +206,7 @@ export declare enum TabBarPosition {
  * @typedef { function } TabContentBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export type TabContentBuilder = () => void;
 
@@ -219,6 +219,6 @@ export type TabContentBuilder = () => void;
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export type OnContentWillChangeCallback = (currentIndex: number, comingIndex: number) => boolean;

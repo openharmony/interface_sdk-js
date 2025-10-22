@@ -23,8 +23,8 @@ import { AsyncCallback, Callback } from './@ohos.base';
 /**
  * Provides methods to operate or manage Wi-Fi.
  * @namespace wifi
- * @since arkts {'1.1':'6', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 6 dynamic
+ * @since 20 static
  */
 declare namespace wifi {
   /**
@@ -34,7 +34,7 @@ declare namespace wifi {
    * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.enableWifi
    */
@@ -47,7 +47,7 @@ declare namespace wifi {
    * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.disableWifi
    */
@@ -59,7 +59,7 @@ declare namespace wifi {
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { boolean } Returns {@code true} if the Wi-Fi is active, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.isWifiActive
    */
@@ -73,7 +73,7 @@ declare namespace wifi {
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.LOCATION
    * @returns { boolean } Returns {@code true} if the accessibility is succeed; returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.scan
    */
@@ -85,7 +85,7 @@ declare namespace wifi {
    * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or ohos.permission.LOCATION)
    * @returns { Promise<Array<WifiScanInfo>> } Returns information about scanned Wi-Fi hotspot if any.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.getScanInfoList
    */
@@ -97,7 +97,7 @@ declare namespace wifi {
    * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or ohos.permission.LOCATION)
    * @param { AsyncCallback<Array<WifiScanInfo>> } get information about scanned Wi-Fi hotspot if any.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.getScanInfoList
    */
@@ -113,7 +113,7 @@ declare namespace wifi {
    * @returns { Promise<number> } Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.addDeviceConfig
    */
@@ -129,7 +129,7 @@ declare namespace wifi {
    * @param { AsyncCallback<number> }
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.addDeviceConfig
    */
@@ -145,7 +145,7 @@ declare namespace wifi {
    * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi network.
    * @returns { Promise<boolean> }  Returns {@code true} if the untrusted hotspot configuration is added, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.addCandidateConfig
    */
@@ -161,7 +161,7 @@ declare namespace wifi {
    * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi network.
    * @param { AsyncCallback<boolean> }
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.addCandidateConfig
    */
@@ -176,7 +176,7 @@ declare namespace wifi {
    * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi network.
    * @returns { Promise<boolean> } Returns {@code true} if the untrusted hotspot configuration is removed, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.removeCandidateConfig
    */
@@ -191,7 +191,7 @@ declare namespace wifi {
    * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi network.
    * @param { AsyncCallback<boolean> }
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.removeCandidateConfig
    */
@@ -205,7 +205,7 @@ declare namespace wifi {
    * @returns { boolean } Returns {@code true} if the network connection is successful, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.connectToNetwork
    */
@@ -221,7 +221,7 @@ declare namespace wifi {
    * @returns { boolean } Returns {@code true} if the network connection is successful, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.connectToDevice
    */
@@ -234,7 +234,7 @@ declare namespace wifi {
    * @returns { boolean } Returns {@code true} for disconnecting network success, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.disconnect
    */
@@ -248,7 +248,7 @@ declare namespace wifi {
    * @param { number } band Indicates the Wi-Fi frequency band.
    * @returns { number } Returns Wi-Fi signal level ranging from 0 to 4.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.getSignalLevel
    */
@@ -260,7 +260,7 @@ declare namespace wifi {
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { Promise<WifiLinkedInfo> } Returns Wi-Fi linked information.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.getLinkedInfo
    */
@@ -272,7 +272,7 @@ declare namespace wifi {
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { AsyncCallback<WifiLinkedInfo> } get Wi-Fi linked information.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.getLinkedInfo
    */
@@ -284,7 +284,7 @@ declare namespace wifi {
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { boolean } Returns {@code true} if a Wi-Fi connection has been set up, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.isConnected
    */
@@ -299,7 +299,7 @@ declare namespace wifi {
    * @returns { number }Returns the features supported by this device.
    * @syscap SystemCapability.Communication.WiFi.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.getSupportedFeatures
    */
@@ -312,7 +312,7 @@ declare namespace wifi {
    * @param { number } featureId Indicates the ID of the feature.
    * @returns { boolean } Returns {@code true} if this device supports the specified feature, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.isFeatureSupported
    */
@@ -327,7 +327,7 @@ declare namespace wifi {
    * @returns { string[] } Returns the MAC address of the Wi-Fi device.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.getDeviceMacAddress
    */
@@ -341,7 +341,7 @@ declare namespace wifi {
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { IpInfo } Returns the IP information of the Wi-Fi connection.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.getIpInfo
    */
@@ -353,7 +353,7 @@ declare namespace wifi {
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { string } Returns the country code of this device.
    * @syscap SystemCapability.Communication.WiFi.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.getCountryCode
    */
@@ -366,7 +366,7 @@ declare namespace wifi {
    * @returns { boolean } {@code true} if the Wi-Fi network is re-associate successfully.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.reassociate
    */
@@ -379,7 +379,7 @@ declare namespace wifi {
    * @returns { boolean } {@code true} if the Wi-Fi network is re-connect successfully.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.reconnect
    */
@@ -394,7 +394,7 @@ declare namespace wifi {
    * @returns { Array<WifiDeviceConfig> } sReturns the list of all existing Wi-Fi configurations you created on your application.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.getDeviceConfigs
    */
@@ -409,7 +409,7 @@ declare namespace wifi {
    *     returns {@code -1} if the specified Wi-Fi configuration is not contained in the list.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.updateDeviceConfig
    */
@@ -425,7 +425,7 @@ declare namespace wifi {
    * @returns { boolean } Returns {@code true} if the specified network is disabled, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.disableDeviceConfig
    */
@@ -439,7 +439,7 @@ declare namespace wifi {
    *     returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.removeAllDeviceConfigs
    */
@@ -458,7 +458,7 @@ declare namespace wifi {
    * @returns { boolean } Returns {@code true} if the Wi-Fi network is deleted successfully, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.removeDeviceConfig
    */
@@ -473,7 +473,7 @@ declare namespace wifi {
    * @returns { boolean } Returns {@code true} if this method is called successfully, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.enableHotspot
    */
@@ -488,7 +488,7 @@ declare namespace wifi {
    * @returns { boolean } Returns {@code true} if this method is called successfully, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.disableHotspot
    */
@@ -501,7 +501,7 @@ declare namespace wifi {
    * @returns { boolean } Returns {@code true} if the method is called successfully, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.isHotspotDualBandSupported
    */
@@ -514,7 +514,7 @@ declare namespace wifi {
    * @returns { boolean } Returns {@code true} if Wi-Fi hotspot is enabled, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.isHotspotActive
    */
@@ -532,7 +532,7 @@ declare namespace wifi {
    * @returns { boolean } Returns {@code true} if the method is called successfully, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.setHotspotConfig
    */
@@ -545,7 +545,7 @@ declare namespace wifi {
    * @returns { HotspotConfig } Returns the configuration of an existing or enabled Wi-Fi hotspot.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.getHotspotConfig
    */
@@ -560,7 +560,7 @@ declare namespace wifi {
    * @returns { Array<StationInfo> } Returns the list of clients that are connected to the Wi-Fi hotspot.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.getHotspotStations
    */
@@ -572,7 +572,7 @@ declare namespace wifi {
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { Promise<WifiP2pLinkedInfo> } Returns the P2P connection information.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.getP2pLinkedInfo
    */
@@ -584,7 +584,7 @@ declare namespace wifi {
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { AsyncCallback<WifiP2pLinkedInfo> } get the P2P connection information.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.getP2pLinkedInfo
    */
@@ -596,7 +596,7 @@ declare namespace wifi {
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
    * @returns { Promise<WifiP2pGroupInfo> } Returns the current group information.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.getCurrentGroup
    */
@@ -608,7 +608,7 @@ declare namespace wifi {
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
    * @param { AsyncCallback<WifiP2pGroupInfo> } get the current group information.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.getCurrentGroup
    */
@@ -620,7 +620,7 @@ declare namespace wifi {
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
    * @returns { Promise<WifiP2pDevice[]> } Returns the found devices list.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.getP2pPeerDevices
    */
@@ -632,7 +632,7 @@ declare namespace wifi {
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
    * @param { AsyncCallback<WifiP2pDevice[]> } Returns the found devices list.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.getP2pPeerDevices
    */
@@ -645,7 +645,7 @@ declare namespace wifi {
    * @param { WifiP2PConfig } config Indicates the configuration for creating a group.
    * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.createP2pGroup
    */
@@ -657,7 +657,7 @@ declare namespace wifi {
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.removeP2pGroup
    */
@@ -670,7 +670,7 @@ declare namespace wifi {
    * @param { WifiP2PConfig } config Indicates the configuration for connecting to a specific group.
    * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.p2pConnect
    */
@@ -682,7 +682,7 @@ declare namespace wifi {
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.p2pCancelConnect
    */
@@ -694,7 +694,7 @@ declare namespace wifi {
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
    * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.startDiscoverP2pDevices
    */
@@ -706,7 +706,7 @@ declare namespace wifi {
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.stopDiscoverP2pDevices
    */
@@ -720,7 +720,7 @@ declare namespace wifi {
    * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.deletePersistentP2pGroup
    */
@@ -734,7 +734,7 @@ declare namespace wifi {
    * @returns { boolean } Returns {@code true} if the operation is successful, returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.setP2pDeviceName
    */
@@ -747,7 +747,7 @@ declare namespace wifi {
    * @param { 'wifiStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:wifiStateChange
    */
@@ -762,7 +762,7 @@ declare namespace wifi {
    * @param { 'wifiStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:wifiStateChange
    */
@@ -775,7 +775,7 @@ declare namespace wifi {
    * @param { 'wifiConnectionChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: disconnected, 1: connected
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:wifiConnectionChange
    */
@@ -790,7 +790,7 @@ declare namespace wifi {
    * @param { 'wifiConnectionChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: disconnected, 1: connected
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:wifiConnectionChange
    */
@@ -803,7 +803,7 @@ declare namespace wifi {
    * @param { 'wifiScanStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: scan fail, 1: scan success
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:wifiScanStateChange
    */
@@ -818,7 +818,7 @@ declare namespace wifi {
    * @param { 'wifiScanStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: scan fail, 1: scan success
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:wifiScanStateChange
    */
@@ -831,7 +831,7 @@ declare namespace wifi {
    * @param { 'wifiRssiChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:wifiRssiChange
    */
@@ -846,7 +846,7 @@ declare namespace wifi {
    * @param { 'wifiRssiChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:wifiRssiChange
    */
@@ -860,7 +860,7 @@ declare namespace wifi {
    * @param { Callback<number> } callback - the callback of on, 1: stream down, 2: stream up, 3: stream bidirectional
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:streamChange
    */
@@ -876,7 +876,7 @@ declare namespace wifi {
    * @param { Callback<number> } callback - the callback of on, 1: stream down, 2: stream up, 3: stream bidirectional
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
   * @useinstead ohos.wifiManager/wifiManager.off#event:streamChange
    */
@@ -889,7 +889,7 @@ declare namespace wifi {
    * @param { 'hotspotStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
    * @syscap SystemCapability.Communication.WiFi.AP.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:hotspotStateChange
    */
@@ -904,7 +904,7 @@ declare namespace wifi {
    * @param { 'hotspotStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
    * @syscap SystemCapability.Communication.WiFi.AP.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:hotspotStateChange
    */
@@ -918,7 +918,7 @@ declare namespace wifi {
    * @param { Callback<StationInfo> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:hotspotStaJoin
    */
@@ -934,7 +934,7 @@ declare namespace wifi {
    * @param { Callback<StationInfo> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:hotspotStaJoin
    */
@@ -948,7 +948,7 @@ declare namespace wifi {
    * @param { Callback<StationInfo> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:hotspotStaLeave
    */
@@ -961,7 +961,7 @@ declare namespace wifi {
    * @param { Callback<StationInfo> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:hotspotStaLeave
    */
@@ -974,7 +974,7 @@ declare namespace wifi {
    * @param { 'p2pStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 1: idle, 2: starting, 3:started, 4: closing, 5: closed
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:p2pStateChange
    */
@@ -987,7 +987,7 @@ declare namespace wifi {
    * @param { 'p2pStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 1: idle, 2: starting, 3:started, 4: closing, 5: closed
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:p2pStateChange
    */
@@ -1000,7 +1000,7 @@ declare namespace wifi {
    * @param { 'p2pConnectionChange' } type - event name.
    * @param { Callback<WifiP2pLinkedInfo> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:p2pConnectionChange
    */
@@ -1013,7 +1013,7 @@ declare namespace wifi {
    * @param { 'p2pConnectionChange' } type - event name.
    * @param { Callback<WifiP2pLinkedInfo> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:p2pConnectionChange
    */
@@ -1026,7 +1026,7 @@ declare namespace wifi {
    * @param { 'p2pDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:p2pDeviceChange
    */
@@ -1039,7 +1039,7 @@ declare namespace wifi {
    * @param { 'p2pDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:p2pDeviceChange
    */
@@ -1052,7 +1052,7 @@ declare namespace wifi {
    * @param { 'p2pPeerDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice[]> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:p2pPeerDeviceChange
    */
@@ -1065,7 +1065,7 @@ declare namespace wifi {
    * @param { 'p2pPeerDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice[]> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:p2pPeerDeviceChange
    */
@@ -1078,7 +1078,7 @@ declare namespace wifi {
    * @param { 'p2pPersistentGroupChange' } type - event name.
    * @param { Callback<void> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:p2pPersistentGroupChange
    */
@@ -1091,7 +1091,7 @@ declare namespace wifi {
    * @param { 'p2pPersistentGroupChange' } type - event name.
    * @param { Callback<void> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:p2pPersistentGroupChange
    */
@@ -1104,7 +1104,7 @@ declare namespace wifi {
    * @param { 'p2pDiscoveryChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.on#event:p2pDiscoveryChange
    */
@@ -1117,7 +1117,7 @@ declare namespace wifi {
    * @param { 'p2pDiscoveryChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.off#event:p2pDiscoveryChange
    */
@@ -1128,49 +1128,49 @@ declare namespace wifi {
    *
    * @interface WifiDeviceConfig
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.WifiDeviceConfig
    */
   interface WifiDeviceConfig {
     /** Wi-Fi SSID: the maximum length is 32
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     ssid: string;
 
     /** Wi-Fi bssid(MAC): the length is 6
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     bssid: string;
 
     /** Wi-Fi key: maximum length is 64 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
     */
     preSharedKey: string;
 
     /** Hide SSID or not, false(default): not hide
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     isHiddenSsid: boolean;
 
     /** Security type: reference definition of WifiSecurityType 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
     */
     securityType: WifiSecurityType;
 
     /** The UID of the Wi-Fi configuration creator
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     /* @systemapi */
@@ -1178,7 +1178,7 @@ declare namespace wifi {
 
     /** Disable reason 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
     */
     /* @systemapi */
@@ -1186,7 +1186,7 @@ declare namespace wifi {
 
     /** Allocated networkId
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     /* @systemapi */
@@ -1194,7 +1194,7 @@ declare namespace wifi {
 
     /** Random mac type
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     /* @systemapi */
@@ -1202,7 +1202,7 @@ declare namespace wifi {
 
     /** Random mac address, the length is 6 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
     */
     /* @systemapi */
@@ -1210,7 +1210,7 @@ declare namespace wifi {
 
     /** IP Type 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
     */
     /* @systemapi */
@@ -1218,7 +1218,7 @@ declare namespace wifi {
 
     /** IP config of static
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     /* @systemapi */
@@ -1231,7 +1231,7 @@ declare namespace wifi {
    * @interface IpConfig
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.IpConfig
    */
@@ -1240,7 +1240,7 @@ declare namespace wifi {
      * IP address.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      */
     ipAddress: number;
@@ -1249,7 +1249,7 @@ declare namespace wifi {
      * Gate way.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      */
     gateway: number;
@@ -1258,7 +1258,7 @@ declare namespace wifi {
      * DNS servers.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      */
     dnsServers: number[];
@@ -1267,7 +1267,7 @@ declare namespace wifi {
      * Domains.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      */
     domains: Array<string>;
@@ -1278,63 +1278,63 @@ declare namespace wifi {
    *
    * @interface WifiScanInfo
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.WifiScanInfo
    */
   interface WifiScanInfo {
     /** Wi-Fi SSID: the maximum length is 32 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
     */
     ssid: string;
 
     /** Wi-Fi bssid(MAC): the length is 6 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
     */
     bssid: string;
 
     /** Hotspot capability
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
     */
     capabilities: string;
 
     /** Security type: reference definition of WifiSecurityType
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     securityType: WifiSecurityType;
 
     /** Received signal strength indicator (RSSI)
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     rssi: number;
 
     /** Frequency band, 1: 2.4G, 2: 5G 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
     */
     band: number;
 
     /** Frequency
      * @syscap SystemCapability.Communication.WiFi.STA 
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     frequency: number;
 
     /** Channel width 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
     */
     channelWidth: number;
@@ -1342,7 +1342,7 @@ declare namespace wifi {
     /** 
      * Time stamp
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     timestamp: number;
@@ -1353,21 +1353,21 @@ declare namespace wifi {
    *
    * @enum { number } WifiSecurityType
    * @syscap SystemCapability.Communication.WiFi.Core
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.WifiSecurityType
    */
   enum WifiSecurityType {
     /** Invalid security type
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     WIFI_SEC_TYPE_INVALID = 0,
 
     /** Open
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     WIFI_SEC_TYPE_OPEN = 1,
@@ -1375,7 +1375,7 @@ declare namespace wifi {
     /** 
      * Wired Equivalent Privacy (WEP) 
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     WIFI_SEC_TYPE_WEP = 2,
@@ -1383,7 +1383,7 @@ declare namespace wifi {
     /** 
      * Pre-shared key (PSK)
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      *  */
     WIFI_SEC_TYPE_PSK = 3,
@@ -1391,7 +1391,7 @@ declare namespace wifi {
     /** 
      * Simultaneous Authentication of Equals (SAE) 
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     WIFI_SEC_TYPE_SAE = 4,
@@ -1402,7 +1402,7 @@ declare namespace wifi {
    *
    * @interface WifiLinkedInfo
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo
    */
@@ -1410,7 +1410,7 @@ declare namespace wifi {
     /** 
      * The SSID of the Wi-Fi hotspot 
      * @syscap SystemCapability.Communication.WiFi.STA  
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     ssid: string;
@@ -1418,7 +1418,7 @@ declare namespace wifi {
     /** 
      *  The BSSID of the Wi-Fi hotspot 
      * @syscap SystemCapability.Communication.WiFi.STA  
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     bssid: string;
@@ -1426,7 +1426,7 @@ declare namespace wifi {
     /** 
      * The ID(uniquely identifies) of a Wi-Fi connection. 
      * @syscap SystemCapability.Communication.WiFi.STA  
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     /* @systemapi */
@@ -1435,7 +1435,7 @@ declare namespace wifi {
     /** 
      * The RSSI(dBm) of a Wi-Fi access point. 
      * @syscap SystemCapability.Communication.WiFi.STA  
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     rssi: number;
@@ -1443,7 +1443,7 @@ declare namespace wifi {
     /** 
      * The frequency band of a Wi-Fi access point.
      * @syscap SystemCapability.Communication.WiFi.STA  
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      *  */
     band: number;
@@ -1451,7 +1451,7 @@ declare namespace wifi {
     /** 
      * The speed of a Wi-Fi access point.
      * @syscap SystemCapability.Communication.WiFi.STA  
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      *  */
     linkSpeed: number;
@@ -1459,7 +1459,7 @@ declare namespace wifi {
     /** 
      * The frequency of a Wi-Fi access point.
      * @syscap SystemCapability.Communication.WiFi.STA  
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      *  */
     frequency: number;
@@ -1467,7 +1467,7 @@ declare namespace wifi {
     /** 
      * Whether the SSID of the access point (AP) of this Wi-Fi connection is hidden.
      * @syscap SystemCapability.Communication.WiFi.STA  
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      *  */
     isHidden: boolean;
@@ -1475,7 +1475,7 @@ declare namespace wifi {
     /** 
      * Whether this Wi-Fi connection restricts the data volume. 
      * @syscap SystemCapability.Communication.WiFi.STA  
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
     */
     isRestricted: boolean;
@@ -1484,7 +1484,7 @@ declare namespace wifi {
      * 
      * The load value of this Wi-Fi connection. A greater value indicates a higher load. 
      * @syscap SystemCapability.Communication.WiFi.STA  
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     /* @systemapi */
@@ -1493,7 +1493,7 @@ declare namespace wifi {
     /** 
      * The signal-to-noise ratio (SNR) of this Wi-Fi connection.
      * @syscap SystemCapability.Communication.WiFi.STA  
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      *  */
     /* @systemapi */
@@ -1503,7 +1503,7 @@ declare namespace wifi {
      * 
      * The Wi-Fi MAC address of a device.
      * @syscap SystemCapability.Communication.WiFi.STA  
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      *  */
     macAddress: string;
@@ -1511,7 +1511,7 @@ declare namespace wifi {
     /** 
      * The IP address of this Wi-Fi connection.
      * @syscap SystemCapability.Communication.WiFi.STA 
-     * @since 6 
+     * @since 6 dynamic
      * @deprecated since 9
      *  */
     ipAddress: number;
@@ -1520,7 +1520,7 @@ declare namespace wifi {
      * 
      * The state of the supplicant of this Wi-Fi connection. 
      * @syscap SystemCapability.Communication.WiFi.STA 
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     /* @systemapi */
@@ -1529,7 +1529,7 @@ declare namespace wifi {
     /** 
      * The state of this Wi-Fi connection. 
      * @syscap SystemCapability.Communication.WiFi.STA 
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     connState: ConnState;
@@ -1540,7 +1540,7 @@ declare namespace wifi {
    *
    * @interface IpInfo
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.IpInfo
    */
@@ -1548,7 +1548,7 @@ declare namespace wifi {
     /** 
      * The IP address of the Wi-Fi connection
      * @syscap SystemCapability.Communication.WiFi.AP.Core 
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      *  */
     ipAddress: number;
@@ -1556,7 +1556,7 @@ declare namespace wifi {
     /** 
      * The gateway of the Wi-Fi connection
      * @syscap SystemCapability.Communication.WiFi.AP.Core 
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      *  */
     gateway: number;
@@ -1564,7 +1564,7 @@ declare namespace wifi {
     /** 
      * The network mask of the Wi-Fi connection
      * @syscap SystemCapability.Communication.WiFi.AP.Core 
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      *  */
     netmask: number;
@@ -1573,7 +1573,7 @@ declare namespace wifi {
      * 
      * The primary DNS server IP address of the Wi-Fi connection
      * @syscap SystemCapability.Communication.WiFi.AP.Core 
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      *  */
     primaryDns: number;
@@ -1581,7 +1581,7 @@ declare namespace wifi {
     /** T
      * he secondary DNS server IP address of the Wi-Fi connection
      * @syscap SystemCapability.Communication.WiFi.AP.Core 
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      *  */
     secondDns: number;
@@ -1589,7 +1589,7 @@ declare namespace wifi {
     /** 
      * The DHCP server IP address of the Wi-Fi connection
      * @syscap SystemCapability.Communication.WiFi.AP.Core  
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      *  */
     serverIp: number;
@@ -1597,7 +1597,7 @@ declare namespace wifi {
     /** 
      * The IP address lease duration of the Wi-Fi connection 
      * @syscap SystemCapability.Communication.WiFi.AP.Core 
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      * */
     leaseDuration: number;
@@ -1609,7 +1609,7 @@ declare namespace wifi {
    * @interface HotspotConfig
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.HotspotConfig
    */
@@ -1618,7 +1618,7 @@ declare namespace wifi {
      * The SSID of the Wi-Fi hotspot 
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      * */
     ssid: string;
@@ -1627,7 +1627,7 @@ declare namespace wifi {
      * The encryption mode of the Wi-Fi hotspot 
      * @syscap SystemCapability.Communication.WiFi.AP.Core 
      * @systemapi
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      * */
     securityType: WifiSecurityType;
@@ -1636,7 +1636,7 @@ declare namespace wifi {
      * The frequency band of the Wi-Fi hotspot
      * @syscap SystemCapability.Communication.WiFi.AP.Core 
      * @systemapi
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      *  */
     band: number;
@@ -1645,7 +1645,7 @@ declare namespace wifi {
      * The password of the Wi-Fi hotspot
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      *  */
     preSharedKey: string;
@@ -1654,7 +1654,7 @@ declare namespace wifi {
      * The maximum number of connections allowed by the Wi-Fi hotspot
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      *  */
     maxConn: number;
@@ -1666,7 +1666,7 @@ declare namespace wifi {
    * @interface StationInfo
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.StationInfo
    */
@@ -1675,7 +1675,7 @@ declare namespace wifi {
      * the network name of the Wi-Fi client
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      *  */
     name: string;
@@ -1684,7 +1684,7 @@ declare namespace wifi {
      * The MAC address of the Wi-Fi client 
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      * */
     macAddress: string;
@@ -1693,7 +1693,7 @@ declare namespace wifi {
      * The IP address of the Wi-Fi client 
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      * */
     ipAddress: string;
@@ -1705,7 +1705,7 @@ declare namespace wifi {
    * @enum { number } IpType
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.IpType
    */
@@ -1714,7 +1714,7 @@ declare namespace wifi {
      * Use statically configured IP settings
      * @syscap SystemCapability.Communication.WiFi.STA 
      * @systemapi
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      *  */
     STATIC,
@@ -1723,7 +1723,7 @@ declare namespace wifi {
      * Use dynamically configured IP settings 
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      * */
     DHCP,
@@ -1732,7 +1732,7 @@ declare namespace wifi {
      *  No IP details are assigned
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 9
      *  */
     UNKNOWN,
@@ -1744,7 +1744,7 @@ declare namespace wifi {
    * @enum { number } SuppState
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.SuppState
    */
@@ -1752,7 +1752,7 @@ declare namespace wifi {
     /** The supplicant is not associated with or is disconnected from the AP.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     DISCONNECTED,
@@ -1761,7 +1761,7 @@ declare namespace wifi {
      * The network interface is disabled. 
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     INTERFACE_DISABLED,
@@ -1770,7 +1770,7 @@ declare namespace wifi {
      * The supplicant is disabled. 
      * @syscap SystemCapability.Communication.WiFi.STA 
      * @systemapi
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     INACTIVE,
@@ -1779,7 +1779,7 @@ declare namespace wifi {
      * The supplicant is scanning for a Wi-Fi connection. 
      * @syscap SystemCapability.Communication.WiFi.STA 
      * @systemapi
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     SCANNING,
@@ -1788,7 +1788,7 @@ declare namespace wifi {
      * The supplicant is authenticating with a specified AP.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      *  */
     AUTHENTICATING,
@@ -1797,7 +1797,7 @@ declare namespace wifi {
      * The supplicant is associating with a specified AP. 
      * @syscap SystemCapability.Communication.WiFi.STA 
      * @systemapi
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     ASSOCIATING,
@@ -1806,7 +1806,7 @@ declare namespace wifi {
      * The supplicant is associated with a specified AP. 
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     ASSOCIATED,
@@ -1815,7 +1815,7 @@ declare namespace wifi {
      * The four-way handshake is ongoing.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      *  */
     FOUR_WAY_HANDSHAKE,
@@ -1823,7 +1823,7 @@ declare namespace wifi {
     /** The group handshake is ongoing.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     GROUP_HANDSHAKE,
@@ -1832,7 +1832,7 @@ declare namespace wifi {
      * All authentication is completed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      *  */
     COMPLETED,
@@ -1841,7 +1841,7 @@ declare namespace wifi {
      * Failed to establish a connection to the supplicant.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      *  */
     UNINITIALIZED,
@@ -1850,7 +1850,7 @@ declare namespace wifi {
      * The supplicant is in an unknown or invalid state.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      *  */
     INVALID
@@ -1861,7 +1861,7 @@ declare namespace wifi {
    *
    * @enum { number } ConnState
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.ConnState
    */
@@ -1869,7 +1869,7 @@ declare namespace wifi {
     /** 
      * The device is searching for an available AP. 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     SCANNING,
@@ -1877,7 +1877,7 @@ declare namespace wifi {
     /** 
      * The Wi-Fi connection is being set up. 
      * @syscap SystemCapability.Communication.WiFi.STA 
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     CONNECTING,
@@ -1885,7 +1885,7 @@ declare namespace wifi {
     /** 
      * The Wi-Fi connection is being authenticated. 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     AUTHENTICATING,
@@ -1893,7 +1893,7 @@ declare namespace wifi {
     /** 
      * The IP address of the Wi-Fi connection is being obtained. 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     OBTAINING_IPADDR,
@@ -1901,7 +1901,7 @@ declare namespace wifi {
     /** 
      * The Wi-Fi connection has been set up.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      *  */
     CONNECTED,
@@ -1909,7 +1909,7 @@ declare namespace wifi {
     /** 
      * The Wi-Fi connection is being torn down.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      *  */
     DISCONNECTING,
@@ -1917,7 +1917,7 @@ declare namespace wifi {
     /** 
      * The Wi-Fi connection has been torn down. 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     DISCONNECTED,
@@ -1925,7 +1925,7 @@ declare namespace wifi {
     /** 
      * Failed to set up the Wi-Fi connection. 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      * */
     UNKNOWN
@@ -1936,7 +1936,7 @@ declare namespace wifi {
    *
    * @interface WifiP2pDevice
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.WifiP2pDevice
    */
@@ -1944,7 +1944,7 @@ declare namespace wifi {
     /** 
      * Device name
      * @syscap SystemCapability.Communication.WiFi.P2P 
-     * @since 8 
+     * @since 8 dynamic
      * @deprecated since 9
      *  */
     deviceName: string;
@@ -1952,7 +1952,7 @@ declare namespace wifi {
     /** 
      * Device mac address 
      * @syscap SystemCapability.Communication.WiFi.P2P 
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      * */
     deviceAddress: string;
@@ -1960,7 +1960,7 @@ declare namespace wifi {
     /**
      *  Primary device type 
      * @syscap SystemCapability.Communication.WiFi.P2P 
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      * */
     primaryDeviceType: string;
@@ -1968,7 +1968,7 @@ declare namespace wifi {
     /** 
      * Device status 
      * @syscap SystemCapability.Communication.WiFi.P2P 
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      * */
     deviceStatus: P2pDeviceStatus;
@@ -1976,7 +1976,7 @@ declare namespace wifi {
     /** 
      * Device group capabilities
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      *  */
     groupCapabilitys: number;
@@ -1986,7 +1986,7 @@ declare namespace wifi {
    * P2P config.
    * @interface WifiP2PConfig
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.WifiP2PConfig
    */
@@ -1994,7 +1994,7 @@ declare namespace wifi {
     /** 
      * Device mac address s
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
     */
     deviceAddress: string;
@@ -2003,7 +2003,7 @@ declare namespace wifi {
      * Group network ID. When creating a group, -1 indicates creates a temporary group,
      * -2: indicates creates a persistent group
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     netId: number;
@@ -2011,7 +2011,7 @@ declare namespace wifi {
     /**
      * The passphrase of this {@code WifiP2pConfig} instance
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      *  */
     passphrase: string;
@@ -2019,7 +2019,7 @@ declare namespace wifi {
     /** 
      * Group name
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      *  */
     groupName: string;
@@ -2027,7 +2027,7 @@ declare namespace wifi {
     /** 
      * Group owner band
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      *  */
     goBand: GroupOwnerBand;
@@ -2037,7 +2037,7 @@ declare namespace wifi {
    * P2P group information.
    * @interface WifiP2pGroupInfo
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.WifiP2pGroupInfo
    */
@@ -2045,7 +2045,7 @@ declare namespace wifi {
     /** 
      * Indicates whether it is group owner
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      *  */
     isP2pGo: boolean;
@@ -2053,7 +2053,7 @@ declare namespace wifi {
     /** 
      * Group owner information
      * @syscap SystemCapability.Communication.WiFi.P2P 
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      *  */
     ownerInfo: WifiP2pDevice;
@@ -2061,7 +2061,7 @@ declare namespace wifi {
     /** 
      * The group passphrase
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      *  */
     passphrase: string;
@@ -2069,7 +2069,7 @@ declare namespace wifi {
     /** 
      * Interface name
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      *  */
     interface: string;
@@ -2077,21 +2077,21 @@ declare namespace wifi {
     /** 
      * Group name
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      *  */
     groupName: string;
 
     /** Network ID 
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
     */
     networkId: number;
 
     /** Frequency
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     frequency: number;
@@ -2099,7 +2099,7 @@ declare namespace wifi {
     /** 
      * Client list 
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      * */
     clientDevices: WifiP2pDevice[];
@@ -2107,7 +2107,7 @@ declare namespace wifi {
     /** 
      * Group owner IP address 
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      * */
     goIpAddress: string;
@@ -2118,7 +2118,7 @@ declare namespace wifi {
    *
    * @enum { number } P2pConnectState
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.P2pConnectState
    */
@@ -2126,7 +2126,7 @@ declare namespace wifi {
     /**
      * p2p is disconnected. 
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     DISCONNECTED = 0,
@@ -2134,7 +2134,7 @@ declare namespace wifi {
     /**
      * p2p is connected.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     CONNECTED = 1,
@@ -2144,7 +2144,7 @@ declare namespace wifi {
    * P2P linked information.
    * @typedef WifiP2pLinkedInfo
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.WifiP2pLinkedInfo
    */
@@ -2152,7 +2152,7 @@ declare namespace wifi {
     /** 
      * Connection status
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      * */
     connectState: P2pConnectState;
@@ -2160,7 +2160,7 @@ declare namespace wifi {
     /** 
      * Indicates whether it is group owner 
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      * */
     isGroupOwner: boolean;
@@ -2168,7 +2168,7 @@ declare namespace wifi {
     /** 
      * Group owner address
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      *  */
     groupOwnerAddr: string;
@@ -2179,7 +2179,7 @@ declare namespace wifi {
    *
    * @enum { number } P2pDeviceStatus
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.P2pDeviceStatus
    */
@@ -2187,7 +2187,7 @@ declare namespace wifi {
     /** 
      * Indicate p2p device is connected.  
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     CONNECTED = 0,
@@ -2195,7 +2195,7 @@ declare namespace wifi {
     /** 
      * Indicate p2p device is invited.  
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     INVITED = 1,
@@ -2203,7 +2203,7 @@ declare namespace wifi {
     /** 
      * Indicate p2p device is failed.  
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     FAILED = 2,
@@ -2211,7 +2211,7 @@ declare namespace wifi {
     /** 
      * Indicate p2p device is available.  
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     AVAILABLE = 3,
@@ -2219,7 +2219,7 @@ declare namespace wifi {
     /** 
      * Indicate p2p device is unavailable.  
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     UNAVAILABLE = 4,
@@ -2230,7 +2230,7 @@ declare namespace wifi {
    *
    * @enum { number } GroupOwnerBand
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.GroupOwnerBand
    */
@@ -2238,7 +2238,7 @@ declare namespace wifi {
     /**
      * default band.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     GO_BAND_AUTO = 0,
@@ -2246,7 +2246,7 @@ declare namespace wifi {
     /**
      * 2.4G band.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     GO_BAND_2GHZ = 1,
@@ -2254,7 +2254,7 @@ declare namespace wifi {
     /**
      * 5G band.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     GO_BAND_5GHZ = 2,

@@ -26,7 +26,8 @@ import { AsyncCallback } from './@ohos.base';
  * @namespace workScheduler
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @StageModelOnly
- * @since 9
+ * @since 9 dynamic
+ * @since 22 static
  */
 declare namespace workScheduler {
   /**
@@ -35,25 +36,28 @@ declare namespace workScheduler {
    * @interface WorkInfo
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   export interface WorkInfo {
     /**
      * The id of the current work.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    workId: number;
+    workId: int;
     /**
      * The bundle name of the current work.
      *
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     bundleName: string;
     /**
@@ -62,7 +66,8 @@ declare namespace workScheduler {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     abilityName: string;
     /**
@@ -71,7 +76,8 @@ declare namespace workScheduler {
      * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     isPersisted?: boolean;
     /**
@@ -80,7 +86,8 @@ declare namespace workScheduler {
      * @type { ?NetworkType }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     networkType?: NetworkType;
     /**
@@ -89,7 +96,8 @@ declare namespace workScheduler {
      * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     isCharging?: boolean;
     /**
@@ -98,25 +106,28 @@ declare namespace workScheduler {
      * @type { ?ChargingType }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     chargerType?: ChargingType;
     /**
      * The battery level for triggering a work.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    batteryLevel?: number;
+    batteryLevel?: int;
     /**
      * The battery status for triggering a work.
      *
      * @type { ?BatteryStatus }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     batteryStatus?: BatteryStatus;
     /**
@@ -125,72 +136,79 @@ declare namespace workScheduler {
      * @type { ?StorageRequest }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     storageRequest?: StorageRequest;
     /**
      * The interval at which the work is repeated.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    repeatCycleTime?: number;
+    repeatCycleTime?: int;
     /**
      * Whether the work has been set to repeat at the specified interval.
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     isRepeat?: boolean;
     /**
      * The repeat of the current work.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    repeatCount?: number;
+    repeatCount?: int;
     /**
      * Whether the device deep idle state has been set for triggering the work.
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     isDeepIdle?: boolean;
     /**
      * The idle wait time based on which the work is triggered.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    idleWaitTime?: number;
+    idleWaitTime?: int;
     /**
-     * The parameters of the work. The value is only supported basic type(Number, String, Boolean).
+     * The parameters of the work. The value is only supported basic type(Int, Double, String, Boolean).
      *
-     * @type { ?Record<string, number | string | boolean> }
+     * @type { ?Record<string, int | double | string | boolean> }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    parameters?: Record<string, number | string | boolean>;
+    parameters?: Record<string, int | double | string | boolean>;
     /**
      * From now on, the earliest time work can be triggered.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 22
+     * @since 22 dynamic
      */
-    earliestStartTime?: number;
+    earliestStartTime?: int;
   }
 
   /**
@@ -208,7 +226,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700005 - Calling startWork failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function startWork(work: WorkInfo): void;
 
@@ -226,14 +245,15 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function stopWork(work: WorkInfo, needCancel?: boolean): void;
 
   /**
    * Obtains the work info of the wordId.
    *
-   * @param { number } workId - The id of work.
+   * @param { int } workId - The id of work.
    * @param { AsyncCallback<WorkInfo> } callback - The callback of the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
@@ -243,14 +263,15 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
-  function getWorkStatus(workId: number, callback: AsyncCallback<WorkInfo>): void;
+  function getWorkStatus(workId: int, callback: AsyncCallback<WorkInfo>): void;
 
   /**
    * Obtains the work info of the wordId.
    *
-   * @param { number } workId - The id of work.
+   * @param { int } workId - The id of work.
    * @returns { Promise<WorkInfo> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
@@ -260,9 +281,10 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
-  function getWorkStatus(workId: number): Promise<WorkInfo>;
+  function getWorkStatus(workId: int): Promise<WorkInfo>;
 
   /**
    * Get all works of the calling application.
@@ -277,7 +299,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.resourceschedule.workScheduler#obtainAllWorks
    */
@@ -295,7 +317,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   function obtainAllWorks(callback: AsyncCallback<Array<WorkInfo>>): void;
 
@@ -311,7 +334,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function obtainAllWorks(): Promise<Array<WorkInfo>>;
 
@@ -326,7 +350,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function stopAndClearWorks(): void;
 
@@ -344,7 +369,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.resourceschedule.workScheduler#isLastWorkTimeOut
    */
@@ -353,7 +378,7 @@ declare namespace workScheduler {
   /**
    * Check whether last work running is timeout. The interface is for repeating work.
    *
-   * @param { number } workId - The id of work.
+   * @param { int } workId - The id of work.
    * @param { AsyncCallback<boolean> } callback - The callback of the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
@@ -363,14 +388,15 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
-  function isLastWorkTimeOut(workId: number, callback: AsyncCallback<boolean>): void;
+  function isLastWorkTimeOut(workId: int, callback: AsyncCallback<boolean>): void;
 
   /**
    * Check whether last work running is timeout. The interface is for repeating work.
    *
-   * @param { number } workId - The id of work.
+   * @param { int } workId - The id of work.
    * @returns { Promise<boolean> } True if last work running is timeout, otherwise false.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
@@ -380,17 +406,19 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
-  function isLastWorkTimeOut(workId: number): Promise<boolean>;
+  function isLastWorkTimeOut(workId: int): Promise<boolean>;
 
   /**
    * Describes network type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    * @name NetworkType
   */
   export enum NetworkType {
@@ -399,7 +427,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     NETWORK_TYPE_ANY = 0,
     /**
@@ -407,7 +436,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     NETWORK_TYPE_MOBILE,
     /**
@@ -415,7 +445,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     NETWORK_TYPE_WIFI,
     /**
@@ -423,7 +454,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     NETWORK_TYPE_BLUETOOTH,
     /**
@@ -431,7 +463,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     NETWORK_TYPE_WIFI_P2P,
     /**
@@ -439,7 +472,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     NETWORK_TYPE_ETHERNET
   }
@@ -447,10 +481,11 @@ declare namespace workScheduler {
   /**
    * Describes charging type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    * @name ChargingType
   */
   export enum ChargingType {
@@ -459,7 +494,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     CHARGING_PLUGGED_ANY = 0,
     /**
@@ -467,7 +503,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     CHARGING_PLUGGED_AC,
     /**
@@ -475,7 +512,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     CHARGING_PLUGGED_USB,
     /**
@@ -483,7 +521,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     CHARGING_PLUGGED_WIRELESS
   }
@@ -491,10 +530,11 @@ declare namespace workScheduler {
   /**
    * Describes the battery status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    * @name BatteryStatus
   */
   export enum BatteryStatus {
@@ -503,7 +543,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     BATTERY_STATUS_LOW = 0,
     /**
@@ -511,7 +552,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     BATTERY_STATUS_OKAY,
     /**
@@ -519,7 +561,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     BATTERY_STATUS_LOW_OR_OKAY
   }
@@ -527,10 +570,11 @@ declare namespace workScheduler {
   /**
    * Describes the storage request.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    * @name StorageRequest
   */
   export enum StorageRequest {
@@ -539,7 +583,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     STORAGE_LEVEL_LOW = 0,
     /**
@@ -547,7 +592,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     STORAGE_LEVEL_OKAY,
     /**
@@ -555,7 +601,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     STORAGE_LEVEL_LOW_OR_OKAY
   }

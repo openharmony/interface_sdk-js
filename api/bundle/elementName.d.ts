@@ -27,7 +27,7 @@
  *
  * @typedef ElementName
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.ElementName
  */
@@ -37,7 +37,7 @@ export interface ElementName {
    *
    * @default -
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   deviceId?: string;
@@ -47,7 +47,7 @@ export interface ElementName {
    *
    * @default -
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   bundleName: string;
@@ -57,7 +57,7 @@ export interface ElementName {
    *
    * @default ability class name.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   abilityName: string;
@@ -67,7 +67,7 @@ export interface ElementName {
    *
    * @default -
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   uri?: string;
@@ -77,7 +77,7 @@ export interface ElementName {
    *
    * @default -
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   shortName?: string;

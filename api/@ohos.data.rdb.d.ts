@@ -27,7 +27,7 @@ import Context from './application/BaseContext';
  *
  * @namespace rdb
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.data.relationalStore
  */
@@ -42,7 +42,7 @@ declare namespace rdb {
    * @param { number } version - Indicates the database version for upgrade or downgrade.
    * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.getRdbStore
    */
@@ -58,7 +58,7 @@ declare namespace rdb {
    * @param { number } version - Indicates the database version for upgrade or downgrade.
    * @returns { Promise<RdbStore> } The RDB store {@link RdbStore}.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.getRdbStore
    */
@@ -71,7 +71,7 @@ declare namespace rdb {
    * @param { string } name - Indicates the database name.
    * @param { AsyncCallback<void> } callback - The callback of deleteRdbStore.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.deleteRdbStore
    */
@@ -83,7 +83,7 @@ declare namespace rdb {
    * @param { string } name - Indicates the database name.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.deleteRdbStore
    */
@@ -94,7 +94,7 @@ declare namespace rdb {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.SyncMode
    */
@@ -103,7 +103,7 @@ declare namespace rdb {
      * Indicates the data is pushed to remote device from local device.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.SyncMode.SYNC_MODE_PUSH
      */
@@ -113,7 +113,7 @@ declare namespace rdb {
      * Indicates the data is pulled from remote device to local device.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.SyncMode.SYNC_MODE_PULL
      */
@@ -126,7 +126,7 @@ declare namespace rdb {
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.SubscribeType
    */
@@ -136,7 +136,7 @@ declare namespace rdb {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.SubscribeType.SUBSCRIBE_TYPE_REMOTE
      */
@@ -149,7 +149,7 @@ declare namespace rdb {
    *
    * @interface RdbStore
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.RdbStore
    */
@@ -161,7 +161,7 @@ declare namespace rdb {
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.insert
      */
@@ -174,7 +174,7 @@ declare namespace rdb {
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @returns { Promise<number> } Return the row ID if the operation is successful. return -1 otherwise.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.insert
      */
@@ -187,7 +187,7 @@ declare namespace rdb {
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
      * @param { AsyncCallback<number> } callback - The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.batchInsert
      */
@@ -200,7 +200,7 @@ declare namespace rdb {
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
      * @returns { Promise<number> } Return the number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.batchInsert
      */
@@ -214,7 +214,7 @@ declare namespace rdb {
      * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { AsyncCallback<number> } callback - The number of affected rows.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.update
      */
@@ -228,7 +228,7 @@ declare namespace rdb {
      * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @returns { Promise<number> } Return the number of affected rows.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.update
      */
@@ -240,7 +240,7 @@ declare namespace rdb {
      * @param { RdbPredicates } predicates - The specified delete condition by the instance object of {@link RdbPredicates}.
      * @param { AsyncCallback<number> } callback - The number of affected rows.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.delete
      */
@@ -252,7 +252,7 @@ declare namespace rdb {
      * @param { RdbPredicates } predicates - The specified delete condition by the instance object of {@link RdbPredicates}.
      * @returns { Promise<number> } Return the number of affected rows.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.delete
      */
@@ -265,7 +265,7 @@ declare namespace rdb {
      * @param { Array<string> } columns - The columns to query. If the value is empty array, the query applies to all columns.
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.query
      */
@@ -278,7 +278,7 @@ declare namespace rdb {
      * @param { Array<string> } columns - The columns to query. If the value is null, the query applies to all columns.
      * @returns { Promise<ResultSet> } Return the {@link ResultSet} object if the operation is successful.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.query
      */
@@ -291,7 +291,7 @@ declare namespace rdb {
      * @param { Array<ValueType> } bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @param { AsyncCallback<ResultSet> } callback
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.querySql
      */
@@ -304,7 +304,7 @@ declare namespace rdb {
      * @param { Array<ValueType> } bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @returns { Promise<ResultSet> } Return the {@link ResultSet} object if the operation is successful.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.querySql
      */
@@ -317,7 +317,7 @@ declare namespace rdb {
      * @param { Array<ValueType> } bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @param { AsyncCallback<void> } callback - The callback of executeSql.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.executeSql
      */
@@ -330,7 +330,7 @@ declare namespace rdb {
      * @param { Array<ValueType> } bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @returns { Promise<void> } The promise returned by the function.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.executeSql
      */
@@ -340,7 +340,7 @@ declare namespace rdb {
      * Begin Transaction before execute your sql.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.beginTransaction
      */
@@ -350,7 +350,7 @@ declare namespace rdb {
      * Commit the the sql you have executed.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.commit
      */
@@ -360,7 +360,7 @@ declare namespace rdb {
      * Roll back the sql you have already executed.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.rollBack
      */
@@ -373,7 +373,7 @@ declare namespace rdb {
      * @param { Array<string> } tables - Indicates the tables name you want to set.
      * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.setDistributedTables
      */
@@ -386,7 +386,7 @@ declare namespace rdb {
      * @param { Array<string> } tables - Indicates the tables name you want to set.
      * @returns { Promise<void> } The promise returned by the function.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.setDistributedTables
      */
@@ -401,7 +401,7 @@ declare namespace rdb {
      * @param { string } table - {string}: The distributed table name.
      * @param { AsyncCallback<string> } callback
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.obtainDistributedTableName
      */
@@ -416,7 +416,7 @@ declare namespace rdb {
      * @param { string } table
      * @returns { Promise<string> } {string}: The distributed table name.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.obtainDistributedTableName
      */
@@ -430,7 +430,7 @@ declare namespace rdb {
      * @param { RdbPredicates } predicates - {Array<[string, number]>}: Devices sync status array, {string}: device id, {number}: device sync status.
      * @param { AsyncCallback<Array<[string, number]>> } callback
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.sync
      */
@@ -444,7 +444,7 @@ declare namespace rdb {
      * @param { RdbPredicates } predicates
      * @returns { Promise<Array<[string, number]>> } {Array<[string, number]>}: Devices sync status array, {string}: device id, {number}: device sync status.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.sync
      */
@@ -459,7 +459,7 @@ declare namespace rdb {
      * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> } observer - {Array<string>}: The observer of data change events in the distributed database.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.on
      */
@@ -473,7 +473,7 @@ declare namespace rdb {
      * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> } observer - {Array<string>}: The data change observer already registered.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbStore.off
      */
@@ -484,7 +484,7 @@ declare namespace rdb {
    * Indicates possible value types
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ValueType
    */
@@ -494,7 +494,7 @@ declare namespace rdb {
    * Values in buckets are stored in key-value pairs
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.ValuesBucket
    */
@@ -505,7 +505,7 @@ declare namespace rdb {
    *
    * @interface StoreConfig
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.StoreConfig
    */
@@ -514,7 +514,7 @@ declare namespace rdb {
      * Manages relational database configurations.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.StoreConfig
      */
@@ -525,7 +525,7 @@ declare namespace rdb {
    * Manages relational database configurations.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.RdbPredicates
    */
@@ -535,7 +535,7 @@ declare namespace rdb {
      *
      * @param { string } name - Indicates the table name of the database.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.constructor
      */
@@ -548,7 +548,7 @@ declare namespace rdb {
      * @param { Array<string> } devices - Indicates specified remote devices.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.inDevices
      */
@@ -560,7 +560,7 @@ declare namespace rdb {
      *
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.inAllDevices
      */
@@ -575,7 +575,7 @@ declare namespace rdb {
      * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.equalTo
      */
@@ -590,7 +590,7 @@ declare namespace rdb {
      * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.notEqualTo
      */
@@ -602,7 +602,7 @@ declare namespace rdb {
      *
      * @returns { RdbPredicates } - The {@link RdbPredicates} with the left parenthesis.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.beginWrap
      */
@@ -615,7 +615,7 @@ declare namespace rdb {
      *
      * @returns { RdbPredicates } - The {@link RdbPredicates} with the right parenthesis.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.endWrap
      */
@@ -627,7 +627,7 @@ declare namespace rdb {
      *
      * @returns { RdbPredicates } Returns the {@link RdbPredicates} with the or condition.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.or
      */
@@ -639,7 +639,7 @@ declare namespace rdb {
      *
      * @returns { RdbPredicates } Returns the {@link RdbPredicates} with the or condition.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.and
      */
@@ -654,7 +654,7 @@ declare namespace rdb {
      * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.contains
      */
@@ -669,7 +669,7 @@ declare namespace rdb {
      * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.beginsWith
      */
@@ -684,7 +684,7 @@ declare namespace rdb {
      * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.endsWith
      */
@@ -697,7 +697,7 @@ declare namespace rdb {
      * @param { string } field - Indicates the column name in the database table.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.isNull
      */
@@ -711,7 +711,7 @@ declare namespace rdb {
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.isNotNull
      */
@@ -726,7 +726,7 @@ declare namespace rdb {
      * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The {@link RdbPredicates} that match the specified field.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.like
      */
@@ -741,7 +741,7 @@ declare namespace rdb {
      * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.glob
      */
@@ -756,7 +756,7 @@ declare namespace rdb {
      * @param { ValueType } high - Indicates the maximum value.
      * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.between
      */
@@ -771,7 +771,7 @@ declare namespace rdb {
      * @param { ValueType } high - Indicates  the maximum value to.
      * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.notBetween
      */
@@ -784,7 +784,7 @@ declare namespace rdb {
      * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.greaterThan
      */
@@ -797,7 +797,7 @@ declare namespace rdb {
      * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.lessThan
      */
@@ -810,7 +810,7 @@ declare namespace rdb {
      * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.greaterThanOrEqualTo
      */
@@ -823,7 +823,7 @@ declare namespace rdb {
      * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.lessThanOrEqualTo
      */
@@ -836,7 +836,7 @@ declare namespace rdb {
      * @param { string } field - Indicates the column name for sorting the return list.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.orderByAsc
      */
@@ -849,7 +849,7 @@ declare namespace rdb {
      * @param { string } field - Indicates the column name for sorting the return list.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.orderByDesc
      */
@@ -860,7 +860,7 @@ declare namespace rdb {
      *
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.distinct
      */
@@ -872,7 +872,7 @@ declare namespace rdb {
      * @param { number } value - Indicates the max length of the return list.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.limitAs
      */
@@ -885,7 +885,7 @@ declare namespace rdb {
      * @param { number } rowOffset - Indicates the start position of the returned result. The value is a positive integer.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.offsetAs
      */
@@ -897,7 +897,7 @@ declare namespace rdb {
      * @param { Array<string> } fields - Indicates the specified columns by which query results are grouped.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.groupBy
      */
@@ -910,7 +910,7 @@ declare namespace rdb {
      * @param { string } field - Indicates the name of the index column.
      * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.indexedBy
      */
@@ -924,7 +924,7 @@ declare namespace rdb {
      * @param { Array<ValueType> } value - Indicates the values to match with {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.in
      */
@@ -938,7 +938,7 @@ declare namespace rdb {
      * @param { Array<ValueType> } value - Indicates the values to match with {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.data.relationalStore.RdbPredicates.notIn
      */
@@ -949,7 +949,7 @@ declare namespace rdb {
    * Configure RdbPredicates to match the specified field whose data type is ValueType array and values
    * are out of a given range.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   export type ResultSet = _ResultSet;
@@ -958,7 +958,7 @@ declare namespace rdb {
 /**
  * Provides methods for rdbStore create and delete.
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
- * @since 7
+ * @since 7 dynamic
  * @deprecated since 9
  */
 export default rdb;
