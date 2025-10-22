@@ -120,6 +120,7 @@ export interface NotificationBasicContent {
    *
    * @type { ?Map<string, string> }
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since arkts {'1.1':'21', '1.2':'21'}
    * @arkts 1.1&1.2
    */
