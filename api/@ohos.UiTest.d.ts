@@ -4189,9 +4189,9 @@ declare class Driver {
   /**
    * Press two or three key combinations
    *
-   * @param { int } key0 - the first keyCode.
-   * @param { int } key1 - the second keyCode.
-   * @param { int } [key2] - the third keyCode,set it default 0 if null or undefined.
+   * @param { number } key0 - the first keyCode.
+   * @param { number } key1 - the second keyCode.
+   * @param { number } [key2] - the third keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4199,10 +4199,9 @@ declare class Driver {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    * @test
    */
-  triggerCombineKeys(key0: int, key1: int, key2?: int): Promise<void>;
+  triggerCombineKeys(key0: number, key1: number, key2?: number): Promise<void>;
 
   /**
    * Press two or three key combinations on the specified display.
@@ -5126,8 +5125,8 @@ declare class Driver {
    *
    * @param { Point } p - the coordinate of the specified location.
    * @param { MouseButton } btnId - the button of Mouse.
-   * @param { int } [key1] - the first keyCode,set it default 0 if null or undefined.
-   * @param { int } [key2] - the second keyCode,set it default 0 if null or undefined.
+   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -5179,7 +5178,7 @@ declare class Driver {
    *
    * @param { Point } from - the starting point.
    * @param { Point } to - the ending point.
-   * @param { int } [speed] - speed of drag (pixels per second),the value ranges from 200 to 40000,Set it default 600 if out of range or null or undefined.
+   * @param { number } [speed] - speed of drag (pixels per second),the value ranges from 200 to 40000,Set it default 600 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
