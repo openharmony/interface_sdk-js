@@ -18,13 +18,13 @@
  * @file
  * @kit ArkUI
  */
-import { ComponentV2 } from './arkui/component/customComponent';
-import { ResourceStr } from './arkui/component/units';
-import { ObservedV2, Param, Require, Trace } from './arkui/stateManagement/decorator';
+import { ComponentV2 } from '@ohos.arkui.component';
+import { ResourceStr } from '@ohos.arkui.component';
+import { ObservedV2, Param, Require, Trace } from '@ohos.arkui.stateManagement';
 import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
 import { DividerModifier } from './arkui/DividerModifier';
 import { ColorMetrics, LengthMetrics } from './arkui/Graphics';
-import { Builder } from './arkui/component/builder';
+import { Builder } from '@ohos.arkui.component';
 /**
  * Declare enum ToolBarV2ItemState.
  *

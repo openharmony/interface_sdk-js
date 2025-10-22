@@ -23,7 +23,7 @@ import { Component, CustomDialog } from '@ohos.arkui.component';
 import { ResourceStr, ResourceColor, Padding, LocalizedPadding, SizeOptions } from '@ohos.arkui.component';
 import { ButtonStyleMode, ButtonRole } from '@ohos.arkui.component';
 import { PixelMap, ThemeColorMode, CustomPopupOptions } from '@ohos.arkui.component';
-import { PropRef, Link, Require } from './arkui/stateManagement/decorator';
+import { PropRef, Link, Require } from '@ohos.arkui.stateManagement';
 import { Callback } from './@ohos.base';
 import { CustomDialogController } from '@ohos.arkui.component';
 import { BuilderParam, Builder } from '@ohos.arkui.component';

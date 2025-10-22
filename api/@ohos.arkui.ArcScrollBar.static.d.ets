@@ -18,11 +18,11 @@
  * @file
  * @kit ArkUI
  */
-import { Scroller } from './arkui/component/scroll';
-import { BarState } from './arkui/component/enums';
-import { CommonMethod } from './arkui/component/common';
-import { memo, ComponentBuilder } from './arkui/stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './arkui/component/common';
+import { Scroller } from '@ohos.arkui.component';
+import { BarState } from '@ohos.arkui.component';
+import { CommonMethod } from '@ohos.arkui.component';
+import { memo, ComponentBuilder } from '@ohos.arkui.stateManagement';
+import { AttributeModifier, CommonMethod } from '@ohos.arkui.component';
 /**
  * Defines the arc scroll bar options.
  *

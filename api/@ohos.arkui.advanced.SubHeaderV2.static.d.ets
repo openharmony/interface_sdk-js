@@ -19,12 +19,12 @@
  * @kit ArkUI
  */
 import { TextModifier } from './arkui/TextModifier';
-import { ResourceStr } from './arkui/component/units';
+import { ResourceStr } from '@ohos.arkui.component';
 import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
-import { SelectOption } from './arkui/component/select';
-import { ObservedV2, Trace, Param } from './arkui/stateManagement/decorator';
-import { ComponentV2 } from './arkui/component/customComponent';
-import { BuilderParam, Builder } from './arkui/component/builder';
+import { SelectOption } from '@ohos.arkui.component';
+import { ObservedV2, Trace, Param } from '@ohos.arkui.stateManagement';
+import { ComponentV2 } from '@ohos.arkui.component';
+import { BuilderParam, Builder } from '@ohos.arkui.component';
 /**
  * SubHeaderV2IconType
  *

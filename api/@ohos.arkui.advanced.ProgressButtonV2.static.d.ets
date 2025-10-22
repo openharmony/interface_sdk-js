@@ -18,10 +18,10 @@
  * @file
  * @kit ArkUI
  */
-import { ComponentV2 } from './arkui/component/customComponent';
-import { Require, Param, Once, Trace, ObservedV2 } from './arkui/stateManagement/decorator';
-import { ResourceStr } from './arkui/component/units';
-import { Builder } from './arkui/component/builder';
+import { ComponentV2 } from '@ohos.arkui.component';
+import { Require, Param, Once, Trace, ObservedV2 } from '@ohos.arkui.stateManagement';
+import { ResourceStr } from '@ohos.arkui.component';
+import { Builder } from '@ohos.arkui.component';
 import { LengthMetrics, ColorMetrics } from './arkui/Graphics';
 /**
  * Declare Component ProgressButtonV2
