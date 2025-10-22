@@ -5187,7 +5187,8 @@ declare namespace window {
      *                                                                                 3. The parameter format is incorrect.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     showWindow(options: ShowWindowOptions): Promise<void>;
 
@@ -11290,7 +11291,7 @@ declare namespace window {
     /**
      * Set the parent window of the child window.
      *
-     * @param { number } windowId - Indicates parent window id.
+     * @param { int } windowId - Indicates parent window id.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -11299,9 +11300,10 @@ declare namespace window {
      * @throws { BusinessError } 1300009 - The parent window is invaild.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
+     * @since 22 static
      */
-    setParentWindow(windowId: number): Promise<void>;
+    setParentWindow(windowId: int): Promise<void>;
 
     /**
      * Get the parent window.
@@ -11313,7 +11315,8 @@ declare namespace window {
      * @throws { BusinessError } 1300009 - The parent window is invaild.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since 19 dynamic
+     * @since 22 static
      */
     getParentWindow(): Window;
 
@@ -11792,7 +11795,8 @@ declare namespace window {
    * @interface ShowWindowOptions
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface ShowWindowOptions {
     /**
@@ -11801,7 +11805,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     focusOnShow?: boolean;
   }
