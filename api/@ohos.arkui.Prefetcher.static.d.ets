@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 
-import { IDataSource } from './arkui/component/lazyForEach';
+import { IDataSource } from '@ohos.arkui.component';
 
 /**
  * Implement this interface to provide data prefetching for the LazyForEach component.

@@ -19,10 +19,10 @@
  * @kit AVSessionKit
  */
 
-import { PropRef } from './arkui/stateManagement/decorator';
-import { Component } from './arkui/component/customComponent';
-import { Color} from './arkui/component/enums';
-import { CustomBuilder, Builder, BuilderParam } from './arkui/component/builder';
+import { PropRef } from '@ohos.arkui.stateManagement';
+import { Component } from '@ohos.arkui.component';
+import { Color} from '@ohos.arkui.component';
+import { CustomBuilder, Builder, BuilderParam } from '@ohos.arkui.component';
 import { AVCastPickerState, AVCastPickerStyle, AVCastPickerColorMode } from './@ohos.multimedia.avCastPickerParam';
 
 /**

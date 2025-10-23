@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { TouchObject, KeyEvent, MouseEvent } from './arkui/component/common';
+import { TouchObject, KeyEvent, MouseEvent } from '@ohos.arkui.component';
 
 /**
  * Send a mock touch event to the current application. This interface is only suitable for
