@@ -496,13 +496,13 @@ export declare interface IDecoratedV1Variable<T> extends IDecoratedVariable {
 }
 
 /**
- * Define decorated immutable variable interface.
+ * Define decorated variable interface.
  *
- * @interface IDecoratedImmutableVariable<T>
+ * @interface IDecoratedReadableVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare interface IDecoratedImmutableVariable<T> {
+export declare interface IDecoratedReadableVariable<T> {
   /**
    * Get the state variable.
    *
@@ -514,21 +514,25 @@ export declare interface IDecoratedImmutableVariable<T> {
 }
 
 /**
+ * Define decorated immutable variable interface.
+ *
+ * @extends IDecoratedReadableVariable<T>
+ * @interface IDecoratedImmutableVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface IDecoratedImmutableVariable<T> extends IDecoratedReadableVariable<T> {
+}
+
+/**
  * Define decorated mutable variable interface.
  *
+ * @extends IDecoratedReadableVariable<T>
  * @interface IDecoratedMutableVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare interface IDecoratedMutableVariable<T> {
-  /**
-   * Get the state variable.
-   *
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
-   */
-  get(): T;
+export declare interface IDecoratedMutableVariable<T> extends IDecoratedReadableVariable<T> {
   /**
    * Set the state variable with a new Value.
    *
@@ -1246,20 +1250,12 @@ export declare interface ISubscribedWatches extends IWatchSubscriberRegister {
 /**
  * Defines Computed decoration variable interface.
  *
+ * @extends IDecoratedReadableVariable<T>
  * @interface IComputedDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare interface IComputedDecoratedVariable<T> {
-    /**
-     * Get the computed variable.
-     *
-     * @returns { T }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    get(): T;
-
+export declare interface IComputedDecoratedVariable<T> extends IDecoratedReadableVariable<T> {
     /**
      * Set owner for the computed variable. Used to detect component freezing.
      *
