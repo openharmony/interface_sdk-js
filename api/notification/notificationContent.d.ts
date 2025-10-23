@@ -120,6 +120,7 @@ export interface NotificationBasicContent {
    *
    * @type { ?Map<string, string> }
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 21 dynamic&static
    */
   structuredText?: Map<string, string>;
