@@ -1,7 +1,7 @@
 {
   "name": "package_tools",
   "version": "1.0.0",
-  "description": "package tools for SDK1.2",
+  "description": "packagind tools for SDK1.2",
   "main": "main.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
