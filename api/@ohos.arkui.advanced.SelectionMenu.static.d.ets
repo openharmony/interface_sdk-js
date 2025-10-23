@@ -19,11 +19,11 @@
  * @kit ArkUI
  */
 
-import { ResourceStr, VoidCallback } from './arkui/component/units';
+import { ResourceStr, VoidCallback } from '@ohos.arkui.component';
 import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
-import { Builder, CustomBuilder } from './arkui/component/builder';
-import { RichEditorSelection, RichEditorController } from './arkui/component/richEditor';
-import { MenuItemOptions } from './arkui/component/menuItem';
+import { Builder, CustomBuilder } from '@ohos.arkui.component';
+import { RichEditorSelection, RichEditorController } from '@ohos.arkui.component';
+import { MenuItemOptions } from '@ohos.arkui.component';
 
 /**
  * Construct parameter types for EditorMenuOptions.

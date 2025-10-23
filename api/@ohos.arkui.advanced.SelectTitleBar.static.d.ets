@@ -18,12 +18,12 @@
  * @file
  * @kit ArkUI
  */
-import { ResourceStr } from './arkui/component/units';
-import { Component } from './arkui/component/customComponent';
+import { ResourceStr } from '@ohos.arkui.component';
+import { Component } from '@ohos.arkui.component';
 import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
-import { SelectOption } from './arkui/component/select';
-import { Builder } from './arkui/component/builder';
-import { PropRef } from './arkui/stateManagement/decorator';
+import { SelectOption } from '@ohos.arkui.component';
+import { Builder } from '@ohos.arkui.component';
+import { PropRef } from '@ohos.arkui.stateManagement';
 /**
  * Declaration of the menu item on the right side.
  *

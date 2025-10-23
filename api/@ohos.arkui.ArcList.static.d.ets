@@ -18,15 +18,15 @@
  * @kit ArkUI
  */
 
-import { ChildrenMainSize, OnWillScrollCallback, OnScrollCallback } from './arkui/component/common';
-import { Axis, CrownSensitivity, BarState } from './arkui/component/enums';
-import { Scroller } from './arkui/component/scroll';
-import { VoidCallback } from './arkui/component/units';
+import { ChildrenMainSize, OnWillScrollCallback, OnScrollCallback } from '@ohos.arkui.component';
+import { Axis, CrownSensitivity, BarState } from '@ohos.arkui.component';
+import { Scroller } from '@ohos.arkui.component';
+import { VoidCallback } from '@ohos.arkui.component';
 import { LengthMetrics, ColorMetrics } from './arkui/Graphics';
-import { memo, ComponentBuilder } from './arkui/stateManagement/runtime';
+import { memo, ComponentBuilder } from '@ohos.arkui.stateManagement';
 import { ComponentContentBase } from './arkui/ComponentContent';
-import { AttributeModifier, CommonMethod } from './arkui/component/common';
-import { SwipeActionOptions } from './arkui/component/listItem';
+import { AttributeModifier, CommonMethod } from '@ohos.arkui.component';
+import { SwipeActionOptions } from '.@ohos.arkui.component';
 /**
  * Called when the start, end and center positions of the display change.
  *

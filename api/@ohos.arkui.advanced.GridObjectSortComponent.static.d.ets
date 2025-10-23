@@ -18,11 +18,11 @@
  * @file
  * @kit ArkUI
  */
-import { Resource, ResourceStr, ResourceColor, LocalizedMargin } from './arkui/component/units';
-import { PropRef } from './arkui/stateManagement/decorator';
-import { Component } from './arkui/component/customComponent';
+import { Resource, ResourceStr, ResourceColor, LocalizedMargin } from '@ohos.arkui.component';
+import { PropRef } from '@ohos.arkui.stateManagement';
+import { Component } from '@ohos.arkui.component';
 import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
-import { Builder } from './arkui/component/builder';
+import { Builder } from '@ohos.arkui.component';
 /**
  * Controls the style types of GridObjectSortComponent.
  *
