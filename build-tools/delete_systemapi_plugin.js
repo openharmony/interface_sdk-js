@@ -16,7 +16,6 @@ const path = require('path');
 const fs = require('fs');
 const ts = require('typescript');
 const commander = require('commander');
-const { execSync } = require('child_process');
 
 let sourceFile = null;
 let etsType = 'ets';
@@ -31,9 +30,6 @@ const COMPILER_OPTIONS = {
   target: ts.ScriptTarget.ES2017,
   etsAnnotationsEnable: true
 };
-let needParseWithStatic = false;
-let currentApiFileContent = '';
-let buildSdkPath = '';
 /**
  * @enum {string} references地址的切换类型
  */
@@ -65,12 +61,10 @@ function start() {
     .option('--input <string>', 'path name')
     .option('--output <string>', 'output path')
     .option('--type <string>', 'ets type')
-    .option('--build-sdk-path <string>', 'build sdk path')
     .action((opts) => {
       outputPath = opts.output;
       inputDir = opts.input;
       etsType = opts.type;
-      buildSdkPath = opts.build_sdk_path;
       collectDeclaration(opts.input);
     });
   program.parse(process.argv);
@@ -407,18 +401,6 @@ function tsTransform(utFiles, callback) {
       writeFile(url, content);
       return;
     }
-    const uiFileDir = path.resolve(inputDir, 'arkui', 'component');
-    // 过滤文件，仅处理涉及到静态独有语法的API文件，且暂时过滤组件接口文件
-    if (/\@memo/.test(content) && !url.includes(uiFileDir) && etsType === 'ets2') {
-      const nodePath = process.argv[0];
-      // 执行ets2panda解析
-      currentApiFileContent =
-        execSync(`cd ./package_tools/src/deleteTool && ${nodePath} ./entry.js --input ${url} --build_sdk_path ${buildSdkPath}`).toString('utf-8');
-      needParseWithStatic = true;
-    } else {
-      currentApiFileContent = '';
-      needParseWithStatic = false;
-    }
     // dts文件处理
     const fileName = processFileName(url);
     let references = content.match(PATT.GET_REFERENCE);
@@ -651,8 +633,6 @@ function formatImportDeclaration(url, copyrightMessage = '', fileAndKitComment =
           result.substring(copyrightMessage.length);
       }
       result = removeSystemapiDoc(result);
-      // 裁剪解析结果比对，保证解析结果的准确性
-      result = needParseWithStatic && currentApiFileContent === result ? currentApiFileContent : result;
       writeFile(url, result);
       return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
     };

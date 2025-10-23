@@ -22,21 +22,19 @@ import("interface_config.gni")
 
 # 特殊场景没有拷贝interface接口信息，强基之后源码仓api不能直接使用，需要进行处理
 action("ohos_base_split") {
-  interface_sdk_interop2_deps = ""
-  if (host_toolchain == toolchain_mac) {
-    interface_sdk_interop2_deps = ":build_ohos_ets_es2panda(${toolchain_mac})"
-  } else if (host_toolchain == toolchain_win) {
-    interface_sdk_interop2_deps = ":build_ohos_ets_es2panda(${toolchain_win})"
-  } else {
-    interface_sdk_interop2_deps = ":build_ohos_ets_es2panda(${toolchain_linux})"
-  }
-  deps = [ interface_sdk_interop2_deps ]
   script = "//build/ohos/sdk/parse_interface_sdk.py"
+  ohos_sdk_arkts_description_file =
+      "${interface_sdk_path}/ohos_sdk_pub_description_std.json"
   args = [
+    "--sdk-description-file",
+    rebase_path("//build/ohos/sdk/ohos_sdk_description_std.json",
+                root_build_dir),
     "--root-build-dir",
     rebase_path("//", root_build_dir),
     "--node-js",
     rebase_path(nodejs, root_build_dir),
+    "--output-arkts-sdk-desc-file",
+    rebase_path(ohos_sdk_arkts_description_file, root_build_dir),
     "--sdk-build-public",
     "${sdk_build_public}",
     "--sdk-build-arkts",
@@ -45,25 +43,10 @@ action("ohos_base_split") {
     rebase_path(npm, root_build_dir),
     "--output-interface-sdk",
     rebase_path(interface_sdk_path, root_build_dir),
-    "--build-sdk-path",
-    rebase_path(build_sdk_path, root_build_dir),
   ]
   outputs = [
     "${interface_sdk_path}",
     "${interface_sdk_path_ets1}/api/bundle/bundleStatusCallback.d.ts",
-  ]
-}
-
-# 运行处理static-interop工具所需要的依赖
-group("build_ohos_ets_es2panda") {
-  external_deps = [
-    ohos_ets_koala_wrapper_deps,
-    ohos_ets_stdlib_deps,
-  ]
-  deps = [
-    ohos_ets_ark_link_deps,
-    ohos_ets_es2panda_deps,
-    ohos_ets_libes2panda_public_deps,
   ]
 }
 
