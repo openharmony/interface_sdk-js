@@ -582,7 +582,7 @@ declare namespace statistics {
    * Detailed information of statistics.
    * @interface NetStatsInfo
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 22 static&dynamic
+   * @since 22 dynamic&static
    */
   export interface NetStatsInfo {
     /**
@@ -597,7 +597,7 @@ declare namespace statistics {
      * Bytes of received.
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 22 static&dynamic
+     * @since 22 dynamic&static
      */
     rxBytes: long;
 
@@ -613,7 +613,7 @@ declare namespace statistics {
      * Bytes of send.
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 22 static&dynamic
+     * @since 22 dynamic&static
      */
     txBytes: long;
 
@@ -629,7 +629,7 @@ declare namespace statistics {
      * Packets of received.
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 22 static&dynamic
+     * @since 22 dynamic&static
      */
     rxPackets: long;
 
@@ -645,7 +645,7 @@ declare namespace statistics {
      * Packets of send.
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 22 static&dynamic
+     * @since 22 dynamic&static
      */
     txPackets: long;
   }
@@ -737,7 +737,7 @@ declare namespace statistics {
    * Parameters for obtaining detailed information on specified network traffic usage.
    * @interface NetworkInfo
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 22 static&dynamic
+   * @since 22 dynamic&static
    */
   export interface NetworkInfo {
     /**
@@ -752,7 +752,7 @@ declare namespace statistics {
      * Network type for querying traffic.
      * @type { NetBearType }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 22 static&dynamic
+     * @since 22 dynamic&static
      */
     type: NetBearType;
     /**
@@ -767,7 +767,7 @@ declare namespace statistics {
      * Start time for querying traffic.
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 22 static&dynamic
+     * @since 22 dynamic&static
      */
     startTime: int;
     /**
@@ -782,7 +782,7 @@ declare namespace statistics {
      * End time for querying traffic.
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 22 static&dynamic
+     * @since 22 dynamic&static
      */
     endTime: int;
     /**
@@ -797,7 +797,7 @@ declare namespace statistics {
      * SIM card id for querying traffic.
      * @type { ?int }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 22 static&dynamic
+     * @since 22 dynamic&static
      */
     simId?: int;
   }
