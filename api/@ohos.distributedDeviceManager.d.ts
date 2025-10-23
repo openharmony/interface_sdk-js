@@ -228,6 +228,7 @@ declare namespace distributedDeviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
    * @since 15 dynamic
+   * @since 20 static
    */
   interface DeviceProfileInfoFilterOptions {
     /**
@@ -236,6 +237,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     isCloud : boolean,
     /**
@@ -244,6 +246,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     deviceIdList?: Array<string>;
   }
@@ -273,6 +276,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     serviceId: string;
 
@@ -282,6 +286,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     serviceType: string;
 
@@ -291,6 +296,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     data?: string;
   }
@@ -320,6 +326,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     deviceSn: string;
 
@@ -329,6 +336,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     mac: string;
 
@@ -338,6 +346,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     model: string;
 
@@ -357,6 +366,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     manufacturer: string;
 
@@ -376,6 +386,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     productId: string;
 
@@ -385,6 +396,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     subProductId?: string;
 
@@ -394,6 +406,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     sdkVersion: string;
 
@@ -403,6 +416,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     bleMac: string;
 
@@ -412,6 +426,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     brMac: string;
 
@@ -421,6 +436,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     sleMac: string;
 
@@ -430,6 +446,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     firmwareVersion: string;
 
@@ -439,6 +456,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     hardwareVersion: string;
 
@@ -448,26 +466,29 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     softwareVersion: string;
 
     /**
      * Protocol type.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
-    protocolType: number;
+    protocolType: int;
 
     /**
      * Setup type.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
-    setupType: number;
+    setupType: int;
 
     /**
      * Wise device ID.
@@ -475,6 +496,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     wiseDeviceId: string;
 
@@ -484,6 +506,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     wiseUserId: string;
 
@@ -493,6 +516,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     registerTime: string;
 
@@ -502,6 +526,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     modifyTime: string;
 
@@ -511,6 +536,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     shareTime: string;
 
@@ -520,6 +546,7 @@ declare namespace distributedDeviceManager {
     * @syscap SystemCapability.DistributedHardware.DeviceManager
     * @systemapi
     * @since 15 dynamic
+    * @since 20 static
     */
     isLocalDevice: boolean;
 
@@ -529,6 +556,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     services?: Array<ServiceProfileInfo>;
 
@@ -538,6 +566,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
     productName?: string;
 
@@ -547,6 +576,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
     internalModel?: string;
   }
@@ -577,6 +607,7 @@ declare namespace distributedDeviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
    * @since 18 dynamic
+   * @since 20 static
    */
   interface DeviceIconInfoFilterOptions {
     /**
@@ -585,6 +616,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
     productId: string;
 
@@ -594,6 +626,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
     subProductId?: string;
 
@@ -603,6 +636,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
     imageType: string;
 
@@ -612,6 +646,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
     specName: string;
 
@@ -621,6 +656,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
     internalModel?: string;
   }
@@ -631,6 +667,7 @@ declare namespace distributedDeviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
    * @since 18 dynamic
+   * @since 20 static
    */
   interface DeviceIconInfo {
     /**
@@ -639,6 +676,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
     productId: string;
 
@@ -648,6 +686,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
     subProductId?: string;
 
@@ -657,6 +696,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
     imageType: string;
 
@@ -666,6 +706,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
     specName: string;
 
@@ -675,6 +716,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
     url: string;
 
@@ -684,6 +726,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
     icon: ArrayBuffer;
 
@@ -693,6 +736,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
     internalModel?: string;
   }
@@ -703,6 +747,7 @@ declare namespace distributedDeviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
    * @since 15 dynamic
+   * @since 20 static
    */
   enum StrategyForHeartbeat {
     /**
@@ -710,6 +755,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     TEMP_STOP_HEARTBEAT = 100,
     /**
@@ -717,6 +763,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     START_HEARTBEAT = 101,
   }
@@ -727,6 +774,7 @@ declare namespace distributedDeviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
    * @since 18 dynamic
+   * @since 20 static
    */
   interface NetworkIdQueryFilter {
     /**
@@ -735,17 +783,19 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
     wiseDeviceId : string;
 
     /**
      * Get device network id list by online status.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
-    onlineStatus : number,
+    onlineStatus : int,
   }
 
   /**
@@ -777,6 +827,7 @@ declare namespace distributedDeviceManager {
    * @throws { BusinessError } 11600101 - Failed to execute the function.
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 10 dynamic
+   * @since 20 static
    */
   function releaseDeviceManager(deviceManager: DeviceManager): void;
 
@@ -852,6 +903,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
+     * @since 20 static
      */
     getLocalDeviceName(): string;
 
@@ -859,13 +911,14 @@ declare namespace distributedDeviceManager {
      * Get the device type of the local device.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { number } - Returns local device type.
+     * @returns { int } - Returns local device type.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
+     * @since 20 static
      */
-    getLocalDeviceType(): number;
+    getLocalDeviceType(): int;
 
     /**
      * Get the device id of the local device.
@@ -1070,7 +1123,7 @@ declare namespace distributedDeviceManager {
      * The reply of ui operation from pin-code window, this interface can only be used by pin-code-hap of devicemanager.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @param { number } action - The reply action of user operation.
+     * @param { int } action - The reply action of user operation.
      * @param { string } actionResult - Indicates the user operation result.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1082,8 +1135,9 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10 dynamic
+     * @since 20 static
      */
-    replyUiAction(action: number, actionResult: string): void;
+    replyUiAction(action: int, actionResult: string): void;
 
     /**
      * Register a device state callback so that the application can be notified upon device state changes based on
@@ -1533,6 +1587,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
     getDeviceProfileInfoList(filterOptions: DeviceProfileInfoFilterOptions): Promise<Array<DeviceProfileInfo>>;
 
@@ -1541,7 +1596,7 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { Array<DeviceProfileInfo> } deviceProfileInfoList - parameter for querying the device list for put, 
-     * @returns { Promise<number> } - Returns operation result.
+     * @returns { Promise<int> } - Returns operation result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                                  1. Mandatory parameters are left unspecified;
      *                                                  2. Incorrect parameter type;
@@ -1553,8 +1608,9 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
-    putDeviceProfileInfoList(deviceProfileInfoList: Array<DeviceProfileInfo>): Promise<number>;
+    putDeviceProfileInfoList(deviceProfileInfoList: Array<DeviceProfileInfo>): Promise<int>;
 
     /**
      * Get a DeviceIconInfo.
@@ -1577,6 +1633,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
     getDeviceIconInfo(filterOptions: DeviceIconInfoFilterOptions): Promise<DeviceIconInfo>;
 
@@ -1584,7 +1641,7 @@ declare namespace distributedDeviceManager {
      * Get display name of local device.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @param { number } maxNameLength - the max number of bytes of the local device display name
+     * @param { int } maxNameLength - the max number of bytes of the local device display name
      * 
      * @returns { Promise<string> } - Returns device display name.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1597,15 +1654,16 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
-    getLocalDisplayDeviceName(maxNameLength: number): Promise<string>;
+    getLocalDisplayDeviceName(maxNameLength: int): Promise<string>;
 
     /**
      * Set local device name.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { string } deviceName - local device name
-     * @returns { Promise<number> } - Returns operation result.
+     * @returns { Promise<int> } - Returns operation result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                                  1. Mandatory parameters are left unspecified;
      *                                                  2. Incorrect parameter type;
@@ -1619,8 +1677,9 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
-    setLocalDeviceName(deviceName: string): Promise<number>;
+    setLocalDeviceName(deviceName: string): Promise<int>;
 
     /**
      * Set remote device name.
@@ -1628,7 +1687,7 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { string } deviceId    - remote device id
      * @param { string } deviceName  - remote device name
-     * @returns { Promise<number> } - Returns operation result.
+     * @returns { Promise<int> } - Returns operation result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                                  1. Mandatory parameters are left unspecified;
      *                                                  2. Incorrect parameter type;
@@ -1642,15 +1701,16 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
-    setRemoteDeviceName(deviceId: string, deviceName: string): Promise<number>;
+    setRemoteDeviceName(deviceId: string, deviceName: string): Promise<int>;
 
     /**
      * Set heartbeat policy.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { StrategyForHeartbeat } policy  - Heartbeat policy.
-     * @param { number } delayTime  - Indicates the duration for disable heartbeat.
+     * @param { int } delayTime  - Indicates the duration for disable heartbeat.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1661,8 +1721,9 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15 dynamic
+     * @since 20 static
      */
-    setHeartbeatPolicy(policy: StrategyForHeartbeat, delayTime: number): void;
+    setHeartbeatPolicy(policy: StrategyForHeartbeat, delayTime: int): void;
 
     /**
      * Restores local device name.
@@ -1674,6 +1735,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
     restoreLocalDeivceName(): void;
 
@@ -1699,6 +1761,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18 dynamic
+     * @since 20 static
      */
     getDeviceNetworkIdList(filterOptions: NetworkIdQueryFilter): Promise<Array<string>>;
   }
