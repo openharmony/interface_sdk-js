@@ -37,21 +37,3 @@ export declare @interface memo {};
  */
 @Retention({policy: "SOURCE"})
 export @interface ComponentBuilder {}
-
-/**
- * Defining MemoSkip annotation.
- * MemoSkip parameter will not be a state varaiable in Builder functions.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
- */
-@Retention({policy: "SOURCE"})
-export declare @interface MemoSkip {};
-
-/**
- * Defining MemoIntrinsic.
- * MemoIntrinsic.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
- */
-@Retention({policy: "SOURCE"})
-export declare @interface MemoIntrinsic {};

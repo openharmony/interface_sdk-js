@@ -25,6 +25,7 @@ export {
     __memo_context_type,
     __memo_id_type
 } from './arkui/incremental/runtime/state';
+export * from './arkui/incremental/annotation';
 export * from './arkui/stateManagement/decorator';
 export * from './arkui/stateManagement/remember';
 export * from './arkui/stateManagement/runtime';
