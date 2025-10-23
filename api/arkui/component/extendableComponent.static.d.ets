@@ -22,6 +22,7 @@ import { Builder } from './builder';
 import { Theme } from '@ohos.arkui.theme';
 import { UIContext } from '@ohos.arkui.UIContext';
 import { Optional, NavDestinationInfo, NavigationInfo, RouterPageInfo } from './common';
+import { IVariableOwner } from '../stateManagement/decorator';
 import promptAction from '@ohos.promptAction'
 
 /**
@@ -75,11 +76,11 @@ export declare interface LifeCycle {
 /**
  * Definition of extendable component, which is base class of custom component and custom dialog.
  *
- * @implements LifeCycle
+ * @implements { LifeCycle, IVariableOwner }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare abstract class ExtendableComponent implements LifeCycle {
+export declare abstract class ExtendableComponent implements LifeCycle, IVariableOwner {
     /**
      * onWillApplyTheme function is a custom hook to get active theme object from the context.
      *
