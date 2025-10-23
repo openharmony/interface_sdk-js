@@ -393,6 +393,45 @@ declare namespace effectKit {
     getTopProportionColors(colorCount: int): Array<Color | null>;
 
     /**
+     * Get top proportion colors and percentages of an image
+     * @param { int } colorCount - The number of colors to require, the value is 1 to 10.
+     * @returns { Map<Color | null, double | null> } Map of colors and percentages, sorted by proportion.
+     *    - If the number of colors obtained is less than the value of colorCount, the map size is 
+     *      the actual number obtained.
+     *    - If the colors fail to be obtained or the number of colors obtained is less than 1, Map() is returned.
+     *    - If the value of colorCount is greater than 10, a map holding the first 10 colors with
+     *      the top proportions is returned.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
+     */
+    getTopProportionColorsAndPercentage(colorCount: int): Map<Color | null, double | null>;
+
+    /**
+     * Get shade degree of an image
+     * @returns { PictureShadeDegree } shade degree of an image
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
+     */
+    getShadeDegree(): PictureShadeDegree;
+
+    /**
+     * Get complexity degree of an image
+     * @returns { PictureComplexityDegree } complexity degree of an image
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
+     */
+    getComplexityDegree(): PictureComplexityDegree;
+
+    /**
      * Get highest saturation color of an image
      * @returns { Color } Highest saturation color picked in the image.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -830,6 +869,125 @@ declare namespace effectKit {
      * @since 20 static
      */
     DECAL = 3,
+  }
+
+  /**
+   * Enumerates the shade degree of an image.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  enum PictureShadeDegree {
+    /**
+     * The shade degree of the image is unknown.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    UNKNOWN_SHADE_DEGREE_PICTURE = 0,
+
+    /**
+     * The shade degree of the image is extremely light.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    EXTREMELY_LIGHT_PICTURE = 1,
+
+    /**
+     * The shade degree of the image is very light.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    VERY_LIGHT_PICTURE = 2,
+
+    /**
+     * The shade degree of the image is light.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    LIGHT_PICTURE = 3,
+
+    /**
+     * The shade degree of the image is moderate.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    MODERATE_SHADE_PICTURE = 4,
+
+    /**
+     * The shade degree of the image is dark.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    DARK_PICTURE = 5,
+
+    /**
+     * The shade degree of the image is extremely dark.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    EXTREMELY_DARK_PICTURE = 6,
+  }
+
+  /**
+   * Enumerates the complexity degree of an image.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  enum PictureComplexityDegree {
+    /**
+     * The complexity degree of the image is unknown.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    UNKNOWN_COMPLEXITY_DEGREE_PICTURE = 0,
+
+    /**
+     * The complexity degree of the image is pure.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    PURE_PICTURE = 1,
+
+    /**
+     * The complexity degree of the image is moderate.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    MODERATE_COMPLEXITY_PICTURE = 2,
+
+    /**
+     * The complexity degree of the image is very flowery.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    VERY_FLOWERY_PICTURE = 3,
   }
 }
 
