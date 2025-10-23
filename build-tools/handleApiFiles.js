@@ -40,6 +40,11 @@ const NotNullFilePath = [
   'kits',
 ];
 
+const COMPILER_OPTIONS = {
+  target: ts.ScriptTarget.ES2017,
+  etsAnnotationsEnable: true
+};
+
 const NOT_COPY_DIR = ['build-tools', '.git', '.gitee'];
 
 function isEtsFile(path) {
@@ -166,11 +171,12 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) 
 
   if (isEndWithStatic) {
     if (type === 'ets2') {
+      let staticFileCotent = deleteArktsTag(fileContent);
       if (isPublic === 'true') {
-        writeFile(outputPath, deleteArktsTag(fileContent));
+        writeFile(outputPath, deleteUnsportedTag(staticFileCotent));
         return;
       } else {
-        writeFile(outputPath.replace(/\.static\.d\.ets$/, '.d.ets'), deleteArktsTag(fileContent));
+        writeFile(outputPath.replace(/\.static\.d\.ets$/, '.d.ets'), deleteUnsportedTag(staticFileCotent));
         return;
       }
     } else {
@@ -178,7 +184,7 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) 
     }
   }
 
-  if (!isEndWithEts && !isEndWithTs || apiRelativePath.includes("@ohos.annotation.d.ets")) {
+  if (!isEndWithEts && !isEndWithTs) {
     writeFile(outputPath, fileContent);
     return;
   }
@@ -290,7 +296,7 @@ function handleFileInFirstType(apiRelativePath, fullPath, type, output) {
   //删除使用/*** if arkts 1.2 */
   fileContent = handleArktsDefinition(type, fileContent);
 
-  const sourceFile = ts.createSourceFile(path.basename(apiRelativePath), fileContent, ts.ScriptTarget.ES2017, true);
+  const sourceFile = ts.createSourceFile(path.basename(apiRelativePath), fileContent, ts.ScriptTarget.ES2017, true, undefined, COMPILER_OPTIONS);
   const secondRegx = /(?:\*\s(@arkts\s1.2|@arkts\sstatic)\s*(\r|\n)\s*)/;
   const thirdRegx = /(?:\*\s(@arkts\s1\.1&1\.2|@arkts\sdynamic&static)\s*(\r|\n)\s*)/;
   if (sourceFile.statements.length === 0) {
@@ -422,7 +428,7 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
   const thirdRegx = /(?:\*\s(@arkts\s1\.1&1\.2|@arkts\sdynamic&static|@since\s\S*\sdynamic&static)\s*(\r|\n)\s*)/;
   const arktsRegx = /\/\*\*\* if arkts ((1.1|dynamic)&)?(1.2|static) \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
   let fileContent = fs.readFileSync(fullPath, 'utf-8');
-  let sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true);
+  let sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true, undefined, COMPILER_OPTIONS);
   const outputPath = output ? path.join(output, apiRelativePath) : fullPath;
   if (!secondRegx.test(fileContent) && !thirdRegx.test(fileContent) && arktsRegx.test(fileContent)) {
     saveApiByArktsDefinition(sourceFile, fileContent, outputPath);
@@ -430,7 +436,7 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
   }
   //删除使用/*** if arkts 1.2 */
   fileContent = handleArktsDefinition(type, fileContent);
-  sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true);
+  sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true, undefined, COMPILER_OPTIONS);
   const regx = /(?:\*\s(@arkts\s1\.1|@since\s\S\sdynamic)\s*(\r|\n)\s*)/;
 
   if (sourceFile.statements.length === 0) {
@@ -557,7 +563,7 @@ function getFileContent(newContent, filePath) {
   if (!regex.test(newContent)) {
     return newContent;
   }
-  const sourceFile = ts.createSourceFile(path.basename(filePath), newContent, ts.ScriptTarget.ES2017, true);
+  const sourceFile = ts.createSourceFile(path.basename(filePath), newContent, ts.ScriptTarget.ES2017, true, undefined, COMPILER_OPTIONS);
   const printer = ts.createPrinter();
   const result = ts.transform(sourceFile, [deleteOverLoadJsDoc], { etsAnnotationsEnable: true });
   const output = printer.printFile(result.transformed[0]);
