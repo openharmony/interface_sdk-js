@@ -27,7 +27,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 22 dynamic
+ * @since 22
  */
 export @interface Available {
   /**
@@ -37,7 +37,7 @@ export @interface Available {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 22 dynamic
+   * @since 22
    */
   minApiVersion: string = ''
 }
