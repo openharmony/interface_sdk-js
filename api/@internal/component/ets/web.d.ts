@@ -18,27 +18,6 @@
  * @kit ArkWeb
  */
 
-/*** if arkts static */
-import webview from '../../@ohos.web.webview';
-import image from '../../@ohos.multimedia.image';
-import { CommonMethod, Callback, TouchEvent, NestedScrollOptions, KeyEvent, HapticFeedbackMode} from './common';
-import { CustomBuilder } from './builder'
-import { Resource } from '../../global/resource';
-import { Position, ResourceStr } from './units';
-import { MenuType, EditMenuOptions } from './textCommon';
-import { CopyOptions, NestedScrollMode } from './enums';
-/*** endif */
-
-/**
- * Provides methods for controlling the web controller.
- *
- * @typedef { webview.WebviewController }
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @since 20 static
- */
-type WebviewController = webview.WebviewController;
-
 /**
  * Provides methods for controlling the web controller.
  *
@@ -71,7 +50,6 @@ declare type WebviewController = import('../api/@ohos.web.webview').default.Webv
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDetails) => void;
 
@@ -83,7 +61,6 @@ type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDe
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
 
@@ -95,7 +72,6 @@ type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 type OnLargestContentfulPaintCallback = (largestContentfulPaint: LargestContentfulPaint) => void;
 
@@ -107,7 +83,6 @@ type OnLargestContentfulPaintCallback = (largestContentfulPaint: LargestContentf
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 type OnFirstMeaningfulPaintCallback = (firstMeaningfulPaint: FirstMeaningfulPaint) => void;
 
@@ -118,11 +93,10 @@ type OnFirstMeaningfulPaintCallback = (firstMeaningfulPaint: FirstMeaningfulPain
  * @typedef { function } OnOverrideUrlLoadingCallback
  * @param { WebResourceRequest } webResourceRequest - callback information of onOverrideUrlLoading.
  * @returns { boolean } - Returning true causes the current Web to abort loading the URL,
- *                        false causes the Web to continue loading the url as usual.
+ *     false causes the Web to continue loading the url as usual.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => boolean;
 
@@ -134,7 +108,6 @@ type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => 
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 type OnIntelligentTrackingPreventionCallback = (details: IntelligentTrackingPreventionDetails) => void;
 
@@ -145,7 +118,6 @@ type OnIntelligentTrackingPreventionCallback = (details: IntelligentTrackingPrev
  * @param { NativeEmbedVisibilityInfo } nativeEmbedVisibilityInfo - callback information of onNativeEmbedVisibilityChange.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 12 dynamic
- * @since 20 static
  */
 type OnNativeEmbedVisibilityChangeCallback = (nativeEmbedVisibilityInfo: NativeEmbedVisibilityInfo) => void;
 
@@ -156,32 +128,25 @@ type OnNativeEmbedVisibilityChangeCallback = (nativeEmbedVisibilityInfo: NativeE
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface NativeMediaPlayerConfig {
   /**
-   * Whether to enable the application to take over the webpage media playback function.
+   * Should playing web media by native application insted of web player.
    *
    * @type { boolean }
-   *    {@code true} means to enable the application to take over the web media playback function, {@code false} otherwise.
-   *    Deflault value: false.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   enable: boolean;
 
   /**
-   * Whether the video player's display overlays the web page content when the application takes over the web page's video player.
+   * The contents painted by native media player should overlay web page.
    *
    * @type { boolean }
-   *    {@code true} means changing the height of the video layer to cover the content of the webpage, {@code false} otherwise.
-   *    Deflault value: false.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   shouldOverlay: boolean;
 }
@@ -193,7 +158,6 @@ declare interface NativeMediaPlayerConfig {
  * @param { RenderProcessNotRespondingData } data - details of onRenderProcessNotResponding.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 12 dynamic
- * @since 20 static
  */
 type OnRenderProcessNotRespondingCallback = (data : RenderProcessNotRespondingData) => void;
 
@@ -203,19 +167,17 @@ type OnRenderProcessNotRespondingCallback = (data : RenderProcessNotRespondingDa
  * @typedef { function } OnRenderProcessRespondingCallback
  * @syscap SystemCapability.Web.Webview.Core
  * @since 12 dynamic
- * @since 20 static
  */
 type OnRenderProcessRespondingCallback = () => void;
 
 /**
-* The callback of ViewportFit Changed.
+ * The callback of ViewportFit Changed.
  *
  * @typedef { function } OnViewportFitChangedCallback
  * @param { ViewportFit } viewportFit - details of OnViewportFitChangedCallback.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 type OnViewportFitChangedCallback = (viewportFit: ViewportFit) => void;
 
@@ -227,7 +189,6 @@ type OnViewportFitChangedCallback = (viewportFit: ViewportFit) => void;
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 type OnAdsBlockedCallback = (details: AdsBlockedDetails) => void;
 
@@ -238,7 +199,6 @@ type OnAdsBlockedCallback = (details: AdsBlockedDetails) => void;
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface AdsBlockedDetails {
   /**
@@ -248,7 +208,6 @@ declare interface AdsBlockedDetails {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   url: string;
 
@@ -259,7 +218,6 @@ declare interface AdsBlockedDetails {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   adsBlocked: Array<string>;
 }
@@ -271,7 +229,6 @@ declare interface AdsBlockedDetails {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface WebKeyboardOptions {
   /**
@@ -281,20 +238,18 @@ declare interface WebKeyboardOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   useSystemKeyboard: boolean;
 
   /**
    * Set the enter key type when the system keyboard is used, the "enter" key related to the {@link inputMethodEngine}.
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  enterKeyType?: int;
+  enterKeyType?: number;
 
   /**
    * Set the custom keyboard builder when the custom keyboard is used.
@@ -303,7 +258,6 @@ declare interface WebKeyboardOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   customKeyboard?: CustomBuilder;
 }
@@ -314,7 +268,6 @@ declare interface WebKeyboardOptions {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare class WebKeyboardController {
   /**
@@ -323,7 +276,6 @@ declare class WebKeyboardController {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -333,46 +285,41 @@ declare class WebKeyboardController {
    * @param { string } text - text which will be inserted.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
    */
   insertText(text: string): void;
 
   /**
    * Deletes the specified length of characters from the back to the front in the Web input field.
    *
-   * @param { int } length - length of text, which will be deleted from back to front.
+   * @param { number } length - length of text, which will be deleted from back to front.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
    */
-  deleteForward(length: int): void;
+  deleteForward(length: number): void;
 
   /**
    * Delete the specified length of characters in the Web input field from the beginning to the end.
    *
-   * @param { int } length - length of text, which will be deleted from front to back.
+   * @param { number } length - length of text, which will be deleted from front to back.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
    */
-  deleteBackward(length: int): void;
+  deleteBackward(length: number): void;
 
   /**
    * Send the function of the key.
    *
-   * @param { int } key - action indicates the "enter" key related to the {@link inputMethodEngine}
+   * @param { number } key - action indicates the "enter" key related to the {@link inputMethodEngine}
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
    */
-  sendFunctionKey(key: int): void;
+  sendFunctionKey(key: number): void;
 
   /**
    * Close the custom keyboard.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
    */
   close(): void;
 }
@@ -384,7 +331,6 @@ declare class WebKeyboardController {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface WebKeyboardCallbackInfo {
   /**
@@ -394,7 +340,6 @@ declare interface WebKeyboardCallbackInfo {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   controller: WebKeyboardController;
 
@@ -405,7 +350,6 @@ declare interface WebKeyboardCallbackInfo {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   attributes: Record<string, string>;
 }
@@ -419,7 +363,6 @@ declare interface WebKeyboardCallbackInfo {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 type WebKeyboardCallback = (keyboardCallbackInfo: WebKeyboardCallbackInfo) => WebKeyboardOptions;
 
@@ -438,7 +381,6 @@ type WebKeyboardCallback = (keyboardCallbackInfo: WebKeyboardCallbackInfo) => We
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare enum MessageLevel {
   /**
@@ -454,7 +396,6 @@ declare enum MessageLevel {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   Debug,
 
@@ -471,7 +412,6 @@ declare enum MessageLevel {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   Error,
 
@@ -488,7 +428,6 @@ declare enum MessageLevel {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   Info,
 
@@ -505,7 +444,6 @@ declare enum MessageLevel {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   Log,
 
@@ -522,7 +460,6 @@ declare enum MessageLevel {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   Warn
 }
@@ -550,7 +487,6 @@ declare enum MessageLevel {
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
- * @since 20 static
  */
 declare enum MixedMode {
   /**
@@ -573,7 +509,6 @@ declare enum MixedMode {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   All = 0,
 
@@ -597,7 +532,6 @@ declare enum MixedMode {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   Compatible = 1,
 
@@ -621,7 +555,6 @@ declare enum MixedMode {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   None = 2
 }
@@ -634,7 +567,6 @@ declare enum MixedMode {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 type OnSafeBrowsingCheckResultCallback = (threatType: ThreatType) => void;
 
@@ -651,8 +583,9 @@ type OnSafeBrowsingCheckResultCallback = (threatType: ThreatType) => void;
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 11 dynamic
- * @since 20 static
+ * @since 11 dynamiconly
+ * @deprecated since 21
+ * @useinstead ohos.web.webview.webview.WebHitTestType
  */
 declare enum HitTestType {
   /**
@@ -666,8 +599,9 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since 11 dynamiconly
+   * @deprecated since 21
+   * @useinstead ohos.web.webview.webview.WebHitTestType#EditText
    */
   EditText = 0,
 
@@ -682,8 +616,9 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since 11 dynamiconly
+   * @deprecated since 21
+   * @useinstead ohos.web.webview.webview.WebHitTestType#Email
    */
   Email = 1,
 
@@ -698,8 +633,9 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since 11 dynamiconly
+   * @deprecated since 21
+   * @useinstead ohos.web.webview.webview.WebHitTestType#HttpAnchor
    */
   HttpAnchor = 2,
 
@@ -714,8 +650,9 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since 11 dynamiconly
+   * @deprecated since 21
+   * @useinstead ohos.web.webview.webview.WebHitTestType#HttpAnchorImg
    */
   HttpAnchorImg = 3,
 
@@ -730,8 +667,9 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since 11 dynamiconly
+   * @deprecated since 21
+   * @useinstead ohos.web.webview.webview.WebHitTestType#Img
    */
   Img = 4,
 
@@ -746,8 +684,9 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since 11 dynamiconly
+   * @deprecated since 21
+   * @useinstead ohos.web.webview.webview.WebHitTestType#Map
    */
   Map = 5,
 
@@ -762,8 +701,9 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since 11 dynamiconly
+   * @deprecated since 21
+   * @useinstead ohos.web.webview.webview.WebHitTestType#Phone
    */
   Phone = 6,
 
@@ -778,8 +718,9 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11 dynamic
-   * @since 20 static
+   * @since 11 dynamiconly
+   * @deprecated since 21
+   * @useinstead ohos.web.webview.webview.WebHitTestType#Unknown
    */
   Unknown = 7
 }
@@ -807,7 +748,6 @@ declare enum HitTestType {
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
- * @since 20 static
  */
 declare enum CacheMode {
   /**
@@ -830,7 +770,6 @@ declare enum CacheMode {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   Default = 0,
 
@@ -854,7 +793,6 @@ declare enum CacheMode {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   None = 1,
 
@@ -878,7 +816,6 @@ declare enum CacheMode {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   Online = 2,
 
@@ -902,7 +839,6 @@ declare enum CacheMode {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   Only = 3
 }
@@ -914,7 +850,6 @@ declare enum CacheMode {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare enum OverScrollMode {
   /**
@@ -923,7 +858,6 @@ declare enum OverScrollMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   NEVER = 0,
 
@@ -933,7 +867,6 @@ declare enum OverScrollMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   ALWAYS = 1
 }
@@ -945,7 +878,6 @@ declare enum OverScrollMode {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 14 dynamic
- * @since 20 static
  */
 declare enum BlurOnKeyboardHideMode {
   /**
@@ -954,7 +886,6 @@ declare enum BlurOnKeyboardHideMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
    */
   SILENT = 0,
 
@@ -964,7 +895,6 @@ declare enum BlurOnKeyboardHideMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
    */
   BLUR = 1
 }
@@ -983,7 +913,6 @@ declare enum BlurOnKeyboardHideMode {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare enum WebDarkMode {
   /**
@@ -998,7 +927,6 @@ declare enum WebDarkMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   Off = 0,
 
@@ -1014,7 +942,6 @@ declare enum WebDarkMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   On = 1,
 
@@ -1030,7 +957,6 @@ declare enum WebDarkMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   Auto = 2
 }
@@ -1049,7 +975,6 @@ declare enum WebDarkMode {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare enum WebCaptureMode {
   /**
@@ -1058,11 +983,10 @@ declare enum WebCaptureMode {
    * @since 10
    */
   /**
-   * Capture of the home screen.
+   * The home screen.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   HOME_SCREEN = 0
 }
@@ -1074,7 +998,6 @@ declare enum WebCaptureMode {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare enum ThreatType {
   /**
@@ -1083,7 +1006,6 @@ declare enum ThreatType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   THREAT_ILLEGAL = 0,
 
@@ -1093,7 +1015,6 @@ declare enum ThreatType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   THREAT_FRAUD = 1,
 
@@ -1103,7 +1024,6 @@ declare enum ThreatType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   THREAT_RISK = 2,
 
@@ -1114,7 +1034,6 @@ declare enum ThreatType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   THREAT_WARNING = 3
 }
@@ -1141,7 +1060,6 @@ declare enum ThreatType {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface WebMediaOptions {
   /**
@@ -1156,13 +1074,12 @@ declare interface WebMediaOptions {
    * The maximum validity period is 60 seconds. Due to the approximate value,
    * the validity period may have a deviation of less than 1 second.
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
-  resumeInterval?: int;
+  resumeInterval?: number;
 
   /**
    * Whether the audio of each web is exclusive.
@@ -1178,7 +1095,6 @@ declare interface WebMediaOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   audioExclusive?: boolean;
 
@@ -1187,7 +1103,7 @@ declare interface WebMediaOptions {
    *
    * @type { ?AudioSessionType }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   audioSessionType?: AudioSessionType;
 }
@@ -1214,7 +1130,6 @@ declare interface WebMediaOptions {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface ScreenCaptureConfig {
   /**
@@ -1231,7 +1146,6 @@ declare interface ScreenCaptureConfig {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   captureMode: WebCaptureMode;
 }
@@ -1256,7 +1170,6 @@ declare interface ScreenCaptureConfig {
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
- * @since 20 static
  */
 declare class FullScreenExitHandler {
   /**
@@ -1279,7 +1192,6 @@ declare class FullScreenExitHandler {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -1303,7 +1215,6 @@ declare class FullScreenExitHandler {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   exitFullScreen(): void;
 }
@@ -1324,7 +1235,6 @@ declare class FullScreenExitHandler {
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
- * @since 20 static
  */
 declare interface FullScreenEnterEvent {
   /**
@@ -1343,14 +1253,13 @@ declare interface FullScreenEnterEvent {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   handler: FullScreenExitHandler;
 
   /**
    * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels.
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -1358,19 +1267,18 @@ declare interface FullScreenEnterEvent {
   /**
    * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels.
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
-  videoWidth?: int;
+  videoWidth?: number;
 
   /**
    * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels.
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
@@ -1378,14 +1286,13 @@ declare interface FullScreenEnterEvent {
   /**
    * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels.
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
-  videoHeight?: int;
+  videoHeight?: number;
 }
 
 /**
@@ -1406,10 +1313,8 @@ declare interface FullScreenEnterEvent {
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
- * @since 20 static
  */
 type OnFullScreenEnterCallback = (event: FullScreenEnterEvent) => void;
-
 
 /**
  * The callback when mouse event is triggered in native embed area
@@ -1435,7 +1340,6 @@ type MouseInfoCallback = (event: NativeEmbedMouseInfo) => void;
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare enum RenderExitReason {
   /**
@@ -1450,7 +1354,6 @@ declare enum RenderExitReason {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   ProcessAbnormalTermination = 0,
 
@@ -1466,7 +1369,6 @@ declare enum RenderExitReason {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   ProcessWasKilled = 1,
 
@@ -1482,7 +1384,6 @@ declare enum RenderExitReason {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   ProcessCrashed = 2,
 
@@ -1498,7 +1399,6 @@ declare enum RenderExitReason {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   ProcessOom = 3,
 
@@ -1514,7 +1414,6 @@ declare enum RenderExitReason {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   ProcessExitUnknown = 4
 }
@@ -1526,7 +1425,6 @@ declare enum RenderExitReason {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 type OnContextMenuHideCallback = () => void;
 
@@ -1544,7 +1442,6 @@ type OnContextMenuHideCallback = () => void;
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare enum SslError {
   /**
@@ -1559,7 +1456,6 @@ declare enum SslError {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   Invalid = 0,
 
@@ -1575,7 +1471,6 @@ declare enum SslError {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   HostMismatch = 1,
 
@@ -1591,7 +1486,6 @@ declare enum SslError {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   DateInvalid = 2,
 
@@ -1607,7 +1501,6 @@ declare enum SslError {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   Untrusted = 3
 }
@@ -1627,7 +1520,6 @@ declare enum SslError {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare enum FileSelectorMode {
   /**
@@ -1643,7 +1535,6 @@ declare enum FileSelectorMode {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   FileOpenMode = 0,
 
@@ -1660,7 +1551,6 @@ declare enum FileSelectorMode {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   FileOpenMultipleMode = 1,
 
@@ -1677,7 +1567,6 @@ declare enum FileSelectorMode {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   FileOpenFolderMode = 2,
 
@@ -1694,7 +1583,6 @@ declare enum FileSelectorMode {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   FileSaveMode = 3
 }
@@ -1706,7 +1594,6 @@ declare enum FileSelectorMode {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare enum WebLayoutMode {
   /**
@@ -1715,7 +1602,6 @@ declare enum WebLayoutMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   NONE = 0,
 
@@ -1725,7 +1611,6 @@ declare enum WebLayoutMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   FIT_CONTENT = 1
 }
@@ -1736,7 +1621,6 @@ declare enum WebLayoutMode {
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 12 dynamic
- * @since 20 static
  */
 declare enum RenderProcessNotRespondingReason {
   /**
@@ -1744,7 +1628,6 @@ declare enum RenderProcessNotRespondingReason {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
    */
   INPUT_TIMEOUT = 0,
 
@@ -1753,7 +1636,6 @@ declare enum RenderProcessNotRespondingReason {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
    */
   NAVIGATION_COMMIT_TIMEOUT = 1
 }
@@ -1771,7 +1653,6 @@ declare enum RenderProcessNotRespondingReason {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare class FileSelectorParam {
   /**
@@ -1787,7 +1668,6 @@ declare class FileSelectorParam {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -1804,7 +1684,6 @@ declare class FileSelectorParam {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getTitle(): string;
 
@@ -1821,7 +1700,6 @@ declare class FileSelectorParam {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getMode(): FileSelectorMode;
 
@@ -1838,7 +1716,6 @@ declare class FileSelectorParam {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getAcceptType(): Array<string>;
 
@@ -1857,7 +1734,6 @@ declare class FileSelectorParam {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   isCapture(): boolean;
 
@@ -1866,7 +1742,6 @@ declare class FileSelectorParam {
    * @returns { Array<string> } Return an array of raw acceptable MIME type.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 18 dynamic
-   * @since 20 static
    */
   getMimeTypes(): Array<string>;
 }
@@ -1884,7 +1759,6 @@ declare class FileSelectorParam {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare class JsResult {
   /**
@@ -1900,7 +1774,6 @@ declare class JsResult {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -1917,7 +1790,6 @@ declare class JsResult {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   handleCancel(): void;
 
@@ -1934,7 +1806,6 @@ declare class JsResult {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   handleConfirm(): void;
 
@@ -1953,7 +1824,6 @@ declare class JsResult {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   handlePromptConfirm(result: string): void;
 }
@@ -1971,7 +1841,6 @@ declare class JsResult {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare class FileSelectorResult {
   /**
@@ -1987,7 +1856,6 @@ declare class FileSelectorResult {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -2006,7 +1874,6 @@ declare class FileSelectorResult {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   handleFileList(fileList: Array<string>): void;
 }
@@ -2024,7 +1891,6 @@ declare class FileSelectorResult {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare class HttpAuthHandler {
   /**
@@ -2040,7 +1906,6 @@ declare class HttpAuthHandler {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -2063,7 +1928,6 @@ declare class HttpAuthHandler {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   confirm(userName: string, password: string): boolean;
 
@@ -2080,7 +1944,6 @@ declare class HttpAuthHandler {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   cancel(): void;
 
@@ -2099,7 +1962,6 @@ declare class HttpAuthHandler {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   isHttpAuthInfoSaved(): boolean;
 }
@@ -2116,7 +1978,6 @@ declare class HttpAuthHandler {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare class SslErrorHandler {
   /**
@@ -2131,7 +1992,6 @@ declare class SslErrorHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -2147,7 +2007,6 @@ declare class SslErrorHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   handleConfirm(): void;
 
@@ -2163,7 +2022,6 @@ declare class SslErrorHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   handleCancel(): void;
 
@@ -2177,7 +2035,7 @@ declare class SslErrorHandler {
    *                                 error page is enabled, the default error page will be shown instead.
    *                                 The default value is false.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   handleCancel(abortLoading: boolean): void;
 }
@@ -2194,7 +2052,6 @@ declare class SslErrorHandler {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare class ClientAuthenticationHandler {
   /**
@@ -2209,7 +2066,6 @@ declare class ClientAuthenticationHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -2229,7 +2085,6 @@ declare class ClientAuthenticationHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   confirm(priKeyFile: string, certChainFile: string): void;
 
@@ -2247,7 +2102,6 @@ declare class ClientAuthenticationHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   confirm(authUri: string): void;
 
@@ -2263,7 +2117,6 @@ declare class ClientAuthenticationHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   cancel(): void;
 
@@ -2279,7 +2132,6 @@ declare class ClientAuthenticationHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   ignore(): void;
 }
@@ -2299,7 +2151,6 @@ declare class ClientAuthenticationHandler {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare enum ProtectedResourceType {
   /**
@@ -2314,7 +2165,6 @@ declare enum ProtectedResourceType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   MidiSysex = 'TYPE_MIDI_SYSEX',
 
@@ -2331,7 +2181,6 @@ declare enum ProtectedResourceType {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   VIDEO_CAPTURE = 'TYPE_VIDEO_CAPTURE',
 
@@ -2348,7 +2197,6 @@ declare enum ProtectedResourceType {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   AUDIO_CAPTURE = 'TYPE_AUDIO_CAPTURE',
 
@@ -2358,7 +2206,6 @@ declare enum ProtectedResourceType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   SENSOR = 'TYPE_SENSOR'
 }
@@ -2376,7 +2223,6 @@ declare enum ProtectedResourceType {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare class PermissionRequest {
   /**
@@ -2392,7 +2238,6 @@ declare class PermissionRequest {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -2409,7 +2254,6 @@ declare class PermissionRequest {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   deny(): void;
 
@@ -2428,7 +2272,6 @@ declare class PermissionRequest {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getOrigin(): string;
 
@@ -2447,7 +2290,6 @@ declare class PermissionRequest {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getAccessibleResource(): Array<string>;
 
@@ -2466,7 +2308,6 @@ declare class PermissionRequest {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   grant(resources: Array<string>): void;
 }
@@ -2481,7 +2322,6 @@ declare class PermissionRequest {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare class ScreenCaptureHandler {
   /**
@@ -2494,7 +2334,6 @@ declare class ScreenCaptureHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -2512,7 +2351,6 @@ declare class ScreenCaptureHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getOrigin(): string;
 
@@ -2528,7 +2366,6 @@ declare class ScreenCaptureHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   grant(config: ScreenCaptureConfig): void;
 
@@ -2542,7 +2379,6 @@ declare class ScreenCaptureHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   deny(): void;
 }
@@ -2559,7 +2395,6 @@ declare class ScreenCaptureHandler {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare class DataResubmissionHandler {
   /**
@@ -2574,7 +2409,6 @@ declare class DataResubmissionHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -2590,7 +2424,6 @@ declare class DataResubmissionHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   resend(): void;
 
@@ -2606,7 +2439,6 @@ declare class DataResubmissionHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   cancel(): void;
 }
@@ -2623,7 +2455,6 @@ declare class DataResubmissionHandler {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare class ControllerHandler {
   /**
@@ -2638,7 +2469,6 @@ declare class ControllerHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -2656,7 +2486,6 @@ declare class ControllerHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   setWebController(controller: WebviewController): void;
 }
@@ -2675,7 +2504,6 @@ declare class ControllerHandler {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare enum ContextMenuSourceType {
   /**
@@ -2690,7 +2518,6 @@ declare enum ContextMenuSourceType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   None = 0,
 
@@ -2706,7 +2533,6 @@ declare enum ContextMenuSourceType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   Mouse = 1,
 
@@ -2722,7 +2548,6 @@ declare enum ContextMenuSourceType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   LongPress = 2
 }
@@ -2741,7 +2566,6 @@ declare enum ContextMenuSourceType {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare enum ContextMenuMediaType {
   /**
@@ -2756,7 +2580,6 @@ declare enum ContextMenuMediaType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   None = 0,
 
@@ -2772,7 +2595,6 @@ declare enum ContextMenuMediaType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   Image = 1
 }
@@ -2791,7 +2613,6 @@ declare enum ContextMenuMediaType {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare enum ContextMenuInputFieldType {
   /**
@@ -2806,7 +2627,6 @@ declare enum ContextMenuInputFieldType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   None = 0,
 
@@ -2822,7 +2642,6 @@ declare enum ContextMenuInputFieldType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   PlainText = 1,
 
@@ -2838,7 +2657,6 @@ declare enum ContextMenuInputFieldType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   Password = 2,
 
@@ -2854,7 +2672,6 @@ declare enum ContextMenuInputFieldType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   Number = 3,
 
@@ -2870,7 +2687,6 @@ declare enum ContextMenuInputFieldType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   Telephone = 4,
 
@@ -2886,7 +2702,6 @@ declare enum ContextMenuInputFieldType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   Other = 5
 }
@@ -2901,7 +2716,6 @@ declare enum ContextMenuInputFieldType {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare enum NativeEmbedStatus {
   /**
@@ -2910,7 +2724,6 @@ declare enum NativeEmbedStatus {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   CREATE = 0,
 
@@ -2920,7 +2733,6 @@ declare enum NativeEmbedStatus {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   UPDATE = 1,
 
@@ -2930,7 +2742,6 @@ declare enum NativeEmbedStatus {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   DESTROY = 2,
 
@@ -2940,7 +2751,6 @@ declare enum NativeEmbedStatus {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   ENTER_BFCACHE = 3,
 
@@ -2950,7 +2760,6 @@ declare enum NativeEmbedStatus {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   LEAVE_BFCACHE = 4
 }
@@ -2969,7 +2778,6 @@ declare enum NativeEmbedStatus {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare enum ContextMenuEditStateFlags {
   /**
@@ -2984,7 +2792,6 @@ declare enum ContextMenuEditStateFlags {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   NONE = 0,
 
@@ -3000,7 +2807,6 @@ declare enum ContextMenuEditStateFlags {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   CAN_CUT = 1 << 0,
 
@@ -3016,7 +2822,6 @@ declare enum ContextMenuEditStateFlags {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   CAN_COPY = 1 << 1,
 
@@ -3032,7 +2837,6 @@ declare enum ContextMenuEditStateFlags {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   CAN_PASTE = 1 << 2,
 
@@ -3048,7 +2852,6 @@ declare enum ContextMenuEditStateFlags {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   CAN_SELECT_ALL = 1 << 3
 }
@@ -3060,7 +2863,6 @@ declare enum ContextMenuEditStateFlags {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare enum WebNavigationType {
   /**
@@ -3069,7 +2871,6 @@ declare enum WebNavigationType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   UNKNOWN = 0,
 
@@ -3082,7 +2883,6 @@ declare enum WebNavigationType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   MAIN_FRAME_NEW_ENTRY = 1,
 
@@ -3096,7 +2896,6 @@ declare enum WebNavigationType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   MAIN_FRAME_EXISTING_ENTRY = 2,
 
@@ -3106,7 +2905,6 @@ declare enum WebNavigationType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   NAVIGATION_TYPE_NEW_SUBFRAME = 4,
 
@@ -3116,7 +2914,6 @@ declare enum WebNavigationType {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   NAVIGATION_TYPE_AUTO_SUBFRAME = 5
 }
@@ -3129,7 +2926,6 @@ declare enum WebNavigationType {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare enum RenderMode {
   /**
@@ -3140,7 +2936,6 @@ declare enum RenderMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   ASYNC_RENDER = 0,
 
@@ -3152,7 +2947,6 @@ declare enum RenderMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   SYNC_RENDER = 1
 }
@@ -3164,7 +2958,6 @@ declare enum RenderMode {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare enum ViewportFit {
   /**
@@ -3173,7 +2966,6 @@ declare enum ViewportFit {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   AUTO = 0,
 
@@ -3184,7 +2976,6 @@ declare enum ViewportFit {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   CONTAINS = 1,
 
@@ -3195,7 +2986,6 @@ declare enum ViewportFit {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   COVER = 2
 }
@@ -3212,7 +3002,6 @@ declare enum ViewportFit {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare class WebContextMenuParam {
   /**
@@ -3227,49 +3016,46 @@ declare class WebContextMenuParam {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   constructor();
 
   /**
    * Horizontal offset coordinates of the menu within the Web component.
    *
-   * @returns { int } The context menu x coordinate.
+   * @returns { number } The context menu x coordinate.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
    * Horizontal offset coordinates of the menu within the Web component.
    *
-   * @returns { int } The context menu x coordinate.
-   *                     Returns a non-negative integer if normal, otherwise returns -1.
-   *                     Unit: vp.
+   * @returns { number } The context menu x coordinate.
+   *     Returns a non-negative integer if normal, otherwise returns -1.
+   *     Unit: vp.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
-  x(): int;
+  x(): number;
 
   /**
    * Vertical offset coordinates for the menu within the Web component.
    *
-   * @returns { int } The context menu y coordinate.
+   * @returns { number } The context menu y coordinate.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
    * Vertical offset coordinates for the menu within the Web component.
    *
-   * @returns { int } The context menu y coordinate.
+   * @returns { number } The context menu y coordinate.
    *                     Returns a non-negative integer if normal, otherwise returns -1.
    *                     Unit: vp.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
-  y(): int;
+  y(): number;
 
   /**
    * If the long-press location is the link returns the link's security-checked URL.
@@ -3285,7 +3071,6 @@ declare class WebContextMenuParam {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getLinkUrl(): string;
 
@@ -3303,7 +3088,6 @@ declare class WebContextMenuParam {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getUnfilteredLinkUrl(): string;
 
@@ -3321,7 +3105,6 @@ declare class WebContextMenuParam {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getSourceUrl(): string;
 
@@ -3339,7 +3122,6 @@ declare class WebContextMenuParam {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   existsImageContents(): boolean;
 
@@ -3357,7 +3139,6 @@ declare class WebContextMenuParam {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getMediaType(): ContextMenuMediaType;
 
@@ -3375,7 +3156,6 @@ declare class WebContextMenuParam {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getSelectionText(): string;
 
@@ -3393,7 +3173,6 @@ declare class WebContextMenuParam {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getSourceType(): ContextMenuSourceType;
 
@@ -3411,7 +3190,6 @@ declare class WebContextMenuParam {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getInputFieldType(): ContextMenuInputFieldType;
 
@@ -3429,47 +3207,43 @@ declare class WebContextMenuParam {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   isEditable(): boolean;
 
   /**
    * Returns the context editable flags {@link ContextMenuEditStateFlags}.
    *
-   * @returns { int }
+   * @returns { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
    * Returns the context editable flags {@link ContextMenuEditStateFlags}.
    *
-   * @returns { int }
+   * @returns { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
-  getEditStateFlags(): int;
+  getEditStateFlags(): number;
 
   /**
    * Returns the selection menu preview width.
    *
-   * @returns { int } The preview menu width.
+   * @returns { number } The preview menu width.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
-   * @since 20 static
    */
-  getPreviewWidth(): int;
+  getPreviewWidth(): number;
 
   /**
    * Returns the selection menu preview height.
    *
-   * @returns { int } The preview menu height.
+   * @returns { number } The preview menu height.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
-   * @since 20 static
    */
-  getPreviewHeight(): int;
+  getPreviewHeight(): number;
 }
 
 /**
@@ -3484,7 +3258,6 @@ declare class WebContextMenuParam {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare class WebContextMenuResult {
   /**
@@ -3499,7 +3272,6 @@ declare class WebContextMenuResult {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -3517,7 +3289,6 @@ declare class WebContextMenuResult {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   closeContextMenu(): void;
 
@@ -3535,7 +3306,6 @@ declare class WebContextMenuResult {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   copyImage(): void;
 
@@ -3551,7 +3321,6 @@ declare class WebContextMenuResult {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   copy(): void;
 
@@ -3564,14 +3333,9 @@ declare class WebContextMenuResult {
   /**
    * Executes the paste operation related to this context menu.
    *
-   * <p><strong>API Note</strong>:<br>
-   * Permissions need to be configured: ohos.permission.READ_PASTEBOARD.
-   * </p>
-   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   paste(): void;
 
@@ -3587,7 +3351,6 @@ declare class WebContextMenuResult {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   cut(): void;
 
@@ -3603,7 +3366,6 @@ declare class WebContextMenuResult {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   selectAll(): void;
 
@@ -3645,7 +3407,6 @@ declare class WebContextMenuResult {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare class ConsoleMessage {
   /**
@@ -3675,7 +3436,6 @@ declare class ConsoleMessage {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -3694,7 +3454,6 @@ declare class ConsoleMessage {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getMessage(): string;
 
@@ -3721,21 +3480,20 @@ declare class ConsoleMessage {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   getSourceId(): string;
 
   /**
    * Gets the line number of a console message.
    *
-   * @returns { int } Return the line number of a console message.
+   * @returns { number } Return the line number of a console message.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   /**
    * Gets the line number of a console message.
    *
-   * @returns { int } Return the line number of a console message.
+   * @returns { number } Return the line number of a console message.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -3743,14 +3501,13 @@ declare class ConsoleMessage {
   /**
    * Gets the line number of a console message.
    *
-   * @returns { int } Return the line number of a console message.
+   * @returns { number } Return the line number of a console message.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
-  getLineNumber(): int;
+  getLineNumber(): number;
 
   /**
    * Gets the message level of a console message.
@@ -3767,7 +3524,6 @@ declare class ConsoleMessage {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getMessageLevel(): MessageLevel;
 }
@@ -3798,7 +3554,6 @@ declare class ConsoleMessage {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare class WebResourceRequest {
   /**
@@ -3821,7 +3576,6 @@ declare class WebResourceRequest {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -3848,7 +3602,6 @@ declare class WebResourceRequest {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   getRequestHeader(): Array<Header>;
 
@@ -3875,7 +3628,6 @@ declare class WebResourceRequest {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getRequestUrl(): string;
 
@@ -3902,7 +3654,6 @@ declare class WebResourceRequest {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   isRequestGesture(): boolean;
 
@@ -3929,7 +3680,6 @@ declare class WebResourceRequest {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   isMainFrame(): boolean;
 
@@ -3956,7 +3706,6 @@ declare class WebResourceRequest {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   isRedirect(): boolean;
 
@@ -3983,7 +3732,6 @@ declare class WebResourceRequest {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   getRequestMethod(): string;
 }
@@ -4001,7 +3749,6 @@ declare class WebResourceRequest {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare class WebResourceResponse {
   /**
@@ -4017,7 +3764,6 @@ declare class WebResourceResponse {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -4044,14 +3790,13 @@ declare class WebResourceResponse {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   getResponseData(): string;
 
   /**
    * Gets the response data.
    *
-   * @returns { string | int | ArrayBuffer | Resource | undefined } Return the response data.
+   * @returns { string | number | ArrayBuffer | Resource | undefined } Return the response data.
    *     string type indicate string in HTML format.
    *     number type indicate file handle.
    *     Resource type indicate $rawfile resource.
@@ -4062,7 +3807,7 @@ declare class WebResourceResponse {
   /**
    * Gets the response data.
    *
-   * @returns { string | int | ArrayBuffer | Resource | undefined } Return the response data.
+   * @returns { string | number | ArrayBuffer | Resource | undefined } Return the response data.
    *     string type indicate string in HTML format.
    *     number type indicate file handle.
    *     Resource type indicate $rawfile resource.
@@ -4070,9 +3815,8 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @since 18 dynamic
-   * @since 20 static
    */
-  getResponseDataEx(): string | int | ArrayBuffer | Resource | undefined;
+  getResponseDataEx(): string | number | ArrayBuffer | Resource | undefined;
 
   /**
    * Gets the response encoding.
@@ -4089,7 +3833,6 @@ declare class WebResourceResponse {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getResponseEncoding(): string;
 
@@ -4108,7 +3851,6 @@ declare class WebResourceResponse {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getResponseMimeType(): string;
 
@@ -4135,7 +3877,6 @@ declare class WebResourceResponse {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   getReasonMessage(): string;
 
@@ -4162,40 +3903,38 @@ declare class WebResourceResponse {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   getResponseHeader(): Array<Header>;
 
   /**
    * Gets the response code.
    *
-   * @returns { int } Return the response code.
+   * @returns { number } Return the response code.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   /**
    * Gets the response code.
    *
-   * @returns { int } Return the response code.
+   * @returns { number } Return the response code.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
-  getResponseCode(): int;
+  getResponseCode(): number;
 
   /**
    * Sets the response data.
    *
-   * @param { string | int | Resource } data - the response data.
+   * @param { string | number | Resource } data - the response data.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
    * Sets the response data.
    *
-   * @param { string | int | Resource } data - the response data.
+   * @param { string | number | Resource } data - the response data.
    *     string type indicate strings in HTML format.
    *     number type indicate file handle.
    *     Resource type indicate $rawfile resource.
@@ -4205,7 +3944,7 @@ declare class WebResourceResponse {
   /**
    * Sets the response data.
    *
-   * @param { string | int | Resource | ArrayBuffer } data - the response data.
+   * @param { string | number | Resource | ArrayBuffer } data - the response data.
    *     string type indicate strings in HTML format.
    *     number type indicate file handle.
    *     Resource type indicate $rawfile resource.
@@ -4213,9 +3952,8 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
-  setResponseData(data: string | int | Resource | ArrayBuffer): void;
+  setResponseData(data: string | number | Resource | ArrayBuffer): void;
 
   /**
    * Sets the response encoding.
@@ -4239,7 +3977,6 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   setResponseEncoding(encoding: string): void;
 
@@ -4265,7 +4002,6 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   setResponseMimeType(mimeType: string): void;
 
@@ -4291,7 +4027,6 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   setReasonMessage(reason: string): void;
 
@@ -4317,21 +4052,20 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   setResponseHeader(header: Array<Header>): void;
 
   /**
    * Sets the response code.
    *
-   * @param { int } code the response code.
+   * @param { number } code the response code.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
    * Sets the response code.
    *
-   * @param { int } code the response code.
+   * @param { number } code the response code.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -4339,13 +4073,12 @@ declare class WebResourceResponse {
   /**
    * Sets the response code.
    *
-   * @param { int } code the response code.
+   * @param { number } code the response code.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  setResponseCode(code: int): void;
+  setResponseCode(code: number): void;
 
   /**
    * Sets the response is ready or not.
@@ -4369,7 +4102,6 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   setResponseIsReady(IsReady: boolean): void;
 
@@ -4387,7 +4119,6 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @since 18 dynamic
-   * @since 20 static
    */
   getResponseIsReady(): boolean;
 }
@@ -4423,7 +4154,6 @@ declare class WebResourceResponse {
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
- * @since 20 static
  */
 declare interface Header {
   /**
@@ -4449,7 +4179,6 @@ declare interface Header {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   headerKey: string;
 
@@ -4476,7 +4205,6 @@ declare interface Header {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   headerValue: string;
 }
@@ -4501,7 +4229,6 @@ declare interface Header {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare class WebResourceError {
   /**
@@ -4524,7 +4251,6 @@ declare class WebResourceError {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -4551,21 +4277,20 @@ declare class WebResourceError {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   getErrorInfo(): string;
 
   /**
    * Gets the code of the Web resource error.
    *
-   * @returns { int } Return the code of the Web resource error.
+   * @returns { number } Return the code of the Web resource error.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   /**
    * Gets the code of the Web resource error.
    *
-   * @returns { int } Return the code of the Web resource error.
+   * @returns { number } Return the code of the Web resource error.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @since 10
@@ -4573,14 +4298,13 @@ declare class WebResourceError {
   /**
    * Gets the code of the Web resource error.
    *
-   * @returns { int } Return the code of the Web resource error.
+   * @returns { number } Return the code of the Web resource error.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
-  getErrorCode(): int;
+  getErrorCode(): number;
 }
 
 /**
@@ -4596,7 +4320,6 @@ declare class WebResourceError {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare class JsGeolocation {
   /**
@@ -4612,7 +4335,6 @@ declare class JsGeolocation {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -4640,7 +4362,6 @@ declare class JsGeolocation {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   invoke(origin: string, allow: boolean, retain: boolean): void;
 }
@@ -4705,7 +4426,6 @@ declare class WebCookie {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare class EventResult {
   /**
@@ -4714,7 +4434,6 @@ declare class EventResult {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   constructor();
 
@@ -4728,7 +4447,6 @@ declare class EventResult {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   setGestureEventResult(result: boolean): void;
 
@@ -4746,7 +4464,6 @@ declare class EventResult {
    *    Default value: true.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 14 dynamic
-   * @since 20 static
    */
   setGestureEventResult(result: boolean, stopPropagation: boolean): void;
 
@@ -5030,7 +4747,6 @@ declare class WebController {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface WebOptions {
   /**
@@ -5060,7 +4776,6 @@ declare interface WebOptions {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   src: string | Resource;
 
@@ -5100,16 +4815,6 @@ declare interface WebOptions {
   controller: WebController | WebviewController;
 
   /**
-   * Sets the controller of the Web.
-   *
-   * @type { WebviewController }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 20 static
-  */
-  controller: WebviewController;
-
-  /**
    * Rendering mode.
    * RenderMode.ASYNC_RENDER (default, cannot be dynamically adjusted): The Web component is rendered asynchronously.
    * RenderMode.SYNC_RENDER: The Web component is rendered synchronously within the current execution context.
@@ -5118,7 +4823,6 @@ declare interface WebOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   renderMode? : RenderMode;
 
@@ -5142,7 +4846,6 @@ declare interface WebOptions {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   incognitoMode? : boolean;
 
@@ -5156,7 +4859,6 @@ declare interface WebOptions {
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
    */
   sharedRenderProcessToken? : string;
 }
@@ -5176,7 +4878,6 @@ declare interface WebOptions {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface ScriptItem {
   /**
@@ -5186,7 +4887,6 @@ declare interface ScriptItem {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   script: string;
 
@@ -5197,7 +4897,6 @@ declare interface ScriptItem {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   scriptRules: Array<string>;
 }
@@ -5217,7 +4916,6 @@ declare interface ScriptItem {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface LoadCommittedDetails {
   /**
@@ -5227,7 +4925,6 @@ declare interface LoadCommittedDetails {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   isMainFrame: boolean;
 
@@ -5242,7 +4939,6 @@ declare interface LoadCommittedDetails {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   isSameDocument: boolean;
 
@@ -5255,7 +4951,6 @@ declare interface LoadCommittedDetails {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   didReplaceEntry: boolean;
 
@@ -5266,7 +4961,6 @@ declare interface LoadCommittedDetails {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   navigationType: WebNavigationType;
 
@@ -5277,7 +4971,6 @@ declare interface LoadCommittedDetails {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   url: string;
 }
@@ -5289,7 +4982,6 @@ declare interface LoadCommittedDetails {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface IntelligentTrackingPreventionDetails {
   /**
@@ -5299,7 +4991,6 @@ declare interface IntelligentTrackingPreventionDetails {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   host: string;
 
@@ -5310,7 +5001,6 @@ declare interface IntelligentTrackingPreventionDetails {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   trackerHost: string;
 }
@@ -5347,38 +5037,36 @@ declare interface IntelligentTrackingPreventionDetails {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  * @noninterop
  */
 interface WebInterface {
   /**
-    * Sets Value.
-    *
-    * @param { WebOptions } value
-    * @returns { WebAttribute }
-    * @syscap SystemCapability.Web.Webview.Core
-    * @since 8
-    */
+   * Sets Value.
+   *
+   * @param { WebOptions } value
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 8
+   */
   /**
-    * Sets Value.
-    *
-    * @param { WebOptions } value
-    * @returns { WebAttribute }
-    * @syscap SystemCapability.Web.Webview.Core
-    * @crossplatform
-    * @since 10
-    */
+   * Sets Value.
+   *
+   * @param { WebOptions } value
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 10
+   */
   /**
-    * Sets Value.
-    *
-    * @param { WebOptions } value
-    * @returns { WebAttribute }
-    * @syscap SystemCapability.Web.Webview.Core
-    * @crossplatform
-    * @atomicservice
-    * @since 11 dynamic
-    * @since 20 static
-    */
+   * Sets Value.
+   *
+   * @param { WebOptions } value
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   */
   (value: WebOptions): WebAttribute;
 }
 
@@ -5397,7 +5085,6 @@ interface WebInterface {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface NativeEmbedInfo {
   /**
@@ -5407,7 +5094,6 @@ declare interface NativeEmbedInfo {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   id?: string;
 
@@ -5418,7 +5104,6 @@ declare interface NativeEmbedInfo {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   type?: string;
 
@@ -5429,7 +5114,6 @@ declare interface NativeEmbedInfo {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   src?: string;
 
@@ -5440,31 +5124,28 @@ declare interface NativeEmbedInfo {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   position?: Position;
 
   /**
    * The embed tag width.
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
-  width?: int;
+  width?: number;
 
   /**
    * The embed tag height.
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
-  height?: int;
+  height?: number;
 
   /**
    * The embed tag url.
@@ -5473,7 +5154,6 @@ declare interface NativeEmbedInfo {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   url?: string;
 
@@ -5484,7 +5164,6 @@ declare interface NativeEmbedInfo {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   tag?: string;
 
@@ -5495,7 +5174,6 @@ declare interface NativeEmbedInfo {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   params?: Map<string, string>;
 }
@@ -5515,7 +5193,6 @@ declare interface NativeEmbedInfo {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface NativeEmbedDataInfo {
   /**
@@ -5525,7 +5202,6 @@ declare interface NativeEmbedDataInfo {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   status?: NativeEmbedStatus;
 
@@ -5536,7 +5212,6 @@ declare interface NativeEmbedDataInfo {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   surfaceId?: string;
 
@@ -5547,7 +5222,6 @@ declare interface NativeEmbedDataInfo {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   embedId?: string;
 
@@ -5558,7 +5232,6 @@ declare interface NativeEmbedDataInfo {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   info?: NativeEmbedInfo;
 }
@@ -5569,7 +5242,6 @@ declare interface NativeEmbedDataInfo {
  * @typedef NativeEmbedVisibilityInfo
  * @syscap SystemCapability.Web.Webview.Core
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface NativeEmbedVisibilityInfo {
   /**
@@ -5578,7 +5250,6 @@ declare interface NativeEmbedVisibilityInfo {
    * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
    */
   visibility: boolean;
 
@@ -5588,7 +5259,6 @@ declare interface NativeEmbedVisibilityInfo {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
    */
   embedId: string;
 }
@@ -5608,7 +5278,6 @@ declare interface NativeEmbedVisibilityInfo {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface NativeEmbedTouchInfo {
   /**
@@ -5618,7 +5287,6 @@ declare interface NativeEmbedTouchInfo {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   embedId?: string;
 
@@ -5629,7 +5297,6 @@ declare interface NativeEmbedTouchInfo {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   touchEvent?: TouchEvent;
 
@@ -5640,7 +5307,6 @@ declare interface NativeEmbedTouchInfo {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   result?: EventResult;
 }
@@ -5677,8 +5343,8 @@ declare interface NativeEmbedMouseInfo {
    * @type { ?EventResult }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
-    */
-   result?: EventResult;
+   */
+  result?: EventResult;
  }
 
 /**
@@ -5688,30 +5354,27 @@ declare interface NativeEmbedMouseInfo {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface FirstMeaningfulPaint {
   /**
    * Start time of navigation.
    *
-   * @type { ?long }
+   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  navigationStartTime?: long;
+  navigationStartTime?: number;
 
   /**
    * Paint time of first meaningful content.
    *
-   * @type { ?long }
+   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  firstMeaningfulPaintTime?: long;
+  firstMeaningfulPaintTime?: number;
 }
 
 /**
@@ -5721,74 +5384,67 @@ declare interface FirstMeaningfulPaint {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface LargestContentfulPaint {
   /**
    *  Start time of navigation.
    *
-   * @type { ?long }
+   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  navigationStartTime?: long;
+  navigationStartTime?: number;
 
   /**
    * Paint time of largest image.
    *
-   * @type { ?long }
+   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  largestImagePaintTime?: long;
+  largestImagePaintTime?: number;
 
   /**
    * Paint time of largest text.
    *
-   * @type { ?long }
+   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  largestTextPaintTime?: long;
+  largestTextPaintTime?: number;
 
   /**
    * Bits per pixel of image.
    *
-   * @type { ?double }
+   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  imageBPP?: double;
+  imageBPP?: number;
 
   /**
    * Load start time of largest image.
    *
-   * @type { ?long }
+   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  largestImageLoadStartTime?: long;
+  largestImageLoadStartTime?: number;
 
   /**
    * Load end time of largest image.
    *
-   * @type { ?long }
+   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  largestImageLoadEndTime?: long;
+  largestImageLoadEndTime?: number;
 }
 
 /**
@@ -5797,7 +5453,6 @@ declare interface LargestContentfulPaint {
  * @interface RenderProcessNotRespondingData
  * @syscap SystemCapability.Web.Webview.Core
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface RenderProcessNotRespondingData {
   /**
@@ -5806,19 +5461,17 @@ declare interface RenderProcessNotRespondingData {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
    */
   jsStack: string;
 
   /**
    * Process id of render process not responding.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
    */
-  pid: int;
+  pid: number;
 
   /**
    * Reason for the render process not responding.
@@ -5826,7 +5479,6 @@ declare interface RenderProcessNotRespondingData {
    * @type { RenderProcessNotRespondingReason }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
    */
   reason: RenderProcessNotRespondingReason;
 }
@@ -5839,7 +5491,6 @@ declare interface RenderProcessNotRespondingData {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnPageEndEvent {
   /**
@@ -5850,7 +5501,6 @@ declare interface OnPageEndEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   url: string;
 }
@@ -5863,7 +5513,6 @@ declare interface OnPageEndEvent {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnPageBeginEvent {
   /**
@@ -5874,7 +5523,6 @@ declare interface OnPageBeginEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   url: string;
 }
@@ -5884,7 +5532,7 @@ declare interface OnPageBeginEvent {
  *
  * @typedef OnLoadStartedEvent
  * @syscap SystemCapability.Web.Webview.Core
- * @since 20 dynamic&static
+ * @since 20 dynamic
  */
 declare interface OnLoadStartedEvent {
   /**
@@ -5892,7 +5540,7 @@ declare interface OnLoadStartedEvent {
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   url: string;
 }
@@ -5902,7 +5550,7 @@ declare interface OnLoadStartedEvent {
  *
  * @typedef OnLoadFinishedEvent
  * @syscap SystemCapability.Web.Webview.Core
- * @since 20 dynamic&static
+ * @since 20 dynamic
  */
 declare interface OnLoadFinishedEvent {
   /**
@@ -5910,9 +5558,9 @@ declare interface OnLoadFinishedEvent {
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
-   url: string;
+  url: string;
  }
 
 /**
@@ -5923,20 +5571,18 @@ declare interface OnLoadFinishedEvent {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnProgressChangeEvent {
   /**
    * The new progress of the page.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  newProgress: int;
+  newProgress: number;
 }
 
 /**
@@ -5947,7 +5593,6 @@ declare interface OnProgressChangeEvent {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnTitleReceiveEvent {
   /**
@@ -5958,7 +5603,6 @@ declare interface OnTitleReceiveEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   title: string;
 
@@ -5968,7 +5612,7 @@ declare interface OnTitleReceiveEvent {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   isRealTitle?: boolean;
 }
@@ -5981,7 +5625,6 @@ declare interface OnTitleReceiveEvent {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnGeolocationShowEvent {
   /**
@@ -5992,7 +5635,6 @@ declare interface OnGeolocationShowEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   origin: string;
 
@@ -6004,7 +5646,6 @@ declare interface OnGeolocationShowEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   geolocation: JsGeolocation;
 }
@@ -6017,7 +5658,6 @@ declare interface OnGeolocationShowEvent {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnAlertEvent {
   /**
@@ -6028,7 +5668,6 @@ declare interface OnAlertEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   url: string;
 
@@ -6040,7 +5679,6 @@ declare interface OnAlertEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   message: string;
 
@@ -6052,7 +5690,6 @@ declare interface OnAlertEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   result: JsResult;
 }
@@ -6073,7 +5710,6 @@ declare interface OnAlertEvent {
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
- * @since 20 static
  */
 declare interface OnBeforeUnloadEvent {
   /**
@@ -6092,7 +5728,6 @@ declare interface OnBeforeUnloadEvent {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   url: string;
 
@@ -6112,7 +5747,6 @@ declare interface OnBeforeUnloadEvent {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   message: string;
 
@@ -6132,7 +5766,6 @@ declare interface OnBeforeUnloadEvent {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   result: JsResult;
 
@@ -6142,7 +5775,7 @@ declare interface OnBeforeUnloadEvent {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   isReload?: boolean;
 }
@@ -6155,7 +5788,6 @@ declare interface OnBeforeUnloadEvent {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnConfirmEvent {
   /**
@@ -6166,7 +5798,6 @@ declare interface OnConfirmEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   url: string;
 
@@ -6178,7 +5809,6 @@ declare interface OnConfirmEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   message: string;
 
@@ -6190,7 +5820,6 @@ declare interface OnConfirmEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   result: JsResult;
 }
@@ -6203,7 +5832,6 @@ declare interface OnConfirmEvent {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnPromptEvent {
   /**
@@ -6214,7 +5842,6 @@ declare interface OnPromptEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   url: string;
 
@@ -6226,7 +5853,6 @@ declare interface OnPromptEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   message: string;
 
@@ -6238,7 +5864,6 @@ declare interface OnPromptEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   value: string;
 
@@ -6250,7 +5875,6 @@ declare interface OnPromptEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   result: JsResult;
 }
@@ -6263,7 +5887,6 @@ declare interface OnPromptEvent {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnConsoleEvent {
   /**
@@ -6274,7 +5897,6 @@ declare interface OnConsoleEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   message: ConsoleMessage;
 }
@@ -6287,7 +5909,6 @@ declare interface OnConsoleEvent {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnErrorReceiveEvent {
   /**
@@ -6298,7 +5919,6 @@ declare interface OnErrorReceiveEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   request: WebResourceRequest;
 
@@ -6310,7 +5930,6 @@ declare interface OnErrorReceiveEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   error: WebResourceError;
 }
@@ -6323,7 +5942,6 @@ declare interface OnErrorReceiveEvent {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnHttpErrorReceiveEvent {
   /**
@@ -6334,7 +5952,6 @@ declare interface OnHttpErrorReceiveEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   request: WebResourceRequest;
 
@@ -6346,7 +5963,6 @@ declare interface OnHttpErrorReceiveEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   response: WebResourceResponse;
 }
@@ -6359,7 +5975,6 @@ declare interface OnHttpErrorReceiveEvent {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnDownloadStartEvent {
   /**
@@ -6370,7 +5985,6 @@ declare interface OnDownloadStartEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   url: string;
 
@@ -6382,7 +5996,6 @@ declare interface OnDownloadStartEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   userAgent: string;
 
@@ -6402,7 +6015,6 @@ declare interface OnDownloadStartEvent {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   contentDisposition: string;
 
@@ -6414,21 +6026,19 @@ declare interface OnDownloadStartEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   mimetype: string;
 
   /**
    * The contentLength of page.
    *
-   * @type { long }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  contentLength: long;
+  contentLength: number;
 }
 
 /**
@@ -6447,7 +6057,6 @@ declare interface OnDownloadStartEvent {
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
- * @since 20 static
  */
 declare interface OnRefreshAccessedHistoryEvent {
   /**
@@ -6466,7 +6075,6 @@ declare interface OnRefreshAccessedHistoryEvent {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   url: string;
 
@@ -6486,7 +6094,6 @@ declare interface OnRefreshAccessedHistoryEvent {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   isRefreshed: boolean;
 }
@@ -6498,7 +6105,6 @@ declare interface OnRefreshAccessedHistoryEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnRenderExitedEvent {
   /**
@@ -6508,7 +6114,6 @@ declare interface OnRenderExitedEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   renderExitReason: RenderExitReason;
 }
@@ -6521,7 +6126,6 @@ declare interface OnRenderExitedEvent {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnShowFileSelectorEvent {
   /**
@@ -6532,7 +6136,6 @@ declare interface OnShowFileSelectorEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   result: FileSelectorResult;
 
@@ -6544,7 +6147,6 @@ declare interface OnShowFileSelectorEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   fileSelector: FileSelectorParam;
 }
@@ -6556,7 +6158,6 @@ declare interface OnShowFileSelectorEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnResourceLoadEvent {
   /**
@@ -6566,7 +6167,6 @@ declare interface OnResourceLoadEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   url: string;
 }
@@ -6579,32 +6179,29 @@ declare interface OnResourceLoadEvent {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnScaleChangeEvent {
   /**
    * Old scale of the page.
    *
-   * @type { double }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  oldScale: double;
+  oldScale: number;
 
   /**
    * New scale of the page.
    *
-   * @type { double }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  newScale: double;
+  newScale: number;
 }
 
 /**
@@ -6615,7 +6212,6 @@ declare interface OnScaleChangeEvent {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnHttpAuthRequestEvent {
   /**
@@ -6626,7 +6222,6 @@ declare interface OnHttpAuthRequestEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   handler: HttpAuthHandler;
 
@@ -6638,7 +6233,6 @@ declare interface OnHttpAuthRequestEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   host: string;
 
@@ -6650,7 +6244,6 @@ declare interface OnHttpAuthRequestEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   realm: string;
 }
@@ -6662,7 +6255,6 @@ declare interface OnHttpAuthRequestEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnInterceptRequestEvent {
   /**
@@ -6672,7 +6264,6 @@ declare interface OnInterceptRequestEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   request: WebResourceRequest;
 }
@@ -6686,7 +6277,6 @@ declare interface OnInterceptRequestEvent {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnPermissionRequestEvent {
   /**
@@ -6697,7 +6287,6 @@ declare interface OnPermissionRequestEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   request: PermissionRequest;
 }
@@ -6710,7 +6299,6 @@ declare interface OnPermissionRequestEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnScreenCaptureRequestEvent {
   /**
@@ -6720,7 +6308,6 @@ declare interface OnScreenCaptureRequestEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   handler: ScreenCaptureHandler;
 }
@@ -6732,7 +6319,6 @@ declare interface OnScreenCaptureRequestEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnContextMenuShowEvent {
   /**
@@ -6742,7 +6328,6 @@ declare interface OnContextMenuShowEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   param: WebContextMenuParam;
 
@@ -6753,7 +6338,6 @@ declare interface OnContextMenuShowEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   result: WebContextMenuResult;
 }
@@ -6765,30 +6349,27 @@ declare interface OnContextMenuShowEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnSearchResultReceiveEvent {
   /**
    * The ordinal number of the currently matched lookup item (starting from 0).
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  activeMatchOrdinal: int;
+  activeMatchOrdinal: number;
 
   /**
    * The number of all matched keywords.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  numberOfMatches: int;
+  numberOfMatches: number;
 
   /**
    * Indicates whether the current in-page search operation is complete. The method may be called back multiple times until isDoneCounting is true.
@@ -6797,7 +6378,6 @@ declare interface OnSearchResultReceiveEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   isDoneCounting: boolean;
 }
@@ -6810,32 +6390,29 @@ declare interface OnSearchResultReceiveEvent {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnScrollEvent {
   /**
    * The X offset of the scroll.
    *
-   * @type { double }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  xOffset: double;
+  xOffset: number;
 
   /**
    * The Y offset of the scroll.
    *
-   * @type { double }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  yOffset: double;
+  yOffset: number;
 }
 
 /**
@@ -6845,7 +6422,6 @@ declare interface OnScrollEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnSslErrorEventReceiveEvent {
   /**
@@ -6855,7 +6431,6 @@ declare interface OnSslErrorEventReceiveEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   handler: SslErrorHandler;
 
@@ -6866,7 +6441,6 @@ declare interface OnSslErrorEventReceiveEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   error: SslError;
 
@@ -6876,7 +6450,6 @@ declare interface OnSslErrorEventReceiveEvent {
    * @type { ?Array<Uint8Array> }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15 dynamic
-   * @since 20 static
    */
   certChainData?: Array<Uint8Array>;
 }
@@ -6888,7 +6461,6 @@ declare interface OnSslErrorEventReceiveEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnClientAuthenticationEvent {
   /**
@@ -6898,7 +6470,6 @@ declare interface OnClientAuthenticationEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   handler : ClientAuthenticationHandler;
 
@@ -6909,20 +6480,18 @@ declare interface OnClientAuthenticationEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   host : string;
 
   /**
    * The port number of the request certificate server.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  port : int;
+  port : number;
 
   /**
    * Acceptable asymmetric key types.
@@ -6931,7 +6500,6 @@ declare interface OnClientAuthenticationEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   keyTypes : Array<string>;
 
@@ -6942,7 +6510,6 @@ declare interface OnClientAuthenticationEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   issuers : Array<string>;
 }
@@ -6954,7 +6521,6 @@ declare interface OnClientAuthenticationEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnWindowNewEvent {
   /**
@@ -6964,7 +6530,6 @@ declare interface OnWindowNewEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   isAlert: boolean;
 
@@ -6975,7 +6540,6 @@ declare interface OnWindowNewEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   isUserTrigger: boolean;
 
@@ -6986,7 +6550,6 @@ declare interface OnWindowNewEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   targetUrl: string;
 
@@ -6997,7 +6560,6 @@ declare interface OnWindowNewEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   handler: ControllerHandler;
 }
@@ -7009,7 +6571,6 @@ declare interface OnWindowNewEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnTouchIconUrlReceivedEvent {
   /**
@@ -7019,7 +6580,6 @@ declare interface OnTouchIconUrlReceivedEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   url: string;
 
@@ -7030,7 +6590,6 @@ declare interface OnTouchIconUrlReceivedEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   precomposed: boolean;
 }
@@ -7042,7 +6601,6 @@ declare interface OnTouchIconUrlReceivedEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnFaviconReceivedEvent {
   /**
@@ -7054,15 +6612,6 @@ declare interface OnFaviconReceivedEvent {
    * @since 12 dynamic
    */
   favicon: PixelMap;
-
-  /**
-   * Received the Favicon icon for the image.PixelMap object.
-   *
-   * @type { image.PixelMap }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 static
-   */
-  favicon: image.PixelMap;
 }
 
 /**
@@ -7073,7 +6622,6 @@ declare interface OnFaviconReceivedEvent {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnPageVisibleEvent {
   /**
@@ -7084,7 +6632,6 @@ declare interface OnPageVisibleEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   url: string;
 }
@@ -7096,7 +6643,6 @@ declare interface OnPageVisibleEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnDataResubmittedEvent {
   /**
@@ -7106,7 +6652,6 @@ declare interface OnDataResubmittedEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   handler: DataResubmissionHandler;
 }
@@ -7118,7 +6663,6 @@ declare interface OnDataResubmittedEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnAudioStateChangedEvent {
   /**
@@ -7128,7 +6672,6 @@ declare interface OnAudioStateChangedEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   playing: boolean;
 }
@@ -7140,30 +6683,27 @@ declare interface OnAudioStateChangedEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnFirstContentfulPaintEvent {
   /**
    * The time at which navigation begins, expressed in microseconds.
    *
-   * @type { long }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  navigationStartTick: long;
+  navigationStartTick: number;
 
   /**
    * The time it takes to draw content for the first time from navigation, expressed in milliseconds.
    *
-   * @type { long }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  firstContentfulPaintMs: long;
+  firstContentfulPaintMs: number;
 }
 
 /**
@@ -7174,7 +6714,6 @@ declare interface OnFirstContentfulPaintEvent {
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnLoadInterceptEvent {
   /**
@@ -7185,7 +6724,6 @@ declare interface OnLoadInterceptEvent {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   data: WebResourceRequest;
 }
@@ -7197,32 +6735,29 @@ declare interface OnLoadInterceptEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface OnOverScrollEvent {
   /**
    * Based on the leftmost part of the page, the horizontal scroll offset is over.
    * Unit: vp.
    *
-   * @type { double }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  xOffset: double;
+  xOffset: number;
 
   /**
    * Based on the top of the page, the vertical scroll offset is over.
    * Unit: vp.
    *
-   * @type { double }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  yOffset: double;
+  yOffset: number;
 }
 
 /**
@@ -7240,7 +6775,7 @@ declare interface OnOverScrollEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 20 dynamic&static
+ * @since 20 dynamic
  */
 declare interface JavaScriptProxy {
   /**
@@ -7263,16 +6798,6 @@ declare interface JavaScriptProxy {
   object: object;
 
   /**
-   * Objects participating in registration.
-   *
-   * @type { object }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 20 static
-   */
-  jsObject: object;
-
-  /**
    * The name of the registered object, which is consistent with the
    *                          object name called in the window.
    *
@@ -7289,7 +6814,7 @@ declare interface JavaScriptProxy {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   name: string;
 
@@ -7310,7 +6835,7 @@ declare interface JavaScriptProxy {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   methodList: Array<string>;
 
@@ -7334,16 +6859,6 @@ declare interface JavaScriptProxy {
   controller: WebController | WebviewController;
 
   /**
-   * Controller.
-   *
-   * @type { WebviewController }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 20 static
-   */
-    controller: WebviewController;
-
-  /**
    * The async method of the application side JavaScript object participating in the registration.
    *
    * @type { ?Array<string> }
@@ -7358,7 +6873,7 @@ declare interface JavaScriptProxy {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   asyncMethodList?: Array<string>;
 
@@ -7370,7 +6885,6 @@ declare interface JavaScriptProxy {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   permission?: string;
 }
@@ -7382,7 +6896,6 @@ declare interface JavaScriptProxy {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare enum WebKeyboardAvoidMode {
   /**
@@ -7391,7 +6904,6 @@ declare enum WebKeyboardAvoidMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   RESIZE_VISUAL = 0,
 
@@ -7402,7 +6914,6 @@ declare enum WebKeyboardAvoidMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   RESIZE_CONTENT = 1,
 
@@ -7412,7 +6923,6 @@ declare enum WebKeyboardAvoidMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   OVERLAYS_CONTENT = 2
 }
@@ -7423,7 +6933,6 @@ declare enum WebKeyboardAvoidMode {
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 13 dynamic
- * @since 20 static
  */
 declare enum WebElementType {
   /**
@@ -7431,7 +6940,6 @@ declare enum WebElementType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
-   * @since 20 static
    */
   IMAGE = 1,
 
@@ -7439,7 +6947,7 @@ declare enum WebElementType {
    * Link,corresponding link type.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 dynamic&static
+   * @since 20 dynamic
     */
   LINK = 2
 }
@@ -7450,7 +6958,6 @@ declare enum WebElementType {
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 13 dynamic
- * @since 20 static
  */
 declare enum WebResponseType {
   /**
@@ -7458,9 +6965,26 @@ declare enum WebResponseType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
-   * @since 20 static
    */
   LONG_PRESS = 1
+}
+
+/**
+ * Arkweb audio session Type
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20 dynamic
+ */
+declare enum AudioSessionType {
+  /**
+   * Ambient audio, which is mixable with other types of audio.
+   * This is useful in some special cases such as when the user wants to mix audios from multiple pages.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20 dynamic
+   */
+  AMBIENT = 3
 }
 
 /**
@@ -7489,29 +7013,11 @@ declare enum WebBypassVsyncCondition {
 }
 
 /**
- * Arkweb audio session Type
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @since 20 dynamic&static
- */
-declare enum AudioSessionType {
-  /**
-   * Ambient audio, which is mixable with other types of audio.
-   * This is useful in some special cases such as when the user wants to mix audios from multiple pages.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 dynamic&static
-   */
-  AMBIENT=3
-}
-
-/**
  * Defines the options of preview menu
  *
  * @interface PreviewMenuOptions
  * @syscap SystemCapability.Web.Webview.Core
- * @since 20 dynamic&static
+ * @since 20 dynamiconly
  */
 declare interface PreviewMenuOptions {
   /**
@@ -7519,7 +7025,7 @@ declare interface PreviewMenuOptions {
    *
    * @type { ?HapticFeedbackMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 dynamic&static
+   * @since 20 dynamiconly
    */
   hapticFeedbackMode?: HapticFeedbackMode;
 }
@@ -7530,7 +7036,6 @@ declare interface PreviewMenuOptions {
  * @typedef SelectionMenuOptionsExt
  * @syscap SystemCapability.Web.Webview.Core
  * @since 13 dynamic
- * @since 20 static
  */
 declare interface SelectionMenuOptionsExt {
   /**
@@ -7539,7 +7044,6 @@ declare interface SelectionMenuOptionsExt {
    * @type { ?Callback<void> }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
-   * @since 20 static
    */
   onAppear?: Callback<void>;
 
@@ -7549,7 +7053,6 @@ declare interface SelectionMenuOptionsExt {
    * @type { ?Callback<void> }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
-   * @since 20 static
    */
   onDisappear?: Callback<void>;
 
@@ -7559,7 +7062,6 @@ declare interface SelectionMenuOptionsExt {
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
-   * @since 20 static
    */
   preview?: CustomBuilder;
 
@@ -7569,7 +7071,6 @@ declare interface SelectionMenuOptionsExt {
    * @type { ?MenuType }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
-   * @since 20 static
    */
   menuType?: MenuType;
 
@@ -7578,7 +7079,7 @@ declare interface SelectionMenuOptionsExt {
    *
    * @type { ?PreviewMenuOptions }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   previewMenuOptions?: PreviewMenuOptions;
 }
@@ -7606,7 +7107,6 @@ declare interface SelectionMenuOptionsExt {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  * @noninterop
  */
 declare class WebAttribute extends CommonMethod<WebAttribute> {
@@ -7639,7 +7139,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   javaScriptAccess(javaScriptAccess: boolean): WebAttribute;
 
@@ -7677,7 +7176,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   fileAccess(fileAccess: boolean): WebAttribute;
 
@@ -7713,7 +7211,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   onlineImageAccess(onlineImageAccess: boolean): WebAttribute;
 
@@ -7746,7 +7243,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   domStorageAccess(domStorageAccess: boolean): WebAttribute;
 
@@ -7780,7 +7276,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   imageAccess(imageAccess: boolean): WebAttribute;
 
@@ -7812,7 +7307,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   * @crossplatform
   * @atomicservice
   * @since 18 dynamic
-  * @since 20 static
   */
   mixedMode(mixedMode: MixedMode): WebAttribute;
 
@@ -7845,7 +7339,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   zoomAccess(zoomAccess: boolean): WebAttribute;
 
@@ -7870,7 +7363,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   geolocationAccess(geolocationAccess: boolean): WebAttribute;
 
@@ -7935,7 +7427,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   javaScriptProxy(javaScriptProxy: JavaScriptProxy): WebAttribute;
 
@@ -7976,7 +7468,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   cacheMode(cacheMode: CacheMode): WebAttribute;
 
@@ -8000,7 +7491,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   darkMode(mode: WebDarkMode): WebAttribute;
 
@@ -8024,7 +7514,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   forceDarkAccess(access: boolean): WebAttribute;
 
@@ -8054,7 +7543,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   mediaOptions(options: WebMediaOptions): WebAttribute;
 
@@ -8101,7 +7589,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   overviewModeAccess(overviewModeAccess: boolean): WebAttribute;
 
@@ -8116,7 +7603,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   overScrollMode(mode: OverScrollMode): WebAttribute;
 
@@ -8128,7 +7614,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
    */
   blurOnKeyboardHideMode(mode: BlurOnKeyboardHideMode): WebAttribute;
 
@@ -8147,7 +7632,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the ratio of the text zoom.
    *
-   * @param { int } textZoomRatio The ratio of the text zoom.  The default value is 100, ranging from 1 to +∞.
+   * @param { number } textZoomRatio The ratio of the text zoom.  The default value is 100, ranging from 1 to +∞.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -8155,14 +7640,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the ratio of the text zoom.
    *
-   * @param { int } textZoomRatio The ratio of the text zoom.  The default value is 100, ranging from 1 to +∞.
+   * @param { number } textZoomRatio The ratio of the text zoom.  The default value is 100, ranging from 1 to +∞.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
-  textZoomRatio(textZoomRatio: int): WebAttribute;
+  textZoomRatio(textZoomRatio: number): WebAttribute;
 
   /**
    * Sets whether the Web access the database.
@@ -8184,7 +7668,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   databaseAccess(databaseAccess: boolean): WebAttribute;
 
@@ -8199,16 +7682,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the initial scale for the Web.
    *
-   * @param { double } percent the initial scale for the Web.
+   * @param { number } percent the initial scale for the Web.
    *                           Value range: (0, 1000].
    *                           Default value: 100.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
-  initialScale(percent: double): WebAttribute;
+  initialScale(percent: number): WebAttribute;
 
   /**
    * Sets the Web's user agent.
@@ -8250,7 +7732,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   metaViewport(enabled: boolean): WebAttribute;
 
@@ -8291,9 +7772,39 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onPageEnd(callback: Callback<OnPageEndEvent>): WebAttribute;
+
+  /**
+   * Triggered at the begin of web page loading. This method is called once for each main frame load.  Embedded frame
+   * changes, i.e. clicking a link whose target is an iframe and fragment navigations (navigations to #fragment_id)
+   * will not trigger this callback.
+   *
+   * <p><strong>API Note</strong>:<br>
+   * Different from onPageBegin, onLoadStarted is triggered only once if the mainframe is automatically redirected
+   * before the page is completely loaded. OnPageBegin is triggered every navigation.
+   * </p>
+   *
+   * @param { Callback<OnLoadStartedEvent> } callback The triggered function at the begin of web page loading.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20 dynamic
+   */
+  onLoadStarted(callback: Callback<OnLoadStartedEvent>): WebAttribute;
+
+  /**
+   * Notify the host application that a page has finished loading. This method is called only for main frame.
+   *
+   * <p><strong>API Note</strong>:<br>
+   * Different from onPageEnd, fragment navigation also triggers onLoadFinished.
+   * </p>
+   *
+   * @param { Callback<OnLoadFinishedEvent> } callback The triggered function at the end of web page loading.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20 dynamic
+   */
+  onLoadFinished(callback: Callback<OnLoadFinishedEvent>): WebAttribute;
 
   /**
    * Triggered at the begin of web page loading.
@@ -8332,40 +7843,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onPageBegin(callback: Callback<OnPageBeginEvent>): WebAttribute;
-
-  /**
-   * Triggered at the begin of web page loading. This method is called once for each main frame load.  Embedded frame
-   * changes, i.e. clicking a link whose target is an iframe and fragment navigations (navigations to #fragment_id)
-   * will not trigger this callback.
-   *
-   * <p><strong>API Note</strong>:<br>
-   * Different from onPageBegin, onLoadStarted is triggered only once if the mainframe is automatically redirected
-   * before the page is completely loaded. OnPageBegin is triggered every navigation.
-   * </p>
-   *
-   * @param { Callback<OnLoadStartedEvent> } callback The triggered function at the begin of web page loading.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 dynamic&static
-   */
-  onLoadStarted(callback: Callback<OnLoadStartedEvent>): WebAttribute;
-
-  /**
-   * Notify the host application that a page has finished loading. This method is called only for main frame.
-   *
-   * <p><strong>API Note</strong>:<br>
-   * Different from onPageEnd, fragment navigation also triggers onLoadFinished.
-   * </p>
-   *
-   * @param { Callback<OnLoadFinishedEvent> } callback The triggered function at the end of web page loading.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 dynamic&static
-   */
-  onLoadFinished(callback: Callback<OnLoadFinishedEvent>): WebAttribute;
 
   /**
    * Triggered when the page loading progress changes.
@@ -8394,7 +7873,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onProgressChange(callback: Callback<OnProgressChangeEvent>): WebAttribute;
 
@@ -8427,7 +7905,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onTitleReceive(callback: Callback<OnTitleReceiveEvent>): WebAttribute;
 
@@ -8449,7 +7926,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   onGeolocationHide(callback: () => void): WebAttribute;
 
@@ -8480,7 +7956,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onGeolocationShow(callback: Callback<OnGeolocationShowEvent>): WebAttribute;
 
@@ -8500,7 +7975,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   onRequestSelected(callback: () => void): WebAttribute;
 
@@ -8535,7 +8009,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onAlert(callback: Callback<OnAlertEvent, boolean>): WebAttribute;
 
@@ -8574,7 +8047,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   onBeforeUnload(callback: Callback<OnBeforeUnloadEvent, boolean>): WebAttribute;
 
@@ -8608,7 +8080,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onConfirm(callback: Callback<OnConfirmEvent, boolean>): WebAttribute;
 
@@ -8642,7 +8113,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onPrompt(callback: Callback<OnPromptEvent, boolean>): WebAttribute;
 
@@ -8675,7 +8145,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onConsole(callback: Callback<OnConsoleEvent, boolean>): WebAttribute;
 
@@ -8715,7 +8184,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onErrorReceive(callback: Callback<OnErrorReceiveEvent>): WebAttribute;
 
@@ -8746,7 +8214,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onHttpErrorReceive(callback: Callback<OnHttpErrorReceiveEvent>): WebAttribute;
 
@@ -8777,7 +8244,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onDownloadStart(callback: Callback<OnDownloadStartEvent>): WebAttribute;
 
@@ -8816,7 +8282,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   onRefreshAccessedHistory(callback: Callback<OnRefreshAccessedHistoryEvent>): WebAttribute;
 
@@ -8872,7 +8337,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onRenderExited(callback: Callback<OnRenderExitedEvent>): WebAttribute;
 
@@ -8908,7 +8372,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onShowFileSelector(callback: Callback<OnShowFileSelectorEvent, boolean>): WebAttribute;
 
@@ -8961,7 +8424,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onResourceLoad(callback: Callback<OnResourceLoadEvent>): WebAttribute;
 
@@ -8991,7 +8453,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   onFullScreenExit(callback: () => void): WebAttribute;
 
@@ -9030,7 +8491,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   onFullScreenEnter(callback: OnFullScreenEnterCallback): WebAttribute;
 
@@ -9061,7 +8521,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onScaleChange(callback: Callback<OnScaleChangeEvent>): WebAttribute;
 
@@ -9092,7 +8551,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onHttpAuthRequest(callback: Callback<OnHttpAuthRequestEvent, boolean>): WebAttribute;
 
@@ -9121,7 +8579,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onInterceptRequest(callback: Callback<OnInterceptRequestEvent, WebResourceResponse>): WebAttribute;
 
@@ -9154,7 +8611,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onPermissionRequest(callback: Callback<OnPermissionRequestEvent>): WebAttribute;
 
@@ -9183,7 +8639,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onScreenCaptureRequest(callback: Callback<OnScreenCaptureRequestEvent>): WebAttribute;
 
@@ -9214,7 +8669,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onContextMenuShow(callback: Callback<OnContextMenuShowEvent, boolean>): WebAttribute;
 
@@ -9226,7 +8680,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   onContextMenuHide(callback: OnContextMenuHideCallback): WebAttribute;
 
@@ -9250,7 +8703,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   mediaPlayGestureAccess(access: boolean): WebAttribute;
 
@@ -9282,7 +8734,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onSearchResultReceive(callback: Callback<OnSearchResultReceiveEvent>): WebAttribute;
 
@@ -9313,7 +8764,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onScroll(callback: Callback<OnScrollEvent>): WebAttribute;
 
@@ -9343,7 +8793,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onSslErrorEventReceive(callback: Callback<OnSslErrorEventReceiveEvent>): WebAttribute;
 
@@ -9356,7 +8805,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onSslErrorEvent(callback: OnSslErrorEventCallback): WebAttribute;
 
@@ -9385,7 +8833,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onClientAuthenticationRequest(callback: Callback<OnClientAuthenticationEvent>): WebAttribute;
 
@@ -9423,7 +8870,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onWindowNew(callback: Callback<OnWindowNewEvent>): WebAttribute;
 
@@ -9444,7 +8890,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   onWindowExit(callback: () => void): WebAttribute;
 
@@ -9466,7 +8911,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   multiWindowAccess(multiWindow: boolean): WebAttribute;
 
@@ -9486,7 +8930,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   onInterceptKeyEvent(callback: (event: KeyEvent) => boolean): WebAttribute;
 
@@ -9507,7 +8950,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   webStandardFont(family: string): WebAttribute;
 
@@ -9528,7 +8970,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   webSerifFont(family: string): WebAttribute;
 
@@ -9549,7 +8990,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   webSansSerifFont(family: string): WebAttribute;
 
@@ -9570,7 +9010,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   webFixedFont(family: string): WebAttribute;
 
@@ -9591,7 +9030,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   webFantasyFont(family: string): WebAttribute;
 
@@ -9612,14 +9050,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   webCursiveFont(family: string): WebAttribute;
 
   /**
    * Set the default fixed font value of webview. The default value is 13, ranging from 1 to 72.
    *
-   * @param { int } size Font size.
+   * @param { number } size Font size.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -9627,7 +9064,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the default font size for the web page.
    *
-   * @param { int } size Default fixed font size to set, in px.
+   * @param { number } size Default fixed font size to set, in px.
    *    The value ranges from -2^31 to 2^31-1. In actual rendering,
    *    values greater than 72 are handled as 72, and values less than 1 are handled as 1.
    *    Default value: 13.
@@ -9635,14 +9072,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
-  defaultFixedFontSize(size: int): WebAttribute;
+  defaultFixedFontSize(size: number): WebAttribute;
 
   /**
    * Set the default font value of webview. The default value is 16, ranging from 1 to 72.
    *
-   * @param { int } size Font size.
+   * @param { number } size Font size.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -9650,21 +9086,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the default font size for the web page.
    *
-   * @param { int } size Default font size to set, in px.
+   * @param { number } size Default font size to set, in px.
    *    The value ranges from -2^31 to 2^31-1. In actual rendering, values greater than 72 are handled as 72,
    *    and values less than 1 are handled as 1. Default value: 16.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
-  defaultFontSize(size: int): WebAttribute;
+  defaultFontSize(size: number): WebAttribute;
 
   /**
    * Set the minimum value of webview font. The default value is 8, ranging from 1 to 72.
    *
-   * @param { int } size Font size.
+   * @param { number } size Font size.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -9672,7 +9107,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the minimum font size for the web page.
    *
-   * @param { int } size Minimum font size to set, in px.
+   * @param { number } size Minimum font size to set, in px.
    *    The value ranges from -2^31 to 2^31-1. In actual rendering,
    *    values greater than 72 are handled as 72, and values less than 1 are handled as 1.
    *    Default value: 8
@@ -9681,14 +9116,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
-  minFontSize(size: int): WebAttribute;
+  minFontSize(size: number): WebAttribute;
 
   /**
    * Set the logical minimum value of webview font. The default value is 8, ranging from 1 to 72.
    *
-   * @param { int } size Font size.
+   * @param { number } size Font size.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -9696,7 +9130,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the minimum logical font size for the web page.
    *
-   * @param { int } size Minimum logical font size to set, in px.
+   * @param { number } size Minimum logical font size to set, in px.
    *    The value ranges from -2^31 to 2^31-1. In actual rendering,
    *    values greater than 72 are handled as 72, and values less than 1 are handled as 1.
    *    Default value: 8
@@ -9704,9 +9138,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
-  minLogicalFontSize(size: int): WebAttribute;
+  minLogicalFontSize(size: number): WebAttribute;
 
   /**
    * Set the default text encodingFormat value of webview. The default value is UTF-8.
@@ -9716,7 +9149,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   defaultTextEncodingFormat(textEncodingFormat: string): WebAttribute;
 
@@ -9728,7 +9160,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
    */
   forceDisplayScrollBar(enabled: boolean): WebAttribute;
 
@@ -9758,7 +9189,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   blockNetwork(block: boolean): WebAttribute;
 
@@ -9786,7 +9216,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   horizontalScrollBarAccess(horizontalScrollBar: boolean): WebAttribute;
 
@@ -9814,7 +9243,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   verticalScrollBarAccess(verticalScrollBar: boolean): WebAttribute;
 
@@ -9846,7 +9274,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onTouchIconUrlReceived(callback: Callback<OnTouchIconUrlReceivedEvent>): WebAttribute;
 
@@ -9878,7 +9305,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onFaviconReceived(callback: Callback<OnFaviconReceivedEvent>): WebAttribute;
 
@@ -9912,7 +9338,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onPageVisible(callback: Callback<OnPageVisibleEvent>): WebAttribute;
 
@@ -9941,7 +9366,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onDataResubmitted(callback: Callback<OnDataResubmittedEvent>): WebAttribute;
 
@@ -9964,7 +9388,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   pinchSmooth(isEnabled: boolean): WebAttribute;
 
@@ -10005,7 +9428,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   allowWindowOpenMethod(flag: boolean): WebAttribute;
 
@@ -10034,7 +9456,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onAudioStateChanged(callback: Callback<OnAudioStateChangedEvent>): WebAttribute;
 
@@ -10063,7 +9484,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onFirstContentfulPaint(callback: Callback<OnFirstContentfulPaintEvent>): WebAttribute;
 
@@ -10075,7 +9495,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onFirstMeaningfulPaint(callback: OnFirstMeaningfulPaintCallback): WebAttribute;
 
@@ -10087,7 +9506,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onLargestContentfulPaint(callback: OnLargestContentfulPaintCallback): WebAttribute;
 
@@ -10118,7 +9536,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onLoadIntercept(callback: Callback<OnLoadInterceptEvent, boolean>): WebAttribute;
 
@@ -10143,7 +9560,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   onControllerAttached(callback: () => void): WebAttribute;
 
@@ -10169,7 +9585,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onOverScroll(callback: Callback<OnOverScrollEvent>): WebAttribute;
 
@@ -10181,7 +9596,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   onSafeBrowsingCheckResult(callback: OnSafeBrowsingCheckResultCallback): WebAttribute;
 
@@ -10193,7 +9607,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   onNavigationEntryCommitted(callback: OnNavigationEntryCommittedCallback): WebAttribute;
 
@@ -10205,7 +9618,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onIntelligentTrackingPreventionResult(callback: OnIntelligentTrackingPreventionCallback): WebAttribute;
 
@@ -10227,7 +9639,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   javaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
 
@@ -10249,7 +9660,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   javaScriptOnDocumentEnd(scripts: Array<ScriptItem>): WebAttribute;
 
@@ -10260,7 +9670,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   layoutMode(mode: WebLayoutMode): WebAttribute;
 
@@ -10295,7 +9704,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
    */
   nestedScroll(value: NestedScrollOptions | NestedScrollOptionsExt): WebAttribute;
 
@@ -10313,7 +9721,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   enableNativeEmbedMode(mode: boolean): WebAttribute;
 
@@ -10333,7 +9740,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   registerNativeEmbedRule(tag: string, type:string): WebAttribute;
 
@@ -10351,7 +9757,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   onNativeEmbedLifecycleChange(callback: (event: NativeEmbedDataInfo) => void): WebAttribute;
 
@@ -10367,7 +9772,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
    */
   onNativeEmbedVisibilityChange(callback: OnNativeEmbedVisibilityChangeCallback): WebAttribute;
 
@@ -10385,7 +9789,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   onNativeEmbedGestureEvent(callback: (event: NativeEmbedTouchInfo) => void): WebAttribute;
 
@@ -10407,7 +9810,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   copyOptions(value: CopyOptions): WebAttribute;
 
@@ -10420,7 +9822,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onOverrideUrlLoading(callback: OnOverrideUrlLoadingCallback): WebAttribute;
 
@@ -10435,7 +9836,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   textAutosizing(textAutosizing: boolean): WebAttribute;
 
@@ -10450,7 +9850,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   enableNativeMediaPlayer(config: NativeMediaPlayerConfig): WebAttribute;
 
@@ -10466,7 +9865,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
    */
   onRenderProcessNotResponding(callback: OnRenderProcessNotRespondingCallback): WebAttribute;
 
@@ -10478,7 +9876,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
    */
   onRenderProcessResponding(callback: OnRenderProcessRespondingCallback): WebAttribute;
 
@@ -10511,7 +9908,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onViewportFitChanged(callback: OnViewportFitChangedCallback): WebAttribute;
 
@@ -10527,7 +9923,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onInterceptKeyboardAttach(callback: WebKeyboardCallback): WebAttribute;
 
@@ -10541,7 +9936,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   onAdsBlocked(callback: OnAdsBlockedCallback): WebAttribute;
 
@@ -10556,7 +9950,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   keyboardAvoidMode(mode: WebKeyboardAvoidMode): WebAttribute;
 
@@ -10583,7 +9976,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
    */
   editMenuOptions(editMenu: EditMenuOptions): WebAttribute;
 
@@ -10594,7 +9986,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
-   * @since 20 static
    */
   enableHapticFeedback(enabled: boolean): WebAttribute;
 
@@ -10608,21 +9999,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13 dynamic
-   * @since 20 static
    */
   bindSelectionMenu(elementType: WebElementType, content: CustomBuilder, responseType: WebResponseType,
       options?: SelectionMenuOptionsExt): WebAttribute;
-
-  /**
-   * Sets whether to optimize parser budget to reduce FCP time
-   *
-   * @param { boolean} optimizeParserBudget Default value is false, set true to enable optimize parser budget.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 15 dynamic
-   * @since 20 static
-   */
-  optimizeParserBudget(optimizeParserBudget: boolean): WebAttribute;
 
   /**
    * Sets whether to follow the system font weight.
@@ -10631,7 +10010,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 18 dynamic
-   * @since 20 static
    */
   enableFollowSystemFontWeight(follow: boolean): WebAttribute;
 
@@ -10642,9 +10020,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 18 dynamic
-   * @since 20 static
    */
   enableWebAVSession(enabled: boolean): WebAttribute;
+
+  /**
+   * Sets whether to optimize parser budget to reduce FCP time
+   *
+   * @param { boolean} optimizeParserBudget Default value is false, set true to enable optimize parser budget.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 15 dynamic
+   */
+  optimizeParserBudget(optimizeParserBudget: boolean): WebAttribute;
 
   /**
    * Injects the JavaScripts that will be run just after document object has been created.
@@ -10653,7 +10040,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15 dynamic
-   * @since 20 static
    */
   runJavaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
 
@@ -10664,7 +10050,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15 dynamic
-   * @since 20 static
    */
   runJavaScriptOnDocumentEnd(scripts: Array<ScriptItem>): WebAttribute;
 
@@ -10675,7 +10060,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15 dynamic
-   * @since 20 static
    */
   runJavaScriptOnHeadEnd(scripts: Array<ScriptItem>): WebAttribute;
 
@@ -10686,7 +10070,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 16 dynamic
-   * @since 20 static
    */
   nativeEmbedOptions(options?: EmbedOptions): WebAttribute;
 
@@ -10805,7 +10188,6 @@ declare const WebInstance: WebAttribute;
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 declare interface SslErrorEvent {
   /**
@@ -10815,7 +10197,6 @@ declare interface SslErrorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   handler: SslErrorHandler;
 
@@ -10826,7 +10207,6 @@ declare interface SslErrorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   error: SslError;
 
@@ -10837,7 +10217,6 @@ declare interface SslErrorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   url: string;
 
@@ -10848,7 +10227,6 @@ declare interface SslErrorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   originalUrl: string;
 
@@ -10859,7 +10237,6 @@ declare interface SslErrorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   referrer: string;
 
@@ -10870,7 +10247,6 @@ declare interface SslErrorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   isFatalError: boolean;
 
@@ -10881,7 +10257,6 @@ declare interface SslErrorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   isMainFrame: boolean;
 }
@@ -10936,7 +10311,6 @@ declare interface ExpandedMenuItemOptions {
  * @interface NestedScrollOptionsExt
  * @syscap SystemCapability.Web.Webview.Core
  * @since 14 dynamic
- * @since 20 static
  */
 declare interface NestedScrollOptionsExt {
   /**
@@ -10945,7 +10319,6 @@ declare interface NestedScrollOptionsExt {
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 14 dynamic
-   * @since 20 static
    */
   scrollUp?: NestedScrollMode;
 
@@ -10955,7 +10328,6 @@ declare interface NestedScrollOptionsExt {
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 14 dynamic
-   * @since 20 static
    */
   scrollDown?: NestedScrollMode;
 
@@ -10965,7 +10337,6 @@ declare interface NestedScrollOptionsExt {
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 14 dynamic
-   * @since 20 static
    */
   scrollRight?: NestedScrollMode;
 
@@ -10975,7 +10346,6 @@ declare interface NestedScrollOptionsExt {
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 14 dynamic
-   * @since 20 static
    */
   scrollLeft?: NestedScrollMode;
 }
@@ -10986,7 +10356,6 @@ declare interface NestedScrollOptionsExt {
  * @typedef EmbedOptions
  * @syscap SystemCapability.Web.Webview.Core
  * @since 16 dynamic
- * @since 20 static
  */
 declare interface EmbedOptions {
   /**
@@ -10999,7 +10368,6 @@ declare interface EmbedOptions {
    * @default false
    * @syscap SystemCapability.Web.Webview.Core
    * @since 16 dynamic
-   * @since 20 static
    */
   supportDefaultIntrinsicSize?: boolean;
 
