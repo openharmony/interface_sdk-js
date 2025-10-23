@@ -64,7 +64,7 @@ declare class LiveFormExtensionContext extends ExtensionContext {
   * @syscap SystemCapability.Ability.Form
   * @systemapi
   * @stagemodelonly
-  * @since 22 dynamic
+  * @since 21 dynamic
   */
   public connectServiceExtensionAbility(want: Want, connection: ConnectOptions): number;
 
@@ -80,7 +80,7 @@ declare class LiveFormExtensionContext extends ExtensionContext {
   * @syscap SystemCapability.Ability.Form
   * @systemapi
   * @stagemodelonly
-  * @since 22 dynamic
+  * @since 21 dynamic
   */
   public disconnectServiceExtensionAbility(connectionId: number): Promise<void>;
 }
