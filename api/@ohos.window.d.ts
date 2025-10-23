@@ -62,12 +62,13 @@ declare interface Callback<T, V = void> {
 /**
    * Defines the window animation curve param.
    *
-   * @typedef { Array<number> } AnimationCurveParam
+   * @typedef { Array<double> } AnimationCurveParam
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    */
-declare type WindowAnimationCurveParam = Array<number>;
+declare type WindowAnimationCurveParam = Array<double>;
 
 /**
  * Window manager.
@@ -4628,6 +4629,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    */
   enum WindowTransitionType {
     /**
@@ -4636,6 +4638,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     DESTROY = 0,
   }
@@ -4646,6 +4649,7 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @since 20 dynamic
+   * @since 22 static
    */
   enum AnimationType {
     /**
@@ -4653,6 +4657,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
+     * @since 22 static
      */
     FADE_IN_OUT = 0,
     /**
@@ -4661,6 +4666,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
+     * @since 22 static
      */
     FADE_IN = 1,
   }
@@ -4672,6 +4678,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    */
   enum WindowAnimationCurve {
     /**
@@ -4680,6 +4687,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     LINEAR = 0,
 
@@ -4689,6 +4697,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     INTERPOLATION_SPRING = 1,
 
@@ -4698,6 +4707,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     CUBIC_BEZIER = 2,
   }
@@ -4709,6 +4719,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    */
   interface WindowAnimationConfig {
     /**
@@ -4718,18 +4729,20 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     curve: WindowAnimationCurve;
 
     /**
      * Duration of the animation
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
-    duration?: number;
+    duration?: long;
 
     /**
      * Param of animation curve
@@ -4738,6 +4751,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     param?: WindowAnimationCurveParam;
   }
@@ -4749,6 +4763,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    */
   interface TransitionAnimation {
     /**
@@ -4758,17 +4773,19 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     config: WindowAnimationConfig;
     /**
      * The opacity of window
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
-    opacity?: number;
+    opacity?: double;
   }
 
   /**
@@ -4778,6 +4795,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @since 20 dynamic
+   * @since 22 static
    */
   interface StartAnimationSystemParams {
     /**
@@ -4787,6 +4805,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
+     * @since 22 static
      */
     type: AnimationType;
     /**
@@ -4796,6 +4815,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
+     * @since 22 static
      */
     animationConfig?: WindowAnimationConfig;
   }
@@ -4806,6 +4826,7 @@ declare namespace window {
    * @interface StartAnimationParams
    * @syscap SystemCapability.Window.SessionManager
    * @since 20 dynamic
+   * @since 22 static
    */
   interface StartAnimationParams {
     /**
@@ -4814,6 +4835,7 @@ declare namespace window {
      * @type { AnimationType }
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
+     * @since 22 static
      */
     type: AnimationType;
   }
@@ -4824,6 +4846,7 @@ declare namespace window {
    * @interface WindowCreateParams
    * @syscap SystemCapability.Window.SessionManager
    * @since 20 dynamic
+   * @since 22 static
    */
   interface WindowCreateParams {
     /**
@@ -4832,6 +4855,7 @@ declare namespace window {
      * @type { ?StartAnimationParams }
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
+     * @since 22 static
      */
     animationParams?: StartAnimationParams;
     /**
@@ -4841,6 +4865,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
+     * @since 22 static
      */
     systemAnimationParams?: StartAnimationSystemParams;
   }
@@ -10888,6 +10913,7 @@ declare namespace window {
      * @stagemodelonly
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     setWindowTransitionAnimation(transitionType: WindowTransitionType, animation: TransitionAnimation): Promise<void>;
 
@@ -10906,6 +10932,7 @@ declare namespace window {
      * @stagemodelonly
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     getWindowTransitionAnimation(transitionType: WindowTransitionType): TransitionAnimation | undefined;
 
