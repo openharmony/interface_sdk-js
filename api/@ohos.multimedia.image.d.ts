@@ -7525,7 +7525,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { PixelMap } return the new cropped and scaled pixelmap.
      * @throws { BusinessError } 7600201 - The PixelMap has been released.
      * @throws { BusinessError } 7600204 - Invalid region.
-     * @throws { BusinessError } 7600205 - Unsupported pixel format.
+     * @throws { BusinessError } 7600205 - Unsupported memory format or pixel format.
      * @throws { BusinessError } 7600301 - Memory alloc failed.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 22 dynamic&static
@@ -7543,7 +7543,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
      * @throws { BusinessError } 7600201 - The PixelMap has been released.
      * @throws { BusinessError } 7600204 - Invalid region.
-     * @throws { BusinessError } 7600205 - Unsupported pixel format.
+     * @throws { BusinessError } 7600205 - Unsupported memory format or pixel format.
      * @throws { BusinessError } 7600301 - Memory alloc failed.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 22 dynamic&static
