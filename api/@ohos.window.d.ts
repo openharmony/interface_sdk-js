@@ -11053,7 +11053,8 @@ declare namespace window {
      * @param { int } winX - Indicates the X-coordinate of the component relative to the current window.
      * @param { int } winY - Indicates the Y-coordinate of the component relative to the current window.
      * @returns { Position } Position - The pair {x, y} represents respectively the X-coordinate
-     *     and Y-coordinate of the window relative to the main screen.
+     *     and Y-coordinate of the window relative to the primary display, measured in px.
+     *     This parameter only accepts integer values; any floating-point input will be rounded down.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
@@ -11084,7 +11085,8 @@ declare namespace window {
      * @param { int } globalDisplayX - Indicates the X-coordinate of the component relative to the primary display.
      * @param { int } globalDisplayY - Indicates the Y-coordinate of the component relative to the primary display.
      * @returns { Position } Position - The pair {x, y} represents respectively the X-coordinate
-     *     and Y-coordinate of the window relative to the current screen.
+     *     and Y-coordinate of the window relative to the current screen, measured in px.
+     *     This parameter only accepts integer values; any floating-point input will be rounded down.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
