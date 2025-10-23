@@ -152,7 +152,7 @@ declare namespace backgroundProcessManager {
      * <br> 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 20
+     * @since 22
      */
     function getPowerSaveMode(pid: int): Promise<PowerSaveMode>;
 }
