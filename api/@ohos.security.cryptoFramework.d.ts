@@ -552,7 +552,7 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 22 dynamic&static
    */
   interface Poly1305ParamsSpec extends ParamsSpec {
     /**
@@ -562,7 +562,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     iv: DataBlob;
 
@@ -576,7 +576,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     aad: DataBlob;
 
@@ -590,7 +590,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     authTag: DataBlob;
   }
@@ -1437,7 +1437,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Rand
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     enableHardwareEntropy(): void;
 
@@ -3436,7 +3436,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Init the crypto operation with the given crypto mode, key and parameters.
@@ -3517,8 +3517,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Init the crypto operation with the given crypto mode, key and parameters.
@@ -3599,7 +3599,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Init the crypto operation with the given crypto mode, key and parameters.
@@ -3680,8 +3680,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Init the crypto operation with the given crypto mode, key and parameters.
@@ -3726,8 +3726,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Init the crypto operation with the given crypto mode, key and parameters.
@@ -3803,7 +3803,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
@@ -3843,8 +3843,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     /**
      * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
@@ -3917,7 +3916,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
@@ -3957,8 +3956,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     /**
      * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
@@ -3998,7 +3996,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
@@ -4038,8 +4036,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     /**
      * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
@@ -4112,7 +4109,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
@@ -4185,7 +4182,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
@@ -4225,8 +4222,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     /**
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
@@ -4299,7 +4295,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
@@ -4372,7 +4368,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
@@ -4412,8 +4408,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     /**
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
@@ -4453,7 +4448,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     /**
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
@@ -4493,8 +4488,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     /**
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
@@ -4567,8 +4561,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Set the specified parameter to the cipher object.
@@ -4641,8 +4635,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Get the specified parameter from the cipher object.
@@ -9845,7 +9839,7 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Kdf
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 22 dynamic&static
    */
   interface X963KdfSpec extends KdfSpec {
     /**
@@ -9855,7 +9849,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     key: string | Uint8Array;
 
@@ -9866,7 +9860,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     info: Uint8Array;
 
@@ -9877,7 +9871,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     keySize: int;
   }
@@ -9931,8 +9925,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Generate a dataBlob object of secret key.
@@ -9985,8 +9979,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Generate a dataBlob object of secret key.
@@ -10025,8 +10019,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Generate a dataBlob object of secret key.
