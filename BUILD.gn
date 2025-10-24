@@ -30,7 +30,11 @@ action("ohos_base_split") {
   } else {
     interface_sdk_interop2_deps = ":build_ohos_ets_es2panda(${toolchain_linux})"
   }
-  deps = [ interface_sdk_interop2_deps ]
+  if (defined(is_arkui_x) && is_arkui_x) {
+    deps = []
+  } else {
+    deps = [ interface_sdk_interop2_deps ]
+  }
   script = "//build/ohos/sdk/parse_interface_sdk.py"
   args = [
     "--root-build-dir",
