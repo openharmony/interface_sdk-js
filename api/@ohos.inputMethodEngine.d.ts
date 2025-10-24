@@ -1855,7 +1855,7 @@ declare namespace inputMethodEngine {
     NONE = 0,
 
     /**
-     * Background fluid light mode.
+     * When the background fluid light mode is enabled, the system panel turns transparent. The fluid light effect must be implemented by the application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 20 dynamic
