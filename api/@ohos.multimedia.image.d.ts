@@ -7702,6 +7702,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @syscap SystemCapability.Multimedia.Image.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   function createPictureByHdrAndSdrPixelMap(hdrPixelMap: PixelMap, sdrPixelMap: PixelMap): Promise<Picture>;
 
@@ -7938,6 +7939,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Metadata of a GIF image.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 20 dynamic
+     * @since 22 static
      */
     GIF_METADATA = 5
   }
@@ -8056,6 +8058,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 20 dynamic
+   * @since 22 static
    */
   enum GifPropertyKey {
     /**
@@ -8063,6 +8066,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 20 dynamic
+     * @since 22 static
      */
     GIF_DELAY_TIME = 'GifDelayTime',
 
@@ -8071,6 +8075,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 20 dynamic
+     * @since 22 static
      */
     GIF_DISPOSAL_TYPE = 'GifDisposalType'
   }
@@ -9028,6 +9033,20 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getImagePropertySync(key: PropertyKey): string;
 
     /**
+     * Obtains the value of a property in the image.
+     *
+     * @param { PropertyKey } key Property name.
+     * @returns { string | undefined } Value of the property.
+     * @throws { BusinessError } 7700101  - Bad source. e.g.,1. Image has invalid width or height. 2. Image
+     * source incomplete. 3. Read image data failed. 4. Codec create failed.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700202 - Unsupported metadata. For example, key is not supported.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 22 static
+     */
+    getImagePropertySync(key: PropertyKey): string | undefined;
+
+    /**
      * Modify the value of a property in an image with the specified key. This method uses a
      * promise to return the property value in a string.
      *
@@ -9288,7 +9307,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Decodes an image at the specified index into a Picture object.
      *
-     * @param { number } index Image index.
+     * @param { int } index Image index.
      * @returns { Promise<Picture> } Promise that returns the Picture object.
      * @throws { BusinessError } 7700101 - Bad source.
      * @throws { BusinessError } 7700102 - Unsupported MIME type.
@@ -9298,7 +9317,22 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 20 dynamic
      */
-    createPictureAtIndex(index: number): Promise<Picture>;
+    createPictureAtIndex(index: int): Promise<Picture>;
+
+    /**
+     * Decodes an image at the specified index into a Picture object.
+     *
+     * @param { int } index Image index.
+     * @returns { Promise<Picture | undefined> } Promise that returns the Picture object.
+     * @throws { BusinessError } 7700101 - Bad source.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700103 - Image too large.
+     * @throws { BusinessError } 7700203 - Unsupported options. For example, index is invalid.
+     * @throws { BusinessError } 7700301 - Decoding failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 22 static
+     */
+    createPictureAtIndex(index: int): Promise<Picture | undefined>;
 
     /**
      * Decodes to a SDR PixelMap, using a as wide gamut as possible.
@@ -9317,6 +9351,24 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 20 dynamic
      */
     createWideGamutSdrPixelMap(): Promise<PixelMap>
+
+    /**
+     * Decodes to a SDR PixelMap, using a as wide gamut as possible.
+     * For a SDR ImageSource, decodes to a SDR PixelMap using its native color space.
+     * For a HDR ImageSource with a single-channel gainmap, decodes its base(SDR) image and ingores its gainmap.
+     * For a HDR ImageSource with a three-channel gainmap, decodes to a SDR PixelMap using CM_DISPLAY_BT2020_SRGB
+     * color space.
+     * 
+     * @returns { Promise<PixelMap | undefined> } Decoded PixelMap.
+     * @throws { BusinessError } 7700101 - Bad source.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700103 - Image too large.
+     * @throws { BusinessError } 7700301 - Decoding failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @systemapi
+     * @since 22 static
+     */
+    createWideGamutSdrPixelMap(): Promise<PixelMap | undefined>
 
     /**
      * Supported image formats.
@@ -10149,7 +10201,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @returns { string[] } Returns an array of the supported image formats.
    * @syscap SystemCapability.Multimedia.ImageSource
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   function getImageSourceSupportedFormats(): string[];
 
@@ -10158,7 +10210,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @returns { string[] } Returns an array of the supported image formats.
    * @syscap SystemCapability.Multimedia.ImagePacker
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   function getImagePackerSupportedFormats(): string[];
 }
