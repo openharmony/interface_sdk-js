@@ -29,6 +29,8 @@ import * as _BaseContext from './application/BaseContext';
 import * as _Context from './application/Context';
 import * as _ExtensionContext from './application/ExtensionContext';
 import * as _FormExtensionContext from './application/FormExtensionContext';
+import * as _FormEditExtensionContext from './application/FormEditExtensionContext';
+import * as _LiveFormExtensionContext from './application/LiveFormExtensionContext';
 import * as _ServiceExtensionContext from './application/ServiceExtensionContext';
 import * as _EventHub from './application/EventHub';
 import type * as _VpnExtensionContext from './application/VpnExtensionContext';
@@ -54,6 +56,8 @@ import _BaseContext from './application/BaseContext';
 import _Context from './application/Context';
 import _ExtensionContext from './application/ExtensionContext';
 import _FormExtensionContext from './application/FormExtensionContext';
+import _FormEditExtensionContext from './application/FormEditExtensionContext';
+import _LiveFormExtensionContext from './application/LiveFormExtensionContext';
 import _ServiceExtensionContext from './application/ServiceExtensionContext';
 import _UIServiceProxy from './application/UIServiceProxy';
 import _UIServiceHostProxy from './application/UIServiceHostProxy';
@@ -349,6 +353,51 @@ declare namespace common {
    */
   export type FormExtensionContext = _FormExtensionContext;
 
+  /**
+   * The context of form edit extension. It allows access to
+   * formEditExtension-specific resources.
+   *
+   * @typedef { _FormEditExtensionContext.default }
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  export type FormEditExtensionContext = _FormEditExtensionContext.default;
+
+  /**
+   * The context of form edit extension. It allows access to
+   * formEditExtension-specific resources.
+   *
+   * @typedef { _FormEditExtensionContext }
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @since 22 static
+   */
+  export type FormEditExtensionContext = _FormEditExtensionContext;
+
+  /**
+   * The context of live form extension. It allows access to
+   * liveFormExtension-specific resources.
+   *
+   * @typedef { _LiveFormExtensionContext.default }
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  export type LiveFormExtensionContext = _LiveFormExtensionContext.default;
+
+  /**
+   * The context of live form extension. It allows access to
+   * liveFormExtension-specific resources.
+   *
+   * @typedef { _LiveFormExtensionContext }
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @since 22 static
+   */
+  export type LiveFormExtensionContext = _LiveFormExtensionContext;
 
   /**
    * The context of service extension. It allows access to
