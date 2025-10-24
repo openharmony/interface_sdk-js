@@ -86,16 +86,6 @@ declare type OnPickerCallback = (selectedIndex: number) => void;
  */
 declare enum PickerIndicatorType {
   /**
-   * Divider marks the selected item.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  DIVIDER = 0,
-
-  /**
    * Background marks the selected item.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -103,7 +93,17 @@ declare enum PickerIndicatorType {
    * @atomicservice
    * @since 22 dynamic
    */
-  BACKGROUND = 1,
+  BACKGROUND = 0,
+
+  /**
+   * Divider marks the selected item.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  DIVIDER = 1,
 }
 
 /**
@@ -128,15 +128,15 @@ declare interface PickerIndicatorStyle {
   type: PickerIndicatorType;
 
   /**
-   * The width of Divider.
+   * The width of divider stroke.
    *
-   * @type { ?LengthMetrics } dividerWidth
+   * @type { ?LengthMetrics } strokeWidth
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
    */
-  dividerWidth?: LengthMetrics;
+  strokeWidth?: LengthMetrics;
 
   /**
    * The color of Divider.
