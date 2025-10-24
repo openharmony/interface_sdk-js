@@ -1404,6 +1404,20 @@ declare namespace xml {
    * @atomicservice
    * @since 20 dynamic
    */
+  /**
+   * The type of ParseOptions attributeWithTagCallbackFunction.
+   *
+   * @typedef { function } AttributeWithTagCb
+   * @param { string } tagName - The tag in xml parse node
+   * @param { string } key - The key in xml parse node
+   * @param { string } value - The value in xml parse node
+   * @returns { boolean } - whether continue to parse xml data
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   * @since 22 static
+   */
   type AttributeWithTagCb = (tagName: string, key: string, value: string) => boolean;
 
   /**

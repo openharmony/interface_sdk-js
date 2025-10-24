@@ -590,6 +590,16 @@ declare namespace taskpool {
      * @atomicservice
      * @since 18 dynamiconly
      */
+    /**
+     * Task ID.
+     *
+     * @type { number }
+     * @default 0
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
+     */
     taskId: number;
 
     /**
@@ -1810,6 +1820,25 @@ declare namespace taskpool {
    * @atomicservice
    * @since 18 dynamiconly
    */
+  /**
+   * Cancels a task in the task pool by task ID. If the task is in the internal queue of the task pool,
+   * the task will not be executed after being canceled, and an exception indicating task cancellation is returned.
+   * If the task has been distributed to the worker thread of the task pool,
+   * canceling the task does not affect the task execution,
+   * and the execution result is returned in the catch branch.
+   * You can use isCanceled() to check the task cancellation status.
+   * In other words, taskpool.cancel takes effect before taskpool.execute or taskpool.executeDelayed is called.
+   * If taskpool.cancel is called by other threads, note that the cancel operation, which is asynchronous,
+   * may take effect for later calls of taskpool.execute or taskpool.executeDelayed.
+   *
+   * @param { number } taskId - ID of the task to cancel.
+   * [@throws](https://gitcode.com/throws) { BusinessError } 10200015 - The task to cancel does not exist.
+   * [@throws](https://gitcode.com/throws) { BusinessError } 10200055 - The asyncRunner task has been canceled.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * [@since](https://gitcode.com/since) 22 dynamiconly
+   */
   function cancel(taskId: number): void;
 
   /**
@@ -1871,6 +1900,15 @@ declare namespace taskpool {
    * @atomicservice
    * @since 18 dynamiconly
    */
+  /**
+   * Implements an asynchronous queue, for which you can specify the task execution concurrency and queuing policy.
+   * Before calling any APIs in AsyncRunner, you must use constructor to create an AsyncRunner instance.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamiconly
+   */
   export class AsyncRunner {
     /**
      * A constructor used to create an AsyncRunner instance. It constructs a non-global asynchronous queue.
@@ -1888,6 +1926,19 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18 dynamiconly
+     */
+    /**
+     * Create a AsyncRunner instance.
+     *
+     * @param { number } runningCapacity - The maximum task execution capacity.
+     * @param { ?number } waitingCapacity - The waiting task capacity,
+     *      0 is default, means no limit on waiting task capacity.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *      <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
      */
     constructor(runningCapacity: number, waitingCapacity?: number);
 
@@ -1911,6 +1962,31 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18 dynamiconly
+     */
+    /**
+     * A constructor used to create an AsyncRunner instance. It constructs a global asynchronous queue.
+     * If the passed-in name is the same as an existing name, the same asynchronous queue is returned.
+     * NOTE:
+     * 1.The bottom layer uses the singleton mode to ensure that
+     *      the same instance is obtained when an asynchronous queue with the same name is created.
+     * 2.The task execution concurrency and waiting capacity cannot be modified.
+     *
+     * @param { string } name - Name of an asynchronous queue.
+     * @param { number } runningCapacity - Maximum number of tasks that can run concurrently.
+     *      The value must be a positive integer.
+     *      If a negative number is passed, an error is reported. If a non-integer is passed, the value is rounded down.
+     * @param { ?number } waitingCapacity - Maximum number of tasks that can be queued.
+     *      The value must be greater than or equal to 0.
+     *      If a negative number is passed, an error is reported. If a non-integer is passed, the value is rounded down.
+     *      The default value is 0, indicating that there is no limit to the number of tasks that can wait.
+     *      If a value greater than 0 is passed, tasks will be discarded from the front of the queue once the queue size
+     *      exceeds this limit, implementing a discard policy.
+     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *      <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * [@since](https://gitcode.com/since) 22 dynamiconly
      */
     constructor(name: string, runningCapacity: number, waitingCapacity?: number);
 
@@ -1936,6 +2012,30 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18 dynamiconly
+     */
+    /**
+     * Adds a task to the asynchronous queue for execution. Before using this API, you must create an AsyncRunner instance.
+     * NOTE:
+     * Tasks in a task group cannot be added to the asynchronous queue.
+     * Tasks in a serial queue cannot be added to the asynchronous queue.
+     * Tasks in other asynchronous queues cannot be added to the asynchronous queue.
+     * Periodic tasks cannot be added to the asynchronous queue.
+     * Delayed tasks cannot be added to the asynchronous queue.
+     * Tasks that depend others cannot be added to the asynchronous queue.
+     * Tasks that have been executed cannot be added to the asynchronous queue.
+     *
+     * @param { Task } task - Task to be added to the asynchronous queue.
+     * @param { ?Priority } [priority] - Priority of the task. The default value is taskpool.Priority.MEDIUM.
+     * @returns { Promise<Object> }
+     * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+     * @throws { BusinessError } 10200025 - dependent task not allowed.
+     * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
+     * @throws { BusinessError } 10200054 - The asyncRunner task is discarded.
+     * @throws { BusinessError } 10200057 - The task cannot be executed by two APIs.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
      */
     execute(task: Task, priority?: Priority): Promise<Object>;
   }
