@@ -827,7 +827,6 @@ declare namespace distributedDeviceManager {
    * @throws { BusinessError } 11600101 - Failed to execute the function.
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 10 dynamic
-   * @since 20 static
    */
   function releaseDeviceManager(deviceManager: DeviceManager): void;
 
@@ -903,7 +902,6 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
-     * @since 20 static
      */
     getLocalDeviceName(): string;
 
@@ -916,7 +914,6 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
-     * @since 20 static
      */
     getLocalDeviceType(): int;
 
