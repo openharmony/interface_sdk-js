@@ -309,19 +309,33 @@ declare namespace audioHaptic {
      * @param { Callback<void> } callback - Callback used to listen for the playback end of stream.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
-     * @since 20 static
      */
     on(type: 'endOfStream', callback: Callback<void>): void;
 
     /**
-     * Unsubscribes end of stream event.
-     * @param { 'endOfStream' } type - Type of the playback event to listen for.
+     * Subscribes end of stream event.
      * @param { Callback<void> } callback - Callback used to listen for the playback end of stream.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @since 22 static
+     */
+    onEndOfStream(callback: Callback<void>): void;
+
+    /**
+     * Unsubscribes end of stream event.
+     * @param { 'endOfStream' } type - Type of the playback event to listen for.
+     * @param { Callback<void> } [callback] - Callback used to listen for the playback end of stream.
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
-     * @since 20 static
      */
     off(type: 'endOfStream', callback?: Callback<void>): void;
+
+    /**
+     * Unsubscribes end of stream event.
+     * @param { Callback<void> } [callback] - Callback used to listen for the playback end of stream.
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @since 22 static
+     */
+    offEndOfStream(callback?: Callback<void>): void;
 
     /**
      * Subscribes audio interrupt event.
@@ -329,9 +343,16 @@ declare namespace audioHaptic {
      * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for audio interrupt info.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
-     * @since 20 static
      */
     on(type: 'audioInterrupt', callback: Callback<audio.InterruptEvent>): void;
+
+    /**
+     * Subscribes audio interrupt event.
+     * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for audio interrupt info.
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @since 22 static
+     */
+    onAudioInterrupt(callback: Callback<audio.InterruptEvent>): void;
 
     /**
      * Unsubscribes audio interrupt event.
@@ -339,9 +360,17 @@ declare namespace audioHaptic {
      * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for audio interrupt info.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
-     * @since 20 static
      */
     off(type: 'audioInterrupt', callback?: Callback<audio.InterruptEvent>): void;
+
+    /**
+     * Unsubscribes audio interrupt event.
+     * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
+     * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for audio interrupt info.
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @since 22 static
+     */
+    offAudioInterrupt(callback?: Callback<audio.InterruptEvent>): void;
 
     /**
      * Enable haptics when the ringer mode is silent mode.

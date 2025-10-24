@@ -198,9 +198,20 @@ export interface RingtonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
    */
   on(type: 'audioInterrupt', callback: Callback<audio.InterruptEvent>): void;
+
+  /**
+   * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
+   * triggered when audio playback is interrupted.
+   * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for interrupt callback.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 6800101 - Parameter verification failed.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 22 static
+   */
+  onAudioInterrupt(callback: Callback<audio.InterruptEvent>): void;
 
   /**
    * Unsubscribes to audio interrupt events.
@@ -212,7 +223,14 @@ export interface RingtonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
    */
-  off(type: 'audioInterrupt'): void
+  off(type: 'audioInterrupt'): void;
+  /**
+   * Unsubscribes to audio interrupt events.
+   * @throws { BusinessError } 202 - Not system application.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 22 static
+   */
+  offAudioInterrupt(): void;
 }
