@@ -307,28 +307,6 @@ declare namespace certificateManagerDialog {
    * @since 18 dynamic
    * @since 20 static
    */
-  /**
-   * open install certificate dialog.
-   *
-   * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { common.Context } context - Hap context information
-   * @param { CertificateType } certType - Indicates the type of certificate to be installed.
-   * @param { CertificateScope } certScope - Indicates the user scope of certificate to be installed.
-   * @param { Uint8Array } cert - Indicates the contents of the certificate file to be installed.
-   * @returns { Promise<string> } The uri of installed certificate.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
-   * @throws { BusinessError } 29700002 - The user cancels the installation operation.
-   * @throws { BusinessError } 29700003 - The user install certificate failed in the certificate manager dialog, such as the certificate is in an invalid format.
-   * @throws { BusinessError } 29700004 - The API is not supported on this device.
-   * @throws { BusinessError } 29700005 - The operation does not comply with the device security policy, such as the device does not allow users to manage the ca certificate of the global user.
-   * @syscap SystemCapability.Security.CertificateManagerDialog
-   * @stagemodelonly
-   * @since 20 dynamic&static
-   */
   function openInstallCertificateDialog(context: common.Context, certType: CertificateType, certScope: CertificateScope, cert: Uint8Array): Promise<string>;
 
   /**
@@ -442,7 +420,6 @@ declare namespace certificateManagerDialog {
    * @since 22 dynamic&static
    */
   function openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest): Promise<CertIndex>;
-
 
   /**
    * Provides the certificate authorize request information.
