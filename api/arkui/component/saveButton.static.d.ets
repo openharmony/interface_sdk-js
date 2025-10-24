@@ -243,6 +243,16 @@ export declare interface SaveButtonAttribute extends SecurityComponentMethod {
    * @since 22 static
    */
   onClick(event: SaveButtonCallback | undefined): this;
+
+  /**
+   * Sets the size of the icon.
+   *
+   * @param { Dimension | SizeOptions | undefined } size - Dimensions of the icon to set.
+   * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  iconSize(size: Dimension | SizeOptions | undefined): this;
 }
 
 
