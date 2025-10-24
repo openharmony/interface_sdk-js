@@ -88,7 +88,7 @@ type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
  * @typedef { function } OnVerifyPinCallback
  * @param { VerifyPinEvent } verifyPinEvent - The event of verify PIN.
  * @syscap SystemCapability.Web.Webview.Core
- * @since 22 dynamic&static
+ * @since 22 1.1&1.2
  */
 type OnVerifyPinCallback = (verifyPinEvent: VerifyPinEvent) => void;
 
@@ -2193,7 +2193,7 @@ declare class ClientAuthenticationHandler {
    *     client certificate chain.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic&static
+   * @since 22 1.1&1.2
    */
   confirm(identity: string, credentialTypeOrCertChainFile: CredentialType | string): void;
 
@@ -2232,14 +2232,14 @@ declare class ClientAuthenticationHandler {
  * Passes the PIN code verify result through VerifyPinHandler#confirm
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 22 dynamic&static
+ * @since 22 1.1&1.2
  */
 declare class VerifyPinHandler {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic&static
+   * @since 22 1.1&1.2
    */
   constructor();
   /**
@@ -2247,7 +2247,7 @@ declare class VerifyPinHandler {
    *
    * @param { PinVerifyResult } result The PIN code verify result.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic&static
+   * @since 22 1.1&1.2
    */
   confirm(result: PinVerifyResult): void;
 }
@@ -9394,7 +9394,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { OnVerifyPinCallback } callback The triggered callback when needs verify pin from the user.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @@since 22 dynamic&static
+   * @@since 22 1.1&1.2
    */
   onVerifyPin(callback: OnVerifyPinCallback): WebAttribute;
 
@@ -10930,21 +10930,21 @@ declare interface SslErrorEvent {
  * Defines the event for PIN verification.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 22 dynamic&static
+ * @since 22 1.1&1.2
  */
 declare interface VerifyPinEvent {
   /**
    * Handle the result of PIN verification.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic&static
+   * @since 22 1.1&1.2
    */
   handler: VerifyPinHandler;
   /**
    * The identity of the Credential.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic&static
+   * @since 22 1.1&1.2
    */
   identity: string;
 }
