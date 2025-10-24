@@ -11105,21 +11105,21 @@ declare enum GestureFocusMode {
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 22 dynamic&static
+ * @since 22 1.1&1.2
  */
 declare enum PinVerificationResult {
   /**
    * SUCCESS.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic&static
+   * @since 22 1.1&1.2
    */
   PIN_VERIFICATION_SUCCESS = 0,
   /**
    * FAILED.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic&static
+   * @since 22 1.1&1.2
    */
   PIN_VERIFICATION_FAILED = 1
 }
@@ -11129,28 +11129,28 @@ declare enum PinVerificationResult {
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 22 dynamic&static
+ * @since 22 1.1&1.2
  */
 declare enum CredentialType {
   /**
    * User credential.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic&static
+   * @since 22 1.1&1.2
    */
   CREDENTIAL_USER = 2,
   /**
    * Application-specific credential.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic&static
+   * @since 22 1.1&1.2
    */
   CREDENTIAL_APP = 3,
   /**
    * Hardware security key credential.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic&static
+   * @since 22 1.1&1.2
    */
   CREDENTIAL_UKEY = 4,
 }
