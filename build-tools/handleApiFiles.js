@@ -785,8 +785,9 @@ const transformExportApi = (context) => {
         importNameSet.add(node.name?.getText());
       }
       // 剩下未被删除的API中，如果还有与被删除API名字一样的API，就将其从set集合中删掉
-      if (apiNodeTypeArr.includes(node.kind) && deleteApiSet.has(getApiNodeName(node))) {
-        deleteApiSet.delete(node.name?.getText());
+      const apiNodeName = getApiNodeName(node);
+      if (apiNodeTypeArr.includes(node.kind) && deleteApiSet.has(apiNodeName)) {
+        deleteApiSet.delete(apiNodeName);
       }
       // 非目标节点：继续遍历子节点
       return ts.visitEachChild(node, importOrExportNodeVisitor, context);
