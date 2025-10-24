@@ -172,8 +172,8 @@ ohos_copy("ohos_declaration_ets_api") {
   outputs = [ target_out_dir + "/../api" ]
 }
 
-# ets2/api执行脚本
-ohos_declaration_template("ohos_declaration_ets2") {
+# static/api执行脚本
+ohos_declaration_template("ohos_declaration_ets_static") {
   sdk_type = "ets2"
 }
 
@@ -207,13 +207,13 @@ ohos_prebuilt_etc("bundle_arkts_etc") {
   subsystem_name = "sdk"
 }
 
-# ets1.2/arkts执行脚本
-ohos_copy_internal("bundle_arkts_ets1.2") {
+# static/arkts执行脚本
+ohos_copy_internal("bundle_arkts_static") {
   sdk_type = "ets2"
   iv_input = interface_sdk_path_ets2 + "/arkts"
 }
 
-ohos_copy_internal("ets_internal_api2") {
+ohos_copy_internal("ets_internal_api_static") {
   sdk_type = "ets2"
   iv_input = interface_sdk_path_ets2 + "/api/@internal/ets"
 }
@@ -247,8 +247,8 @@ ohos_prebuilt_etc("ets_component_etc") {
   subsystem_name = "sdk"
 }
 
-# ets1.2/arkui/component执行脚本
-ohos_copy_internal("ets_component2") {
+# static/arkui/component执行脚本
+ohos_copy_internal("ets_component_static") {
   sdk_type = "ets2"
   iv_input = interface_sdk_path + "/arkui_transformer_api"
 }
@@ -268,8 +268,8 @@ ohos_prebuilt_etc("bundle_kits_etc") {
   subsystem_name = "sdk"
 }
 
-# ets2/kits执行脚本
-ohos_copy_internal("bundle_kits2") {
+# static/kits执行脚本
+ohos_copy_internal("bundle_kits_static") {
   sdk_type = "ets2"
   iv_input = interface_sdk_path_ets2 + "/kits"
 }
