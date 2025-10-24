@@ -5425,6 +5425,29 @@ declare namespace huks {
      */
     HUKS_SEND_TYPE_SYNC = 1
   }
+  /**
+   * Enumerates the class type of key
+   * 
+   * @enum { int }
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @since 22
+   */
+  export enum HuksKeyClassType {
+    /**
+     * The default type specifics the key is stored in huks.
+     * 
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 22
+     */
+    HUKS_KEY_CLASS_DEFAULT = 0,
+    /**
+     * The key is stored in external crypto provider.
+     * 
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 22
+     */
+    HUKS_KEY_CLASS_EXTENSION = 1,
+  }
 
   /**
    * Enum for key wrap type
@@ -6321,6 +6344,13 @@ declare namespace huks {
      * @since 22
     */
     HUKS_TAG_AE_TAG_LEN = HuksTagType.HUKS_TAG_TYPE_UINT | 521,
+    /**
+     * The tag indicates the key class type.
+     * 
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 22
+     */
+    HUKS_TAG_KEY_CLASS = HuksTagType.HUKS_TAG_TYPE_UINT | 522,
 
     /*
      * Other reserved TAG: 601 - 1000
