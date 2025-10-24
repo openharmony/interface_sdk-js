@@ -2576,6 +2576,15 @@ declare namespace text {
      * @since 22 dynamic
      */
     lineSpacing?: double;
+
+    /**
+     * Whether to enable compression of leading punctuation.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    compressHeadPunctuation?: boolean;
   }
 
   /**
