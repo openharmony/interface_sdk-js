@@ -119,9 +119,19 @@ export interface SkillUri {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   readonly port: int;
+
+  /**
+   * Indicates the port of the skillUri
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 22 static
+   */
+  readonly port: string;
 
   /**
    * Indicates the path of the skillUri
