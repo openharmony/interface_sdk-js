@@ -5505,17 +5505,6 @@ declare namespace audio {
     on(type: 'activeVolumeTypeChange', callback: Callback<AudioVolumeType>): void;
 
     /**
-     * Subscribes to active volume type changes.
-     * @param { Callback<AudioVolumeType> } callback - Callback used to return the active volume type.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     * @since 22 static
-     */
-    onActiveVolumeTypeChange(callback: Callback<AudioVolumeType>): void;
-
-    /**
      * Unsubscribes from active volume type changes.
      * @param { 'activeVolumeTypeChange' } type - Type of the event to unregister.
      * Only the activeVolumeTypeChange event is supported.
@@ -5603,17 +5592,6 @@ declare namespace audio {
      * @since 20 dynamic
      */
     on(type: 'systemVolumeChange', callback: Callback<VolumeEvent>): void;
-
-    /**
-     * Listens for system volume change events. This method uses a callback to get volume change events.
-     * @param { Callback<VolumeEvent> } callback - Callback used to get the system volume change event.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     * @since 22 static
-     */
-    onSystemVolumeChange(callback: Callback<VolumeEvent>): void;
 
     /**
      * Unsubscribes to the system volume change events.
@@ -5728,23 +5706,13 @@ declare namespace audio {
     on(type: 'streamVolumeChange', streamUsage: StreamUsage, callback: Callback<StreamVolumeEvent>): void;
 
     /**
-     * Listens for stream volume change events. This method uses a callback to get volume change events.
-     * @param { StreamUsage } streamUsage - StreamUsage to be listened.
-     * @param { Callback<StreamVolumeEvent> } callback - Callback used to get the stream volume change event.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 22 static
-     */
-    onStreamVolumeChange(streamUsage: StreamUsage, callback: Callback<StreamVolumeEvent>): void;
-
-    /**
      * Unsubscribes to the stream volume change events.
      * @param { 'streamVolumeChange' } type - Type of the event to be unregistered.
      * Only the streamVolumeChange event is supported.
      * @param { Callback<StreamVolumeEvent> } callback - Callback used to obtain the invoking volume change event.
      * If there is no callback parameter, all callbacks will be unregistered.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     off(type: 'streamVolumeChange', callback?: Callback<StreamVolumeEvent>): void;
   }
@@ -7956,28 +7924,28 @@ declare namespace audio {
    * Describes the stream volume event when the volume is changed.
    * @typedef StreamVolumeEvent
    * @syscap SystemCapability.Multimedia.Audio.Volume
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   interface StreamVolumeEvent {
     /**
      * The type of streamUsage whose volume changes.
      * @type { StreamUsage }
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     streamUsage: StreamUsage;
     /**
      * Volume level.
      * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     volume: int;
     /**
      * Whether to show the volume change in UI.
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     updateUi: boolean;
   }
