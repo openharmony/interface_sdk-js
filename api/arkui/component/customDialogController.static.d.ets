@@ -26,7 +26,6 @@ import { LengthMetrics } from '../Graphics';
 import { LevelMode, LevelOrder, ImmersiveMode } from '../../@ohos.promptAction';
 import { CustomBuilder } from './builder';
 import { DismissDialogAction } from './actionSheet';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines the options of CustomDialogController.

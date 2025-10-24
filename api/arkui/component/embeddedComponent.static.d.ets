@@ -20,7 +20,7 @@
  */
 
 import Want from '../../@ohos.app.ability.Want'
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { Callback, ErrorCallback ,BusinessError} from '../../@ohos.base'
 import { AttributeModifier, CommonMethod, TerminationInfo } from './common'
 import { EmbeddedType } from './enums'
@@ -71,17 +71,15 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
  *
  * @param { Want } loader - indicates initialization parameter.
  * @param { EmbeddedType } [type] - indicates type of the EmbeddedComponent.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { EmbeddedComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function EmbeddedComponent(
     loader: Want, type?: EmbeddedType, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): EmbeddedComponentAttribute

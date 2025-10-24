@@ -20,7 +20,7 @@
 import { Resource } from './../../../api/global/resource';
 import { CommonMethod, AttributeModifier } from "./common";
 import { Color } from "./enums";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Defines the hyperlink attribute functions
@@ -58,16 +58,14 @@ export declare interface HyperlinkAttribute extends CommonMethod {
  *     The default value is an empty string.
  *     Passing `undefined` resets it to the default value.
  * @param { string | Resource } [content] - The title of the component.
- * @param { function } [content_] - The node of component.
+ * @param { CustomBuilder } [content_] - The node of component.
  * @returns { HyperlinkAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Hyperlink(
     address: string | Resource | undefined, content?: string | Resource, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): HyperlinkAttribute

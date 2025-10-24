@@ -28,12 +28,3 @@ import { __memo_context_type, __memo_id_type } from '../incremental/runtime/stat
  */
 @Retention({policy: "SOURCE"})
 export declare @interface memo {};
-
-/**
- * Defines ComponentBuilder Annotation.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
- */
-@Retention({policy: "SOURCE"})
-export @interface ComponentBuilder {}

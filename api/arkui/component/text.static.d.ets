@@ -24,7 +24,7 @@ import { Resource, ResourceColor, Font, Length, LengthMetrics } from "./units";
 import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions } from "./textCommon";
 import { DecorationStyleInterface, StyledString } from "./styledString";
 import { SelectionMenuOptions } from "./richEditor";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder } from './builder';
 /**
  * Text overflow options.
  *
@@ -957,16 +957,14 @@ export declare class TextController {
  *
  * @param { string | Resource } [content]
  * @param { TextOptions } [value]
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { TextAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Text(
     content?: string | Resource, value?: TextOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): TextAttribute

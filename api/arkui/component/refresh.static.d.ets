@@ -21,7 +21,7 @@ import { Callback, Optional, CommonMethod, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceStr } from './units';
 import { ComponentContentBase } from '../ComponentContent';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * The refresh status of the drop-down refresh.
@@ -189,16 +189,14 @@ export declare interface RefreshAttribute extends CommonMethod {
  * Defines Refresh Component.
  *
  * @param { RefreshOptions } value - value
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { RefreshAttribute } The attribute of the grid
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Refresh(
     value: RefreshOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): RefreshAttribute

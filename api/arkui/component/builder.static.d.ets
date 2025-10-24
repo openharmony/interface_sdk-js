@@ -1,4 +1,3 @@
-'use static'
 /*
  * Copyright (C) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,8 +17,7 @@
  * @kit ArkUI
  */
 
-import { memo, ComponentBuilder } from "../stateManagement/runtime";
-import { Callback } from '@ohos.base'
+import { Callback } from '../../@ohos.base';
 
 /**
  * Defines Builder Annotation.
@@ -126,3 +124,12 @@ export type BuilderParameterCallback = () => Any;
  * @since 20 static
  */
 export declare function makeBuilderParameterProxy<T extends Object>(instance: T, propertyGetters: Map<string, BuilderParameterCallback>, initializer?: Callback<T>): T;
+
+/**
+ * Defines ComponentBuilder Annotation.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+@Retention({policy: "SOURCE"})
+export @interface ComponentBuilder {}

@@ -18,7 +18,7 @@
  */
 import window from '../../@ohos.window';
 import { FoldStatus, Alignment, AppRotation } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Import the WindowStatusType type object for onHoverStatusChange.
@@ -199,16 +199,14 @@ export declare interface HoverEventParam {
  * Defines FolderStack Component.
  *
  * @param { FolderStackOptions } [options] - FolderStack options.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { FolderStackAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function FolderStack(
     options?: FolderStackOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder
 ): FolderStackAttribute

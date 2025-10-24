@@ -21,7 +21,7 @@ import { ResourceStr, Font, ResourceColor } from './units';
 import { CommonMethod, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines the option of MenuItem.
@@ -183,15 +183,13 @@ export declare interface MenuItemAttribute extends CommonMethod {
  * Defines MenuItem Component.
  *
  * @param { MenuItemOptions | CustomBuilder } [value] - the options of MenuItem.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { MenuItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-@memo
 @ComponentBuilder
 export declare function MenuItem(
     value?: MenuItemOptions | CustomBuilder,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): MenuItemAttribute

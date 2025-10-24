@@ -20,7 +20,7 @@
 import { Resource } from '../../global/resource';
 import { ResourceColor } from './units';
 import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Bindable } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Declare the type of status button
@@ -216,15 +216,13 @@ export declare interface ToggleAttribute extends CommonMethod {
  * Defines Toggle Component.
  *
  * @param { ToggleOptions } options - the options of Toggle.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ToggleAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-@memo
 @ComponentBuilder
 export declare function Toggle(
     options: ToggleOptions,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ToggleAttribute

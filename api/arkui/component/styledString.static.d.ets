@@ -28,7 +28,6 @@ import { LeadingMarginPlaceholder } from './richEditor';
 import image from '../../@ohos.multimedia.image';
 import drawing from '../../@ohos.graphics.drawing';
 import { DrawContext } from '../../arkui/Graphics';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
 
 /**
  * Defines the StyledStringMarshallingValue Type.

@@ -22,7 +22,7 @@ import { ResourceColor, Offset, VoidCallback } from "./units";
 import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback, DateTimeOptions, Bindable } from './common';
 import { DialogAlignment } from "./alertDialog";
 import { CrownSensitivity } from "./enums";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -484,16 +484,14 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
  * Defines the TimePicker component.
  *
  * @param { TimePickerOptions } [options] - timer picker options.
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { TimePickerAttribute } The attribute of the TimePicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function TimePicker(
     options?: TimePickerOptions, 
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): TimePickerAttribute;
