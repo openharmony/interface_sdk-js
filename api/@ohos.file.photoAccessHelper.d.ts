@@ -8283,6 +8283,18 @@ declare namespace photoAccessHelper {
      * @since 21
      */
     contextRecoveryInfo?: ContextRecoveryInfo;
+
+    /**
+     * Moving photo badge states for the selected media files in the gallery.
+     * When isShowMovingPhotoBadge is true, movingPhotoBadgeStates contains the moving photo states;
+     * otherwise, it is empty.
+     *
+     * @type { Array<MovingPhotoBadgeStateType> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    movingPhotoBadgeStates: Array<MovingPhotoBadgeStateType>;
   }
 
   /**
