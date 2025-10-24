@@ -45,7 +45,7 @@ declare namespace formProvider {
    * Set next update time for a specified form.
    *
    * @param { string } formId - Indicates the form ID.
-   * @param { number } minute - Indicates duration minute before next update.
+   * @param { int } minute - Indicates duration minute before next update.
    * @param { AsyncCallback<void> } callback - The callback of setFormNextRefreshTime.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -63,7 +63,7 @@ declare namespace formProvider {
    * Set next update time for a specified form.
    *
    * @param { string } formId - Indicates the form ID.
-   * @param { number } minute - Indicates duration minute before next update.
+   * @param { int } minute - Indicates duration minute before next update.
    * @param { AsyncCallback<void> } callback - The callback of setFormNextRefreshTime.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -79,13 +79,13 @@ declare namespace formProvider {
    * @since 11 dynamic
    * @since 20 static
    */
-  function setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback<void>): void;
+  function setFormNextRefreshTime(formId: string, minute: int, callback: AsyncCallback<void>): void;
 
   /**
    * Set next update time for a specified form.
    *
    * @param { string } formId - Indicates the form ID.
-   * @param { number } minute - Indicates duration minute before next update.
+   * @param { int } minute - Indicates duration minute before next update.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -103,7 +103,7 @@ declare namespace formProvider {
    * Set next update time for a specified form.
    *
    * @param { string } formId - Indicates the form ID.
-   * @param { number } minute - Indicates duration minute before next update.
+   * @param { int } minute - Indicates duration minute before next update.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -119,7 +119,7 @@ declare namespace formProvider {
    * @since 11 dynamic
    * @since 20 static
    */
-  function setFormNextRefreshTime(formId: string, minute: number): Promise<void>;
+  function setFormNextRefreshTime(formId: string, minute: int): Promise<void>;
 
   /**
    * Update a specified form.
