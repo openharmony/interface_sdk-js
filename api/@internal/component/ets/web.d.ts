@@ -2186,15 +2186,16 @@ declare class ClientAuthenticationHandler {
   confirm(authUri: string): void;
 
   /**
-  * Confirm to use the identify of the certificate. The identify can be obtained from certificate management.
-  *
-  * @param { string } identity - The identify of the credential.
-  * @param { CredentialType } credentialType - The type of the credential.
-  * @throws { BusinessError } 801 - Capability not supported.
-  * @syscap SystemCapability.Web.Webview.Core
-  * @since 22 dynamic&static
-  */
-  confirm(identity: string, credentialType: CredentialType): void;
+   * Confirm to use the identify of the certificate. The identify can be obtained from certificate management.
+   *
+   * @param { string } identity - The identify of the credential.
+   * @param { CredentialType | string } credentialTypeOrCertChainFile - The type of the credential or the file that store
+   *     client certificate chain.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  confirm(identity: string, credentialTypeOrCertChainFile: CredentialType | string): void;
 
   /**
    * Cancel this certificate request.
