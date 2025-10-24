@@ -3655,6 +3655,27 @@ declare function lseek(fd: number, offset: number, whence?: WhenceType): number;
  * @crossplatform
  * @since 20 dynamic
  */
+/**
+ * Obtains information about a symbolic link that is used to refer to a file or directory.
+ * This API uses a promise to return the result.
+ *
+ * @param { string } path - Application sandbox path or URI of the file.
+ *     <br>NOTE: URIs can be passed since API version 22.
+ * @returns { Promise<Stat> } Promise used to return the symbolic link information obtained.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 22 dynamic
+ */
 declare function lstat(path: string): Promise<Stat>;
 
 /**
@@ -3696,6 +3717,27 @@ declare function lstat(path: string): Promise<Stat>;
  * @crossplatform
  * @since 20 dynamic
  */
+/**
+ * Obtains information about a symbolic link that is used to refer to a file or directory.
+ * This API uses an asynchronous callback to return the result.
+ *
+ * @param { string } path - Application sandbox path or URI of the file.
+ *     <br>NOTE: URIs can be passed since API version 22.
+ * @param { AsyncCallback<Stat> } callback - Callback used to return the symbolic link information obtained.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 22 dynamic
+ */
 declare function lstat(path: string, callback: AsyncCallback<Stat>): void;
 
 /**
@@ -3736,6 +3778,27 @@ declare function lstat(path: string, callback: AsyncCallback<Stat>): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 20 dynamic
+ */
+/**
+ * Obtains information about a symbolic link that is used to refer to a file or directory.
+ * This API returns the result synchronously.
+ *
+ * @param { string } path - Application sandbox path or URI of the file.
+ *     <br>NOTE: URIs can be passed since API version 22.
+ * @returns { Stat } File information obtained.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 22 dynamic
  */
 declare function lstatSync(path: string): Stat;
 
@@ -6908,6 +6971,30 @@ declare function rmdirSync(path: string): void;
  * @atomicservice
  * @since 11 dynamic
  */
+/**
+ * Obtains detailed attribute information of a file or directory. This API uses a promise to return the result.
+ *
+ * @param { string | number } file - Application sandbox path, URI, or FD of the file or directory.
+ *     <br>NOTE: URIs can be passed since API version 22.
+ * @returns { Promise<Stat> } Promise used to return detailed file information.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
 declare function stat(file: string | number): Promise<Stat>;
 
 /**
@@ -6977,6 +7064,31 @@ declare function stat(file: string | number): Promise<Stat>;
  * @atomicservice
  * @since 11 dynamic
  */
+/**
+ * Obtains detailed attribute information of a file or directory.
+ * This API uses an asynchronous callback to return the result.
+ *
+ * @param { string | number } file - Application sandbox path, URI, or FD of the file or directory.
+ *     <br>NOTE: URIs can be passed since API version 22.
+ * @param { AsyncCallback<Stat> } callback - Callback used to return the file information obtained.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
 declare function stat(file: string | number, callback: AsyncCallback<Stat>): void;
 
 /**
@@ -7044,6 +7156,30 @@ declare function stat(file: string | number, callback: AsyncCallback<Stat>): voi
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ */
+/**
+ * Obtains detailed attribute information of a file or directory. This API returns the result synchronously.
+ *
+ * @param { string | number } file - Application sandbox path, URI, or FD of the file or directory.
+ *     <br>NOTE: URIs can be passed since API version 22.
+ * @returns { Stat } File information obtained.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
  */
 declare function statSync(file: string | number): Stat;
 
