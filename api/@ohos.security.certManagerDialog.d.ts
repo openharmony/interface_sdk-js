@@ -19,6 +19,7 @@
  */
 
 import type common from '@ohos.app.ability.common';
+import type certificateManager from '@ohos.security.certManager';
 
 /**
  * OpenHarmony Universal CertificateManager
@@ -90,6 +91,16 @@ declare namespace certificateManagerDialog {
      * @since 20 static
      */
     ERROR_NOT_COMPLY_SECURITY_POLICY = 29700005,
+
+    /**
+     * Indicates that the input parameters validation failed.
+     * for example, the parameter format is incorrect or the value range is invalid.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    ERROR_PARAMETER_VALIDATION_FAILED = 29700006,
   }
 
 
@@ -163,8 +174,6 @@ declare namespace certificateManagerDialog {
    */
   function openCertificateManagerDialog(context: common.Context, pageType: CertificateDialogPageType): Promise<void>;
 
-
-
   /**
    * Enum for certificate type
    *
@@ -183,7 +192,34 @@ declare namespace certificateManagerDialog {
      * @since 14 dynamic
      * @since 20 static
      */
-    CA_CERT = 1
+    CA_CERT = 1,
+
+    /**
+     * Indicates user public certificate credential.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    CREDENTIAL_USER = 2,
+
+    /**
+     * Indicates app private certificate credential.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    CREDENTIAL_APP = 3,
+
+    /**
+     * Indicates USB key certificate credential.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    CREDENTIAL_UKEY = 4,
   }
 
   /**
@@ -270,6 +306,28 @@ declare namespace certificateManagerDialog {
    * @stagemodelonly
    * @since 18 dynamic
    * @since 20 static
+   */
+  /**
+   * open install certificate dialog.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { common.Context } context - Hap context information
+   * @param { CertificateType } certType - Indicates the type of certificate to be installed.
+   * @param { CertificateScope } certScope - Indicates the user scope of certificate to be installed.
+   * @param { Uint8Array } cert - Indicates the contents of the certificate file to be installed.
+   * @returns { Promise<string> } The uri of installed certificate.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed;
+   * <br>2. Memory operation error; 3. File operation error.
+   * @throws { BusinessError } 29700002 - The user cancels the installation operation.
+   * @throws { BusinessError } 29700003 - The user install certificate failed in the certificate manager dialog, such as the certificate is in an invalid format.
+   * @throws { BusinessError } 29700004 - The API is not supported on this device.
+   * @throws { BusinessError } 29700005 - The operation does not comply with the device security policy, such as the device does not allow users to manage the ca certificate of the global user.
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 20 dynamic&static
    */
   function openInstallCertificateDialog(context: common.Context, certType: CertificateType, certScope: CertificateScope, cert: Uint8Array): Promise<string>;
 
@@ -361,6 +419,135 @@ declare namespace certificateManagerDialog {
    * @since 20 dynamic&static
    */
   function openAuthorizeDialog(context: common.Context): Promise<string>;
+
+  /**
+   * Opens the authorization page of the certificate management dialog box. On the page displayed, the user can
+   * authorize a certificate for the application. The types of certificates to authorize include
+   * application private certificates, user public certificates, and USB Key certificates.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { common.Context } context - Context of the HAP.
+   * @param { AuthorizeRequest } authorizeRequest - Authorize request.
+   * @returns { Promise<CertIndex> } Promise used to return the cert index of the certificate authorized.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+   *     permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 29700006 - Indicates that the input parameters validation failed.
+   *     for example, the parameter format is incorrect or the value range is invalid.
+   * @throws { BusinessError } 29700001 Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error; 4. Call other service failed.
+   * @throws { BusinessError } 29700002 The user cancels the authorization.
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  function openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest): Promise<CertIndex>;
+
+
+  /**
+   * Provides the certificate authorize request information.
+   *
+   * @typedef AuthorizeRequest
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  export interface AuthorizeRequest {
+    /**
+     * Indicates the types of certificate to authorize.
+     *
+     * @type { Array<CertificateType> }
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    certTypes: Array<CertificateType>;
+
+    /**
+     * Indicates the purpose of certificate to authorize. This parameter is valid only
+     * when certTypes include CREDENTIAL_UKEY.
+     *
+     * @type { ?certificateManager.CertificatePurpose }
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    certPurpose?: certificateManager.CertificatePurpose;
+  }
+
+  /**
+   * Provides the cert index of the certificate.
+   *
+   * @typedef CertIndex
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  export interface CertIndex {
+    /**
+     * Indicates the type of certificate.
+     *
+     * @type { CertificateType }
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    certType: CertificateType;
+
+    /**
+     * Indicates the index of certificate.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    index: string;
+  }
+
+  /**
+   * Opens the USB key PIN code authentication dialog box. On the pase displayed, the user input
+   * the PIN code of USB key to authenticate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { common.Context } context - Context of the HAP.
+   * @param { UkeyAuthRequest } ukeyAuthRequest - USBkey authentication request.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+   *     permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 29700006 - Indicates that the input parameters validation failed.
+   *     for example, the parameter format is incorrect or the value range is invalid.
+   * @throws { BusinessError } 29700001 Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error.
+   * @throws { BusinessError } 29700002 The user cancels the authentication operation.
+   * @throws { BusinessError } 29700003 The authentication operation fail, such as the USB key certificate
+   *     does not exist, the USB key status is abnormal.
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  function openUkeyAuthDialog(context: common.Context, ukeyAuthRequest: UkeyAuthRequest): Promise<void>;
+
+  /**
+   * Provides the USB key authentication request.
+   *
+   * @typedef UkeyAuthRequest
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  export interface UkeyAuthRequest {
+    /**
+     * Indicates the USB key certificate index.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    ukeyCertIndex: string;
+  }
 }
 
 export default certificateManagerDialog;

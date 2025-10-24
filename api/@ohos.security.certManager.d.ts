@@ -58,7 +58,7 @@ declare namespace certificateManager {
     CM_ERROR_NOT_SYSTEM_APP = 202,
 
     /**
-     * Indicates that the input parameters are invalid. 
+     * Indicates that the input parameters are invalid.
      * for example, the number of parameters or the parameter type is incorrect.
      *
      * @syscap SystemCapability.Security.CertificateManager
@@ -68,7 +68,8 @@ declare namespace certificateManager {
     CM_ERROR_INVALID_PARAMS = 401,
 
     /**
-     * Indicates that internal error.
+     * Indicates that internal error. Possible causes: 1. IPC communication failed;
+     * <br>2. Memory operation error; 3. File operation error.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -125,7 +126,7 @@ declare namespace certificateManager {
      * Indicates that the device does not support the specified certificate store path.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     CM_ERROR_STORE_PATH_NOT_SUPPORTED = 17500009,
 
@@ -622,7 +623,7 @@ declare namespace certificateManager {
      * @since 18 dynamic
      * @since 20 static
      */
-    CM_DIGEST_SM3 = 7,
+    CM_DIGEST_SM3 = 7
   }
 
   /**
@@ -1155,6 +1156,23 @@ declare namespace certificateManager {
   function getAllUserTrustedCertificates(): Promise<CMResult>;
 
   /**
+   * Get a list of all user trusted CA certificates.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { CertScope } scope  - Indicates the scope of user ca certificate.
+   * @returns { Promise<CMResult> } The user ca certificates.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   * <br>2. Memory operation error; 3. File operation error.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 18 dynamic
+   * @since 20 static
+   */
+  function getAllUserTrustedCertificates(scope: CertScope): Promise<CMResult>;
+
+  /**
    * Get the detail of user trusted CA certificate.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
@@ -1203,12 +1221,132 @@ declare namespace certificateManager {
   function getPrivateCertificates(): Promise<CMResult>;
 
   /**
-   * Obtains the path of the certificate file.
+   * Enum for certificate type managed by Certificate Manager.
    *
-   * @param { CertStoreProperty } property - Properties of the certificate file storage path.
-   * @returns { string } Path of the certificate file obtained.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
-   * unspecified;
+   * @enum { int }
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 18 dynamic
+   * @since 20 static
+   */
+  export enum CertType {
+    /**
+     * Indicates that ca certificate that installed by HarmonyOS system.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 18 dynamic
+     * @since 20 static
+     */
+    CA_CERT_SYSTEM = 0,
+
+    /**
+     * Indicates that ca certificate that installed by user.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 18 dynamic
+     * @since 20 static
+     */
+    CA_CERT_USER = 1
+  }
+
+  /**
+   * Enum for the scope of user ca certificate.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 18 dynamic
+   * @since 20 static
+   */
+  export enum CertScope {
+
+    /**
+     * Indicates that the user ca certificate for a current user.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 18 dynamic
+     * @since 20 static
+     */
+    CURRENT_USER = 1,
+
+    /**
+     * Indicates that the user ca certificate for all users.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 18 dynamic
+     * @since 20 static
+     */
+    GLOBAL_USER = 2
+  }
+
+  /**
+   * Enum for the certificate algorithm type.
+   * 
+   * @enum { int }
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 20 dynamic&static
+   */
+  export enum CertAlgorithm {
+    /**
+     * Indicates that the international cryptography algorithms, such as RSA, ECC NIST.
+     * 
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 20 dynamic&static
+     */
+    INTERNATIONAL = 1,
+
+    /**
+     * Indicates that the Commercial Password algorithms, such as SM2, SM4.
+     * 
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 20 dynamic&static
+     */
+    SM = 2,
+  }
+
+ /**
+   * Provides the certificate file store property type.
+   *
+   * @typedef CertStoreProperty
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 18 dynamic
+   * @since 20 static
+   */
+  export interface CertStoreProperty {
+    /**
+     * Indicates the certificate type managed by Certificate Manager.
+     *
+     * @type { CertType }
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 18 dynamic
+     * @since 20 static
+     */
+    certType: CertType;
+
+    /**
+     * Indicates the scope of user ca certificate. This parameter is valid only when certType is set to CA_CERT_USER.
+     *
+     * @type { ?CertScope }
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 18 dynamic
+     * @since 20 static
+     */
+    certScope?: CertScope;
+
+    /**
+     * Indicates the certificate algorithm type. This parameter is valid only when certType is set to CA_CERT_SYSTEM. default value is INTERNATIONAL.
+     * 
+     * @type { ?CertAlgorithm }
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 20 dynamic&static
+     */
+    certAlg?: CertAlgorithm;
+  }
+
+  /**
+   * Get the certificate file store path.
+   *
+   * @param { CertStoreProperty } property - Indicates the certificate file store path property.
+   * @returns { string } the certificate file store path.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    * <br>2. Memory operation error; 3. File operation error.
@@ -1216,17 +1354,15 @@ declare namespace certificateManager {
    * @since 18
    */
   /**
-   * Obtains the path of the certificate file.
+   * Get the certificate file store path.
    * 
-   * @param { CertStoreProperty } property - Properties of the certificate file storage path.
-   * @returns { string } Path of the certificate file obtained.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
-   * unspecified;
+   * @param { CertStoreProperty } property - Indicates the certificate file store path property.
+   * @returns { string } the certificate file store path.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    * <br>2. Memory operation error; 3. File operation error.
-   * @throws { BusinessError } 17500009 - The device does not support the specified certificate storage path,
-   * for example, the device outside China does not support the certificate that uses SM algorithm.
+   * @throws { BusinessError } 17500009 - The device does not support the specified certificate store path, such as the overseas device does not support the certificate which algorithm is SM.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 20 dynamic&static
    */
@@ -1252,6 +1388,45 @@ declare namespace certificateManager {
    * @since 20 static
    */
   function installUserTrustedCertificateSync(cert: Uint8Array, certScope: CertScope) : CMResult;
+
+  /**
+   * Uninstall the user trusted CA certificate.
+   *
+   * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
+   * @param { string } certUri - Indicates the certificate uri to be uninstalled.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   * <br>2. Memory operation error; 3. File operation error.
+   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 18 dynamic
+   * @since 20 static
+   */
+  function uninstallUserTrustedCertificateSync(certUri: string) : void;
+
+  /**
+   * Install private application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { Uint8Array } keystore - Indicates the keystore file with key pair and certificate.
+   * @param { string } keystorePwd - Indicates the password of keystore file.
+   * @param { string } certAlias - Indicates the certificate name inputted by the user.
+   * @param { AuthStorageLevel } level - Indicates the storage authentication level of key file.
+   * @returns { Promise<CMResult> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
+   * <br>2. Memory operation error; 3. File operation error.
+   * @throws { BusinessError } 17500003 - The keystore is in an invalid format or the keystore password is incorrect.
+   * @throws { BusinessError } 17500004 - The number of certificates or credentials reaches the maximum allowed.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 18 dynamic
+   * @since 20 static
+   */
+  function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string, level: AuthStorageLevel): Promise<CMResult>;
 
   /**
    * Enum for storage authentication level
@@ -1287,184 +1462,7 @@ declare namespace certificateManager {
      * @since 18 dynamic
      * @since 20 static
      */
-    EL4 = 4
-  }
-
-  /**
-   * Provides the certificate file store property type.
-   *
-   * @typedef CertStoreProperty
-   * @syscap SystemCapability.Security.CertificateManager
-   * @since 18 dynamic
-   * @since 20 static
-   */
-   export interface CertStoreProperty {
-    /**
-     * Indicates the certificate type managed by Certificate Manager.
-     *
-     * @type { CertType }
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 18 dynamic
-     * @since 20 static
-     */
-    certType: CertType;
-
-    /**
-     * Indicates the scope of user ca certificate. This parameter is valid only when certType is set to CA_CERT_USER.
-     *
-     * @type { ?CertScope }
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 18 dynamic
-     * @since 20 static
-     */
-    certScope?: CertScope;
-
-    /**
-     * Indicates the certificate algorithm type. This parameter is valid only when certType is set to CA_CERT_SYSTEM. default value is INTERNATIONAL.
-     * 
-     * @type { ?CertAlgorithm }
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 20 dynamic&static
-     */
-    certAlg?: CertAlgorithm;
-  }
-
-  /**
-   * Enum for certificate type managed by Certificate Manager.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Security.CertificateManager
-   * @since 18 dynamic
-   * @since 20 static
-   */
-  export enum CertType {
-    /**
-     * Indicates that ca certificate that installed by HarmonyOS system.
-     *
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 18 dynamic
-     * @since 20 static
-     */
-    CA_CERT_SYSTEM = 0,
-
-    /**
-     * Indicates that ca certificate that installed by user.
-     *
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 18 dynamic
-     * @since 20 static
-     */
-    CA_CERT_USER = 1
-  }
-
-  /**
-   * Install private application certificate.
-   *
-   * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } keystore - Indicates the keystore file with key pair and certificate.
-   * @param { string } keystorePwd - Indicates the password of keystore file.
-   * @param { string } certAlias - Indicates the certificate name inputted by the user.
-   * @param { AuthStorageLevel } level - Indicates the storage authentication level of key file.
-   * @returns { Promise<CMResult> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
-   * @throws { BusinessError } 17500003 - The keystore is in an invalid format or the keystore password is incorrect.
-   * @throws { BusinessError } 17500004 - The number of certificates or credentials reaches the maximum allowed.
-   * @syscap SystemCapability.Security.CertificateManager
-   * @since 18 dynamic
-   * @since 20 static
-   */
-  function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string, level: AuthStorageLevel): Promise<CMResult>;
-
-  /**
-   * Get a list of all user trusted CA certificates.
-   *
-   * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { CertScope } scope  - Indicates the scope of user ca certificate.
-   * @returns { Promise<CMResult> } The user ca certificates.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
-   * @syscap SystemCapability.Security.CertificateManager
-   * @since 18 dynamic
-   * @since 20 static
-   */
-  function getAllUserTrustedCertificates(scope: CertScope): Promise<CMResult>;
-
-  /**
-   * Enum for the scope of user ca certificate.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Security.CertificateManager
-   * @since 18 dynamic
-   * @since 20 static
-   */
-  export enum CertScope {
-
-    /**
-     * Indicates that the user ca certificate for a current user.
-     *
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 18 dynamic
-     * @since 20 static
-     */
-    CURRENT_USER = 1,
-
-    /**
-     * Indicates that the user ca certificate for all users.
-     *
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 18 dynamic
-     * @since 20 static
-     */
-    GLOBAL_USER = 2,
-  }
-
-  /**
-   * Uninstall the user trusted CA certificate.
-   *
-   * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
-   * @param { string } certUri - Indicates the certificate uri to be uninstalled.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
-   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
-   * @syscap SystemCapability.Security.CertificateManager
-   * @since 18 dynamic
-   * @since 20 static
-   */
-  function uninstallUserTrustedCertificateSync(certUri: string) : void;
-
-  /**
-   * Enum for the certificate algorithm type.
-   * 
-   * @enum { int }
-   * @syscap SystemCapability.Security.CertificateManager
-   * @since 20 dynamic&static
-   */
-  export enum CertAlgorithm {
-    /**
-     * Indicates that the international cryptography algorithms, such as RSA, ECC NIST.
-     * 
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 20 dynamic&static
-     */
-    INTERNATIONAL = 1,
-
-    /**
-     * Indicates that the Commercial Password algorithms, such as SM2, SM4.
-     * 
-     * @syscap SystemCapability.Security.CertificateManager
-     * @since 20 dynamic&static
-     */
-    SM = 2,
+    EL4 = 4,
   }
 
   /**
