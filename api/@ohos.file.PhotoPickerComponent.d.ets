@@ -152,6 +152,16 @@ export declare struct PhotoPickerComponent {
   onVideoPlayStateChanged?: videoPlayStateChangedCallback;
 
   /**
+   * Callback when moving photo badge state changed
+   *
+   * @type { ?MovingPhotoBadgeStateChangedCallback }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  onMovingPhotoBadgeStateChanged?: MovingPhotoBadgeStateChangedCallback;
+
+  /**
    * PickerController
    *
    * @type { ?PickerController }
@@ -214,6 +224,20 @@ export type CurrentAlbumDeletedCallback = () => void;
  * @since 14
  */
 export type videoPlayStateChangedCallback = (state: VideoPlayerState) => void;
+
+/**
+ * The callback of onMovingPhotoBadgeStateChanged event
+ *
+ * @typedef { function } MovingPhotoBadgeStateChangedCallback
+ * @param { string } uri
+ * @param { photoAccessHelper.MovingPhotoBadgeStateType } state
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 22 dynamic&static
+ */
+export type MovingPhotoBadgeStateChangedCallback =
+  (uri: string, state: photoAccessHelper.MovingPhotoBadgeStateType) => void;
+
 
 /**
  * The class for PickerController
@@ -645,6 +669,16 @@ export declare class BaseItemInfo {
    * @since 21
    */
   orientation?: number;
+
+  /**
+   * MovingPhotoBadgeState. Badge state of moving photo.
+   *
+   * @type { ?photoAccessHelper.MovingPhotoBadgeStateType }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  movingPhotoBadgeState?: photoAccessHelper.MovingPhotoBadgeStateType;
 }
 
 /**
