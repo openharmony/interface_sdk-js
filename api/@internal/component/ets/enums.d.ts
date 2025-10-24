@@ -1031,6 +1031,43 @@ declare enum BorderStyle {
 }
 
 /**
+ * Enum for CornerApplyType.
+ * Indicate how to draw rounded corners.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 22
+ */
+
+declare enum CornerApplyType {
+  /**
+   * The current component and its child components will be drawn directly onto the canvas with rounded corners applied.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  FAST = 0,
+
+  /**
+   * The current component and its child components will first be rendered onto an off-screen canvas,
+   * then undergo a rounded corner clipping, and finally be drawn onto the main canvas.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  OFFSCREEN = 1,
+}
+
+/**
  * Line Join Style
  *
  * @enum { number }
