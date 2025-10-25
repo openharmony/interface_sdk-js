@@ -8114,14 +8114,17 @@ declare namespace window {
 
     /**
      * Subscribes to the event indicating that the child window is closed.
-     * This event is triggered only when the user clicks the system-provided close button in the upper right corner to close the child window.
+     * This event is triggered only when the user clicks the system-provided
+     * close button in the upper right corner to close the child window.
      * It is not triggered when the child window is closed in other ways.
      *
-     * @param { Callback<void> } callback - Callback invoked when the close button in the upper right corner of the child window is clicked.
+     * @param { Callback<void> } callback - Callback invoked when the close
+     *     button in the upper right corner of the child window is clicked.
      *     The internal logic of the callback function requires a return value of the Boolean type.
      *     The return value determines whether to continue to close the child window.
      *     The value true means not to close the child window, and false means to continue to close the child window.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
@@ -8154,17 +8157,13 @@ declare namespace window {
     /**
      * Unsubscribes from the event indicating that the child window is closed.
      *
-     * @param { Callback<void> } [callback] - Callback invoked when the close button in the upper right corner of the child window is clicked.
-     *     The internal logic of the callback function requires a return value of the Boolean type.
-     *     The return value determines whether to continue to close the child window.
-     *     The value true means not to close the child window, and false means to continue to close the child window.
-     *     If a value is passed in, the corresponding subscription is canceled.
-     *     If no value is passed in, all subscriptions to the specified event are canceled.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @param { Callback<void> } [callback ] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 22 static
      */
     offSubWindowClose(callback?: Callback<void>): void;
