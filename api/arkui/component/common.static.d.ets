@@ -9771,28 +9771,17 @@ export declare interface CommonMethod {
     default enabled(value: boolean | undefined): this;
     /**
      * Sets the alignment rules in the relative container.
-     * This API is valid only when the container is RelativeContainer.
-     *
-     * @param { AlignRuleOption | undefined } value
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default alignRulesWithAlignRuleOptionTypedValue(value: AlignRuleOption | undefined): this;
-    /**
-     * Sets the alignment rules in the relative container.
      * <br>This API is valid only when the container is RelativeContainer.
-     * <br>This API takes the right-to-left scripts into account, using start and end instead of
-     * left and right for alignment in the horizontal direction. Prioritize this API in aligning
-     * child components in the relative container.
+     * <br>LocalizedAlignRuleOptions takes the right-to-left scripts into account, using start and end instead of
+     *     left and right for alignment in the horizontal direction. Prioritize this API in aligning
+     *     child components in the relative container.
      *
-     * @param { LocalizedAlignRuleOptions | undefined } value
+     * @param { AlignRuleOption | LocalizedAlignRuleOptions | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
-    default alignRulesWithLocalizedAlignRuleOptionsTypedValue(value: LocalizedAlignRuleOptions | undefined): this;
-    overload alignRules { alignRulesWithAlignRuleOptionTypedValue, alignRulesWithLocalizedAlignRuleOptionsTypedValue }
+    default alignRules(value: AlignRuleOption | LocalizedAlignRuleOptions | undefined): this;
     /**
      * Sets the parameters of the chain in which the component is the head.
      * <br>This parameter has effect only when the parent container is RelativeContainer.
