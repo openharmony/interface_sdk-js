@@ -28,6 +28,7 @@ import { AttributeModifier, CommonMethod } from './common';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 20 static
+ * @noninterop
  */
 export declare interface EffectComponentAttribute extends CommonMethod {
     /**
@@ -62,6 +63,7 @@ export declare interface EffectComponentAttribute extends CommonMethod {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 20 static
+ * @noninterop
  */
 @memo
 @ComponentBuilder
