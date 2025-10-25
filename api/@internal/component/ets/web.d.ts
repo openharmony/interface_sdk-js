@@ -626,7 +626,21 @@ type OnSafeBrowsingCheckResultCallback = (threatType: ThreatType) => void;
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
+scap SystemCapability.Web.Webview.Core
+ * @since 8
+ */
+/**
+ * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+*
+ * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
+ * @since 11
  * @deprecated since 21
  * @useinstead ohos.web.webview.webview.WebHitTestType
  */
@@ -642,6 +656,7 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
+   * @since 11
    * @deprecated since 21
    * @useinstead ohos.web.webview.webview.WebHitTestType#EditText
    */
@@ -658,6 +673,7 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
+   * @since 11
    * @deprecated since 21
    * @useinstead ohos.web.webview.webview.WebHitTestType#Email
    */
@@ -674,6 +690,7 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
+   * @since 11
    * @deprecated since 21
    * @useinstead ohos.web.webview.webview.WebHitTestType#HttpAnchor
    */
@@ -690,6 +707,7 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
+   * @since 11
    * @deprecated since 21
    * @useinstead ohos.web.webview.webview.WebHitTestType#HttpAnchorImg
    */
@@ -706,6 +724,7 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
+   * @since 11
    * @deprecated since 21
    * @useinstead ohos.web.webview.webview.WebHitTestType#Img
    */
@@ -722,6 +741,7 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
+   * @since 11
    * @deprecated since 21
    * @useinstead ohos.web.webview.webview.WebHitTestType#Map
    */
@@ -738,6 +758,7 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
+   * @since 11
    * @deprecated since 21
    * @useinstead ohos.web.webview.webview.WebHitTestType#Phone
    */
@@ -754,6 +775,7 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
+   * @since 11
    * @deprecated since 21
    * @useinstead ohos.web.webview.webview.WebHitTestType#Unknown
    */
