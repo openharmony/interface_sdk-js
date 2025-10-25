@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -31,13 +32,15 @@ import { AttributeModifier, CommonMethod } from './common';
  * @systemapi
  * @since 22 static
  */
-export declare interface WindowSceneAttribute extends CommonMethod {
+export declare interface WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
   /**
    * Set the attraction deformation effect of WindowScene.
    * 
-   * @param { Position | undefined } destination - The position of the attraction target point in the component coordinate system.
+   * @param { Position | undefined } destination - The position of the
+   *     attraction target point in the component coordinate system.
    * @param { double | undefined } fraction - indicates the fraction of WindowScene.
    * @returns { WindowSceneAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 22 static
    */
@@ -59,6 +62,7 @@ export declare interface WindowSceneAttribute extends CommonMethod {
 /**
  * Defines the WindowScene Component.
  *
+ * @param { int } persistentId
  * @param { function } [content_] - container
  * @returns { WindowSceneAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full

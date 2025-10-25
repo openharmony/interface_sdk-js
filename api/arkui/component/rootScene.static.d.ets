@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -36,11 +37,12 @@ export declare interface RootSceneSession {
  * Defines the attribute functions of RootScene.
  *
  * @extends CommonMethod<RootSceneAttribute>
+ * @typedef { RootSceneAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 22 static
  */
-export declare interface RootSceneAttribute extends CommonMethod {
+export declare interface RootSceneAttribute extends CommonMethod<RootSceneAttribute> {
   /**
    * Set the attribute modifier
    * 
@@ -57,6 +59,7 @@ export declare interface RootSceneAttribute extends CommonMethod {
 /**
  * Defines the RootScene Component.
  *
+ * @param { RootSceneSession } session
  * @param { function } [content_] - container
  * @returns { RootSceneAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
