@@ -32,7 +32,7 @@ import { AttributeModifier, CommonMethod } from './common';
  * @systemapi
  * @since 22 static
  */
-export declare interface WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
+export declare interface WindowSceneAttribute extends CommonMethod {
   /**
    * Set the attraction deformation effect of WindowScene.
    * 

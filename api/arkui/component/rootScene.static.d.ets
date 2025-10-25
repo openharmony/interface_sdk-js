@@ -36,13 +36,13 @@ export declare interface RootSceneSession {
 /**
  * Defines the attribute functions of RootScene.
  *
- * @extends CommonMethod<RootSceneAttribute>
+ * @extends CommonMethod
  * @typedef { RootSceneAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 22 static
  */
-export declare interface RootSceneAttribute extends CommonMethod<RootSceneAttribute> {
+export declare interface RootSceneAttribute extends CommonMethod {
   /**
    * Set the attribute modifier
    * 
