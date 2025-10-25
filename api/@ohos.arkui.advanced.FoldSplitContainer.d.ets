@@ -458,7 +458,7 @@ export type OnHoverStatusChangeHandler = (status: HoverModeStatus) => void;
 /**
  * Defines FoldSplitContainer container.
  *
- * @interface FoldSplitContainer
+ * @struct { FoldSplitContainer }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
