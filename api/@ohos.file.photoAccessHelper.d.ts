@@ -4969,6 +4969,24 @@ declare namespace photoAccessHelper {
      * @since 20 static
      */
     getFaceId(): Promise<string>;
+    /**
+     * Fetch selected assets in an album.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { FetchOptions } optionCheck - Fetch options.
+     * @param { string } [filter] - Filter options.
+     * @returns { Promise<FetchResult<PhotoAsset>> } Returns the fetch result
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
+     *     <br>Possible causes: 1. The input parameter is not within the valid range.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    getSelectedAssets(optionCheck: FetchOptions, filter?: string): Promise<FetchResult<PhotoAsset>>;
   }
 
   /**
