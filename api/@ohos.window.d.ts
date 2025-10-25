@@ -3734,7 +3734,7 @@ declare namespace window {
    * Set specific system window zIndex
    * The window focus can be shifted between the main window and a child window.
    *
-   * @param { WindowType } windowType - Indicates window type..
+   * @param { WindowType } windowType - Indicates window type.
    * @param { int } zIndex - ZIndex which the focus shift to.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
