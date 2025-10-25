@@ -639,7 +639,7 @@ declare namespace media {
    * A maximum of 2 **AVTranscoder** instances can be created.
    *
    * @returns {Promise<AVTranscoder | undefined>} Promise used to return the result. If the operation is successful, an
-   * **AVTranscoder** instance is returned; otherwise, **null** is returned. The instance can be used for video
+   * **AVTranscoder** instance is returned; otherwise, **undefined** is returned. The instance can be used for video
    * transcoding.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
