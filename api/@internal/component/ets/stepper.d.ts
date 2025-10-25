@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,8 +17,6 @@
  * @file
  * @kit ArkUI
  */
-
-
 
 /**
  * Declare the stepper.
@@ -43,6 +41,8 @@
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @deprecated since 22
+ * @useinstead SwiperInterface
  */
 interface StepperInterface {
   /**
@@ -71,6 +71,7 @@ interface StepperInterface {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @deprecated since 22
    */
   (value?: { index?: number }): StepperAttribute;
 }
@@ -98,6 +99,7 @@ interface StepperInterface {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @deprecated since 22
  */
 declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
@@ -126,6 +128,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @deprecated since 22
    */
   onFinish(callback: () => void): StepperAttribute;
 
@@ -155,6 +158,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @deprecated since 22
    */
   onSkip(callback: () => void): StepperAttribute;
 
@@ -184,6 +188,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @deprecated since 22
    */
   onChange(callback: (prevIndex: number, index: number) => void): StepperAttribute;
 
@@ -213,6 +218,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @deprecated since 22
    */
   onNext(callback: (index: number, pendingIndex: number) => void): StepperAttribute;
 
@@ -242,6 +248,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @deprecated since 22
    */
   onPrevious(callback: (index: number, pendingIndex: number) => void): StepperAttribute;
 }
@@ -266,6 +273,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @deprecated since 22
  */
 declare const Stepper: StepperInterface;
 
@@ -289,5 +297,6 @@ declare const Stepper: StepperInterface;
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @deprecated since 22
  */
 declare const StepperInstance: StepperAttribute;
