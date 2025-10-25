@@ -3948,7 +3948,6 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
    */
   function off(type: 'gestureNavigationEnabledChange', callback?: Callback<boolean>): void;
 
@@ -7705,7 +7704,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'noInteractionDetected', callback?: Callback<void>): void;
 
