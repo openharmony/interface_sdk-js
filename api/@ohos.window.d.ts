@@ -2676,7 +2676,7 @@ declare namespace window {
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     zIndex?: int;
 
@@ -2686,7 +2686,7 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     defaultDensityEnabled?: boolean;
   }
@@ -11740,6 +11740,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
+   * @since 20 static
    */
   interface SubWindowOptions {
     /**
@@ -11756,6 +11757,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 20 static
      */
     title: string;
     /**
@@ -11772,6 +11774,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 20 static
      */
     decorEnabled: boolean;
     /**
@@ -11781,6 +11784,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 20 static
      */
     isModal?: boolean;
     /**
@@ -11790,6 +11794,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 20 static
      */
     isTopmost?: boolean;
     /**
@@ -11799,6 +11804,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 20 static
      */
     modalityType?: ModalityType;
     /**
@@ -11808,6 +11814,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
+     * @since 20 static
      */
     windowRect?: Rect;
     /**
@@ -11817,6 +11824,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
+     * @since 20 static
      */
     maximizeSupported?: boolean;
     /**
@@ -11826,6 +11834,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
+     * @since 20 static
      */
     zLevel?: int;
     /**
@@ -11834,7 +11843,7 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     outlineEnabled?: boolean;
 
