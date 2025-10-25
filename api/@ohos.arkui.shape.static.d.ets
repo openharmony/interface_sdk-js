@@ -106,83 +106,83 @@ export interface PathShapeOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare class CommonShapeMethod<T> {
+export declare class CommonShapeMethod {
     /**
      * Sets coordinate offset relative to the layout completion position.
      *
      * @param { Position } offset
-     * @returns { T }
+     * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    offset(offset: Position): T;
+    offset(offset: Position): this;
     /**
      * Sets the fill color of the shape.
      *
      * @param { ResourceColor } color
-     * @returns { T }
+     * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    fill(color: ResourceColor): T;
+    fill(color: ResourceColor): this;
     /**
      * Sets the position of the shape.
      *
      * @param { Position } position
-     * @returns { T }
+     * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    position(position: Position): T;
+    position(position: Position): this;
 }
 /**
  * Base shape class
  *
- * @extends CommonShapeMethod<T>
+ * @extends CommonShapeMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare class BaseShape<T> extends CommonShapeMethod<T> {
+export declare class BaseShape extends CommonShapeMethod {
     /**
      * Sets the width of the shape.
      *
      * @param { Length } width
-     * @returns { T }
+     * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    width(width: Length): T;
+    width(width: Length): this;
     /**
      * Sets the height of the shape.
      *
      * @param { Length } height
-     * @returns { T }
+     * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    height(height: Length): T;
+    height(height: Length): this;
     /**
      * Sets the size of the shape.
      *
      * @param { SizeOptions } size
-     * @returns { T }
+     * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    size(size: SizeOptions): T;
+    size(size: SizeOptions): this;
 }
 /**
  * Defines a rect drawing class.
  *
- * @extends BaseShape<RectShape>
+ * @extends BaseShape
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare class RectShape extends BaseShape<RectShape> {
+export declare class RectShape extends BaseShape {
     /**
      * Constructor.
      *
-     * @param { RectShapeOptions | RoundRectShapeOptions } options
+     * @param { RectShapeOptions | RoundRectShapeOptions } [options]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
@@ -190,21 +190,21 @@ export declare class RectShape extends BaseShape<RectShape> {
     /**
      * Sets the width of the corner radius for RectShape.
      *
-     * @param { number | string } rWidth
-     * @returns { RectShape }
+     * @param { double | string } rWidth
+     * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    radiusWidth(rWidth: number | string): RectShape;
+    radiusWidth(rWidth: double | string): this;
     /**
      * Sets the height of the corner radius for RectShape.
      *
-     * @param { number | string } rHeight
-     * @returns { RectShape }
+     * @param { double | string } rHeight
+     * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    radiusHeight(rHeight: number | string): RectShape;
+    radiusHeight(rHeight: double | string): this;
     /**
      * Sets the corner radius for RectShape.
      *
@@ -218,15 +218,15 @@ export declare class RectShape extends BaseShape<RectShape> {
 /**
  * Defines a circle drawing class.
  *
- * @extends BaseShape<CircleShape>
+ * @extends BaseShape
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare class CircleShape extends BaseShape<CircleShape> {
+export declare class CircleShape extends BaseShape {
     /**
      * Constructor.
      *
-     * @param { ShapeSize } options
+     * @param { ShapeSize } [options]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
@@ -235,15 +235,15 @@ export declare class CircleShape extends BaseShape<CircleShape> {
 /**
  * Defines an ellipse drawing class.
  *
- * @extends BaseShape<EllipseShape>
+ * @extends BaseShape
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare class EllipseShape extends BaseShape<EllipseShape> {
+export declare class EllipseShape extends BaseShape {
     /**
      * Constructor.
      *
-     * @param { ShapeSize } options
+     * @param { ShapeSize } [options]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
@@ -252,15 +252,15 @@ export declare class EllipseShape extends BaseShape<EllipseShape> {
 /**
  * Defines a path drawing class.
  *
- * @extends CommonShapeMethod<PathShape>
+ * @extends CommonShapeMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare class PathShape extends CommonShapeMethod<PathShape> {
+export declare class PathShape extends CommonShapeMethod {
     /**
      * Constructor.
      *
-     * @param { PathShapeOptions } options
+     * @param { PathShapeOptions } [options]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
@@ -269,9 +269,9 @@ export declare class PathShape extends CommonShapeMethod<PathShape> {
      * Sets the commands for drawing the PathShape.
      *
      * @param { string } commands
-     * @returns { PathShape }
+     * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    commands(commands: string): PathShape;
+    commands(commands: string): this;
 }
