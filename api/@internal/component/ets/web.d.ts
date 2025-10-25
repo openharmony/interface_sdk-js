@@ -11107,7 +11107,7 @@ declare enum GestureFocusMode {
  * @syscap SystemCapability.Web.Webview.Core
  * @since 22 1.1&1.2
  */
-declare enum PinVerificationResult {
+declare enum PinVerifyResult {
   /**
    * SUCCESS.
    *
