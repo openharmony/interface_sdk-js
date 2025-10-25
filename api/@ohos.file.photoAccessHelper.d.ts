@@ -11568,7 +11568,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     startDownloadSpecificCloudMedia(assetUris: string[]): Promise<Map<string, CloudAssetDownloadCode>>;
 
@@ -11586,7 +11586,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     pauseDownloadSpecificCloudMedia(assetUris: string[] | null): Promise<void>;
 
@@ -11604,7 +11604,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     resumeDownloadSpecificCloudMedia(assetUris: string[] | null): Promise<void>;
 
@@ -11622,7 +11622,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     cancelDownloadSpecificCloudMedia(assetUris: string[] | null): Promise<void>;
 
@@ -11638,7 +11638,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     queryDownloadSpecificCloudMediaDetails(predicates: dataSharePredicates.DataSharePredicates): Promise<CloudAssetDownloadStatus>;
 
@@ -11654,7 +11654,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     queryDownloadSpecificCloudMediaTaskCount(predicates: dataSharePredicates.DataSharePredicates): Promise<int>;
 
@@ -11669,7 +11669,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     onDownloadProgressChange(callback: Callback<CloudAssetDownloadProgressInfo>): void;
 
@@ -11684,7 +11684,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     offDownloadProgressChange(callback?: Callback<CloudAssetDownloadProgressInfo>): void;
   }
@@ -12058,7 +12058,7 @@ declare namespace photoAccessHelper {
    * @interface CloudAssetDownloadProgressInfo
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 21 dynamic&static
    */
   interface CloudAssetDownloadProgressInfo {
     /**
@@ -12068,7 +12068,7 @@ declare namespace photoAccessHelper {
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     readonly downloadEventType: CloudAssetDownloadNotifyType;
     
@@ -12079,7 +12079,7 @@ declare namespace photoAccessHelper {
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     readonly fileId: int;
 
@@ -12090,7 +12090,7 @@ declare namespace photoAccessHelper {
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     readonly percent: int;
 
@@ -12101,7 +12101,7 @@ declare namespace photoAccessHelper {
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     readonly autoPauseReason: int;
   }
@@ -12112,7 +12112,7 @@ declare namespace photoAccessHelper {
    * @interface CloudAssetDownloadStatus
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 21 dynamic&static
    */
   interface CloudAssetDownloadStatus {
     /**
@@ -12122,7 +12122,7 @@ declare namespace photoAccessHelper {
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     readonly taskInfos: string[];
   }
@@ -12133,7 +12133,7 @@ declare namespace photoAccessHelper {
    * @enum { int } CloudAssetDownloadCode
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 21 dynamic&static
    */
   enum CloudAssetDownloadCode {
     /**
@@ -12141,7 +12141,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     ADD_DOWNLOAD_TASK_SUCCESS = 0,
 
@@ -12150,7 +12150,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     DOWNLOAD_ASSET_NOT_EXIST = 1,
   }
@@ -12161,7 +12161,7 @@ declare namespace photoAccessHelper {
    * @enum { int } CloudAssetDownloadNotifyType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 21 dynamic&static
    */
   enum CloudAssetDownloadNotifyType {
     /**
@@ -12169,7 +12169,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     DOWNLOAD_PROGRESS = 0,
 
@@ -12178,7 +12178,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     DOWNLOAD_FINISHED = 1,
 
@@ -12187,7 +12187,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     DOWNLOAD_FAILED = 2,
 
@@ -12196,7 +12196,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     DOWNLOAD_ASSET_DELETED = 3,
 
@@ -12205,7 +12205,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     DOWNLOAD_AUTO_PAUSED = 4,
 
@@ -12214,7 +12214,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     DOWNLOAD_AUTO_RESUMED = 5,
 
@@ -12223,7 +12223,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     DOWNLOAD_REFRESHED = 6,
   }
