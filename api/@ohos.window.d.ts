@@ -4560,6 +4560,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 20 static
      */
     ENTER_IMMERSIVE_DISABLE_TITLE_AND_DOCK_HOVER = 3,
   }
