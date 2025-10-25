@@ -626,19 +626,6 @@ type OnSafeBrowsingCheckResultCallback = (threatType: ThreatType) => void;
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
-scap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
-*
- * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11
  * @deprecated since 21
