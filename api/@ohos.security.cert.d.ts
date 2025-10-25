@@ -7315,7 +7315,7 @@ declare namespace cert {
     SIGNER_CERTS = 0,
 
     /**
-     * The recipient certificate.
+     * All certificates.
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
