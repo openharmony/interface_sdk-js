@@ -25,6 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 20 dynamic
+ * @deprecated since 22
 */
 export declare class StepperModifier extends StepperAttribute implements AttributeModifier<StepperAttribute> {
 
@@ -36,6 +37,7 @@ export declare class StepperModifier extends StepperAttribute implements Attribu
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
+   * @deprecated since 22
    */
   applyNormalAttribute?(instance: StepperAttribute): void;
 }

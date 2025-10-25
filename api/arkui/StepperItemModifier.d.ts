@@ -18,9 +18,6 @@
  * @kit ArkUI
  */
 
-
-
-
 /**
  * Defines StepperItem Modifier
  *
@@ -39,6 +36,7 @@
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
+ * @deprecated since 22
  */
 export declare class StepperItemModifier extends StepperItemAttribute implements AttributeModifier<StepperItemAttribute> {
 
@@ -50,6 +48,7 @@ export declare class StepperItemModifier extends StepperItemAttribute implements
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
+   * @deprecated since 22
    */
   applyNormalAttribute?(instance: StepperItemAttribute): void;
 }

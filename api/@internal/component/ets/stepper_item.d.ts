@@ -41,6 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @deprecated since 22
  */
 declare enum ItemState {
   /**
@@ -63,6 +64,7 @@ declare enum ItemState {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @deprecated since 22
    */
   Normal,
 
@@ -86,6 +88,7 @@ declare enum ItemState {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @deprecated since 22
    */
   Disabled,
 
@@ -109,6 +112,7 @@ declare enum ItemState {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @deprecated since 22
    */
   Waiting,
 
@@ -132,6 +136,7 @@ declare enum ItemState {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @deprecated since 22
    */
   Skip,
 }
@@ -159,6 +164,7 @@ declare enum ItemState {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @deprecated since 22
  */
 interface StepperItemInterface {
   /**
@@ -184,6 +190,7 @@ interface StepperItemInterface {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @deprecated since 22
    */
   (): StepperItemAttribute;
 }
@@ -211,6 +218,7 @@ interface StepperItemInterface {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @deprecated since 22
  */
 declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
   /**
@@ -239,6 +247,7 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @deprecated since 22
    */
   prevLabel(value: string): StepperItemAttribute;
 
@@ -268,6 +277,7 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @deprecated since 22
    */
   nextLabel(value: string): StepperItemAttribute;
 
@@ -297,6 +307,7 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
+   * @deprecated since 22
    */
   status(value?: ItemState): StepperItemAttribute;
 }
@@ -321,6 +332,7 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @deprecated since 22
  */
 declare const StepperItemInstance: StepperItemAttribute;
 
@@ -344,5 +356,6 @@ declare const StepperItemInstance: StepperItemAttribute;
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @deprecated since 22
  */
 declare const StepperItem: StepperItemInterface;
