@@ -87,7 +87,7 @@ declare type ImageMatrix = import ('../api/@ohos.matrix4').default.Matrix4Transi
   * @atomicservice
   * @since 20 dynamic
   */
-declare type BusinessError<T> = import('../api/@ohos.base').BusinessError<T>;
+declare type BusinessError<T = void> = import('../api/@ohos.base').BusinessError<T>;
 
 /**
  * @enum { number }
