@@ -667,6 +667,16 @@ declare class AbilityLifecycleCallback {
   onAbilityWillSaveState?(ability: UIAbility): void;
 
   /**
+   * Called back when the ability prepares to call onSaveState.
+   *
+   * @type { ?OnAbilityWillSaveStateFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 20 static
+   */
+  onAbilityWillSaveState?: OnAbilityWillSaveStateFn;
+
+  /**
    * Called back when the ability has called onSaveState.
    *
    * @param { UIAbility } ability - Indicates the ability to register for listening.
@@ -676,6 +686,16 @@ declare class AbilityLifecycleCallback {
    * @since 12 dynamic
    */
   onAbilitySaveState?(ability: UIAbility): void;
+
+  /**
+   * Called back when the ability has called onSaveState.
+   *
+   * @type { ?OnAbilitySaveStateFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 20 static
+   */
+  onAbilitySaveState?: OnAbilitySaveStateFn;
 }
 
 export default AbilityLifecycleCallback;
