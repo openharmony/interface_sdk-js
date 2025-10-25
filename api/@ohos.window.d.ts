@@ -3742,8 +3742,8 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300004 - Unauthorized operation.
    * @syscap SystemCapability.Window.SessionManager
-   * @systemapi
-   * @since 23 static
+   * @systemapi Hide this for inner system use.
+   * @since 23 dynamic&static
    */
   function setSpecificSystemWindowZIndex(windowType: WindowType, zIndex: int): Promise<void>;
 
