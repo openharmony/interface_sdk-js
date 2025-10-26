@@ -690,8 +690,9 @@ export class ReactiveBuilderNode<Args extends Object[]> {
    /**
     * Reuse the ReactiveBuilderNode based on the provided parameters.
     *
-    * @param { Object } [param] - Parameters for reusing ReactiveBuilderNode.
-    *     It is of the same type as the parameter passed to the build API.
+    * @param { Object } [param] - Parameters for reusing ReactiveBuilderNode. It is of the same type as the parameter
+    *     passed to the build API. If this parameter is not passed, the default value is undefined, which applies to
+    *     parameterless ReactiveBuilderNode scenarios.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
