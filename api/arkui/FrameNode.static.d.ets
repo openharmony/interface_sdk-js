@@ -730,6 +730,15 @@ export declare class FrameNode {
    * @since 22 static
    */
   convertPoint(position: NodePosition, targetNode: FrameNode): NodePosition;
+
+  /**
+   * Get if the FrameNode is attached to the root node tree.
+   *
+   * @returns { boolean } - Returns if the FrameNode is attached to the root node tree.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23
+   */
+  isOnMainTree(): boolean;
 }
 
 /**
