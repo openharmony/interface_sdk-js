@@ -4910,6 +4910,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     animated?: boolean;
 
@@ -4920,6 +4921,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     config?: WindowAnimationConfig;
   }
@@ -7329,7 +7331,8 @@ declare namespace window {
      *
      * @param { 'keyboardWillShow' } type - The value is fixed at 'keyboardWillShow', indicating the start of the keyboard show animation event.
      * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard show animation start.
-     * @throws { BusinessError } 801 - Capability not supported. Function keyboardWillShow can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardWillShow can not work correctly
+     *     due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -7338,11 +7341,25 @@ declare namespace window {
     on(type: 'keyboardWillShow', callback: Callback<KeyboardInfo>): void;
 
     /**
+     * Register the callback of keyboard will show
+     *
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard show animation start.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Function keyboardDidHide can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onKeyboardWillShow(callback: Callback<KeyboardInfo>): void;
+
+    /**
      * Unregister the callback of keyboardWillShow
      *
      * @param { 'keyboardWillShow' } type - The value is fixed at 'keyboardWillShow', indicating the start of the keyboard show animation event.
-     * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard show animation start.
-     * @throws { BusinessError } 801 - Capability not supported. Function keyboardWillShow can not work correctly due to limited device capabilities.
+     * @param { Callback<KeyboardInfo> } [callback] - Unregister the callback function. If not provided,
+     *     all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardWillShow can not work correctly
+     *     due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -7351,11 +7368,25 @@ declare namespace window {
     off(type: 'keyboardWillShow', callback?: Callback<KeyboardInfo>): void;
 
     /**
+     * Unregister the callback of keyboard will show
+     *
+     * @param { Callback<KeyboardInfo> } [callback] - Unregister the callback function. If not provided,
+     *     all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Function keyboardDidHide can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offKeyboardWillShow(callback?: Callback<KeyboardInfo>): void;
+
+    /**
      * Register the callback of keyboardWillHide
      *
      * @param { 'keyboardWillHide' } type - The value is fixed at 'keyboardWillHide', indicating the start of the keyboard hide animation event.
      * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard hide animation start.
-     * @throws { BusinessError } 801 - Capability not supported. Function keyboardWillHide can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardWillHide can not work correctly 
+     *     due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -7364,17 +7395,44 @@ declare namespace window {
     on(type: 'keyboardWillHide', callback: Callback<KeyboardInfo>): void;
 
     /**
+     * Register the callback of keyboard will hide
+     *
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard hide animation start.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Function keyboardDidHide can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onKeyboardWillHide(callback: Callback<KeyboardInfo>): void;
+
+    /**
      * Unregister the callback of keyboardWillHide
      *
      * @param { 'keyboardWillHide' } type - The value is fixed at 'keyboardWillHide', indicating the start of the keyboard hide animation event.
-     * @param { Callback<KeyboardInfo> } callback - Callback invoked before the keyboard hide animation start.
-     * @throws { BusinessError } 801 - Capability not supported. Function keyboardWillHide can not work correctly due to limited device capabilities.
+     * @param { Callback<KeyboardInfo> } [callback] - Unregister the callback function. If not provided,
+     *     all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardWillHide can not work correctly
+     *     due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
      */
     off(type: 'keyboardWillHide', callback?: Callback<KeyboardInfo>): void;
+
+    /**
+     * Unregister the callback of keyboard will hide
+     *
+     * @param { Callback<KeyboardInfo> } [callback] - Unregister the callback function. If not provided,
+     *     all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Function keyboardDidHide can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offKeyboardWillHide(callback?: Callback<KeyboardInfo>): void;
 
     /**
      * Register the callback of keyboardDidShow
