@@ -2568,10 +2568,10 @@ declare namespace hiAppEvent {
     /**
      * The policy for MAIN_THREAD_JANK event
      * Number of main thread timeout samples. Once the system detects that the current main thread task
-     *    execution exceeds the sampling limit, it periodically collects stack traces at each interval,
-     *    for a total of sample_count times.Default value: 1 time(s), Unit: time(s). The maximum value
-     *    is dynamically calculated based on the custom sampleInterval, using the formula:
-     *    sampleCount <= (2500 / sampleInterval - 4).
+     * execution exceeds the sampling limit, it periodically collects stack traces at each interval,
+     * for a total of sampleCount times. Minimum value: 1 time(s), Unit: time(s). Default value: 10 time(s).
+     * The maximum value is dynamically calculated based on the custom sampleInterval, using the formula:
+     * sampleCount <= (2500 / sampleInterval - 4).
      *
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -2748,7 +2748,7 @@ declare namespace hiAppEvent {
   }
 
   /**
-   * Configure target event process policy with name
+   * Configure target event process policy
    *
    * @param { EventPolicy } policy The policy object.
    * @returns { Promise<void> } Promise used to return the result.
