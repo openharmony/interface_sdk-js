@@ -5185,7 +5185,7 @@ declare namespace window {
     /**
      * Show window.
      *
-     * @param { ShowWindowOptions } options - options of window shown
+     * @param { ShowWindowOptions } options - options for window show.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Function showWindow can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -10153,7 +10153,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
-     *     1. Invalid Parameter range. 2. Invalid parameter length.
+     *     1. Invalid parameter range. 2. Invalid parameter length.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
@@ -11952,7 +11952,7 @@ declare namespace window {
 
 
   /**
-   * Options for window shown
+   * Options for window show
    * 
    * @interface ShowWindowOptions
    * @syscap SystemCapability.Window.SessionManager
@@ -11965,6 +11965,7 @@ declare namespace window {
      * Indicates whether the window get focus when it is shown
      * 
      * @type { ?boolean }
+     * @default true
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
