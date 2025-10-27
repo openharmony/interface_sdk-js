@@ -35,15 +35,15 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  */
 export declare interface TextOverflowOptions {
     /**
-     * Text overflow option.
+     * Text overflow option. Use TextOverflow::NONE when the value is undefined.
      *
      * Anonymous Object Rectification.
-     * @type { TextOverflow }
+     * @type { TextOverflow | undefined }
      * @default TextOverflow.Clip
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    overflow: TextOverflow;
+    overflow: TextOverflow | undefined;
 }
 /**
  * TextAttribute.
