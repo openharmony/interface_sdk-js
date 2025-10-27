@@ -9081,6 +9081,13 @@ declare namespace media {
      * A video container format type mp4.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
+     * @since 12 dynamic
+     * @since 20 static
+     */
+    /**
+     * A video container format type mp4.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
      * @atomicservice
      * @since 22 dynamic&static
      */
@@ -10566,6 +10573,13 @@ declare namespace media {
      * H.264 codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
+     * @since 12 dynamic
+     * @since 20 static
+     */
+    /**
+     * H.264 codec MIME type.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
      * @atomicservice
      * @since 22 dynamic&static
      */
@@ -10658,6 +10672,13 @@ declare namespace media {
      * H.265 codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 11
+     */
+    /**
+     * H.265 codec MIME type.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * H.265 codec MIME type.
@@ -11238,13 +11259,28 @@ declare namespace media {
    *
    * @typedef AVTranscoderConfig
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+   * @since 12 dynamic
+   * @since 20 static
+   */
+  /**
+   * Describes the video transcoding parameters.
+   *
+   * @typedef AVTranscoderConfig
+   * @syscap SystemCapability.Multimedia.Media.AVTranscoder
    * @atomicservice
    * @since 22 dynamic&static
    */
   interface AVTranscoderConfig {
     /**
      * Bitrate of the output audio, in bit/s. The value range is [1-500000]. The default value is 48 kbit/s.
-     * @type { ?int }
+     * @type {  ?int  }
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12 dynamic
+     * @since 20 static
+     */
+    /**
+     * Bitrate of the output audio, in bit/s. The value range is [1-500000]. The default value is 48 kbit/s.
+     * @type {  ?int  }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic&static
@@ -11255,6 +11291,13 @@ declare namespace media {
      * Encoding format of the output audio. Currently, only AAC is supported. The default value is **AAC**.
      * @type { ?CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12 dynamic
+     * @since 20 static
+     */
+    /**
+     * Encoding format of the output audio. Currently, only AAC is supported. The default value is **AAC**.
+     * @type {  ?CodecMimeType  }
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic&static
      */
@@ -11263,6 +11306,13 @@ declare namespace media {
     /**
      * Container format of the output video file. Currently, only MP4 is supported.
      * @type { ContainerFormatType }
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12 dynamic
+     * @since 20 static
+     */
+    /**
+     * Container format of the output video file. Currently, only MP4 is supported.
+     * @type {  ContainerFormatType  }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic&static
@@ -11275,6 +11325,15 @@ declare namespace media {
      * 2 Mbit/s for the range (480P,720P], 4 Mbit/s for the range (720P,1080P], and 8 Mbit/s for 1080p or higher.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12 dynamic
+     * @since 20 static
+     */
+    /**
+     * Bitrate of the output video, in bit/s. The default bitrate depends on the resolution of the output video.
+     * The default bitrate is 1 Mbit/s for the resolution in the range [240p, 480P],
+     * 2 Mbit/s for the range (480P,720P], 4 Mbit/s for the range (720P,1080P], and 8 Mbit/s for 1080p or higher.
+     * @type {  ?int  }
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic&static
      */
@@ -11284,6 +11343,14 @@ declare namespace media {
      * Encoding format of the output video. Currently, only AVC and HEVC are supported.
      * If the source video is in HEVC format, the default value is **HEVC**. Otherwise, the default value is **AVC**.
      * @type { ?CodecMimeType }
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12 dynamic
+     * @since 20 static
+     */
+    /**
+     * Encoding format of the output video. Currently, only AVC and HEVC are supported.
+     * If the source video is in HEVC format, the default value is **HEVC**. Otherwise, the default value is **AVC**.
+     * @type {  ?CodecMimeType  }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic&static
@@ -11295,6 +11362,14 @@ declare namespace media {
      * The default value is the width of the source video frame.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12 dynamic
+     * @since 20 static
+     */
+    /**
+     * Width of the output video frame, in px. The value range is [240 - 3840].
+     * The default value is the width of the source video frame.
+     * @type {  ?int  }
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic&static
      */
@@ -11305,12 +11380,29 @@ declare namespace media {
      * The default value is the height of the source video frame.
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12 dynamic
+     * @since 20 static
+     */
+    /**
+     * Height of the output video frame, in px. The value range is [240 - 2160].
+     * The default value is the height of the source video frame.
+     * @type {  ?int  }
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic&static
      */
     videoFrameHeight?: int;
   }
  
+  /**
+   * A transcoding management class that provides APIs to transcode videos. Before calling any API in **AVTranscoder**,
+   * you must use [createAVTranscoder()]{@link #createAVTranscoder} to create an **AVTranscoder** instance.
+   *
+   * @typedef AVTranscoder
+   * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+   * @since 12 dynamic
+   * @since 20 static
+   */
   /**
    * A transcoding management class that provides APIs to transcode videos. Before calling any API in **AVTranscoder**,
    * you must use [createAVTranscoder()]{@link #createAVTranscoder} to create an **AVTranscoder** instance.
@@ -11337,6 +11429,25 @@ declare namespace media {
      * at the same time, resulting in errors in obtaining data.
      * @type { AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12 dynamic
+     * @since 20 static
+     */
+    /**
+     * Source media file descriptor, which specifies the data source.
+     *
+     * **Example:**
+     *
+     * There is a media file that stores continuous assets, the address offset is 0, and the byte length is 100.
+     * Its file descriptor is **AVFileDescriptor { fd = resourceHandle; offset = 0; length = 100; }**.
+     *
+     * **NOTE**
+     * - After the resource handle (FD) is transferred to an **AVTranscoder** instance, do not use the resource handle
+     * to perform other read and write operations, including but not limited to transferring this handle to other
+     * **AVPlayer**, **AVMetadataExtractor**, **AVImageGenerator**, or **AVTranscoder** instance.
+     * Competition occurs when multiple **AVTranscoders** use the same resource handle to read and write files
+     * at the same time, resulting in errors in obtaining data.
+     * @type {  AVFileDescriptor  }
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic&static
      */
@@ -11354,6 +11465,21 @@ declare namespace media {
      * at the same time, resulting in errors in obtaining data.
      * @type { int }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12 dynamic
+     * @since 20 static
+     */
+    /**
+     * Destination media file descriptor, which specifies the data source. After creating an **AVTranscoder** instance,
+     * you must set both **fdSrc** and **fdDst**.
+     *
+     * **NOTE**
+     * - After the resource handle (FD) is transferred to an **AVTranscoder** instance, do not use the resource handle
+     * to perform other read and write operations, including but not limited to transferring this handle to other
+     * **AVPlayer**, **AVMetadataExtractor**, **AVImageGenerator**, or **AVTranscoder** instance.
+     * Competition occurs when multiple AVTranscoders use the same resource handle to read and write files
+     * at the same time, resulting in errors in obtaining data.
+     * @type {  int  }
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic&static
      */
@@ -11369,6 +11495,19 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12 dynamic
+     * @since 20 static
+     */
+    /**
+     * Sets video transcoding parameters. This API uses a promise to return the result.
+     * @param {  AVTranscoderConfig  } config - Video transcoding parameters to set.
+     * @returns {  Promise<void>  } Promise that returns no value.
+     * @throws {  BusinessError  } 401 - The parameter check failed. Return by promise.
+     * @throws {  BusinessError  } 5400102 - Operation not allowed. Return by promise.
+     * @throws {  BusinessError  } 5400103 - IO error. Return by promise.
+     * @throws {  BusinessError  } 5400105 - Service died. Return by promise.
+     * @throws {  BusinessError  } 5400106 - Unsupported format. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic&static
      */
@@ -11382,6 +11521,18 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12 dynamic
+     * @since 20 static
+     */
+    /**
+     * Starts transcoding. This API uses a promise to return the result.
+     *
+     * This API can be called only after the [prepare()]{@link AVTranscoder.prepare} API is called.
+     * @returns {  Promise<void>  } Promise that returns no value.
+     * @throws {  BusinessError  } 5400102 - Operation not allowed. Return by promise.
+     * @throws {  BusinessError  } 5400103 - IO error. Return by promise.
+     * @throws {  BusinessError  } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic&static
@@ -11398,6 +11549,19 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12 dynamic
+     * @since 20 static
+     */
+    /**
+     * Pauses transcoding. This API uses a promise to return the result.
+     *
+     * This API can be called only after the [start()]{@link AVTranscoder.start} API is called.
+     * You can call [resume()]{@link AVTranscoder.resume} to resume transcoding.
+     * @returns {  Promise<void>  } Promise that returns no value.
+     * @throws {  BusinessError  } 5400102 - Operation not allowed. Return by promise.
+     * @throws {  BusinessError  } 5400103 - IO error. Return by promise.
+     * @throws {  BusinessError  } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic&static
      */
@@ -11411,6 +11575,18 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12 dynamic
+     * @since 20 static
+     */
+    /**
+     * Resumes transcoding. This API uses a promise to return the result.
+     *
+     * This API can be called only after the [pause()]{@link AVTranscoder.pause} API is called.
+     * @returns {  Promise<void>  } Promise that returns no value.
+     * @throws {  BusinessError  } 5400102 - Operation not allowed. Return by promise.
+     * @throws {  BusinessError  } 5400103 - IO error. Return by promise.
+     * @throws {  BusinessError  } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic&static
@@ -11426,6 +11602,18 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12 dynamic
+     * @since 20 static
+     */
+    /**
+     * Cancels transcoding. This API uses a promise to return the result.
+     * This API can be called only after the [prepare()]{@link AVTranscoder.prepare}, [start()]{@link AVTranscoder.start},
+     * [pause()]{@link AVTranscoder.pause}, or [resume()]{@link AVTranscoder.resume} API is called.
+     * @returns {  Promise<void>  } Promise that returns no value.
+     * @throws {  BusinessError  } 5400102 - Operation not allowed. Return by promise.
+     * @throws {  BusinessError  } 5400103 - IO error. Return by promise.
+     * @throws {  BusinessError  } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic&static
      */
@@ -11438,6 +11626,17 @@ declare namespace media {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12 dynamic
+     * @since 20 static
+     */
+    /**
+     * Releases the video transcoding resources. This API uses a promise to return the result.
+     *
+     * After the resources are released, you can no longer perform any operation on the **AVTranscoder** instance.
+     * @returns {  Promise<void>  } Promise that returns no value.
+     * @throws {  BusinessError  } 5400102 - Operation not allowed. Return by promise.
+     * @throws {  BusinessError  } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic&static
@@ -11452,9 +11651,23 @@ declare namespace media {
      * When this event is reported, the current transcoding operation is complete.
      * You need to call [release()]{@link AVTranscoder.release} to exit the transcoding.
      * @param { 'complete' } type - Event type, which is **'complete'** in this case.
-     * This event is triggered by the system during transcoding.
+     *     This event is triggered by the system during transcoding.
      * @param { Callback<void> } callback - Callback that has been registered to listen for
-     * transcoding completion events.
+     *     transcoding completion events.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    /**
+     * Subscribes to the event indicating that transcoding is complete.
+     * An application can subscribe to only one transcoding completion event.
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     *
+     * When this event is reported, the current transcoding operation is complete.
+     * You need to call [release()]{@link AVTranscoder.release} to exit the transcoding.
+     * @param { 'complete' } type - Event type, which is **'complete'** in this case.
+     *     This event is triggered by the system during transcoding.
+     * @param { Callback<void> } callback - Callback that has been registered to listen for
+     *     transcoding completion events.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic
@@ -11468,8 +11681,27 @@ declare namespace media {
      * An application can subscribe to only one AVTranscoder error event.
      * When the application initiates multiple subscriptions to this event, the last subscription is applied.
      * @param { 'error' } type - Event type, which is **'error'** in this case.
+     *     This event is triggered when an error occurs during transcoding.
+     * @param { ErrorCallback } callback - Callback invoked when the event is triggered.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400106 - Unsupported format.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    /**
+     * Subscribes to AVTranscoder errors. If this event is reported, call [release()]{@link AVTranscoder.release}
+     * to exit the transcoding.
      *
-     * This event is triggered when an error occurs during transcoding.
+     * An application can subscribe to only one AVTranscoder error event.
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * @param { 'error' } type - Event type, which is **'error'** in this case.
+     *     This event is triggered when an error occurs during transcoding.
      * @param { ErrorCallback } callback - Callback invoked when the event is triggered.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -11489,9 +11721,19 @@ declare namespace media {
      * Subscribes to transcoding progress updates. An application can subscribe to only one transcoding progress update
      * event. When the application initiates multiple subscriptions to this event, the last subscription is applied.
      * @param { 'progressUpdate' } type - Event type, which is **'progressUpdate'** in this case.
-     * This event is triggered by the system during transcoding.
+     *     This event is triggered by the system during transcoding.
      * @param { Callback<int> } callback - Callback invoked when the event is triggered.
-     * **progress** is a number that indicates the current transcoding progress.
+     *     **progress** is a number that indicates the current transcoding progress.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    /**
+     * Subscribes to transcoding progress updates. An application can subscribe to only one transcoding progress update
+     * event. When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * @param { 'progressUpdate' } type - Event type, which is **'progressUpdate'** in this case.
+     *     This event is triggered by the system during transcoding.
+     * @param { Callback<int> } callback - Callback invoked when the event is triggered.
+     *     **progress** is a number that indicates the current transcoding progress.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic
@@ -11501,9 +11743,18 @@ declare namespace media {
     /**
      * Unsubscribes from the event indicating that transcoding is complete.
      * @param { 'complete' } type - Event type, which is **'complete'** in this case.
-     * This event can be triggered by both user operations and the system.
+     *     This event can be triggered by both user operations and the system.
      * @param { Callback<void> } callback - Callback that has been registered to listen for
-     * transcoding completion events.
+     *     transcoding completion events.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    /**
+     * Unsubscribes from the event indicating that transcoding is complete.
+     * @param { 'complete' } type - Event type, which is **'complete'** in this case.
+     *     This event can be triggered by both user operations and the system.
+     * @param { Callback<void> } callback - Callback that has been registered to listen for
+     *     transcoding completion events.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic
@@ -11513,9 +11764,17 @@ declare namespace media {
     /**
      * Unsubscribes from AVTranscoder errors. After the unsubscription, your application can no longer
      * receive AVTranscoder errors.
-     * @param { 'error' } type - 	Event type, which is **'error'** in this case.
-     *
-     * This event is triggered when an error occurs during transcoding.
+     * @param { 'error' } type -  Event type, which is **'error'** in this case.
+     *     This event is triggered when an error occurs during transcoding.
+     * @param { ErrorCallback } callback - Callback that has been registered to listen for AVTranscoder errors.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    /**
+     * Unsubscribes from AVTranscoder errors. After the unsubscription, your application can no longer
+     * receive AVTranscoder errors.
+     * @param { 'error' } type -  Event type, which is **'error'** in this case.
+     *     This event is triggered when an error occurs during transcoding.
      * @param { ErrorCallback } callback - Callback that has been registered to listen for AVTranscoder errors.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
@@ -11526,10 +11785,20 @@ declare namespace media {
     /**
      * Unsubscribes from transcoding progress updates.
      * @param { 'progressUpdate' } type - Event type, which is **'progressUpdate'** in this case.
-     * This event can be triggered by both user operations and the system.
+     *     This event can be triggered by both user operations and the system.
      * @param { Callback<int> } callback - Called that has been registered to listen for progress updates.
-     * You are advised to use the default value because only the last registered callback is retained in the current
-     * callback mechanism.
+     *     You are advised to use the default value because only the last registered callback is retained in the current
+     *     callback mechanism.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 12
+     */
+    /**
+     * Unsubscribes from transcoding progress updates.
+     * @param { 'progressUpdate' } type - Event type, which is **'progressUpdate'** in this case.
+     *     This event can be triggered by both user operations and the system.
+     * @param { Callback<int> } callback - Called that has been registered to listen for progress updates.
+     *     You are advised to use the default value because only the last registered callback is retained in the current
+     *     callback mechanism.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice
      * @since 22 dynamic
