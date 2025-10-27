@@ -1072,14 +1072,14 @@ declare enum WebDarkMode {
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 21 dynamic&static
+ * @since 22 dynamic
  */
 declare enum WebRotateEffect {
   /**
    * The content area is drawn in top-left of the node.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 21 dynamic&static
+   * @since 22 dynamic
    */
   TOPLEFT_EFFECT = 0,
 
@@ -1087,7 +1087,7 @@ declare enum WebRotateEffect {
    * Scale the content area to cover the node.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 21 dynamic&static
+   * @since 22 dynamic
    */
   RESIZE_COVER_EFFECT = 1
 }
@@ -8560,12 +8560,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   zoomAccess(zoomAccess: boolean): WebAttribute;
 
   /**
-   * Set up the effect of web roation
+   * Set up the effect of web rotation
    *
-   * @param { WebRotateEffect } effect - The effect of roation.
+   * @param { WebRotateEffect } effect - The effect of rotation.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 21 dynamic&static
+   * @since 22 dynamic
    */
   rotateRenderEffect(effect: WebRotateEffect): WebAttribute;
 
