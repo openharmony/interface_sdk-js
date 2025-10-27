@@ -65,10 +65,8 @@ export declare interface EffectComponentAttribute extends CommonMethod {
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function EffectComponent(
 
-    @memo
     content_?: () => void,
 ): EffectComponentAttribute
