@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -60,16 +60,14 @@ export declare interface RootSceneAttribute extends CommonMethod {
  * Defines the RootScene Component.
  *
  * @param { RootSceneSession } session
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { RootSceneAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function RootScene(
     session: RootSceneSession,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): RootSceneAttribute;

@@ -20,7 +20,7 @@
  */
 
 import { Position } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -63,16 +63,14 @@ export declare interface WindowSceneAttribute extends CommonMethod {
  * Defines the WindowScene Component.
  *
  * @param { int } persistentId
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { WindowSceneAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function WindowScene(
     persistentId: int,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): WindowSceneAttribute;
