@@ -140,6 +140,21 @@ declare namespace backgroundProcessManager {
      * @since 20 dynamic
      */
     function isPowerSaveMode(pid: number): Promise<boolean>;
+
+    /**
+     * Get the power saving mode of the process.
+     *
+     * @permission ohos.permission.BACKGROUND_MANAGER_POWER_SAVE_MODE
+     * @param { int } pid - Indicates the process to be checked is the pid of the power saving mode.
+     * @returns { Promise<PowerSaveMode> } The promise returns the power saving mode of the process.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
+     * <br> 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
+     * @since 22
+     */
+    function getPowerSaveMode(pid: int): Promise<PowerSaveMode>;
 }
 
 export default backgroundProcessManager;
