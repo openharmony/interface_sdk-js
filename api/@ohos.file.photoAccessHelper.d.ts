@@ -85,9 +85,22 @@ declare namespace photoAccessHelper {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   function getPhotoAccessHelper(context: Context): PhotoAccessHelper;
+  /**
+   * Obtains a PhotoAccessHelper instance for accessing and modifying media files in the album.
+   *
+   * @param { Context } context - Context of the ability instance.
+   * @returns { PhotoAccessHelper |null } Instance of PhotoAccessHelper. if the operation fails, returns null.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 static
+   */
+  function getPhotoAccessHelper(context: Context): PhotoAccessHelper | null;
 
   /**
    * Obtains a PhotoAccessHelper instance for accessing and modifying media files in the album.
@@ -103,10 +116,26 @@ declare namespace photoAccessHelper {
    * @systemapi
    * @StageModelOnly
    * @since 19 dynamic
-   * @since 20 static
    */
   function getPhotoAccessHelper(context: Context, userId: int): PhotoAccessHelper;
 
+  /**
+   * Obtains a PhotoAccessHelper instance for accessing and modifying media files in the album.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { Context } context - Hap context information
+   * @param { int } userId - Target userId
+   * @returns { PhotoAccessHelper | null } Instance of PhotoAccessHelper. if the operation fails, returns null.
+   * @throws { BusinessError } 201 - Permission denied
+   * @throws { BusinessError } 202 - Called by non-system application
+   * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
+   *     1. userId is invalid.
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 22 static
+   */
+  function getPhotoAccessHelper(context: Context, userId: int): PhotoAccessHelper | null;
   /**
    * Enumerates the types of av file format.
    * 
@@ -1043,13 +1072,13 @@ declare namespace photoAccessHelper {
     /**
      * Indicates required media asset data is prepared
      *
-     * @param { T } data - the returned data of media asset
+     * @param { T | undefined } data - the returned data of media asset
      * @param { Map<string, string> } [map] - additional information for the data
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
-    onDataPrepared(data: T, map?: Map<string, string>): void;
+    onDataPrepared(data: T | undefined, map?: Map<string, string>): void;
   }
 
   /**
@@ -1064,14 +1093,14 @@ declare namespace photoAccessHelper {
     /**
      * Indicates required media asset data quickly is prepared
      *
-     * @param { T } data - the returned data of picture
-     * @param { image.ImageSource } imageSource - the returned data of imageSource
+     * @param { T | undefined } data - the returned data of picture
+     * @param { image.ImageSource | null } imageSource - the returned data of imageSource
      * @param { Map<string, string> } map - additional information for the data
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
-    onDataPrepared(data: T, imageSource: image.ImageSource, map: Map<string, string>): void;
+    onDataPrepared(data: T | undefined, imageSource: image.ImageSource | null, map: Map<string, string>): void;
   }
 
   /**
@@ -2149,9 +2178,28 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
      */
     requestPhoto(callback: AsyncCallback<image.PixelMap>): string;
+    /**
+     * Obtains the quick thumbnail and quality thumbnail of this asset.
+     *     This API uses an asynchronous callback to return the result.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { AsyncCallback<image.PixelMap> } callback - Callback invoked twice to return the quick
+     *     and quality thumbnails obtained.
+     * @returns { string | null } Returns request photo task id. if the operation fails, return null.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 static
+     */
+    requestPhoto(callback: AsyncCallback<image.PixelMap>): string | null;
     /**
      * Obtains the thumbnails of an asset based on the specified options. This API uses an asynchronous callback to return the result.
      *
@@ -2167,9 +2215,29 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
      */
     requestPhoto(options: RequestPhotoOptions, callback: AsyncCallback<image.PixelMap>): string;
+    /**
+     * Obtains the thumbnails of an asset based on the specified options.
+     *     This API uses an asynchronous callback to return the result.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { RequestPhotoOptions } options - Options for obtaining the asset thumbnail.
+     * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return the thumbnails obtained.
+     *     The callback may be invoked more than once, depending on options.
+     * @returns { string | null } Returns request photo task id. if the operation fails, returns null.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 static
+     */
+    requestPhoto(options: RequestPhotoOptions, callback: AsyncCallback<image.PixelMap>): string | null
     /**
      * Cancels a task for obtaining media thumbnails.
      *
@@ -8161,9 +8229,29 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     static createImageAssetRequest(context: Context, fileUri: string): MediaAssetChangeRequest;
+
+    /**
+     * Creates an image asset change request.
+     *
+     * @param { Context } context - Context of the ability instance.
+     * @param { string } fileUri - Data source of the image asset, 
+     * which is specified by a URI in the application sandbox directory. 
+     * @returns { MediaAssetChangeRequest | null } - Returns a MediaAssetChangeRequest instance; returns null otherwise.
+     * if the operation fails, returns null.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 23800101 - The file corresponding to the URI is not in the app sandbox.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 22 static
+     * 
+     */
+    static createImageAssetRequest(context: Context, fileUri: string): MediaAssetChangeRequest | null;
 
     /**
      * Creates a video asset change request.
@@ -8178,9 +8266,27 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
-     * @since 20 static
      */
     static createVideoAssetRequest(context: Context, fileUri: string): MediaAssetChangeRequest;
+
+    /**
+     * Creates a video asset change request.
+     *
+     * @param { Context } context - Context of the ability instance.
+     * @param { string } fileUri - Data source of the video asset, 
+     *     which is specified by a URI in the application sandbox directory.
+     * @returns { MediaAssetChangeRequest | null } - Returns a MediaAssetChangeRequest instance.
+     *     if the operation fails, returns null.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 23800101 - The file corresponding to the URI is not in the app sandbox.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 22 static
+     */
+    static createVideoAssetRequest(context: Context, fileUri: string): MediaAssetChangeRequest | null;
 
     /**
      * Creates an asset change request with the specified file name.
@@ -8198,9 +8304,29 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
      */
     static createAssetRequest(context: Context, displayName: string, options?: PhotoCreateOptions): MediaAssetChangeRequest;
+
+    /**
+     * Creates an asset change request with the specified file name.
+     *
+     * @param { Context } context - Context of the ability instance.
+     * @param { string } displayName - File name of the image or video to create.
+     * @param { PhotoCreateOptions } [options] - Options for creating an image or video asset.
+     * @returns { MediaAssetChangeRequest | null } - Returns a MediaAssetChangeRequest instance.
+     *     if the operation fails, returns null.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 23800102 - The format or length or the display name does not meet the specifications.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 static
+     */
+    static createAssetRequest(context: Context, displayName: string, options?: PhotoCreateOptions): MediaAssetChangeRequest | null;
 
     /**
      * Create an asset change request based on the file type and filename extension.
@@ -8217,9 +8343,29 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
      */
     static createAssetRequest(context: Context, photoType: PhotoType, extension: string, options?: CreateOptions): MediaAssetChangeRequest;
+
+    /**
+     * Create an asset change request based on the file type and filename extension.
+     *
+     * @param { Context } context - Context of the ability instance.
+     * @param { PhotoType } photoType - Type of the file to create, which can be IMAGE or VIDEO.
+     * @param { string } extension - File name extension, for example, 'jpg'.
+     * @param { CreateOptions } [options] - Options for creating the image or video asset,
+     *     for example, {title: 'testPhoto'}.
+     * @returns { MediaAssetChangeRequest | null } - Returns a MediaAssetChangeRequest instance.
+     *     if the operation fails, returns null.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 22 static
+     */
+    static createAssetRequest(context: Context, photoType: PhotoType, extension: string, options?: CreateOptions): MediaAssetChangeRequest | null;
 
     /**
      * Deletes media assets. This API uses a promise to return the result. The deleted assets are moved to the trash.
@@ -8295,9 +8441,20 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     getAsset(): PhotoAsset;
+
+    /**
+     * Obtains the asset in this asset change request.
+     *
+     * @returns { PhotoAsset | null } - Returns the asset. if the operation fails, returns null.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 22 static
+     */
+    getAsset(): PhotoAsset | null;
 
     /**
      * Set favorite state of the asset.
@@ -8740,9 +8897,27 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
      */
     static createAlbumRequest(context: Context, name: string): MediaAlbumChangeRequest;
+
+    /**
+     * Creates a MediaAlbumChangeRequest instance.
+     *
+     * @param { Context } context - Context of the ability instance.
+     * @param { string } name - Name of the album.
+     * @returns { MediaAlbumChangeRequest | null } - Returns a MediaAlbumChangeRequest instance.
+     *     if the operation fails, returns null.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 static
+     */
+    static createAlbumRequest(context: Context, name: string): MediaAlbumChangeRequest | null;
 
     /**
      * Deletes albums. This API uses a promise to return the result.
@@ -8792,9 +8967,19 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11 dynamic
-     * @since 20 static
      */
     getAlbum(): Album;
+  
+    /**
+     * Obtains the album in the current album change request.
+     *
+     * @returns { Album | null } - Returns the album. if the operation fails, returns null.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 22 static
+     */
+    getAlbum(): Album | null;
 
     /**
      * Sets the album cover.
@@ -9577,9 +9762,20 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     getUri(): string;
+
+    /**
+     * Obtains the URI of this moving photo.
+     *
+     * @returns { string | null } Returns uri of the moving photo, if the operation fails, returns null.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 22 static
+     */
+    getUri(): string | null;
 
     /**
      * Check if the video of the moving photo is ready.
@@ -10132,9 +10328,25 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 13 dynamic
-     * @since 20 static
      */
     static getCloudEnhancementInstance(context: Context): CloudEnhancement;
+
+    /**
+     * Obtains a cloud enhancement instance.
+     * 
+     * @param { Context } context - Context of the ability instance.
+     * @returns { CloudEnhancement | null } Returns cloud enhancement instance, if the operation fails, returns null.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 static
+     */
+    static getCloudEnhancementInstance(context: Context): CloudEnhancement | null;
 
     /**
      * Submits cloud enhancement tasks.
@@ -10595,9 +10807,26 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 20 static
      */
     static getCloudMediaAssetManagerInstance(context: Context): CloudMediaAssetManager;
+
+    /**
+     * Obtains a CloudMediaAssetManager instance.
+     *
+     * @param { Context } context - Obtains a CloudMediaAssetManager instance
+     * @returns { CloudMediaAssetManager | null } Returns cloud media asset manager instance,
+     *     if the operation fails, returns null.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20 static
+     */
+    static getCloudMediaAssetManagerInstance(context: Context): CloudMediaAssetManager | null;
 
     /**
      * Starts or resumes a task to download cloud media assets.
@@ -10751,6 +10980,22 @@ declare namespace photoAccessHelper {
      * @since 20 dynamic
      */
     static getCustomRecordManagerInstance(context: Context): PhotoAssetCustomRecordManager;
+
+    /**
+     * Get media asset custom record manager instance.
+     * 
+     * @param { Context } context - Context of the ability instance.
+     * @returns { PhotoAssetCustomRecordManager | null } Returns media asset custom record manager instance
+     * if the operation fails, returns null.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800107 - Context is invalid
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic
+     */
+    static getCustomRecordManagerInstance(context: Context): PhotoAssetCustomRecordManager | null;
+
     /**
      * A maximum of 200 custom records can be created at once.
      * 
