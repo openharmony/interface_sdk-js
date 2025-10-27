@@ -34,7 +34,6 @@ const DirType = {
 const NotNullFilePath = [
   'api',
   'api/@internal/ets',
-  'api/@internal/component/ets',
   'api/arkui/component',
   'arkts',
   'kits',
