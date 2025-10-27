@@ -3497,6 +3497,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
+   * @since 20 static
    */
   function toggleShownStateForAllAppWindows(callback: AsyncCallback<void>): void;
 
@@ -3519,6 +3520,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
+   * @since 20 static
    */
   function toggleShownStateForAllAppWindows(): Promise<void>;
 
@@ -4946,6 +4948,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 20 static
      */
     hide(callback: AsyncCallback<void>): void;
 
@@ -4967,6 +4970,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 20 static
      */
     hide(): Promise<void>;
 
@@ -10479,6 +10483,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 20 static
      */
     restore(): Promise<void>;
 
@@ -11359,6 +11364,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 12 dynamic
+     * @since 20 static
      */
     createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise<Window>;
 
@@ -12135,6 +12141,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 12 dynamic
+     * @since 20 static
      */
     createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise<Window>;
     /**
@@ -12166,6 +12173,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
+     * @since 20 static
      */
     getSubWindow(): Promise<Array<Window>>;
     /**
@@ -12197,6 +12205,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
+     * @since 20 static
      */
     getSubWindow(callback: AsyncCallback<Array<Window>>): void;
     /**
