@@ -20,14 +20,12 @@
 import webview from '../../@ohos.web.webview';
 import image from '../../@ohos.multimedia.image';
 import { CommonMethod, Callback, TouchEvent, NestedScrollOptions, KeyEvent, HapticFeedbackMode } from './common';
-import { CustomBuilder } from './builder';
+import { CustomBuilder, ComponentBuilder } from './builder';
 import { Resource } from '../../global/resource';
 import { Position, ResourceStr } from './units';
 import { MenuType, EditMenuOptions } from './textCommon';
 import { CopyOptions, NestedScrollMode } from './enums';
 import { PreviewMenuOptions } from './richEditor';
-import { memo } from "./../stateManagement/runtime";
-import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Provides methods for controlling the web controller.
@@ -1343,7 +1341,7 @@ export declare enum ContextMenuInputFieldType {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 22 static
      */
-    NUMBER = 3,
+    NUMBER_DATA = 3,
     /**
      * The telephone type.
      *
@@ -5342,15 +5340,13 @@ export declare interface EmbedOptions {
  * Defines Web Component.
  *
  * @param { WebOptions } value.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { WebAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Web(
     value: WebOptions,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): WebAttribute

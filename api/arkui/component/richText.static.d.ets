@@ -19,8 +19,7 @@
  */
 import { CommonMethod } from './common';
 import { Resource } from '../../global/resource';
-import { memo } from "./../stateManagement/runtime";
-import { ComponentBuilder } from './builder';
+import { CustomBuilder, ComponentBuilder } from "./builder";
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Defines the RichText attribute functions.
@@ -63,15 +62,13 @@ export declare interface RichTextAttribute extends CommonMethod {
  * Defines RichText Component.
  *
  * @param { string | Resource } content.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { RichTextAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function RichText(
     content: string | Resource,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): RichTextAttribute
