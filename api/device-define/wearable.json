@@ -190,6 +190,11 @@
     "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.ResourceSchedule.SystemLoad",
-    "SystemCapability.ArkUI.ArkUI.Lite"
+    "SystemCapability.ArkUI.ArkUI.Lite",
+    "SystemCapability.Base",
+    "SystemCapability.Startup.SystemInfo",
+    "SystemCapability.Multimedia.Media.Core",
+    "SystemCapability.Communication.SoftBus.Core",
+    "SystemCapability.Security.CertificateManager"
   ]
 }
