@@ -20,7 +20,7 @@
 
 import { Scene } from './../../@ohos.graphics.scene';
 import { ResourceStr, Dimension } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -174,16 +174,14 @@ export declare interface Component3DAttribute extends CommonMethod {
  * Defines Component3D.
  *
  * @param { SceneOptions } [sceneOptions] - The 3D scene controller
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { Component3DAttribute }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Component3D(
     sceneOptions?: SceneOptions,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): Component3DAttribute

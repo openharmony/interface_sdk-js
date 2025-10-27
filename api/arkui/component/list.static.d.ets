@@ -21,7 +21,7 @@ import { ChildrenMainSize, ItemDragInfo, RectResult, ScrollableCommonMethod, Opt
 import { Axis } from './enums';
 import { OnScrollFrameBeginCallback, ScrollAlign, Scroller } from "./scroll";
 import { Dimension, Length, LengthConstrain, ResourceColor } from './units';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Declare scroll status
@@ -896,16 +896,14 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
  * Defines List Component.
  *
  * @param { ListOptions } [options]
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { ListAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function List(
     options?: ListOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ListAttribute

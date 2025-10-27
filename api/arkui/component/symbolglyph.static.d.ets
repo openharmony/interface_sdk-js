@@ -21,7 +21,7 @@ import { Resource } from '../../global/resource';
 import { ResourceColor } from "./units";
 import { FontWeight } from "./enums";
 import { CommonMethod, Optional, AttributeModifier } from "./common";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 /**
  * The symbol rendering strategy.
  *
@@ -452,16 +452,14 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
  * Defines SymbolGlyph Component.
  *
  * @param { Resource } [value]
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { SymbolGlyphAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function SymbolGlyph(
     value?: Resource, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): SymbolGlyphAttribute

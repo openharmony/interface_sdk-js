@@ -23,7 +23,7 @@ import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, Call
 import { ResourceColor, Offset, VoidCallback } from "./units";
 import { DialogAlignment } from "./alertDialog";
 import { CrownSensitivity } from "./enums";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -631,16 +631,14 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
  * Defines the DatePicker component.
  * 
  * @param { DatePickerOptions } [options] - date picker options.
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { DatePickerAttribute } The attribute of the DatePicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function DatePicker(
     options?: DatePickerOptions, 
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): DatePickerAttribute;

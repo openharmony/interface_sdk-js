@@ -25,7 +25,7 @@ import { TextHeightAdaptivePolicy, TextOverflow, VerticalAlign } from './enums';
 import { Dimension, Font, Length, LocalizedPadding, Padding, Resource, ResourceColor, ResourceStr, VoidCallback } from './units';
 import { ComponentContent } from '../ComponentContent';
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -587,16 +587,14 @@ export declare interface TabContentAttribute extends CommonMethod {
 /**
  * Defines TabContent Component
  *
- * @param { function } [content_] - TabContent
+ * @param { CustomBuilder } [content_] - TabContent
  * @returns { TabContentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function TabContent(
     
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): TabContentAttribute;

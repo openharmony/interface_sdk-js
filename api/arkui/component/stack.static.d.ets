@@ -17,7 +17,7 @@
  * @kit ArkUI
  */
 import { Alignment } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Options used to construct the stack.
@@ -84,16 +84,14 @@ export declare interface StackAttribute extends CommonMethod {
  * Defines Stack Component.
  *
  * @param { StackOptions } [options] - Stack options.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { StackAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Stack(
     options?: StackOptions,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): StackAttribute

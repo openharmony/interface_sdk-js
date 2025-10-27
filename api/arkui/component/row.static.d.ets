@@ -18,7 +18,7 @@
  */
 import { VerticalAlign, FlexAlign } from './enums';
 import { SpaceType } from './column';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Define options used to construct a row.
@@ -119,16 +119,14 @@ export declare interface RowAttribute extends CommonMethod {
  * Defines Row Component.
  *
  * @param { RowOptions | RowOptions | RowOptionsV2 } [options] - Row options.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { RowAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Row(
     options?: RowOptions | RowOptions | RowOptionsV2,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): RowAttribute

@@ -25,7 +25,7 @@ import { Dimension, Font, Length, LengthMetrics, ResourceColor, ResourceStr } fr
 import { InputCounterOptions, TextContentControllerBase, SelectionOptions, TextDecorationOptions, CommonMethod, Callback, Optional, Bindable, AttributeModifier } from "./common";
 import { CustomBuilder } from './builder';
 import { Resource } from '../../global/resource';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder } from './builder';
 /**
  * Provides the method of switching the cursor position.
  *
@@ -997,16 +997,14 @@ export declare interface TextAreaAttribute extends CommonMethod {
  * Defines TextArea Component.
  *
  * @param { TextAreaOptions } [value]
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { TextAreaAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function TextArea(
     value?: TextAreaOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): TextAreaAttribute

@@ -22,7 +22,7 @@ import { Axis, CrownSensitivity } from './enums';
 import { ResourceStr, ResourceColor, Length, Dimension, SizeOptions } from './units';
 import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';
 import { LinearGradient } from './dataPanel';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Style of the slider thumb and track.
@@ -592,15 +592,13 @@ export declare interface SliderAttribute extends CommonMethod {
  * Defines Slider Component.
  *
  * @param { SliderOptions } [options] - The options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { SliderAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-@memo
 @ComponentBuilder
 export declare function Slider(
     options?: SliderOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): SliderAttribute

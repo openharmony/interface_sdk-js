@@ -21,7 +21,7 @@ import Want from '../../@ohos.app.ability.Want';
 import { Callback, ErrorCallback, BusinessError, RecordData } from '../../@ohos.base';
 import { CommonMethod, TerminationInfo } from './common';
 import { ComponentContent } from '../ComponentContent';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { VoidCallback } from './units';
 
@@ -305,17 +305,15 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
  * Defines UIExtensionComponent Component.
  * @param { Want } want - The want
  * @param { UIExtensionOptions } [options] - The options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { UIExtensionComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function UIExtensionComponent(
     want: Want, options?: UIExtensionOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): UIExtensionComponentAttribute

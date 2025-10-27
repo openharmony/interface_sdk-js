@@ -17,7 +17,7 @@
  * @kit ArkUI
  */
 import { ResourceColor } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -54,17 +54,15 @@ export declare interface BlankAttribute extends CommonMethod {
 /**
  * Defines Blank Component.
  *
- * @param { double  | string } [min] - Blank options.
- * @param { function } [content_] - container
+ * @param { double | string } [min] - Blank options.
+ * @param { CustomBuilder } [content_] - container
  * @returns { BlankAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Blank(
     min?: double  | string, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): BlankAttribute

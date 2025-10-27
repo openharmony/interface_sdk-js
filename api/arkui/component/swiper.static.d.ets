@@ -23,7 +23,7 @@ import { IndicatorComponentController } from './indicatorcomponent';
 import { CommonMethod, Callback, ICurve, Bindable, AttributeModifier } from './common';
 import { EdgeEffect, Curve, PageFlipMode } from './enums';
 import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Provides methods for switching components.
@@ -1148,16 +1148,14 @@ export type ContentWillScrollCallback = (result: SwiperContentWillScrollResult) 
  * Defines Swiper Component
  *
  * @param { SwiperController } [controller] - Swiper constructor options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { SwiperAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Swiper(
   controller?: SwiperController,
-  @memo
-  content_?: () => void,
+  content_?: CustomBuilder
 ): SwiperAttribute

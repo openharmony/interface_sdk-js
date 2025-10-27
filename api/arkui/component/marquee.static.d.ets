@@ -21,7 +21,7 @@ import { ResourceColor, Length } from "./units";
 import { CommonMethod, AttributeModifier } from "./common";
 import { FontWeight, MarqueeUpdateStrategy } from "./enums";
 import { Resource } from './../../../api/global/resource';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Defines Marquee constructor options.
@@ -240,16 +240,14 @@ export declare interface MarqueeAttribute extends CommonMethod {
  * Defines Marquee Component.
  *
  * @param { MarqueeOptions } options
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { MarqueeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Marquee(
     options: MarqueeOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): MarqueeAttribute

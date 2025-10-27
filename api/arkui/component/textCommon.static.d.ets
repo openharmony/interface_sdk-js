@@ -20,7 +20,6 @@ import { ResourceColor, ResourceStr, Length } from './units';
 import { DecorationStyleInterface, MutableStyledString, StyledString } from './styledString';
 import { SelectionOptions, Callback } from './common';
 import { TextDecorationType, TextDecorationStyle } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
 import text from '../../@ohos.graphics.text';
 

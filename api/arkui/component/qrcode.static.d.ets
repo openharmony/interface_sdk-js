@@ -21,7 +21,7 @@
 import { CommonMethod } from './common';
 import { ResourceColor, ResourceStr } from "./units";
 import { Resource } from '../../global/resource';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -75,16 +75,14 @@ export declare interface QRCodeAttribute extends CommonMethod {
  * Defines the QRCode component.
  *
  * @param { ResourceStr } value - qrcode string.
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { QRCodeAttribute } The attribute of the QRCode.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function QRCode(
     value: ResourceStr, 
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): QRCodeAttribute;

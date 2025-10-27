@@ -20,7 +20,7 @@
 import { CommonMethod } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceStr } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines the option of MenuItemGroup.
@@ -73,15 +73,13 @@ export declare interface MenuItemGroupAttribute extends CommonMethod {
  * Defines MenuItem Component.
  *
  * @param { MenuItemGroupOptions } [value] - The options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { MenuItemGroupAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-@memo
 @ComponentBuilder
 export declare function MenuItemGroup(
     value?: MenuItemGroupOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): MenuItemGroupAttribute
