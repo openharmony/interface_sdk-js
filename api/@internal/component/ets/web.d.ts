@@ -1169,7 +1169,23 @@ declare enum ThreatType {
    * @atomicservice
    * @since 11 dynamic
    */
-  THREAT_WARNING = 3
+  THREAT_WARNING = 3,
+
+  /**
+   * Security check passed, no risks found.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21 dynamic&static
+   */
+  THREAT_NONE = 4,
+
+  /**
+   * Security check not performed.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21 dynamic&static
+   */
+  THREAT_UNPROCESSED = 5
 }
 
 /**
