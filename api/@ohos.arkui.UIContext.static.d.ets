@@ -1700,6 +1700,31 @@ export declare class UIObserver {
   off(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback?: NodeRenderStateChangeCallback): void;
 
   /**
+   * Registers a callback function to be called when the window size layout breakpoint changes.
+   * This method allows observing changes in window size breakpoints which can be used to
+   * adapt UI layouts responsively based on window dimensions.
+   *
+   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } callback - The callback function to be
+   *     called when the window size layout breakpoint changes. The callback receives a
+   *     {@link WindowSizeLayoutBreakpointInfo} object containing the current width and height
+   *     breakpoint classifications.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  onWindowSizeLayoutBreakpointChange(callback: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
+
+  /**
+   * Removes a previously registered callback function for window size layout breakpoint changes.
+   * If no callback is provided, all callbacks for the specified context will be removed.
+   *
+   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } [callback] - The specific callback function to remove.
+   *     If not provided, all callbacks for the given event type and context will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  offWindowSizeLayoutBreakpointChange(callback?: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
+
+  /**
    * Registers a callback function to be called when the tabContent is showed or hidden.
    *
    * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
