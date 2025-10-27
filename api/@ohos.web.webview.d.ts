@@ -3825,7 +3825,7 @@ declare namespace webview {
     /**
      * Soft keyboard will not be hidden or shown automatically when web comes into pause/continue or blur/focus state.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 22  dynamic&static
+     * @since 22 dynamic&static
      */
     DEFAULT = 0,
  
