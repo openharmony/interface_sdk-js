@@ -514,12 +514,13 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * </p>
      *
      * @param { boolean | undefined } value - Set showcounter of the text area.
-     * @param { InputCounterOptions | undefined } options - Set the percentage of counter.
+     *     Passing `undefined` resets it to the default value.
+     * @param { InputCounterOptions } [options] - Set the percentage of counter.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default showCounter(value: boolean | undefined, options?: InputCounterOptions | undefined): this;
+    default showCounter(value: boolean | undefined, options?: InputCounterOptions): this;
     /**
      * Define style of the text area.
      *
