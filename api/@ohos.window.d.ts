@@ -2676,7 +2676,7 @@ declare namespace window {
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     zIndex?: int;
 
@@ -2686,7 +2686,7 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     defaultDensityEnabled?: boolean;
   }
@@ -2705,7 +2705,6 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   interface WindowLimits {
     
@@ -2723,7 +2722,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     maxWidth?: int;
 
@@ -2741,7 +2739,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     maxHeight?: int;
 
@@ -2759,7 +2756,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     minWidth?: int;
 
@@ -2777,7 +2773,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     minHeight?: int;
   }
@@ -4573,7 +4568,6 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 15 dynamic
-   * @since 20 static
    */
   interface MoveConfiguration {
     /**
@@ -4583,7 +4577,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
      */
     displayId?: long;
   }
@@ -4658,7 +4651,6 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
    */
   enum WindowAnimationCurve {
     /**
@@ -4667,7 +4659,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     LINEAR = 0,
 
@@ -4677,7 +4668,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     INTERPOLATION_SPRING = 1,
   }
@@ -4689,7 +4679,6 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
    */
   interface WindowAnimationConfig {
     /**
@@ -4699,7 +4688,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     curve: WindowAnimationCurve;
 
@@ -4710,7 +4698,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     duration?: long;
 
@@ -4721,7 +4708,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     param?: WindowAnimationCurveParam;
   }
@@ -4733,7 +4719,6 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
    */
   interface TransitionAnimation {
     /**
@@ -4743,7 +4728,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     config: WindowAnimationConfig;
     /**
@@ -4753,7 +4737,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     opacity?: double;
   }
