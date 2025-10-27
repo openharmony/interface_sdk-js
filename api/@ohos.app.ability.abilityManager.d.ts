@@ -568,6 +568,132 @@ declare namespace abilityManager {
   function restartSelfAtomicService(context: Context): void;
 
   /**
+   * Clears all preloaded UIExtensionAbility instances preload by current process.
+   *
+   * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throw { BusinessError } 201 – The application does not have permission to call the interface.
+   * @throw { BusinessError } 202 – The application is not system-app, can not use system-api.
+   * @throw { BusinessError } 16000050 – Internal error. Possible causes: 1. Connect to system service failed;  
+   *     2. Send restart message to system service failed; 3. System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagendonly
+   * @since 23
+   * @dynamic & @static
+   */
+  function clearPreloadedUIExtensionAbilities(): Promise<void>;
+
+  /**
+   * Unregisters the callback for the preloaded UIExtensionAbility has been loaded.
+   *
+   * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
+   * @param { PreloadedUIExtensionAbilityLoadedFn } [callback] - Callback for the preloaded UIExtensionAbility has been
+   *     loaded.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Memory operation error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagenodelonly
+   * @since 23 dynamic&static
+   */
+  function offPreloadedUIExtensionAbilityLoaded(callback?: PreloadedUIExtensionAbilityLoadedFn): void;
+
+  /**
+   * Registers the callback for the preloaded UIExtensionAbility has been destroyed.
+   *
+   * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
+   * @param { PreloadedUIExtensionAbilityDestroyedFn } callback - Callback for the preloaded UIExtensionAbility destroyed
+   *     events.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Memory operation error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagenodelonly
+   * @since 23 dynamic&static
+   */
+  function onPreloadedUIExtensionAbilityDestroyed(callback: PreloadedUIExtensionAbilityDestroyedFn): void;
+
+  /**
+   * Unregisters the callback for the preloaded UIExtensionAbility has been destroyed.
+   *
+   * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
+   * @param { PreloadedUIExtensionAbilityDestroyedFn } [callback] - Callback for the preloaded UIExtensionAbility destroyed
+   *    events.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Memory operation error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagenodelonly
+   * @since 23 dynamic&static
+   */
+  function offPreloadedUIExtensionAbilityDestroyed(callback?: PreloadedUIExtensionAbilityDestroyedFn): void;
+
+  /**
+   * Clears a UIExtensionAbility by the specified preload UIExtensionAbility ID.
+   *
+   * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
+   * @param { int } preloadId - The preload UIExtensionAbility ID.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 16000003 - The specified ID does not exist. Possible causes:
+   *     1. The specified ID is incorrect; 2. The preloaded UIExtensionAbility has been loaded;
+   *     3. The preloaded UIExtensionAbility has been destroyed.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   *     2. Send restart message to system service failed; 3. System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagenodelonly
+   * @since 23 dynamic&static
+   */
+  function clearPreloadedUIExtensionAbility(preloadId: int): Promise<void>;
+
+  /**
+   * The preloaded <code>UIExtensionAbility</code> instance is sent to the <code>onCreate</code> lifecycle of the
+   * UIExtensionAbility and waits to be loaded by the current application.
+   * A <code>UIExtensionAbility</code> instance can be preloaded for multiple times. Each time a preloaded
+   * <code>UIExtensionAbility</code> instance is loaded, the next preloaded <code>UIExtensionAbility</code>
+   * instance is sent to the <code>onCreate</code> lifecycle of the UIExtensionAbility.
+   *
+   * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
+   * @param { Want } want - Want information of the UIExtensionAbility.
+   * @returns { Promise<int> } Promise that returns the preload UIExtensionAbility ID.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed;
+   *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
+   *     4.Preload UIExtensionAbility timeout.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagenodelonly
+   * @since 23 dynamic&static
+   */
+  function preloadUIExtensionAbility(want: Want): Promise<int>;
+
+  /**
+   * Registers the callback for the preloaded UIExtensionAbility has been loaded.
+   *
+   * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
+   * @param { PreloadedUIExtensionAbilityLoadedFn } callback - Callback for the preloaded UIExtensionAbility has been 
+   *     loaded.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Memory operation error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagenodelonly
+   * @since 23 dynamic&static
+   */
+  function onPreloadedUIExtensionAbilityLoaded(callback: PreloadedUIExtensionAbilityLoadedFn): void;
+
+  /**
    * The class of an ability running information.
    *
    * @typedef { _AbilityRunningInfo }
