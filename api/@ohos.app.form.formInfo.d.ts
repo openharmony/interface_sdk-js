@@ -485,7 +485,7 @@ declare namespace formInfo {
      * @readonly
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     readonly funInteractionParams?: FunInteractionParams;
 
@@ -496,7 +496,7 @@ declare namespace formInfo {
      * @readonly
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     readonly sceneAnimationParams?: SceneAnimationParams;
 
@@ -507,7 +507,7 @@ declare namespace formInfo {
      * @readonly
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     readonly resizable?: boolean;
 
@@ -518,7 +518,7 @@ declare namespace formInfo {
      * @readonly
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     readonly groupId?: string;
   }
