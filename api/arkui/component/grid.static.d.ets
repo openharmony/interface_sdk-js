@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { EdgeEffectOptions, NestedScrollOptions, ItemDragInfo, ScrollableCommonMethod, CommonMethod, OnWillScrollCallback, OnScrollCallback, OnItemDragStartCallback } from './common';
+import { EdgeEffectOptions, EditModeOptions, NestedScrollOptions, ItemDragInfo, ScrollableCommonMethod, CommonMethod, OnWillScrollCallback, OnScrollCallback, OnItemDragStartCallback } from './common';
 import { Length, Resource } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from './scroll';
 import { BarState, Color, EdgeEffect } from './enums';
@@ -447,6 +447,16 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @since 22 static
      */
     default alignItems(alignment: GridItemAlignment | undefined): this;
+    /**
+     * Sets the edit mode options.
+     *
+     * @param { EditModeOptions } [options] - edit mode options.
+     *     <br>Default value: <em>{ enableGatherSelectedItemsAnimation: false }</em>
+     * @returns { this } The attribute of the grid.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default editModeOptions(options?: EditModeOptions): this;
     /**
      * Called when scrolling begin each frame.
      * Anonymous Object Rectification.

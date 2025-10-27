@@ -32898,6 +32898,28 @@ declare class ChildrenMainSize {
 }
 
 /**
+ * Define edit mode options.
+ *
+ * @interface EditModeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare interface EditModeOptions {
+  /**
+   * Define whether to gather selected items in grid or list when item is long pressed for context menu or drag.
+   *
+   * @type { ?boolean } - The default value is false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  enableGatherSelectedItemsAnimation?: boolean;
+}
+
+/**
  * Define BackgroundBrightness Options.
  *
  * @interface BackgroundBrightnessOptions

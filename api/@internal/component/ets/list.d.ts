@@ -2239,6 +2239,19 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   scrollSnapAnimationSpeed(speed: ScrollSnapAnimationSpeed): ListAttribute;
 
   /**
+   * Sets the edit mode options.
+   *
+   * @param { EditModeOptions } [options] - edit mode options.
+   *     <br>Default value: <em>{ enableGatherSelectedItemsAnimation: false }</em>
+   * @returns { ListAttribute } The attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  editModeOptions(options?: EditModeOptions): ListAttribute;
+
+  /**
    * Sets whether empty branches are supported in lazy loading.
    *
    * @param { boolean | undefined } supported - Indicates whether empty branches are supported in lazy loading.
