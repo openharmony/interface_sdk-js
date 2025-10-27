@@ -58,7 +58,7 @@ export declare interface EffectComponentAttribute extends CommonMethod {
 /**
  * Defines EffectComponent Component
  *
- * @param { function } [content_] - EffectComponent
+ * @param { CustomBuilder } [content_] - EffectComponent
  * @returns { EffectComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -68,5 +68,5 @@ export declare interface EffectComponentAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function EffectComponent(
 
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): EffectComponentAttribute
