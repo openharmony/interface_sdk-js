@@ -9158,7 +9158,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * modifyImageProperties, as it completes batch data modifications in memory with a single write operation
      * to the file.
      *
-     * @param { Record<PropertyKey, string|null> } records - Property Records whose values are to be modified,
+     * @param { Record<string, string|null> } records - Property Records whose values are to be modified,
      *     when the value is set to null the tag will be removed.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails,
      *     an error message is returned.
@@ -9169,7 +9169,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 22 dynamic&static
      */
-    modifyImagePropertiesEnhanced(records: Record<PropertyKey, string | null>): Promise<void>;
+    modifyImagePropertiesEnhanced(records: Record<string, string | null>): Promise<void>;
 
     /**
      * Update the data in the incremental ImageSource.
