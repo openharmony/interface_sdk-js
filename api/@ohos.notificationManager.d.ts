@@ -4302,7 +4302,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 21 dynamic
+   * @since 22 static
    */
   function setReminderInfoByBundles(reminderInfos: Array<NotificationReminderInfo>) : Promise<void>;
 
@@ -4320,7 +4321,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 21 dynamic
+   * @since 22 static
    */
   function getReminderInfoByBundles(bundles: Array<BundleOption>) : Promise<Array<NotificationReminderInfo>>;
 
@@ -4338,7 +4340,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 21 dynamic
+   * @since 22 static
    */
   function setBadgeDisplayStatusByBundles(badges: Map<BundleOption, boolean>) : Promise<void>;
 
@@ -4356,7 +4359,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 21 dynamic
+   * @since 22 static
    */
   function getBadgeDisplayStatusByBundles(bundles: Array<BundleOption>) : Promise<Map<BundleOption, boolean>>;
 
@@ -5139,7 +5143,8 @@ declare namespace notificationManager {
    * @typedef NotificationReminderInfo
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 21 dynamic
+   * @since 22 static
    */
   export interface NotificationReminderInfo {
     /**
@@ -5149,7 +5154,8 @@ declare namespace notificationManager {
      * @type { BundleOption }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     bundle: BundleOption;
 
@@ -5159,7 +5165,8 @@ declare namespace notificationManager {
      * @type { long }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     reminderFlags: long;
 
@@ -5169,7 +5176,8 @@ declare namespace notificationManager {
      * @type { boolean }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     silentReminderEnabled: boolean;
   }
