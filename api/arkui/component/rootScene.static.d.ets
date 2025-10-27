@@ -19,9 +19,9 @@
  * @kit ArkUI
  */
 
+import { AttributeModifier, CommonMethod } from './common';
 import { ComponentBuilder } from './../stateManagement/runtime';
 import { CustomBuilder } from './builder';
-import { AttributeModifier, CommonMethod } from './common';
 
 /**
  * Defines the session of RootScene.
