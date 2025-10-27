@@ -868,7 +868,7 @@ declare namespace policy {
 
   /**
   * Open the network settings interface of the application, which is presented in a semi-modal form and can 
-  *     be used to configure the network connection method. This API uses a promise to return the result.
+  * be used to configure the network connection method. This API uses a promise to return the result.
   * @param { Context } context - Indicates Context instance.
   * @returns { Promise<void> } The promise returned by the function.
   * @throws { BusinessError } 2100001 - Invalid parameter value.
