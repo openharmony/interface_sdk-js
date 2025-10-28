@@ -715,9 +715,9 @@ export declare class FrameNode {
   isTransferred(): boolean;
 
   /**
-   * Converts a point's coordinates from the current node's coordinate system 
+   * Converts a point's coordinates from the current node's coordinate system
    * to the target node's coordinate system.
-   * 
+   *
    * @param { NodePosition } position - The point's coordinates in the current node's local coordinate system.
    * @param { FrameNode } targetNode - The destination node whose coordinate system will be used
    *     for conversion.
@@ -729,7 +729,7 @@ export declare class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  convertPoint(position: NodePosition, targetNode: FrameNode): NodePosition;
+  convertPosition(position: NodePosition, targetNode: FrameNode): NodePosition;
 
   /**
    * Get if the FrameNode is in the render state. A FrameNode is considered to be in the render state if its

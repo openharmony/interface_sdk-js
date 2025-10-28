@@ -1214,7 +1214,7 @@ export class FrameNode {
    * @atomicservice
    * @since 22 dynamic
    */
-  convertPoint(position: Position, targetNode: FrameNode): Position
+  convertPosition(position: Position, targetNode: FrameNode): Position;
 
    /**
    * Get if the FrameNode is in the render state. A FrameNode is considered to be in the render state if its
