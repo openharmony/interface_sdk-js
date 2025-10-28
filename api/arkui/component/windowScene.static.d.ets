@@ -20,8 +20,7 @@
  */
 
 import { Position } from './units';
-import { ComponentBuilder } from './../stateManagement/runtime';
-import { CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**

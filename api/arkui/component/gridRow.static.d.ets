@@ -18,7 +18,7 @@
  */
 import { ItemAlign } from './enums';
 import { Length } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines the option in length unit of grid-row component.
@@ -316,16 +316,14 @@ export declare interface GridRowAttribute extends CommonMethod {
  * Defines GridRow Component.
  *
  * @param { GridRowOptions } [option] - GridRow options.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { GridRowAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function GridRow(
     option?: GridRowOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): GridRowAttribute

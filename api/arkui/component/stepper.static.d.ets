@@ -20,7 +20,7 @@
  */
 
 import { Bindable, CommonMethod, AttributeModifier } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Declare the StepperOptions.
@@ -115,16 +115,14 @@ export declare interface StepperAttribute extends CommonMethod {
  * Defines Stepper Component
  *
  * @param { StepperOptions } [value] - Stepper constructor options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { StepperAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Stepper(
   value?: StepperOptions,
-  @memo
-  content_?: () => void,
+  content_?: CustomBuilder
 ): StepperAttribute

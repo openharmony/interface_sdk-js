@@ -16,7 +16,7 @@
  * @file
  * @kit ArkUI
  */
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines the option in int unit of grid-container child component.
@@ -162,16 +162,14 @@ export declare interface GridColAttribute extends CommonMethod {
  * Defines GridCol Component.
  *
  * @param { GridColOptions } [option] - GridCol options.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { GridColAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function GridCol(
     option?: GridColOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): GridColAttribute

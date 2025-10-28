@@ -21,7 +21,7 @@
 import { Resource } from "../../global/resource";
 import { CommonMethod, PixelMap } from './common';
 import { AnimationStatus, FillMode } from "./enums";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -239,15 +239,13 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
 /**
  * Defines the ImageAnimator component.
  *
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { ImageAnimatorAttribute } The attribute of the ImageAnimator.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function ImageAnimator(
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): ImageAnimatorAttribute;

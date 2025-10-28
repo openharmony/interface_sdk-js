@@ -20,7 +20,7 @@
 import { CommonMethod, ContentModifier, CommonConfiguration, Callback, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceColor } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines the IndicatorType of Radio component
@@ -233,15 +233,13 @@ export declare interface RadioConfiguration extends CommonConfiguration<RadioCon
  * Defines Radio Component.
  *
  * @param { RadioOptions } options - the options of Radio.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { RadioAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-@memo
 @ComponentBuilder
 export declare function Radio(
     options: RadioOptions,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): RadioAttribute

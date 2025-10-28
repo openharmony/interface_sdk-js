@@ -21,7 +21,7 @@ import { BarState, Edge, Color, EdgeEffect, ScrollSource, Curve } from './enums'
 import { ICurve, RectResult, ScrollableCommonMethod, EdgeEffectOptions, NestedScrollOptions, CommonMethod } from './common';
 import { Dimension, Length, VoidCallback, Resource, LengthMetrics } from './units';
 import { ScrollSnapAlign, ScrollState } from "./list";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Enumerates the scrolling directions.
@@ -825,16 +825,14 @@ export type ScrollOnWillScrollCallback = (xOffset: double, yOffset: double, scro
  * Defines Scroll Component.
  *
  * @param { Scroller } [scroller] - scroller
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ScrollAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Scroll(
     scroller?: Scroller, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ScrollAttribute

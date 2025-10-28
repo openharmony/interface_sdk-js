@@ -18,7 +18,7 @@
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
 import { ShapePoint } from "./line";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Define options used to construct a polyline.
@@ -79,16 +79,14 @@ export declare interface PolylineAttribute extends CommonShapeMethod {
  * Polyline is returned when the parameter is transferred.
  *
  * @param { PolylineOptions } [options] - The options to create a Polyline
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { PolylineAttribute } The attribute of the Polyline.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Polyline(
     options?: PolylineOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): PolylineAttribute

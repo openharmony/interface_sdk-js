@@ -4788,14 +4788,14 @@ declare namespace call {
    *
    * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
-   * @since 21 dynamic&static
+   * @since 21 dynamic
    */
   export enum TelCallState {
     /**
      * Indicates an invalid state, which is used when the call state fails to be obtained.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @since 21 dynamic&static
+     * @since 21 dynamic
      */
     TEL_CALL_STATE_UNKNOWN = -1,
 
@@ -4803,7 +4803,7 @@ declare namespace call {
      * Indicates that there is no ongoing call.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @since 21 dynamic&static
+     * @since 21 dynamic
      */
     TEL_CALL_STATE_IDLE = 0,
 
@@ -4811,7 +4811,7 @@ declare namespace call {
      * Indicates that an incoming call is ringing or waiting.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @since 21 dynamic&static
+     * @since 21 dynamic
      */
     TEL_CALL_STATE_RINGING = 1,
 
@@ -4820,7 +4820,7 @@ declare namespace call {
      * incoming call ringing or waiting.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @since 21 dynamic&static
+     * @since 21 dynamic
      */
     TEL_CALL_STATE_OFFHOOK = 2,
 
@@ -4828,7 +4828,7 @@ declare namespace call {
      * Indicates that call is answered
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @since 21 dynamic&static
+     * @since 21 dynamic
      */
     TEL_CALL_STATE_ANSWERED = 3,
 
@@ -4836,7 +4836,7 @@ declare namespace call {
      * Indicates that call is connected
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @since 21 dynamic&static
+     * @since 21 dynamic
      */
     TEL_CALL_STATE_CONNECTED = 4
   }
@@ -4847,7 +4847,6 @@ declare namespace call {
    * @interface DialOptions
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamic
-   * @since 20 static
    */
   export interface DialOptions {
     /**
@@ -4857,7 +4856,6 @@ declare namespace call {
      * @type { ?boolean }
      * @syscap SystemCapability.Telephony.CallManager
      * @since 6 dynamic
-     * @since 20 static
      */
     extras?: boolean;
 
@@ -4869,7 +4867,6 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
      */
     accountId?: int;
 
@@ -4880,7 +4877,6 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
      */
     videoState?: VideoStateType;
 
@@ -4891,7 +4887,6 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
      */
     dialScene?: DialScene;
 
@@ -4902,7 +4897,6 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
      */
     dialType?: DialType;
   }

@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { CommonMethod, Bindable } from './common';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Defines the grid item style.
@@ -149,16 +149,14 @@ export declare interface GridItemAttribute extends CommonMethod {
  * Defines GridItem Component.
  *
  * @param { GridItemOptions } [value] - options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { GridItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function GridItem(
     value?: GridItemOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): GridItemAttribute

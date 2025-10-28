@@ -113,13 +113,25 @@ function createTargetImport(sourceFile: ts.SourceFile, context: ts.Transformatio
             false,
             undefined,
             ts.factory.createNamedImports([
-                ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("memo")),
-                ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("ComponentBuilder"))
+                ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("memo"))
             ])
         ),
         ts.factory.createStringLiteral("./../stateManagement/runtime")
     );
     targetImport.push(memoImport)
+
+    const customBuilderImport = ts.factory.createImportDeclaration(
+        undefined,
+        ts.factory.createImportClause(
+            false,
+            undefined,
+            ts.factory.createNamedImports([
+                ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("ComponentBuilder"))
+            ])
+        ),
+        ts.factory.createStringLiteral("./builder")
+    );
+    targetImport.push(customBuilderImport);
 
     let haveCommonImportFlag = false;
     const newSource = ts.visitEachChild(sourceFile, (node) => {

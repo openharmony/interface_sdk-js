@@ -20,7 +20,6 @@
  */
 
 import curves from '../../@ohos.curves';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -599,7 +598,7 @@ export declare enum MouseAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  ENTER_WINDOW = 5,
+  ENTER_WINDOW = 4,
 
   /**
    * Triggered when mouse leaves the window.
@@ -607,7 +606,7 @@ export declare enum MouseAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  LEAVE_WINDOW = 6,
+  LEAVE_WINDOW = 5,
 
   /**
    * Triggered when the mouse event is canceled.

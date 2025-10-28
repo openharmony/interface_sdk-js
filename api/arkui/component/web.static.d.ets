@@ -26,7 +26,8 @@ import { Position, ResourceStr } from './units';
 import { MenuType, EditMenuOptions } from './textCommon';
 import { CopyOptions, NestedScrollMode } from './enums';
 import { PreviewMenuOptions } from './richEditor';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { memo } from "./../stateManagement/runtime";
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Provides methods for controlling the web controller.
@@ -4319,14 +4320,14 @@ export declare interface WebAttribute extends CommonMethod {
     /**
      * Triggered when the resources loading is intercepted.
      *
-     * @param { Callback<OnInterceptRequestEvent, WebResourceResponse> | undefined } callback The triggered
+     * @param { Callback<OnInterceptRequestEvent, WebResourceResponse | null> | undefined } callback The triggered
      *     callback when the resources loading is intercepted.
      * @returns { WebAttribute } If the response value is null, the Web will continue to load the resources.
      *     Otherwise, the response value will be used
      * @syscap SystemCapability.Web.Webview.Core
      * @since 22 static
      */
-    default onInterceptRequest(callback: Callback<OnInterceptRequestEvent, WebResourceResponse> | undefined): this;
+    default onInterceptRequest(callback: Callback<OnInterceptRequestEvent, WebResourceResponse | null> | undefined): this;
     /**
      * Called when a permission request is received. To call this API, you need to declare the ohos.permission.CAMERA and ohos.permission.MICROPHONE permissions.
      *

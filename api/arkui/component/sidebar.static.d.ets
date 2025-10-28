@@ -22,7 +22,7 @@
 import { Resource } from '../../global/resource';
 import { Length, ResourceColor, Dimension } from './units';
 import { CommonMethod, PixelMap, Bindable, AttributeModifier, DividerStyle } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Sets the sidebar style of showing
@@ -132,41 +132,41 @@ export declare interface ButtonStyle {
    * Set the left of control button
    * default value is 16vp.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  left?: number;
+  left?: double;
 
   /**
    * Set the top of control button
    * default value is 48vp.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  top?: number;
+  top?: double;
 
   /**
    * Set the width of control button
    * default value is 24vp.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  width?: number;
+  width?: double;
 
   /**
    * Set the height of control button
    * default value is 24vp.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  height?: number;
+  height?: double;
 
   /**
    * Set the button icon when sidebar status has changed
@@ -319,16 +319,14 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
  * Defines sidebar Component
  *
  * @param { SideBarContainerType } [type] - sidebar constructor options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { SideBarContainerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function SideBarContainer(
   type?: SideBarContainerType,
-  @memo
-  content_?: () => void,
+  content_?: CustomBuilder
 ): SideBarContainerAttribute

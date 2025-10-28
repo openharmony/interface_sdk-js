@@ -20,8 +20,7 @@
  */
 
 import { AttributeModifier, CommonMethod } from './common';
-import { ComponentBuilder } from './../stateManagement/runtime';
-import { CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Defines the session of RootScene.

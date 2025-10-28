@@ -22,7 +22,7 @@ import { CommonMethod, AttributeModifier } from "./common";
 import { ResourceColor } from "./units";
 import { FontWeight } from "./enums";
 import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Provides attribute for SymbolSpan.
@@ -112,16 +112,14 @@ export declare interface SymbolSpanAttribute {
  * Defines SymbolSpan Component.
  *
  * @param { Resource } value
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { SymbolSpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function SymbolSpan(
     value: Resource, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): SymbolSpanAttribute

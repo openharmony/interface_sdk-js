@@ -17,7 +17,7 @@
  * @kit ArkUI
  */
 import { Dimension } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Provides an interface for the style of a divider including start margin and end margin
@@ -90,16 +90,14 @@ export declare interface ColumnSplitAttribute extends CommonMethod {
 /**
  * Defines ColumnSplit Component.
  *
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ColumnSplitAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function ColumnSplit(
     
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ColumnSplitAttribute

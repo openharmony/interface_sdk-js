@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -57,16 +57,14 @@ export declare interface EffectComponentAttribute extends CommonMethod {
 /**
  * Defines EffectComponent Component
  *
- * @param { function } [content_] - EffectComponent
+ * @param { CustomBuilder } [content_] - EffectComponent
  * @returns { EffectComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 20 static
  */
-@memo
 @ComponentBuilder
 export declare function EffectComponent(
 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): EffectComponentAttribute

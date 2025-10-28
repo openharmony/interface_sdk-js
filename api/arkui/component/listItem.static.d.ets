@@ -21,7 +21,7 @@ import { CommonMethod, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { Length } from './units';
 import { ComponentContentBase } from '../ComponentContent';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Sliding effect
@@ -290,16 +290,14 @@ export declare interface ListItemAttribute extends CommonMethod {
  * Defines ListItem Component.
  *
  * @param { ListItemOptions } [value]
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { ListItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function ListItem(
     value?: ListItemOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ListItemAttribute

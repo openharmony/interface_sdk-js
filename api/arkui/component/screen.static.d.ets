@@ -19,7 +19,8 @@
  */
 
  import { CommonMethod, AttributeModifier } from "./common";
- import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+ import { memo } from "./../stateManagement/runtime";
+ import { ComponentBuilder } from './builder';
  import { AttributeModifier, CommonMethod } from "./common"
 
  /**

@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { memo, ComponentBuilder } from "../stateManagement/runtime";
+import { ComponentBuilder } from "./builder";
 import { ExtendableComponent } from './extendableComponent';
 import { GeometryInfo, Layoutable, Measurable, SizeResult } from './common'
 import { ConstraintSizeOptions } from './units'
