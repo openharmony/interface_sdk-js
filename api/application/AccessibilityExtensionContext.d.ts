@@ -133,7 +133,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   /**
    * Get window root element.
    *
-   * @param { int } [windowId] Indicates the window ID.
+   * @param { int } windowId Indicates the window ID.
    * @returns { Promise<AccessibilityElement> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;

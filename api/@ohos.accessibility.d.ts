@@ -2083,7 +2083,6 @@ declare namespace accessibility {
      * A constructor used to create a EventInfo object.
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @crossplatform
      * @since 22 static
      */
     constructor();
