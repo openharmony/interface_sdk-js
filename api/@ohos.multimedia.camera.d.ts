@@ -3122,7 +3122,7 @@ declare namespace camera {
      * @returns { boolean } Is physical camera orientation variable under different fold status.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 21 dynamic&static
+     * @since 22 dynamic&static
      */
     isPhysicalCameraOrientationVariable(): boolean;
 
@@ -3132,7 +3132,7 @@ declare namespace camera {
      * @returns { int } The physical camera orientation.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 21 dynamic&static
+     * @since 22 dynamic&static
      */
     getPhysicalCameraOrientation(): int;
   
@@ -3144,7 +3144,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 21 dynamic&static
+     * @since 22 dynamic&static
      */
     usePhysicalCameraOrientation(isUsed: boolean): void;
   }
