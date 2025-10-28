@@ -1484,7 +1484,7 @@ declare namespace camera {
      */
     on(type: 'foldStatusChange', callback: AsyncCallback<FoldStatusInfo>): void;
     
-    /***
+    /**
      * Subscribes fold status change event callback.
      * 
      * @param { AsyncCallback<FoldStatusInfo> } callback - Callback used to get the fold status change.
@@ -1542,7 +1542,7 @@ declare namespace camera {
      */
     on(type: 'cameraMute', callback: AsyncCallback<boolean>): void;
 
-     /***
+     /**
      * Subscribes camera mute change event callback.
      * 
      * @param { AsyncCallback<boolean> } callback - Callback used to get the camera mute change.
@@ -1552,6 +1552,7 @@ declare namespace camera {
      * @since 22 static
      */
     onCameraMute(callback: AsyncCallback<boolean>): void;
+
     /**
      * Unsubscribes from camera mute change event callback.
      *
@@ -2993,7 +2994,7 @@ declare namespace camera {
      */
     off(type: 'error', camera: CameraDevice, callback?: ErrorCallback): void;
 
-    /***
+    /**
      * Unsubscribes from error events.
      * 
      * @param { CameraDevice } camera - Camera device.
@@ -14265,7 +14266,7 @@ declare namespace camera {
      */
     on(type: 'captureStartWithInfo', callback: AsyncCallback<CaptureStartInfo>): void;
 
-    /***
+    /**
      * Subscribes capture start event callback.
      * 
      * @param { AsyncCallback<CaptureStartInfo> } callback - Callback used to get the capture start info.
