@@ -88,7 +88,7 @@ declare namespace media {
    * You are advised to create a maximum of 16 **AVPlayer** instances for an application in both audio and video
    * playback scenarios.
    * 
-   * The actual number of instances that can be created may be different. 
+   * The actual number of instances that can be created may be different.
    * It depends on the specifications of the device chip in use.
    * 
    * @param { AsyncCallback<AVPlayer | undefined> } callback - used to return the result. If the operation is successful, an
@@ -1505,7 +1505,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @since 20 dynamic&static
    */
-  interface OutputSize {  
+  interface OutputSize {
     /**
      * The expected output frame image width.
      * If the value is less than 0, the width will be the orginal width of the video.
@@ -4895,7 +4895,6 @@ declare namespace media {
      * @param { OnSeiMessageHandle } [callback] - Callback used to listen for SEI message events and receive the
      *     subscribed-to payload types.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @atomicservice
      * @since 22 static
      */
     offSeiMessageReceived(payloadTypes?: Array<int>, callback?: OnSeiMessageHandle): void;
