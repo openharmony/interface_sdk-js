@@ -104,16 +104,14 @@ export declare interface FormLinkAttribute extends CommonMethod {
 /**
  * Defines FormLink.
  * @param { FormLinkOptions } options - The form link options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { FormLinkAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function FormLink(
     options: FormLinkOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): FormLinkAttribute

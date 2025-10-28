@@ -548,17 +548,15 @@ export declare interface FormComponentAttribute extends CommonMethod {
 /**
  * Defines FormComponent.
  * @param { FormInfo } formInfo - The formInfo
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { FormComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function FormComponent(
     formInfo: FormInfo, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): FormComponentAttribute
