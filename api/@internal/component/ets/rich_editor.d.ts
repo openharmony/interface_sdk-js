@@ -3919,17 +3919,6 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   enableSelectedDataDetector(enable: boolean | undefined): RichEditorAttribute;
 
   /**
-   * Config selected data detector.
-   *
-   * @param { SelectDataDetectorConfig | undefined } config - Set the config of selected data detector.
-   * @returns { RichEditorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  selectedDataDetectorConfig(config: SelectDataDetectorConfig | undefined): RichEditorAttribute;
-
-  /**
    * Set richEditor placeholder.
    *
    * @param { ResourceStr } value - The value of placeholder.
