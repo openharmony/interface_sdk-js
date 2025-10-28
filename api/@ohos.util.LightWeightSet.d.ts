@@ -267,7 +267,7 @@ declare class LightWeightSet<T> {
    * @throws { BusinessError } 10200011 - The equal method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
-   * @since 10 dynamic
+   * @since 10 dynamiconly
    * @deprecated since 12
    */
   equal(obj: Object): boolean;
