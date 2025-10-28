@@ -710,7 +710,7 @@ export declare class FrameNode {
   * @returns { boolean } - Returns true if the FrameNode was converted between dynamic and static states,
   * otherwise returns false.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 20 static
+  * @since 22 static
   */
   isTransferred(): boolean;
 
