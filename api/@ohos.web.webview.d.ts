@@ -329,12 +329,14 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
+   * @since 22 static
    */
   enum ArkWebEngineVersion {
     /**
      * Use the system default ArkWeb engine.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
+     * @since 22 static
      */
     SYSTEM_DEFAULT = 0,
 
@@ -342,6 +344,7 @@ declare namespace webview {
      * ArkWeb M114 version.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
+     * @since 22 static
      */
     M114 = 1,
 
@@ -349,6 +352,7 @@ declare namespace webview {
      * ArkWeb M132 version.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
+     * @since 22 static
      */
     M132 = 2,
 
@@ -356,6 +360,7 @@ declare namespace webview {
      * ArkWeb auto use the newest ArkWeb Engine version.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21 dynamic
+     * @since 22 static
      */
     ARKWEB_EVERGREEN = 99999
   }
@@ -3944,6 +3949,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
+     * @since 22 static
      */
     static setActiveWebEngineVersion(engineVersion: ArkWebEngineVersion): void;
 
@@ -3953,6 +3959,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
+     * @since 22 static
      */
     static getActiveWebEngineVersion(): ArkWebEngineVersion;
 
