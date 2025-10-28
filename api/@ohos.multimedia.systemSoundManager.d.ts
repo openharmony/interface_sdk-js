@@ -39,17 +39,17 @@ declare namespace systemSoundManager {
 
   /**
    * Error enum for system sound.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   enum SystemSoundError {
     /**
      * IO error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     ERROR_IO = 5400103,
 
@@ -57,7 +57,7 @@ declare namespace systemSoundManager {
      * No error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     ERROR_OK = 20700000,
 
@@ -65,7 +65,7 @@ declare namespace systemSoundManager {
      * Type mismatch.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     ERROR_TYPE_MISMATCH = 20700001,
 
@@ -73,7 +73,7 @@ declare namespace systemSoundManager {
      * Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     ERROR_UNSUPPORTED_OPERATION = 20700003,
 
@@ -81,7 +81,7 @@ declare namespace systemSoundManager {
      * Data size exceeds the limit.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     ERROR_DATA_TOO_LARGE = 20700004,
 
@@ -89,7 +89,7 @@ declare namespace systemSoundManager {
      * The number of files exceeds the limit.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     ERROR_TOO_MANY_FILES = 20700005,
 
@@ -97,7 +97,7 @@ declare namespace systemSoundManager {
      * Insufficient ROM space.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     ERROR_INSUFFICIENT_ROM = 20700006,
 
@@ -105,7 +105,7 @@ declare namespace systemSoundManager {
      * Invalid parameter.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     ERROR_INVALID_PARAM = 20700007
   }
@@ -224,17 +224,17 @@ declare namespace systemSoundManager {
 
   /**
    * Enum for media type.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   enum MediaType {
     /**
      * Media type for audio.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     AUDIO = 0,
 
@@ -242,7 +242,7 @@ declare namespace systemSoundManager {
      * Media type for vide.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     VIDEO = 1,
   }
@@ -290,7 +290,7 @@ declare namespace systemSoundManager {
    * @systemapi
    * @since 20 dynamic
    */
-  const TONE_CATEGORY_CONTACTS:16;
+  const TONE_CATEGORY_CONTACTS: long;
 
   /**
    * Define the app notification tone category.
@@ -417,7 +417,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     setMediaType(type: MediaType): void;
 
@@ -428,7 +428,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     getMediaType(): MediaType;
   }
@@ -803,7 +803,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     getCurrentRingtoneAttribute(type: RingtoneType): Promise<ToneAttrs>;
 
@@ -1059,16 +1059,17 @@ declare namespace systemSoundManager {
     /**
      * Open tone list in batch.
      * @param { Array<string> } uriList - List of uri to open. The length must be no more than 1024.
-     * @returns { Promise<Array<[string, number, SystemSoundError]>> } Promise used to return results of this operation.
-     * In each returned array number, the first item is uri of tone, the second item is fd, and the third item is error
-     * code. If the uri open failed, the fd will be -1, and the reason is indicated by the error code.
+     * @returns { Promise<Array<[string, long, SystemSoundError]>> } Promise used to return results of this
+     *     operation. In each returned array number, the first item is uri of tone, the second item is fd, and the
+     *     third item is error code. If the uri open failed, the fd will be -1, and the reason is indicated by the 
+     *     error code.
      * @throws { BusinessError } 202 - Calleris not a system application.
      * @throws { BusinessError } 20700007 - Parameter is invalid, e.g. the length of uriList is too long.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
-    openToneList(uriList: Array<string>): Promise<Array<[string, number, SystemSoundError]>>;
+    openToneList(uriList: Array<string>): Promise<Array<[string, long, SystemSoundError]>>;
 
     /**
      * Close fd.
@@ -1201,14 +1202,14 @@ declare namespace systemSoundManager {
      * Remove customized tone list in batch.
      * @permission ohos.permission.WRITE_RINGTONE
      * @param { Array<string> } uriList - Uri list to remove. The length must be no more than 1024.
-     * @returns { Promise<Array<[string, SystemSoundError]>> } Promise used to return removing result array. In each
-     * array memeber, the first item is the tone uri, and the second item is the error code.
+     * @returns { Promise<Array<[string, SystemSoundError]>> } Promise used to return removing result array.
+     * In each array memeber, the first item is the tone uri, and the second item is the error code.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 20700007 - Prameter is invalid, e.g. the length of uriList is too long.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     removeCustomizedToneList(uriList: Array<string>): Promise<Array<[string, SystemSoundError]>>;
 

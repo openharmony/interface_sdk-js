@@ -182,11 +182,11 @@ declare namespace audioHaptic {
      * After registering source, it will returns the source id. This method uses a promise to return the source id.
      * @param { AudioHapticFileDescriptor } audioFd : The file descriptor of audio source from file system.
      * @param { AudioHapticFileDescriptor } hapticFd : The file descriptor of haptic source from file system.
-     * @returns { Promise<number> } Promise used to return the source id.
+     * @returns { Promise<int> } Promise used to return the source id.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
-    registerSourceFromFd(audioFd: AudioHapticFileDescriptor, hapticFd: AudioHapticFileDescriptor): Promise<number>;
+    registerSourceFromFd(audioFd: AudioHapticFileDescriptor, hapticFd: AudioHapticFileDescriptor): Promise<int>;
   }
 
   /**
@@ -219,34 +219,34 @@ declare namespace audioHaptic {
    * Caller needs to ensure the fd is valid and the offset and length are correct.
    * @typedef AudioHapticFileDescriptor
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   interface AudioHapticFileDescriptor {
     /**
      * The file descriptor of the source.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
-    fd: number;
+    fd: int;
 
     /**
      * The length in bytes of the data to be read.
      * By default, the length is the rest of bytes in the file from the offset.
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
-    length?: number;
+    length?: long;
 
     /**
      * The offset into the file where the data to be read.
      * By default, the offset is 0.
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
-    offset?: number
+    offset?: long
   }
 
   /**
@@ -380,23 +380,23 @@ declare namespace audioHaptic {
      * @throws { BusinessError } 5400102 - Operate not permit in current state.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     enableHapticsInSilentMode(enable: boolean): void;
 
     /**
      * Set audio volume for this player. This method uses a promise to return the result.
      * This function should be called before player release.
-     * @param { number } volume - Target audio volume.
+     * @param { double } volume - Target audio volume.
      *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum volume (100%).
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 5400102 - Operate not permit in current state.
      * @throws { BusinessError } 5400105 - Service died.
      * @throws { BusinessError } 5400108 - Parameter out of range.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
-    setVolume(volume: number): Promise<void>;
+    setVolume(volume: double): Promise<void>;
 
     /**
      * Check whether the device supports haptics intensity adjustment.
@@ -404,14 +404,14 @@ declare namespace audioHaptic {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     isHapticsIntensityAdjustmentSupported(): boolean;
 
     /**
      * Set haptics intensity for this player. This method uses a promise to return the result.
      * This function should be called before player release, and can only set once for each starting process.
-     * @param { number } intensity - Target Haptics intensity value.
+     * @param { double } intensity - Target Haptics intensity value.
      *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum intensity (100%).
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 202 - Caller is not a system application.
@@ -420,9 +420,9 @@ declare namespace audioHaptic {
      * @throws { BusinessError } 5400108 - Parameter out of range.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
-    setHapticsIntensity(intensity: number): Promise<void>;
+    setHapticsIntensity(intensity: double): Promise<void>;
 
     /**
      * Check whether the device supports haptics intensity ramp effect.
@@ -430,18 +430,18 @@ declare namespace audioHaptic {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     isHapticsRampSupported(): boolean;
 
     /**
      * Set haptics intensity ramp effect for this player. This method uses a promise to return the result.
      * This function should be called before player start or after stop, and before release.
-     * @param { number } duration - ramp duration to set, unit is milliseconds.
+     * @param { int } duration - ramp duration to set, unit is milliseconds.
      *     The value should be an integer, and not less than 100.
-     * @param { number } startIntensity - Starting intensity for Haptics ramp to set.
+     * @param { double } startIntensity - Starting intensity for Haptics ramp to set.
      *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum intensity (100%).
-     * @param { number } endIntensity - End intensity for haptics ramp to set.
+     * @param { double } endIntensity - End intensity for haptics ramp to set.
      *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum intensity (100%).
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 202 - Caller is not a system application.
@@ -450,9 +450,9 @@ declare namespace audioHaptic {
      * @throws { BusinessError } 5400108 - Parameter out of range.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @systemapi
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
-    setHapticsRamp(duration: number, startIntensity: number, endIntensity: number): Promise<void>;
+    setHapticsRamp(duration: int, startIntensity: double, endIntensity: double): Promise<void>;
 
     /**
      * Set the playback to be looping. This method uses a promise to return the result.
@@ -461,7 +461,7 @@ declare namespace audioHaptic {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 5400102 - Operate not permit in current state.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     setLoop(loop: boolean): Promise<void>;
   }
