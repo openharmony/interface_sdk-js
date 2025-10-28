@@ -11729,16 +11729,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 22 dynamic
    */
   enableSelectedDataDetector(enable: boolean): WebAttribute
-
-  /**
-   * Config selected data detector.
-   *
-   * @param { SelectDataDetectorConfig } config - Set the config of selected data detector.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 dynamic
-   */
-  selectedDataDetectorConfig(config: SelectDataDetectorConfig): WebAttribute
 }
 
 /**
