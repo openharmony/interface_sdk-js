@@ -19,7 +19,12 @@
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
-import { WantAgent } from './@ohos.wantAgent';
+/*** if arkts dynamic */
+import { WantAgent } from '@ohos.wantAgent';
+/*** endif */
+/*** if arkts static */
+import { WantAgent } from '@ohos.app.ability.wantAgent';
+/*** endif */
 import Context from './application/BaseContext';
 import type notificationManager from './@ohos.notificationManager';
 
