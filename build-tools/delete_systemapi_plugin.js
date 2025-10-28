@@ -1122,7 +1122,8 @@ function addNewStatements(node, newStatements, deleteSystemApiSet, needDeleteExp
       ts.isEnumDeclaration(statement) ||
       ts.isStructDeclaration(statement) ||
       ts.isTypeAliasDeclaration(statement) ||
-      ts.isAnnotationDeclaration(statement)
+      ts.isAnnotationDeclaration(statement) ||
+      ts.isFunctionDeclaration(statement)
     ) {
       if (statement && statement.name && statement.name.escapedText) {
         deleteSystemApiSet.add(statement.name.escapedText.toString());
