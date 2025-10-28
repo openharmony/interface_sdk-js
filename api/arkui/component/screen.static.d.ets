@@ -19,8 +19,7 @@
  */
 
  import { CommonMethod, AttributeModifier } from "./common";
- import { memo } from "./../stateManagement/runtime";
- import { ComponentBuilder } from './builder';
+ import { ComponentBuilder, CustomBuilder } from './builder';
  import { AttributeModifier, CommonMethod } from "./common"
 
  /**
@@ -50,17 +49,15 @@
  * Defines Screen Component.
  *
  * @param { long } [screenId] - screenId
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ScreenAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 22 static
  * @noninterop
  */
- @memo
  @ComponentBuilder
  export declare function Screen(
     screenId: long,
-    @memo
-    content_?: ()=> void,
+    content_?: CustomBuilder,
  ): ScreenAttribute
