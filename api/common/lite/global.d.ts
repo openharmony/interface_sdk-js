@@ -26,7 +26,7 @@
  * @param { any[] } arguments - Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns { number } Returns the timer ID.
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5 dynamic
+ * @since 5 dynamiconly
  */
 export declare function setInterval(
   handler: Function,
@@ -43,7 +43,7 @@ export declare function setInterval(
  * @param { any[] } arguments - Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns { number } Returns the timer ID.
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5 dynamic
+ * @since 5 dynamiconly
  */
 export declare function setTimeout(
   handler: Function,
@@ -56,7 +56,7 @@ export declare function setTimeout(
  *
  * @param { number } [intervalID] - Indicates the timer ID returned by "setInterval()".
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5 dynamic
+ * @since 5 dynamiconly
  */
 export declare function clearInterval(intervalID?: number): void;
 
@@ -65,7 +65,7 @@ export declare function clearInterval(intervalID?: number): void;
  *
  * @param { number } [timeoutID] - Indicates the timer ID returned by "setTimeout()".
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5 dynamic
+ * @since 5 dynamiconly
  */
 export declare function clearTimeout(timeoutID?: number): void;
 
@@ -86,7 +86,7 @@ export declare function createLocalParticleAbility(name?: string): any;
  * Conditional compilation for rich equipment
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5 dynamic
+ * @since 5 dynamiconly
  */
 export declare const STANDARD: string;
 
@@ -94,7 +94,7 @@ export declare const STANDARD: string;
  * Conditional compilation for lite equipment
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5 dynamic
+ * @since 5 dynamiconly
  */
 export declare const LITE: string;
 
@@ -104,7 +104,7 @@ export declare const LITE: string;
  * @param { string } syscap
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 8 dynamic
+ * @since 8 dynamiconly
  */
 export declare function canIUse(syscap: string): boolean;
 
@@ -133,6 +133,6 @@ export declare function isApiVersionGreaterOrEqual(apiVersion: string): boolean;
  *
  * @returns { object }
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 10 dynamic
+ * @since 10 dynamiconly
  */
 export declare function getApp(): object;
