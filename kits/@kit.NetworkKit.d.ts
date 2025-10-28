@@ -17,7 +17,7 @@
  * @file
  * @kit NetworkKit
  */
-/*** if arkts 1.1&1.2 */
+/*** if arkts dynamic&static */
 import connection from '@ohos.net.connection';
 import http from '@ohos.net.http';
 import sharing from '@ohos.net.sharing';
@@ -42,7 +42,7 @@ export {
   VpnExtensionAbility, VpnExtensionContext, netFirewall
 };
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 export {
   connection, http, sharing, webSocket, statistics, networkSecurity
 };

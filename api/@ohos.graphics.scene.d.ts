@@ -23,13 +23,13 @@
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
  */
-export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings } from './graphics3d/ScenePostProcessSettings';
+export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings, VignetteSettings, ColorFringeSettings } from './graphics3d/ScenePostProcessSettings';
 /**
  * Export post processing settings
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 static
  */
-export { ToneMappingType, ToneMappingSettings, PostProcessSettings } from './graphics3d/ScenePostProcessSettings';
+export { ToneMappingType, ToneMappingSettings, PostProcessSettings, VignetteSettings, ColorFringeSettings } from './graphics3d/ScenePostProcessSettings';
 
 /**
  * Export scene types
@@ -44,7 +44,8 @@ export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, 
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 static
  */
-export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Position3, Scale3 } from './graphics3d/SceneTypes';
+export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Position3, Scale3, GeometryType, GeometryDefinition,
+  PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry, RenderingPipelineType } from './graphics3d/SceneTypes';
 
 /**
  * Export scene resources
@@ -55,12 +56,24 @@ export { SceneResourceType, SceneResource, Shader, MaterialType, Material, Shade
   SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, CullMode, Blend,
   RenderSort, MaterialProperty, MetallicRoughnessMaterial, MeshResource, Morpher,
   Sampler, SamplerFilter, SamplerAddressMode, Effect } from './graphics3d/SceneResources';
+
+/**
+ * Export scene resources
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 22 dynamic&static
+ */
+export { PolygonMode, UnlitMaterial } from './graphics3d/SceneResources';
+
 /**
  * Export scene resources
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 static
  */
-export { SceneResource, Animation, EnvironmentBackgroundType, Environment } from './graphics3d/SceneResources';
+export { SceneResource, Shader, MaterialType, Material,
+  Animation,
+  EnvironmentBackgroundType, Environment, Image, CullMode, Blend, 
+  RenderSort, MaterialProperty, MetallicRoughnessMaterial, MeshResource, Morpher,
+  Sampler, SamplerFilter, SamplerAddressMode } from './graphics3d/SceneResources';
 
 /**
  * Export scene nodes
@@ -74,7 +87,7 @@ export { LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotL
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 static
  */
-export { NodeType, Node, LightType, Light, DirectionalLight, Camera } from './graphics3d/SceneNodes';
+export { NodeType, Node, Geometry, LightType, Light, DirectionalLight, Camera } from './graphics3d/SceneNodes';
 
 /**
  * Export scene
@@ -88,5 +101,5 @@ export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Sce
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 static
  */
-export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
-  RenderResourceFactory } from './graphics3d/Scene';
+export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RaycastResult, RaycastParameters,
+  RenderParameters, RenderResourceFactory, SceneComponent, RenderContext, CameraParameters } from './graphics3d/Scene';

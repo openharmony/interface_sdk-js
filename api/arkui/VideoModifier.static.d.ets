@@ -13,13 +13,12 @@
  * limitations under the License.
  */
 
-import { AttributeModifier } from './component/common';
-import { VideoAttribute } from './component/video';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { VideoAttribute } from '@ohos.arkui.component';
 
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 /**
@@ -27,6 +26,6 @@ import { VideoAttribute } from './component/video';
  *
  * @implements VideoAttribute, AttributeModifier<VideoAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class VideoModifier implements VideoAttribute, AttributeModifier<VideoAttribute> {}

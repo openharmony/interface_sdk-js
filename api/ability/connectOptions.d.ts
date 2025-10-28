@@ -28,8 +28,7 @@ import rpc from './../@ohos.rpc';
  * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
  * @param { rpc.IRemoteObject } remote - The remote object instance
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic&static
  */
 type OnConnectFn = (elementName: ElementName, remote: rpc.IRemoteObject) => void;
 
@@ -39,8 +38,7 @@ type OnConnectFn = (elementName: ElementName, remote: rpc.IRemoteObject) => void
  * typedef { Function }
  * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic&static
  */
 type OnDisconnectFn = (elementName: ElementName) => void;
 
@@ -50,8 +48,7 @@ type OnDisconnectFn = (elementName: ElementName) => void;
  * @typedef { Function }
  * @param { int } code - The error code of the failed.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic&static
  */
 type OnFailedFn = (code: int) => void;
 
@@ -61,8 +58,8 @@ type OnFailedFn = (code: int) => void;
  *
  * @interface ConnectOptions
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since arkts {'1.1':'7', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 20 static
  */
 export interface ConnectOptions {
   /**
@@ -86,8 +83,7 @@ export interface ConnectOptions {
    *
    * @type { OnConnectFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   onConnect: OnConnectFn;
 
@@ -110,8 +106,7 @@ export interface ConnectOptions {
    *
    * @type { OnConnectFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   onDisconnect: OnDisconnectFn;
 
@@ -127,8 +122,7 @@ export interface ConnectOptions {
    *
    * @typedef { OnFailedFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 20 
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   onFailed: OnFailedFn;
 }

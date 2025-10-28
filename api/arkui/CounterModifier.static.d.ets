@@ -16,17 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { CounterAttribute } from './component/counter';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { CounterAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Counter Modifier
  *
  * @implements { CounterAttribute, AttributeModifier<CounterAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class CounterModifier implements CounterAttribute, AttributeModifier<CounterAttribute> {}

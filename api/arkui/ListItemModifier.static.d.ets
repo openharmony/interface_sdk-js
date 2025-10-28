@@ -17,11 +17,10 @@
 /**
  * @file ListItem modifier file，defines modifier and function.
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { ListItemAttribute } from './component/listItem';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { ListItemAttribute } from '@ohos.arkui.component';
 
 
 /**
@@ -29,6 +28,6 @@ import { ListItemAttribute } from './component/listItem';
  *
  * @implements { ListItemAttribute, AttributeModifier<ListItemAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
 */
 export declare class ListItemModifier implements ListItemAttribute, AttributeModifier<ListItemAttribute> {}

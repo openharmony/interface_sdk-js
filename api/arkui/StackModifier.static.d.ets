@@ -16,17 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { StackAttribute } from './component/stack';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { StackAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Stack Modifier
  *
  * @implements StackAttribute, AttributeModifier<StackAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
 */
 export declare class StackModifier implements StackAttribute, AttributeModifier<StackAttribute> {}

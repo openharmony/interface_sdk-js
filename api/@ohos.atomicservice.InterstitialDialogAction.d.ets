@@ -25,7 +25,7 @@ import { ComponentContent } from '@ohos.arkui.node';
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare enum IconStyle {
     /**
@@ -33,7 +33,7 @@ export declare enum IconStyle {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     DARK = 0,
     /**
@@ -41,7 +41,7 @@ export declare enum IconStyle {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     LIGHT = 1
 }
@@ -51,7 +51,7 @@ export declare enum IconStyle {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare enum TitlePosition {
     /**
@@ -59,7 +59,7 @@ export declare enum TitlePosition {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     TOP = 0,
     /**
@@ -67,7 +67,7 @@ export declare enum TitlePosition {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     BOTTOM = 1
 }
@@ -77,7 +77,7 @@ export declare enum TitlePosition {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare enum BottomOffset {
     /**
@@ -85,7 +85,7 @@ export declare enum BottomOffset {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     OFFSET_FOR_BAR = 0,
     /**
@@ -93,7 +93,7 @@ export declare enum BottomOffset {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     OFFSET_FOR_NONE = 1
 }
@@ -103,7 +103,7 @@ export declare enum BottomOffset {
  * @interface DialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare interface DialogOptions {
     /**
@@ -112,7 +112,7 @@ export declare interface DialogOptions {
      * @type { UIContext }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     uiContext: UIContext;
     /**
@@ -121,7 +121,7 @@ export declare interface DialogOptions {
      * @type { ?BottomOffset }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     bottomOffsetType?: BottomOffset
     /**
@@ -130,7 +130,7 @@ export declare interface DialogOptions {
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     title?: ResourceStr;
     /**
@@ -139,7 +139,7 @@ export declare interface DialogOptions {
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     subtitle?: ResourceStr;
     /**
@@ -148,7 +148,7 @@ export declare interface DialogOptions {
      * @type { ?(ResourceStr | Color) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     titleColor?: ResourceStr | Color;
     /**
@@ -157,7 +157,7 @@ export declare interface DialogOptions {
      * @type { ?(ResourceStr | Color) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     subtitleColor?: ResourceStr | Color;
     /**
@@ -166,7 +166,7 @@ export declare interface DialogOptions {
      * @type { ?Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     backgroundImage?: Resource;
     /**
@@ -175,7 +175,7 @@ export declare interface DialogOptions {
      * @type { ?Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     foregroundImage?: Resource;
     /**
@@ -184,7 +184,7 @@ export declare interface DialogOptions {
      * @type { ?IconStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     iconStyle?: IconStyle;
     /**
@@ -193,7 +193,7 @@ export declare interface DialogOptions {
      * @type { ?TitlePosition }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     titlePosition?: TitlePosition;
     /**
@@ -202,7 +202,7 @@ export declare interface DialogOptions {
      * @type { ?Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onDialogClick?: Callback<void>;
     /**
@@ -211,7 +211,7 @@ export declare interface DialogOptions {
      * @type { ?Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onDialogClose?: Callback<void>;
 }
@@ -220,7 +220,7 @@ export declare interface DialogOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare class InterstitialDialogAction {
     /**
@@ -229,7 +229,7 @@ export declare class InterstitialDialogAction {
      * @param { DialogOptions } dialogOptions - Creates a new dialog action object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     constructor(dialogOptions: DialogOptions);
     /**
@@ -237,7 +237,7 @@ export declare class InterstitialDialogAction {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     openDialog(): void;
     /**
@@ -245,7 +245,7 @@ export declare class InterstitialDialogAction {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     closeDialog(): void;
 }

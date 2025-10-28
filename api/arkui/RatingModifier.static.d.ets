@@ -1,10 +1,11 @@
+'use static'
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,13 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-export interface Disposable {
-    readonly disposed: boolean
-    dispose(): void
-}
-export declare function disposeContentForward<Type extends Disposable>(array: ReadonlyArray<Type | undefined>): void
-export declare function disposeContentBackward<Type extends Disposable>(array: ReadonlyArray<Type | undefined>): void
-export declare function disposeContent<Type extends Disposable>(it: IterableIterator<Type | undefined>): void
+import { AttributeModifier } from './component/common';
+import { RatingAttribute } from './component/rating';
+
+/**
+ * Defines Rating Modifier
+ *
+ * @implements { RatingAttribute, AttributeModifier<RatingAttribute> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare class RatingModifier implements RatingAttribute, AttributeModifier<RatingAttribute> {}

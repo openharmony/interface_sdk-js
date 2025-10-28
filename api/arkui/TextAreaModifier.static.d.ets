@@ -16,20 +16,19 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 
 
 
-import { AttributeModifier } from './component/common';
-import { TextAreaAttribute } from './component/textArea';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { TextAreaAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines TextArea Modifier
  *
  * @implements { TextAreaAttribute, AttributeModifier<TextAreaAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class TextAreaModifier implements TextAreaAttribute, AttributeModifier<TextAreaAttribute> {}

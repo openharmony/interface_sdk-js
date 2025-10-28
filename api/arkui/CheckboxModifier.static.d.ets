@@ -16,17 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { CheckboxAttribute } from './component/checkbox';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { CheckboxAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Checkbox Modifier
  *
  * @implements { CheckboxAttribute, AttributeModifier<CheckboxAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class CheckboxModifier implements CheckboxAttribute, AttributeModifier<CheckboxAttribute> {}

@@ -28,7 +28,7 @@ import { Filter } from './@ohos.file.fs';
  *
  * @namespace fileAccess
  * @syscap SystemCapability.FileManagement.UserFileService
- * @since 9
+ * @since 9 dynamic
  */
 declare namespace fileAccess {
   /**
@@ -69,7 +69,7 @@ declare namespace fileAccess {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   function getFileAccessAbilityInfo(callback: AsyncCallback<Array<Want>>): void;
 
@@ -111,7 +111,7 @@ declare namespace fileAccess {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   function getFileAccessAbilityInfo(): Promise<Array<Want>>;
 
@@ -154,7 +154,7 @@ declare namespace fileAccess {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   function createFileAccessHelper(context: Context): FileAccessHelper;
 
@@ -198,7 +198,7 @@ declare namespace fileAccess {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   function createFileAccessHelper(context: Context, wants: Array<Want>): FileAccessHelper;
 
@@ -209,7 +209,7 @@ declare namespace fileAccess {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   interface FileInfo {
     /**
@@ -220,7 +220,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     uri: string;
     /**
@@ -231,7 +231,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     relativePath: string;
     /**
@@ -242,7 +242,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     fileName: string;
     /**
@@ -253,7 +253,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     mode: number;
     /**
@@ -264,7 +264,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     size: number;
     /**
@@ -275,7 +275,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     mtime: number;
     /**
@@ -286,7 +286,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     mimeType: string;
 
@@ -333,7 +333,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     listFile(filter?: Filter): FileIterator;
 
@@ -380,7 +380,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     scanFile(filter?: Filter): FileIterator;
   }
@@ -392,7 +392,7 @@ declare namespace fileAccess {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   interface FileIterator {
     /**
@@ -437,7 +437,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     next(): { value: FileInfo, done: boolean };
   }
@@ -449,7 +449,7 @@ declare namespace fileAccess {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   interface RootInfo {
     /**
@@ -458,7 +458,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     deviceType: number;
     /**
@@ -467,7 +467,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     uri: string;
     /**
@@ -478,7 +478,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     relativePath: string;
     /**
@@ -487,7 +487,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     displayName: string;
     /**
@@ -496,7 +496,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     deviceFlags: number;
 
@@ -543,7 +543,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     listFile(filter?: Filter): FileIterator;
 
@@ -590,7 +590,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     scanFile(filter?: Filter): FileIterator;
   }
@@ -602,7 +602,7 @@ declare namespace fileAccess {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   interface RootIterator {
     /**
@@ -647,7 +647,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     next(): { value: RootInfo, done: boolean };
   }
@@ -659,7 +659,7 @@ declare namespace fileAccess {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
    */
   interface CopyResult {
     /**
@@ -670,7 +670,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 10 dynamic
      */
     sourceUri: string;
     /**
@@ -681,7 +681,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 10 dynamic
      */
     destUri: string;
     /**
@@ -692,7 +692,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 10 dynamic
      */
     errCode: number;
     /**
@@ -703,7 +703,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 10 dynamic
      */
     errMsg: string;
   }
@@ -715,7 +715,7 @@ declare namespace fileAccess {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   enum OPENFLAGS {
     /**
@@ -724,7 +724,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     READ = 0o0,
 
@@ -734,7 +734,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     WRITE = 0o1,
 
@@ -744,7 +744,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
      */
     WRITE_READ = 0o2
   }
@@ -756,7 +756,7 @@ declare namespace fileAccess {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
    */
   enum FileKey {
     /**
@@ -765,7 +765,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     DISPLAY_NAME = 'display_name',
 
@@ -775,7 +775,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     DATE_ADDED = 'date_added',
 
@@ -785,7 +785,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     DATE_MODIFIED = 'date_modified',
 
@@ -795,7 +795,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     RELATIVE_PATH = 'relative_path',
 
@@ -805,7 +805,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     FILE_SIZE = 'size'
   }
@@ -817,7 +817,7 @@ declare namespace fileAccess {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
    */
   enum NotifyType {
     /**
@@ -826,7 +826,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     NOTIFY_ADD,
 
@@ -836,7 +836,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     NOTIFY_DELETE,
 
@@ -846,7 +846,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     NOTIFY_MOVED_TO,
 
@@ -856,7 +856,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     NOTIFY_MOVED_FROM,
 
@@ -866,7 +866,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     NOTIFY_MOVE_SELF,
 
@@ -876,7 +876,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 11
+     * @since 11 dynamic
      */
     NOTIFY_DEVICE_ONLINE,
 
@@ -886,7 +886,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 11
+     * @since 11 dynamic
      */
     NOTIFY_DEVICE_OFFLINE
   }
@@ -898,7 +898,7 @@ declare namespace fileAccess {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
    */
   interface NotifyMessage {
     /**
@@ -909,7 +909,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     type: NotifyType;
 
@@ -921,7 +921,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
      */
     uris: Array<string>;
   }
@@ -933,7 +933,7 @@ declare namespace fileAccess {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
    */
   interface MoveResult {
     /**
@@ -944,7 +944,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 11
+     * @since 11 dynamic
      */
     sourceUri: string;
 
@@ -956,7 +956,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 11
+     * @since 11 dynamic
      */
     destUri: string;
 
@@ -968,7 +968,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 11
+     * @since 11 dynamic
      */
     errCode: number;
 
@@ -980,7 +980,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 11
+     * @since 11 dynamic
      */
     errMsg: string;
   }
@@ -992,7 +992,7 @@ declare namespace fileAccess {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
    */
   const DEVICES_URI = 'file://docs';
 
@@ -1002,7 +1002,7 @@ declare namespace fileAccess {
    * @interface FileAccessHelper
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   interface FileAccessHelper {
     /**
@@ -1048,7 +1048,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300004 - Get wrong result
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     openFile(uri: string, flags: OPENFLAGS): Promise<number>;
 
@@ -1095,7 +1095,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300004 - Get wrong result
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     openFile(uri: string, flags: OPENFLAGS, callback: AsyncCallback<number>): void;
 
@@ -1142,7 +1142,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300004 - Get wrong result
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     createFile(uri: string, displayName: string): Promise<string>;
 
@@ -1189,7 +1189,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300004 - Get wrong result
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     createFile(uri: string, displayName: string, callback: AsyncCallback<string>): void;
 
@@ -1236,7 +1236,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300004 - Get wrong result
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     mkDir(parentUri: string, displayName: string): Promise<string>;
 
@@ -1283,7 +1283,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300004 - Get wrong result
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     mkDir(parentUri: string, displayName: string, callback: AsyncCallback<string>): void;
 
@@ -1329,7 +1329,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300004 - Get wrong result
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     delete(uri: string): Promise<number>;
 
@@ -1375,7 +1375,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300004 - Get wrong result
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     delete(uri: string, callback: AsyncCallback<number>): void;
 
@@ -1422,7 +1422,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300004 - Get wrong result
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     move(sourceFile: string, destFile: string): Promise<string>;
 
@@ -1469,7 +1469,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300004 - Get wrong result
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     move(sourceFile: string, destFile: string, callback: AsyncCallback<string>): void;
 
@@ -1483,7 +1483,7 @@ declare namespace fileAccess {
      * @returns { Promise<Array<CopyResult>> } Returns the file information where the error occurred.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     copy(sourceUri: string, destUri: string, force?: boolean): Promise<Array<CopyResult>>;
 
@@ -1496,7 +1496,7 @@ declare namespace fileAccess {
      * @param { AsyncCallback<Array<CopyResult>> } callback - The callback is used to return the file information where the error occurred.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     copy(sourceUri: string, destUri: string, callback: AsyncCallback<Array<CopyResult>>): void;
 
@@ -1510,7 +1510,7 @@ declare namespace fileAccess {
      * @param { AsyncCallback<Array<CopyResult>> } callback - The callback is used to return the file information where the error occurred.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     copy(sourceUri: string, destUri: string, force: boolean, callback: AsyncCallback<Array<CopyResult>>): void;
 
@@ -1549,7 +1549,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 11
+     * @since 11 dynamic
      */
     copyFile(sourceUri: string, destUri: string, fileName: string): Promise<string>;
 
@@ -1588,7 +1588,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 11
+     * @since 11 dynamic
      */
     copyFile(sourceUri: string, destUri: string, fileName: string, callback: AsyncCallback<string>): void;
 
@@ -1635,7 +1635,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300004 - Get wrong result
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     rename(uri: string, displayName: string): Promise<string>;
 
@@ -1682,7 +1682,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300004 - Get wrong result
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     rename(uri: string, displayName: string, callback: AsyncCallback<string>): void;
 
@@ -1728,7 +1728,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300004 - Get wrong result
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     access(sourceFileUri: string): Promise<boolean>;
 
@@ -1774,7 +1774,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300004 - Get wrong result
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     access(sourceFileUri: string, callback: AsyncCallback<boolean>): void;
 
@@ -1787,7 +1787,7 @@ declare namespace fileAccess {
      * @returns { Promise<string> } Returns the json string, includes query property and value.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     query(uri: string, metaJson: string): Promise<string>;
 
@@ -1800,7 +1800,7 @@ declare namespace fileAccess {
      * @param { AsyncCallback<string> } callback - Returns the json string, includes query property and value.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     query(uri: string, metaJson: string, callback: AsyncCallback<string>): void;
 
@@ -1812,7 +1812,7 @@ declare namespace fileAccess {
      * @returns { Promise<FileInfo> } Returns a FileInfo.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     getFileInfoFromUri(uri: string): Promise<FileInfo>;
 
@@ -1824,7 +1824,7 @@ declare namespace fileAccess {
      * @param { AsyncCallback<FileInfo> } callback - The callback is used to return a fileinfo object.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     getFileInfoFromUri(uri: string, callback: AsyncCallback<FileInfo>): void;
 
@@ -1836,7 +1836,7 @@ declare namespace fileAccess {
      * @returns { Promise<FileInfo> } Returns a FileInfo.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     getFileInfoFromRelativePath(relativePath: string): Promise<FileInfo>;
 
@@ -1848,7 +1848,7 @@ declare namespace fileAccess {
      * @param { AsyncCallback<FileInfo> } callback - The callback is used to return a fileinfo object.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     getFileInfoFromRelativePath(relativePath: string, callback: AsyncCallback<FileInfo>): void;
 
@@ -1893,7 +1893,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300004 - Get wrong result
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     getRoots(): Promise<RootIterator>;
 
@@ -1938,7 +1938,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300004 - Get wrong result
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     getRoots(callback: AsyncCallback<RootIterator>): void;
 
@@ -1952,7 +1952,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300002 - Invalid uri
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     registerObserver(uri: string, notifyForDescendants: boolean, callback: Callback<NotifyMessage>): void;
 
@@ -1965,7 +1965,7 @@ declare namespace fileAccess {
      * @throws { BusinessError } 14300002 - Invalid uri
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
      */
     unregisterObserver(uri: string, callback?: Callback<NotifyMessage>): void;
 
@@ -2004,7 +2004,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 11
+     * @since 11 dynamic
      */
     moveItem(sourceUri: string, destUri: string, force?: boolean): Promise<Array<MoveResult>>;
 
@@ -2042,7 +2042,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 11
+     * @since 11 dynamic
      */
     moveItem(sourceUri: string, destUri: string, callback: AsyncCallback<Array<MoveResult>>): void;
 
@@ -2081,7 +2081,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 11
+     * @since 11 dynamic
      */
     moveItem(sourceUri: string, destUri: string, force: boolean, callback: AsyncCallback<Array<MoveResult>>): void;
 
@@ -2120,7 +2120,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 11
+     * @since 11 dynamic
      */
     moveFile(sourceUri: string, destUri: string, fileName: string): Promise<string>;
 
@@ -2159,7 +2159,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
-     * @since 11
+     * @since 11 dynamic
      */
     moveFile(sourceUri: string, destUri: string, fileName: string, callback: AsyncCallback<string>): void;
   }

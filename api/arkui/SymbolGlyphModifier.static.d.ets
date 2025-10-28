@@ -16,14 +16,13 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 
 
 
-import { AttributeModifier } from './component/common';
-import { SymbolGlyphAttribute } from './component/symbolglyph';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { SymbolGlyphAttribute } from '@ohos.arkui.component';
 import { Resource } from '../global/resource';
 
 /**
@@ -31,7 +30,7 @@ import { Resource } from '../global/resource';
  *
  * @implements { SymbolGlyphAttribute, AttributeModifier<SymbolGlyphAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
 */
 export declare class SymbolGlyphModifier implements SymbolGlyphAttribute, AttributeModifier<SymbolGlyphAttribute> {
     /**
@@ -39,7 +38,7 @@ export declare class SymbolGlyphModifier implements SymbolGlyphAttribute, Attrib
      *
      * @param { Resource } [src]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor(src?: Resource);
 }

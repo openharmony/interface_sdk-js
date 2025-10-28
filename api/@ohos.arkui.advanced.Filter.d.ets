@@ -43,7 +43,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
  */
 export declare enum FilterType {
     /**
@@ -62,7 +62,7 @@ export declare enum FilterType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     MULTI_LINE_FILTER = 0,
 
@@ -82,7 +82,7 @@ export declare enum FilterType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     LIST_FILTER = 1
 }
@@ -103,7 +103,7 @@ export declare enum FilterType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
  */
 export declare class FilterParams {
     /**
@@ -125,7 +125,7 @@ export declare class FilterParams {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     name: ResourceStr;
     /**
@@ -147,7 +147,7 @@ export declare class FilterParams {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     options: Array<ResourceStr>;
 }
@@ -171,7 +171,7 @@ export declare class FilterParams {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
  */
 export declare class FilterResult {
     /**
@@ -193,7 +193,7 @@ export declare class FilterResult {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     name: ResourceStr;
     /**
@@ -215,7 +215,7 @@ export declare class FilterResult {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     index: number;
     /**
@@ -237,7 +237,7 @@ export declare class FilterResult {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     value: ResourceStr;
 }
@@ -258,7 +258,7 @@ export declare class FilterResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
  */
 @Component
 export declare struct Filter {
@@ -281,7 +281,7 @@ export declare struct Filter {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     @BuilderParam container: () => void;
 
@@ -304,7 +304,7 @@ export declare struct Filter {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     @Prop multiFilters: Array<FilterParams>;
 
@@ -327,7 +327,7 @@ export declare struct Filter {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     @Prop additionFilters?: FilterParams;
 
@@ -350,7 +350,7 @@ export declare struct Filter {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     onFilterChanged: (filterResults: Array<FilterResult>) => void;
 
@@ -373,7 +373,7 @@ export declare struct Filter {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 22
+     * @since 22 dynamic
      */
     @Prop filterType?: FilterType;
 }

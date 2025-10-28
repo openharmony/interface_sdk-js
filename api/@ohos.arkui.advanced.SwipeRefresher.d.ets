@@ -34,8 +34,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
- * @noninterop
+ * @since 20 dynamic
  */
 @Component
 export declare struct SwipeRefresher {
@@ -58,7 +57,7 @@ export declare struct SwipeRefresher {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   @Prop content?: ResourceStr;
 
@@ -81,7 +80,7 @@ export declare struct SwipeRefresher {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   @Prop isLoading: boolean;
 }

@@ -18,8 +18,14 @@
  * @kit AbilityKit
  */
 
+/*** if arkts dynamic */
 import type PageNodeInfo from './PageNodeInfo';
 import type AutoFillRect from './AutoFillRect';
+/*** endif */
+/*** if arkts static */
+import PageNodeInfo from './PageNodeInfo';
+import AutoFillRect from './AutoFillRect';
+/*** endif */
 
 /**
  * View data for automatic filling.
@@ -28,7 +34,8 @@ import type AutoFillRect from './AutoFillRect';
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 11
+ * @since 11 dynamic
+ * @since 20 static
  */
 export default interface ViewData {
   /**
@@ -38,7 +45,8 @@ export default interface ViewData {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   bundleName: string;
 
@@ -49,7 +57,8 @@ export default interface ViewData {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   moduleName: string;
 
@@ -60,7 +69,8 @@ export default interface ViewData {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   abilityName: string;
 
@@ -71,7 +81,8 @@ export default interface ViewData {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   pageUrl: string;
 
@@ -82,7 +93,8 @@ export default interface ViewData {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   pageNodeInfos: Array<PageNodeInfo>;
 
@@ -93,7 +105,8 @@ export default interface ViewData {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   pageRect: AutoFillRect;
 
@@ -104,7 +117,8 @@ export default interface ViewData {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   isUserSelected: boolean;
 
@@ -115,7 +129,8 @@ export default interface ViewData {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   isOtherAccount: boolean;
 }

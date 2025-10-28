@@ -13,13 +13,12 @@
  * limitations under the License.
  */
 
-import { AttributeModifier } from './component/common';
-import { PathAttribute } from './component/path';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { PathAttribute } from '@ohos.arkui.component';
 
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 /**
@@ -27,6 +26,6 @@ import { PathAttribute } from './component/path';
  *
  * @implements PathAttribute, AttributeModifier<PathAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class PathModifier implements PathAttribute, AttributeModifier<PathAttribute> {}

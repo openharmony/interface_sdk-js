@@ -16,17 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { QRCodeAttribute } from './component/qrcode';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { QRCodeAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines QRCode Modifier
  *
  * @implements { QRCodeAttribute, AttributeModifier<QRCodeAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class QRCodeModifier implements QRCodeAttribute, AttributeModifier<QRCodeAttribute> {}

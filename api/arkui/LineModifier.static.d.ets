@@ -13,13 +13,12 @@
  * limitations under the License.
  */
 
-import { AttributeModifier } from './component/common';
-import { LineAttribute } from './component/line';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { LineAttribute } from '@ohos.arkui.component';
 
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 /**
@@ -27,6 +26,6 @@ import { LineAttribute } from './component/line';
  *
  * @implements LineAttribute, AttributeModifier<LineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class LineModifier implements LineAttribute, AttributeModifier<LineAttribute> {}

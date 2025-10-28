@@ -16,17 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { FlexAttribute } from './component/flex';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { FlexAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Flex Modifier
  *
  * @implements FlexAttribute, AttributeModifier<FlexAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
 */
 export declare class FlexModifier implements FlexAttribute, AttributeModifier<FlexAttribute> {}

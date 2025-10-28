@@ -16,17 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { ProgressAttribute } from './component/progress';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { ProgressAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Progress Modifier
  *
  * @implements { ProgressAttribute, AttributeModifier<ProgressAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class ProgressModifier implements ProgressAttribute, AttributeModifier<ProgressAttribute> {}

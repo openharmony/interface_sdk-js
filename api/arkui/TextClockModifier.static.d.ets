@@ -16,17 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { TextClockAttribute } from './component/textClock';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { TextClockAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines TextClock Modifier
  *
  * @implements { TextClockAttribute, AttributeModifier<TextClockAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class TextClockModifier implements TextClockAttribute, AttributeModifier<TextClockAttribute> {}

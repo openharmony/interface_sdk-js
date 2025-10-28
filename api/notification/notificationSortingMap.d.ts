@@ -26,8 +26,8 @@ import { NotificationSorting } from './notificationSorting';
  * @typedef NotificationSortingMap
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since arkts {'1.1':'7', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 20 static
  */
 export interface NotificationSortingMap {
   /**
@@ -37,8 +37,8 @@ export interface NotificationSortingMap {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   readonly sortings: Record<string, NotificationSorting>;
 
@@ -49,8 +49,8 @@ export interface NotificationSortingMap {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   readonly sortedHashCode: Array<string>;
 }

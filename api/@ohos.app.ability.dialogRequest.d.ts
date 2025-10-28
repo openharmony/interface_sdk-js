@@ -18,17 +18,15 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import Want from './@ohos.app.ability.Want';
-/*** endif */
 
 /**
  * Interface of request dialog.
  *
  * @namespace dialogRequest
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 declare namespace dialogRequest {
   /**
@@ -37,55 +35,61 @@ declare namespace dialogRequest {
    * @typedef WindowRect
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
   export interface WindowRect {
     /**
      * The left position of WindowRect
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @since 10
+    * @since 10 dynamic
+    * @since 20 static
      */
-    left: number;
+    left: int;
 
     /**
      * The top position of WindowRect
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
+     * @since 20 static
      */
-    top: number;
+    top: int;
 
     /**
      * The width of WindowRect
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
+     * @since 20 static
      */
-    width: number;
+    width: int;
 
     /**
      * The height of WindowRect
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
+     * @since 20 static
      */
-    height: number;
+    height: int;
   }
   /**
    * Request info of a request.
    *
    * @typedef RequestInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface RequestInfo {
     /**
@@ -94,7 +98,8 @@ declare namespace dialogRequest {
      * @type { ?WindowRect }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
+     * @since 20 static
      */
     windowRect?: WindowRect
   }
@@ -104,14 +109,16 @@ declare namespace dialogRequest {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export enum ResultCode {
     /**
      * The modal bullet box requests succeeded.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     RESULT_OK = 0,
 
@@ -119,7 +126,8 @@ declare namespace dialogRequest {
      * The modal bullet box requests Failed.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     RESULT_CANCEL = 1
   }
@@ -130,7 +138,8 @@ declare namespace dialogRequest {
    * @typedef RequestResult
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface RequestResult {
     /**
@@ -139,7 +148,8 @@ declare namespace dialogRequest {
      * @type { ResultCode }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     result: ResultCode;
 
@@ -149,7 +159,8 @@ declare namespace dialogRequest {
      * @type { ?Want }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @since 10
+     * @since 10 dynamic
+     * @since 20 static
      */
     want?: Want;
   }
@@ -159,7 +170,8 @@ declare namespace dialogRequest {
    *
    * @interface RequestCallback
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface RequestCallback {
     /**
@@ -170,7 +182,8 @@ declare namespace dialogRequest {
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     setRequestResult(result: RequestResult): void;
   }
@@ -183,7 +196,8 @@ declare namespace dialogRequest {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getRequestInfo(want: Want): RequestInfo;
 
@@ -195,7 +209,8 @@ declare namespace dialogRequest {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getRequestCallback(want: Want): RequestCallback;
 }

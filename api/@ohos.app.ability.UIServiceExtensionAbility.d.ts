@@ -19,9 +19,16 @@
  */
 
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
+/*** if arkts dynamic */
 import type Want from './@ohos.app.ability.Want';
 import type UIServiceExtensionContext from './application/UIServiceExtensionContext';
 import type UIServiceHostProxy from './application/UIServiceHostProxy';
+/*** endif */
+/*** if arkts static */
+import Want from './@ohos.app.ability.Want';
+import UIServiceExtensionContext from './application/UIServiceExtensionContext';
+import UIServiceHostProxy from './application/UIServiceHostProxy';
+/*** endif */
 import window from './@ohos.window';
 
 /**
@@ -31,9 +38,10 @@ import window from './@ohos.window';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 14
+ * @since 14 dynamic
+ * @since 20 static
  */
-export default class UIServiceExtensionAbility extends ExtensionAbility {
+declare class UIServiceExtensionAbility extends ExtensionAbility {
   /**
    * Indicates configuration information about an UI service extension ability context.
    *
@@ -41,7 +49,8 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   context: UIServiceExtensionContext;
 
@@ -52,7 +61,8 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   onCreate(want: Want): void;
 
@@ -60,15 +70,16 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * Called back when a UI service extension is started.
    *
    * @param { Want } want - Indicates the want of UI service extension to start.
-   * @param { number } startId - Indicates the number of times the UI service extension has been started.
+   * @param { int } startId - Indicates the number of times the UI service extension has been started.
    *                             The {@code startId} is incremented by 1 every time the UI service extension is started.
    *                             For example, if the UI service extension has been started for six times.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  onRequest(want: Want, startId: number): void;
+  onRequest(want: Want, startId: int): void;
 
   /**
    * Called back when a UI service extension is connected to an ability.
@@ -78,7 +89,8 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   onConnect(want: Want, proxy: UIServiceHostProxy): void;
 
@@ -90,7 +102,8 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   onDisconnect(want: Want, proxy: UIServiceHostProxy): void;
 
@@ -101,7 +114,8 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   onWindowWillCreate(config: window.ExtensionWindowConfig): void;
 
@@ -112,7 +126,8 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   onWindowDidCreate(window: window.Window): void;
 
@@ -124,7 +139,8 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   onData(proxy: UIServiceHostProxy, data: Record<string, Object>): void;
 
@@ -134,7 +150,9 @@ export default class UIServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   onDestroy(): void;
 }
+export default UIServiceExtensionAbility;

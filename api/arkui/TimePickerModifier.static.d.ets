@@ -16,17 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { TimePickerAttribute } from './component/timePicker';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { TimePickerAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines TimePicker Modifier
  *
  * @implements { TimePickerAttribute, AttributeModifier<TimePickerAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class TimePickerModifier implements TimePickerAttribute, AttributeModifier<TimePickerAttribute> {}

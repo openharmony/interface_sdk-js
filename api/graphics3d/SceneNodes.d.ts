@@ -19,14 +19,14 @@
  */
 
 /*** if arkts static */
-import { SceneResource } from './SceneResources';
+import { SceneResource, Morpher } from './SceneResources';
+import { RaycastParameters, RaycastResult } from './Scene';
 /*** endif */
 /*** if arkts dynamic */
 import { SceneResource, Mesh, Morpher, Effect } from './SceneResources';
 import { RaycastParameters, RaycastResult } from './Scene';
-import { RenderingPipelineType } from './SceneTypes';
 /*** endif */
-import { Position3, Quaternion, Scale3, Color, Vec2, Vec3 } from './SceneTypes';
+import { Position3, Quaternion, Scale3, Color, Vec2, Vec3, RenderingPipelineType } from './SceneTypes';
 import { PostProcessSettings } from './ScenePostProcessSettings';
 
 /**
@@ -297,6 +297,7 @@ export interface Node extends SceneResource {
  * @interface Geometry
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
+ * @since 20 static
  */
 export interface Geometry extends Node {
   /**
@@ -316,6 +317,7 @@ export interface Geometry extends Node {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
+   * @since 20 static
    */
   readonly morpher?: Morpher;
 }
@@ -418,6 +420,25 @@ export interface Light extends Node {
  * @since 12 dynamic
  */
 export interface SpotLight extends Light {
+  /**
+   * The inner angle of the spot light
+   * 
+   * @type { ?double }
+   * @default 0
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  innerAngle?: double;
+
+  /**
+   * The outer angle of the spot light
+   * 
+   * @type { ?double }
+   * @default PI / 4.0
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  outerAngle?: double;
 }
 
 /**
@@ -510,6 +531,16 @@ export interface Camera extends Node {
   clearColor: Color | null;
 
   /**
+   * Controls whether MSAA is enabled or not.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  msaa?: boolean;
+
+  /**
    * Controls the rendering pipeline. 
    * Note that if FORWARD_LIGHTWEIGHT pipeline is selected, some features will be unavailable.
    *
@@ -517,6 +548,7 @@ export interface Camera extends Node {
    * @default RenderingPipelineType.FORWARD_LIGHTWEIGHT
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
+   * @since 22 static
    */
   renderingPipeline?: RenderingPipelineType;
 
@@ -527,6 +559,7 @@ export interface Camera extends Node {
    * @returns { Promise<RaycastResult[]> } - Promise used to return an array of hit results, sorted from the closest to the farthest. The array may be empty.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
+   * @since 20 static
    */
   raycast(viewPosition: Vec2, params: RaycastParameters): Promise<RaycastResult[]>;
 }

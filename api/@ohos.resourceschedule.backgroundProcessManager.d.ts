@@ -23,22 +23,25 @@
  *
  * @namespace backgroundProcessManager
  * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
- * @since 17
+ * @since 17 dynamic
+ * @since 22 static
  */
 declare namespace backgroundProcessManager {
     /**
      * Describes the level of BackgroundProcessManager priority.
      *
-     * @enum { number }
+     * @enum { int }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 17
+     * @since 17 dynamic
+     * @since 22 static
      */
     export enum ProcessPriority {
         /**
          * Means the process has stopped working and in the background
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since 17
+         * @since 17 dynamic
+         * @since 22 static
          */
         PROCESS_BACKGROUND = 1,
 
@@ -46,7 +49,8 @@ declare namespace backgroundProcessManager {
          * Means the process is working in the background
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since 17
+         * @since 17 dynamic
+         * @since 22 static
          */
         PROCESS_INACTIVE = 2,
     }
@@ -56,7 +60,7 @@ declare namespace backgroundProcessManager {
      *
      * @enum { number }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 20
+     * @since 20 dynamic
      */
     export enum PowerSaveMode {
         /**
@@ -64,7 +68,7 @@ declare namespace backgroundProcessManager {
          * This setting may be overridden by settings in Task Manager
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since 20
+         * @since 20 dynamic
          */
         EFFICIENCY_MODE = 1,
 
@@ -72,7 +76,7 @@ declare namespace backgroundProcessManager {
          * Means the process operating mode follows the system and may entry power saving mode
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since 20
+         * @since 20 dynamic
          */
         DEFAULT_MODE = 2,
     }
@@ -80,24 +84,26 @@ declare namespace backgroundProcessManager {
     /**
      * Set the priority of process.
      *
-     * @param { number } pid - Indicates the pid of the process to be set.
+     * @param { int } pid - Indicates the pid of the process to be set.
      * @param { ProcessPriority } priority - Indicates the priority to set. Specific priority can be referenced ProcessPriority
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: priority is out of range.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 17
+     * @since 17 dynamic
+     * @since 22 static
      */
-    function setProcessPriority(pid: number, priority: ProcessPriority): Promise<void>;
+    function setProcessPriority(pid: int, priority: ProcessPriority): Promise<void>;
 
     /**
      * Reset the priority of process.
      *
-     * @param { number } pid - Indicates the pid of the process to be reset.
+     * @param { int } pid - Indicates the pid of the process to be reset.
      * @returns { Promise<void> } The promise returned by the function.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 17
+     * @since 17 dynamic
+     * @since 22 static
      */
-    function resetProcessPriority(pid: number): Promise<void>;
+    function resetProcessPriority(pid: int): Promise<void>;
 
     /**
      * Set the power saving mode of process. The setting may fail due to user setting reasons or
@@ -116,7 +122,7 @@ declare namespace backgroundProcessManager {
      * @throws { BusinessError } 31800004 - The setting failed due to system scheduling reasons.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 20
+     * @since 20 dynamic
      */
     function setPowerSaveMode(pid: number, powerSaveMode: PowerSaveMode): Promise<void>;
 
@@ -131,9 +137,24 @@ declare namespace backgroundProcessManager {
      * <br> 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 20
+     * @since 20 dynamic
      */
     function isPowerSaveMode(pid: number): Promise<boolean>;
+
+    /**
+     * Get the power saving mode of the process.
+     *
+     * @permission ohos.permission.BACKGROUND_MANAGER_POWER_SAVE_MODE
+     * @param { int } pid - Indicates the process to be checked is the pid of the power saving mode.
+     * @returns { Promise<PowerSaveMode> } The promise returns the power saving mode of the process.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
+     * <br> 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
+     * @since 22
+     */
+    function getPowerSaveMode(pid: int): Promise<PowerSaveMode>;
 }
 
 export default backgroundProcessManager;

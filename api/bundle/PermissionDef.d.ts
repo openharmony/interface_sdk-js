@@ -24,7 +24,7 @@
  * @typedef PermissionDef
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi
- * @since 8
+ * @since 8 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.PermissionDef
  */
@@ -34,7 +34,7 @@ export interface PermissionDef {
    * @default Indicates the name of this permission
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   permissionName: string;
@@ -44,7 +44,7 @@ export interface PermissionDef {
    * @default Indicates the grant mode of this permission
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   grantMode: number;
@@ -54,7 +54,7 @@ export interface PermissionDef {
    * @default Indicates the labelId of this permission
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   labelId: number;
@@ -64,7 +64,7 @@ export interface PermissionDef {
    * @default Indicates the descriptionId of this permission
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   descriptionId: number;

@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Resource } from './../../../api/global/resource';
 import { CommonMethod, AttributeModifier } from "./common";
@@ -28,25 +27,26 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
+ * @noninterop
  */
 export declare interface HyperlinkAttribute extends CommonMethod {
     /**
      * Set Color
      *
-     * @param { Color | number | string | Resource } value
+     * @param { Color | int | string | Resource } value
      * @returns { HyperlinkAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default color(value: Color | number | string | Resource | undefined): this;
+    default color(value: Color | int | string | Resource | undefined): this;
     /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<HyperlinkAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
      * @returns { HyperlinkAttribute } the attribute of the HyperlinkAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<HyperlinkAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -59,7 +59,8 @@ export declare interface HyperlinkAttribute extends CommonMethod {
  * @param { function } [content_]
  * @returns { HyperlinkAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
+ * @noninterop
  */
 @memo
 @ComponentBuilder

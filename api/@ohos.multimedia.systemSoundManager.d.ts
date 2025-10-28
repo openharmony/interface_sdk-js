@@ -32,8 +32,8 @@ import type { SystemToneOptions as _SystemToneOptions } from './multimedia/syste
  * @namespace systemSoundManager
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 20 static
  */
 declare namespace systemSoundManager {
 
@@ -42,14 +42,14 @@ declare namespace systemSoundManager {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   enum SystemSoundError {
     /**
      * IO error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     ERROR_IO = 5400103,
 
@@ -57,7 +57,7 @@ declare namespace systemSoundManager {
      * No error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     ERROR_OK = 20700000,
 
@@ -65,7 +65,7 @@ declare namespace systemSoundManager {
      * Type mismatch.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     ERROR_TYPE_MISMATCH = 20700001,
 
@@ -73,7 +73,7 @@ declare namespace systemSoundManager {
      * Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     ERROR_UNSUPPORTED_OPERATION = 20700003,
 
@@ -81,7 +81,7 @@ declare namespace systemSoundManager {
      * Data size exceeds the limit.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     ERROR_DATA_TOO_LARGE = 20700004,
 
@@ -89,7 +89,7 @@ declare namespace systemSoundManager {
      * The number of files exceeds the limit.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     ERROR_TOO_MANY_FILES = 20700005,
 
@@ -97,7 +97,7 @@ declare namespace systemSoundManager {
      * Insufficient ROM space.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     ERROR_INSUFFICIENT_ROM = 20700006,
 
@@ -105,7 +105,7 @@ declare namespace systemSoundManager {
      * Invalid parameter.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     ERROR_INVALID_PARAM = 20700007
   }
@@ -115,15 +115,15 @@ declare namespace systemSoundManager {
    * @enum { int }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   enum RingtoneType {
     /**
      * Default type.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      * @useinstead systemSoundManager.RingtoneType#RINGTONE_TYPE_SIM_CARD_0
      */
@@ -133,8 +133,8 @@ declare namespace systemSoundManager {
      * Ringtone type for sim card 0.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     RINGTONE_TYPE_SIM_CARD_0 = 0,
 
@@ -142,7 +142,7 @@ declare namespace systemSoundManager {
      * Multi-sim type.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      * @useinstead systemSoundManager.RingtoneType#RINGTONE_TYPE_SIM_CARD_1
      */
@@ -152,8 +152,8 @@ declare namespace systemSoundManager {
      * Ringtone type for sim card 1.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     RINGTONE_TYPE_SIM_CARD_1 = 1,
   }
@@ -163,16 +163,16 @@ declare namespace systemSoundManager {
    * @enum { int }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   enum SystemToneType {
     /**
      * System tone type for sim card 0.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     SYSTEM_TONE_TYPE_SIM_CARD_0 = 0,
 
@@ -180,8 +180,8 @@ declare namespace systemSoundManager {
      * System tone type for sim card 1.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     SYSTEM_TONE_TYPE_SIM_CARD_1 = 1,
 
@@ -189,8 +189,8 @@ declare namespace systemSoundManager {
      * System tone type notification.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     SYSTEM_TONE_TYPE_NOTIFICATION = 32,
   }
@@ -200,24 +200,24 @@ declare namespace systemSoundManager {
    * @enum {int}
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   enum ToneCustomizedType {
     /**
      * Pre-installed tone type.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     PRE_INSTALLED = 0,
     /**
      * Customized tone type.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     CUSTOMIZED = 1,
   }
@@ -227,14 +227,14 @@ declare namespace systemSoundManager {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   enum MediaType {
     /**
      * Media type for audio.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     AUDIO = 0,
 
@@ -242,7 +242,7 @@ declare namespace systemSoundManager {
      * Media type for vide.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     VIDEO = 1,
   }
@@ -251,8 +251,8 @@ declare namespace systemSoundManager {
    * Define the ringtone category.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   const TONE_CATEGORY_RINGTONE: long;
 
@@ -260,8 +260,8 @@ declare namespace systemSoundManager {
    * Define the text message tone category.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   const TONE_CATEGORY_TEXT_MESSAGE: long;
 
@@ -269,8 +269,8 @@ declare namespace systemSoundManager {
    * Define the notification tone category.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   const TONE_CATEGORY_NOTIFICATION: long;
 
@@ -278,8 +278,8 @@ declare namespace systemSoundManager {
    * Define the alarm tone category.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   const TONE_CATEGORY_ALARM: long;
 
@@ -288,17 +288,26 @@ declare namespace systemSoundManager {
    * @constant
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   const TONE_CATEGORY_CONTACTS:16;
+
+  /**
+   * Define the app notification tone category.
+   * @constant
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  const TONE_CATEGORY_NOTIFICATION_APP:32;
 
   /**
    * Tone attributes.
    * @typedef ToneAttrs
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   interface ToneAttrs {
     /**
@@ -307,8 +316,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getTitle(): string;
 
@@ -321,8 +330,8 @@ declare namespace systemSoundManager {
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     setTitle(title: string): void;
 
@@ -332,8 +341,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getFileName(): string;
 
@@ -346,8 +355,8 @@ declare namespace systemSoundManager {
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     setFileName(name: string): void;
 
@@ -357,8 +366,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getUri(): string;
 
@@ -368,8 +377,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getCustomizedType(): ToneCustomizedType;
 
@@ -384,8 +393,8 @@ declare namespace systemSoundManager {
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     setCategory(category: long): void;
 
@@ -397,8 +406,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getCategory(): long;
 
@@ -408,7 +417,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     setMediaType(type: MediaType): void;
 
@@ -419,7 +428,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     getMediaType(): MediaType;
   }
@@ -430,8 +439,8 @@ declare namespace systemSoundManager {
    * @typedef {Array<ToneAttrs>} ToneAttrsArray
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   type ToneAttrsArray = Array<ToneAttrs>;
 
@@ -441,8 +450,8 @@ declare namespace systemSoundManager {
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function createCustomizedToneAttrs(): ToneAttrs;
 
@@ -451,24 +460,24 @@ declare namespace systemSoundManager {
    * @enum { int }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 20 static
    */
   enum ToneHapticsFeature {
     /**
      * Standard haptics feature.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 20 static
      */
     STANDARD = 0,
     /**
      * Gentle haptics feature.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 20 static
      */
     GENTLE = 1,
   }
@@ -478,16 +487,16 @@ declare namespace systemSoundManager {
    * @enum { int }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   enum ToneHapticsType {
     /**
      * Haptics in incoming call scenario for sim card 0.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     CALL_SIM_CARD_0 = 0,
 
@@ -495,8 +504,8 @@ declare namespace systemSoundManager {
      * Haptics in incoming call scenario for sim card 1.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     CALL_SIM_CARD_1 = 1,
 
@@ -504,8 +513,8 @@ declare namespace systemSoundManager {
      * Haptics in text message scenario for sim card 0.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     TEXT_MESSAGE_SIM_CARD_0 = 20,
 
@@ -513,8 +522,8 @@ declare namespace systemSoundManager {
      * Haptics in text message scenario for sim card 1.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     TEXT_MESSAGE_SIM_CARD_1 = 21,
 
@@ -522,8 +531,8 @@ declare namespace systemSoundManager {
      * Haptics in notification scenario.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     NOTIFICATION = 40,
   }
@@ -533,24 +542,24 @@ declare namespace systemSoundManager {
    * @enum {int}
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   enum ToneHapticsMode {
     /**
      * None haptics mode.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     NONE = 0,
     /**
      * Haptics is synchronized with tone.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     SYNC = 1,
 
@@ -558,8 +567,8 @@ declare namespace systemSoundManager {
      * Haptics is out of synchronize with tone.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     NON_SYNC = 2,
   }
@@ -568,8 +577,8 @@ declare namespace systemSoundManager {
    * @typedef ToneHapticsSettings
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   interface ToneHapticsSettings {
     /**
@@ -577,8 +586,8 @@ declare namespace systemSoundManager {
      * @type { ToneHapticsMode }
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     mode: ToneHapticsMode;
     /**
@@ -587,8 +596,8 @@ declare namespace systemSoundManager {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     hapticsUri?: string;
   }
@@ -598,8 +607,8 @@ declare namespace systemSoundManager {
    * @typedef ToneHapticsAttrs
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   interface ToneHapticsAttrs {
     /**
@@ -608,8 +617,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     getUri(): string;
 
@@ -619,8 +628,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     getTitle(): string;
 
@@ -630,10 +639,40 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     getFileName(): string;
+
+    /**
+     * Get gentle haptics URI.
+     * @returns { string | null } Haptics URI or null if not gentle haptics not exist.
+     * @throws{ BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    getGentleUri(): string | null;
+
+    /**
+     * Get title of gentle haptics.
+     * @returns { string | null } Haptics title or null if not gentle haptics not exist.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    getGentleTitle(): string | null;
+
+    /**
+     * Get file name of gentle haptics.
+     * @returns { string | null } Haptics file name or null if not gentle haptics not exist.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    getGentleFileName(): string | null;
   }
 
   /**
@@ -642,8 +681,8 @@ declare namespace systemSoundManager {
    * @typedef { Array<ToneHapticsAttrs> } ToneHapticsAttrsArray
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   type ToneHapticsAttrsArray = Array<ToneHapticsAttrs>;
 
@@ -653,8 +692,8 @@ declare namespace systemSoundManager {
    * @returns { SystemSoundManager } SystemSoundManager instance.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getSystemSoundManager(): SystemSoundManager;
 
@@ -663,8 +702,8 @@ declare namespace systemSoundManager {
    * @typedef SystemSoundManager
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   interface SystemSoundManager {
     /**
@@ -675,7 +714,7 @@ declare namespace systemSoundManager {
      * @param { AsyncCallback<void> } callback - Callback used to return the set uri result.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      * @useinstead systemSoundManager.SystemSoundManager#setRingtoneUri
      */
@@ -689,7 +728,7 @@ declare namespace systemSoundManager {
      * @returns { Promise<void> } Promise used to return the set uri result.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      * @useinstead systemSoundManager.SystemSoundManager#setRingtoneUri
      */
@@ -708,8 +747,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     setRingtoneUri(context: BaseContext, uri: string, type: RingtoneType): Promise<void>;
 
@@ -720,7 +759,7 @@ declare namespace systemSoundManager {
      * @param { AsyncCallback<string> } callback - Callback used to return the ringtone uri maintained in system.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      * @useinstead systemSoundManager.SystemSoundManager#getRingtoneUri
      */
@@ -733,7 +772,7 @@ declare namespace systemSoundManager {
      * @returns { Promise<string> } Promise used to return the ringtone uri maintained in system.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      * @useinstead systemSoundManager.SystemSoundManager#getRingtoneUri
      */
@@ -751,8 +790,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getRingtoneUri(context: BaseContext, type: RingtoneType): Promise<string>;
 
@@ -764,7 +803,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     getCurrentRingtoneAttribute(type: RingtoneType): Promise<ToneAttrs>;
 
@@ -780,8 +819,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getDefaultRingtoneAttrs(context: BaseContext, type: RingtoneType): Promise<ToneAttrs>;
 
@@ -797,8 +836,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getRingtoneAttrList(context: BaseContext, type: RingtoneType): Promise<ToneAttrsArray>;
 
@@ -809,7 +848,7 @@ declare namespace systemSoundManager {
      * @param { AsyncCallback<RingtonePlayer> } callback - Callback used to return a ringtone player instance.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      * @useinstead systemSoundManager.SystemSoundManager#getRingtonePlayer
      */
@@ -822,7 +861,7 @@ declare namespace systemSoundManager {
      * @returns { Promise<RingtonePlayer> } Promise used to return a ringtone player instance.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamiconly
      * @deprecated since 11
      * @useinstead systemSoundManager.SystemSoundManager#getRingtonePlayer
      */
@@ -839,8 +878,8 @@ declare namespace systemSoundManager {
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getRingtonePlayer(context: BaseContext, type: RingtoneType): Promise<RingtonePlayer>;
 
@@ -857,8 +896,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     setSystemToneUri(context: BaseContext, uri: string, type: SystemToneType): Promise<void>;
 
@@ -874,8 +913,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getSystemToneUri(context: BaseContext, type: SystemToneType): Promise<string>;
 
@@ -892,8 +931,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getDefaultSystemToneAttrs(context: BaseContext, type: SystemToneType): Promise<ToneAttrs>;
 
@@ -909,8 +948,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getSystemToneAttrList(context: BaseContext, type: SystemToneType): Promise<ToneAttrsArray>;
 
@@ -925,8 +964,8 @@ declare namespace systemSoundManager {
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getSystemTonePlayer(context: BaseContext, type: SystemToneType): Promise<SystemTonePlayer>;
 
@@ -942,8 +981,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getDefaultAlarmToneAttrs(context: BaseContext): Promise<ToneAttrs>;
 
@@ -961,8 +1000,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700001 - Tone type mismatch, e.g. tone of input uri is not an alarm tone.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     setAlarmToneUri(context: BaseContext, uri: string): Promise<void>;
 
@@ -978,8 +1017,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getAlarmToneUri(context: BaseContext): Promise<string>;
 
@@ -994,8 +1033,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getAlarmToneAttrList(context: BaseContext): Promise<ToneAttrsArray>;
 
@@ -1012,8 +1051,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700001 - Tone type mismatch, e.g. tone of uri is notification instead of alarm.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     openAlarmTone(context: BaseContext, uri: string): Promise<int>;
 
@@ -1027,7 +1066,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700007 - Parameter is invalid, e.g. the length of uriList is too long.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     openToneList(uriList: Array<string>): Promise<Array<[string, number, SystemSoundError]>>;
 
@@ -1042,8 +1081,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     close(fd: int): Promise<void>;
 
@@ -1084,8 +1123,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700006 - Insufficient ROM space.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     addCustomizedTone(context: BaseContext, toneAttr: ToneAttrs, externalUri: string): Promise<string>;
 
@@ -1134,8 +1172,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700006 - Insufficient ROM space.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     addCustomizedTone(context: BaseContext, toneAttr: ToneAttrs, fd: int, offset?: long, length?: long)
       : Promise<string>;
@@ -1155,8 +1192,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     removeCustomizedTone(context: BaseContext, uri:string): Promise<void>;
 
@@ -1171,7 +1208,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700007 - Prameter is invalid, e.g. the length of uriList is too long.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     removeCustomizedToneList(uriList: Array<string>): Promise<Array<[string, SystemSoundError]>>;
 
@@ -1188,8 +1225,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700003 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     getToneHapticsSettings(context: BaseContext, type: ToneHapticsType): Promise<ToneHapticsSettings>;
 
@@ -1208,8 +1245,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700003 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     setToneHapticsSettings(context: BaseContext, type: ToneHapticsType, settings: ToneHapticsSettings): Promise<void>;
 
@@ -1226,8 +1263,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700003 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     getToneHapticsList(context: BaseContext, isSynced: boolean): Promise<ToneHapticsAttrsArray>;
 
@@ -1246,8 +1283,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700003 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     getHapticsAttrsSyncedWithTone(context: BaseContext, toneUri: string): Promise<ToneHapticsAttrs>;
 
@@ -1265,8 +1302,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700003 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     openToneHaptics(context: BaseContext, hapticsUri: string): Promise<int>;
   }
@@ -1276,8 +1313,8 @@ declare namespace systemSoundManager {
    * @typedef { _RingtonePlayer } RingtonePlayer
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   type RingtonePlayer = _RingtonePlayer;
 
@@ -1286,8 +1323,8 @@ declare namespace systemSoundManager {
    * @typedef { _SystemTonePlayer } SystemTonePlayer
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   type SystemTonePlayer = _SystemTonePlayer;
 
@@ -1296,8 +1333,8 @@ declare namespace systemSoundManager {
    * @typedef { _RingtoneOptions } RingtoneOptions
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   type RingtoneOptions = _RingtoneOptions;
 
@@ -1306,8 +1343,8 @@ declare namespace systemSoundManager {
    * @typedef { _SystemToneOptions } SystemToneOptions
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   type SystemToneOptions = _SystemToneOptions;
 }

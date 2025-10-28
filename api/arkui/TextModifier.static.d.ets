@@ -16,20 +16,19 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 
 
 
-import { AttributeModifier } from './component/common';
-import { TextAttribute } from './component/text';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { TextAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Text Modifier
  *
  * @implements { TextAttribute, AttributeModifier<TextAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
 */
 export declare class TextModifier implements TextAttribute, AttributeModifier<TextAttribute> {}

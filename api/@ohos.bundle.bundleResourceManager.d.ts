@@ -18,13 +18,13 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import bundleManager from './@ohos.bundle.bundleManager';
 import type { AsyncCallback } from './@ohos.base';
 import type { BundleResourceInfo as _BundleResourceInfo } from './bundleManager/BundleResourceInfo';
 import type { LauncherAbilityResourceInfo as _LauncherAbilityResourceInfo } from './bundleManager/LauncherAbilityResourceInfo';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import bundleManager from './@ohos.bundle.bundleManager';
 import { AsyncCallback } from './@ohos.base';
 import { BundleResourceInfo as _BundleResourceInfo } from './bundleManager/BundleResourceInfo';
@@ -38,8 +38,8 @@ import bundleManager from './@ohos.bundle.bundleManager';
  * @namespace bundleResourceManager
  * @syscap SystemCapability.BundleManager.BundleFramework.Resource
  * @systemapi
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace bundleResourceManager {
   /**
@@ -49,8 +49,8 @@ declare namespace bundleResourceManager {
    * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   enum ResourceFlag {
     /**
@@ -58,8 +58,8 @@ declare namespace bundleResourceManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     GET_RESOURCE_INFO_ALL = 0x00000001,
 
@@ -68,8 +68,8 @@ declare namespace bundleResourceManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     GET_RESOURCE_INFO_WITH_LABEL = 0x00000002,
 
@@ -78,8 +78,8 @@ declare namespace bundleResourceManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     GET_RESOURCE_INFO_WITH_ICON = 0x00000004,
 
@@ -89,8 +89,8 @@ declare namespace bundleResourceManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     GET_RESOURCE_INFO_WITH_SORTED_BY_LABEL = 0x00000008,
 
@@ -99,8 +99,8 @@ declare namespace bundleResourceManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     GET_RESOURCE_INFO_WITH_DRAWABLE_DESCRIPTOR = 0x00000010,
 
@@ -110,8 +110,7 @@ declare namespace bundleResourceManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     GET_RESOURCE_INFO_ONLY_WITH_MAIN_ABILITY = 0x00000020
   }
@@ -129,8 +128,8 @@ declare namespace bundleResourceManager {
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getBundleResourceInfo(bundleName: string, resourceFlags?: int): BundleResourceInfo;
 
@@ -149,8 +148,8 @@ declare namespace bundleResourceManager {
    * @throws { BusinessError } 17700061 - AppIndex not in valid range or not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function getBundleResourceInfo(bundleName: string, resourceFlags?: int, appIndex?: int): BundleResourceInfo;
 
@@ -167,8 +166,8 @@ declare namespace bundleResourceManager {
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getLauncherAbilityResourceInfo(bundleName: string, resourceFlags?: int): Array<LauncherAbilityResourceInfo>;
 
@@ -188,8 +187,8 @@ declare namespace bundleResourceManager {
    * @throws { BusinessError } 17700061 - AppIndex not in valid range or not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function getLauncherAbilityResourceInfo(bundleName: string, resourceFlags?: int, appIndex?: int): Array<LauncherAbilityResourceInfo>;
 
@@ -204,8 +203,8 @@ declare namespace bundleResourceManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getAllBundleResourceInfo(resourceFlags: int, callback: AsyncCallback<Array<BundleResourceInfo>>): void;
 
@@ -220,8 +219,8 @@ declare namespace bundleResourceManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getAllBundleResourceInfo(resourceFlags: int): Promise<Array<BundleResourceInfo>>;
 
@@ -236,8 +235,8 @@ declare namespace bundleResourceManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getAllLauncherAbilityResourceInfo(resourceFlags: int, callback: AsyncCallback<Array<LauncherAbilityResourceInfo>>): void;
 
@@ -252,8 +251,8 @@ declare namespace bundleResourceManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getAllLauncherAbilityResourceInfo(resourceFlags: int): Promise<Array<LauncherAbilityResourceInfo>>;
 
@@ -274,10 +273,24 @@ declare namespace bundleResourceManager {
    * @throws { BusinessError } 17700061 - AppIndex not in valid range or not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function getExtensionAbilityResourceInfo(bundleName: string, extensionAbilityType: bundleManager.ExtensionAbilityType, resourceFlags: int, appIndex?: int): Array<LauncherAbilityResourceInfo>;
+
+  /**
+   * Obtains BundleResourceInfo of all uninstalled but retained data bundles in the system.
+   *
+   * @permission ohos.permission.GET_BUNDLE_RESOURCES
+   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information
+   *     contained in the BundleResourceInfo that will be returned.
+   * @returns { Promise<Array<BundleResourceInfo>> } Returns a list of BundleResourceInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
+   * @since 21 dynamic
+   */
+  function getAllUninstalledBundleResourceInfo(resourceFlags: int): Promise<Array<BundleResourceInfo>>;
 
   /**
    * Obtains resource info of a bundle.
@@ -285,8 +298,8 @@ declare namespace bundleResourceManager {
    * @typedef { _BundleResourceInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export type BundleResourceInfo = _BundleResourceInfo;
 
@@ -296,8 +309,8 @@ declare namespace bundleResourceManager {
    * @typedef { _LauncherAbilityResourceInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export type LauncherAbilityResourceInfo = _LauncherAbilityResourceInfo;
 }

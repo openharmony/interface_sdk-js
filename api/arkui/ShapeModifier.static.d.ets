@@ -13,13 +13,12 @@
  * limitations under the License.
  */
 
-import { AttributeModifier } from './component/common';
-import { ShapeAttribute } from './component/shape';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { ShapeAttribute } from '@ohos.arkui.component';
 
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 /**
@@ -27,6 +26,6 @@ import { ShapeAttribute } from './component/shape';
  *
  * @implements ShapeAttribute, AttributeModifier<ShapeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class ShapeModifier implements ShapeAttribute, AttributeModifier<ShapeAttribute> {}

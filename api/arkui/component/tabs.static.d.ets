@@ -17,20 +17,19 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, Optional, TranslateOptions, DividerStyle, Bindable } from './common';
-import { EdgeEffect, PageFlipMode } from './enums';
-import { Dimension, Length, ResourceColor } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
+import { EdgeEffect, PageFlipMode } from "./enums";
+import { Dimension, Length, ResourceColor } from "./units";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Declare the graphic format of the bar chart.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum BarMode {
     /**
@@ -39,7 +38,7 @@ export declare enum BarMode {
      * the total height exceeds the tab bar height.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     Scrollable = 0,
     /**
@@ -47,7 +46,7 @@ export declare enum BarMode {
      * (or bar height in the vertical layout).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     Fixed = 1
 }
@@ -56,28 +55,28 @@ export declare enum BarMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum AnimationMode {
     /**
      * Load the content of the target page before starting the switching animation.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     CONTENT_FIRST = 0,
     /**
      * Start the switching animation before loading the content of the target page.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     ACTION_FIRST = 1,
     /**
      * Disable the default switching animation.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     NO_ANIMATION = 2,
     /**
@@ -85,7 +84,7 @@ export declare enum AnimationMode {
      * and finally jump to the target page with animation.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     CONTENT_FIRST_WITH_JUMP = 3,
     /**
@@ -93,7 +92,7 @@ export declare enum AnimationMode {
      * then jump to the target page with animation, and finally load the content of the target page.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     ACTION_FIRST_WITH_JUMP = 4
 }
@@ -102,7 +101,7 @@ export declare enum AnimationMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum BarPosition {
     /**
@@ -110,7 +109,7 @@ export declare enum BarPosition {
      * When the vertical property method is set to false, the tab is at the top of the container.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     Start,
     /**
@@ -118,7 +117,7 @@ export declare enum BarPosition {
      * When the vertical property method is set to false, the tab is at the bottom of the container.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     End
 }
@@ -127,7 +126,7 @@ export declare enum BarPosition {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum LayoutStyle {
     /**
@@ -135,7 +134,7 @@ export declare enum LayoutStyle {
      * If not, the tabs are compactly centered on the tab bar and not scrollable.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     ALWAYS_CENTER = 0,
     /**
@@ -143,7 +142,7 @@ export declare enum LayoutStyle {
      * If not, the tabs are not scrollable, and the width of the tab bar is evenly distributed among all tabs.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     ALWAYS_AVERAGE_SPLIT = 1,
     /**
@@ -153,7 +152,7 @@ export declare enum LayoutStyle {
      * half the width of the tab bar with even spacing between them and are not scrollable.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     SPACE_BETWEEN_OR_CENTER = 2
 }
@@ -162,21 +161,21 @@ export declare enum LayoutStyle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum TabsCacheMode {
     /**
      * Caches the child components on both sides of the current child components.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     CACHE_BOTH_SIDE = 0,
     /**
      * Caches the latest switched child components.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     CACHE_LATEST_SWITCHED = 1
 }
@@ -184,14 +183,14 @@ export declare enum TabsCacheMode {
  * Provides methods for switching tabs.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class TabsController {
     /**
      * constructor.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor();
     /**
@@ -200,7 +199,7 @@ export declare class TabsController {
      * @param { number } value - Index of the tab. If this parameter is set to a value less than 0
      * or greater than the maximum number, the default value 0 is used.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     changeIndex(value: number): void;
     /**
@@ -213,7 +212,7 @@ export declare class TabsController {
      * <br> 2. The parameter is an empty array.
      * <br> 3. The parameter contains an invalid index.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     preloadItems(indices: Optional<Array<number>>): Promise<void>;
     /**
@@ -221,7 +220,7 @@ export declare class TabsController {
      *
      * @param { TranslateOptions } translate - translate options
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     setTabBarTranslate(translate: TranslateOptions): void;
     /**
@@ -229,7 +228,7 @@ export declare class TabsController {
      *
      * @param { number } opacity - opacity
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     setTabBarOpacity(opacity: number): void;
 }
@@ -238,7 +237,7 @@ export declare class TabsController {
  *
  * @typedef TabsOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface TabsOptions {
     /**
@@ -246,7 +245,7 @@ export declare interface TabsOptions {
      *
      * @type { ?BarPosition }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     barPosition?: BarPosition;
     /**
@@ -254,7 +253,7 @@ export declare interface TabsOptions {
      *
      * @type { ?(number | Bindable<number>) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     index?: number | Bindable<number>;
     /**
@@ -262,7 +261,7 @@ export declare interface TabsOptions {
      *
      * @type { ?TabsController }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     controller?: TabsController;
 }
@@ -271,7 +270,7 @@ export declare interface TabsOptions {
  *
  * @interface TabsAnimationEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface TabsAnimationEvent {
     /**
@@ -280,7 +279,7 @@ export declare interface TabsAnimationEvent {
      * @type { number }
      * @default 0.0 vp
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     currentOffset: number;
     /**
@@ -289,7 +288,7 @@ export declare interface TabsAnimationEvent {
      * @type { number }
      * @default 0.0 vp
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     targetOffset: number;
     /**
@@ -298,7 +297,7 @@ export declare interface TabsAnimationEvent {
      * @type { number }
      * @default 0.0 vp/s
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     velocity: number;
 }
@@ -307,7 +306,7 @@ export declare interface TabsAnimationEvent {
  *
  * @interface BarGridColumnOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface BarGridColumnOptions {
     /**
@@ -317,7 +316,7 @@ export interface BarGridColumnOptions {
      * @type { ?number }
      * @default -1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     sm?: number;
     /**
@@ -327,7 +326,7 @@ export interface BarGridColumnOptions {
      * @type { ?number }
      * @default -1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     md?: number;
     /**
@@ -337,7 +336,7 @@ export interface BarGridColumnOptions {
      * @type { ?number }
      * @default -1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     lg?: number;
     /**
@@ -346,7 +345,7 @@ export interface BarGridColumnOptions {
      * @type { ?Dimension }
      * @default 24vp
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     margin?: Dimension;
     /**
@@ -355,7 +354,7 @@ export interface BarGridColumnOptions {
      * @type { ?Dimension }
      * @default 24vp
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     gutter?: Dimension;
 }
@@ -364,7 +363,7 @@ export interface BarGridColumnOptions {
  *
  * @interface ScrollableBarModeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface ScrollableBarModeOptions {
     /**
@@ -373,7 +372,7 @@ export interface ScrollableBarModeOptions {
      * @type { ?Dimension }
      * @default 0vp
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     margin?: Dimension;
     /**
@@ -382,7 +381,7 @@ export interface ScrollableBarModeOptions {
      * @type { ?LayoutStyle }
      * @default LayoutStyle.ALWAYS_CENTER
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     nonScrollableLayoutStyle?: LayoutStyle;
 }
@@ -394,7 +393,7 @@ export interface ScrollableBarModeOptions {
  * @param { number } targetIndex - The target index value of the tab that when animation start.
  * @param { TabsAnimationEvent } extraInfo - The extra callback info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type OnTabsAnimationStartCallback = (index: number, targetIndex: number, extraInfo: TabsAnimationEvent) => void;
 /**
@@ -404,7 +403,7 @@ export type OnTabsAnimationStartCallback = (index: number, targetIndex: number, 
  * @param { number } index - The index value of the tab that when animation end.
  * @param { TabsAnimationEvent } extraInfo - The extra callback info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type OnTabsAnimationEndCallback = (index: number, extraInfo: TabsAnimationEvent) => void;
 /**
@@ -414,7 +413,7 @@ export type OnTabsAnimationEndCallback = (index: number, extraInfo: TabsAnimatio
  * @param { number } index - The index value of the tab before gesture swipe.
  * @param { TabsAnimationEvent } extraInfo - The extra callback info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type OnTabsGestureSwipeCallback = (index: number, extraInfo: TabsAnimationEvent) => void;
 /**
@@ -425,7 +424,7 @@ export type OnTabsGestureSwipeCallback = (index: number, extraInfo: TabsAnimatio
  * @param { number } to - The index value of the target tab when the animation begins.
  * @returns { TabContentAnimatedTransition | undefined } Returns animated transition options of tab or undefined.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type TabsCustomContentTransitionCallback = (from: number, to: number) => TabContentAnimatedTransition | undefined;
 /**
@@ -438,7 +437,7 @@ export type TabsCustomContentTransitionCallback = (from: number, to: number) => 
  * Tabs can change from currentIndex to comingIndex if function return true.
  * Tabs can not change from currentIndex to comingIndex if function return false.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type OnTabsContentWillChangeCallback = (currentIndex: number, comingIndex: number) => boolean;
 
@@ -448,7 +447,7 @@ export type OnTabsContentWillChangeCallback = (currentIndex: number, comingIndex
  * @extends CommonMethod
  * @interface TabsAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface TabsAttribute extends CommonMethod {
     /**
@@ -457,27 +456,28 @@ export declare interface TabsAttribute extends CommonMethod {
      * @param { boolean } value - Whether to use vertical tabs. Default value is false.
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    vertical(value: boolean | undefined): this;
+    default vertical(value: boolean | undefined): this;
     /**
      * Sets the position of the Tabs component.
      *
      * @param { BarPosition } value - Position of the Tabs component. Default value is BarPosition.Start.
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
+     * @noninterop
      */
-    barPosition(value: BarPosition | undefined): this;
+    default barPosition(value: BarPosition | undefined): this;
     /**
      * Sets whether the tabs are scrollable.
      *
      * @param { boolean } value - Whether the tabs are scrollable. Default value is true.
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    scrollable(value: boolean | undefined): this;
+    default scrollable(value: boolean | undefined): this;
     /**
      * Sets the tab bar layout mode.
      *
@@ -486,9 +486,9 @@ export declare interface TabsAttribute extends CommonMethod {
      * This parameter is effective only when the tab bar is in horizontal scrollable mode.
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    barMode(value: BarMode | undefined, options?: ScrollableBarModeOptions | undefined): this;
+    default barMode(value: BarMode | undefined, options?: ScrollableBarModeOptions | undefined): this;
     /**
      * Sets the width of the tab bar.
      * Notice: barWidth only supports Number type on 7, supports Length type since 8.
@@ -497,9 +497,10 @@ export declare interface TabsAttribute extends CommonMethod {
      * or greater than the width of the Tabs component, the default value is used.
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
+     * @noninterop
      */
-    barWidth(value: Length | undefined): this;
+    default barWidth(value: Length | undefined): this;
     /**
      * Sets the height of the tab bar.
      * Notice: barHeight only supports Number type on 7, supports Length type since 8.
@@ -508,9 +509,10 @@ export declare interface TabsAttribute extends CommonMethod {
      * greater than the height of the Tabs component, the default value is used.
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
+     * @noninterop
      */
-    barHeight(value: Length | undefined): this;
+    default barHeight(value: Length | undefined): this;
     /**
      * Sets the length of time required to complete the tab switching animation,
      * which is initiated by clicking a specific tab or by calling the changeIndex API of TabsController.
@@ -518,9 +520,9 @@ export declare interface TabsAttribute extends CommonMethod {
      * @param { number } value
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    animationDuration(value: number | undefined): this;
+    default animationDuration(value: number | undefined): this;
     /**
      * Sets the animation mode for tab switching initiated by clicking a specific tab or
      * by calling the changeIndex API of TabsController.
@@ -529,9 +531,9 @@ export declare interface TabsAttribute extends CommonMethod {
      * Default value is AnimationMode.CONTENT_FIRST.
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    animationMode(mode: AnimationMode | undefined): this;
+    default animationMode(mode: AnimationMode | undefined): this;
     /**
      * Sets the edge effect used when the boundary of the scrolling area is reached.
      *
@@ -539,9 +541,9 @@ export declare interface TabsAttribute extends CommonMethod {
      * Default value is EdgeEffect.Spring.
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    edgeEffect(edgeEffect: EdgeEffect | undefined): this;
+    default edgeEffect(edgeEffect: EdgeEffect | undefined): this;
     /**
      * Triggered when a tab is switched.
      * Anonymous Object Rectification
@@ -557,18 +559,18 @@ export declare interface TabsAttribute extends CommonMethod {
      * @param { Callback<number> } event
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    onChange(event: Callback<number> | undefined): this;
+    default onChange(event: Callback<number> | undefined): this;
     /**
      * Called when a new tab becomes selected. Animation is not necessarily complete.
      *
      * @param { Callback<number> } event - callback to notify which index has been selected
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    onSelected(event: Callback<number> | undefined): this;
+    default onSelected(event: Callback<number> | undefined): this;
     /**
      * Triggered when a tab is clicked.
      * Anonymous Object Rectification
@@ -576,18 +578,18 @@ export declare interface TabsAttribute extends CommonMethod {
      * @param { Callback<number> } event
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    onTabBarClick(event: Callback<number> | undefined): this;
+    default onTabBarClick(event: Callback<number> | undefined): this;
     /**
      * Called when a new tab becomes unselected. Animation is not necessarily complete.
      *
      * @param { Callback<number> } event - callback to notify which index has been unselected
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    onUnselected(event: Callback<number> | undefined): this;
+    default onUnselected(event: Callback<number> | undefined): this;
     /**
      * Triggered when the tab switching animation starts.
      * Anonymous Object Rectification
@@ -595,9 +597,9 @@ export declare interface TabsAttribute extends CommonMethod {
      * @param { OnTabsAnimationStartCallback } handler
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    onAnimationStart(handler: OnTabsAnimationStartCallback | undefined): this;
+    default onAnimationStart(handler: OnTabsAnimationStartCallback | undefined): this;
     /**
      * Triggered when the tab switching animation ends.
      * Anonymous Object Rectification
@@ -605,9 +607,9 @@ export declare interface TabsAttribute extends CommonMethod {
      * @param { OnTabsAnimationEndCallback } handler
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    onAnimationEnd(handler: OnTabsAnimationEndCallback | undefined): this;
+    default onAnimationEnd(handler: OnTabsAnimationEndCallback | undefined): this;
     /**
      * Triggered on a frame-by-frame basis when the tab is switched by a swipe.
      * Anonymous Object Rectification
@@ -615,9 +617,9 @@ export declare interface TabsAttribute extends CommonMethod {
      * @param { OnTabsGestureSwipeCallback } handler
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    onGestureSwipe(handler: OnTabsGestureSwipeCallback | undefined): this;
+    default onGestureSwipe(handler: OnTabsGestureSwipeCallback | undefined): this;
     /**
      * Sets whether the tab fades out when it exceeds the container width.
      *
@@ -630,27 +632,28 @@ export declare interface TabsAttribute extends CommonMethod {
      * @param { boolean } value - Whether the tab fades out when it exceeds the container width. Default value is true.
      * @returns { TabsAttribute } the attribute of the tabs
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    fadingEdge(value: boolean | undefined): this;
+    default fadingEdge(value: boolean | undefined): this;
     /**
      * Set the divider between tab bar and tab content.
      *
      * @param { DividerStyle | null } value - indicates the style of the indicator. Default value is null.
      * @returns { TabsAttribute } the attribute of the tabs
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
+     * @noninterop
      */
-    divider(value: DividerStyle | null | undefined): this;
+    default divider(value: DividerStyle | null | undefined): this;
     /**
      * Sets whether the tab bar is superimposed on the TabContent component after having its background blurred.
      *
      * @param { boolean } value - indicates whether the tab bar overlaps with the tab content. Default value is false.
      * @returns { TabsAttribute } the attribute of the tabs
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    barOverlap(value: boolean | undefined): this;
+    default barOverlap(value: boolean | undefined): this;
     /**
      * Set the background color of the tab bar.
      *
@@ -658,9 +661,9 @@ export declare interface TabsAttribute extends CommonMethod {
      * Default value is Color.Transparent.
      * @returns { TabsAttribute } the attribute of the tabs
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    barBackgroundColor(value: ResourceColor | undefined): this;
+    default barBackgroundColor(value: ResourceColor | undefined): this;
     /**
      * Sets the visible area of the tab bar in grid mode.
      *
@@ -671,9 +674,9 @@ export declare interface TabsAttribute extends CommonMethod {
      * @param { BarGridColumnOptions } value - indicates the bar grid alignment options.
      * @returns { TabsAttribute } the attribute of the tabs
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    barGridAlign(value: BarGridColumnOptions | undefined): this;
+    default barGridAlign(value: BarGridColumnOptions | undefined): this;
     /**
      * Custom tab content transition animation.
      * When undefined is set, this interface does not take effect.
@@ -703,28 +706,27 @@ export declare interface TabsAttribute extends CommonMethod {
      * @param { TabsCustomContentTransitionCallback } delegate - Custom content transition animation.
      * @returns { TabsAttribute } The attribute of the tabs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    customContentTransition(delegate: TabsCustomContentTransitionCallback | undefined): this;
+    default customContentTransition(delegate: TabsCustomContentTransitionCallback | undefined): this;
     /**
      * Sets the background blur style of the tab bar.
      *
      * @param { BlurStyle } value - Background blur style of the tab bar. Default value is BlurStyle.NONE.
      * @returns { TabsAttribute } the attribute of the tabs
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    barBackgroundBlurStyle(value: BlurStyle | undefined): this;
+    default barBackgroundBlurStyle(value: BlurStyle | undefined): this;
     /**
      * Setting page flip mode on mouse wheel event.
      *
-     * @param { Optional<PageFlipMode> } mode - page flip mode on mouse wheel event.
-     * <br>The default value is PageFlipMode.CONTINUOUS.
+     * @param { Optional<PageFlipMode> } mode - page flip mode on mouse wheel event. The default value is PageFlipMode.CONTINUOUS.
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    pageFlipMode(mode: PageFlipMode | undefined): this;
+    default pageFlipMode(mode: PageFlipMode | undefined): this;
     /**
      * Set the BlurStyle of the tab bar.
      *
@@ -732,18 +734,18 @@ export declare interface TabsAttribute extends CommonMethod {
      * @param { BackgroundBlurStyleOptions } options - options indicate the options for the tab bar
      * @returns { TabsAttribute } the attribute of the tabs
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    barBackgroundBlurStyle(style: BlurStyle | undefined, options: BackgroundBlurStyleOptions | undefined): this;
+    default barBackgroundBlurStyle(style: BlurStyle | undefined, options: BackgroundBlurStyleOptions | undefined): this;
     /**
      * Set the BackgroundEffect of the tab bar.
      *
      * @param { BackgroundEffectOptions } options - options indicate the options for the tab bar
      * @returns { TabsAttribute } the attribute of the tabs
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    barBackgroundEffect(options: BackgroundEffectOptions | undefined): this;
+    default barBackgroundEffect(options: BackgroundEffectOptions | undefined): this;
     /**
      * Triggered when a new page is about to be displayed.
      * Anonymous Object Rectification
@@ -761,9 +763,9 @@ export declare interface TabsAttribute extends CommonMethod {
      * @param { OnTabsContentWillChangeCallback } handler
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    onContentWillChange(handler: OnTabsContentWillChangeCallback | undefined): this;
+    default onContentWillChange(handler: OnTabsContentWillChangeCallback | undefined): this;
     /**
      * Sets the maximum number of child components to be cached.
      *
@@ -771,9 +773,9 @@ export declare interface TabsAttribute extends CommonMethod {
      * @param { TabsCacheMode } mode - the mode of caching child components.
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    cachedMaxCount(count: number | undefined, mode: TabsCacheMode | undefined): this;
+    default cachedMaxCount(count: number | undefined, mode: TabsCacheMode | undefined): this;
 
     /**
      * Sets the attribute modifier to Tabs.
@@ -782,16 +784,17 @@ export declare interface TabsAttribute extends CommonMethod {
      *  the input modifier.
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
+     * @noninterop
      */ 
-    attributeModifier(modifier: AttributeModifier<TabsAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default attributeModifier(modifier: AttributeModifier<TabsAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 /**
  * Defines the Tab Content animated transition options.
  *
  * @interface TabContentAnimatedTransition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface TabContentAnimatedTransition {
     /**
@@ -801,7 +804,7 @@ export declare interface TabContentAnimatedTransition {
      * @type { ?number }
      * @default 1000 ms
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     timeout?: number;
     /**
@@ -810,7 +813,7 @@ export declare interface TabContentAnimatedTransition {
      *
      * @type { Callback<TabContentTransitionProxy> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     transition: Callback<TabContentTransitionProxy>;
 }
@@ -819,7 +822,7 @@ export declare interface TabContentAnimatedTransition {
  *
  * @interface TabContentTransitionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface TabContentTransitionProxy {
     /**
@@ -827,7 +830,7 @@ export declare interface TabContentTransitionProxy {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     from: number;
     /**
@@ -835,14 +838,14 @@ export declare interface TabContentTransitionProxy {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     to: number;
     /**
      * Notifies Tabs component the custom content transition animation is complete.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     finishTransition(): void;
 }
@@ -854,7 +857,7 @@ export declare interface TabContentTransitionProxy {
  * @param { function } [content_] - container
  * @returns { FlowItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 @memo
 @ComponentBuilder

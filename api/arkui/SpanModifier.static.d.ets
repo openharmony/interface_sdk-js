@@ -16,20 +16,19 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 
 
 
-import { AttributeModifier } from './component/common';
-import { SpanAttribute } from './component/span';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { SpanAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Span Modifier
  *
  * @implements { SpanAttribute, AttributeModifier<SpanAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class SpanModifier implements SpanAttribute, AttributeModifier<SpanAttribute> {}

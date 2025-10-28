@@ -50,7 +50,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface CounterInterface {
   /**
@@ -85,7 +85,7 @@ interface CounterInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (): CounterAttribute;
 }
@@ -122,7 +122,7 @@ interface CounterInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
@@ -173,7 +173,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onInc(event: VoidCallback): CounterAttribute;
 
@@ -225,7 +225,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onDec(event: VoidCallback): CounterAttribute;
 
@@ -246,7 +246,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   enableDec(value: boolean): CounterAttribute;
 
@@ -267,7 +267,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   enableInc(value: boolean): CounterAttribute;
 }
@@ -300,7 +300,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const CounterInstance: CounterAttribute;
 
@@ -332,6 +332,6 @@ declare const CounterInstance: CounterAttribute;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Counter: CounterInterface;

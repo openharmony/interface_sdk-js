@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { IndicatorComponentController } from './indicatorcomponent';
@@ -30,14 +29,14 @@ import { memo, ComponentBuilder } from './../stateManagement/runtime';
  * Provides methods for switching components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class SwiperController {
   /**
    * constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   constructor();
 
@@ -45,7 +44,7 @@ export declare class SwiperController {
    * Called when the next child component is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   showNext(): void;
 
@@ -53,7 +52,7 @@ export declare class SwiperController {
    * Called when the previous subcomponent is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   showPrevious(): void;
 
@@ -66,7 +65,7 @@ export declare class SwiperController {
    *     true is equivalent to SwiperAnimationMode.DEFAULT_ANIMATION,
    *     false is equivalent to SwiperAnimationMode.NO_ANIMATION.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   changeIndex(index: number | undefined, animationMode?: SwiperAnimationMode | boolean): void;
 
@@ -75,7 +74,7 @@ export declare class SwiperController {
    *
    * @param { ?VoidCallback } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   finishAnimation(callback?: VoidCallback): void;
 
@@ -91,7 +90,7 @@ export declare class SwiperController {
    * <br> 3. The parameter contains an invalid index.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   preloadItems(indices: Array<number> | undefined): Promise<void>;
 }
@@ -100,7 +99,7 @@ export declare class SwiperController {
  * Defines the indicator class.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class Indicator<T> {
   /**
@@ -111,7 +110,7 @@ export declare class Indicator<T> {
    *     the size of the swiper, undefined means setting to default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   left(value: Length | undefined): T;
 
@@ -123,7 +122,7 @@ export declare class Indicator<T> {
    *     the size of the swiper, undefined means setting to default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   top(value: Length | undefined): T;
 
@@ -135,7 +134,7 @@ export declare class Indicator<T> {
    *     the size of the swiper, undefined means setting to default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   right(value: Length | undefined): T;
 
@@ -147,7 +146,7 @@ export declare class Indicator<T> {
    *     the size of the swiper, undefined means setting to default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottom(value: Length | undefined): T;
 
@@ -161,7 +160,7 @@ export declare class Indicator<T> {
    * @param { boolean } ignoreSize - ignore the size of the indicator.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottom(bottom: LengthMetrics | Length | undefined, ignoreSize: boolean): T;
 
@@ -173,7 +172,7 @@ export declare class Indicator<T> {
    *     default value is 0.0_vp, undefined means setting to default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   start(value: LengthMetrics | undefined): T;
 
@@ -185,7 +184,7 @@ export declare class Indicator<T> {
    *     to the right in LTR, default value is 0.0_vp, undefined means setting to default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   end(value: LengthMetrics | undefined): T;
 
@@ -195,7 +194,7 @@ export declare class Indicator<T> {
    * @returns { DotIndicator }
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static dot(): DotIndicator;
 
@@ -205,7 +204,7 @@ export declare class Indicator<T> {
    * @returns { DigitIndicator }
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static digit(): DigitIndicator;
 }
@@ -215,14 +214,14 @@ export declare class Indicator<T> {
  *
  * @extends Indicator<DotIndicator>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class DotIndicator extends Indicator<DotIndicator> {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   constructor();
 
@@ -233,7 +232,7 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
    *     undefined means setting to default value.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   itemWidth(value: Length | undefined): DotIndicator;
 
@@ -244,7 +243,7 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
    *     undefined means setting to default value.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   itemHeight(value: Length | undefined): DotIndicator;
 
@@ -255,7 +254,7 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
    *     undefined means setting to default value.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   selectedItemWidth(value: Length | undefined): DotIndicator;
 
@@ -266,7 +265,7 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
    *     undefined means setting to default value.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   selectedItemHeight(value: Length | undefined): DotIndicator;
 
@@ -277,7 +276,7 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
    *     undefined means setting to default value.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   mask(value: boolean | undefined): DotIndicator;
 
@@ -288,7 +287,7 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
    *     undefined means setting to default value.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   color(value: ResourceColor | undefined): DotIndicator;
 
@@ -299,7 +298,7 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
    *     undefined means setting to default value.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   selectedColor(value: ResourceColor | undefined): DotIndicator;
 
@@ -310,7 +309,7 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
    *     default value is 6, undefined means setting to default value.
    * @returns { DotIndicator } return the DotIndicator
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   maxDisplayCount(maxDisplayCount: number | undefined): DotIndicator;
 
@@ -321,7 +320,7 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
    *     undefined means setting to default value.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   space(space: LengthMetrics | undefined): DotIndicator;
 }
@@ -331,7 +330,7 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
  *
  * @typedef SwiperAutoFill
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface SwiperAutoFill {
   /**
@@ -339,7 +338,7 @@ export declare interface SwiperAutoFill {
    *
    * @type { VP }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   minSize: VP;
 }
@@ -349,14 +348,14 @@ export declare interface SwiperAutoFill {
  *
  * @extends Indicator<DigitIndicator>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class DigitIndicator extends Indicator<DigitIndicator> {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   constructor();
 
@@ -367,7 +366,7 @@ export declare class DigitIndicator extends Indicator<DigitIndicator> {
    *     undefined means setting to default value.
    * @returns { DigitIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   fontColor(value: ResourceColor | undefined): DigitIndicator;
 
@@ -378,7 +377,7 @@ export declare class DigitIndicator extends Indicator<DigitIndicator> {
    *     default value is { #FF182431 }, undefined means setting to default value.
    * @returns { DigitIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   selectedFontColor(value: ResourceColor | undefined): DigitIndicator;
 
@@ -389,7 +388,7 @@ export declare class DigitIndicator extends Indicator<DigitIndicator> {
    *     default value is { size: 14, weight: FontWeight.Normal }, undefined means setting to default value.
    * @returns { DigitIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   digitFont(value: Font | undefined): DigitIndicator;
 
@@ -400,7 +399,7 @@ export declare class DigitIndicator extends Indicator<DigitIndicator> {
    *     default value is { size: 14, weight: FontWeight.Normal }, undefined means setting to default value.
    * @returns { DigitIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   selectedDigitFont(value: Font | undefined): DigitIndicator;
 }
@@ -410,7 +409,7 @@ export declare class DigitIndicator extends Indicator<DigitIndicator> {
  *
  * @interface ArrowStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ArrowStyle {
   /**
@@ -419,7 +418,7 @@ export declare interface ArrowStyle {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   showBackground?: boolean;
 
@@ -430,7 +429,7 @@ export declare interface ArrowStyle {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   isSidebarMiddle?: boolean;
 
@@ -441,7 +440,7 @@ export declare interface ArrowStyle {
    * @type { ?Length }
    * @default When isSidebarMiddle is false, the default value is 24vp, Otherwise,the default value is 32vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   backgroundSize?: Length;
 
@@ -451,7 +450,7 @@ export declare interface ArrowStyle {
    * @type { ?ResourceColor }
    * @default When isSidebarMiddle is false, the default value is #00000000, Otherwise, the default value is #19182431
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   backgroundColor?: ResourceColor;
 
@@ -463,7 +462,7 @@ export declare interface ArrowStyle {
    * @type { ?Length }
    * @default When isSidebarMiddle is false, the default value is 18vp, Otherwise, the default value is 24vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   arrowSize?: Length;
 
@@ -473,7 +472,7 @@ export declare interface ArrowStyle {
    * @type { ?ResourceColor }
    * @default #182431
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   arrowColor?: ResourceColor;
 }
@@ -483,14 +482,14 @@ export declare interface ArrowStyle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum SwiperDisplayMode {
   /**
    * Carousel map extension.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   STRETCH
 }
@@ -500,7 +499,7 @@ export declare enum SwiperDisplayMode {
  *
  * @interface SwiperAnimationEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface SwiperAnimationEvent {
   /**
@@ -509,7 +508,7 @@ export declare interface SwiperAnimationEvent {
    * @type { number }
    * @default 0.0 vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   currentOffset: number;
 
@@ -519,7 +518,7 @@ export declare interface SwiperAnimationEvent {
    * @type { number }
    * @default 0.0 vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   targetOffset: number;
 
@@ -529,7 +528,7 @@ export declare interface SwiperAnimationEvent {
    * @type { number }
    * @default 0.0 vp/s
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   velocity: number;
 }
@@ -539,7 +538,7 @@ export declare interface SwiperAnimationEvent {
  *
  * @interface AutoPlayOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface AutoPlayOptions {
   /**
@@ -548,7 +547,7 @@ export declare interface AutoPlayOptions {
    * @type { boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   stopWhenTouched: boolean;
 }
@@ -558,14 +557,14 @@ export declare interface AutoPlayOptions {
 
  * @enum { number } SwiperNestedScrollMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum SwiperNestedScrollMode {
   /**
    * Only Self response scrolling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   SELF_ONLY = 0,
 
@@ -573,7 +572,7 @@ export declare enum SwiperNestedScrollMode {
    * Self priority response scrolling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   SELF_FIRST = 1
 }
@@ -583,14 +582,14 @@ export declare enum SwiperNestedScrollMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum SwiperAnimationMode {
   /**
    * Jump to target index without animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   NO_ANIMATION = 0,
 
@@ -598,7 +597,7 @@ export declare enum SwiperAnimationMode {
    * Scroll to target index with animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   DEFAULT_ANIMATION = 1,
 
@@ -607,7 +606,7 @@ export declare enum SwiperAnimationMode {
    * then scroll to target index with animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   FAST_ANIMATION = 2
 }
@@ -620,7 +619,7 @@ export declare enum SwiperAnimationMode {
  * @param { number } targetIndex - The target index value of the swiper page that when animation start.
  * @param { SwiperAnimationEvent } extraInfo - The extra callback info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type OnSwiperAnimationStartCallback = (index: number, targetIndex: number,
   extraInfo: SwiperAnimationEvent) => void;
@@ -632,7 +631,7 @@ export type OnSwiperAnimationStartCallback = (index: number, targetIndex: number
  * @param { number } index - The index value of the swiper page that when animation end.
  * @param { SwiperAnimationEvent } extraInfo - The extra callback info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type OnSwiperAnimationEndCallback = (index: number, extraInfo: SwiperAnimationEvent) => void;
 
@@ -643,7 +642,7 @@ export type OnSwiperAnimationEndCallback = (index: number, extraInfo: SwiperAnim
  * @param { number } index - The index value of the swiper page before gesture swipe.
  * @param { SwiperAnimationEvent } extraInfo - The extra callback info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type OnSwiperGestureSwipeCallback = (index: number, extraInfo: SwiperAnimationEvent) => void;
 
@@ -652,7 +651,7 @@ export type OnSwiperGestureSwipeCallback = (index: number, extraInfo: SwiperAnim
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface SwiperAttribute extends CommonMethod {
   /**
@@ -661,7 +660,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { number | Bindable<number> | undefined } value
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default index(value: number | Bindable<number> | undefined): this;
 
@@ -672,7 +671,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    *     default value is false, undefined means setting to default value.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default autoPlay(value: boolean | undefined): this;
 
@@ -683,7 +682,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { AutoPlayOptions | undefined } options - autoPlay related options
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default autoPlay(autoPlay: boolean | undefined, options: AutoPlayOptions | undefined): this;
 
@@ -693,7 +692,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { number | undefined } value
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default interval(value: number | undefined): this;
 
@@ -704,7 +703,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * the style value or show indicator of the swiper indicator.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default indicator(indicator: IndicatorComponentController | DotIndicator | DigitIndicator | boolean | undefined): this;
 
@@ -715,7 +714,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { boolean | undefined } [isHoverShow] - arrow is display when mouse hover in indicator hotspot.
    * @returns { SwiperAttribute } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default displayArrow(value: ArrowStyle | boolean | undefined, isHoverShow?: boolean | undefined): this;
 
@@ -725,7 +724,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { boolean | undefined } value
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default loop(value: boolean | undefined): this;
 
@@ -735,7 +734,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { number | undefined } value
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default duration(value: number | undefined): this;
 
@@ -745,7 +744,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { boolean | undefined } value
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default vertical(value: boolean | undefined): this;
 
@@ -755,7 +754,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { number | string | undefined } value
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default itemSpace(value: number | string | undefined): this;
 
@@ -765,7 +764,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { SwiperDisplayMode | undefined } value
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default displayMode(value: SwiperDisplayMode | undefined): this;
 
@@ -775,7 +774,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { number | undefined } value
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default cachedCount(value: number | undefined): this;
 
@@ -786,7 +785,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { boolean | undefined } isShown - whether to show the nodes in the cache.
    * @returns { SwiperAttribute } the attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default cachedCount(count: number | undefined, isShown: boolean | undefined): this;
 
@@ -804,7 +803,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { boolean | undefined } [swipeByGroup] - if swipe by group.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default displayCount(value: number | string | SwiperAutoFill | undefined, swipeByGroup?: boolean | undefined): this;
 
@@ -814,7 +813,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { EdgeEffect | undefined } value
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default effectMode(value: EdgeEffect | undefined): this;
 
@@ -824,7 +823,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { boolean | undefined } value
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default disableSwipe(value: boolean | undefined): this;
 
@@ -836,7 +835,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { Curve | string | ICurve | undefined } value
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default curve(value: Curve | string | ICurve | undefined): this;
 
@@ -846,7 +845,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { Callback<number> | undefined } event
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default onChange(event: Callback<number> | undefined): this;
 
@@ -856,7 +855,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { Callback<number> | undefined } event - callback to notify which index has been selected
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default onSelected(event: Callback<number> | undefined): this;
 
@@ -868,7 +867,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { boolean | undefined } [ignoreBlank] - Whether to hide(ignore) the previous margin on the first page in non-loop scenarios.
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default prevMargin(value: Length | undefined, ignoreBlank?: boolean | undefined): this;
 
@@ -880,7 +879,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { boolean | undefined } [ignoreBlank] - Whether to hide(ignore) the next margin on the last page in non-loop scenarios.
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default nextMargin(value: Length | undefined, ignoreBlank?: boolean | undefined): this;
 
@@ -890,7 +889,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { Callback<number> | undefined } event - callback to notify which index has been unselected
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default onUnselected(event: Callback<number> | undefined): this;
 
@@ -900,7 +899,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { OnSwiperAnimationStartCallback | undefined } event
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default onAnimationStart(event: OnSwiperAnimationStartCallback | undefined): this;
 
@@ -910,7 +909,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { OnSwiperAnimationEndCallback | undefined } event
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default onAnimationEnd(event: OnSwiperAnimationEndCallback | undefined): this;
 
@@ -920,7 +919,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { OnSwiperGestureSwipeCallback | undefined } event
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default onGestureSwipe(event: OnSwiperGestureSwipeCallback | undefined): this;
 
@@ -930,7 +929,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { SwiperNestedScrollMode | undefined } value - mode for nested scrolling.
    * @returns { SwiperAttribute } the attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default nestedScroll(value: SwiperNestedScrollMode | undefined): this;
 
@@ -940,7 +939,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { SwiperContentAnimatedTransition | undefined } transition - custom content transition animation.
    * @returns { SwiperAttribute } the attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default customContentTransition(transition: SwiperContentAnimatedTransition | undefined): this;
 
@@ -954,7 +953,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * mainAxisLength is the swiper main axis length for calculating position.
    * @returns { SwiperAttribute } the attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default onContentDidScroll(handler: ContentDidScrollCallback | undefined): this;
 
@@ -964,7 +963,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { boolean | undefined } value - Whether the indicator is interactive.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default indicatorInteractive(value: boolean | undefined): this;
 
@@ -974,7 +973,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { PageFlipMode | undefined } mode - page flip mode on mouse wheel event. The default value is PageFlipMode.CONTINUOUS.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default pageFlipMode(mode: PageFlipMode | undefined): this;
 
@@ -984,7 +983,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @param { ContentWillScrollCallback | undefined } handler - callback of will scroll.
    * @returns { SwiperAttribute } the attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default onContentWillScroll(handler: ContentWillScrollCallback | undefined): this;
 
@@ -995,7 +994,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    *     The attribute modifier of swiper.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   default attributeModifier(modifier: AttributeModifier<SwiperAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -1005,7 +1004,7 @@ export declare interface SwiperAttribute extends CommonMethod {
  *
  * @interface SwiperContentAnimatedTransition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface SwiperContentAnimatedTransition {
   /**
@@ -1015,7 +1014,7 @@ export declare interface SwiperContentAnimatedTransition {
    * @type { ?number }
    * @default 0 ms
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   timeout?: number;
 
@@ -1024,7 +1023,7 @@ export declare interface SwiperContentAnimatedTransition {
    *
    * @type { Callback<SwiperContentTransitionProxy> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   transition: Callback<SwiperContentTransitionProxy>;
 }
@@ -1034,7 +1033,7 @@ export declare interface SwiperContentAnimatedTransition {
  *
  * @interface SwiperContentTransitionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface SwiperContentTransitionProxy {
   /**
@@ -1042,7 +1041,7 @@ export declare interface SwiperContentTransitionProxy {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   selectedIndex: number;
 
@@ -1051,7 +1050,7 @@ export declare interface SwiperContentTransitionProxy {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   index: number;
 
@@ -1060,7 +1059,7 @@ export declare interface SwiperContentTransitionProxy {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   position: number;
 
@@ -1069,7 +1068,7 @@ export declare interface SwiperContentTransitionProxy {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   mainAxisLength: number;
 
@@ -1077,7 +1076,7 @@ export declare interface SwiperContentTransitionProxy {
    * Notifies Swiper page the custom content transition animation is complete.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   finishTransition(): void;
 }
@@ -1087,7 +1086,7 @@ export declare interface SwiperContentTransitionProxy {
  *
  * @interface SwiperContentWillScrollResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface SwiperContentWillScrollResult {
   /**
@@ -1095,7 +1094,7 @@ export declare interface SwiperContentWillScrollResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   currentIndex: number;
 
@@ -1104,7 +1103,7 @@ export declare interface SwiperContentWillScrollResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   comingIndex: number;
 
@@ -1114,7 +1113,7 @@ export declare interface SwiperContentWillScrollResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   offset: number;
 }
@@ -1128,7 +1127,7 @@ export declare interface SwiperContentWillScrollResult {
  * @param { number } position - the moving ratio of the swiper content from the start position of the swiper main axis.
  * @param { number } mainAxisLength - the swiper main axis length for calculating position.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type ContentDidScrollCallback = (selectedIndex: number, index: number, position: number,
   mainAxisLength: number) => void;
@@ -1140,7 +1139,7 @@ export type ContentDidScrollCallback = (selectedIndex: number, index: number, po
  * @param { SwiperContentWillScrollResult } result - the result of swiper ContentWillScrollCallback.
  * @returns { boolean } whether to allow scroll, true indicating can scroll and false indicating can not scroll.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type ContentWillScrollCallback = (result: SwiperContentWillScrollResult) => boolean;
 
@@ -1151,7 +1150,7 @@ export type ContentWillScrollCallback = (result: SwiperContentWillScrollResult) 
  * @param { function } [content_] - container
  * @returns { SwiperAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 @memo
 @ComponentBuilder

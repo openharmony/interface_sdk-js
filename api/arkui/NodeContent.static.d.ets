@@ -18,8 +18,8 @@
  * @file
  * @kit ArkUI
  */
-import { Content } from './Content';
-import { FrameNode } from './FrameNode';
+import { Content } from 'arkui.Content';
+import { FrameNode } from 'arkui.FrameNode';
 
 /**
  * NodeContent is the entity encapsulation of the node content.
@@ -28,7 +28,7 @@ import { FrameNode } from './FrameNode';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 export declare class NodeContent extends Content {
     /**
@@ -37,7 +37,7 @@ export declare class NodeContent extends Content {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     constructor();
     /**
@@ -47,7 +47,7 @@ export declare class NodeContent extends Content {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     addFrameNode(node: FrameNode): void;
     /**
@@ -57,7 +57,7 @@ export declare class NodeContent extends Content {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     removeFrameNode(node: FrameNode): void;
 }

@@ -16,17 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { GaugeAttribute } from './component/gauge';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { GaugeAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Gauge Modifier
  *
  * @implements { GaugeAttribute, AttributeModifier<GaugeAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class GaugeModifier implements GaugeAttribute, AttributeModifier<GaugeAttribute> {}

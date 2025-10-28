@@ -17,17 +17,15 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier, CommonAttribute } from './component/common';
+import { AttributeModifier, CommonAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Common Modifier
  *
  * @implements { CommonAttribute, AttributeModifier<CommonAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- * @noninterop
+ * @since 20 static
  */
 export declare class CommonModifier implements CommonAttribute, AttributeModifier<CommonAttribute> {}

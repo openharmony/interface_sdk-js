@@ -16,17 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { TextTimerAttribute } from './component/textTimer';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { TextTimerAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines TextTimer Modifier
  *
  * @implements { TextTimerAttribute, AttributeModifier<TextTimerAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class TextTimerModifier implements TextTimerAttribute, AttributeModifier<TextTimerAttribute> {}

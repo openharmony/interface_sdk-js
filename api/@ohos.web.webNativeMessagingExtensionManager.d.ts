@@ -28,7 +28,7 @@ import type Want from './@ohos.app.ability.Want';
  * @namespace webNativeMessagingExtensionManager
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
- * @since 21
+ * @since 21 dynamic
  */
 declare namespace webNativeMessagingExtensionManager {
 
@@ -37,7 +37,7 @@ declare namespace webNativeMessagingExtensionManager {
    * @typedef ConnectionNativeInfo
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @since 21
+   * @since 21 dynamic
    */
   interface ConnectionNativeInfo {
     /**
@@ -46,7 +46,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
     connectionId: int;
 
@@ -56,7 +56,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
     bundleName: string;
 
@@ -66,7 +66,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
     extensionOrigin: string;
 
@@ -76,7 +76,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
     extensionPid: int;
   }
@@ -86,7 +86,7 @@ declare namespace webNativeMessagingExtensionManager {
    * @enum { int }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @since 21
+   * @since 21 dynamic
    */
   export enum NmErrorCode {
     /**
@@ -94,7 +94,7 @@ declare namespace webNativeMessagingExtensionManager {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
     PERMISSION_DENY = 17100203,
     /**
@@ -102,7 +102,7 @@ declare namespace webNativeMessagingExtensionManager {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
     WANT_CONTENT_ERROR = 17100202,
     /**
@@ -110,7 +110,7 @@ declare namespace webNativeMessagingExtensionManager {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
     INNER_ERROR = 17100201
   }
@@ -121,7 +121,7 @@ declare namespace webNativeMessagingExtensionManager {
    * @typedef WebExtensionConnectionCallback
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @since 21
+   * @since 21 dynamic
    */
   interface WebExtensionConnectionCallback {
     /**
@@ -130,7 +130,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @param { ConnectionNativeInfo } connection - The remote connection info
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
     onConnect(connection: ConnectionNativeInfo): void;
 
@@ -140,7 +140,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @param { ConnectionNativeInfo } connection - The remote connection info
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
     onDisconnect(connection: ConnectionNativeInfo): void;
 
@@ -151,7 +151,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @param { string } errMsg - The error message of the failure.
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
     onFailed(code: NmErrorCode, errMsg: string): void;
   }
@@ -167,7 +167,7 @@ declare namespace webNativeMessagingExtensionManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @since 21
+   * @since 21 dynamic
    */
   function connectNative(context: UIAbilityContext, want: Want, callback: WebExtensionConnectionCallback): int;
 
@@ -180,10 +180,11 @@ declare namespace webNativeMessagingExtensionManager {
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
+   *     2. The system service failed to communicate with dependency module.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @since 21
+   * @since 21 dynamic
    */
   function disconnectNative(connectionId: int): Promise<void>;
 }

@@ -25,7 +25,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace wearDetection
  * @syscap SystemCapability.Communication.Bluetooth.Core
- * @since 11
+ * @since 11 dynamic
  */
 declare namespace wearDetection {
   /**
@@ -44,7 +44,7 @@ declare namespace wearDetection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function enableWearDetection(deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -64,7 +64,7 @@ declare namespace wearDetection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function enableWearDetection(deviceId: string): Promise<void>;
 
@@ -84,7 +84,7 @@ declare namespace wearDetection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function disableWearDetection(deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -104,7 +104,7 @@ declare namespace wearDetection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function disableWearDetection(deviceId: string): Promise<void>;
 
@@ -124,7 +124,7 @@ declare namespace wearDetection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function isWearDetectionSupported(deviceId: string, callback: AsyncCallback<boolean>): void;
 
@@ -144,7 +144,7 @@ declare namespace wearDetection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function isWearDetectionSupported(deviceId: string): Promise<boolean>;
 
@@ -164,7 +164,7 @@ declare namespace wearDetection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function isWearDetectionEnabled(deviceId: string, callback: AsyncCallback<boolean>): void;
 
@@ -184,7 +184,7 @@ declare namespace wearDetection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function isWearDetectionEnabled(deviceId: string): Promise<boolean>;
 }

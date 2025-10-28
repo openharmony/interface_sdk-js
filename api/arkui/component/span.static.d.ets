@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { ResourceColor, Dimension, BorderRadiuses, Length, Font } from "./units";
 import { CommonMethod, ShadowOptions, AttributeModifier } from "./common";
@@ -30,7 +29,7 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  *
  * @interface TextBackgroundStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface TextBackgroundStyle {
     /**
@@ -38,7 +37,7 @@ export declare interface TextBackgroundStyle {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     color?: ResourceColor;
     /**
@@ -46,7 +45,7 @@ export declare interface TextBackgroundStyle {
      *
      * @type { ?(Dimension | BorderRadiuses) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     radius?: Dimension | BorderRadiuses;
 }
@@ -55,7 +54,8 @@ export declare interface TextBackgroundStyle {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
+ * @noninterop
  */
 export declare interface BaseSpan extends CommonMethod {
     /**
@@ -64,7 +64,7 @@ export declare interface BaseSpan extends CommonMethod {
      * @param { TextBackgroundStyle | undefined } style - The background style of span.
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default textBackgroundStyle(style: TextBackgroundStyle | undefined): this;
     /**
@@ -73,7 +73,7 @@ export declare interface BaseSpan extends CommonMethod {
      * @param { LengthMetrics | undefined } value - The base line offset of the Span.
      * @returns { T } The attribute of the Span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default baselineOffset(value: LengthMetrics | undefined): this;
 }
@@ -82,7 +82,8 @@ export declare interface BaseSpan extends CommonMethod {
  *
  * @extends BaseSpan
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
+ * @noninterop
  */
 export declare interface SpanAttribute extends BaseSpan {
     /**
@@ -91,7 +92,7 @@ export declare interface SpanAttribute extends BaseSpan {
      * @param { Font | undefined } value - the span font size and weight and family and style.
      * @returns { SpanAttribute } The attribute of the span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default font(value: Font | undefined): this;
     /**
@@ -100,43 +101,43 @@ export declare interface SpanAttribute extends BaseSpan {
      * @param { ResourceColor | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default fontColor(value: ResourceColor | undefined): this;
     /**
      * Called when the font size is set.
      *
-     * @param { number | string | Resource | undefined } value
+     * @param { double | string | Resource | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
-    default fontSize(value: number | string | Resource | undefined): this;
+    default fontSize(value: double | string | Resource | undefined): this;
     /**
      * Called when the font style of a font is set.
      *
      * @param { FontStyle | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default fontStyle(value: FontStyle | undefined): this;
     /**
     * Called when the font weight is set.
     *
-    * @param { number | FontWeight | string | undefined } value
+    * @param { int | FontWeight | string | undefined } value
     * @returns { SpanAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 20 static
     */
-    default fontWeight(value: number | FontWeight | string | undefined): this;
+    default fontWeight(value: int | FontWeight | string | undefined): this;
     /**
      * Called when the font list of text is set.
      *
      * @param { string | Resource | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default fontFamily(value: string | Resource | undefined): this;
     /**
@@ -145,25 +146,25 @@ export declare interface SpanAttribute extends BaseSpan {
      * @param { DecorationStyleInterface | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default decoration(value: DecorationStyleInterface | undefined): this;
     /**
     * Called when the distance between text fonts is set.
     *
-    * @param { number | string | undefined } value
+    * @param { double | string | undefined } value
     * @returns { SpanAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 20 static
     */
-    default letterSpacing(value: number | string | undefined): this;
+    default letterSpacing(value: double | string | undefined): this;
     /**
      * Called when the type of letter in the text font is set.
      *
      * @param { TextCase | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default textCase(value: TextCase | undefined): this;
     /**
@@ -172,7 +173,7 @@ export declare interface SpanAttribute extends BaseSpan {
      * @param { Length | undefined } value - The line height of the span.
      * @returns { SpanAttribute } The attribute of the span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default lineHeight(value: Length | undefined): this;
     /**
@@ -181,7 +182,7 @@ export declare interface SpanAttribute extends BaseSpan {
      * @param { ShadowOptions | Array<ShadowOptions> | undefined } value - The shadow options.
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default textShadow(value: ShadowOptions | Array<ShadowOptions> | undefined): this;
     /**
@@ -190,7 +191,7 @@ export declare interface SpanAttribute extends BaseSpan {
      * @param { AttributeModifier<SpanAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<SpanAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -202,7 +203,8 @@ export declare interface SpanAttribute extends BaseSpan {
  * @param { function } [content_]
  * @returns { SpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
+ * @noninterop
  */
 @memo
 @ComponentBuilder

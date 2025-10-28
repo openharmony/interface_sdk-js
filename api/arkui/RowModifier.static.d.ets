@@ -16,17 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { RowAttribute } from './component/row';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { RowAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Row Modifier
  *
  * @implements RowAttribute, AttributeModifier<RowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
 */
 export declare class RowModifier implements RowAttribute, AttributeModifier<RowAttribute> {}

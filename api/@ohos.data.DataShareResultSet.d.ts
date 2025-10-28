@@ -26,7 +26,7 @@
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @systemapi
  * @StageModelOnly
- * @since 9
+ * @since 9 dynamic
  */
 export enum DataType {
   /**
@@ -35,7 +35,7 @@ export enum DataType {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   TYPE_NULL = 0,
 
@@ -45,7 +45,7 @@ export enum DataType {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   TYPE_LONG = 1,
 
@@ -55,7 +55,7 @@ export enum DataType {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   TYPE_DOUBLE = 2,
 
@@ -65,7 +65,7 @@ export enum DataType {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   TYPE_STRING = 3,
 
@@ -75,7 +75,7 @@ export enum DataType {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   TYPE_BLOB = 4
 }
@@ -87,8 +87,8 @@ export enum DataType {
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @systemapi
  * @StageModelOnly
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 export default interface DataShareResultSet {
   /**
@@ -100,7 +100,7 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   columnNames: Array<string>;
 
@@ -112,7 +112,7 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   columnCount: number;
 
@@ -123,8 +123,8 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   rowCount: number;
 
@@ -136,7 +136,7 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   isClosed: boolean;
 
@@ -148,8 +148,8 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   goToFirstRow(): boolean;
 
@@ -161,7 +161,7 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   goToLastRow(): boolean;
 
@@ -173,7 +173,7 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   goToNextRow(): boolean;
 
@@ -185,7 +185,7 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   goToPreviousRow(): boolean;
 
@@ -199,7 +199,7 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   goTo(offset: number): boolean;
 
@@ -211,7 +211,7 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   goToRow(position: number): boolean;
 
@@ -225,7 +225,7 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   getBlob(columnIndex: number): Uint8Array;
 
@@ -239,8 +239,8 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   getString(columnIndex: number): string;
 
@@ -254,7 +254,7 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   getLong(columnIndex: number): number;
 
@@ -268,7 +268,7 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   getDouble(columnIndex: number): number;
 
@@ -279,8 +279,8 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   close(): void;
 
@@ -293,8 +293,8 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   getColumnIndex(columnName: string): number;
 
@@ -307,7 +307,7 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   getColumnName(columnIndex: number): string;
 
@@ -321,7 +321,7 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   getDataType(columnIndex: number): DataType;
 }

@@ -1,10 +1,11 @@
+'use static'
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,11 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-export type KoalaCallsiteKey = int
-export type int32 = int
-export type uint32 = int
-export type int64 = long
-export type float64 = double
+import { AttributeModifier } from './component/common';
+import { SliderAttribute } from './component/slider';
+
+/**
+ * Defines Slider Modifier
+ *
+ * @implements { SliderAttribute, AttributeModifier<SliderAttribute> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare class SliderModifier implements SliderAttribute, AttributeModifier<SliderAttribute> {}

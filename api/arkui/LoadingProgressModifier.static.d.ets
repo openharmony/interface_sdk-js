@@ -16,17 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { LoadingProgressAttribute } from './component/loadingProgress';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { LoadingProgressAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines LoadingProgress Modifier
  *
  * @implements { LoadingProgressAttribute, AttributeModifier<LoadingProgressAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class LoadingProgressModifier implements LoadingProgressAttribute, AttributeModifier<LoadingProgressAttribute> {}

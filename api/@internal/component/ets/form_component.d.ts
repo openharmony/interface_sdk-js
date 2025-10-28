@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { CommonMethod,Callback } from './common';
 import Want from '../../@ohos.app.ability.Want';
 import { Visibility } from './enums'
@@ -26,11 +26,11 @@ import { VoidCallback } from './units';
 /**
  * Defines the FormDimension enum.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'7','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 20 static
  */
 declare enum FormDimension {
   /**
@@ -38,8 +38,8 @@ declare enum FormDimension {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   Dimension_1_2 = 0,
 
@@ -48,8 +48,8 @@ declare enum FormDimension {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   Dimension_2_2 = 1,
 
@@ -58,8 +58,8 @@ declare enum FormDimension {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   Dimension_2_4 = 2,
 
@@ -68,8 +68,8 @@ declare enum FormDimension {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   Dimension_4_4 = 3,
 
@@ -78,7 +78,7 @@ declare enum FormDimension {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 20
    */
   Dimension_2_1,
@@ -89,8 +89,8 @@ declare enum FormDimension {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   DIMENSION_1_1 = 6,
 
@@ -99,8 +99,8 @@ declare enum FormDimension {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   DIMENSION_6_4 = 7,
 
@@ -109,8 +109,8 @@ declare enum FormDimension {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   DIMENSION_2_3 = 8,
 
@@ -119,8 +119,8 @@ declare enum FormDimension {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   DIMENSION_3_3 = 9
 }
@@ -128,11 +128,11 @@ declare enum FormDimension {
 /**
  * Defines the FormRenderingMode enum.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare enum FormRenderingMode {
 
@@ -141,8 +141,8 @@ declare enum FormRenderingMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   FULL_COLOR,
 
@@ -151,8 +151,8 @@ declare enum FormRenderingMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   SINGLE_COLOR,
 }
@@ -160,11 +160,11 @@ declare enum FormRenderingMode {
 /**
  * Defines the FormShape enum.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 declare enum FormShape {
     /**
@@ -172,8 +172,8 @@ declare enum FormShape {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     RECT = 1,
 
@@ -182,8 +182,8 @@ declare enum FormShape {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     CIRCLE,
 }
@@ -194,20 +194,20 @@ declare enum FormShape {
  * @interface FormInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 declare interface FormInfo {
   /**
    * The id the form.
    *
-   * @type { number | string }
+   * @type { long | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
-  id: number | string;
+  id: long | string;
 
   /**
    * The name of the form.
@@ -215,8 +215,8 @@ declare interface FormInfo {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   name: string;
 
@@ -226,8 +226,8 @@ declare interface FormInfo {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   bundle: string;
 
@@ -237,8 +237,8 @@ declare interface FormInfo {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   ability: string;
 
@@ -248,8 +248,8 @@ declare interface FormInfo {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   module: string;
 
@@ -259,8 +259,8 @@ declare interface FormInfo {
    * @type { ?FormDimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   dimension?: FormDimension;
 
@@ -270,8 +270,8 @@ declare interface FormInfo {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   temporary?: boolean;
 
@@ -281,7 +281,7 @@ declare interface FormInfo {
    * @type { ?import('../api/@ohos.app.ability.Want').default }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   want?: import('../api/@ohos.app.ability.Want').default;
 
@@ -291,8 +291,7 @@ declare interface FormInfo {
    * @type { ?Want }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   want?: Want;
 
@@ -302,8 +301,8 @@ declare interface FormInfo {
    * @type { ?FormRenderingMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   renderingMode?: FormRenderingMode;
 
@@ -313,8 +312,8 @@ declare interface FormInfo {
    * @type { ?FormShape }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   shape?: FormShape;
 
@@ -324,7 +323,7 @@ declare interface FormInfo {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   exemptAppLock?: boolean;
 }
@@ -335,15 +334,15 @@ declare interface FormInfo {
  * @interface FormComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'7','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 20 static
  */
 interface FormComponentInterface {
   /**
    * Set a new value.
    *
    * @param { {
-   * id: number;
+   * id: long;
    * name: string;
    * bundle: string;
    * ability: string;
@@ -382,8 +381,8 @@ interface FormComponentInterface {
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   (value: FormInfo): FormComponentAttribute;
 }
@@ -394,20 +393,20 @@ interface FormComponentInterface {
  * @interface FormCallbackInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 interface FormCallbackInfo {
   /**
    * The id of the form.
    *
-   * @type { number }
+   * @type { long }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
-  id: number;
+  id: long;
 
   /**
    * The string id of the form.
@@ -415,8 +414,8 @@ interface FormCallbackInfo {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   idString: string;
 
@@ -426,7 +425,7 @@ interface FormCallbackInfo {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22
+   * @since 22 dynamic
    */
   isLocked: boolean;
 }
@@ -436,32 +435,32 @@ interface FormCallbackInfo {
  * @interface FormSize
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts{ '1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
+ * @since 20 static
  */
 interface FormSize {
   /**
    * The width of the form.
    * Anonymous Object Rectification
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts{ '1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
-  width: number;
+  width: double;
   /**
    * The height of the form.
    * Anonymous Object Rectification
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts{ '1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
-  height: number;
+  height: double;
 }
 
 /**
@@ -470,21 +469,21 @@ interface FormSize {
  * @typedef ErrorInformation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts{ '1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
+ * @since 20 static
  */
 interface ErrorInformation {
   /**
    * Error code.
    * Anonymous Object Rectification
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts{ '1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
-  errcode: number;
+  errcode: int;
 
   /**
    * Error information.
@@ -493,8 +492,8 @@ interface ErrorInformation {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts{ '1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   msg: string;
 }
@@ -503,8 +502,8 @@ interface ErrorInformation {
  * @extends CommonMethod<FormComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'7','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 20 static
  */
 declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute> {
   /**
@@ -523,8 +522,8 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   size(formSize: FormSize): FormComponentAttribute;
 
@@ -535,8 +534,8 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   moduleName(value: string): FormComponentAttribute;
 
@@ -547,8 +546,8 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   dimension(value: FormDimension): FormComponentAttribute;
 
@@ -559,8 +558,8 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   allowUpdate(value: boolean): FormComponentAttribute;
 
@@ -571,8 +570,8 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   visibility(value: Visibility): FormComponentAttribute;
 
@@ -594,8 +593,8 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   onAcquired(callback: Callback<FormCallbackInfo>): FormComponentAttribute;
 
@@ -615,8 +614,8 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   onError(callback: Callback<ErrorInformation>): FormComponentAttribute;
 
@@ -637,8 +636,8 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   onRouter(callback: Callback<object>): FormComponentAttribute;
 
@@ -658,8 +657,8 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   onUninstall(callback: Callback<FormCallbackInfo>): FormComponentAttribute;
 
@@ -679,8 +678,8 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   onLoad(callback: VoidCallback): FormComponentAttribute;
 
@@ -691,8 +690,8 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   onUpdate(callback: Callback<FormCallbackInfo>): FormComponentAttribute;
 }
@@ -702,7 +701,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 7
+ * @since 7 dynamic
  */
 declare const FormComponent: FormComponentInterface;
 
@@ -711,6 +710,6 @@ declare const FormComponent: FormComponentInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 7
+ * @since 7 dynamic
  */
 declare const FormComponentInstance: FormComponentAttribute;

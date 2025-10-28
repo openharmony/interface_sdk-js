@@ -17,18 +17,17 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { NavDestinationAttribute } from './component/navDestination';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { NavDestinationAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines NavDestination Modifier
  *
  * @implements { NavDestinationAttribute, AttributeModifier<NavDestinationAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class NavDestinationModifier implements NavDestinationAttribute, AttributeModifier<NavDestinationAttribute> {
   /**
@@ -36,7 +35,7 @@ export declare class NavDestinationModifier implements NavDestinationAttribute, 
    * 
    * @param { NavDestinationAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   applyNormalAttribute(instance: NavDestinationAttribute): void;
 }

@@ -13,13 +13,12 @@
  * limitations under the License.
  */
 
-import { AttributeModifier } from './component/common';
-import { PolygonAttribute } from './component/polygon';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { PolygonAttribute } from '@ohos.arkui.component';
 
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 /**
@@ -27,6 +26,6 @@ import { PolygonAttribute } from './component/polygon';
  *
  * @implements PolygonAttribute, AttributeModifier<PolygonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class PolygonModifier implements PolygonAttribute, AttributeModifier<PolygonAttribute> {}

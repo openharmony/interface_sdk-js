@@ -16,17 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { GridColAttribute } from './component/gridCol';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { GridColAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines GridCol Modifier
  *
  * @implements GridColAttribute, AttributeModifier<GridColAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
 */
 export declare class GridColModifier implements GridColAttribute, AttributeModifier<GridColAttribute> {}

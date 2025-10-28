@@ -19,7 +19,7 @@
  */
 
 /* 共用部分*/
-/*** if arkts 1.1&1.2 */
+/*** if arkts dynamic&static */
 import {
   ActionType, FourFingersSwipe, Pinch, Rotate, ThreeFingersSwipe, ThreeFingersTap, SwipeInward
 } from '@ohos.multimodalInput.gestureEvent';

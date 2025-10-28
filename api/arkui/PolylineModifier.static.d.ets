@@ -13,13 +13,12 @@
  * limitations under the License.
  */
 
-import { AttributeModifier } from './component/common';
-import { PolylineAttribute } from './component/polyline';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { PolylineAttribute } from '@ohos.arkui.component';
 
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 /**
@@ -27,6 +26,6 @@ import { PolylineAttribute } from './component/polyline';
  *
  * @implements PolylineAttribute, AttributeModifier<PolylineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class PolylineModifier implements PolylineAttribute, AttributeModifier<PolylineAttribute> {}

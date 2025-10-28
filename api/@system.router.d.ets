@@ -23,7 +23,7 @@
  *
  * @interface RouterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 3
+ * @since 22 static
  * @deprecated since 8
  * @useinstead ohos.router#RouterOptions
  */
@@ -38,7 +38,7 @@ export interface RouterOptions {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 3
+   * @since 22 static
    * @deprecated since 8
    */
   uri: string;
@@ -50,7 +50,7 @@ export interface RouterOptions {
    *
    * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 3
+   * @since 22 static
    * @deprecated since 8
    */
   params?: Object;
@@ -61,7 +61,7 @@ export interface RouterOptions {
  *
  * @interface BackRouterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
+ * @since 22 static
  * @deprecated since 8
  * @useinstead ohos.router#RouterOptions
  */
@@ -72,7 +72,7 @@ export interface BackRouterOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 22 static
    * @deprecated since 8
    */
   uri?: string;
@@ -82,7 +82,7 @@ export interface BackRouterOptions {
    *
    * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 7
+   * @since 22 static
    * @deprecated since 8
    */
   params?: Object;
@@ -93,7 +93,7 @@ export interface BackRouterOptions {
  *
  * @interface RouterState
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 3
+ * @since 22 static
  * @deprecated since 8
  * @useinstead ohos.router#RouterState
  */
@@ -104,7 +104,7 @@ export interface RouterState {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
+   * @since 22 static
    * @deprecated since 8
    */
   index: number;
@@ -114,7 +114,7 @@ export interface RouterState {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
+   * @since 22 static
    * @deprecated since 8
    */
   name: string;
@@ -124,7 +124,7 @@ export interface RouterState {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
+   * @since 22 static
    * @deprecated since 8
    */
   path: string;
@@ -135,7 +135,7 @@ export interface RouterState {
  *
  * @interface EnableAlertBeforeBackPageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 6
+ * @since 22 static
  * @deprecated since 8
  * @useinstead ohos.router#RouterState
  */
@@ -145,7 +145,7 @@ export interface EnableAlertBeforeBackPageOptions {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
+   * @since 22 static
    * @deprecated since 8
    */
   message: string;
@@ -155,7 +155,7 @@ export interface EnableAlertBeforeBackPageOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
+   * @since 22 static
    * @deprecated since 8
    */
   success?: (errMsg: string) => void;
@@ -165,7 +165,7 @@ export interface EnableAlertBeforeBackPageOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
+   * @since 22 static
    * @deprecated since 8
    */
   cancel?: (errMsg: string) => void;
@@ -175,7 +175,7 @@ export interface EnableAlertBeforeBackPageOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
+   * @since 22 static
    * @deprecated since 8
    */
   complete?: () => void;
@@ -186,7 +186,7 @@ export interface EnableAlertBeforeBackPageOptions {
  *
  * @interface DisableAlertBeforeBackPageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 6
+ * @since 22 static
  * @deprecated since 8
  * @useinstead ohos.router#RouterOptions
  */
@@ -196,7 +196,7 @@ export interface DisableAlertBeforeBackPageOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
+   * @since 22 static
    * @deprecated since 8
    */
   success?: (errMsg: string) => void;
@@ -206,7 +206,7 @@ export interface DisableAlertBeforeBackPageOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
+   * @since 22 static
    * @deprecated since 8
    */
   cancel?: (errMsg: string) => void;
@@ -216,7 +216,7 @@ export interface DisableAlertBeforeBackPageOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
+   * @since 22 static
    * @deprecated since 8
    */
   complete?: () => void;
@@ -227,7 +227,7 @@ export interface DisableAlertBeforeBackPageOptions {
  *
  * @typedef { object } ParamsInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
+ * @since 22 static
  * @deprecated since 8
  */
 export type ParamsInterface = Record<string,Object>
@@ -236,7 +236,7 @@ export type ParamsInterface = Record<string,Object>
  * Defines the Router interface.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 3
+ * @since 22 static
  * @deprecated since 8
  * @useinstead ohos.router#router
  */
@@ -246,7 +246,7 @@ declare class Router {
    *
    * @param { RouterOptions } options Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
+   * @since 22 static
    * @deprecated since 8
    */
   static push(options: RouterOptions): void;
@@ -256,7 +256,7 @@ declare class Router {
    *
    * @param { RouterOptions } options Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 3
+   * @since 22 static
    * @deprecated since 8
    */
   static replace(options: RouterOptions): void;
@@ -266,7 +266,7 @@ declare class Router {
    *
    * @param { BackRouterOptions } options Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
+   * @since 22 static
    * @deprecated since 8
    */
   static back(options?: BackRouterOptions): void;
@@ -276,7 +276,7 @@ declare class Router {
    *
    * @returns { ParamsInterface } Page params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 22 static
    * @deprecated since 8
    */
   static getParams(): ParamsInterface;
@@ -285,7 +285,7 @@ declare class Router {
    * Clears all historical pages and retains only the current page at the top of the stack.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
+   * @since 22 static
    * @deprecated since 8
    */
   static clear(): void;
@@ -295,7 +295,7 @@ declare class Router {
    *
    * @returns { string } Number of pages in the stack. The maximum value is 32.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
+   * @since 22 static
    * @deprecated since 8
    */
   static getLength(): string;
@@ -305,7 +305,7 @@ declare class Router {
    *
    * @returns { RouterState } Page state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
+   * @since 22 static
    * @deprecated since 8
    */
   static getState(): RouterState;
@@ -315,7 +315,7 @@ declare class Router {
    *
    * @param { EnableAlertBeforeBackPageOptions } options Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
+   * @since 22 static
    * @deprecated since 8
    */
   static enableAlertBeforeBackPage(options: EnableAlertBeforeBackPageOptions): void;
@@ -325,7 +325,7 @@ declare class Router {
    *
    * @param { DisableAlertBeforeBackPageOptions } options Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
+   * @since 22 static
    * @deprecated since 8
    */
   static disableAlertBeforeBackPage(options?: DisableAlertBeforeBackPageOptions): void;

@@ -17,17 +17,16 @@
 /**
  * @file Grid modifier file，defines modifier and function.
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { GridItemAttribute } from './component/gridItem';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { GridItemAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines GridItem Modifier
  *
  * @implements { GridItemAttribute, AttributeModifier<GridItemAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
 */
 export declare class GridItemModifier implements GridItemAttribute, AttributeModifier<GridItemAttribute> {}

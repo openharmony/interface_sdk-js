@@ -16,17 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { PatternLockAttribute } from './component/patternLock';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { PatternLockAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines PatternLock Modifier
  *
  * @implements { PatternLockAttribute, AttributeModifier<PatternLockAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class PatternLockModifier implements PatternLockAttribute, AttributeModifier<PatternLockAttribute> {}

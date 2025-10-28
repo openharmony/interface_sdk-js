@@ -16,17 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { FolderStackAttribute } from './component/folderStack';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { FolderStackAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines FolderStack Modifier
  *
  * @implements FolderStackAttribute, AttributeModifier<FolderStackAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
 */
 export declare class FolderStackModifier implements FolderStackAttribute, AttributeModifier<FolderStackAttribute> {}

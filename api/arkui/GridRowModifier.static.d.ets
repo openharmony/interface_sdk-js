@@ -16,17 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { GridRowAttribute } from './component/gridRow';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { GridRowAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines GridRow Modifier
  *
  * @implements GridRowAttribute, AttributeModifier<GridRowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
 */
 export declare class GridRowModifier implements GridRowAttribute, AttributeModifier<GridRowAttribute> {}

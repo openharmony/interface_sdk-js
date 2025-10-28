@@ -38,7 +38,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class TextTimerController {
   /**
@@ -63,7 +63,7 @@ declare class TextTimerController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor();
 
@@ -88,7 +88,7 @@ declare class TextTimerController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   start();
 
@@ -113,7 +113,7 @@ declare class TextTimerController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   pause();
 
@@ -138,7 +138,7 @@ declare class TextTimerController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   reset();
 }
@@ -151,7 +151,7 @@ declare class TextTimerController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerConfiguration> {
   /**
@@ -169,7 +169,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   count: number;
 
@@ -183,7 +183,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   isCountDown: boolean;
 
@@ -194,7 +194,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   started: boolean;
   
@@ -205,7 +205,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   elapsedTime: number;
 }
@@ -234,7 +234,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface TextTimerOptions {
   /**
@@ -263,7 +263,7 @@ interface TextTimerOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   isCountDown?: boolean;
 
@@ -302,7 +302,7 @@ interface TextTimerOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   count?: number;
 
@@ -330,7 +330,7 @@ interface TextTimerOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   controller?: TextTimerController;
 }
@@ -359,7 +359,7 @@ interface TextTimerOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface TextTimerInterface {
   /**
@@ -389,7 +389,7 @@ interface TextTimerInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (options?: TextTimerOptions): TextTimerAttribute;
 }
@@ -417,7 +417,7 @@ interface TextTimerInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   /**
@@ -454,7 +454,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   format(value: string): TextTimerAttribute;
 
@@ -485,7 +485,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontColor(value: ResourceColor): TextTimerAttribute;
 
@@ -518,7 +518,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontSize(value: Length): TextTimerAttribute;
 
@@ -549,7 +549,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontStyle(value: FontStyle): TextTimerAttribute;
 
@@ -598,7 +598,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   fontWeight(value: number | FontWeight | ResourceStr): TextTimerAttribute;
 
@@ -629,7 +629,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontFamily(value: ResourceStr): TextTimerAttribute;
 
@@ -662,7 +662,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onTimer(event: (utc: number, elapsedTime: number) => void): TextTimerAttribute;
 
@@ -685,7 +685,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   textShadow(value: ShadowOptions | Array<ShadowOptions>): TextTimerAttribute;
 
@@ -697,7 +697,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   contentModifier(modifier: ContentModifier<TextTimerConfiguration>): TextTimerAttribute;
 }
@@ -723,7 +723,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const TextTimer: TextTimerInterface;
 
@@ -748,6 +748,6 @@ declare const TextTimer: TextTimerInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const TextTimerInstance: TextTimerAttribute;

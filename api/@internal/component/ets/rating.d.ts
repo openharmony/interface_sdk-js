@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare interface RatingOptions {
   /**
@@ -72,7 +72,7 @@ declare interface RatingOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   rating: number;
 
@@ -118,7 +118,7 @@ declare interface RatingOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   indicator?: boolean
 }
@@ -131,7 +131,7 @@ declare interface RatingOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare interface StarStyleOptions {
   /**
@@ -177,7 +177,7 @@ declare interface StarStyleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   backgroundUri: ResourceStr;
 
@@ -224,7 +224,7 @@ declare interface StarStyleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   foregroundUri: ResourceStr;
 
@@ -271,7 +271,7 @@ declare interface StarStyleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   secondaryUri?: ResourceStr
 }
@@ -308,7 +308,7 @@ declare interface StarStyleOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface RatingInterface {
   /**
@@ -359,7 +359,7 @@ interface RatingInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options?: RatingOptions): RatingAttribute;
 }
@@ -372,7 +372,7 @@ interface RatingInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface RatingConfiguration extends CommonConfiguration<RatingConfiguration> {
   /**
@@ -382,7 +382,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   rating: number;
 
@@ -393,7 +393,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   indicator: boolean;
 
@@ -404,7 +404,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   stars: number;
 
@@ -415,7 +415,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   stepSize: number;
 
@@ -426,7 +426,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   triggerChange: Callback<number>;
 }
@@ -439,7 +439,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
   declare type OnRatingChangeCallback = (rating: number) => void;
 
@@ -475,7 +475,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   /**
@@ -514,7 +514,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   stars(value: number): RatingAttribute;
 
@@ -527,7 +527,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */  
   stars(starCount: Optional<number>): RatingAttribute;
 
@@ -567,7 +567,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   stepSize(value: number): RatingAttribute;
 
@@ -580,7 +580,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */  
   stepSize(size: Optional<number>): RatingAttribute;
 
@@ -632,7 +632,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   starStyle(options: StarStyleOptions): RatingAttribute;
 
@@ -645,7 +645,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */  
   starStyle(options: Optional<StarStyleOptions>): RatingAttribute;
 
@@ -685,7 +685,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onChange(callback: (value: number) => void): RatingAttribute;
 
@@ -698,7 +698,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */  
   onChange(callback: Optional<OnRatingChangeCallback>): RatingAttribute;
 
@@ -710,7 +710,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   contentModifier(modifier: ContentModifier<RatingConfiguration>): RatingAttribute;
 
@@ -722,7 +722,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */  
   contentModifier(modifier: Optional<ContentModifier<RatingConfiguration>>): RatingAttribute;
 }
@@ -755,7 +755,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Rating: RatingInterface;
 
@@ -787,6 +787,6 @@ declare const Rating: RatingInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const RatingInstance: RatingAttribute;

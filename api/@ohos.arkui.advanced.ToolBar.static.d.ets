@@ -17,22 +17,21 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
-import { Component } from './arkui/component/customComponent';
-import { ResourceStr, Resource, ResourceColor } from './arkui/component/units';
-import { PropRef, Observed, ObjectLink } from './arkui/stateManagement/decorator';
-import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
-import { DividerModifier } from './arkui/DividerModifier';
-import { LengthMetrics } from './arkui/Graphics';
-import { TabsController } from './arkui/component/tabs';
-import { Builder } from './arkui/component/builder';
+import { Component } from '@ohos.arkui.component';
+import { ResourceStr, Resource, ResourceColor } from '@ohos.arkui.component';
+import { PropRef, Observed, ObjectLink } from '@ohos.arkui.stateManagement';
+import { SymbolGlyphModifier } from 'arkui.SymbolGlyphModifier';
+import { DividerModifier } from 'arkui.DividerModifier';
+import { LengthMetrics } from 'arkui.Graphics';
+import { TabsController } from '@ohos.arkui.component';
+import { Builder } from '@ohos.arkui.component';
 /**
  * Declare enum ItemState.
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare enum ItemState {
@@ -40,21 +39,21 @@ export declare enum ItemState {
    * Enable type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   ENABLE = 1,
   /**
    * Disable type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   DISABLE = 2,
   /**
    * Activate type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   ACTIVATE = 3
 }
@@ -63,7 +62,7 @@ export declare enum ItemState {
  *
  * @interface ToolBarSymbolGlyphOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export interface ToolBarSymbolGlyphOptions {
@@ -72,7 +71,7 @@ export interface ToolBarSymbolGlyphOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   normal?: SymbolGlyphModifier;
   /**
@@ -80,7 +79,7 @@ export interface ToolBarSymbolGlyphOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   activated?: SymbolGlyphModifier;
 }
@@ -88,7 +87,7 @@ export interface ToolBarSymbolGlyphOptions {
  * Declare type ToolBarOption.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @Observed
@@ -98,114 +97,112 @@ export declare class ToolBarOption {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  content: ResourceStr;
+  public content: ResourceStr;
   /**
    * Define the action event.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  action?: () => void;
+  public action?: () => void;
   /**
    * Define icon resource.
    *
    * @type { ?Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  icon?: Resource;
+  public icon?: Resource;
   /**
    * Define item type.
    *
    * @type { ?ItemState }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  state?: ItemState;
+  public state?: ItemState;
   /**
    * Define text fontColor.
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  textColor?: ResourceColor;
+  public textColor?: ResourceColor;
   /**
    * Text fontColor when the item is activated.
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  activatedTextColor?: ResourceColor;
+  public activatedTextColor?: ResourceColor;
   /**
    * Define icon fillColor.
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  iconColor?: ResourceColor;
+  public iconColor?: ResourceColor;
   /**
    * Icon fillColor when the item is activated.
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  activatedIconColor?: ResourceColor;
+  public activatedIconColor?: ResourceColor;
   /**
    * Item symbol icon.
    *
    * @type { ?ToolBarSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  toolBarSymbolOptions?: ToolBarSymbolGlyphOptions;
+  public toolBarSymbolOptions?: ToolBarSymbolGlyphOptions;
   /**
    * The accessibilityText of item.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  accessibilityText?: ResourceStr;
+  public accessibilityText?: ResourceStr;
   /**
    * The accessibilityDescription of item.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  accessibilityDescription?: ResourceStr;
+  public accessibilityDescription?: ResourceStr;
   /**
    * The accessibilityLevel of item.
    *
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  accessibilityLevel?: string;
+  public accessibilityLevel?: string;
 }
 /**
  * Declare ToolBarOptions use in ToolBar.
- * @extends Array<ToolBarOption>
+ * @typedef { Array<ToolBarOption> } ToolBarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
-@Observed
-export declare class ToolBarOptions extends Array<ToolBarOption> {
-}
+export type ToolBarOptions = Array<ToolBarOption>
 /**
  * Declare ToolBarModifier use in ToolBar.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare class ToolBarModifier {
@@ -215,42 +212,42 @@ export declare class ToolBarModifier {
    * @param { LengthMetrics } height - toolBar's height.
    * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  height(height: LengthMetrics): ToolBarModifier;
+  public height(height: LengthMetrics): ToolBarModifier;
   /**
    * Sets the backgroundColor of the toolBar.
    *
    * @param { ResourceColor } backgroundColor - toolBar's backgroundColor.
    * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  backgroundColor(backgroundColor: ResourceColor): ToolBarModifier;
+  public backgroundColor(backgroundColor: ResourceColor): ToolBarModifier;
   /**
    * Sets the left and right padding of the toolbar.
    *
    * @param { LengthMetrics } padding - left and right padding.
    * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  padding(padding: LengthMetrics): ToolBarModifier;
+  public padding(padding: LengthMetrics): ToolBarModifier;
   /**
    * Sets whether or not to display the press status effect.
    *
    * @param { boolean } stateEffect - press status effect.
    * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  stateEffect(stateEffect: boolean): ToolBarModifier;
+  public stateEffect(stateEffect: boolean): ToolBarModifier;
 }
 /**
  * Declare Component ToolBar.
  * @struct { ToolBar }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @Component
@@ -260,23 +257,25 @@ export declare struct ToolBar {
    *
    * @type { ToolBarOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  @ObjectLink toolBarList: ToolBarOptions;
+  @ObjectLink
+  toolBarList: ToolBarOptions;
   /**
    * Define toolbar activate item index, default is -1.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  @PropRef activateIndex?: number;
+  @PropRef
+  activateIndex?: int;
   /**
    * Define toolbar controller.
    *
    * @type { TabsController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   controller: TabsController;
   /**
@@ -284,22 +283,25 @@ export declare struct ToolBar {
    *
    * @type { ?DividerModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  @PropRef dividerModifier?: DividerModifier;
+  @PropRef
+  dividerModifier?: DividerModifier;
   /**
    * Define toolbar modifier.
    *
    * @type { ?ToolBarModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  @PropRef toolBarModifier?: ToolBarModifier;
+  @PropRef
+  toolBarModifier?: ToolBarModifier;
   /**
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  @Builder build(): void;
+  @Builder
+  build(): void;
 }

@@ -22,7 +22,7 @@
  * Provide console
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 3
+ * @since 3 dynamic
  */
 export declare class console {
   /**
@@ -31,7 +31,7 @@ export declare class console {
    * @param { string } message - Text to print
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 3
+   * @since 3 dynamic
    */
   static debug(message: string): void;
 
@@ -41,7 +41,7 @@ export declare class console {
    * @param { string } message - Text to print
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 3
+   * @since 3 dynamic
    */
   static log(message: string): void;
 
@@ -51,7 +51,7 @@ export declare class console {
    * @param { string } message - Text to print
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 3
+   * @since 3 dynamic
    */
   static info(message: string): void;
 
@@ -61,7 +61,7 @@ export declare class console {
    * @param { string } message - Text to print
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 3
+   * @since 3 dynamic
    */
   static warn(message: string): void;
 
@@ -71,7 +71,7 @@ export declare class console {
    * @param { string } message - Text to print
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 3
+   * @since 3 dynamic
    */
   static error(message: string): void;
 }
