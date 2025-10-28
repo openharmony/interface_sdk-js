@@ -18,7 +18,14 @@
  * @kit ArkUI
  */
 
-import { ExtendableComponent } from '../component/extendableComponent';
+/**
+ * Define a custom component API that provides variables-related functionality.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface IVariableOwner {
+}
  
 /**
  * Defining State annotation
@@ -496,13 +503,13 @@ export declare interface IDecoratedV1Variable<T> extends IDecoratedVariable {
 }
 
 /**
- * Define decorated immutable variable interface.
+ * Define decorated variable interface.
  *
- * @interface IDecoratedImmutableVariable<T>
+ * @interface IDecoratedReadableVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare interface IDecoratedImmutableVariable<T> {
+export declare interface IDecoratedReadableVariable<T> {
   /**
    * Get the state variable.
    *
@@ -514,21 +521,25 @@ export declare interface IDecoratedImmutableVariable<T> {
 }
 
 /**
+ * Define decorated immutable variable interface.
+ *
+ * @extends IDecoratedReadableVariable<T>
+ * @interface IDecoratedImmutableVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface IDecoratedImmutableVariable<T> extends IDecoratedReadableVariable<T> {
+}
+
+/**
  * Define decorated mutable variable interface.
  *
+ * @extends IDecoratedReadableVariable<T>
  * @interface IDecoratedMutableVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare interface IDecoratedMutableVariable<T> {
-  /**
-   * Get the state variable.
-   *
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
-   */
-  get(): T;
+export declare interface IDecoratedMutableVariable<T> extends IDecoratedReadableVariable<T> {
   /**
    * Set the state variable with a new Value.
    *
@@ -884,7 +895,7 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a State variable instance.
    *
-   * @param { ExtendableComponent } owningView - custom component.
+   * @param { IVariableOwner } owner - owner of the variable being created.
    * @param { string } varName - state variable name.
    * @param { T } initValue - state variable initValue.
    * @param { WatchFuncType } [watchFunc] - watch type
@@ -892,13 +903,13 @@ export declare interface IStateMgmtFactory {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  makeState<T>(owningView: ExtendableComponent, varName: string, initValue: T,
+  makeState<T>(owner: IVariableOwner, varName: string, initValue: T,
     watchFunc?: WatchFuncType): IStateDecoratedVariable<T>;
 
   /**
    * Create a PropRef variable instance.
    *
-   * @param { ExtendableComponent } owningView - custom component.
+   * @param { IVariableOwner } owner - owner of the variable being created.
    * @param { string } varName - state variable name.
    * @param { T } initValue - state variable initValue.
    * @param { WatchFuncType } [watchFunc] - watch type
@@ -906,13 +917,13 @@ export declare interface IStateMgmtFactory {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  makePropRef<T>(owningView: ExtendableComponent, varName: string, initValue: T,
+  makePropRef<T>(owner: IVariableOwner, varName: string, initValue: T,
     watchFunc?: WatchFuncType): IPropRefDecoratedVariable<T>;
   
   /**
    * Create a Link variable instance.
    *
-   * @param { ExtendableComponent } owningView - custom component.
+   * @param { IVariableOwner } owner - owner of the variable being created.
    * @param { string } varName - state variable name.
    * @param { LinkSourceType<T> } source - state variable sync source.
    * @param { WatchFuncType } [watchFunc] - watch type
@@ -920,13 +931,13 @@ export declare interface IStateMgmtFactory {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  makeLink<T>(owningView: ExtendableComponent, varName: string, source: LinkSourceType<T>,
+  makeLink<T>(owner: IVariableOwner, varName: string, source: LinkSourceType<T>,
     watchFunc?: WatchFuncType): ILinkDecoratedVariable<T>;
 
   /**
    * Create a Provide variable instance.
    *
-   * @param { ExtendableComponent } owningView - custom component.
+   * @param { IVariableOwner } owner - owner of the variable being created.
    * @param { string } varName - state variable name.
    * @param { string } provideAlias - provide alias.
    * @param { T } initValue - init value.
@@ -936,13 +947,13 @@ export declare interface IStateMgmtFactory {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  makeProvide<T>(owningView: ExtendableComponent, varName: string, provideAlias: string, initValue: T, 
+  makeProvide<T>(owner: IVariableOwner, varName: string, provideAlias: string, initValue: T, 
       allowOverride: boolean, watchFunc?: WatchFuncType): IProvideDecoratedVariable<T>;
 
   /**
    * Create a Consume variable instance.
    *
-   * @param { ExtendableComponent } owningView - custom component.
+   * @param { IVariableOwner } owner - owner of the variable being created.
    * @param { string } varName - state variable name.
    * @param { string } provideAlias - provide alias.
    * @param { WatchFuncType } [watchFunc] - watch type
@@ -950,27 +961,27 @@ export declare interface IStateMgmtFactory {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  makeConsume<T>(owningView: ExtendableComponent, varName: string,
+  makeConsume<T>(owner: IVariableOwner, varName: string,
     provideAlias: string, watchFunc?: WatchFuncType): IConsumeDecoratedVariable<T>;
 
   /**
    * Create a ObjectLink variable instance.
    *
-   * @param { ExtendableComponent } owningView - custom component.
+   * @param { IVariableOwner } owner - owner of the variable being created.
    * @param { string } varName - state variable name.
    * @param { T } initValue - init value.
-   * @param { WatchFuncType } [wathcFunc] - watch type
+   * @param { WatchFuncType } [watchFunc] - watch type
    * @returns { IObjectLinkDecoratedVariable<T> } ObjectLink instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  makeObjectLink<T>(owningView: ExtendableComponent, varName: string,
-    initValue: T, wathcFunc?: WatchFuncType): IObjectLinkDecoratedVariable<T>;
+  makeObjectLink<T>(owner: IVariableOwner, varName: string,
+    initValue: T, watchFunc?: WatchFuncType): IObjectLinkDecoratedVariable<T>;
 
   /**
    * Create a StorageLink variable instance.
    *
-   * @param { ExtendableComponent } owningView - custom component.
+   * @param { IVariableOwner } owner - owner of the variable being created.
    * @param { string } propName - property name.
    * @param { string } varName - state variable name.
    * @param { T } initValue - init value.
@@ -979,12 +990,12 @@ export declare interface IStateMgmtFactory {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  makeStorageLink<T>(owningView: ExtendableComponent, propName: string,
+  makeStorageLink<T>(owner: IVariableOwner, propName: string,
         varName: string, initValue: T, watchFunc?: WatchFuncType): IStorageLinkDecoratedVariable<T>;
    /**
     * Create a StoragePropRef variable instance.
     *
-    * @param { ExtendableComponent } owningView - custom component.
+    * @param { IVariableOwner } owner - owner of the variable being created.
     * @param { string } propName - property name.
     * @param { string } varName - state variable name.
     * @param { T } initValue - init value.
@@ -993,12 +1004,12 @@ export declare interface IStateMgmtFactory {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 20 static
     */
-   makeStoragePropRef<T>(owningView: ExtendableComponent, propName: string,
+  makeStoragePropRef<T>(owner: IVariableOwner, propName: string,
         varName: string, initValue: T, watchFunc?: WatchFuncType): IStoragePropRefDecoratedVariable<T>;
   /**
    * Create a LocalStoragePropRef variable instance.
    *
-   * @param { ExtendableComponent } owningView - custom component.
+   * @param { IVariableOwner } owner - owner of the variable being created.
    * @param { string } propName - property name.
    * @param { string } varName - state variable name.
    * @param { T } initValue - init value.
@@ -1007,13 +1018,13 @@ export declare interface IStateMgmtFactory {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-   makeLocalStoragePropRef<T>(owningView: ExtendableComponent, propName: string,
+  makeLocalStoragePropRef<T>(owner: IVariableOwner, propName: string,
         varName: string, initValue: T, watchFunc?: WatchFuncType): ILocalStoragePropRefDecoratedVariable<T>;
 
   /**
    * Create a LocalStorageLink variable instance.
    *
-   * @param { ExtendableComponent } owningView - custom component.
+   * @param { IVariableOwner } owner - owner of the variable being created.
    * @param { string } propName - property name.
    * @param { string } varName - state variable name.
    * @param { T } initValue - init value.
@@ -1022,20 +1033,20 @@ export declare interface IStateMgmtFactory {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-   makeLocalStorageLink<T>(owningView: ExtendableComponent, propName: string,
+  makeLocalStorageLink<T>(owner: IVariableOwner, propName: string,
         varName: string, initValue: T, watchFunc?: WatchFuncType): ILocalStorageLinkDecoratedVariable<T>;
 
   /**
    * Create a Local variable instance.
    *
-   * @param { ExtendableComponent } owningView - custom component.
+   * @param { IVariableOwner } owner - owner of the variable being created.
    * @param { string } varName - state variable name.
    * @param { T } localInitValue - state variable initValue.
    * @returns { ILocalDecoratedVariable<T> } Local instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-   makeLocal<T>(owningView: ExtendableComponent, varName: string, localInitValue: T): ILocalDecoratedVariable<T>;
+  makeLocal<T>(owner: IVariableOwner, varName: string, localInitValue: T): ILocalDecoratedVariable<T>;
 
     /**
    * Create a static local variable instance.
@@ -1051,31 +1062,31 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a Param variable instance.
    *
-   * @param { ExtendableComponent } owningView - custom component.
+   * @param { IVariableOwner } owner - owner of the variable being created.
    * @param { string } varName - state variable name.
    * @param { T } initValue - param variable initValue.
    * @returns { IParamDecoratedVariable<T> } Param instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  makeParam<T>(owningView: ExtendableComponent, varName: string, initValue: T): IParamDecoratedVariable<T>;
+  makeParam<T>(owner: IVariableOwner, varName: string, initValue: T): IParamDecoratedVariable<T>;
 
   /**
    * Create a param once variable instance.
    *
-   * @param { ExtendableComponent } owningView - custom component.
+   * @param { IVariableOwner } owner - owner of the variable being created.
    * @param { string } varName - state variable name.
    * @param { T } initValue - param once variable initValue.
    * @returns { IParamOnceDecoratedVariable<T> } Param Once instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-   makeParamOnce<T>(owningView: ExtendableComponent, varName: string, initValue: T): IParamOnceDecoratedVariable<T>;
+  makeParamOnce<T>(owner: IVariableOwner, varName: string, initValue: T): IParamOnceDecoratedVariable<T>;
 
   /**
    * Create a provider variable instance.
    *
-   * @param { ExtendableComponent } owningView - custom component.
+   * @param { IVariableOwner } owner - owner of the variable being created.
    * @param { string } varName - provider variable name.
    * @param { string } providerAlias - provider alias.
    * @param { T } localInitValue - provider local variable value.
@@ -1083,12 +1094,12 @@ export declare interface IStateMgmtFactory {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  makeProvider<T>(owningView: ExtendableComponent, varName: string, providerAlias: string, localInitValue: T ): IProviderDecoratedVariable<T>;
+  makeProvider<T>(owner: IVariableOwner, varName: string, providerAlias: string, localInitValue: T ): IProviderDecoratedVariable<T>;
 
   /**
    * Create a consumer variable instance.
    *
-   * @param { ExtendableComponent } owningView - custom component.
+   * @param { IVariableOwner } owner - owner of the variable being created.
    * @param { string } varName - consumer variable name.
    * @param { string } providerAlias - consumer alias.
    * @param { T } defaultValue - consumer default value.
@@ -1096,7 +1107,7 @@ export declare interface IStateMgmtFactory {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  makeConsumer<T>(owningView: ExtendableComponent, varName: string, providerAlias: string, defaultValue: T): IConsumerDecoratedVariable<T>;      
+  makeConsumer<T>(owner: IVariableOwner, varName: string, providerAlias: string, defaultValue: T): IConsumerDecoratedVariable<T>;
 
   /**
    * Create a computed variable instance.
@@ -1114,12 +1125,12 @@ export declare interface IStateMgmtFactory {
    * 
    * @param { Array<IMonitorPathInfo> } pathInfos - monitor path to its accessor
    * @param { MonitorCallback } monitorCallback - callback when monitor triggers
-   * @param { ExtendableComponent } [owningView] - custom component
+   * @param { IVariableOwner } [owner] - owner of the variable being created
    * @returns { IMonitorDecoratedVariable } Monitor variable instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 20 static
    */
-  makeMonitor(pathInfos: Array<IMonitorPathInfo>, monitorCallback: MonitorCallback, owningView?: ExtendableComponent): IMonitorDecoratedVariable;
+  makeMonitor(pathInfos: Array<IMonitorPathInfo>, monitorCallback: MonitorCallback, owner?: IVariableOwner): IMonitorDecoratedVariable;
 }
 
 
@@ -1246,28 +1257,20 @@ export declare interface ISubscribedWatches extends IWatchSubscriberRegister {
 /**
  * Defines Computed decoration variable interface.
  *
+ * @extends IDecoratedReadableVariable<T>
  * @interface IComputedDecoratedVariable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare interface IComputedDecoratedVariable<T> {
-    /**
-     * Get the computed variable.
-     *
-     * @returns { T }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    get(): T;
-
+export declare interface IComputedDecoratedVariable<T> extends IDecoratedReadableVariable<T> {
     /**
      * Set owner for the computed variable. Used to detect component freezing.
      *
-     * @param { ExtendableComponent } owningView - customComponent
+     * @param { IVariableOwner } owner - new owner of this variable
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @since 20 static
      */
-    setOwner(owningView: ExtendableComponent): void;
+    setOwner(owner: IVariableOwner): void;
 }
 
 /**
