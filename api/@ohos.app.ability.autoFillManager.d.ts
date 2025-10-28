@@ -71,7 +71,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 22 dynamic&static
    */
   type OnSuccessFn = () => void;
 
@@ -82,7 +82,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 22 dynamic&static
    */
   type OnFailureFn = () => void;
 
@@ -127,7 +127,7 @@ declare namespace autoFillManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 22 dynamic&static
      */
     onSuccess: OnSuccessFn;
 
@@ -153,7 +153,7 @@ declare namespace autoFillManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 22 dynamic&static
      */
     onFailure: OnFailureFn;
   }
