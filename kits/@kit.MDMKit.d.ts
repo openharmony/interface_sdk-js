@@ -24,6 +24,7 @@ import applicationManager from '@ohos.enterprise.applicationManager';
 import bluetoothManager from '@ohos.enterprise.bluetoothManager';
 import browser from '@ohos.enterprise.browser';
 import bundleManager from '@ohos.enterprise.bundleManager';
+import common from '@ohos.enterprise.common';
 import dateTimeManager from '@ohos.enterprise.dateTimeManager';
 import deviceControl from '@ohos.enterprise.deviceControl';
 import deviceInfo from '@ohos.enterprise.deviceInfo';
@@ -40,7 +41,7 @@ import telephonyManager from '@ohos.enterprise.telephonyManager';
 
 export {
   EnterpriseAdminExtensionAbility, accountManager, adminManager, applicationManager, bluetoothManager, browser,
-  bundleManager, dateTimeManager, deviceControl, deviceInfo, deviceSettings, locationManager,
+  bundleManager, common, dateTimeManager, deviceControl, deviceInfo, deviceSettings, locationManager,
   networkManager, restrictions, securityManager, systemManager, usbManager, wifiManager, telephonyManager
 };
 
