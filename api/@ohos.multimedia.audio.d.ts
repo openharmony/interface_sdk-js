@@ -5817,7 +5817,7 @@ declare namespace audio {
    * @typedef { Array<StreamUsage> } StreamUsageArray
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   type StreamUsageArray = Array<StreamUsage>;
 
