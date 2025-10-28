@@ -20,7 +20,6 @@
 
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
-import { CustomBuilder } from './builder';
 
 /**
  * Define the EffectComponentAttribute.
