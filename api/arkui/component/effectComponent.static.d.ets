@@ -18,8 +18,10 @@
  * @kit ArkUI
  */
 
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { CommonMethod } from './common';
+import { ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
+import { CustomBuilder } from './builder';
 
 /**
  * Define the EffectComponentAttribute.
