@@ -20,7 +20,7 @@
  */
 import { CommonMethod, ContentModifier, CommonConfiguration } from './common';
 import { ResourceColor } from "./units";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -122,15 +122,13 @@ export declare interface LoadingProgressConfiguration extends CommonConfiguratio
 /**
  * Defines the LoadingProgress component.
  *
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { LoadingProgressAttribute } The attribute of the LoadingProgress.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function LoadingProgress(
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): LoadingProgressAttribute;

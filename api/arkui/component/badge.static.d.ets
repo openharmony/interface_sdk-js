@@ -21,7 +21,7 @@
 import { ResourceColor, Length, Position, Resource, ResourceStr } from "./units";
 import { FontWeight } from "./enums";
 import { CommonMethod } from './common';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -242,16 +242,14 @@ export declare interface BadgeAttribute extends CommonMethod {
  * Defines Badge Component.
  *
  * @param { BadgeParamWithNumber | BadgeParamWithString } value
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { BadgeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Badge(
     value: BadgeParamWithNumber | BadgeParamWithString, 
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): BadgeAttribute;

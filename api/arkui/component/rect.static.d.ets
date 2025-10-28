@@ -18,7 +18,7 @@
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
 import { Length } from "./units";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Defines the RadiusItem.
@@ -161,16 +161,14 @@ export declare interface RectAttribute extends CommonShapeMethod {
  * Rect is returned when the parameter is transferred.
  *
  * @param { RectOptions | RoundedRectOptions } [options] - The options to create a Rect
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { RectAttribute } The attribute of the Rect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Rect(
     options?: RectOptions | RoundedRectOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): RectAttribute

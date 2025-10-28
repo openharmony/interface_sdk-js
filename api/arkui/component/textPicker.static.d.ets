@@ -23,7 +23,7 @@ import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, Blur
 import { DialogAlignment } from "./alertDialog";
 import { CrownSensitivity, TextOverflow } from "./enums";
 import { LengthMetrics } from './../Graphics';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -800,16 +800,14 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
  * Defines the TextPicker component.
  *
  * @param { TextPickerOptions } [options] - text picker options.
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { TextPickerAttribute } The attribute of the TextPicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function TextPicker(
     options?: TextPickerOptions, 
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): TextPickerAttribute;

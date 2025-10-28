@@ -17,7 +17,6 @@
  * @kit ArkUI
  */
 import { LengthMetricsUnit } from '../Graphics';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**

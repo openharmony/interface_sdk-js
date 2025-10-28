@@ -19,7 +19,7 @@
  */
 import { CommonMethod } from './common';
 import { Length, Font, ResourceColor, Dimension, BorderRadiuses, DividerStyleOptions } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Declare SubMenuExpandingMode
@@ -132,15 +132,13 @@ export declare interface MenuAttribute extends CommonMethod {
 /**
  * Defines Menu Component.
  *
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { MenuAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-@memo
 @ComponentBuilder
 export declare function Menu(
     
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): MenuAttribute

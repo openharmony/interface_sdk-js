@@ -17,8 +17,9 @@
  * @file
  * @kit ArkUI
  */
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { memo } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
+import { ComponentBuilder } from './builder';
 
 /**
  * Round rect.

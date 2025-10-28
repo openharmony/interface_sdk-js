@@ -23,7 +23,7 @@ import { CrownSensitivity, EdgeEffect } from '@ohos.arkui.component';
 import { LinearGradient } from '@ohos.arkui.component';
 import { ResourceColor } from '@ohos.arkui.component';
 import { CommonMethod, Callback } from '@ohos.arkui.component';
-import { memo, ComponentBuilder } from '@ohos.arkui.stateManagement';
+import { ComponentBuilder, CustomBuilder } from '@ohos.arkui.component';
 /**
  * Handler of swiper controller, used in finishAnimation.
  *
@@ -184,45 +184,45 @@ export declare class ArcDotIndicator {
  * Handler of swiper, used in OnChange.
  *
  * @typedef { function } IndexChangedHandler
- * @param { number } index - The index of the current swiper.
+ * @param { int } index - The index of the current swiper.
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @since 20 static
  */
-export type IndexChangedHandler = (index: number) => void;
+export type IndexChangedHandler = (index: int) => void;
 
 /**
  * Handler of swiper, used in OnAnimationStart.
  * 
  * @typedef { function } AnimationStartHandler
- * @param { number } index - The index of the current swiper.
- * @param { number } targetIndex - The index of the target swiper.
+ * @param { int } index - The index of the current swiper.
+ * @param { int } targetIndex - The index of the target swiper.
  * @param { SwiperAnimationEvent } event - The extra information of the animation.
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @since 20 static
  */
-export type AnimationStartHandler = (index: number, targetIndex: number, event: SwiperAnimationEvent) => void;
+export type AnimationStartHandler = (index: int, targetIndex: int, event: SwiperAnimationEvent) => void;
 
 /**
  * Handler of swiper, used in OnAnimationEnd.
  * 
  * @typedef { function } AnimationEndHandler
- * @param { number } index - The index of the current swiper.
+ * @param { int } index - The index of the current swiper.
  * @param { SwiperAnimationEvent } event - The extra information of the animation.
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @since 20 static
  */
-export type AnimationEndHandler = (index: number, event: SwiperAnimationEvent) => void;
+export type AnimationEndHandler = (index: int, event: SwiperAnimationEvent) => void;
 
 /**
  * Handler of swiper, used in OnGestureSwipe.
  * 
  * @typedef { function } GestureSwipeHandler
- * @param { number } index - The index of the current swiper.
+ * @param { int } index - The index of the current swiper.
  * @param { SwiperAnimationEvent } event - The extra information of the animation.
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @since 20 static
  */
-export type GestureSwipeHandler = (index: number, event: SwiperAnimationEvent) => void;
+export type GestureSwipeHandler = (index: int, event: SwiperAnimationEvent) => void;
 
 
 /**
@@ -238,12 +238,12 @@ export declare interface ArcSwiperContentAnimatedTransition {
    * The unit is ms.
    * If ArcSwiperContentTransitionProxy.finishTransition() is not invoked, use the timeout as animation end time.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @default 0 ms
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 20 static
    */
-  timeout?: number;
+  timeout?: int;
 
   /**
    * Called when custom content transition animation start.
@@ -266,38 +266,38 @@ export declare interface ArcSwiperContentTransitionProxy {
   /**
    * the index value of the swiper content selected before animation start.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 20 static
    */
-  selectedIndex: number;
+  selectedIndex: int;
 
   /**
    * The index value of the swiper content.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 20 static
    */
-  index: number;
+  index: int;
 
   /**
    * the moving ratio of the swiper content from the start position of the swiper main axis.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 20 static
    */
-  position: number;
+  position: double;
 
   /**
    * the swiper main axis length for calculating position.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 20 static
    */
-  mainAxisLength: number;
+  mainAxisLength: double;
 
   /**
    * Notifies Swiper page the custom content transition animation is complete.
@@ -321,13 +321,13 @@ export declare interface ArcSwiperAttribute extends CommonMethod {
   /**
    * Set the index value of the displayed subcomponent.
    *
-   * @param { number | undefined } index - The index value of the subcomponents to be displayed,
+   * @param { int | undefined } index - The index value of the subcomponents to be displayed,
    *     default value is { 0 }, undefined means setting to default value.
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 20 static
    */
-  default index(index: number | undefined): this;
+  default index(index: int | undefined): this;
 
   /**
    * Set whether the indicator is available or set the indicator style.
@@ -343,13 +343,13 @@ export declare interface ArcSwiperAttribute extends CommonMethod {
   /**
    * Set the animation duration of the switch in ms.
    *
-   * @param { number | undefined } duration - Duration of animation, default value is { 400ms },
+   * @param { int | undefined } duration - Duration of animation, default value is { 400ms },
    *     undefined means setting to default value.
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 20 static
    */
-  default duration(duration: number | undefined): this;
+  default duration(duration: int | undefined): this;
 
   /**
    * Set whether to slide vertically.
@@ -466,16 +466,14 @@ export declare interface ArcSwiperAttribute extends CommonMethod {
  * Defines ArcSwiper Component
  *
  * @param { ArcSwiperController } [controller] - ArcSwiper constructor options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ArcSwiperAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function ArcSwiper(
     controller?: ArcSwiperController, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder
 ): ArcSwiperAttribute

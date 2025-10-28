@@ -21,7 +21,7 @@
 
 import { NodeController } from '../../@ohos.arkui.node';
 import { CommonMethod, AttributeModifier } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * The NodeContainerAttribute.
@@ -56,10 +56,8 @@ export declare interface NodeContainerAttribute extends CommonMethod {
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function NodeContainer(
     controller: NodeController, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): NodeContainerAttribute

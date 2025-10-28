@@ -23,7 +23,6 @@ import { Resource as _Resource } from '../../global/resource';
 import { Color, BorderStyle, FontWeight, FontStyle, DividerMode } from './enums';
 import { OutlineStyle, AttributeModifier, CommonMethod } from './common';
 import { LengthMetricsUnit as _LengthMetricsUnit, LengthMetrics as _LengthMetrics, ColorMetrics as _ColorMetrics } from '../Graphics';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import _drawing from '../../../api/@ohos.graphics.drawing'
 /**
  * Defines the data type of the interface restriction.

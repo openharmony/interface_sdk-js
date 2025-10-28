@@ -23,7 +23,7 @@ import { CommonMethod, Callback } from './common';
 import Want from '../../@ohos.app.ability.Want';
 import { Visibility } from './enums';
 import { VoidCallback } from './units';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 
 /**
@@ -513,17 +513,15 @@ export declare interface FormComponentAttribute extends CommonMethod {
 /**
  * Defines FormComponent.
  * @param { FormInfo } formInfo - The formInfo
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { FormComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function FormComponent(
     formInfo: FormInfo, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): FormComponentAttribute

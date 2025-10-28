@@ -21,7 +21,7 @@ import { EdgeEffectOptions, NestedScrollOptions, ItemDragInfo, ScrollableCommonM
 import { Length, Resource } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from './scroll';
 import { BarState, Color, EdgeEffect } from './enums';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * The options to help grid layout
@@ -480,16 +480,14 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
  *
  * @param { Scroller } [scroller] - Controller bound to the grid
  * @param { GridLayoutOptions } [layoutOptions] - The options to help grid layout
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { GridAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Grid(
     scroller?: Scroller, layoutOptions?: GridLayoutOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): GridAttribute

@@ -322,12 +322,12 @@ export declare class Router {
   /**
    * Obtains page information by index.
    *
-   * @param { number } index - Index of page.
+   * @param { int } index - Index of page.
    * @returns { router.RouterState | undefined } Page state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getStateByIndex(index: number): router.RouterState | undefined;
+  getStateByIndex(index: int): router.RouterState | undefined;
 
   /**
    * Obtains page information by url.

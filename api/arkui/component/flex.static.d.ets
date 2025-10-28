@@ -18,7 +18,7 @@
  */
 import { LengthMetrics } from '../Graphics';
 import { FlexWrap, FlexDirection, ItemAlign, FlexAlign } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Describes the layout and alignment of child components within the Flex component.
@@ -146,16 +146,14 @@ export declare interface FlexAttribute extends CommonMethod {
  * Defines Flex Component.
  *
  * @param { FlexOptions } [value] - Flex options.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { FlexAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Flex(
     value?: FlexOptions,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): FlexAttribute

@@ -19,7 +19,7 @@
  */
 import { CommonMethod } from './common';
 import { LengthMetrics } from '../Graphics';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 
 /**
@@ -85,15 +85,13 @@ export declare interface LazyVGridLayoutAttribute extends LazyGridLayoutAttribut
 /**
  * Defines LazyVGridLayout Component.
  *
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { LazyVGridLayoutAttribute } The attribute of the grid
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function LazyVGridLayout(
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): LazyVGridLayoutAttribute

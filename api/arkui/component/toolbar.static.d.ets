@@ -16,7 +16,7 @@
  * @file Defines toolbar attributes.
  * @kit ArkUI
  */
-import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { ComponentBuilder, CustomBuilder } from './builder';
 /**
  * Declare the placement of the toolbar item.
  *
@@ -70,15 +70,13 @@ declare class ToolBarItemAttribute {
  * Defines ToolBarItem Component.
  *
  * @param { ToolBarItemOptions } options - column options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ToolBarItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-@memo
 @ComponentBuilder
 export declare function ToolBarItem(
     options?: ToolBarItemOptions,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ToolBarItemAttribute

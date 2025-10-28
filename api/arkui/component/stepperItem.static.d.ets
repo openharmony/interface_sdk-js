@@ -20,7 +20,7 @@
  */
 
 import { CommonMethod, AttributeModifier } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * ItemState
@@ -117,16 +117,14 @@ export declare interface StepperItemAttribute extends CommonMethod {
 /**
  * Defines StepperItem Component
  *
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { StepperItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function StepperItem(
 
-  @memo
-  content_?: () => void,
+  content_?: CustomBuilder
 ): StepperItemAttribute
