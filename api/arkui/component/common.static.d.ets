@@ -9160,12 +9160,12 @@ export declare interface CommonMethod {
     /**
      * Set focus index by key tab.
      * The tabIndex and focusScopeId cannot be used together.
-     * @param { number | undefined } index
+     * @param { int | undefined } index
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default tabIndex(index: number | undefined): this;
+    default tabIndex(index: int | undefined): this;
     /**
      * Set default focused component when a page create.
      *
