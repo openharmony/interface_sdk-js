@@ -1185,7 +1185,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
    */
-  function addHotspotBlockList(stationInfo: StationInfo);
+  function addHotspotBlockList(stationInfo: StationInfo): void;
 
   /**
    * Delete the station from block list, the station can access the hotspot.
@@ -1201,7 +1201,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
    */
-  function delHotspotBlockList(stationInfo: StationInfo);
+  function delHotspotBlockList(stationInfo: StationInfo): void;
 
   /**
    * Get all the stations in the block list. If does't have the permission of ohos.permission.GET_WIFI_PEERS_MAC, return random bssid.
