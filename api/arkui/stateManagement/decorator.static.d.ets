@@ -1277,7 +1277,17 @@ export declare interface IComputedDecoratedVariable<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare interface IMonitorDecoratedVariable {}
+export declare interface IMonitorDecoratedVariable {
+  /**
+   * Path for generated monitors, either generated or set by addMonitor parameters.
+   *
+   * @type { string[] }
+   * @readonly
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  readonly path: string[];
+}
 
 /**
  * Defines Monitor path with its accessor interface.

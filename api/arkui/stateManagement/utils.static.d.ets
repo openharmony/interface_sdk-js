@@ -18,6 +18,9 @@
  * @kit ArkUI
  */
 
+import { MonitorValueCallback, MonitorCallback, IMonitorDecoratedVariable } from './decorator';
+import { ExtendableComponent } from '../component/extendableComponent';
+
 /**
  * UIUtils is a state management tool class for operating the observed data.
  *
@@ -86,6 +89,31 @@ export declare class UIUtils {
    * @since 20 static
    */
   static makeBinding<T>(getter: GetterCallback<T>, setter: SetterCallback<T>): MutableBinding<T>;
+
+  /**
+   * Dynamically add monitor for state variable change.
+   *
+   * @param { MonitorValueCallback | MonitorValueCallback[] } valueCallback monitored change for state variable.
+   * @param { MonitorCallback } monitorCallback the function triggered when state variable changes.
+   * @param { MonitorOptions } [options] the monitor configuration.
+   * @returns { IMonitorDecoratedVariable } monitor handle.
+   * @throws { BusinessError } 130000 - options.owner is not ComponentV2 struct.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  static addMonitor(valueCallback: MonitorValueCallback | MonitorValueCallback[],
+    monitorCallback: MonitorCallback, options?: MonitorOptions): IMonitorDecoratedVariable;
+  
+  /**
+   * Dynamically clear monitor callback for state varaible change.
+   *
+   * @param { IMontiorDecoratedVariable } monitor handle
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  static clearMonitor(monitor: IMonitorDecoratedVariable): void;
 }
 
 /**
@@ -145,4 +173,42 @@ export declare class MutableBinding<T> {
    * @since 20 static
    */
   set value(newValue: T);
+}
+
+/**
+ * Define Monitor options.
+ *
+ * @interface MonitorOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 23 static
+ */
+export declare interface MonitorOptions {
+  /**
+   * Used to determine whether the state variable change is
+   * triggered synchronously orasynchronously. The default value is false.
+   * 
+   * @type { ?boolean } isSynchronous parameter
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  isSynchronous?: boolean;
+
+  /**
+   * Usered to handle component freezing.
+   * If not set, component freezing won't affect the monitor.
+   *
+   * @type { ?ExtendableComponent } owner - custom component
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  owner?: ExtendableComponent;
+
+  /**
+   * Override path for each valueCallback element.
+   * @type { ? (string | string[]) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  path?: string | string[];
 }
