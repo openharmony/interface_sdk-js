@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -28,27 +28,27 @@ export declare class GesturePoint {
   /**
    * A constructor used to create a GesturePoint object.
    *
-   * @param { number } positionX - Indicates the X coordinate of point.
-   * @param { number } positionY - Indicates the Y coordinate of point.
+   * @param { double } positionX - Indicates the X coordinate of point.
+   * @param { double } positionY - Indicates the Y coordinate of point.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
    */
-  constructor(positionX: number, positionY: number);
+  constructor(positionX: double, positionY: double);
   /**
    * Indicates the X coordinate of point.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    */
-  positionX: number;
+  positionX: double;
   /**
    * Indicates the Y coordinate of point.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    */
-  positionY: number;
+  positionY: double;
 }
