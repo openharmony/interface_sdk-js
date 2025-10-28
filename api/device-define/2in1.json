@@ -222,7 +222,6 @@
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.Global.I18n",
     "SystemCapability.Test.PerfTest",
-    "SystemCapability.ArkUI.ArkUI.Lite",
-    "SystemCapability.Tee.TeeClient"
+    "SystemCapability.ArkUI.ArkUI.Lite"
   ]
 }
