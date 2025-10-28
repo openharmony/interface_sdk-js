@@ -1266,7 +1266,7 @@ declare namespace window {
   }
 
   /**
-   * Position
+   * Describes the location of a window or component.
    *
    * @interface Position
    * @syscap SystemCapability.Window.SessionManager
@@ -1276,7 +1276,7 @@ declare namespace window {
   export interface Position {
 
     /**
-     * The X-coordinate
+     * The X-coordinate, measured in px.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
@@ -1286,7 +1286,7 @@ declare namespace window {
     x: int;
 
     /**
-     * The Y-coordinate
+     * The Y-coordinate, measured in px.
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
@@ -5607,30 +5607,34 @@ declare namespace window {
     moveWindowToGlobal(x: int, y: int, moveConfiguration?: MoveConfiguration): Promise<void>;
 
     /**
-     * Move window to the position relative to the main screen.
+     * Move window to the position relative to the primary display.
      *
-     * @param { number } x - Indicate the X-coordinate of the window relative to the main screen.
-     * @param { number } y - Indicate the Y-coordinate of the window relative to the main screen.
+     * @param { number } x - Indicates the X-coordinate of the window relative to the primary display, measured in px.
+     *     This parameter only accepts integer values; any floating-point input will be rounded down.
+     * @param { number } y - Indicates the Y-coordinate of the window relative to the primary display, measured in px.
+     *     This parameter only accepts integer values; any floating-point input will be rounded down.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
      */
     /**
-     * Move window to the position relative to the main screen.
+     * Move window to the position relative to the primary display.
      *
-     * @param { int } x - Indicate the X-coordinate of the window relative to the main screen.
-     * @param { int } y - Indicate the Y-coordinate of the window relative to the main screen.
+     * @param { int } x - Indicates the X-coordinate of the window relative to the main screen, measured in px.
+     *     This parameter only accepts integer values; any floating-point input will be rounded down.
+     * @param { int } y - Indicates the Y-coordinate of the window relative to the main screen, measured in px.
+     *     This parameter only accepts integer values; any floating-point input will be rounded down.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @since 22 dynamic&static
      */
@@ -8106,7 +8110,7 @@ declare namespace window {
     off(type: 'windowStatusChange', callback?: Callback<WindowStatusType>): void;
 
     /**
-     * Register the callback of windowStatusDidChange
+     * Register the callback of windowStatusDidChange. The windowRect has been updated when this callback is triggered.
      *
      * @param { 'windowStatusDidChange' } type - The value is fixed at 'windowStatusDidChange', indicating the window status change event.
      * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
@@ -8118,7 +8122,7 @@ declare namespace window {
     on(type: 'windowStatusDidChange', callback: Callback<WindowStatusType>): void;
 
     /**
-     * Register the callback of window status did change
+     * Register the callback of window status did change. The windowRect has been updated when this callback is triggered.
      *
      * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -8134,6 +8138,7 @@ declare namespace window {
      *
      * @param { 'windowStatusDidChange' } type - The value is fixed at 'windowStatusDidChange', indicating the window status change event.
      * @param { Callback<WindowStatusType> } [callback] - Callback used to return the window status.
+     *     Unregister the callback function. If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
@@ -10285,7 +10290,7 @@ declare namespace window {
      * @param { boolean } [acrossDisplay] - Parameter controls the waterfall mode of main windows in the half-folded state.
      *     The value true Indicates that the window could enter the waterfall mode directly,
      *     and maintains the waterfall mode when the device is half-folded.
-     *     The default value is false.
+     *     The default value is undefined.
      * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Function maximize can not work correctly due to limited device capabilities.
@@ -11110,8 +11115,8 @@ declare namespace window {
     /**
      * Register the callback of rectChangeInGlobalDisplay
      *
-     * @param { 'rectChangeInGlobalDisplay' } type - The value is fixed at 'rectChangeInGlobalDisplay', indicating the window gloabl rect change event.
-     * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
+     * @param { 'rectChangeInGlobalDisplay' } type - The value is fixed at 'rectChangeInGlobalDisplay', indicating the window global rect change event.
+     * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions. Rect position based on the global coordinates.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -11123,7 +11128,7 @@ declare namespace window {
     /**
      * Register the callback of rect change in global display
      *
-     * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
+     * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions. Rect position based on the global coordinates.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -11137,7 +11142,8 @@ declare namespace window {
      * Unregister the callback of rectChangeInGlobalDisplay
      *
      * @param { 'rectChangeInGlobalDisplay' } type - The value is fixed at 'rectChangeInGlobalDisplay', indicating the window global rect change event.
-     * @param { Callback<RectChangeOptions> } [callback] - Callback used to return the RectChangeOptions.
+     * @param { Callback<RectChangeOptions> } [callback] - Callback used to return the RectChangeOptions. Rect position based on the global coordinates.
+     *     Unregister the callback function. If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -11162,28 +11168,30 @@ declare namespace window {
     /**
      * Convert the window coordinates to the global coordinates.
      *
-     * @param { number } winX - Indicate the X-coordinate of the component relative to the current window.
-     * @param { number } winY - Indicate the Y-coordinate of the component relative to the current window.
+     * @param { number } winX - Indicates the X-coordinate of the component relative to the current window.
+     * @param { number } winY - Indicates the Y-coordinate of the component relative to the current window.
      * @returns { Position } The pair {x, y} represents respectively the X-coordinate
-     *     and Y-coordinate of the window relative to the main screen.
+     *     and Y-coordinate of the window relative to the primary display, measured in px.
+     *     This parameter only accepts integer values; any floating-point input will be rounded down.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
      */
     /**
      * Convert the window coordinates to the global coordinates.
      *
-     * @param { int } winX - Indicate the X-coordinate of the component relative to the current window.
-     * @param { int } winY - Indicate the Y-coordinate of the component relative to the current window.
+     * @param { int } winX - Indicates the X-coordinate of the component relative to the current window.
+     * @param { int } winY - Indicates the Y-coordinate of the component relative to the current window.
      * @returns { Position } Position - The pair {x, y} represents respectively the X-coordinate
-     *     and Y-coordinate of the window relative to the main screen.
+     *     and Y-coordinate of the window relative to the primary display, measured in px.
+     *     This parameter only accepts integer values; any floating-point input will be rounded down.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @since 22 dynamic&static
      */
@@ -11192,28 +11200,30 @@ declare namespace window {
     /**
      * Convert the global coordinates to the window coordinates.
      *
-     * @param { number } globalDisplayX - Indicate the X-coordinate of the component relative to the main screen.
-     * @param { number } globalDisplayY - Indicate the Y-coordinate of the component relative to the main screen.
+     * @param { number } globalDisplayX - Indicates the X-coordinate of the component relative to the primary display.
+     * @param { number } globalDisplayY - Indicates the Y-coordinate of the component relative to the primary display.
      * @returns { Position } The pair {x, y} represents respectively the X-coordinate
-     *     and Y-coordinate of the window relative to the current screen.
+     *     and Y-coordinate of the window relative to the current screen, measured in px.
+     *     This parameter only accepts integer values; any floating-point input will be rounded down.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
      */
     /**
      * Convert the global coordinates to the window coordinates.
      *
-     * @param { int } globalDisplayX - Indicate the X-coordinate of the component relative to the main screen.
-     * @param { int } globalDisplayY - Indicate the Y-coordinate of the component relative to the main screen.
+     * @param { int } globalDisplayX - Indicates the X-coordinate of the component relative to the primary display.
+     * @param { int } globalDisplayY - Indicates the Y-coordinate of the component relative to the primary display.
      * @returns { Position } Position - The pair {x, y} represents respectively the X-coordinate
-     *     and Y-coordinate of the window relative to the current screen.
+     *     and Y-coordinate of the window relative to the current screen, measured in px.
+     *     This parameter only accepts integer values; any floating-point input will be rounded down.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @since 22 dynamic&static
      */
