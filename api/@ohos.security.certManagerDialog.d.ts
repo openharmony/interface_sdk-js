@@ -259,7 +259,7 @@ declare namespace certificateManagerDialog {
      * @since 20 static
      */
     GLOBAL_USER = 2
- }
+  }
 
   /**
    * open install certificate dialog.
@@ -386,7 +386,7 @@ declare namespace certificateManagerDialog {
   export interface CertificateDialogProperty {
 
     /**
-     * Indicates if the certificate dialog show the install button.
+     * Indicates if the certificate dialog shows the install button.
      *
      * @type { boolean }
      * @syscap SystemCapability.Security.CertificateManagerDialog
@@ -409,16 +409,16 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
    *     permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported. 
-   * @throws { BusinessError } 29700001 Internal error. Possible causes: 1. IPC communication failed.
+   * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed; 
    *     <br>2. Memory operation error; 3. File operation error; 4. Call other service failed.
    * @throws { BusinessError } 29700002 - The user cancels the authorization.
    * @throws { BusinessError } 29700006 - Indicates that the input parameters validation failed.
-   *     for example, the parameter format is incorrect or the value range is invalid.
+   *     For example, the parameter format is incorrect or the value range is invalid.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 22 dynamic&static
    */
-  function openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest ): Promise<CertIndex>;
+  function openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest): Promise<CertIndex>;
 
   /**
    * Provides the certificate authorize request information.

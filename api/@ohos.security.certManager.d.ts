@@ -1286,7 +1286,7 @@ declare namespace certificateManager {
      * @since 18 dynamic
      * @since 20 static
      */
-    EL4 = 4,
+    EL4 = 4
   }
 
   /**
@@ -1516,12 +1516,12 @@ declare namespace certificateManager {
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    *     The application does not have the permission required to call the API.
-   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed; 
+   * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error.
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @throws { BusinessError } 17500010 - Indicates that access USB key service failed.
    * @throws { BusinessError } 17500011 - Indicates that the input parameters validation failed.
-   *     for example, the parameter format is incorrect or the value range is invalid.
+   *     For example, the parameter format is incorrect or the value range is invalid.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 22 dynamic&static
    */
