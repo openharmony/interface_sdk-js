@@ -662,16 +662,6 @@ declare class LinkedList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  getFirst(): T;
-
-  /**
-   * Obtains the first element in this container.
-   *
-   * @returns { T } the T type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
    * @since 20 static
    */
   getFirst(): T;
@@ -704,16 +694,6 @@ declare class LinkedList<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  getLast(): T;
-
-  /**
-   * Obtains the last element in this container.
-   *
-   * @returns { T } the T type
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
    * @since 20 static
    */
   getLast(): T;
