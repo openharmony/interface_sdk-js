@@ -5622,7 +5622,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 21 dynamic&static
    */
   function parsePkcs12(data: Uint8Array, password: string): Promise<Pkcs12Data>;
 
@@ -5906,7 +5906,7 @@ declare namespace cert {
      * @since 12 dynamic
      * @since 20 static
      */
-    REVOCATION_CHECK_OPTION_ACCESS_NETWORK,
+    REVOCATION_CHECK_OPTION_ACCESS_NETWORK = 1,
 
     /**
      * Indicates when the 'REVOCATION_CHECK_OPTION_ACCESS_NETWORK' option is turned on, it is effective.
@@ -5919,7 +5919,7 @@ declare namespace cert {
      * @since 12 dynamic
      * @since 20 static
      */
-    REVOCATION_CHECK_OPTION_FALLBACK_NO_PREFER,
+    REVOCATION_CHECK_OPTION_FALLBACK_NO_PREFER = 2,
 
     /**
      * Indicates when the 'REVOCATION_CHECK_OPTION_ACCESS_NETWORK' option is turned on, it is effective.
@@ -5932,7 +5932,7 @@ declare namespace cert {
      * @since 12 dynamic
      * @since 20 static
      */
-    REVOCATION_CHECK_OPTION_FALLBACK_LOCAL,
+    REVOCATION_CHECK_OPTION_FALLBACK_LOCAL = 3,
 
     /**
      * When performing online OCSL or online CRL verification of certificate revocation status, it will also attempt to
@@ -5943,20 +5943,17 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     REVOCATION_CHECK_OPTION_CHECK_INTERMEDIATE_CA_ONLINE = 4,
 
     /**
-     * When performing online OCSL or online CRL verification of certificate revocation status, it will also attempt to
-     * perform online revocation status checks on intermediate CA certificates. The OCSP address will be obtained from
-     * the AIA extension of the intermediate CA certificate, and the CRL address will be obtained from the CDP
-     * extension. If the address does not exist, it will be skipped.
+     * When using local CRL verification, only check the revocation status of the end entity certificate.
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     REVOCATION_CHECK_OPTION_LOCAL_CRL_ONLY_CHECK_END_ENTITY_CERT = 5
   }
@@ -6527,7 +6524,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     ENVELOPED_DATA = 1,
   }
@@ -6643,7 +6640,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 22 dynamic&static
    */
   enum CmsRsaSignaturePadding {
     /**
@@ -6652,7 +6649,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     PKCS1_PADDING = 0,
 
@@ -6662,7 +6659,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     PKCS1_PSS_PADDING = 1
   }
@@ -6701,7 +6698,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     rsaSignaturePadding?: CmsRsaSignaturePadding;
 
@@ -6752,7 +6749,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 22 dynamic&static
    */
   enum CmsKeyAgreeRecipientDigestAlgorithm {
     /**
@@ -6761,7 +6758,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     SHA256 = 0,
 
@@ -6771,7 +6768,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     SHA384 = 1,
 
@@ -6781,7 +6778,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     SHA512 = 2,
   }
@@ -6793,7 +6790,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 22 dynamic&static
    */
   enum CmsRecipientEncryptionAlgorithm {
     /**
@@ -6802,7 +6799,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     AES_128_CBC = 0,
 
@@ -6812,7 +6809,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     AES_192_CBC = 1,
 
@@ -6822,7 +6819,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     AES_256_CBC = 2,
 
@@ -6832,7 +6829,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     AES_128_GCM = 3,
 
@@ -6842,7 +6839,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     AES_192_GCM = 4,
 
@@ -6852,7 +6849,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     AES_256_GCM = 5,
   }
@@ -6864,7 +6861,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 22 dynamic&static
    */
   interface CmsKeyTransRecipientInfo {
     /**
@@ -6874,7 +6871,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     cert: X509Cert;
   }
@@ -6886,7 +6883,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 22 dynamic&static
    */
   interface CmsKeyAgreeRecipientInfo {
     /**
@@ -6896,7 +6893,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     cert: X509Cert;
 
@@ -6908,7 +6905,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     digestAlgorithm?: CmsKeyAgreeRecipientDigestAlgorithm;
   }
@@ -6922,7 +6919,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 22 dynamic&static
    */
   interface CmsRecipientInfo {
     /**
@@ -6932,7 +6929,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     keyTransInfo?: CmsKeyTransRecipientInfo;
     /**
@@ -6942,7 +6939,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     keyAgreeInfo?: CmsKeyAgreeRecipientInfo;
   }
@@ -7067,7 +7064,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     setRecipientEncryptionAlgorithm(algorithm: CmsRecipientEncryptionAlgorithm): void;
 
@@ -7089,7 +7086,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     addRecipientInfo(recipientInfo: CmsRecipientInfo): Promise<void>;
 
@@ -7147,7 +7144,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     getEncryptedContentData(): Promise<Uint8Array>;
   }
@@ -7178,7 +7175,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 22 dynamic&static
    */
   interface CmsVerificationConfig {
     /**
@@ -7188,7 +7185,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     trustCerts: Array<X509Cert>;
 
@@ -7201,7 +7198,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     signerCerts?: Array<X509Cert>;
 
@@ -7214,7 +7211,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     contentData?: Uint8Array;
 
@@ -7226,7 +7223,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     contentDataFormat?: CmsContentDataFormat;
   }
@@ -7238,7 +7235,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 22 dynamic&static
    */
   interface CmsEnvelopedDecryptionConfig {
     /**
@@ -7250,7 +7247,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     keyInfo?: PrivateKeyInfo;
 
@@ -7264,7 +7261,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     cert?: X509Cert;
 
@@ -7277,7 +7274,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     encryptedContentData?: Uint8Array;
 
@@ -7289,7 +7286,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     contentDataFormat?: CmsContentDataFormat;
   }
@@ -7301,7 +7298,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 22 dynamic&static
    */
   enum CmsCertType {
     /**
@@ -7310,7 +7307,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     SIGNER_CERTS = 0,
 
@@ -7320,7 +7317,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     ALL_CERTS = 1,
   }
@@ -7332,7 +7329,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 22 dynamic&static
    */
   interface CmsParser {
     /**
@@ -7351,7 +7348,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     setRawData(data: Uint8Array | string, cmsFormat: CmsFormat): Promise<void>;
 
@@ -7366,7 +7363,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     getContentType(): CmsContentType;
 
@@ -7389,7 +7386,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     verifySignedData(config: CmsVerificationConfig): Promise<void>;
 
@@ -7406,7 +7403,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     getContentData(): Promise<Uint8Array>;
 
@@ -7424,7 +7421,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     getCerts(type: CmsCertType): Promise<Array<X509Cert>>;
 
@@ -7443,7 +7440,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     decryptEnvelopedData(config: CmsEnvelopedDecryptionConfig): Promise<Uint8Array>;
   }
@@ -7459,7 +7456,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 22 dynamic&static
    */
   function createCmsParser(): CmsParser;
 
@@ -7588,7 +7585,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 21 dynamic&static
    */
   enum PbesEncryptionAlgorithm {
     /**
@@ -7597,7 +7594,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     AES_128_CBC = 0,
 
@@ -7607,7 +7604,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     AES_192_CBC = 1,
 
@@ -7617,7 +7614,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     AES_256_CBC = 2,
   }
@@ -7629,7 +7626,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 21 dynamic&static
    */
   interface PbesParams {
     /**
@@ -7640,7 +7637,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     saltLen?: int;
 
@@ -7652,7 +7649,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     iterations?: int;
 
@@ -7664,7 +7661,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     encryptionAlgorithm?: PbesEncryptionAlgorithm;
   }
@@ -7676,7 +7673,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 21 dynamic&static
    */
   enum Pkcs12MacDigestAlgorithm {
     /**
@@ -7685,7 +7682,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     SHA256 = 0,
 
@@ -7695,7 +7692,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     SHA384 = 1,
 
@@ -7705,7 +7702,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     SHA512 = 2,
   }
@@ -7717,7 +7714,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 21 dynamic&static
    */
   interface Pkcs12CreationConfig {
     /**
@@ -7727,7 +7724,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     password: string;
 
@@ -7738,7 +7735,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     keyEncParams?: PbesParams;
 
@@ -7750,7 +7747,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     encryptCert?: boolean;
 
@@ -7761,7 +7758,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     certEncParams?: PbesParams;
 
@@ -7773,7 +7770,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     macSaltLen?: int;
 
@@ -7785,7 +7782,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     macIterations?: int;
 
@@ -7797,7 +7794,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 21 dynamic
+     * @since 21 dynamic&static
      */
     macDigestAlgorithm?: Pkcs12MacDigestAlgorithm;
   }
@@ -7819,7 +7816,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 21 dynamic&static
    */
   function createPkcs12Sync(data: Pkcs12Data, config: Pkcs12CreationConfig): Uint8Array;
 
@@ -7840,7 +7837,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 21 dynamic&static
    */
   function createPkcs12(data: Pkcs12Data, config: Pkcs12CreationConfig): Promise<Uint8Array>;
 }
