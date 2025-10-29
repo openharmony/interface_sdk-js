@@ -329,11 +329,11 @@ export declare interface TextBaseController {
     /**
      * Get LayoutManager.
      *
-     * @returns { LayoutManager } - Return the LayoutManager.
+     * @returns { LayoutManager | undefined } - Return the LayoutManager.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    getLayoutManager(): LayoutManager;
+    getLayoutManager(): LayoutManager | undefined;
 }
 /**
  * Define the text extended editing controller.
@@ -347,11 +347,11 @@ export declare interface TextEditControllerEx extends TextBaseController {
     /**
      * Judge whether is in editing state
      *
-     * @returns { boolean } - true means that the component is in editing state, false means is non in editing status
+     * @returns { boolean | undefined } - true means that the component is in editing state, false means is non in editing status
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    isEditing(): boolean;
+    isEditing(): boolean | undefined;
     /**
      * Stop editing state.
      *
@@ -363,27 +363,27 @@ export declare interface TextEditControllerEx extends TextBaseController {
      * Set caret offset.
      *
      * @param { int } offset - caret offset.
-     * @returns { boolean } - Return true if the caret offset was successfully set, false otherwise.
+     * @returns { boolean | undefined } - Return true if the caret offset was successfully set, false otherwise.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    setCaretOffset(offset: int): boolean;
+    setCaretOffset(offset: int): boolean | undefined;
     /**
      * Get caret offset from controller.
      *
-     * @returns { int }
+     * @returns { int | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    getCaretOffset(): int;
+    getCaretOffset(): int | undefined;
     /**
      * Get PreviewText.
      *
-     * @returns { PreviewText } - Return the PreviewText.
+     * @returns { PreviewText | undefined } - Return the PreviewText.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    getPreviewText(): PreviewText;
+    getPreviewText(): PreviewText | undefined;
 }
 /**
  * The previewText.
@@ -428,11 +428,11 @@ export declare interface StyledStringController {
     /**
      * Get the StyledString of the component.
      *
-     * @returns { MutableStyledString }
+     * @returns { MutableStyledString | undefined}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    getStyledString(): MutableStyledString;
+    getStyledString(): MutableStyledString | undefined;
 }
 /**
  * Define the StyledString changed listener.
