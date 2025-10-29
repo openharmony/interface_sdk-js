@@ -239,23 +239,14 @@ export declare interface RelativeContainerAttribute extends CommonMethod {
      */
     default guideLine(value: Array<GuideLineStyle> | undefined): this;
     /**
-     * Specifies barriers of relativeContainer
-     *
-     * @param { Array<BarrierStyle> } value
-     * @returns { RelativeContainerAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default barrier(value: Array<BarrierStyle> | undefined): this;
-    /**
-     * Specifies barriers of relativeContainer
-     *
-     * @param { Array<LocalizedBarrierStyle> } barrierStyle
-     * @returns { RelativeContainerAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default barrier(barrierStyle: Array<LocalizedBarrierStyle> | undefined): this;
+    * Specifies barriers of relativeContainer
+    *
+    * @param { Array<BarrierStyle> | Array<LocalizedBarrierStyle> | undefined } barrierStyle
+    * @returns { RelativeContainerAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 22 static
+    */
+    default barrier(barrierStyle: Array<BarrierStyle> | Array<LocalizedBarrierStyle> | undefined): this;
     /**
      * Set the attribute modifier
      *
