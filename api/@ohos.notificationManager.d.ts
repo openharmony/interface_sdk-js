@@ -4266,7 +4266,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600022 - The specified bundle is invalid.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 21 dynamic
+   * @since 22 static
    */
   function setRingtoneInfoByBundle(bundle: BundleOption, ringtoneInfo: RingtoneInfo): Promise<void>;
 
@@ -4284,7 +4285,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600024 - The specified bundle has no custom ringtone information.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 21 dynamic
+   * @since 22 static
    */
   function getRingtoneInfoByBundle(bundle: BundleOption): Promise<RingtoneInfo>;
 
@@ -5187,7 +5189,8 @@ declare namespace notificationManager {
    *
    * @typedef RingtoneInfo
    * @syscap SystemCapability.Notification.Notification
-   * @since 22 dynamic&static
+   * @since 21 dynamic
+   * @since 22 static
    */
   export interface RingtoneInfo {
     /**
@@ -5195,7 +5198,8 @@ declare namespace notificationManager {
      *
      * @type { RingtoneType }
      * @syscap SystemCapability.Notification.Notification
-     * @since 22 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     ringtoneType: RingtoneType;
 
@@ -5204,7 +5208,8 @@ declare namespace notificationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.Notification
-     * @since 22 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     ringtoneTitle?: string;
 
@@ -5213,7 +5218,8 @@ declare namespace notificationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.Notification
-     * @since 22 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     ringtoneFileName?: string;
 
@@ -5222,7 +5228,8 @@ declare namespace notificationManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.Notification
-     * @since 22 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     ringtoneUri?: string;
   }
@@ -5390,7 +5397,8 @@ declare namespace notificationManager {
    * @enum { int }
    * @syscap SystemCapability.Notification.Notification
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 21 dynamic
+   * @since 22 static
    */
   export enum RingtoneType {
     /**
@@ -5398,7 +5406,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     RINGTONE_TYPE_SYSTEM = 0,
 
@@ -5407,7 +5416,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     RINGTONE_TYPE_LOCAL = 1,
 
@@ -5416,7 +5426,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     RINGTONE_TYPE_ONLINE = 2,
 
@@ -5425,7 +5436,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     RINGTONE_TYPE_NONE = 3,
   }
