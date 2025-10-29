@@ -640,6 +640,14 @@ declare namespace utils {
      * @atomicservice
      * @since 18 dynamiconly
      */
+    /**
+     * Object used for thread synchronization.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
+     */
     @Sendable
     class ConditionVariable {
       /**
@@ -648,6 +656,14 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
        * @since 18 dynamiconly
+       */
+      /**
+       * Default constructor.
+       *
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 22 dynamiconly
        */
       constructor()
       /**
@@ -660,6 +676,17 @@ declare namespace utils {
        * @atomicservice
        * @since 18 dynamiconly
        */
+      /**
+       * Find or create an instance of ConditionVariable using the specified name.
+       *
+       * @param { string } name - Name of the ConditionVariable to find or create.
+       * @returns { ConditionVariable } Returns an instance of ConditionVariable.
+       * @static
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 22 dynamiconly
+       */
       static request(name: string): ConditionVariable;
       /**
        * Waits for the ConditionVariable to be notified.
@@ -668,6 +695,15 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
        * @since 18 dynamiconly
+       */
+      /**
+       * Waits for the ConditionVariable to be notified.
+       *
+       * @returns { Promise<void> } A promise will be resolved once the ConditionVariable is notified..
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 22 dynamiconly
        */
       wait(): Promise<void>;
       /**
@@ -680,6 +716,17 @@ declare namespace utils {
        * @atomicservice
        * @since 18 dynamiconly
        */
+      /**
+       * Waits for the ConditionVariable to be notified, or until the specified time limit is reached.
+       *
+       * @param { number } timeout - The maximum time to wait.
+       * @returns { Promise<void> } A promise that will be resolved once the ConditionVariable is notified or the
+       *      specified time limit is reached.
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 22 dynamiconly
+       */
       waitFor(timeout: number): Promise<void>;
       /**
        * Notify all waiting promise.
@@ -688,6 +735,14 @@ declare namespace utils {
        * @atomicservice
        * @since 18 dynamiconly
        */
+      /**
+       * Notify all waiting promise.
+       *
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 22 dynamiconly
+       */
       notifyAll(): void;
       /**
        * Notify one waiting promise.
@@ -695,6 +750,14 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
        * @since 18 dynamiconly
+       */
+      /**
+       * Notify one waiting promise.
+       *
+       * @syscap SystemCapability.Utils.Lang
+       * @crossplatform
+       * @atomicservice
+       * @since 22 dynamiconly
        */
       notifyOne(): void;
     }
@@ -995,6 +1058,14 @@ declare namespace utils {
   * @atomicservice
   * @since 18 dynamiconly
   */
+ /**
+  * Object used for store least recently used sendable Object.
+  *
+  * @syscap SystemCapability.Utils.Lang
+  * @crossplatform
+  * @atomicservice
+  * @since 22 dynamiconly
+  */
   @Sendable
   class SendableLruCache<K, V> {
     /**
@@ -1006,6 +1077,16 @@ declare namespace utils {
      * @atomicservice
      * @since 18 dynamiconly
      */
+    /**
+     * The length of the SendableLruCache.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
+     */
     readonly length: number;
     /**
      * Default constructor.
@@ -1014,6 +1095,15 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18 dynamiconly
+     */
+    /**
+     * Default constructor.
+     *
+     * @param { number } capacity - The capacity of the SendableLruCache.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
      */
     constructor(capacity?: number);
     /**
@@ -1027,6 +1117,18 @@ declare namespace utils {
      * @atomicservice
      * @since 18 dynamiconly
      */
+    /**
+     * Update the capacity of the SendableLruCache.
+     *
+     * @param { number } newCapacity - The new capacity of the SendableLruCache.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *      1.Mandatory parameters are left unspecified;
+     *      2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
+     */
     updateCapacity(newCapacity: number): void;
     /**
      * Get the value associated with a specified key in the SendableLruCache.
@@ -1037,6 +1139,17 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18 dynamiconly
+     */
+    /**
+     * Get the value associated with a specified key in the SendableLruCache.
+     *
+     * @param { K } key - The key to query.
+     * @returns { V | undefined } The value associated with the key if the specified key is present;
+     *      returns undefined otherwise.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
      */
     get(key: K): V | undefined;
     /**
@@ -1050,6 +1163,18 @@ declare namespace utils {
      * @atomicservice
      * @since 18 dynamiconly
      */
+    /**
+     * Adds a key-value pair to the SendableLruCache.
+     *
+     * @param { K } key - The key to add.
+     * @param { V } value - The value associated with the key to add.
+     * @returns { V } The value associated with the added key or the original value
+     *      if the key to add already exists.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
+     */
     put(key: K, value: V): V;
     /**
      * Remove a specified key and its associated value from the SendableLruCache.
@@ -1059,6 +1184,16 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18 dynamiconly
+     */
+    /**
+     * Remove a specified key and its associated value from the SendableLruCache.
+     *
+     * @param { K } key - The key to delete.
+     * @returns { V | undefined } The deleted value or undefined.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
      */
     remove(key: K): V | undefined;
     /**
@@ -1070,6 +1205,16 @@ declare namespace utils {
      * @atomicservice
      * @since 18 dynamiconly
      */
+    /**
+     * Check whether the given key exists in the SendableLruCache. If exists, returns true; otherwise, returns false.
+     *
+     * @param { K } key - The key to check.
+     * @returns { boolean } The result of the checked.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
+     */
     contains(key: K): boolean;
     /**
      * Get the number of times createDefault in the SendableLruCache.
@@ -1078,6 +1223,15 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18 dynamiconly
+     */
+    /**
+     * Get the number of times createDefault in the SendableLruCache.
+     *
+     * @returns { number } The number of times createDefault.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
      */
     getCreateCount(): number;
     /**
@@ -1088,6 +1242,15 @@ declare namespace utils {
      * @atomicservice
      * @since 18 dynamiconly
      */
+    /**
+     * Get the number of times that the queried values are not matched in the SendableLruCache.
+     *
+     * @returns { number } The number of times that the queried values are unmatched.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
+     */
     getMissCount(): number;
     /**
      * Get the number of times that values are removed from the SendableLruCache.
@@ -1096,6 +1259,15 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18 dynamiconly
+     */
+    /**
+     * Get the number of times that values are removed from the SendableLruCache.
+     *
+     * @returns { number } The number of times that values are removed.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
      */
     getRemoveCount(): number;
     /**
@@ -1106,6 +1278,15 @@ declare namespace utils {
      * @atomicservice
      * @since 18 dynamiconly
      */
+    /**
+     * Get the number of times that the queried values are matched in the SendableLruCache.
+     *
+     * @returns { number } The number of times that the queried values are matched.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
+     */
     getMatchCount(): number;
     /**
      * Get the number of times that values are added to SendableLruCache.
@@ -1114,6 +1295,15 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18 dynamiconly
+     */
+    /**
+     * Get the number of times that values are added to SendableLruCache.
+     *
+     * @returns { number } The number of times that values are added.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
      */
     getPutCount(): number;
     /**
@@ -1124,6 +1314,15 @@ declare namespace utils {
      * @atomicservice
      * @since 18 dynamiconly
      */
+    /**
+     * Get the Capacity of the SendableLruCache.
+     *
+     * @returns { number } The Capacity of the SendableLruCache.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
+     */
     getCapacity(): number;
     /**
      * Clear all key-value pairs from the SendableLruCache.
@@ -1131,6 +1330,14 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18 dynamiconly
+     */
+    /**
+     * Clear all key-value pairs from the SendableLruCache.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
      */
     clear(): void;
     /**
@@ -1141,6 +1348,15 @@ declare namespace utils {
      * @atomicservice
      * @since 18 dynamiconly
      */
+    /**
+     * Checks whether the SendableLruCache is empty.
+     *
+     * @returns { boolean } true if the SendableLruCache is empty, otherwise false.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
+     */
     isEmpty(): boolean;
     /**
      * Returns a string which repesents all elements in SendableLruCache in the format "key: value".
@@ -1149,6 +1365,15 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18 dynamiconly
+     */
+    /**
+     * Returns a string which repesents all elements in SendableLruCache in the format "key: value".
+     *
+     * @returns { string } A new string contains all elements.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
      */
     toString(): string;
     /**
@@ -1159,6 +1384,15 @@ declare namespace utils {
      * @atomicservice
      * @since 18 dynamiconly
      */
+    /**
+     * Returns a list of all values in the SendableLruCache.
+     *
+     * @returns { V[] } An array of all values.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
+     */
     values(): V[];
     /**
      * Returns a list of all keys in the SendableLruCache.
@@ -1167,6 +1401,15 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18 dynamiconly
+     */
+    /**
+     * Returns a list of all keys in the SendableLruCache.
+     *
+     * @returns { K[] } An array of all keys.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
      */
     keys(): K[];
     /**
@@ -1177,6 +1420,16 @@ declare namespace utils {
      * @atomicservice
      * @since 18 dynamiconly
      */
+    /**
+     * Returns an iterable of key-value pairs for each element in the SendableLruCache.
+     *
+     * @returns { IterableIterator<[K, V]> } A new iterable iterator object.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
+     */
+
     entries(): IterableIterator<[K, V]>;
   }
 
