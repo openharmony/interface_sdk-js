@@ -7360,7 +7360,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 11
      */
     /**
-     * Releases this PixelMap object. This method uses a callback to return the result.
+     * Releases this PixelMap object. After release, any method call that accesses the object's internal data will fail. This method uses a callback to return the result.
      *
      * @param { AsyncCallback<void> } callback Callback invoked for instance release. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -7397,7 +7397,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 11
      */
     /**
-     * Releases this PixelMap object. This method uses a promise to return the result.
+     * Releases this PixelMap object. After release, any method call that accesses the object's internal data will fail. This method uses a promise to return the result.
      *
      * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -7496,16 +7496,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     setMetadata(key: HdrMetadataKey, value: HdrMetadataValue): Promise<void>;
 
     /**
-     * Checks whether the pixelmap is released.
+     * Checks whether the PixelMap is released. If so, then any method call that accesses the object's internal data will fail.
      * 
-     * @returns { boolean } Returns true if the pixelmap is released; returns false otherwise.
+     * @returns { boolean } True if the PixelMap is released, false otherwise.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 22 dynamic&static
      */
     isReleased(): boolean;
 
     /**
-     * Gets the unique ID of the PixelMap
+     * Gets the unique ID of the PixelMap.
      * 
      * @returns { int } The unique ID of the PixelMap.
      * @throws { BusinessError } 7600201 - The PixelMap has been released.
