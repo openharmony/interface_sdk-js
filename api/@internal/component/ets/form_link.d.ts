@@ -17,9 +17,6 @@
  * @file
  * @kit ArkUI
  */
-/*** if arkts static */
-import { CommonMethod} from './common';
-/*** endif */
 /**
  * Defines the FormLink options.
  *
@@ -36,7 +33,6 @@ import { CommonMethod} from './common';
  * @form
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 declare interface FormLinkOptions {
   /**
@@ -55,7 +51,6 @@ declare interface FormLinkOptions {
    * @form
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   action: string;
 
@@ -75,7 +70,6 @@ declare interface FormLinkOptions {
    * @form
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   moduleName?: string;
 
@@ -95,7 +89,6 @@ declare interface FormLinkOptions {
    * @form
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   bundleName?: string;
 
@@ -115,7 +108,6 @@ declare interface FormLinkOptions {
    * @form
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   abilityName?: string;
 
@@ -127,7 +119,6 @@ declare interface FormLinkOptions {
    * @form
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   uri?: string;
 
@@ -147,7 +138,6 @@ declare interface FormLinkOptions {
    * @form
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   params?: Object;
 }
@@ -168,7 +158,6 @@ declare interface FormLinkOptions {
  * @form
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 interface FormLinkInterface {
   /**
@@ -189,7 +178,6 @@ interface FormLinkInterface {
    * @form
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   (options: FormLinkOptions): FormLinkAttribute;
 }
@@ -210,9 +198,9 @@ interface FormLinkInterface {
  * @form
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
-declare class FormLinkAttribute extends CommonMethod<FormLinkAttribute> {}
+declare class FormLinkAttribute extends CommonMethod<FormLinkAttribute> {
+}
 
 /**
  * Defines FormLink component.
