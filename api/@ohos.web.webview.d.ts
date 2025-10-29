@@ -5903,7 +5903,8 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
      *     length exceeds 2*1024*1024.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     prefetchPage(url: string, additionalHeaders?: Array<WebHeader>, prefetchOptions?: PrefetchOptions): void;
 
@@ -7264,7 +7265,8 @@ declare namespace webview {
      * @param { boolean } enabled - Enable if true, disable if false.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     static setAutoPreconnect(enabled: boolean): void;
 
@@ -7274,7 +7276,8 @@ declare namespace webview {
      * @returns { boolean } Return true if enabled, false if disabled.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     static isAutoPreconnectEnabled(): boolean;
 
@@ -10097,7 +10100,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   class BackForwardCacheSupportedFeatures {
     /**
@@ -10107,7 +10110,7 @@ declare namespace webview {
      * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     nativeEmbed: boolean;
 
@@ -10118,14 +10121,14 @@ declare namespace webview {
      * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     mediaTakeOver: boolean;
 
     /**
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     constructor();
   }
@@ -10135,7 +10138,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   class BackForwardCacheOptions {
     /**
@@ -10145,7 +10148,7 @@ declare namespace webview {
      * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     size: int;
 
@@ -10156,14 +10159,14 @@ declare namespace webview {
      * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     timeToLive: int;
 
     /**
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     constructor();
   }
@@ -10172,7 +10175,8 @@ declare namespace webview {
    * Defines the PrefetchOptions class.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 21 dynamic&static
+   * @since 21 dynamic
+   * @since 22 static
    */
   class PrefetchOptions {
 
@@ -10182,11 +10186,12 @@ declare namespace webview {
      * Default 500ms (ensures only one successful prefetch within 500ms).
      * The interval throttles prefetch frequency to balance performance and resource usage.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
-    minTimeBetweenPrefetchesMs: number;
+    minTimeBetweenPrefetchesMs: int;
 
     /**
      * Set whether to ignore Cache-Control: no-store‌.
@@ -10197,14 +10202,16 @@ declare namespace webview {
      *
      * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic&static
-     */
+     * @since 21 dynamic
+     * @since 22 static
+     */ 
     ignoreCacheControlNoStore: boolean;
 
     /**
      * Constructor for PrefetchOptions.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     constructor();
   }
