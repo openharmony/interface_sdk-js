@@ -19,7 +19,8 @@
  */
 
 import { CommonMethod } from './common';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder } from "./../stateManagement/runtime";
+import { CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 import { RecordData } from '@ohos.base';
 
