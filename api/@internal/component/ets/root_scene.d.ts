@@ -17,6 +17,7 @@
  * @file
  * @kit ArkUI
  */
+
 /**
  * Defines the session of RootScene.
  *

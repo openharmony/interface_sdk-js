@@ -196,19 +196,19 @@ declare namespace matrix4 {
         /**
          * Point x.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        x: number;
+        x: double;
         /**
          * Point y.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        y: number;
+        y: double;
     }
     /**
      * Set poly to poly point options.
