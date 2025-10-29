@@ -11364,7 +11364,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
      */
     setParentWindow(windowId: int): Promise<void>;
 
