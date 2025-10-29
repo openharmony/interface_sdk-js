@@ -51,6 +51,10 @@ action("ohos_base_split") {
     rebase_path(interface_sdk_path, root_build_dir),
     "--build-sdk-path",
     rebase_path(build_sdk_path, root_build_dir),
+    "--sdk-check-level",
+    "${sdk_build_check_level}",
+    "--sdk-api-version",
+    "${api_version}",
   ]
   outputs = [
     "${interface_sdk_path}",
