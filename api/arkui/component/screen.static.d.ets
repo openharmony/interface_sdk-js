@@ -18,34 +18,35 @@
  * @kit ArkUI
  */
 
- import { CommonMethod, AttributeModifier } from "./common";
- import { ComponentBuilder, CustomBuilder } from './builder';
- import { AttributeModifier, CommonMethod } from "./common"
+import { AttributeModifier, CommonMethod } from './common';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
- /**
+/**
  * Defines the attribute functions of Screen.
  *
- * @extends CommonMethod<ScreenAttribute>
+ * @extends CommonMethod
+ * @typedef ScreenAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 22 static
  * @noninterop
  */
- export declare interface ScreenAttribute extends CommonMethod {
+export declare interface ScreenAttribute extends CommonMethod {
 
-    /**
-     * Set the attribute modifier.
-     *
-     * @param { AttributeModifier<ScreenAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
-     * @returns { ScreenAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    default attributeModifier(
-        modifier: AttributeModifier<ScreenAttribute> | AttributeModifier<CommonMethod> | undefined): this;
- }
+   /**
+    * Set the attribute modifier.
+    *
+    * @param { AttributeModifier<ScreenAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+    * @returns { ScreenAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @systemapi
+    * @since 22 static
+    */
+   default attributeModifier(
+      modifier: AttributeModifier<ScreenAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+}
 
- /**
+/**
  * Defines Screen Component.
  *
  * @param { long } [screenId] - screenId
@@ -56,8 +57,8 @@
  * @since 22 static
  * @noninterop
  */
- @ComponentBuilder
- export declare function Screen(
-    screenId: long,
-    content_?: CustomBuilder,
- ): ScreenAttribute
+@ComponentBuilder
+export declare function Screen(
+   screenId: long,
+   content_?: CustomBuilder,
+): ScreenAttribute

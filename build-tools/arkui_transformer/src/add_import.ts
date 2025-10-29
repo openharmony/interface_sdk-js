@@ -118,7 +118,7 @@ function createTargetImport(sourceFile: ts.SourceFile, context: ts.Transformatio
         ),
         ts.factory.createStringLiteral("./../incremental/annotation")
     );
-    targetImport.push(memoImport)
+    targetImport.push(memoImport);
 
     const customBuilderImport = ts.factory.createImportDeclaration(
         undefined,
