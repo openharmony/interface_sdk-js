@@ -113,6 +113,119 @@ export type OnIntelligentTrackingPreventionCallback = (details: IntelligentTrack
  */
 export type OnNativeEmbedVisibilityChangeCallback = (nativeEmbedVisibilityInfo: NativeEmbedVisibilityInfo) => void;
 /**
+ * The callback when the param element which is a child item of the object element has changed.
+ *
+ * @typedef { function } OnNativeEmbedObjectParamChangeCallback
+ * @param { NativeEmbedParamDataInfo } event - callback information of param element.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export type OnNativeEmbedObjectParamChangeCallback = (event: NativeEmbedParamDataInfo) => void;
+/**
+ * Enum type supplied to {@link NativeEmbedParamItem} when onNativeEmbedObjectParamChange being called.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare enum NativeEmbedParamStatus {
+    /**
+     * The param element is created.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    ADD = 0,
+    /**
+     * The param element is updated.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    UPDATE = 1,
+    /**
+     *The param element is deleted.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    DELETE = 2
+}
+/**
+ * Defines the information of param element.
+ *
+ * @typedef NativeEmbedParamItem
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare interface NativeEmbedParamItem {
+    /**
+     * The status of the param.
+     *
+     * @type { NativeEmbedParamStatus }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    status: NativeEmbedParamStatus;
+    /**
+     * The id attribute of the param element.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    id: string;
+    /**
+     * The name attribute of the param element.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    name?: string;
+    /**
+     * The value attribute of the param element.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    value?: string;
+}
+/**
+ * Defines the param data info.
+ *
+ * @typedef NativeEmbedParamDataInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare interface NativeEmbedParamDataInfo {
+    /**
+     * The native embed id.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    embedId: string;
+    /**
+     * The id attribute of the object element.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    objectAttributeId?: string;
+    /**
+     * The param element array
+     *
+     * @type { ?Array<NativeEmbedParamItem> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    paramItems?: Array<NativeEmbedParamItem>;
+}
+/**
  * Enum type supplied to {@link rotateRenderEffect} for setting the effect of rotation.
  *
  * @enum { number }
@@ -5691,6 +5804,15 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 22 static
      */
     default forceEnableZoom(enable: boolean | undefined): this;
+    /**
+     * Triggered when the param element which is a child item of the object element has changed.
+     *
+     * @param { OnNativeEmbedObjectParamChangeCallback | undefined } callback - callback Triggered when the param element has changed.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    default onNativeEmbedObjectParamChange(callback: OnNativeEmbedObjectParamChangeCallback | undefined): this;
     /**
      * Set up the effect of web roation
      *

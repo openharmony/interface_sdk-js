@@ -30,6 +30,7 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
  * @since 21 dynamic
+ * @since 22 static
  */
 export default class WebNativeMessagingExtensionContext extends ExtensionContext {
   /**
@@ -64,6 +65,7 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
+   * @since 22 static
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -78,6 +80,7 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
+   * @since 22 static
    */
   terminateSelf(): Promise<void>;
 
@@ -93,6 +96,7 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
+   * @since 22 static
    */
   stopNativeConnection(connectionId: int): Promise<void>;
 }
