@@ -47,7 +47,6 @@
  * @form
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 export interface Callback<T> {
   /**
@@ -79,7 +78,6 @@ export interface Callback<T> {
    * @form
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   (data: T): void;
 }
@@ -104,7 +102,6 @@ export interface Callback<T> {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
  */
 export interface ErrorCallback<T extends Error = BusinessError> {
   /**
@@ -127,7 +124,6 @@ export interface ErrorCallback<T extends Error = BusinessError> {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   (err: T): void;
 }
@@ -161,7 +157,6 @@ export interface ErrorCallback<T extends Error = BusinessError> {
  * @form
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 export interface AsyncCallback<T, E = void> {
   /**
@@ -197,7 +192,6 @@ export interface AsyncCallback<T, E = void> {
    * @form
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   (err: BusinessError<E>, data: T): void;
 }
@@ -232,7 +226,6 @@ export interface AsyncCallback<T, E = void> {
  * @form
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
  */
 export interface BusinessError<T = void> extends Error {
   /**
@@ -264,9 +257,8 @@ export interface BusinessError<T = void> extends Error {
    * @form
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  code: int;
+  code: number;
   /**
    * Defines the additional information for business
    * @type { ?T } data
@@ -296,7 +288,6 @@ export interface BusinessError<T = void> extends Error {
    * @form
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   data?: T;
 }
