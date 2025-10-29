@@ -297,7 +297,7 @@ declare namespace systemSoundManager {
    * @constant
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 22 dynamic&static
+   * @since 21 dynamic&static
    */
   const TONE_CATEGORY_NOTIFICATION_APP:32;
 
@@ -650,7 +650,7 @@ declare namespace systemSoundManager {
      * @throws{ BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     getGentleUri(): string | null;
 
@@ -660,7 +660,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     getGentleTitle(): string | null;
 
@@ -670,7 +670,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 22 dynamic&static
+     * @since 21 dynamic&static
      */
     getGentleFileName(): string | null;
   }
