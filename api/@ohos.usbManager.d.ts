@@ -41,6 +41,7 @@ declare namespace usbManager {
    *
    * @returns { Array<Readonly<USBDevice>> } USB device list.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
    * @since 20 static
@@ -69,6 +70,8 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
+   * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in.
+   * @throws { BusinessError } 14400012 Transmission I/O error.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
    * @since 20 static
@@ -235,7 +238,6 @@ declare namespace usbManager {
    * @useinstead ohos.usbManager/usbManager#getDeviceFunctions
    */
   function getCurrentFunctions(): FunctionType;
-
   /**
    * Obtains the USBPort list.
    *
@@ -343,7 +345,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
@@ -381,11 +383,25 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
    */
   function getStringFromFunctions(funcs: FunctionType): string;
 
   /**
+   * Converts the numeric mask combination of a given USB function list to a string descriptor.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @param { int } funcs - numeric mask combination of the function list.
+   * @returns { string } - descriptor of the supported function list.
+   * @throws { BusinessError } 201 Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 20 static
+   */
+  function getStringFromFunctions(funcs: int): string;
+
+  /**
    * Sets the current USB function list in Device mode.
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
@@ -418,11 +434,27 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
    */
   function setDeviceFunctions(funcs: FunctionType): Promise<void>;
 
   /**
+   * Sets the current USB function list in Device mode.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @param { int } funcs - numeric mask combination of the supported function list.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14400002 - Permission denied. The HDC is disabled by the system.
+   * @throws { BusinessError } 14400006 - Unsupported operation. The function is not supported.
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 20 static
+   */
+  function setDeviceFunctions(funcs: int): Promise<void>;
+
+  /**
    * Obtains the numeric mask combination for the current USB function list in Device mode.
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
@@ -443,9 +475,23 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
    */
   function getDeviceFunctions(): FunctionType;
+
+  /**
+   * Obtains the numeric mask combination for the current USB function list in Device mode.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @returns { int } the numeric mask combination for the current USB function list in FunctionType.
+   * @throws { BusinessError } 201 Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in.
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 20 static
+   */
+  function getDeviceFunctions(): int;
 
   /**
    * Obtains the USBPort list.
@@ -465,6 +511,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 18 dynamic
@@ -480,7 +527,7 @@ declare namespace usbManager {
    * @returns { PortModeType } the mask combination for the supported mode list in PortModeType.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
@@ -496,7 +543,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
@@ -529,7 +576,7 @@ declare namespace usbManager {
    * @param { int } portId - unique ID of the port. It cannot be empty.
    * @param { PowerRoleType } powerRole - charging role. It cannot be empty.
    * @param { DataRoleType } dataRole - data role. It cannot be empty.
-   * @returns { Promise<void> } the promise returned by the function.  
+   * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -583,7 +630,7 @@ declare namespace usbManager {
    * @since 20 static
    */
   function addAccessoryRight(tokenId: int, accessory: USBAccessory): void;
-
+  /* usb pipe functions begin */
   /**
    * Claims a USB interface.
    *
@@ -622,7 +669,7 @@ declare namespace usbManager {
    * @returns { number } returns **0** if the USB interface is successfully released; returns an error code otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.USB.USBManager
    * @since 9
    */
@@ -634,7 +681,7 @@ declare namespace usbManager {
    * @returns { int } returns **0** if the USB interface is successfully released; returns an error code otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
@@ -718,6 +765,8 @@ declare namespace usbManager {
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14400001 Access right denied. Call requestRight to get the USBDevicePipe access right first.
+   * @throws { BusinessError } 14400004 Service exception. Possible causes: <br>1. No accessory is plugged in.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
    * @since 20 static
@@ -755,7 +804,7 @@ declare namespace usbManager {
    *
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the USB device. It cannot be empty.
    * @param { USBControlParams } controlparam - control transfer parameters. It cannot be empty.
-   * @param { number } [timeout] - timeout duration. This parameter is optional. The default value is **0**, indicating no timeout. 
+   * @param { number } [timeout] - timeout duration. This parameter is optional. The default value is **0**, indicating no timeout.
    * @returns { Promise<number> } returns the size of the transmitted or received data block if the control transfer is successful;
    * return -1 if an exception occurs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -773,7 +822,7 @@ declare namespace usbManager {
    *
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the USB device. It cannot be empty.
    * @param { USBDeviceRequestParams } requestparam - control transfer parameters. It cannot be empty.
-   * @param { number } [timeout] - timeout duration. This parameter is optional. The default value is **0**, indicating no timeout. 
+   * @param { number } [timeout] - timeout duration. This parameter is optional. The default value is **0**, indicating no timeout.
    * @returns { Promise<number> } returns the size of the transmitted or received data block if the control transfer is successful;
    * return -1 if an exception occurs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -995,7 +1044,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 14400001 - Permission denied. Call requestAccessoryRight to get the right first.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
    * @throws { BusinessError } 14400004 - Service exception. Possible causes:
    * <br>1. No accessory is plugged in.
    * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
@@ -1013,7 +1062,7 @@ declare namespace usbManager {
    * <br>1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 14400001 - Permission denied. Call requestAccessoryRight to get the right first.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
    * @throws { BusinessError } 14400004 - Service exception. Possible causes:
    * <br>1. No accessory is plugged in.
    * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
@@ -1149,6 +1198,9 @@ declare namespace usbManager {
      * @since 20 static
      */
     interfaceId: int;
+
+
+
   }
 
   /**
@@ -2093,7 +2145,7 @@ declare namespace usbManager {
      * @since 20 static
      */
     manufacturer: string;
-  
+
     /**
      * The product of the accessory.
      *
@@ -2156,13 +2208,13 @@ declare namespace usbManager {
   }
 
   /**
-     * Usb transfer flag.
-     *
-     * @enum { int }
-     * @syscap SystemCapability.USB.USBManager
-     * @since 18 dynamic
-     * @since 20 static
-     */
+   * Usb transfer flag.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.USB.USBManager
+   * @since 18 dynamic
+   * @since 20 static
+   */
   export enum UsbTransferFlags {
     /**
      * Report short frames as errors
@@ -2352,14 +2404,14 @@ declare namespace usbManager {
     status: UsbTransferStatus;
   }
 
-  /**
-  * submit transfer callback.
-  *
-  * @typedef SubmitTransferCallback
-  * @syscap SystemCapability.USB.USBManager
-  * @since 18 dynamic
-  * @since 20 static
-  */
+   /**
+   * submit transfer callback.
+   *
+   * @typedef SubmitTransferCallback
+   * @syscap SystemCapability.USB.USBManager
+   * @since 18 dynamic
+   * @since 20 static
+   */
   interface SubmitTransferCallback {
     /**
      * Actual length of data that was transferred. Read-only, and only for
@@ -2395,7 +2447,7 @@ declare namespace usbManager {
 
   /**
    * As a generic USB data transfer interface. The Client populates this interface and
-   * submits it in order to request a transfer. 
+   * submits it in order to request a transfer.
    *
    * @typedef UsbDataTransferParams
    * @syscap SystemCapability.USB.USBManager
@@ -2512,9 +2564,12 @@ declare namespace usbManager {
    * submits it in order to request a transfer
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
-   * @throws { BusinessError } 14400007 - Resource busy.
+   * @throws { BusinessError } 14400007 - Resource busy. Possible causes:
+   * <br>1. The transfer has already been submitted.
+   * <br>2. The interface is claimed by another program or driver.
    * @throws { BusinessError } 14400008 - No such device (it may have been disconnected).
-   * @throws { BusinessError } 14400009 - Insufficient memory.
+   * @throws { BusinessError } 14400009 - Insufficient memory. Possible causes:
+   * <br>1. Memory allocation failed.
    * @throws { BusinessError } 14400012 - Transmission I/O error.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
@@ -2544,15 +2599,15 @@ declare namespace usbManager {
    *
    * @param { USBDevicePipe } pipe - Represents a USB device,which is the target object to be restarted.It cannot be empty.
    * @returns { boolean } If the restart operation is successful, return {@code true}; if the restart operation fails, return {@code false}.
-   * @throws { BusinessError } 801 - Capability not supported. Current function do not supporte due to the limitition of the device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
-   * @throws { BusinessError } 14400004 - USB Service connection exception. Possible causes: 1. No USB Device plugged in.
+   * @throws { BusinessError } 14400004 -Service exception. Possible causes: 1. No accessory is plugged in.
    * @throws { BusinessError } 14400008 - No such device(it may have been disconnected)
    * @throws { BusinessError } 14400010 - Other USB error. Possible causes:
    * <br>1.Unrecognized discard error code.
    * @throws { BusinessError } 14400013 - The USBDevicePipe validity check failed. Possible causes:
    * <br>1.The input parameters fail the validation check.
-   * <br>2.The call chain used to obtain the input parameters is not resonable.
+   * <br>2.The call chain used to obtain the input parameters is not reasonable.
    * @syscap SystemCapability.USB.USBManager
    * @since 20 dynamic&static
    */
