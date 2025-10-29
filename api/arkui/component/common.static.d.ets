@@ -212,12 +212,12 @@ export declare interface AnimatableArithmetic<T> {
     /**
      * Defines the multiplication rule of the data type.
      *
-     * @param { number } scale - scale value
+     * @param { double } scale - scale value
      * @returns { AnimatableArithmetic<T> } new value which implements AnimatableArithmetic<T> interface
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    multiply(scale: number): AnimatableArithmetic<T>;
+    multiply(scale: double): AnimatableArithmetic<T>;
     /**
      * Defines the equality judgment rule of the data type.
      *
@@ -9150,12 +9150,12 @@ export declare interface CommonMethod {
     /**
      * Set focus index by key tab.
      * The tabIndex and focusScopeId cannot be used together.
-     * @param { number | undefined } index
+     * @param { int | undefined } index
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default tabIndex(index: number | undefined): this;
+    default tabIndex(index: int | undefined): this;
     /**
      * Set default focused component when a page create.
      *
@@ -11000,11 +11000,11 @@ export declare interface MotionBlurOptions {
     /**
      * Define the size of motion blur radius.The range of this value is  [0.0, ∞).
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    radius: number;
+    radius: double;
     /**
      * Define motion blur anchor coordinates.
      *
@@ -12054,21 +12054,21 @@ export declare interface KeyframeAnimateParam {
     /**
      * Animation delay time, in ms.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    delay?: number;
+    delay?: int;
     /**
      * Animation iterations. When set to -1, the animation playing it repeatedly. The value range is greater than or equal to -1.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    iterations?: number;
+    iterations?: int;
     /**
      * Callback invoked when the whole keyframe animation is complete or the ability is about to enter the background.
      *
