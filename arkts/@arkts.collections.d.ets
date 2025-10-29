@@ -4929,17 +4929,18 @@ declare namespace collections {
      * @atomicservice
      * @since 18 dynamiconly
      */
-    /**	
-     * Find the last occurrence of a specified element in an Uint8ClampedArray.	
-     *	
-     * @param { number } searchElement - Element to search for in the Uint8ClampedArray..	
-     * @param { number } fromIndex - The index at which to start the search. If provided:	
-     *	   <br>If this index is negative, it is treated as Uint8ClampedArray.length + fromIndex.	
-     * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.	
-     * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.	
-     * @throws { BusinessError } 10200201 - Concurrent modification error.	
-     * @syscap SystemCapability.Utils.Lang	
-     * @atomicservice	
+    /**
+     * Find the last occurrence of a specified element in an Uint8ClampedArray.
+     *
+     * @param { number } searchElement - Element to search for in the Uint8ClampedArray..
+     * @param { number } fromIndex - The index at which to start the search. If provided:
+     *	      <br>If this index is negative, it is treated as Uint8ClampedArray.length + fromIndex.
+     * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
      * @since 22 dynamiconly
      */
     lastIndexOf(searchElement: number, fromIndex?: number): number;

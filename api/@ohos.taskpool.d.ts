@@ -1820,7 +1820,7 @@ declare namespace taskpool {
    * @atomicservice
    * @since 18 dynamiconly
    */
-  /**
+/**
    * Cancels a task in the task pool by task ID. If the task is in the internal queue of the task pool,
    * the task will not be executed after being canceled, and an exception indicating task cancellation is returned.
    * If the task has been distributed to the worker thread of the task pool,
@@ -1832,12 +1832,12 @@ declare namespace taskpool {
    * may take effect for later calls of taskpool.execute or taskpool.executeDelayed.
    *
    * @param { number } taskId - ID of the task to cancel.
-   * [@throws](https://gitcode.com/throws) { BusinessError } 10200015 - The task to cancel does not exist.
-   * [@throws](https://gitcode.com/throws) { BusinessError } 10200055 - The asyncRunner task has been canceled.
+   * @throws { BusinessError } 10200015 - The task to cancel does not exist.
+   * @throws { BusinessError } 10200055 - The asyncRunner task has been canceled.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * [@since](https://gitcode.com/since) 22 dynamiconly
+   * @since 22 dynamiconly
    */
   function cancel(taskId: number): void;
 
@@ -1963,7 +1963,7 @@ declare namespace taskpool {
      * @atomicservice
      * @since 18 dynamiconly
      */
-    /**
+/**
      * A constructor used to create an AsyncRunner instance. It constructs a global asynchronous queue.
      * If the passed-in name is the same as an existing name, the same asynchronous queue is returned.
      * NOTE:
@@ -1981,12 +1981,12 @@ declare namespace taskpool {
      *      The default value is 0, indicating that there is no limit to the number of tasks that can wait.
      *      If a value greater than 0 is passed, tasks will be discarded from the front of the queue once the queue size
      *      exceeds this limit, implementing a discard policy.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *      <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * [@since](https://gitcode.com/since) 22 dynamiconly
+     * @since 22 dynamiconly
      */
     constructor(name: string, runningCapacity: number, waitingCapacity?: number);
 
