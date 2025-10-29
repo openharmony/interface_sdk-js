@@ -20,6 +20,7 @@
 
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type connection from './@ohos.net.connection';
+import Context from './application/Context';
 
 /**
  * Provides interfaces to manage network policy rules.
@@ -864,6 +865,17 @@ declare namespace policy {
    * @since 10 dynamic
    */
   function off(type: 'netBackgroundPolicyChange', callback?: Callback<boolean>): void;
+
+  /**
+  * Open the network settings interface of the application, which is presented in a semi-modal form and can 
+  *     be used to configure the network connection method. This API uses a promise to return the result.
+  * @param { Context } context - Indicates Context instance.
+  * @returns { Promise<void> } The promise returned by the function.
+  * @syscap SystemCapability.Communication.NetManager.Core
+  * @stagemodelonly
+  * @since 22 dynamic&static
+  */
+  function showAppNetPolicySettings(context: Context): Promise<void>;
 
   /**
    * Indicate whether the application can use metered networks in background.
