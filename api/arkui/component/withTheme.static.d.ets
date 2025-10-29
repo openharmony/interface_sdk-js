@@ -61,15 +61,15 @@ export declare interface WithThemeAttribute {}
 /**
  * Defines WithTheme Component
  *
- * @param { WithThemeOptions } options - options of WithTheme.
- * @param { CustomBuilder } [content_] - container
+ * @param { WithThemeOptions | undefined } options - options of WithTheme.
+ * @param { CustomBuilder } [content_] - the content of the component
  * @returns { WithThemeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function WithTheme(
-    options: WithThemeOptions, 
+    options: WithThemeOptions | undefined, 
     content_?: CustomBuilder,
 ): WithThemeAttribute
