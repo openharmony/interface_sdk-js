@@ -2933,6 +2933,18 @@ declare namespace avSession {
     on(type: 'setTargetLoopMode', callback: Callback<LoopMode>): void;
 
     /**
+     * Register setTargetLoopMode command callback
+     * Application should change playmode to the loopmode which is requested.
+     * @param { Callback<LoopMode> } callback - Used to handle setTargetLoopMode command.
+     *     The callback provides the {@link LoopMode}
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 22 static
+     */
+    onSetTargetLoopMode(callback: Callback<LoopMode>): void;
+
+    /**
      * Unregister setTargetLoopMode command callback
      * @param { 'setTargetLoopMode' } type - Registration Type 'setTargetLoopMode'
      * @param { Callback<LoopMode> } callback - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
@@ -2943,6 +2955,17 @@ declare namespace avSession {
      * @since 18 dynamic
      */
     off(type: 'setTargetLoopMode', callback?: Callback<LoopMode>): void;
+
+    /**
+     * Unregister setTargetLoopMode command callback
+     * @param { Callback<LoopMode> } [callback] - Used to handle setTargetLoopMode command.
+     *     The callback provides the {@link LoopMode}
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 22 static
+     */
+    offSetTargetLoopMode(callback?: Callback<LoopMode>): void;
 
     /**
      * Register toggle favorite command callback
