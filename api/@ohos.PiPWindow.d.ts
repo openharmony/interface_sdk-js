@@ -275,6 +275,17 @@ declare namespace PiPWindow {
      * @since 19 dynamic
      */
      defaultWindowSizeType?: number;
+
+    /**
+     * Describes whether the picture-in-picture is four-corner absorpted or free to move.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    cornerAdsorption?: boolean;
   }
 
   /**
