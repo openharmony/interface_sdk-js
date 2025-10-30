@@ -257,7 +257,6 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
    */
   function stopUsingPermission(tokenID: int, permissionName: Permissions): Promise<void>;
 
@@ -332,13 +331,38 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
    */
   function on(
     type: 'activeStateChange',
     permissionList: Array<Permissions>,
     callback: Callback<ActiveChangeResponse>
   ): void;
+
+  /**
+   * Subscribes to the change of active state of the specified permission.
+   *
+   * @permission ohos.permission.PERMISSION_USED_STATS
+   * @param { Array<Permissions> } permissionList - Indicates the permission list, which are specified.
+   *     This parameter cannot be null or empty.
+   * @param { Callback<ActiveChangeResponse> } callback Callback for listening permission change.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   *     "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The permissionList exceeds the size limit,
+   *     or the permissionNames in the list are all invalid.
+   * @throws { BusinessError } 12100004 - The API is used repeatedly with the same input.
+   * @throws { BusinessError } 12100005 - The registration time has exceeded the limit.
+   * @throws { BusinessError } 12100007 - The service is abnormal.
+   * @throws { BusinessError } 12100008 - Out of memory.
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @since 20 static
+   */
+  function onActiveStateChange(
+    permissionList: Array<Permissions>,
+    callback: Callback<ActiveChangeResponse>
+  ): void;
+
 
   /**
    * Unsubscribes to the change of active state of the specified permission.
@@ -357,10 +381,32 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
    */
   function off(
     type: 'activeStateChange',
+    permissionList: Array<Permissions>,
+    callback?: Callback<ActiveChangeResponse>
+  ): void;
+
+  /**
+   * Unsubscribes to the change of active state of the specified permission.
+   *
+   * @permission ohos.permission.PERMISSION_USED_STATS
+   * @param { Array<Permissions> } permissionList - Indicates the permission list, which are specified.
+   *     This parameter cannot be null or empty.
+   * @param { Callback<ActiveChangeResponse> } [callback] - Callback for listening permission change.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   * "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The permissionList is not in the listening list.
+   * @throws { BusinessError } 12100004 - The API is not used in pair with 'on'.
+   * @throws { BusinessError } 12100007 - The service is abnormal.
+   * @throws { BusinessError } 12100008 - Out of memory.
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @since 20 static
+   */
+  function offActiveStateChange(
     permissionList: Array<Permissions>,
     callback?: Callback<ActiveChangeResponse>
   ): void;

@@ -519,10 +519,45 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
      */
     on(
       type: 'permissionStateChange',
+      tokenIDList: Array<int>,
+      permissionList: Array<Permissions>,
+      callback: Callback<PermissionStateChangeInfo>
+    ): void;
+
+    /**
+     * Registers a permission state callback so that the application can be notified upon specified permission
+     * state of specified applications changes.
+     *
+     * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
+     * @param { Array<int> } tokenIDList - A list of permissions that specify the permissions to be listened on.
+     *     The value in the list can be:
+     *     <br> {@code empty} - Indicates that the application can be notified if the specified permission state of
+     *     any applications changes.
+     *     <br> {@code non-empty} - Indicates that the application can only be notified if the specified permission
+     *     state of the specified applications change.
+     * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be
+     *     listened on. The value in the list can be:
+     *     <br> {@code empty} - Indicates that the application can be notified if any permission state of the specified
+     *     applications changes.
+     *     <br> {@code non-empty} - Indicates that the application can only be notified if the specified permission
+     *     state of the specified applications changes.
+     * @param { Callback<PermissionStateChangeInfo> } callback - Callback for the result from registering permissions.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+     *     "ohos.permission.GET_SENSITIVE_PERMISSIONS".
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 12100001 - Invalid parameter. Possible causes: 1. The tokenIDList or permissionList
+     *     exceeds the size limit; 2. The tokenIDs or permissionNames in the list are all invalid.
+     * @throws { BusinessError } 12100005 - The registration time has exceeded the limit.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @throws { BusinessError } 12100008 - Out of memory.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 20 static
+     */
+    onPermissionStateChange(
       tokenIDList: Array<int>,
       permissionList: Array<Permissions>,
       callback: Callback<PermissionStateChangeInfo>
@@ -549,10 +584,33 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
      */
     on(
       type: 'selfPermissionStateChange',
+      permissionList: Array<Permissions>,
+      callback: Callback<PermissionStateChangeInfo>
+    ): void;
+
+     /**
+     * Subscribes to the permission changes of this application.
+     *
+     * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be
+     *     listened on. The value in the list can be:
+     *     <br> {@code empty} - Indicates that the application can be notified if any permission state
+     *     changes.
+     *     <br> {@code non-empty} - Indicates that the application can only be notified if the specified
+     *     permission state changes.
+     * @param { Callback<PermissionStateChangeInfo> } callback - Callback for the result from registering
+     *     permissions.
+     * @throws { BusinessError } 12100001 - Invalid parameter. Possible causes: 1. The permissionList exceeds
+     *     the size limit; 2. The permissionNames in the list are all invalid.
+     * @throws { BusinessError } 12100004 - The API is used repeatedly with the same input.
+     * @throws { BusinessError } 12100005 - The registration time has exceeded the limit.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @syscap SystemCapability.Security.AccessToken
+     * @since 20 static
+     */
+    onSelfPermissionStateChange(
       permissionList: Array<Permissions>,
       callback: Callback<PermissionStateChangeInfo>
     ): void;
@@ -577,10 +635,38 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
      */
     off(
       type: 'permissionStateChange',
+      tokenIDList: Array<int>,
+      permissionList: Array<Permissions>,
+      callback?: Callback<PermissionStateChangeInfo>
+    ): void;
+
+    /**
+     * Unregisters a permission state callback so that the specified applications cannot be notified upon specified
+     * permissions state changes anymore.
+     *
+     * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
+     * @param { 'permissionStateChange' } type - Event type.
+     * @param { Array<int> } tokenIDList - A list of permissions that specify the permissions to be listened on.
+     *     It should correspond to the value registered by function of "on", whose type is "permissionStateChange".
+     * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be
+     *     listened on. It should correspond to the value registered by function of "on", whose type is
+     *     "permissionStateChange".
+     * @param { Callback<PermissionStateChangeInfo> } [callback] - Callback for the result from unregistering
+     *     permissions.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+     *     "ohos.permission.GET_SENSITIVE_PERMISSIONS".
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenIDList or permissionList is
+     *     not in the listening list.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 20 static
+     */
+    offPermissionStateChange(
       tokenIDList: Array<int>,
       permissionList: Array<Permissions>,
       callback?: Callback<PermissionStateChangeInfo>
@@ -600,10 +686,27 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
      */
     off(
       type: 'selfPermissionStateChange',
+      permissionList: Array<Permissions>,
+      callback?: Callback<PermissionStateChangeInfo>
+    ): void;
+
+    /**
+     * Unsubscribes from the permission changes of this application.
+     *
+     * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be
+     *     listened on. It should correspond to the value registered by function of "on", whose type is
+     *     "selfPermissionStateChange".
+     * @param { Callback<PermissionStateChangeInfo> } [callback] - Callback for the result from unregistering
+     *     permissions.
+     * @throws { BusinessError } 12100004 - The API is not used in pair with 'on'.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @syscap SystemCapability.Security.AccessToken
+     * @since 20 static
+     */
+    offSelfPermissionStateChange(
       permissionList: Array<Permissions>,
       callback?: Callback<PermissionStateChangeInfo>
     ): void;
