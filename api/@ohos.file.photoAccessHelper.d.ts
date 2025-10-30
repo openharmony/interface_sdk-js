@@ -1057,6 +1057,34 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enumerates the composite photo display mode.
+   *
+   * @enum { int } CompositeDisplayMode
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  enum CompositeDisplayMode {
+    /**
+     * The composite photo display mode is default.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    DEFAULT = 0,
+ 
+    /**
+     * The composite photo display mode is cloud enhancement.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    CLOUD_ENHANCEMENT = 1,
+  }
+
+  /**
    * Options to request media asset
    *
    * @interface RequestOptions
@@ -3060,6 +3088,14 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic&static
      */
     EXIST_COMPATIBLE_DUPLICATE = 'exist_compatible_duplicate',
+    /**
+     * Composite display status of assets, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    COMPOSITE_DISPLAY_STATUS = 'composite_display_status',
   }
 
   /**
@@ -9349,6 +9385,26 @@ declare namespace photoAccessHelper {
      * @since 21 dynamic&static
      */
     setAppLinkInfo(appLink: string): void;
+
+    /**
+     * Sets display mode for the composite photos.
+     *
+     * @param { CompositeDisplayMode } compositeDisplayMode - CompositeDisplayMode type to set.
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
+     *     1. The compositeDisplayMode is not within the supported range.
+     *     2. The original file does not exist locally in PhotoAsset.
+     *     3. The PhotoAsset is not composite Asset
+     *     4. The original file format is not within the supported range.
+     *     5. The original file has been edited.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted.2. The file system is abnormal.3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    setCompositeDisplayMode(compositeDisplayMode: CompositeDisplayMode): Promise<void>;
   }
 
   /**
