@@ -49,8 +49,7 @@ import { Size } from './Graphics';
  * <br>LazyForEach, List, Scroll, Swiper, TimePicker, @Component decorated custom components, NodeContainer,
  * <br>and FrameNode and RenderNode mounted to a NodeContainer.
  * </p>
-
-For details, see Rendering and Drawing Video and Button Components at the Same Layer.
+ * For details, see Rendering and Drawing Video and Button Components at the Same Layer.
  *
  * @enum { number } Render type
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -58,7 +57,7 @@ For details, see Rendering and Drawing Video and Button Components at the Same L
  * @atomicservice
  * @since 12 dynamic
  */
-declare enum NodeRenderType {
+export declare enum NodeRenderType {
   /**
    * Display type.The node will be shown on the display.
    *
