@@ -31635,7 +31635,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Sets the offset from the end of the content to the boundary of the scrollable display area.
    *
-   * @param { number | Resource } offset - Offset from the start of the content to the boundary of
+   * @param { number | Resource } offset - Offset from the end of the content to the boundary of
    *    the scrollable display area.
    *    <br>Default value: <em>0</em>
    *    <br>Unit: vp
