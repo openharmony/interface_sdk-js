@@ -335,8 +335,6 @@ export interface PageLifeCycle {
      * The page is triggered once each time it is displayed, including scenarios such as the routing process and the application entering the foreground
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     onPageShow(): void {}
@@ -347,8 +345,6 @@ export interface PageLifeCycle {
      * It is triggered once each time the page is hidden, including scenarios such as the routing process and the application entering the background
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     onPageHide(): void {}
@@ -359,21 +355,17 @@ export interface PageLifeCycle {
      * Triggered when the user clicks the back button
      *
      * @returns { boolean } true means that the page itself processes the return logic.
-     * false means that the default return logic is used.
+     *     false means that the default return logic is used.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
-    onBackPress(): boolean { return false }
+    onBackPress(): boolean { return false; }
 
     /**
      * PageTransition Method.
      * Implement Animation when enter this page or move to other pages.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     pageTransition(): void {}
@@ -383,8 +375,6 @@ export interface PageLifeCycle {
      *
      * @param { object | undefined | null } param - New parameters pushed with singleton mode.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     onNewParam(param: object | undefined | null): void {}
