@@ -4465,8 +4465,146 @@ declare namespace i18n {
   }
 
   /**
-   * 
+   * Provide a DateTime formatting interface which could format DateTime to StyleString.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @atomicservice
+   * @since 23 dynamic&static
    */
-  class StyledDateTimeFormat
+  export class StyledDateTimeFormat {
+    /**
+     * A constructor used to create a StyledDateTimeFormat object.
+     *
+     * @param { Intl.DateTimeFormat | SimpleDateTimeFormat } dateTimeFormat - Indicates the date and time format object
+     *     that used to format date.
+     * @param { StyledDateTimeFormatOptions } [ options ] - Indicates the options used to format the date.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    constructor(dateTimeFormat: Intl.DateTimeFormat | SimpleDateTimeFormat,
+        options?: StyledDateTimeFormatOptions);
+
+    /**
+     * Formats a date as a rich text object.
+     *
+     * @param { Date } date - date to be formatted.
+     * @returns { StyledString } Rich text object after formatting.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    format(date: Date): StyledString;
+  }
+
+  /**
+   * Represents optional configuration items for the DateTimeFormat object.
+   *
+   * @interface StyledDateTimeFormatOptions
+   * @syscap SystemCapability.Global.I18n
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  export interface StyledDateTimeFormatOptions {
+    /**
+     * Text style for the year part. The default value is the default text style.
+     *
+     * @type { ?TextStyle }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    year?: TextStyle;
+
+    /**
+     * Text style for the month part. The default value is the default text style.
+     *
+     * @type { ?TextStyle }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    month?: TextStyle;
+
+    /**
+     * Text style for the day part. The default value is the default text style.
+     *
+     * @type { ?TextStyle }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    day?: TextStyle;
+
+    /**
+     * Text style for the hour part. The default value is the default text style.
+     *
+     * @type { ?TextStyle }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    hour?: TextStyle;
+
+    /**
+     * Text style for the minute part. The default value is the default text style.
+     *
+     * @type { ?TextStyle }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    minute?: TextStyle;
+
+    /**
+     * Text style for the second part. The default value is the default text style.
+     *
+     * @type { ?TextStyle }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    second?: TextStyle;
+
+    /**
+     * Text style for the day period part. The default value is the default text style.
+     *
+     * @type { ?TextStyle }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    dayPeriod?: TextStyle;
+
+    /**
+     * Text style for the weekday part. The default value is the default text style.
+     *
+     * @type { ?TextStyle }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    weekday?: TextStyle;
+
+    /**
+     * Text style for the era part. The default value is the default text style.
+     *
+     * @type { ?TextStyle }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    era?: TextStyle;
+
+    /**
+     * Text style for the timezone name part. The default value is the default text style.
+     *
+     * @type { ?TextStyle }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    timeZoneName?: TextStyle;
+  }
 }
 export default i18n;
