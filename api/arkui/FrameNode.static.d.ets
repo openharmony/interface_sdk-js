@@ -426,11 +426,11 @@ export declare class FrameNode {
   /**
    * Get the unique id of the FrameNode.
    *
-   * @returns { long } - Returns the unique id of the FrameNode.
+   * @returns { int } - Returns the unique id of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getUniqueId(): long;
+  getUniqueId(): int;
 
   /**
    * Get the type of the FrameNode. The type is the name of component, for example, the nodeType of Button is "Button",
