@@ -1545,7 +1545,7 @@ declare type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNo
  * @atomicservice
  * @since 20 dynamic
  */
-declare type NodeIdentity = string | number;
+export declare type NodeIdentity = string | number;
 
 /**
  * Defines the callback type used in UIObserver to monitor one specific node's render state.
@@ -1559,7 +1559,7 @@ declare type NodeIdentity = string | number;
  * @atomicservice
  * @since 20 dynamic
  */
-declare type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: FrameNode) => void;
+export declare type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: FrameNode) => void;
 
 /**
  * Defines the callback type used in UIObserver to monitor specific gesture triggered information.
