@@ -4463,5 +4463,10 @@ declare namespace i18n {
      */
     unit?: TextStyle;
   }
+
+  /**
+   * 
+   */
+  class StyledDateTimeFormat
 }
 export default i18n;
