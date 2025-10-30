@@ -20,7 +20,7 @@
  */
 import { CommonMethod } from './common';
 import { VoidCallback } from "./units";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -86,15 +86,13 @@ export declare interface CounterAttribute extends CommonMethod {
 /**
  * Defines the Counter component.
  *
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { CounterAttribute } The attribute of the Counter.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Counter(
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): CounterAttribute;

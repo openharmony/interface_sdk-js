@@ -23,7 +23,7 @@ import { CrownSensitivity, EdgeEffect } from '@ohos.arkui.component';
 import { LinearGradient } from '@ohos.arkui.component';
 import { ResourceColor } from '@ohos.arkui.component';
 import { CommonMethod, Callback } from '@ohos.arkui.component';
-import { memo, ComponentBuilder } from '@ohos.arkui.stateManagement';
+import { ComponentBuilder, CustomBuilder } from '@ohos.arkui.component';
 /**
  * Handler of swiper controller, used in finishAnimation.
  *
@@ -464,15 +464,13 @@ export declare interface ArcSwiperAttribute extends CommonMethod {
  * Defines ArcSwiper Component
  *
  * @param { ArcSwiperController } [controller] - ArcSwiper constructor options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ArcSwiperAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function ArcSwiper(
     controller?: ArcSwiperController, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder
 ): ArcSwiperAttribute

@@ -26,7 +26,7 @@ import { Position, ResourceStr, VoidCallback } from './units';
 import { MenuType, EditMenuOptions, TextDataDetectorConfig } from './textCommon';
 import { CopyOptions, NestedScrollMode } from './enums';
 import { PreviewMenuOptions } from './richEditor';
-import { ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Provides methods for controlling the web controller.

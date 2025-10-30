@@ -23,8 +23,7 @@ import { CommonMethod, Callback } from './common';
 import Want from '../../@ohos.app.ability.Want';
 import { Visibility } from './enums';
 import { VoidCallback } from './units';
-import { ComponentBuilder } from "./../stateManagement/runtime";
-import { CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 
 /**

@@ -23,7 +23,7 @@ import { LengthMetrics, SizeT, PositionT } from '../../arkui/Graphics';
 import { VP, ResourceStr, Dimension, ResourceColor } from "./units";
 import { ImageFit, Curve } from "./enums";
 import { ICurve, CommonMethod } from './common';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Defines a pair of given type for particle.
@@ -928,16 +928,14 @@ export declare interface ParticleAnnulusRegion {
  * Defines Particle Component
  *
  * @param { Particles } particles - particle constructor options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ParticleAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Particle(
     particles: Particles, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ParticleAttribute

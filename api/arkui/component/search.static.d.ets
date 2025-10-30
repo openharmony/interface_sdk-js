@@ -26,7 +26,7 @@ import { CopyOptions, TextAlign } from "./enums";
 import { KeyboardOptions } from "./richEditor";
 import { Resource } from '../../global/resource';
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder } from './builder';
 
 /**
  * Provides the method of switching the cursor position.
@@ -1028,15 +1028,13 @@ export declare interface SearchAttribute extends CommonMethod {
  * Defines Search Component.
  *
  * @param { SearchOptions } [options]
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { SearchAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Search(
     options?: SearchOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): SearchAttribute

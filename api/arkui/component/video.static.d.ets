@@ -21,7 +21,7 @@ import { ImageAIOptions, ImageAnalyzerConfig } from "./imageCommon";
 import { ImageFit } from "./enums";
 import { CommonMethod, Callback, PixelMap, AttributeModifier } from "./common";
 import { VoidCallback, ColorMetrics } from "./units";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Seek mode.
@@ -522,15 +522,13 @@ export declare interface VideoAttribute extends CommonMethod {
  * Video is returned when the parameter is transferred.
  *
  * @param { VideoOptions } value - The options to create a Video
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { VideoAttribute } The attribute of the Video
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Video(
     value: VideoOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): VideoAttribute

@@ -20,7 +20,7 @@
 
 import { CommonMethod, Callback } from './common';
 import { DotIndicator, DigitIndicator } from './swiper';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Provides methods for switching components.
@@ -140,16 +140,14 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
  * Defines IndicatorComponent Component
  *
  * @param { IndicatorComponentController } [controller] - IndicatorComponent constructor options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { IndicatorComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function IndicatorComponent(
   controller?: IndicatorComponentController,
-  @memo
-  content_?: () => void,
+  content_?: CustomBuilder
 ): IndicatorComponentAttribute

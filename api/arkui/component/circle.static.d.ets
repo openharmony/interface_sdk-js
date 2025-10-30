@@ -17,7 +17,7 @@
  * @kit ArkUI
  */
 import { CommonShapeMethod, CommonMethod, AttributeModifier } from "./common";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Defines circle options for Circle component.
@@ -69,15 +69,13 @@ export declare interface CircleAttribute extends CommonShapeMethod {
  * Circle is returned when the parameter is transferred.
  *
  * @param { CircleOptions } [options] - The options to create a Circle
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { CircleAttribute } The attribute of the Circle.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Circle(
     options?: CircleOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): CircleAttribute

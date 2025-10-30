@@ -22,7 +22,7 @@
 import { CommonMethod, BlurStyle, Bindable } from './common';
 import { ResourceColor, Length, Position } from "./units";
 import { Font } from "./units";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * indexer align property.
@@ -387,16 +387,14 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
  * Defines AlphabetIndexer Component
  *
  * @param { AlphabetIndexerOptions } options - indexer constructor options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { AlphabetIndexerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function AlphabetIndexer(
     options: AlphabetIndexerOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): AlphabetIndexerAttribute

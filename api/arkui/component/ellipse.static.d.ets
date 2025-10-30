@@ -17,7 +17,7 @@
  * @kit ArkUI
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Ellipse constructor options.
@@ -68,15 +68,13 @@ export declare interface EllipseAttribute extends CommonShapeMethod {
  * Ellipse is returned when the parameter is transferred.
  *
  * @param { EllipseOptions } [options] - The options to create an Ellipse
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { EllipseAttribute } The attribute of the Ellipse.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Ellipse(
     options?: EllipseOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): EllipseAttribute

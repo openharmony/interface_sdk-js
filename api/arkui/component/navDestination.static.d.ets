@@ -29,7 +29,7 @@ import { NavPathInfo, NavPathStack, NavigationTitleOptions, NavigationMenuItem, 
     NavigationMenuOptions, NavigationOperation, SystemBarStyle } from './navigation';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
 import { Scroller } from './scroll';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
 
 /**
  * Import the Orientation type from @ohos.window.
@@ -758,16 +758,14 @@ export type NavDestinationTransitionDelegate = (operation: NavigationOperation, 
 /**
  * Defines NavDestination Component
  *
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { NavDestinationAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function NavDestination(
     
-    @memo
-    content_?: () => void,
+  content_?: CustomBuilder
 ): NavDestinationAttribute

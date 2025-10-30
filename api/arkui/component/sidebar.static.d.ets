@@ -22,7 +22,7 @@
 import { Resource } from '../../global/resource';
 import { Length, ResourceColor, Dimension } from './units';
 import { CommonMethod, PixelMap, Bindable, AttributeModifier, DividerStyle } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Sets the sidebar style of showing
@@ -318,15 +318,13 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
  * Defines sidebar Component
  *
  * @param { SideBarContainerType } [type] - sidebar constructor options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { SideBarContainerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function SideBarContainer(
   type?: SideBarContainerType,
-  @memo
-  content_?: () => void,
+  content_?: CustomBuilder
 ): SideBarContainerAttribute

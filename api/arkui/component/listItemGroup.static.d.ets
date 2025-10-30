@@ -21,7 +21,7 @@ import { ChildrenMainSize, CommonMethod } from './common';
 import { CustomBuilder } from './builder';
 import { ComponentContentBase } from '../ComponentContent';
 import { ListDividerOptions } from "./list";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Defines the list item group style.
@@ -147,15 +147,13 @@ export declare interface ListItemGroupAttribute extends CommonMethod {
  * Defines ListItemGroup Component.
  *
  * @param { ListItemGroupOptions } [options] - options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ListItemGroupAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function ListItemGroup(
     options?: ListItemGroupOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ListItemGroupAttribute

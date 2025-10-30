@@ -21,7 +21,7 @@
 import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier, Optional, DateTimeOptions } from './common';
 import { ResourceColor, Length, ResourceStr } from "./units";
 import { FontStyle, FontWeight } from "./enums";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -254,15 +254,13 @@ export declare interface TextClockAttribute extends CommonMethod {
  * Defines the TextClock component.
  *
  * @param { TextClockOptions } [options] - text clock options.
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { TextClockAttribute } The attribute of the TextClock.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function TextClock(
     options?: TextClockOptions, 
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): TextClockAttribute;

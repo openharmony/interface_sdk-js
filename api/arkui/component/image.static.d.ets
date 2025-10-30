@@ -28,7 +28,7 @@ import { ResourceStr, ResourceColor, ColorFilter, EdgeWidths, ColorMetrics, Void
 import { ImageFit, ImageRepeat, CopyOptions } from "./enums";
 import { Resource } from '../../global/resource';
 import { CommonMethod, PointLightStyle, PixelMap } from './common';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -836,16 +836,14 @@ export declare interface ResizableOptions {
  *
  * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src - image resource type.
  * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { ImageAttribute } The attribute of the Image.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Image(
     src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined,
     imageAIOptions?: ImageAIOptions, 
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): ImageAttribute;

@@ -22,7 +22,7 @@
 import { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, Optional, TranslateOptions, DividerStyle, Bindable } from './common';
 import { EdgeEffect, PageFlipMode, Curve } from "./enums";
 import { Dimension, Length, ResourceColor } from "./units";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, ICurve } from "./common";
 /**
  * Declare the graphic format of the bar chart.
@@ -912,15 +912,13 @@ export declare interface TabContentTransitionProxy {
  * Defines Tabs Component
  *
  * @param { TabsOptions } [options] - tabs constructor options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { FlowItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Tabs(
     options?: TabsOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): TabsAttribute
