@@ -10449,10 +10449,10 @@ export declare interface CommonMethod {
     /**
      * Register accessibility action intercept callback,
      * when accessibility action is to be executed,the callback will be executed
-     * @param { AccessibilityActionInterceptCallback } callback - accessibility action intercept callback function
-     * @returns { T }
+     * @param { AccessibilityActionInterceptCallback | undefined } callback - accessibility action intercept callback function
+     * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onAccessibilityActionIntercept(callback: AccessibilityActionInterceptCallback | undefined): this;
     /**
