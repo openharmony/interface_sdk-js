@@ -238,6 +238,7 @@ declare namespace usbManager {
    * @useinstead ohos.usbManager/usbManager#getDeviceFunctions
    */
   function getCurrentFunctions(): FunctionType;
+
   /**
    * Obtains the USBPort list.
    *
