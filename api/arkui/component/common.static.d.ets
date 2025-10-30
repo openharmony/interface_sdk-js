@@ -3143,15 +3143,15 @@ export declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {
  */
 export declare interface BlurOptions {
     /**
-     * Fuzzy gray scale parameter.
-     * @type { [double, double] }
+     * Fuzzy gray scale parameter. Undefined value means no grayscale.
+     * @type { [double, double] | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
     grayscale: [
         double,
         double
-    ];
+    ] | undefined;
 }
 /**
  * Defines the SystemAdaptiveOptions interface
@@ -3228,15 +3228,15 @@ export declare interface BlurStyleOptions {
  */
 export declare interface BackgroundEffectOptions {
     /**
-     * Blur radius.
+     * Blur radius. Undefined value means 0.
      * Value range: [0, +∞).
      * Default value: **0**.
      *
-     * @type { double }
+     * @type { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    radius: double;
+    radius: double | undefined;
     /**
      * Saturation.
      * Value range: [0, +∞).
@@ -3314,13 +3314,13 @@ export declare interface BackgroundEffectOptions {
  */
 export declare interface ForegroundEffectOptions {
     /**
-     * Define the radius size of ForegroundEffect.The range of this value is [0, ∞)
+     * Define the radius size of ForegroundEffect.The range of this value is [0, ∞). Undefined means 0.
      *
-     * @type { double }
+     * @type { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    radius: double;
+    radius: double | undefined;
 }
 /**
  * Provide an interface for the text style of picker
@@ -10948,21 +10948,21 @@ export declare interface PixelRoundPolicy {
  */
 export declare interface LinearGradientBlurOptions {
     /**
-     * Percentage of blurring effect.
+     * Percentage of blurring effect. Undefined value means no fractionStops.
      *
-     * @type { FractionStop[] }
+     * @type { FractionStop[] | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    fractionStops: FractionStop[];
+    fractionStops: FractionStop[] | undefined;
     /**
-     * Direction of linear gradient blur.
+     * Direction of linear gradient blur. Undefined value means GradientDirection.Left.
      *
-     * @type { GradientDirection }
+     * @type { GradientDirection | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    direction: GradientDirection;
+    direction: GradientDirection | undefined;
 }
 /**
  * Define motion blur anchor coordinates.
@@ -10973,21 +10973,21 @@ export declare interface LinearGradientBlurOptions {
  */
 export declare interface MotionBlurAnchor {
     /**
-     * Define anchor coordinate x-value.Value range [0.0, 1.0].
+     * Define anchor coordinate x-value.Value range [0.0, 1.0]. Undefined value means 0.0.
      *
-     * @type { double }
+     * @type { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    x: double;
+    x: double | undefined;
     /**
-     * Define anchor coordinate y-value.Value range [0.0, 1.0].
+     * Define anchor coordinate y-value.Value range [0.0, 1.0]. Undefined value means 0.0.
      *
-     * @type { double }
+     * @type { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    y: double;
+    y: double | undefined;
 }
 /**
  * Define motion blur options.
@@ -10998,21 +10998,21 @@ export declare interface MotionBlurAnchor {
  */
 export declare interface MotionBlurOptions {
     /**
-     * Define the size of motion blur radius.The range of this value is  [0.0, ∞).
+     * Define the size of motion blur radius.The range of this value is  [0.0, ∞). Undefined value means 0.0.
      *
-     * @type { double }
+     * @type { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    radius: double;
+    radius: double | undefined;
     /**
-     * Define motion blur anchor coordinates.
+     * Define motion blur anchor coordinates. Undefined value means default MotionBlurAnchor.
      *
-     * @type { MotionBlurAnchor }
+     * @type { MotionBlurAnchor | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    anchor: MotionBlurAnchor;
+    anchor: MotionBlurAnchor | undefined;
 }
 /**
  * Sub component layout info.
