@@ -631,7 +631,7 @@ declare namespace usbManager {
    * @since 20 static
    */
   function addAccessoryRight(tokenId: int, accessory: USBAccessory): void;
-  /* usb pipe functions begin */
+
   /**
    * Claims a USB interface.
    *
