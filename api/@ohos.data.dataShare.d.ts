@@ -597,7 +597,7 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     INSERT = 0,
 
@@ -614,7 +614,7 @@ declare namespace dataShare {
     *
     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
     * @stagemodelonly
-    * @since 20 dynamic&static
+    * @since 20 dynamic
     */
     DELETE,
     /**
@@ -630,7 +630,7 @@ declare namespace dataShare {
     *
     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
     * @stagemodelonly
-    * @since 20 dynamic&static
+    * @since 20 dynamic
     */
     UPDATE
   }
