@@ -26,7 +26,6 @@ import type { Callback } from './@ohos.base';
  * @namespace stationary
  * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
  * @since 9 dynamic
- * @since 20 static
  */
 declare namespace stationary {
   /**
@@ -35,7 +34,6 @@ declare namespace stationary {
    * @interface ActivityResponse
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9 dynamic
-   * @since 20 static
    */
   interface ActivityResponse {
     /**
@@ -44,7 +42,6 @@ declare namespace stationary {
      * @type { ActivityState }
      * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9 dynamic
-     * @since 20 static
      */
     state: ActivityState;
   }
@@ -55,7 +52,6 @@ declare namespace stationary {
    * @typedef { 'still' | 'relativeStill' }
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9 dynamic
-   * @since 20 static
    */
   type ActivityType = 'still' | 'relativeStill';
 
@@ -65,7 +61,6 @@ declare namespace stationary {
    * @enum {number}
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9 dynamic
-   * @since 20 static
    */
   enum ActivityEvent {
     /**
@@ -73,7 +68,6 @@ declare namespace stationary {
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9 dynamic
-     * @since 20 static
      */
     ENTER = 1,
 
@@ -82,7 +76,6 @@ declare namespace stationary {
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9 dynamic
-     * @since 20 static
      */
     EXIT = 2,
 
@@ -91,7 +84,6 @@ declare namespace stationary {
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9 dynamic
-     * @since 20 static
      */
     ENTER_EXIT = 3
   }
@@ -102,7 +94,6 @@ declare namespace stationary {
    * @enum { int }
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9 dynamic
-   * @since 20 static
    */
   enum ActivityState {
     /**
@@ -110,7 +101,6 @@ declare namespace stationary {
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9 dynamic
-     * @since 20 static
      */
     ENTER = 1,
 
@@ -119,7 +109,6 @@ declare namespace stationary {
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9 dynamic
-     * @since 20 static
      */
     EXIT = 2
   }
@@ -133,7 +122,6 @@ declare namespace stationary {
    * @param { Callback<ActivityResponse> } callback Indicates the callback for receiving reported data.
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9 dynamic
-   * @since 20 static
    */
   function on(activity: ActivityType, event: ActivityEvent, reportLatencyNs: long, callback: Callback<ActivityResponse>): void;
 
@@ -144,7 +132,6 @@ declare namespace stationary {
    * @param { Callback<ActivityResponse> } callback Indicates the callback for receiving reported data.
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9 dynamic
-   * @since 20 static
    */
   function once(activity: ActivityType, callback: Callback<ActivityResponse>): void;
 
@@ -156,7 +143,6 @@ declare namespace stationary {
    * @param { Callback<ActivityResponse> } callback Indicates the callback for receiving reported data.
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9 dynamic
-   * @since 20 static
    */
   function off(activity: ActivityType, event: ActivityEvent, callback?: Callback<ActivityResponse>): void;
 }
