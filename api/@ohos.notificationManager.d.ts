@@ -4212,6 +4212,74 @@ declare namespace notificationManager {
   function getDistributedDeviceList(): Promise<Array<string>>;
 
   /**
+   * Set priority notification switch for bundle.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { boolean } enable - The switch state.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function setPriorityEnabledByBundle(bundle: BundleOption, enable: boolean): Promise<void>;
+
+  /**
+   * Get priority notification switch for bundle.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @returns { Promise<boolean> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function isPriorityEnabledByBundle(bundle: BundleOption): Promise<boolean>;
+
+  /**
+   * Get priority notification switch.
+   * 
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @returns { Promise<boolean> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function isPriorityEnabled(): Promise<boolean>;
+
+  /**
+   * Set priority notification switch.
+   * 
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { boolean } enable - Set enable or not.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function setPriorityEnabled(enable: boolean): Promise<void>;
+
+  /**
    * Set the switch status of silent reminders.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
@@ -5382,6 +5450,126 @@ declare namespace notificationManager {
      * @since 20 static
      */
     NOTIFICATION_STATUS_CLOSE_STATUSBAR_ICON = 1 << 5
+  }
+
+  /**
+   * Priority notification type
+   * @enum { number }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 23 dynamic&static
+   */
+  export enum PriorityNotificationType {
+    /**
+     * Other, non-priority
+     * @syscap SystemCapability.Notification.Notification
+     * @since 23 dynamic&static
+     */
+    OTHER = 'OTHER',
+
+    /**
+     * Priority contact
+     * @syscap SystemCapability.Notification.Notification
+     * @since 23 dynamic&static
+     */
+    PRIMARY_CONTACT = 'PRIMARY_CONTACT',
+
+    /**
+     * Someone @me
+     * @syscap SystemCapability.Notification.Notification
+     * @since 23 dynamic&static
+     */
+    AT_ME = 'AT_ME',
+
+    /**
+     * Urgent message
+     * @syscap SystemCapability.Notification.Notification
+     * @since 23 dynamic&static
+     */
+    URGENT_MESSAGE = 'URGENT_MESSAGE',
+
+    /**
+     * Schedule reminder
+     * @syscap SystemCapability.Notification.Notification
+     * @since 23 dynamic&static
+     */
+    SCHEDULE_REMINDER = 'SCHEDULE_REMINDER',
+
+    /**
+     * Payment due
+     * @syscap SystemCapability.Notification.Notification
+     * @since 23 dynamic&static
+     */
+    PAYMENT_DUE = 'PAYMENT_DUE',
+
+    /**
+     * Transaction alert
+     * @syscap SystemCapability.Notification.Notification
+     * @since 23 dynamic&static
+     */
+    TRANSACTION_ALERT = 'TRANSACTION_ALERT',
+
+    /**
+     * Express progress
+     * @syscap SystemCapability.Notification.Notification
+     * @since 23 dynamic&static
+     */
+    EXPRESS_PROGRESS = 'EXPRESS_PROGRESS',
+
+    /**
+     * Miss call
+     * @syscap SystemCapability.Notification.Notification
+     * @since 23 dynamic&static
+     */
+    MISS_CALL = 'MISS_CALL',
+
+    /**
+     * Travel alert
+     * @syscap SystemCapability.Notification.Notification
+     * @since 23 dynamic&static
+     */
+    TRAVEL_ALERT = 'TRAVEL_ALERT',
+
+    /**
+     * Account alert
+     * @syscap SystemCapability.Notification.Notification
+     * @since 23 dynamic&static
+     */
+    ACCOUNT_ALERT = 'ACCOUNT_ALERT',
+
+    /**
+     * Appointment reminder
+     * @syscap SystemCapability.Notification.Notification
+     * @since 23 dynamic&static
+     */
+    APPOINTMENT_REMINDER = 'APPOINTMENT_REMINDER',
+
+    /**
+     * Traffic notice
+     * @syscap SystemCapability.Notification.Notification
+     * @since 23 dynamic&static
+     */
+    TRAFFIC_NOTICE = 'TRAFFIC_NOTICE',
+
+    /**
+     * Key progress
+     * @syscap SystemCapability.Notification.Notification
+     * @since 23 dynamic&static
+     */
+    KEY_PROGRESS = 'KEY_PROGRESS',
+
+    /**
+     * Public event
+     * @syscap SystemCapability.Notification.Notification
+     * @since 23 dynamic&static
+     */
+    PUBLIC_EVENT = 'PUBLIC_EVENT',
+
+    /**
+     * Iot warning
+     * @syscap SystemCapability.Notification.Notification
+     * @since 23 dynamic&static
+     */
+    IOT_WARNING = 'IOT_WARNING'
   }
 
   /**

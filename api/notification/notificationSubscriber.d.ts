@@ -137,6 +137,26 @@ export interface NotificationSubscriber {
   onEnabledNotificationChanged?: (callbackData: EnabledNotificationCallbackData) => void;
 
   /**
+   * Callback when the priority notification switch is changed.
+   * 
+   * @type { ?function }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  onEnabledPriorityChanged?: (enable: boolean) => void;
+
+  /**
+   * Callback when the priority notification switch by bundle is changed.
+   * 
+   * @type { ?function }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  onEnabledPriorityByBundleChanged?: (callbackData: EnabledNotificationCallbackData) => void;
+
+  /**
    * Callback when badge number changed.
    *
    * @type { ?function }
@@ -243,8 +263,7 @@ export interface SubscribeCallbackData {
 }
 
 /**
- * Describes the properties of the application that the permission to send notifications 
- * or the badge enabled state has changed.
+ * Describes the switch state to Restrict notification capability.
  *
  * @typedef EnabledNotificationCallbackData
  * @syscap SystemCapability.Notification.Notification
