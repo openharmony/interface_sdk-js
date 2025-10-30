@@ -651,17 +651,6 @@ export declare interface IObjectLinkDecoratedVariable<T> extends IDecoratedImmut
 export declare interface IStorageLinkDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
 /**
- * Define StorageProp decoration variable interface.
- *
- * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
- * @interface IStoragePropDecoratedVariable<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
- */
-export declare interface IStoragePropDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
-}
-
-/**
  * Define StoragePropRef decoration variable interface.
  *
  * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>

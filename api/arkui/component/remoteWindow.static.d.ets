@@ -17,9 +17,8 @@
  * @file
  * @kit ArkUI
  */
-import { memo } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
-import { ComponentBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Round rect.
@@ -162,17 +161,15 @@ export declare interface RemoteWindowAttribute extends CommonMethod {
  * Defines RemoteWindow Component.
  *
  * @param { WindowAnimationTarget } target - target
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { RemoteWindowAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function RemoteWindow(
     target: WindowAnimationTarget,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): RemoteWindowAttribute
