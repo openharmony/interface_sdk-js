@@ -113,12 +113,12 @@ function createTargetImport(sourceFile: ts.SourceFile, context: ts.Transformatio
             false,
             undefined,
             ts.factory.createNamedImports([
-                ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("memo"))
+                ts.factory.createImportSpecifier(false, undefined, ts.factory.createIdentifier("Memo"))
             ])
         ),
-        ts.factory.createStringLiteral("./../stateManagement/runtime")
+        ts.factory.createStringLiteral("./../incremental/annotation")
     );
-    targetImport.push(memoImport)
+    targetImport.push(memoImport);
 
     const customBuilderImport = ts.factory.createImportDeclaration(
         undefined,
