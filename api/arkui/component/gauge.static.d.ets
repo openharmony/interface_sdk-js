@@ -208,12 +208,12 @@ export declare interface GaugeAttribute extends CommonMethod {
     /**
      * Sets indicator options of the ring chart.
      *
-     * @param { GaugeIndicatorOptions | undefined } value - indicator options of the gauge drawing.
+     * @param { GaugeIndicatorOptions | undefined | null } value - indicator options of the gauge drawing.
      * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default indicator(value: GaugeIndicatorOptions | undefined): this;
+    default indicator(value: GaugeIndicatorOptions | undefined | null): this;
     /**
      * Sets if mark to privacy sensitive.
      *
