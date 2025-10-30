@@ -288,7 +288,7 @@ declare namespace systemSoundManager {
    * @constant
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   const TONE_CATEGORY_CONTACTS:16;
 
