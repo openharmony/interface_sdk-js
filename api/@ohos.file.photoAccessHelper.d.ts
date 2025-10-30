@@ -3041,7 +3041,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 22
      */
     HDR_MODE = 'hdr_mode',
     /**
@@ -12025,7 +12025,7 @@ declare namespace photoAccessHelper {
    * @enum { number } HdrMode
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 21 dynamic&static
+   * @since 22
    */
   enum HdrMode {
     /**
@@ -12033,7 +12033,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 22
      */
     DEFAULT = 0,
     /**
@@ -12041,7 +12041,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 22
      */
     HDR_ISO_SINGLE = 1,
     /**
@@ -12049,7 +12049,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 22
      */
     HDR_ISO_DUAL = 2,
     /**
@@ -12057,7 +12057,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 22
      */
     HDR_CUVA = 3,
     /**
@@ -12065,7 +12065,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 22
      */
     HDR_VIVID_SINGLE = 4,
     /**
@@ -12073,7 +12073,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 22
      */
     HDR_VIVID_DUAL = 5,
   }
