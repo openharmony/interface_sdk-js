@@ -2985,35 +2985,35 @@ export declare class UIContext {
   /**
    * Get FrameNode by uniqueId.
    *
-   * @param { number } id - The uniqueId of the FrameNode.
+   * @param { int } id - The uniqueId of the FrameNode.
    * @returns { FrameNode | null } - The FrameNode with the target uniqueId, or null if the frameNode is not existed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  getFrameNodeByUniqueId(id: number): FrameNode | null;
+  getFrameNodeByUniqueId(id: int): FrameNode | null;
 
   /**
    * Get page information of the frameNode with uniqueId.
    *
-   * @param { number } id - The uniqueId of the target FrameNode.
+   * @param { int } id - The uniqueId of the target FrameNode.
    * @returns { PageInfo } - The page information of the frameNode with the target uniqueId, includes
    * navDestination and router page information. If the frame node does not have navDestination and
    * router page information, it will return an empty object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  getPageInfoByUniqueId(id: number): PageInfo;
+  getPageInfoByUniqueId(id: int): PageInfo;
 
   /**
    * Get navigation information of the frameNode with uniqueId.
    *
-   * @param { number } id - The uniqueId of the target FrameNode.
+   * @param { int } id - The uniqueId of the target FrameNode.
    * @returns { observer.NavigationInfo | undefined } - The navigation information of the frameNode with the
    * target uniqueId, or undefined if the frameNode is not existed or does not have navigation information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  getNavigationInfoByUniqueId(id: number): observer.NavigationInfo | undefined;
+  getNavigationInfoByUniqueId(id: int): observer.NavigationInfo | undefined;
 
   /**
    * Dynamic dimming.
