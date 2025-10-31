@@ -26,9 +26,12 @@ import AbilityStageContext from './application/AbilityStageContext';
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
  * @since 12 dynamic
+ * @since 22 static
  */
+/*** if arkts dynmaic */
 @Sendable
-export default class StartupTask {
+/*** endif */
+declare class StartupTask {
   /**
    * Called when specific dependent task complete.
    *
@@ -41,6 +44,17 @@ export default class StartupTask {
   onDependencyCompleted?(dependency: string, result: Object): void;
 
   /**
+   * Called when specific dependent task complete.
+   *
+   * @param { string } dependency - Indicates name of specific dependent startup task.
+   * @param { Any } result - Indicates result of specific dependent startup task.
+   * @syscap SystemCapability.Ability.AppStartup
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onDependencyCompleted(dependency: string, result: Any): void;
+
+  /**
    * Initializes current startup task.
    * A developer could override this function to init current task and return a result for other tasks.
    *
@@ -51,4 +65,18 @@ export default class StartupTask {
    * @since 12 dynamic
    */
   init(context: AbilityStageContext): Promise<Object | void>;
+
+  /**
+   * Initializes current startup task.
+   * A developer could override this function to init current task and return a result for other tasks.
+   *
+   * @param { AbilityStageContext } context - Indicates ability stage context.
+   * @returns { Promise<Any> | Promise<void> } The result of initialization.
+   * @syscap SystemCapability.Ability.AppStartup
+   * @stagemodelonly
+   * @since 22 static
+   */
+  init(context: AbilityStageContext): Promise<Any> | Promise<void>;
 }
+
+export default StartupTask;
