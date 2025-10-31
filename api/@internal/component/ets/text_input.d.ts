@@ -1509,16 +1509,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 22 dynamic
    */
   enableSelectedDataDetector(enable: boolean | undefined): TextInputAttribute
-  /**
-   * Config selected data detector.
-   *
-   * @param { SelectDataDetectorConfig | undefined } config - Set the config of selected data detector.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  selectedDataDetectorConfig(config: SelectDataDetectorConfig | undefined): TextInputAttribute
 
   /**
    * Called when the color of the placeholder is set.

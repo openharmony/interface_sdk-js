@@ -1005,16 +1005,6 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 22 dynamic
    */
   enableSelectedDataDetector(enable: boolean | undefined): SearchAttribute
-  /**
-   * Config selected data detector.
-   *
-   * @param { SelectDataDetectorConfig | undefined } config - Set the config of selected data detector.
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  selectedDataDetectorConfig(config: SelectDataDetectorConfig | undefined): SearchAttribute
 
   /**
    * Specify the indentation of the first line in a text-block.
