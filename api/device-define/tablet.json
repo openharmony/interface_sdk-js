@@ -224,7 +224,6 @@
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
     "SystemCapability.Test.PerfTest",
     "SystemCapability.DistributedHardware.DistributedHardwareFWK",
-    "SystemCapability.ResourceSchedule.SystemLoad",
-    "SystemCapability.Tee.TeeClient"
+    "SystemCapability.ResourceSchedule.SystemLoad"
   ]
 }
