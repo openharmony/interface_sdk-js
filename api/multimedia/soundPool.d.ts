@@ -25,7 +25,7 @@ import resourceManager from '../@ohos.resourceManager';
 
 /**
  * Enumerates the error type.
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.Multimedia.Media.SoundPool
  * @since 20 dynamic
  */
@@ -49,7 +49,7 @@ export enum ErrorType {
  * Interface for error info.
  * @typedef { ErrorInfo<T extends Error = BusinessError> }
  * @syscap SystemCapability.Multimedia.Media.SoundPool
- * @since 20 dynamic
+ * @since 20 dynamic&static
  */
 export interface ErrorInfo<T extends Error = BusinessError> {
   /**
@@ -188,8 +188,8 @@ export declare interface SoundPool {
    * Loads a sound. This API uses an asynchronous callback to obtain the sound ID.
    * The input parameter **uri** is a string starting with fd://, which is generated based on the file descriptor (FD)
    * obtained. This API cannot be used to load resources in the **rawfile** directory.
-   * Instead, use load(fd: number, offset: number, length: number, callback: AsyncCallback<number>): void or
-   * load(fd: number, offset: number, length: number): Promise<number>.
+   * Instead, use load(fd: int, offset: long, length: long, callback: AsyncCallback<int>): void or
+   * load(fd: int, offset: long, length: long): Promise<int>.
    *
    * **NOTE**
    *
@@ -213,8 +213,8 @@ export declare interface SoundPool {
    * Loads a sound. This API uses a promise to obtain the sound ID. The input parameter **uri** is a starting with
    * fd://, which is generated based on the FD obtained. This API cannot be used to load resources in the **rawfile**
    * directory.
-   * Instead, use load(fd: number, offset: number, length: number, callback: AsyncCallback<number>): void or
-   * load(fd: number, offset: number, length: number): Promise<number>.
+   * Instead, use load(fd: int, offset: long, length: long, callback: AsyncCallback<int>): void or
+   * load(fd: int, offset: long, length: long): Promise<int>.
    *
    * **NOTE**
    *
@@ -543,6 +543,7 @@ export declare interface SoundPool {
    * @since 20 static
    */
   release(): Promise<void>;
+
   /**
    * Subscribes to events indicating that a sound finishes loading.
    *
@@ -551,18 +552,33 @@ export declare interface SoundPool {
    * @param {Callback<int>} callback - ID of the sound that has been loaded.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 20 static
    */
   on(type: 'loadComplete', callback: Callback<int>): void;
+  /**
+   * Subscribes to events indicating that a sound finishes loading.
+   * This event is triggered when a sound is loaded.
+   *
+   * @param {Callback<int>} callback - ID of the sound that has been loaded.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 22 static
+   */
+  onLoadComplete(callback: Callback<int>): void;
   /**
    * Unsubscribes from events indicating that a sound finishes loading.
    *
    * @param {'loadComplete'} type - Event type. The value is fixed at **'loadComplete'**.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 20 static
    */
   off(type: 'loadComplete'): void;
+  /**
+   * Unsubscribes from events indicating that a sound finishes loading.
+   *
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 22 static
+   */
+  offLoadComplete(): void;
+
   /**
    * Subscribes to events indicating the completion of audio playback and returns the stream ID of the audio
    * that finishes playing.
@@ -580,18 +596,40 @@ export declare interface SoundPool {
    *     finishes playing.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 18 dynamic
-   * @since 20 static
    */
   on(type: 'playFinishedWithStreamId', callback: Callback<int>): void;
+  /**
+   * Subscribes to events indicating the completion of audio playback and returns the stream ID of the audio
+   * that finishes playing.
+   *
+   * When only on('playFinished') or on('playFinishedWithStreamId') is subscribed to, the registered
+   * callback is triggered when the audio playback is complete.
+   *
+   * When both on('playFinished') and on('playFinishedWithStreamId') are subscribed to,
+   * the 'playFinishedWithStreamId' callback is triggered, but the 'playFinished' callback is not triggered,
+   * when the audio playback is complete.
+   *
+   * @param {Callback<int>} callback - Callback used to return the result. Stream ID of the audio that
+   *     finishes playing.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 22 static
+   */
+  onPlayFinishedWithStreamId(callback: Callback<int>): void;
    /**
     * Unsubscribes from events indicating that a sound finishes playing.
     *
     * @param {'playFinishedWithStreamId'} type - Event type. The value is fixed at **'playFinishedWithStreamId'**.
     * @syscap SystemCapability.Multimedia.Media.SoundPool
     * @since 18 dynamic
-    * @since 20 static
     */
   off(type: 'playFinishedWithStreamId'): void;
+   /**
+    * Unsubscribes from events indicating that a sound finishes playing.
+    *
+    * @syscap SystemCapability.Multimedia.Media.SoundPool
+    * @since 22 static
+    */
+  offPlayFinishedWithStreamId(): void;
   /**
    * Subscribes to events indicating that a sound finishes playing.
    *
@@ -600,18 +638,32 @@ export declare interface SoundPool {
    * @param {Callback<void>} callback - Callback used to return the result.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 20 static
    */
   on(type: 'playFinished', callback: Callback<void>): void;
+  /**
+   * Subscribes to events indicating that a sound finishes playing.
+   * This event is triggered when a sound finishes playing.
+   *
+   * @param {Callback<void>} callback - Callback used to return the result.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 22 static
+   */
+  onPlayFinished(callback: Callback<void>): void;
   /**
    * Unsubscribes from events indicating that a sound finishes playing.
    *
    * @param {'playFinished'} type - Event type. The value is fixed at **'playFinished'**.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 20 static
    */
   off(type: 'playFinished'): void;
+  /**
+   * Unsubscribes from events indicating that a sound finishes playing.
+   *
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 22 static
+   */
+  offPlayFinished(): void;
   /**
    * Subscribes to error events of this **SoundPool** instance. This event is used only for error prompt.
    *
@@ -620,18 +672,33 @@ export declare interface SoundPool {
    * @param {ErrorCallback} callback - Callback used to return the error code ID and error message.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 20 static
    */
   on(type: 'error', callback: ErrorCallback): void;
+  /**
+   * Subscribes to error events of this **SoundPool** instance. This event is used only for error prompt.
+   * This event can be triggered by both user operations and the system.
+   * 
+   * @param {ErrorCallback} callback - Callback used to return the error code ID and error message.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 22 static
+   */
+  onError(callback: ErrorCallback): void;
   /**
    * Unsubscribes from error events of this **SoundPool** instance.
    *
    * @param {'error'} type - Event type, which is **'error'** in this case.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
-   * @since 20 static
    */
   off(type: 'error'): void;
+  /**
+   * Unsubscribes from error events of this **SoundPool** instance.
+   *
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 22 static
+   */
+  offError(): void;
+
   /**
    * Subscribes to errorOccurred events of this **SoundPool** instance.
    *
@@ -641,6 +708,14 @@ export declare interface SoundPool {
    * @since 20 dynamic
    */
   on(type: 'errorOccurred', callback: Callback<ErrorInfo>): void;
+  /**
+   * Subscribes to errorOccurred events of this **SoundPool** instance.
+   *
+   * @param { Callback<ErrorInfo> } callback - Callback used to listen for soundpool errorOccurred events.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 22 static
+   */
+  onErrorOccurred(callback: Callback<ErrorInfo>): void;
 
   /**
    * Unsubscribes from errorOccurred events of this **SoundPool** instance.
@@ -651,5 +726,13 @@ export declare interface SoundPool {
    * @since 20 dynamic
    */
   off(type: 'errorOccurred', callback?: Callback<ErrorInfo>): void;
+  /**
+   * Unsubscribes from errorOccurred events of this **SoundPool** instance.
+   *
+   * @param { Callback<ErrorInfo> } [callback] - Callback used to listen for soundpool errorOccurred events.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 22 static
+   */
+  offErrorOccurred(callback?: Callback<ErrorInfo>): void;
 }
 
