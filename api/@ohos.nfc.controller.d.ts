@@ -146,7 +146,6 @@ declare namespace nfcController {
    * @syscap SystemCapability.Communication.NFC.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   function on(type: 'nfcStateChange', callback: Callback<NfcState>): void;
 
@@ -175,14 +174,13 @@ declare namespace nfcController {
    * @syscap SystemCapability.Communication.NFC.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   function off(type: 'nfcStateChange', callback?: Callback<NfcState>): void;
 
   /**
    * unregister nfc state changed event.
    *
-   * @param { Callback<NfcState> }  callback Callback used to listen to the nfc state changed event.
+   * @param { Callback<NfcState> } [callback] Callback used to listen to the nfc state changed event.
    * @syscap SystemCapability.Communication.NFC.Core
    * @since 22 static
    */
