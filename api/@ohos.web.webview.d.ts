@@ -969,10 +969,10 @@ declare namespace webview {
      * The horizontal scroll offset of the web page. The value is the difference between
      * the x-coordinate of the left border of the web page and the x-coordinate of the
      * left border of the Web component. When the web page scrolls to the right,
-     * the value range is negative. 
+     * the value range is negative.
      * When the web page is not over-scrolled or the web page is over-scrolled to the left,
      * the value is 0 or a positive value. Unit: vp.
-     * 
+     *
      * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -982,13 +982,13 @@ declare namespace webview {
     x: double;
 
     /**
-     * The vertical scroll offset of the web page. The value is the difference between 
-     * the y-coordinate of the upper border of the web page and the y-coordinate of the 
+     * The vertical scroll offset of the web page. The value is the difference between
+     * the y-coordinate of the upper border of the web page and the y-coordinate of the
      * upper boundary of the Web component. When the web page is scrolled down,
-     * the value range is negative. 
+     * the value range is negative.
      * When the web page is not over-scrolled or the web page is over-scrolled to the up,
      * the value is 0 or a positive value. Unit: vp.
-     * 
+     *
      * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1138,7 +1138,7 @@ declare namespace webview {
     /**
      * Obtains information about all origins that are currently using the Web SQL Database.
      * This API uses a promise to return the result.
-     * 
+     *
      * @returns { Promise<Array<WebStorageOrigin>> } - Promise used to return the information about the origins.
      *                                                 For details, see {@link WebStorageOrigin}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1173,7 +1173,7 @@ declare namespace webview {
     /**
      * Obtains information about all origins that are currently using the Web SQL Database.
      * This API uses an asynchronous callback to return the result.
-     * 
+     *
      * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - Callback used to return the information about the
      *                                                              origins. For details, see {@link WebStorageOrigin}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1456,7 +1456,7 @@ declare namespace webview {
    * <p><strong>API Note</strong>:<br>
    * You must load the Web component before calling the APIs in GeolocationPermissions.
    * </p>
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -1487,7 +1487,7 @@ declare namespace webview {
     /**
      * Allows the specified origin to use the geolocation information.
      * @param { string } origin - Index of the origin.
-     * @param { boolean } incognito - Whether to allow the specified origin to use the geolocation information 
+     * @param { boolean } incognito - Whether to allow the specified origin to use the geolocation information
      *                                in incognito mode. {@code true} means to allow the specified origin to use the
      *                                geolocation information in incognito mode; {@code false} means to allow the
      *                                specified origin to use the geolocation information in normal non-incognito mode.
@@ -1848,8 +1848,8 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
-     * <br>in RFC 6265. 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
+     * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -1867,7 +1867,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1888,7 +1888,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 14 dynamic
@@ -1905,7 +1905,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -1927,7 +1927,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 14 dynamic
@@ -1943,7 +1943,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -3218,7 +3218,7 @@ declare namespace webview {
      * The status of the snapshot.
      * The value can be true (normal) or false (failure). If the full drawing result fails to be obtained,
      * the width and height of the returned size are both 0, and the map is empty.
-     * 
+     *
      * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -3828,7 +3828,7 @@ declare namespace webview {
      * @since 22 dynamic&static
      */
     DEFAULT = 0,
- 
+
     /**
      * Soft keyboard will not be hidden or shown automatically when web comes into pause/continue state
      * @syscap SystemCapability.Web.Webview.Core
@@ -4007,7 +4007,7 @@ declare namespace webview {
     /**
      * Sets whether to enable web debugging. By default, web debugging is disabled.
      * For details, see Debugging Frontend Pages by Using DevTools.
-     * 
+     *
      * <p><strong>API Note</strong>:<br>
      * Enabling web debugging allows users to check and modify the internal status of the web page,
      * which poses security risks. Therefore, you are advised not to enable this function
@@ -5057,7 +5057,7 @@ declare namespace webview {
      * The state of JavaScript is no longer persisted across navigations like loadUrl.
      * For example, global variables and functions defined before calling loadUrl will not exist in the loaded page.<br>
      * It is recommended that applications use registerJavaScriptProxy to ensure that the JavaScript state can be persisted across page navigations.<br>
-     * If you cannot obtain the return value by executing the asynchronous method, 
+     * If you cannot obtain the return value by executing the asynchronous method,
      * you need to determine whether to use synchronous or asynchronous mode based on the specific situation.
      * <p>
      *
@@ -5758,7 +5758,7 @@ declare namespace webview {
     static customizeSchemes(schemes: Array<WebCustomScheme>): void;
     /**
      * Register Web custom schemes.
-     * 
+     *
      * @param { Array<WebCustomScheme> } schemes - Configuration of web custom scheme.
      * @param { boolean } lazyInitWebEngine - When true: The interface internally skips initializing WebEngine and
      *     temporarily stores the registered schemes, which will be passed to WebEngine when it actually
@@ -5887,7 +5887,7 @@ declare namespace webview {
      * 500ms.
      * Prefetch behavior can be customized via ‌prefetchOptions‌, including ignoring Cache-Control: no-store and adjusting
      * the throttling interval.
-     * 
+     *
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
      * @param { PrefetchOptions } [prefetchOptions] - Prefetch behavior can be customized via ‌prefetchOptions‌, including
@@ -6522,7 +6522,7 @@ declare namespace webview {
     onCreateNativeMediaPlayer(callback: CreateNativeMediaPlayerCallback): void;
 
     /**
-     * Enables the full drawing capability for the web page. 
+     * Enables the full drawing capability for the web page.
      * This API works only during Web component initialization.
      *
      * @syscap SystemCapability.Web.Webview.Core
@@ -6850,8 +6850,8 @@ declare namespace webview {
     /**
      * Sets a path list. When a file protocol accesses resources in the path list, it can access the local files across
      * domains. In addition, when a path list is set, the file protocol can access only the resources in the path list.
-     * The behavior of {@link fileAccess} will be overwritten by that of this API. 
-     * 
+     * The behavior of {@link fileAccess} will be overwritten by that of this API.
+     *
      * The paths in the list must be any of the following(sub path and module name must be provided):
      *
      * 1. The path of subdirectory of the application file directory, like "/data/storage/el2/base/files/example"
@@ -6864,7 +6864,7 @@ declare namespace webview {
      * If a path in the list is not of the preceding paths, error code 401 is reported and the path list fails
      * to be set. When the path list is set to empty, the accessible files for the file protocol are subject to
      * the behavior of the {@link fileAccess}.
-     * 
+     *
      * @param { Array<string> } pathList - The path list allow universal access.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Parameter string is too long. 3.Parameter verification failed.
@@ -7020,7 +7020,7 @@ declare namespace webview {
      * @since 20 dynamic&static
      */
     static setUserAgentForHosts(userAgent: string, hosts : Array<string>) : void;
-  
+
     /**
      * Get whether webviewController is attached to a web component.
      * @returns { ControllerAttachState } the attach state of controller
@@ -7207,7 +7207,7 @@ declare namespace webview {
       * @since 20 dynamic&static
       */
     getErrorPageEnabled(): boolean;
-  
+
     /**
       * Set whether enable the error page. onOverrideErrorPage will be triggered when the page error.
       *
@@ -7224,7 +7224,7 @@ declare namespace webview {
      * sub-resource private network requests to request explicit permission from the target server.
      * After disable PrivateNetworkAccess, ArkWeb will no longer check whether the private network request
      * is legitimate.
-     * 
+     *
      * @param {boolean} enable - {@code true} enable the private network access check; {@code false} otherwise.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
@@ -7234,7 +7234,7 @@ declare namespace webview {
 
     /**
      * Get whether PrivateNetworkAccess is enabled.
-     * 
+     *
      * @returns {boolean} True is enable the ability to check private network access else false.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
@@ -7263,7 +7263,7 @@ declare namespace webview {
 
     /**
      * ‌Retrieve whether the automatic pre-connection feature is enabled‌.
-     * 
+     *
      * @returns { boolean } Return true if enabled, false if disabled.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
@@ -7274,7 +7274,7 @@ declare namespace webview {
     /**
      * Set the site isolation mode.
      *
-     * @param { SiteIsolationMode } mode The site isolation mode of the application, 
+     * @param { SiteIsolationMode } mode The site isolation mode of the application,
      *      default value depends on different devices type.
      * @throws { BusinessError } 17100001 - Init error. Possible causes:
      *     1. Site Isolation mode is already set by the developer.
@@ -7287,7 +7287,7 @@ declare namespace webview {
     static setSiteIsolationMode(mode: SiteIsolationMode): void;
 
     /**
-     * Get the site isolation mode. 
+     * Get the site isolation mode.
      *
      * @returns { SiteIsolationMode } The site isolation mode of the application.
      * @static
@@ -7295,7 +7295,7 @@ declare namespace webview {
      * @since 21 dynamic&static
      */
     static getSiteIsolationMode(): SiteIsolationMode;
-  
+
     /**
      * Set web engine socket idle timeout.
      * <p><strong>API Note</strong>:<br>
@@ -7308,11 +7308,11 @@ declare namespace webview {
      * @since 21 dynamic&static
      */
     static setSocketIdleTimeout(timeout: int): void;
-    
+
     /**
      * Set the WebSoftKeyboardBehaviorMode to decide whether the keyboard will be shown/hidden automatically
      * in particular situation, for example, when web is inactive or active.
-     * 
+     *
      * @param { WebSoftKeyboardBehaviorMode } mode - The WebSoftKeyboardBehaviorMode of this web.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -7320,6 +7320,17 @@ declare namespace webview {
      * @since 22 dynamic&static
      */
     setSoftKeyboardBehaviorMode(mode: WebSoftKeyboardBehaviorMode): void;
+
+    /**
+     * Sets whether to switch web scrollbar mode.
+     *
+     * @param { ScrollbarMode } scrollbarMode - web scrollbar mode, default OVERLAY_LAYOUT_SCROLLBAR.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic&static
+     */
+    static setScrollbarMode(scrollbarMode: ScrollbarMode): void;
   }
 
   /**
@@ -10180,7 +10191,7 @@ declare namespace webview {
      * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21 dynamic&static
-     */ 
+     */
     ignoreCacheControlNoStore: boolean;
 
     /**
@@ -10655,6 +10666,29 @@ declare namespace webview {
     STRICT = 1
   }
 
+  /**
+   * Enum type supplied to {@link setScrollbarMode} for indicating the web component scrollbar mode.
+   * @enum { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic&static
+   */
+  enum ScrollbarMode {
+    /**
+     * The normal scrollbar mode, A scrollbar suspended above the content,
+     * appearing when scrolling and automatically hiding when stationary.
+     * Draw using layout viewport, which can be dragged and dropped.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic&static
+     */
+    OVERLAY_LAYOUT_SCROLLBAR = 0,
+
+    /**
+     * The Resident scrollbar mode, Always display a fixed position scrollbar in the content area.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 23 dynamic&static
+     */
+    FORCE_DISPLAY_SCROLLBAR = 1
+  }
 }
 
 export default webview;
