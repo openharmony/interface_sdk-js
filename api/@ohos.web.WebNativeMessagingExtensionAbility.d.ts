@@ -28,6 +28,7 @@ import type WebNativeMessagingExtensionContext from './@ohos.web.WebNativeMessag
  * @typedef ConnectionInfo
  * @syscap SystemCapability.Web.Webview.Core
  * @since 21 dynamic
+ * @since 22 static
  */
 export interface ConnectionInfo {
   /**
@@ -36,6 +37,7 @@ export interface ConnectionInfo {
    * @type { int }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
+   * @since 22 static
    */
   connectionId: int;
 
@@ -45,6 +47,7 @@ export interface ConnectionInfo {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
+   * @since 22 static
    */
   bundleName: string;
 
@@ -54,6 +57,7 @@ export interface ConnectionInfo {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
+   * @since 22 static
    */
   extensionOrigin: string;
 
@@ -63,6 +67,7 @@ export interface ConnectionInfo {
    * @type { int }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
+   * @since 22 static
    */
   fdRead: int;
 
@@ -72,6 +77,7 @@ export interface ConnectionInfo {
    * @type { int }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
+   * @since 22 static
    */
   fdWrite: int;
 }
@@ -83,6 +89,7 @@ export interface ConnectionInfo {
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
  * @since 21 dynamic
+ * @since 22 static
  */
 export default class WebNativeMessagingExtensionAbility extends ExtensionAbility {
   /**
@@ -92,6 +99,7 @@ export default class WebNativeMessagingExtensionAbility extends ExtensionAbility
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
+   * @since 22 static
    */
   context: WebNativeMessagingExtensionContext;
 
@@ -102,6 +110,7 @@ export default class WebNativeMessagingExtensionAbility extends ExtensionAbility
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
+   * @since 22 static
    */
   onConnectNative(info: ConnectionInfo): void;
 
@@ -112,6 +121,7 @@ export default class WebNativeMessagingExtensionAbility extends ExtensionAbility
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
+   * @since 22 static
    */
   onDisconnectNative(info: ConnectionInfo): void;
 
@@ -121,6 +131,7 @@ export default class WebNativeMessagingExtensionAbility extends ExtensionAbility
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
+   * @since 22 static
    */
   onDestroy(): void;
 }

@@ -29,6 +29,7 @@ import type Want from './@ohos.app.ability.Want';
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
  * @since 21 dynamic
+ * @since 22 static
  */
 declare namespace webNativeMessagingExtensionManager {
 
@@ -38,6 +39,7 @@ declare namespace webNativeMessagingExtensionManager {
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
+   * @since 22 static
    */
   interface ConnectionNativeInfo {
     /**
@@ -47,6 +49,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
      * @since 21 dynamic
+     * @since 22 static
      */
     connectionId: int;
 
@@ -57,6 +60,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
      * @since 21 dynamic
+     * @since 22 static
      */
     bundleName: string;
 
@@ -67,6 +71,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
      * @since 21 dynamic
+     * @since 22 static
      */
     extensionOrigin: string;
 
@@ -77,6 +82,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
      * @since 21 dynamic
+     * @since 22 static
      */
     extensionPid: int;
   }
@@ -87,6 +93,7 @@ declare namespace webNativeMessagingExtensionManager {
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
+   * @since 22 static
    */
   export enum NmErrorCode {
     /**
@@ -95,6 +102,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
      * @since 21 dynamic
+     * @since 22 static
      */
     PERMISSION_DENY = 17100203,
     /**
@@ -103,6 +111,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
      * @since 21 dynamic
+     * @since 22 static
      */
     WANT_CONTENT_ERROR = 17100202,
     /**
@@ -111,6 +120,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
      * @since 21 dynamic
+     * @since 22 static
      */
     INNER_ERROR = 17100201
   }
@@ -122,6 +132,7 @@ declare namespace webNativeMessagingExtensionManager {
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
+   * @since 22 static
    */
   interface WebExtensionConnectionCallback {
     /**
@@ -131,6 +142,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
      * @since 21 dynamic
+     * @since 22 static
      */
     onConnect(connection: ConnectionNativeInfo): void;
 
@@ -141,6 +153,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
      * @since 21 dynamic
+     * @since 22 static
      */
     onDisconnect(connection: ConnectionNativeInfo): void;
 
@@ -152,6 +165,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
      * @since 21 dynamic
+     * @since 22 static
      */
     onFailed(code: NmErrorCode, errMsg: string): void;
   }
@@ -168,6 +182,7 @@ declare namespace webNativeMessagingExtensionManager {
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
+   * @since 22 static
    */
   function connectNative(context: UIAbilityContext, want: Want, callback: WebExtensionConnectionCallback): int;
 
@@ -185,6 +200,7 @@ declare namespace webNativeMessagingExtensionManager {
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
+   * @since 22 static
    */
   function disconnectNative(connectionId: int): Promise<void>;
 }
