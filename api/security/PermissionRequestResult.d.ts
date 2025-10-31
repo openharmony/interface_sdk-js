@@ -135,8 +135,8 @@ declare class PermissionRequestResult {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   /**
    * Enumerates the return values of the permission request operation.

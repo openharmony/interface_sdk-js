@@ -560,8 +560,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since arkts {'1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   /**
    * Callback when the call state corresponding to the default sim card is updated.
@@ -595,8 +595,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since arkts {'1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   /**
    * Callback when the call state corresponding to the monitored {@code slotId} is updated.
@@ -629,8 +629,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since arkts {'1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   /**
    * Cancel callback when the call state is updated.
