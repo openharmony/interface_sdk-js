@@ -3482,7 +3482,7 @@ export declare interface ShadowOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    radius: double | Resource;
+    radius: double | Resource | undefined;
     /**
      * Shadow type.
      * <br>Default value: **COLOR**.
