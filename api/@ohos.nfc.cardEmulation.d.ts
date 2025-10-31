@@ -350,7 +350,6 @@ declare namespace cardEmulation {
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'hceCmd', callback: AsyncCallback<int[]>): void;
 
@@ -360,9 +359,9 @@ declare namespace cardEmulation {
      * @permission ohos.permission.NFC_CARD_EMULATION
      * @param { AsyncCallback<int[]> } callback Callback used to listen to HCE data that local device received.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameters error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified.
-     *     2. Incorrect parameters types.
+     *     2. Incorrect parameter types.
      *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.NFC.CardEmulation

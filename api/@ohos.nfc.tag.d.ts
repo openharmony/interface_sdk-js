@@ -1270,13 +1270,13 @@ declare namespace tag {
    *
    * @permission ohos.permission.NFC_TAG
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
-   * @param { int[] } discTech - The technologies list to set for discovering. 
+   * @param { int[] } discTech - The technologies list to set for discovering.
    *     From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
    * @param { AsyncCallback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameters types.
+   *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
@@ -1311,9 +1311,9 @@ declare namespace tag {
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
    * @param { AsyncCallback<TagInfo> } [callback] - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
+   * <br> 2. Incorrect parameter types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
