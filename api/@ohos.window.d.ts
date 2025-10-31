@@ -10917,6 +10917,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
+     * @since 20 static
      */
     stopMoving(): Promise<void>;
 
@@ -13092,6 +13093,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowMode>): Promise<void>;
 
@@ -13107,7 +13109,7 @@ declare namespace window {
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range. 2. Invalid parameter length. 3. Incorrect parameter format.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowMode>, grayOutMaximizeButton: boolean): Promise<void>;
 
