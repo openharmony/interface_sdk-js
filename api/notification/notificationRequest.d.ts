@@ -89,6 +89,17 @@ export interface NotificationRequest {
   id?: int;
 
   /**
+   * Priority notification type, used to determine whether to highlight notifications.
+   * The specific highlighting behavior (such as display position, style, sound, vibration, etc.)
+   * depends on the system implementation and user settings.
+   *
+   * @type { ?notificationManager.PriorityNotificationType }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 23 dynamic&static
+   */
+  priorityNotificationType?: notificationManager.PriorityNotificationType;
+
+  /**
    * Unique ID carried in a notification sent by an app, which is used for notification deduplication.
    * If an app publishes notifications with the same appMessageId locally or on the cloud, the device displays only one message.
    * Repeated notifications received later will be silenced and deduplicated, and will not be displayed or notified.
