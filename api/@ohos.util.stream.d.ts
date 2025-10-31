@@ -641,7 +641,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 22 dynamic&static
      */
     push(chunk: Uint8Array | string | undefined | null, encoding?: string): boolean;
 

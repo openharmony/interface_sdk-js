@@ -940,7 +940,7 @@ declare class ArrayList<T> {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 20 dynamic&static
+ * @since 22 dynamic&static
  */
 export type ArrayListComparatorFn<T> = (firstValue: T, secondValue: T) => double;
 
