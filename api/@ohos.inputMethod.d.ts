@@ -390,6 +390,27 @@ declare namespace inputMethod {
    * @since 20 dynamic
    */
   function setSimpleKeyboardEnabled(enable: boolean): void;
+  
+  /**
+   * Subscribe the attachment failure event.
+   * 
+   * @param { Callback<AttachFailureReason> } callback - the callback is invoked only when the attachment
+   *     triggered by the registrant's process fails.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 dynamic
+   */
+  function onAttachmentDidFail(callback: Callback<AttachFailureReason>): void;
+
+  /**
+   * Unsubscribe the attachment failure event.
+   *
+   * @param { Callback<AttachFailureReason> } [callback] - the callback is invoked only when the attachment
+   *     triggered by the registrant's process fails. When subscriber unsubscribes all callback, this parameter
+   *     can be left blank.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 dynamic
+   */
+  function offAttachmentDidFail(callback?: Callback<AttachFailureReason>): void;
 
   /**
    * @interface InputMethodSetting
@@ -2540,6 +2561,39 @@ declare namespace inputMethod {
       * @since 20 dynamic
       */
     CHARACTERS
+  }
+  
+  /**
+   * Enumerates the specific reasons for attachment failure
+   *
+   * @enum { int }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 23 dynamic
+   */
+  export enum AttachFailureReason {
+    /**
+     * The attachment failure reason is CALLER_NOT_FOCUSED.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 23 dynamic
+     */
+    CALLER_NOT_FOCUSED = 0,
+
+    /**
+     * The attachment failure reason is IME_ABNORMAL.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 23 dynamic
+     */
+    IME_ABNORMAL,
+
+    /**
+     * The attachment failure reason is SERVICE_ABNORMAL.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 23 dynamic
+     */
+    SERVICE_ABNORMAL
   }
 }
 
