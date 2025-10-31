@@ -33,8 +33,7 @@ import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, Parameter
  *
  * @namespace shortcutManager
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic&static
  */
 declare namespace shortcutManager {
   /**
@@ -42,7 +41,7 @@ declare namespace shortcutManager {
    *
    * @permission ohos.permission.MANAGE_SHORTCUTS
    * @param { ShortcutInfo } shortcutInfo - Indicates the shortcut info which contains shortcut want.
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -54,17 +53,17 @@ declare namespace shortcutManager {
    * @throws { BusinessError } 17700070 - The specified shortcut id is illegal.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
-  function addDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: number): Promise<void>;
+  function addDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: int): Promise<void>;
 
   /**
    * Delete desktop shortcut info.
    *
    * @permission ohos.permission.MANAGE_SHORTCUTS
    * @param { ShortcutInfo } shortcutInfo - Indicates the shortcut info which contains shortcut want.
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -72,16 +71,16 @@ declare namespace shortcutManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
-  function deleteDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: number): Promise<void>;
+  function deleteDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: int): Promise<void>;
 
   /**
    * Get all desktop shortcut info.
    *
    * @permission ohos.permission.MANAGE_SHORTCUTS
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @returns { Promise<Array<ShortcutInfo>> } the LauncherShortcutInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -89,10 +88,10 @@ declare namespace shortcutManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
-  function getAllDesktopShortcutInfo(userId: number): Promise<Array<ShortcutInfo>>;
+  function getAllDesktopShortcutInfo(userId: int): Promise<Array<ShortcutInfo>>;
 
   /**
    * Set a shortcut of current application is visible or invisible.
@@ -102,7 +101,7 @@ declare namespace shortcutManager {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 17700070 - The specified shortcut id is illegal.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
+   * @since 20 dynamic&static
    */
   function setShortcutVisibleForSelf(id: string, visible: boolean): Promise<void>;
 
@@ -111,7 +110,7 @@ declare namespace shortcutManager {
    *
    * @returns { Promise<Array<ShortcutInfo>> } The LauncherShortcutInfo object.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
+   * @since 20 dynamic&static
    */
   function getAllShortcutInfoForSelf(): Promise<Array<ShortcutInfo>>;
 
@@ -128,8 +127,7 @@ declare namespace shortcutManager {
    *
    * @typedef { _ShortcutInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   export type ShortcutInfo = _ShortcutInfo;
   /**
@@ -145,8 +143,7 @@ declare namespace shortcutManager {
    *
    * @typedef { _ShortcutWant }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   export type ShortcutWant = _ShortcutWant;
   /**
@@ -162,8 +159,7 @@ declare namespace shortcutManager {
    *
    * @typedef { _ParameterItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   export type ParameterItem = _ParameterItem;
   }

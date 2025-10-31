@@ -29,8 +29,8 @@ import Want from '../@ohos.app.ability.Want';
  * @typedef AbilityResult
  * @syscap SystemCapability.Ability.AbilityBase
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface AbilityResult {
   /**
@@ -45,13 +45,13 @@ export interface AbilityResult {
    * Indicates the result code returned after the ability is destroyed. You can define the result
    * code to identify an error.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
-  resultCode: number;
+  resultCode: int;
 
   /**
    * Indicates the data returned after the ability is destroyed. You can define the data returned.
@@ -68,8 +68,8 @@ export interface AbilityResult {
    * @type { ?Want }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   want?: Want;
 }

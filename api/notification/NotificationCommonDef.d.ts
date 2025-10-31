@@ -23,8 +23,8 @@
  *
  * @typedef BundleOption
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 export interface BundleOption {
   /**
@@ -32,18 +32,18 @@ export interface BundleOption {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   bundle: string;
 
   /**
    * UID of an application, which is obtained from ApplicationInfo. The default value is 0.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
-  uid?: number;
+  uid?: int;
 }

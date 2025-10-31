@@ -181,6 +181,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.BackgroundMode.DATA_TRANSFER
      */
     DATA_TRANSFER = 1,
 
@@ -190,6 +191,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.BackgroundMode.AUDIO_PLAYBACK
      */
     AUDIO_PLAYBACK = 2,
 
@@ -199,6 +201,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.BackgroundMode.AUDIO_RECORDING
      */
     AUDIO_RECORDING = 3,
 
@@ -208,6 +211,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.BackgroundMode.LOCATION
      */
     LOCATION = 4,
 
@@ -217,6 +221,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.BackgroundMode.BLUETOOTH_INTERACTION
      */
     BLUETOOTH_INTERACTION = 5,
 
@@ -226,6 +231,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.BackgroundMode.MULTI_DEVICE_CONNECTION
      */
     MULTI_DEVICE_CONNECTION = 6,
 
@@ -236,6 +242,7 @@ declare namespace backgroundTaskManager {
      * @systemapi Hide this for inner system use.
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.BackgroundMode.WIFI_INTERACTION
      */
     WIFI_INTERACTION = 7,
 
@@ -246,6 +253,7 @@ declare namespace backgroundTaskManager {
      * @systemapi Hide this for inner system use.
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.BackgroundMode.VOIP
      */
     VOIP = 8,
 
@@ -256,6 +264,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.BackgroundMode.TASK_KEEPING
      */
     TASK_KEEPING = 9,
   }

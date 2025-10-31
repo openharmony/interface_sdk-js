@@ -16,6 +16,7 @@ const path = require('path');
 const fs = require('fs');
 const ts = require('typescript');
 const commander = require('commander');
+const { execSync } = require('child_process');
 
 let sourceFile = null;
 let etsType = 'ets';
@@ -30,6 +31,9 @@ const COMPILER_OPTIONS = {
   target: ts.ScriptTarget.ES2017,
   etsAnnotationsEnable: true
 };
+let needParseWithStatic = false;
+let currentApiFileContent = '';
+let buildSdkPath = '';
 /**
  * @enum {string} references地址的切换类型
  */
@@ -61,10 +65,12 @@ function start() {
     .option('--input <string>', 'path name')
     .option('--output <string>', 'output path')
     .option('--type <string>', 'ets type')
+    .option('--build-sdk-path <string>', 'build sdk path')
     .action((opts) => {
       outputPath = opts.output;
       inputDir = opts.input;
       etsType = opts.type;
+      buildSdkPath = opts.build_sdk_path;
       collectDeclaration(opts.input);
     });
   program.parse(process.argv);
@@ -301,9 +307,25 @@ function hasFileByImportPath(apiDir, importPath) {
     fileDir = path.resolve(inputDir, '../arkts');
   }
   return isExistImportFile(fileDir, importPath) ||
-    isExistArkUIFile(path.resolve(inputDir, 'arkui', 'component'), importPath);
+    isExistArkUIFile(path.resolve(inputDir, 'arkui', 'component'), importPath) ||
+    isDotPathExist(fileDir, importPath);
 }
 
+/**
+ * Dot路径特殊处理
+ * @param {string} resolvedPath 引用接口所在目录
+ * @param {string} importPath kit文件import
+ * @returns {boolean} importPath是否存在
+ */
+function isDotPathExist(fileDir, importPath) {
+  if (['./', '@ohos', '@system'].every(str => {
+    return importPath.includes(str);
+  })) {
+    return false;
+  }
+  const replaced = importPath.replace(/\./g, '/');
+  return isExistImportFile(fileDir, replaced);
+}
 
 /**
  * Arkui import路径特殊处理
@@ -376,7 +398,7 @@ function tsTransform(utFiles, callback) {
       isTransformer = false;
     }
     if (etsType === 'ets2') {
-      if (!/\@systemapi/.test(content) && apiBaseName !== '@ohos.arkui.component.d.ets') {
+      if (!/\@systemapi/.test(content) && apiBaseName !== '@ohos.arkui.component.static.d.ets') {
         isTransformer = false;
       }
     }
@@ -384,6 +406,18 @@ function tsTransform(utFiles, callback) {
     if (!isTransformer) {
       writeFile(url, content);
       return;
+    }
+    const uiFileDir = path.resolve(inputDir, 'arkui', 'component');
+    // 过滤文件，仅处理涉及到静态独有语法的API文件，且暂时过滤组件接口文件
+    if (/\@memo/.test(content) && !url.includes(uiFileDir) && etsType === 'ets2') {
+      const nodePath = process.argv[0];
+      // 执行ets2panda解析
+      currentApiFileContent =
+        execSync(`cd ./package_tools/src/deleteTool && ${nodePath} ./entry.js --input ${url} --build_sdk_path ${buildSdkPath}`).toString('utf-8');
+      needParseWithStatic = true;
+    } else {
+      currentApiFileContent = '';
+      needParseWithStatic = false;
     }
     // dts文件处理
     const fileName = processFileName(url);
@@ -496,7 +530,7 @@ function readFile(dir, utFiles) {
  */
 function sortApiList(apiFiles) {
   const newApiFiles = [];
-  const specFileName = '@ohos.arkui.component.d.ets';
+  const specFileName = '@ohos.arkui.component.static.d.ets';
   let specApiFilePath = '';
   apiFiles.forEach(filePath => {
     if (filePath.endsWith(specFileName)) {
@@ -617,6 +651,8 @@ function formatImportDeclaration(url, copyrightMessage = '', fileAndKitComment =
           result.substring(copyrightMessage.length);
       }
       result = removeSystemapiDoc(result);
+      // 裁剪解析结果比对，保证解析结果的准确性
+      result = needParseWithStatic && currentApiFileContent === result ? currentApiFileContent : result;
       writeFile(url, result);
       return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
     };
@@ -1086,7 +1122,8 @@ function addNewStatements(node, newStatements, deleteSystemApiSet, needDeleteExp
       ts.isEnumDeclaration(statement) ||
       ts.isStructDeclaration(statement) ||
       ts.isTypeAliasDeclaration(statement) ||
-      ts.isAnnotationDeclaration(statement)
+      ts.isAnnotationDeclaration(statement) ||
+      ts.isFunctionDeclaration(statement)
     ) {
       if (statement && statement.name && statement.name.escapedText) {
         deleteSystemApiSet.add(statement.name.escapedText.toString());

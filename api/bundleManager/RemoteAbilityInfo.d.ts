@@ -26,7 +26,8 @@ import { ElementName } from './ElementName';
  * @typedef RemoteAbilityInfo
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
- * @since 9
+ * @since 9 dynamic
+ * @since 20 static
  */
 export interface RemoteAbilityInfo {
   /**
@@ -36,7 +37,8 @@ export interface RemoteAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   readonly elementName: ElementName;
 
@@ -47,7 +49,8 @@ export interface RemoteAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   readonly label: string;
 
@@ -58,7 +61,8 @@ export interface RemoteAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   readonly icon: string;
 }

@@ -27,7 +27,7 @@ import type Want from './@ohos.app.ability.Want';
  * @extends ExtensionContext
  * @syscap SystemCapability.Location.Location.Geofence
  * @stagemodelonly
- * @since 14
+ * @since 14 dynamic
  */
 export default class FenceExtensionContext extends ExtensionContext {
   /**
@@ -56,7 +56,7 @@ export default class FenceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Location.Location.Geofence
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbility(want: Want): Promise<void>;
 }

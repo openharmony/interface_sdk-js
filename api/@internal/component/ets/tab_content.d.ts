@@ -18,14 +18,15 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonMethod } from './common';
-import { CustomBuilder } from './builder'
-import { TextHeightAdaptivePolicy, TextOverflow, VerticalAlign } from './enums';
-import { Dimension, Font, Length, LocalizedPadding, Padding, Resource, ResourceColor, ResourceStr, VoidCallback } from './units';
-import { ComponentContent } from '../ComponentContent'
-import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
-/*** endif */
+/**
+ * Use the DrawableDescriptor class to get drawable image.
+ *
+ * @typedef { import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor } DrawableDescriptor
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor;
 
 /**
  * Enum for the mode of the tab bar when selected.
@@ -42,8 +43,7 @@ import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare enum SelectedMode {
   /**
@@ -59,8 +59,7 @@ declare enum SelectedMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   INDICATOR,
 
@@ -77,8 +76,7 @@ declare enum SelectedMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   BOARD
 }
@@ -98,8 +96,7 @@ declare enum SelectedMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare enum LayoutMode {
 
@@ -116,8 +113,7 @@ declare enum LayoutMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   AUTO = 0,
   /**
@@ -133,8 +129,7 @@ declare enum LayoutMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   VERTICAL = 1,
 
@@ -151,8 +146,7 @@ declare enum LayoutMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   HORIZONTAL = 2
 }
@@ -175,7 +169,7 @@ declare enum LayoutMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface IndicatorStyle {
   /**
@@ -194,7 +188,7 @@ interface IndicatorStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   color?: ResourceColor;
 
@@ -214,7 +208,7 @@ interface IndicatorStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   height?: Length;
 
@@ -237,7 +231,7 @@ interface IndicatorStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   width?: Length;
 
@@ -258,7 +252,7 @@ interface IndicatorStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   borderRadius?: Length;
 
@@ -279,78 +273,78 @@ interface IndicatorStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   marginTop?: Length;
 }
 
 /**
- * Provide an interface for the style of an SubTabBar indicator including color, height, width, border radius
- * and margin top
+ * Provide an interface for the style of a drawable indicator including margin top.
  *
- * @interface SubTabBarIndicatorStyle
+ * @interface DrawableTabBarIndicator
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 22 dynamic
  */
-declare interface SubTabBarIndicatorStyle {
+declare interface DrawableTabBarIndicator {
   /**
-   * Define the color of the indicator
+   * Define the drawable object for the indicator.
    *
-   * @type { ?ResourceColor }
+   * @type { ?DrawableDescriptor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 dynamic
    */
-  color?: ResourceColor;
+  drawable?: DrawableDescriptor;
 
   /**
-   * Define the height of the indicator
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  height?: Length;
-
-  /**
-   * Define the width of the indicator.
+   * Width of the indicator. It cannot be set in percentage.
    * If it is 0, the width will be equal to the width of the content
    *
    * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 dynamic
    */
   width?: Length;
 
   /**
-   * Define the border radius of the indicator
+   * Height of the indicator. It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @default 2vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  height?: Length;
+
+  /**
+   * Rounded corner radius of the indicator. It cannot be set in percentage.
    *
    * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 dynamic
    */
   borderRadius?: Length;
 
   /**
-   * Define the margin top of the indicator
+   * Spacing between the indicator and text. It cannot be set in percentage.
    *
    * @type { ?Length }
-   * @default 8
+   * @default 8vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 dynamic
    */
   marginTop?: Length;
 }
@@ -370,8 +364,7 @@ declare interface SubTabBarIndicatorStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 interface BoardStyle {
   /**
@@ -390,8 +383,7 @@ interface BoardStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   borderRadius?: Length;
 }
@@ -411,7 +403,7 @@ interface BoardStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface LabelStyle {
   /**
@@ -430,7 +422,7 @@ declare interface LabelStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   overflow?: TextOverflow;
 
@@ -450,7 +442,7 @@ declare interface LabelStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   maxLines?: number;
 
@@ -470,7 +462,7 @@ declare interface LabelStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   minFontSize?: number | ResourceStr;
 
@@ -490,7 +482,7 @@ declare interface LabelStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   maxFontSize?: number | ResourceStr;
 
@@ -510,7 +502,7 @@ declare interface LabelStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   heightAdaptivePolicy?: TextHeightAdaptivePolicy;
 
@@ -531,7 +523,7 @@ declare interface LabelStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   font?: Font;
 
@@ -543,7 +535,7 @@ declare interface LabelStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   selectedColor?: ResourceColor;
 
@@ -555,116 +547,7 @@ declare interface LabelStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
-   */
-  unselectedColor?: ResourceColor;
-}
-
-/**
- * TabBarLabelStyle object.
- *
- * @interface TabBarLabelStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare interface TabBarLabelStyle {
-
-  /**
-   * overflow mode.
-   *
-   * @type { ?TextOverflow }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  overflow?: TextOverflow;
-
-  /**
-   * Label max lines.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  maxLines?: number;
-
-  /**
-   * Min font size for adapted height.
-   *
-   * @type { ?(number | ResourceStr) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  minFontSize?: number | ResourceStr;
-
-  /**
-   * Max font size for adapted height.
-   *
-   * @type { ?(number | ResourceStr) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  maxFontSize?: number | ResourceStr;
-
-  /**
-   * Adapt text height option.
-   *
-   * @type { ?TextHeightAdaptivePolicy }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  heightAdaptivePolicy?: TextHeightAdaptivePolicy;
-
-  /**
-   * Font style.
-   *
-   * @type { ?Font }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  font?: Font;
-
-  /**
-   * The text color of the selected tab bar.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  selectedColor?: ResourceColor;
-
-  /**
-   * The text color of the unselected tab bar.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 12 dynamic
    */
   unselectedColor?: ResourceColor;
 }
@@ -676,8 +559,7 @@ declare interface TabBarLabelStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare interface TabBarIconStyle {
   /**
@@ -688,8 +570,7 @@ declare interface TabBarIconStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   selectedColor?: ResourceColor;
 
@@ -701,8 +582,7 @@ declare interface TabBarIconStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   unselectedColor?: ResourceColor;
 }
@@ -720,8 +600,7 @@ declare interface TabBarIconStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic
  */
 declare class TabBarSymbol {
   /**
@@ -741,8 +620,7 @@ declare class TabBarSymbol {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   normal: SymbolGlyphModifier;
 
@@ -763,8 +641,7 @@ declare class TabBarSymbol {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   selected?: SymbolGlyphModifier;
 }
@@ -776,8 +653,7 @@ declare class TabBarSymbol {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
  */
 declare interface TabBarOptions {
   /**
@@ -817,8 +693,7 @@ declare interface TabBarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   icon?: string | Resource;
 
@@ -854,8 +729,7 @@ declare interface TabBarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   text?: string | Resource
 }
@@ -879,8 +753,7 @@ declare interface TabBarOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class SubTabBarStyle {
   /**
@@ -905,8 +778,7 @@ declare class SubTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   constructor(content: ResourceStr);
   /**
@@ -916,8 +788,7 @@ declare class SubTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   constructor(content: ResourceStr | ComponentContent);
 
@@ -940,8 +811,7 @@ declare class SubTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   static of(content: ResourceStr): SubTabBarStyle;
   /**
@@ -953,8 +823,7 @@ declare class SubTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   static of(content: ResourceStr | ComponentContent): SubTabBarStyle;
 
@@ -975,21 +844,20 @@ declare class SubTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   indicator(value: IndicatorStyle): SubTabBarStyle;
 
   /**
-   * Set the style of the indicator when selected
+   * Sets the indicator style of the selected subtab. Use DrawableTabBarIndicator to set image for the indicator.
    *
-   * @param { SubTabBarIndicatorStyle } style - indicates the indicator style of the sub tab bar
+   * @param { IndicatorStyle | DrawableTabBarIndicator } value - indicator style object for the selected subtab.
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 dynamic
    */
-  indicator(style: SubTabBarIndicatorStyle): SubTabBarStyle;
+  indicator(value: IndicatorStyle | DrawableTabBarIndicator): SubTabBarStyle;
 
   /**
    * Set the mode of the indicator when selected
@@ -1012,8 +880,7 @@ declare class SubTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   selectedMode(value: SelectedMode): SubTabBarStyle;
 
@@ -1038,8 +905,7 @@ declare class SubTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   board(value: BoardStyle): SubTabBarStyle;
 
@@ -1060,21 +926,9 @@ declare class SubTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   labelStyle(value: LabelStyle): SubTabBarStyle;
-
-  /**
-   * Set the label style of the sub tab bar
-   *
-   * @param { TabBarLabelStyle } style - indicates the label style of the sub tab bar
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  labelStyle(style: TabBarLabelStyle): SubTabBarStyle;
 
   /**
    * Set the padding of the sub tab bar
@@ -1099,8 +953,7 @@ declare class SubTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   padding(value: Padding | Dimension): SubTabBarStyle;
 
@@ -1118,8 +971,7 @@ declare class SubTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   padding(padding: LocalizedPadding): SubTabBarStyle;
 
@@ -1140,8 +992,7 @@ declare class SubTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   id(value: string): SubTabBarStyle;
 }
@@ -1165,8 +1016,7 @@ declare class SubTabBarStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class BottomTabBarStyle {
   /**
@@ -1204,8 +1054,7 @@ declare class BottomTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   constructor(icon: ResourceStr | TabBarSymbol, text: ResourceStr);
 
@@ -1242,8 +1091,7 @@ declare class BottomTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   static of(icon: ResourceStr | TabBarSymbol, text: ResourceStr): BottomTabBarStyle;
 
@@ -1264,21 +1112,9 @@ declare class BottomTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   labelStyle(value: LabelStyle): BottomTabBarStyle;
-
-  /**
-   * Set the label style of the bottom tab bar
-   *
-   * @param { TabBarLabelStyle } style - indicates the label style of the bottom tab bar
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  labelStyle(style: TabBarLabelStyle): BottomTabBarStyle;
 
   /**
    * Set the padding of the bottom tab bar
@@ -1313,8 +1149,7 @@ declare class BottomTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   padding(value: Padding | Dimension | LocalizedPadding): BottomTabBarStyle;
 
@@ -1336,8 +1171,7 @@ declare class BottomTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   layoutMode(value: LayoutMode): BottomTabBarStyle;
 
@@ -1359,8 +1193,7 @@ declare class BottomTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   verticalAlign(value: VerticalAlign): BottomTabBarStyle;
 
@@ -1386,8 +1219,7 @@ declare class BottomTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   symmetricExtensible(value: boolean): BottomTabBarStyle;
 
@@ -1408,8 +1240,7 @@ declare class BottomTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   id(value: string): BottomTabBarStyle;
 
@@ -1421,8 +1252,7 @@ declare class BottomTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   iconStyle(style: TabBarIconStyle): BottomTabBarStyle;
 }
@@ -1449,8 +1279,7 @@ declare class BottomTabBarStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 interface TabContentInterface {
   /**
@@ -1475,8 +1304,7 @@ interface TabContentInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   (): TabContentAttribute;
 }
@@ -1503,8 +1331,7 @@ interface TabContentInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
   /**
@@ -1555,7 +1382,7 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   tabBar(options: string | Resource | CustomBuilder | TabBarOptions): TabContentAttribute;
 
@@ -1589,7 +1416,7 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   tabBar(value: SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
 
@@ -1609,8 +1436,7 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | 
     TabBarOptions): TabContentAttribute;
@@ -1624,8 +1450,7 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   onWillShow(event: VoidCallback): TabContentAttribute;
 
@@ -1638,8 +1463,7 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   onWillHide(event: VoidCallback): TabContentAttribute;
 }
@@ -1663,7 +1487,7 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const TabContent: TabContentInterface;
 
@@ -1686,6 +1510,6 @@ declare const TabContent: TabContentInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const TabContentInstance: TabContentAttribute;

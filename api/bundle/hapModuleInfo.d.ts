@@ -25,7 +25,7 @@ import { AbilityInfo } from './abilityInfo';
  *
  * @typedef HapModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.HapModuleInfo
  */
@@ -34,7 +34,7 @@ export interface HapModuleInfo {
    * @type { string }
    * @default Indicates the name of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly name: string;
@@ -42,7 +42,7 @@ export interface HapModuleInfo {
    * @type { string }
    * @default Describes the hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly description: string;
@@ -50,7 +50,7 @@ export interface HapModuleInfo {
    * @type { number }
    * @default Indicates the description of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly descriptionId: number;
@@ -58,7 +58,7 @@ export interface HapModuleInfo {
    * @type { string }
    * @default Indicates the icon of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly icon: string;
@@ -66,7 +66,7 @@ export interface HapModuleInfo {
    * @type { string }
    * @default Indicates the label of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly label: string;
@@ -74,7 +74,7 @@ export interface HapModuleInfo {
    * @type { number }
    * @default Indicates the label id of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly labelId: number;
@@ -82,7 +82,7 @@ export interface HapModuleInfo {
    * @type { number }
    * @default Indicates the icon id of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly iconId: number;
@@ -90,7 +90,7 @@ export interface HapModuleInfo {
    * @type { string }
    * @default Indicates the background img of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly backgroundImg: string;
@@ -98,7 +98,7 @@ export interface HapModuleInfo {
    * @type { number }
    * @default Indicates the supported modes of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly supportedModes: number;
@@ -106,7 +106,7 @@ export interface HapModuleInfo {
    * @type { Array<string> }
    * @default Indicates the req capabilities of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly reqCapabilities: Array<string>;
@@ -114,7 +114,7 @@ export interface HapModuleInfo {
    * @type { Array<string> }
    * @default The device types that this hapmodule can run on
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly deviceTypes: Array<string>;
@@ -122,7 +122,7 @@ export interface HapModuleInfo {
    * @type { Array<AbilityInfo> }
    * @default Obtains configuration information about ability
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly abilityInfo: Array<AbilityInfo>;
@@ -130,7 +130,7 @@ export interface HapModuleInfo {
    * @type { string }
    * @default Indicates the name of the .hap package to which the capability belongs
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly moduleName: string;
@@ -138,7 +138,7 @@ export interface HapModuleInfo {
    * @type { string }
    * @default Indicates the main ability name of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly mainAbilityName: string;
@@ -146,7 +146,7 @@ export interface HapModuleInfo {
    * @type { boolean }
    * @default Indicates whether free installation of the hapmodule is supported
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly installationFree: boolean;

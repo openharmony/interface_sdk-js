@@ -18,10 +18,18 @@
  * @kit AbilityKit
  */
 
+/*** if arkts dynamic */
 import type { AutoFillType } from './AutoFillType';
 import type CustomData from './CustomData';
 import type AutoFillPopupConfig from './AutoFillPopupConfig';
 import type ViewData from './ViewData';
+/*** endif */
+/*** if arkts static */
+import { AutoFillType } from './AutoFillType';
+import CustomData from './CustomData';
+import AutoFillPopupConfig from './AutoFillPopupConfig';
+import ViewData from './ViewData';
+/*** endif */
 
 /**
  * Fill request for automatic filling.
@@ -30,7 +38,8 @@ import type ViewData from './ViewData';
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 11
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface FillRequest {
   /**
@@ -40,7 +49,8 @@ export interface FillRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   type: AutoFillType;
 
@@ -51,7 +61,8 @@ export interface FillRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   viewData: ViewData;
 
@@ -62,7 +73,8 @@ export interface FillRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 13
+   * @since 13 dynamic
+   * @since 20 static
    */
   customData: CustomData;
 
@@ -73,7 +85,8 @@ export interface FillRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   isPopup: boolean;
 }
@@ -85,7 +98,8 @@ export interface FillRequest {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 11
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface SaveRequest {
   /**
@@ -95,7 +109,8 @@ export interface SaveRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   viewData: ViewData;
 }
@@ -107,7 +122,8 @@ export interface SaveRequest {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 12
+ * @since 12 dynamic
+ * @since 20 static
  */
 export interface UpdateRequest {
   /**
@@ -117,7 +133,8 @@ export interface UpdateRequest {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   viewData: ViewData;
 }
@@ -129,7 +146,8 @@ export interface UpdateRequest {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 11
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface FillResponse {
   /**
@@ -139,7 +157,8 @@ export interface FillResponse {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   viewData: ViewData;
 }
@@ -151,7 +170,8 @@ export interface FillResponse {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 11
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface FillRequestCallback {
   /**
@@ -164,7 +184,8 @@ export interface FillRequestCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   onSuccess(response: FillResponse): void;
 
@@ -176,7 +197,8 @@ export interface FillRequestCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   onFailure(): void;
 
@@ -201,7 +223,8 @@ export interface FillRequestCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   onCancel(fillContent?: string): void;
 
@@ -215,7 +238,8 @@ export interface FillRequestCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
    setAutoFillPopupConfig(autoFillPopupConfig: AutoFillPopupConfig): void;
 }
@@ -227,7 +251,8 @@ export interface FillRequestCallback {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 11
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface SaveRequestCallback {
   /**
@@ -238,7 +263,8 @@ export interface SaveRequestCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   onSuccess(): void;
 
@@ -250,7 +276,8 @@ export interface SaveRequestCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   onFailure(): void;
 }

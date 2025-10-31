@@ -28,10 +28,56 @@ import Context from './application/Context';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 declare namespace application {
+  /**
+   * Indicates the app preload type.
+   * 
+   * @enum { int }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  export enum AppPreloadType {
+    /**
+     * Indicates no preloading has occurred or preload data has been cleared.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    UNSPECIFIED = 0,
+
+    /**
+     * Indicates the preloading will be completed after the process creation is finished.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    TYPE_CREATE_PROCESS = 1,
+
+    /**
+     * Indicates that the preloading will be completed after the ability stage creation is finished.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    TYPE_CREATE_ABILITY_STAGE = 2,
+
+    /**
+     * Indicates that the preloading will be completed after the window stage creation is finished.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    TYPE_CREATE_WINDOW_STAGE = 3
+  }
+
   /**
    * Create a module context
    *
@@ -42,8 +88,8 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   export function createModuleContext(context: Context, moduleName: string): Promise<Context>;
 
@@ -61,8 +107,8 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   export function createModuleContext(context: Context, bundleName: string, moduleName: string): Promise<Context>;
 
@@ -75,7 +121,7 @@ declare namespace application {
    * @returns { Promise<Context> } Returns the module context of plugin.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 19
+   * @since 19 dynamic
    */
   export function createPluginModuleContext(context: Context, pluginBundleName: string, pluginModuleName: string): Promise<Context>;
 
@@ -93,7 +139,7 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   export function createPluginModuleContextForHostBundle(context: Context, pluginBundleName: string, pluginModuleName: string, hostBundleName: string): Promise<Context>;
 
@@ -110,8 +156,8 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   export function createBundleContext(context: Context, bundleName: string): Promise<Context>;
 
@@ -123,12 +169,15 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   export function getApplicationContext(): ApplicationContext;
 
   /**
    * Elevate the current process to be a candidate master process.
+   * If the current process is already a master process,
+   * calling this interface will not perform any operation and will not throw an error code.
    * If UIAbility or UIExtension component within the application is configured with "isolationProcess",launching an
    * instance of such UIAbility or UIExtension will trigger a callback to the master process's "onNewProcessRequest".
    * The "onNewProcessRequest" callback return value determines whether the new instance starts in a new process or an existing one.
@@ -138,11 +187,10 @@ declare namespace application {
    * @param { boolean } insertToHead - Whether inset current process to the head of candidates master process list.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 16000115 - The current process is not running a component configured with "isolationProcess"
-   *                                      and cannot be set as a candidate master process.
+   * @throws { BusinessError } 16000115 - The current process cannot be set as a candidate master process.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   export function promoteCurrentToCandidateMasterProcess(insertToHead: boolean): Promise<void>;
 
@@ -155,7 +203,7 @@ declare namespace application {
    * @throws { BusinessError } 16000117 - The current process is not a candidate master process and does not support cancellation.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   export function demoteCurrentFromCandidateMasterProcess(): Promise<void>;
 
@@ -168,12 +216,25 @@ declare namespace application {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000118 - Not a master process.
-   * @throws { BusinessError } 16000119 - Cannot exit because there is an unfinished onNewProcessRequest.
+   * @throws { BusinessError } 16000119 - Cannot exit because there is an unfinished request.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 21
+   * @since 21 dynamic
    */
    export function exitMasterProcessRole(): Promise<void>
+
+  /**
+   * Obtains the preload type of the current process.
+   * 
+   * Note: The preload type data is cleared after the first `AbilityStage.onCreate()` finishes.
+   * Subsequent calls will return `UNSPECIFIED`.
+   *
+   * @returns { AppPreloadType } The preload type of the process.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  export function getAppPreloadType(): AppPreloadType;
 }
 
 export default application;

@@ -19,9 +19,16 @@
  */
 
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
+/*** if arkts dynamic */
 import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
 import type AutoFillExtensionContext from './application/AutoFillExtensionContext';
 import type { FillRequest, SaveRequest, UpdateRequest, FillRequestCallback, SaveRequestCallback } from './application/AutoFillRequest';
+/*** endif */
+/*** if arkts static */
+import UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
+import AutoFillExtensionContext from './application/AutoFillExtensionContext';
+import { FillRequest, SaveRequest, UpdateRequest, FillRequestCallback, SaveRequestCallback } from './application/AutoFillRequest';
+/*** endif */
 
 /**
  * The class of auto fill extension ability.
@@ -30,9 +37,10 @@ import type { FillRequest, SaveRequest, UpdateRequest, FillRequestCallback, Save
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @StageModelOnly
- * @since 11
+ * @since 11 dynamic
+ * @since 20 static
  */
-export default class AutoFillExtensionAbility extends ExtensionAbility {
+declare class AutoFillExtensionAbility extends ExtensionAbility {
   /**
    * Indicates configuration information about an auto fill extension ability context.
    *
@@ -40,7 +48,8 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   context: AutoFillExtensionContext;
 
@@ -50,7 +59,8 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   onCreate(): void;
 
@@ -63,7 +73,8 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   onFillRequest(session: UIExtensionContentSession, request: FillRequest, callback: FillRequestCallback): void;
 
@@ -76,7 +87,8 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   onSaveRequest(session: UIExtensionContentSession, request: SaveRequest, callback: SaveRequestCallback): void;
 
@@ -87,7 +99,8 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   onUpdateRequest(request: UpdateRequest): void;
 
@@ -98,7 +111,8 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   onSessionDestroy(session: UIExtensionContentSession): void;
 
@@ -108,7 +122,8 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   onForeground(): void;
 
@@ -118,7 +133,8 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   onBackground(): void;
 
@@ -129,7 +145,20 @@ export default class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
    */
   onDestroy(): void | Promise<void>;
+
+  /**
+   * Called back before an auto fill extension is destroyed.
+   *
+   * @returns { Promise<void> | undefined } the promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 20 static
+   */
+  onDestroy(): Promise<void> | undefined;
 }
+
+export default AutoFillExtensionAbility;

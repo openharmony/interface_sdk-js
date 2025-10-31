@@ -22,18 +22,23 @@ import { AsyncCallback } from './@ohos.base';
 import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
 import bundleManager from './@ohos.bundle.bundleManager';
 import { RunningMultiAppInfo as _RunningMultiAppInfo } from './application/RunningMultiAppInfo';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import * as _ApplicationStateObserver from './application/ApplicationStateObserver';
 import type * as _AppForegroundStateObserver from './application/AppForegroundStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
-import * as _AppStateData from './application/AppStateData';         
+import * as _AppStateData from './application/AppStateData';
 import type * as _ProcessData from './application/ProcessData';
 import * as _AbilityFirstFrameStateObserver from './application/AbilityFirstFrameStateObserver';
 import * as _AbilityFirstFrameStateData from './application/AbilityFirstFrameStateData';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
+import _ApplicationStateObserver from './application/ApplicationStateObserver';
 import _AbilityStateData from './application/AbilityStateData';
 import _AppStateData from './application/AppStateData';
+import _ProcessData from './application/ProcessData';
+import _AppForegroundStateObserver from './application/AppForegroundStateObserver';
+import { AbilityFirstFrameStateObserver as _AbilityFirstFrameStateObserver } from './application/AbilityFirstFrameStateObserver';
+import { AbilityFirstFrameStateData as _AbilityFirstFrameStateData } from './application/AbilityFirstFrameStateData';
 /*** endif */
 
 /**
@@ -49,8 +54,8 @@ import _AppStateData from './application/AppStateData';
  * @namespace appManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace appManager {
   /**
@@ -59,8 +64,8 @@ declare namespace appManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   export enum ApplicationState {
     /**
@@ -68,8 +73,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     STATE_CREATE,
 
@@ -78,8 +83,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     STATE_FOREGROUND,
 
@@ -88,7 +93,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     STATE_ACTIVE,
 
@@ -97,8 +103,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     STATE_BACKGROUND,
 
@@ -107,8 +113,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     STATE_DESTROY
   }
@@ -126,8 +132,8 @@ declare namespace appManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export enum ProcessState {
     /**
@@ -141,8 +147,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     STATE_CREATE,
 
@@ -157,8 +163,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     STATE_FOREGROUND,
 
@@ -173,8 +179,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     STATE_ACTIVE,
 
@@ -189,8 +195,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     STATE_BACKGROUND,
 
@@ -205,8 +211,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     STATE_DESTROY
   }
@@ -218,8 +224,8 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   export enum PreloadMode {
     /**
@@ -228,8 +234,8 @@ declare namespace appManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     PRESS_DOWN
   }
@@ -239,7 +245,8 @@ declare namespace appManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
     export enum KeepAliveAppType {
       /**
@@ -247,7 +254,8 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since 14
+       * @since 14 dynamic
+       * @since 20 static
        */
       ALL = 0,
   
@@ -256,7 +264,8 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since 14
+       * @since 14 dynamic
+       * @since 20 static
        */
       THIRD_PARTY = 1,
   
@@ -265,7 +274,8 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since 14
+       * @since 14 dynamic
+       * @since 20 static
        */
       SYSTEM = 2
     }
@@ -275,7 +285,8 @@ declare namespace appManager {
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     export enum KeepAliveSetter {
       /**
@@ -283,7 +294,8 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since 14
+       * @since 14 dynamic
+       * @since 20 static
        */
       SYSTEM = 0,
   
@@ -292,7 +304,8 @@ declare namespace appManager {
        *
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
-       * @since 14
+       * @since 14 dynamic
+       * @since 20 static
        */
       USER = 1
     }
@@ -303,7 +316,8 @@ declare namespace appManager {
      * @typedef KeepAliveBundleInfo
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     export interface KeepAliveBundleInfo {
       /**
@@ -312,7 +326,8 @@ declare namespace appManager {
        * @type { string }
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
-       * @since 14
+       * @since 14 dynamic
+       * @since 20 static
        */
       bundleName: string;
   
@@ -322,7 +337,8 @@ declare namespace appManager {
        * @type { KeepAliveAppType }
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
-       * @since 14
+       * @since 14 dynamic
+       * @since 20 static
        */
       type: KeepAliveAppType;
   
@@ -332,7 +348,8 @@ declare namespace appManager {
        * @type { KeepAliveSetter }
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
-       * @since 14
+       * @since 14 dynamic
+       * @since 20 static
        */
       setter: KeepAliveSetter;
 
@@ -342,7 +359,7 @@ declare namespace appManager {
        * @type { ?number }
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
-       * @since 20
+       * @since 20 dynamic
        */
       setterUserId?: number;
 
@@ -352,7 +369,7 @@ declare namespace appManager {
        * @type { ?boolean }
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
-       * @since 20
+       * @since 20 dynamic
        */
       allowUserToCancel?: boolean;
     }
@@ -363,7 +380,7 @@ declare namespace appManager {
    * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 21
+   * @since 21 dynamic
    */
   export enum FilterBundleType {
     /**
@@ -371,7 +388,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     APP = 1 << 0,
 
@@ -380,7 +397,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     ATOMIC_SERVICE = 1 << 1
   }
@@ -391,7 +408,7 @@ declare namespace appManager {
    * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 21
+   * @since 21 dynamic
    */
   export enum FilterAppStateType {
     /**
@@ -399,7 +416,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     CREATE = 1 << 0,
 
@@ -408,7 +425,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     FOREGROUND = 1 << 1,
 
@@ -417,7 +434,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     BACKGROUND = 1 << 2,
 
@@ -426,7 +443,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     DESTROY = 1 << 3
   }
@@ -437,7 +454,7 @@ declare namespace appManager {
    * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 21
+   * @since 21 dynamic
    */
   export enum FilterProcessStateType {
     /**
@@ -445,7 +462,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     CREATE = 1 << 0,
 
@@ -454,7 +471,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     FOREGROUND = 1 << 1,
 
@@ -463,7 +480,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     BACKGROUND = 1 << 2,
 
@@ -472,7 +489,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     DESTROY = 1 << 3
   }
@@ -483,7 +500,7 @@ declare namespace appManager {
    * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 21
+   * @since 21 dynamic
    */
   export enum FilterAbilityStateType {
     /**
@@ -491,7 +508,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     CREATE = 1 << 0,
 
@@ -500,7 +517,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     FOREGROUND = 1 << 1,
 
@@ -509,7 +526,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     BACKGROUND = 1 << 2,
 
@@ -518,7 +535,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     DESTROY = 1 << 3
   }
@@ -529,7 +546,7 @@ declare namespace appManager {
    * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 21
+   * @since 21 dynamic
    */
   export enum FilterCallback {
     /**
@@ -537,7 +554,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     ON_FOREGROUND_APPLICATION_CHANGED = 1 << 0,
 
@@ -546,7 +563,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     ON_ABILITY_STATE_CHANGED = 1 << 1,
 
@@ -555,7 +572,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     ON_PROCESS_CREATED = 1 << 2,
 
@@ -564,7 +581,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     ON_PROCESS_DIED = 1 << 3,
 
@@ -573,7 +590,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     ON_PROCESS_STATE_CHANGED = 1 << 4,
 
@@ -582,7 +599,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     ON_APP_STARTED = 1 << 5,
 
@@ -591,7 +608,7 @@ declare namespace appManager {
     *
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     ON_APP_STOPPED = 1 << 6
   }
@@ -602,9 +619,9 @@ declare namespace appManager {
    * @typedef AppStateFilter
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 21
+   * @since 21 dynamic
    */
-  interface AppStateFilter {
+  export interface AppStateFilter {
     /**
     * Bundle type filter flags, bitwise OR combination of {@link FilterBundleType}.
     * If unset, all bundle types are monitored.
@@ -612,7 +629,7 @@ declare namespace appManager {
     * @type { ?int }
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     bundleTypes?: int;
 
@@ -623,7 +640,7 @@ declare namespace appManager {
     * @type { ?int }
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     appStateTypes?: int;
 
@@ -634,7 +651,7 @@ declare namespace appManager {
     * @type { ?int }
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     processStateTypes?: int;
 
@@ -645,7 +662,7 @@ declare namespace appManager {
     * @type { ?int }
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     abilityStateTypes?: int;
 
@@ -656,7 +673,7 @@ declare namespace appManager {
     * @type { ?int }
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi
-    * @since 21
+    * @since 21 dynamic
     */
     callbacks?: int;
   }
@@ -667,15 +684,16 @@ declare namespace appManager {
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
    * @param { 'applicationState' } type - applicationState.
    * @param { ApplicationStateObserver } observer - The application state observer.
-   * @returns { number } Returns the number code of the observer.
+   * @returns { int } Returns the number code of the observer.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  function on(type: 'applicationState', observer: ApplicationStateObserver): number;
+  function on(type: 'applicationState', observer: ApplicationStateObserver): int;
 
   /**
    * Register application state observer.
@@ -684,15 +702,16 @@ declare namespace appManager {
    * @param { 'applicationState' } type - applicationState.
    * @param { ApplicationStateObserver } observer - The application state observer.
    * @param { Array<string> } bundleNameList - The list of bundleName. The max length is 128.
-   * @returns { number } Returns the number code of the observer.
+   * @returns { int } Returns the number code of the observer.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  function on(type: 'applicationState', observer: ApplicationStateObserver, bundleNameList: Array<string>): number;
+  function on(type: 'applicationState', observer: ApplicationStateObserver, bundleNameList: Array<string>): int;
 
   /**
    * Register application state observer with filter.
@@ -708,7 +727,7 @@ declare namespace appManager {
    *     2. The system service failed to communicate with dependency module.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 21
+   * @since 21 dynamic
    */
   function on(type: 'applicationState', observer: ApplicationStateObserver, filter: AppStateFilter): int;
 
@@ -725,7 +744,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   function on(type: 'appForegroundState', observer: AppForegroundStateObserver): void;
 
@@ -743,7 +763,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   function on(type: 'abilityFirstFrameState', observer: AbilityFirstFrameStateObserver, bundleName?: string): void;
 
@@ -752,32 +773,34 @@ declare namespace appManager {
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
    * @param { 'applicationState' } type - applicationState.
-   * @param { number } observerId - Indicates the number code of the observer.
+   * @param { int } observerId - Indicates the number code of the observer.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 15
+   * @since 15 dynamic
+   * @since 20 static
    */
-  function off(type: 'applicationState', observerId: number, callback: AsyncCallback<void>): void;
+  function off(type: 'applicationState', observerId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Unregister application state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
    * @param { 'applicationState' } type - applicationState.
-   * @param { number } observerId - Indicates the number code of the observer.
+   * @param { int } observerId - Indicates the number code of the observer.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  function off(type: 'applicationState', observerId: number): Promise<void>;
+  function off(type: 'applicationState', observerId: int): Promise<void>;
 
   /**
    * Unregister app foreground or background state observer.
@@ -792,7 +815,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   function off(type: 'appForegroundState', observer?: AppForegroundStateObserver): void;
 
@@ -809,7 +833,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   function off(type: 'abilityFirstFrameState', observer?: AbilityFirstFrameStateObserver): void;
 
@@ -825,8 +850,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getForegroundApplications(callback: AsyncCallback<Array<AppStateData>>): void;
 
@@ -840,8 +865,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getForegroundApplications(): Promise<Array<AppStateData>>;
 
@@ -867,7 +892,7 @@ declare namespace appManager {
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.KILL_APP_PROCESSES
    *     or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
    * @param { string } bundleName - The process bundle name.
-   * @param { number } accountId - The account id.
+   * @param { int } accountId - The account id.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -876,9 +901,10 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  function killProcessWithAccount(bundleName: string, accountId: number): Promise<void>;
+  function killProcessWithAccount(bundleName: string, accountId: int): Promise<void>;
 
   /**
    * Kill process with account.
@@ -886,9 +912,9 @@ declare namespace appManager {
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.KILL_APP_PROCESSES
    *     or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
    * @param { string } bundleName - The process bundle name.
-   * @param { number } accountId - The account id.
+   * @param { int } accountId - The account id.
    * @param { boolean } clearPageStack - The flag that indicates whether the page stack need to be cleared.
-   * @param { number } [appIndex] - The application index.
+   * @param { int } [appIndex] - The application index.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -896,9 +922,10 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  function killProcessWithAccount(bundleName: string, accountId: number, clearPageStack: boolean, appIndex?: number):
+  function killProcessWithAccount(bundleName: string, accountId: int, clearPageStack: boolean, appIndex?: int):
     Promise<void>;
 
   /**
@@ -923,7 +950,7 @@ declare namespace appManager {
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.KILL_APP_PROCESSES
    *     or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
    * @param { string } bundleName - The process bundle name.
-   * @param { number } accountId - The account id.
+   * @param { int } accountId - The account id.
    * @param { AsyncCallback<void> } callback - The callback of killProcessWithAccount.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -932,9 +959,10 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
+  function killProcessWithAccount(bundleName: string, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Is user running in stability test.
@@ -955,7 +983,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   function isRunningInStabilityTest(callback: AsyncCallback<boolean>): void;
 
@@ -974,7 +1003,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   function isRunningInStabilityTest(): Promise<boolean>;
 
@@ -1006,7 +1036,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   function killProcessesByBundleName(bundleName: string): Promise<void>;
 
@@ -1016,15 +1047,16 @@ declare namespace appManager {
    * @permission ohos.permission.KILL_APP_PROCESSES or ohos.permission.CLEAN_BACKGROUND_PROCESSES
    * @param { string } bundleName - bundle name.
    * @param { boolean } clearPageStack - The flag that indicates whether the page stack need to be cleared.
-   * @param { number } [appIndex] - The index of clone app.
+   * @param { int } [appIndex] - The index of clone app.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  function killProcessesByBundleName(bundleName: string, clearPageStack: boolean, appIndex?: number): Promise<void>;
+  function killProcessesByBundleName(bundleName: string, clearPageStack: boolean, appIndex?: int): Promise<void>;
 
   /**
    * Kill processes by bundle name
@@ -1054,9 +1086,10 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>);
+  function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>): void;
 
   /**
    * Clear up application data by bundle name
@@ -1071,7 +1104,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function clearUpApplicationData(bundleName: string): Promise<void>;
 
@@ -1088,7 +1121,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function clearUpApplicationData(bundleName: string, callback: AsyncCallback<void>);
 
@@ -1107,7 +1140,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   function isRamConstrainedDevice(): Promise<boolean>;
 
@@ -1130,7 +1164,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   function isRamConstrainedDevice(callback: AsyncCallback<boolean>): void;
 
@@ -1145,13 +1180,14 @@ declare namespace appManager {
   /**
    * Get the memory size of the application
    *
-   * @returns { Promise<number> } Returns the application memory size.
+   * @returns { Promise<int> } Returns the application memory size.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
-  function getAppMemorySize(): Promise<number>;
+  function getAppMemorySize(): Promise<int>;
 
   /**
    * Get the memory size of the application
@@ -1166,15 +1202,16 @@ declare namespace appManager {
   /**
    * Get the memory size of the application
    *
-   * @param { AsyncCallback<number> } callback - The callback is used to return the application memory size.
+   * @param { AsyncCallback<int> } callback - The callback is used to return the application memory size.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
-  function getAppMemorySize(callback: AsyncCallback<number>): void;
+  function getAppMemorySize(callback: AsyncCallback<int>): void;
 
   /**
    * If you apply for permission, you can obtain information about all running processes.
@@ -1193,8 +1230,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
 
@@ -1211,7 +1248,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   function getRunningProcessInformationByBundleType(
     bundleType: bundleManager.BundleType): Promise<Array<ProcessInformation>>;
@@ -1237,8 +1275,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 
@@ -1247,7 +1285,7 @@ declare namespace appManager {
    *
    * @permission ohos.permission.GET_RUNNING_INFO
    * @param { string } bundleName - Indicates the bundle name of the shared bundle.
-   * @param { number } versionCode - Indicates the version code of the shared bundle.
+   * @param { long } versionCode - Indicates the version code of the shared bundle.
    * @returns { Promise<boolean> } Returns the shared bundle running result. The result is true if running, false otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -1256,16 +1294,17 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
-  function isSharedBundleRunning(bundleName: string, versionCode: number): Promise<boolean>;
+  function isSharedBundleRunning(bundleName: string, versionCode: long): Promise<boolean>;
 
   /**
    * Check whether the shared bundle is running.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
    * @param { string } bundleName - Indicates the bundle name of the shared bundle.
-   * @param { number } versionCode - Indicates the version code of the shared bundle.
+   * @param { long } versionCode - Indicates the version code of the shared bundle.
    * @param { AsyncCallback<boolean> } callback - The callback of checking the shared bundle running result.
    *                                              The result is true if running, false otherwise.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1275,39 +1314,42 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
-  function isSharedBundleRunning(bundleName: string, versionCode: number, callback: AsyncCallback<boolean>): void;
+  function isSharedBundleRunning(bundleName: string, versionCode: long, callback: AsyncCallback<boolean>): void;
 
   /**
    * Obtains memory usage of one process by its pid.
    *
-   * @param { number } pid - Indicates the pid of the process.
-   * @returns { Promise<number> } Returns the memory usage of the process in KB.
+   * @param { int } pid - Indicates the pid of the process.
+   * @returns { Promise<int> } Returns the memory usage of the process in KB.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
-  function getProcessMemoryByPid(pid: number): Promise<number>;
+  function getProcessMemoryByPid(pid: int): Promise<int>;
 
   /**
    * Obtains memory usage of one process by its pid.
    *
-   * @param { number } pid - Indicates the pid of the process.
-   * @param { AsyncCallback<number> } callback - Indicates the callback of getting process memory by pid result.
+   * @param { int } pid - Indicates the pid of the process.
+   * @param { AsyncCallback<int> } callback - Indicates the callback of getting process memory by pid result.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
-  function getProcessMemoryByPid(pid: number, callback: AsyncCallback<number>): void;
+  function getProcessMemoryByPid(pid: int, callback: AsyncCallback<int>): void;
 
   /**
    * Obtains the process information list of running processes that belong to a specific bundle of current user.
@@ -1320,8 +1362,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getRunningProcessInfoByBundleName(bundleName: string, callback: AsyncCallback<Array<ProcessInformation>>): void;
 
@@ -1329,7 +1371,7 @@ declare namespace appManager {
    * Obtains the process information list of running processes that belong to a specific bundle and specific user ID.
    *
    * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
-   * @param { number } userId - Indicates the user ID of the application to which the processes belong to.
+   * @param { int } userId - Indicates the user ID of the application to which the processes belong to.
    * @param { AsyncCallback<Array<ProcessInformation>> } callback - Indicates the callback of getting process information by bundleName result.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1337,10 +1379,10 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
-  function getRunningProcessInfoByBundleName(bundleName: string, userId: number, callback: AsyncCallback<Array<ProcessInformation>>): void;
+  function getRunningProcessInfoByBundleName(bundleName: string, userId: int, callback: AsyncCallback<Array<ProcessInformation>>): void;
 
   /**
    * Obtains the process information list of running processes that belong to a specific bundle of current user.
@@ -1353,8 +1395,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getRunningProcessInfoByBundleName(bundleName: string): Promise<Array<ProcessInformation>>;
 
@@ -1362,7 +1404,7 @@ declare namespace appManager {
    * Obtains the process information list of running processes that belong to a specific bundle and specific user ID.
    *
    * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
-   * @param { number } userId - Indicates the user ID of the application to which the processes belong to.
+   * @param { int } userId - Indicates the user ID of the application to which the processes belong to.
    * @returns { Promise<Array<ProcessInformation>> } Returns a list of process information.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1370,10 +1412,10 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
-  function getRunningProcessInfoByBundleName(bundleName: string, userId: number): Promise<Array<ProcessInformation>>;
+  function getRunningProcessInfoByBundleName(bundleName: string, userId: int): Promise<Array<ProcessInformation>>;
 
   /**
    * Check whether the bundle is running.
@@ -1388,7 +1430,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function isApplicationRunning(bundleName: string): Promise<boolean>;
 
@@ -1406,7 +1448,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function isApplicationRunning(bundleName: string, callback: AsyncCallback<boolean>): void;
 
@@ -1415,9 +1457,9 @@ declare namespace appManager {
    *
    * @permission ohos.permission.PRELOAD_APPLICATION
    * @param { string } bundleName - The bundle name of the application to preload.
-   * @param { number } userId - Indicates the user identification.
+   * @param { int } userId - Indicates the user identification.
    * @param { PreloadMode } mode - Preload application mode.
-   * @param { number } [appIndex] - The index of application clone.
+   * @param { int } [appIndex] - The index of application clone.
    * @returns { Promise<void> } Returns the result of preloadApplication.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - Not system application.
@@ -1428,9 +1470,10 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  function preloadApplication(bundleName: string, userId: number, mode: PreloadMode, appIndex?: number): Promise<void>;
+  function preloadApplication(bundleName: string, userId: int, mode: PreloadMode, appIndex?: int): Promise<void>;
 
   /**
    * Get all running multi app info by bundleName
@@ -1447,8 +1490,8 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function getRunningMultiAppInfo(bundleName: string): Promise<RunningMultiAppInfo>;
 
@@ -1457,7 +1500,7 @@ declare namespace appManager {
   *
   * @permission ohos.permission.GET_RUNNING_INFO
   * @param { string } bundleName - Indicates the bundle name of the bundle.
-  * @param { number } [appCloneIndex] - app clone index
+  * @param { int } [appCloneIndex] - app clone index
   * @returns { Promise<boolean> } Returns the bundle running result. The result is true if running, false otherwise.
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1465,9 +1508,10 @@ declare namespace appManager {
   * @throws { BusinessError } 16000050 - Internal error.
   * @throws { BusinessError } 16000073 - The app clone index is invalid.
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @since 14
+  * @since 14 dynamic
+  * @since 20 static
   */
-  function isAppRunning(bundleName: string, appCloneIndex?: number): Promise<boolean>;
+  function isAppRunning(bundleName: string, appCloneIndex?: int): Promise<boolean>;
 
   /**
    * Clear up application data by bundle name
@@ -1484,7 +1528,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 13
+   * @since 13 dynamic
    */
   function clearUpAppData(bundleName: string, appCloneIndex?: number): Promise<void>;
 
@@ -1501,7 +1545,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 13
+   * @since 13 dynamic
    */
   function terminateMission(missionId: number): Promise<void>;
 
@@ -1510,7 +1554,7 @@ declare namespace appManager {
    *
    * @permission ohos.permission.GET_RUNNING_INFO
    * @param { string } bundleName - bundle name.
-   * @returns { Promise<Array<number>> } Returns the list of pid.
+   * @returns { Promise<Array<int>> } Returns the list of pid.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1520,16 +1564,17 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  function getSupportedProcessCachePids(bundleName : string): Promise<Array<number>>;
+  function getSupportedProcessCachePids(bundleName : string): Promise<Array<int>>;
 
   /**
    * Set keep alive for the specified bundle.
    *
    * @permission ohos.permission.MANAGE_APP_KEEP_ALIVE
    * @param { string } bundleName - bundle name.
-   * @param { number } userId - user id.
+   * @param { int } userId - user id.
    * @param { boolean } enable - flag indicates whether the bundle should be kept alive.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1544,16 +1589,17 @@ declare namespace appManager {
    * @throws { BusinessError } 16300010 - The target application is not attached to the status bar.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-    function setKeepAliveForBundle(bundleName: string, userId: number, enable: boolean): Promise<void>;
+    function setKeepAliveForBundle(bundleName: string, userId: int, enable: boolean): Promise<void>;
 
   /**
    * Get keep-alive bundle information.
    *
    * @permission ohos.permission.MANAGE_APP_KEEP_ALIVE
    * @param { KeepAliveAppType } type - type of keep-alive apps to be quried.
-   * @param { number } [userId] - user id.
+   * @param { int } [userId] - user id.
    * @returns { Promise<Array<KeepAliveBundleInfo>> } Returns the list of KeepAliveBundleInfo.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -1563,9 +1609,10 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  function getKeepAliveBundles(type: KeepAliveAppType, userId?: number): Promise<Array<KeepAliveBundleInfo>>;
+  function getKeepAliveBundles(type: KeepAliveAppType, userId?: int): Promise<Array<KeepAliveBundleInfo>>;
 
   /**
    * Set keep alive for the specified app service extension.
@@ -1584,7 +1631,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000204 - The target bundle is not in u1.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   function setKeepAliveForAppServiceExtension(bundleName: string, enabled: boolean): Promise<void>;
 
@@ -1599,7 +1646,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   function getKeepAliveAppServiceExtensions(): Promise<Array<KeepAliveBundleInfo>>;
 
@@ -1607,7 +1654,7 @@ declare namespace appManager {
    * Kill processes in batch.
    *
    * @permission ohos.permission.KILL_APP_PROCESSES
-   * @param { Array<number> } pids - The pids of the processes.
+   * @param { Array<int> } pids - The pids of the processes.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -1617,25 +1664,35 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  function killProcessesInBatch(pids: Array<number>): Promise<void>;
+  function killProcessesInBatch(pids: Array<int>): Promise<void>;
 
   /**
    * The ability or extension state data.
    *
    * @typedef { _AbilityStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since 14 dynamic
    */
   export type AbilityStateData = _AbilityStateData.default;
+
+  /**
+   * The ability or extension state data.
+   *
+   * @typedef { _AbilityStateData }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 20 static
+   */
+  export type AbilityStateData = _AbilityStateData;
 
   /**
    * The application state data.
    *
    * @typedef { _AppStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since 14 dynamic
    */
   export type AppStateData = _AppStateData.default;
 
@@ -1644,8 +1701,7 @@ declare namespace appManager {
    *
    * @typedef { _AppStateData }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type AppStateData = _AppStateData;
 
@@ -1654,9 +1710,18 @@ declare namespace appManager {
    *
    * @typedef { _ApplicationStateObserver.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since 14 dynamic
    */
   export type ApplicationStateObserver = _ApplicationStateObserver.default;
+
+  /**
+   * The application state observer.
+   *
+   * @typedef { _ApplicationStateObserver }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 20 static
+   */
+  export type ApplicationStateObserver = _ApplicationStateObserver;
 
   /**
    * The application foreground state observer.
@@ -1664,9 +1729,19 @@ declare namespace appManager {
    * @typedef { _AppForegroundStateObserver.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   export type AppForegroundStateObserver = _AppForegroundStateObserver.default;
+
+  /**
+   * The application foreground state observer.
+   *
+   * @typedef { _AppForegroundStateObserver }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 20 static
+   */
+  export type AppForegroundStateObserver = _AppForegroundStateObserver;
 
   /**
    * The class of a process information.
@@ -1680,8 +1755,8 @@ declare namespace appManager {
    * @typedef { _ProcessInformation }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export type ProcessInformation = _ProcessInformation;
 
@@ -1690,9 +1765,18 @@ declare namespace appManager {
    *
    * @typedef { _ProcessData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since 14 dynamic
    */
   export type ProcessData = _ProcessData.default;
+
+  /**
+   * The application state data.
+   *
+   * @typedef { _ProcessData }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 20 static
+   */
+  export type ProcessData = _ProcessData;
 
   /**
    * The ability first frame state observer.
@@ -1700,9 +1784,19 @@ declare namespace appManager {
    * @typedef { _AbilityFirstFrameStateObserver.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   export type AbilityFirstFrameStateObserver = _AbilityFirstFrameStateObserver.default;
+
+  /**
+   * The ability first frame state observer.
+   *
+   * @typedef { _AbilityFirstFrameStateObserver }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 20 static
+   */
+  export type AbilityFirstFrameStateObserver = _AbilityFirstFrameStateObserver;
 
   /**
    * The class of an ability first frame state data.
@@ -1710,9 +1804,19 @@ declare namespace appManager {
    * @typedef { _AbilityFirstFrameStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   export type AbilityFirstFrameStateData = _AbilityFirstFrameStateData.default;
+
+  /**
+   * The class of an ability first frame state data.
+   *
+   * @typedef { _AbilityFirstFrameStateData }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 20 static
+   */
+  export type AbilityFirstFrameStateData = _AbilityFirstFrameStateData;
 
   /**
    * The class of running multi app information.
@@ -1720,8 +1824,8 @@ declare namespace appManager {
    * @typedef { _RunningMultiAppInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   export type RunningMultiAppInfo = _RunningMultiAppInfo;
 }

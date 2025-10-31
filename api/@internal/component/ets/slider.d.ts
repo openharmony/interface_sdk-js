@@ -17,19 +17,6 @@
  * @file
  * @kit ArkUI
  */
-
-/*** if arkts 1.2 */
-import { CommonMethod, CommonConfiguration, ContentModifier, Optional } from './common';
-import { Axis, CrownSensitivity } from './enums';
-import { ResourceStr, ResourceColor, Length, Dimension, SizeOptions } from './units';
-import { CircleAttribute } from './circle';
-import { RectAttribute } from './rect';
-import { PathAttribute } from './path';
-import { EllipseAttribute } from './ellipse';
-import { LinearGradient } from './dataPanel';
-
-/*** endif */
-
 /**
  * Declare sliderstyle
  *
@@ -62,86 +49,81 @@ import { LinearGradient } from './dataPanel';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare enum SliderStyle {
-  /**
-   * The slider is on the slide rail.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The slider is on the slide rail.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The slider is on the slide rail.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The thumb is on the track.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  OutSet,
-
-  /**
-   * The slider is in the slide rail.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The slider is in the slide rail.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The slider is in the slide rail.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The thumb is in the track.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  InSet,
-  /**
-   * There is no thumb.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  NONE,
+    /**
+     * The slider is on the slide rail.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * The slider is on the slide rail.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @since 9
+     */
+    /**
+     * The slider is on the slide rail.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @since 10
+     */
+    /**
+     * The thumb is on the track.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    OutSet,
+    /**
+     * The slider is in the slide rail.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * The slider is in the slide rail.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @since 9
+     */
+    /**
+     * The slider is in the slide rail.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @since 10
+     */
+    /**
+     * The thumb is in the track.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    InSet,
+    /**
+     * There is no thumb.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12 dynamic
+     */
+    NONE
 }
 
 /**
@@ -176,145 +158,137 @@ declare enum SliderStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare enum SliderChangeMode {
-  /**
-   * Start dragging the slider.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Start dragging the slider.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Start dragging the slider.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The user touches or clicks the thumb.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  Begin,
-
-  /**
-   * Drag the slider.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Drag the slider.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Drag the slider.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The user is dragging the slider.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  Moving,
-
-  /**
-   * End dragging the slider.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * End dragging the slider.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * End dragging the slider.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The user stops dragging the slider by lifting their finger or releasing the mouse device.
-   * <p><strong>NOTE</strong>:
-   * <br>The trigger occurs when an invalid value is restored to the default value, that is, when the value is set to
-   * less than min or greater than max.
-   * </p>
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  End,
-
-  /**
-   * Click the slider.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Click the slider.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Click the slider.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The user moves the thumb by touching or clicking the track.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  Click,
+    /**
+     * Start dragging the slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Start dragging the slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @since 9
+     */
+    /**
+     * Start dragging the slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @since 10
+     */
+    /**
+     * The user touches or clicks the thumb.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    Begin,
+    /**
+     * Drag the slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Drag the slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @since 9
+     */
+    /**
+     * Drag the slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @since 10
+     */
+    /**
+     * The user is dragging the slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    Moving,
+    /**
+     * End dragging the slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * End dragging the slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @since 9
+     */
+    /**
+     * End dragging the slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @since 10
+     */
+    /**
+     * The user stops dragging the slider by lifting their finger or releasing the mouse device.
+     * <p><strong>NOTE</strong>:
+     * <br>The trigger occurs when an invalid value is restored to the default value, that is, when the value is set to
+     * less than min or greater than max.
+     * </p>
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    End,
+    /**
+     * Click the slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */
+    /**
+     * Click the slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @since 9
+     */
+    /**
+     * Click the slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @since 10
+     */
+    /**
+     * The user moves the thumb by touching or clicking the track.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    Click
 }
 
 /**
@@ -324,44 +298,38 @@ declare enum SliderChangeMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare enum SliderInteraction {
-  /**
-   * Users can drag the slider or touch the track to move the slider. The slider moves as soon as the mouse or
-   * finger is pressed.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  SLIDE_AND_CLICK,
-
-  /**
-   * Users are not allowed to move the slider by touching the slider.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  SLIDE_ONLY,
-
-  /**
-   * Users can drag the slider or touch the track to move the slider. The slider moves when the mouse is released or
-   * finger is lifted, if the release/lift position coincides with the screen press position.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  SLIDE_AND_CLICK_UP = 2
+    /**
+     * Users can drag the slider or touch the track to move the slider. The slider moves as soon as the mouse or
+     * finger is pressed.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamic
+     */
+    SLIDE_AND_CLICK = 0,
+    /**
+     * Users are not allowed to move the slider by touching the slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamic
+     */
+    SLIDE_ONLY = 1,
+    /**
+     * Users can drag the slider or touch the track to move the slider. The slider moves when the mouse is released or
+     * finger is lifted, if the release/lift position coincides with the screen press position.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamic
+     */
+    SLIDE_AND_CLICK_UP = 2
 }
 
 /**
@@ -381,33 +349,29 @@ declare enum SliderInteraction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare interface SlideRange {
-  /**
-   * Start of the slide range.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  from?: number;
-
-  /**
-   * End of the slide range.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  to?: number;
+    /**
+     * Start of the slide range.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamic
+     */
+    from?: number;
+    /**
+     * End of the slide range.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamic
+     */
+    to?: number;
 }
 
 /**
@@ -442,284 +406,270 @@ declare interface SlideRange {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface SliderOptions {
-  /**
-   * Current value of Slider.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Current value of Slider.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Current value of Slider.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Current progress.
-   *
-   * @type { ?number }
-   * @default same as the value of min
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  value?: number;
-
-  /**
-   * Sets the min value of Slider.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Sets the min value of Slider.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the min value of Slider.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Minimum value.
-   *
-   * @type { ?number }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  min?: number;
-
-  /**
-   * Sets the max value of Slider.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Sets the max value of Slider.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the max value of Slider.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Maximum value.
-   * <p><strong>NOTE</strong>:
-   * <br>If the value of min is greater than or equal to the value of max, the min value defaults to 0, and the max
-   * value defaults to 100. If the value is not within the [min, max] range, the value of min or max is used, whichever
-   * is closer.
-   * </p>
-   *
-   * @type { ?number }
-   * @default 100
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  max?: number;
-
-  /**
-   * Sets the step of each slide value.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Sets the step of each slide value.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the step of each slide value.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Step of the slider.
-   * <p><strong>NOTE</strong>:
-   * <br>If this parameter is set to a value less than 0 or greater than the value of max, the default value is used.
-   * </p>
-   *
-   * @type { ?number }
-   * @default 1 - Value range: [0.01, max - min]
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  step?: number;
-
-  /**
-   * Sets the slider style.
-   *
-   * @type { ?SliderStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Sets the slider style.
-   *
-   * @type { ?SliderStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the slider style.
-   *
-   * @type { ?SliderStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Style of the slider thumb and track.
-   *
-   * @type { ?SliderStyle }
-   * @default SliderStyle.OutSet
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  style?: SliderStyle;
-
-  /**
-   * Sets the slider direction style.
-   *
-   * @type { ?Axis }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Sets the slider direction style.
-   *
-   * @type { ?Axis }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the slider direction style.
-   *
-   * @type { ?Axis }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Whether the slider moves horizontally or vertically.
-   *
-   * @type { ?Axis }
-   * @default Axis.Horizontal
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  direction?: Axis;
-
-  /**
-   * Set whether the direction of the slider needs to be reversed.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Set whether the direction of the slider needs to be reversed.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set whether the direction of the slider needs to be reversed.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Whether the slider values are reversed. By default, the values increase from left to right for a horizontal
-   * slider and from top to bottom for a vertical slider.
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  reverse?: boolean;
+    /**
+     * Current value of Slider.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Current value of Slider.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @since 9
+     */
+    /**
+     * Current value of Slider.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @since 10
+     */
+    /**
+     * Current progress.
+     *
+     * @type { ?number }
+     * @default same as the value of min
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    value?: number;
+    /**
+     * Sets the min value of Slider.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Sets the min value of Slider.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @since 9
+     */
+    /**
+     * Sets the min value of Slider.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @since 10
+     */
+    /**
+     * Minimum value.
+     *
+     * @type { ?number }
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    min?: number;
+    /**
+     * Sets the max value of Slider.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Sets the max value of Slider.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @since 9
+     */
+    /**
+     * Sets the max value of Slider.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @since 10
+     */
+    /**
+     * Maximum value.
+     * <p><strong>NOTE</strong>:
+     * <br>If the value of min is greater than or equal to the value of max, the min value defaults to 0, and the max
+     * value defaults to 100. If the value is not within the [min, max] range, the value of min or max is used, whichever
+     * is closer.
+     * </p>
+     *
+     * @type { ?number }
+     * @default 100
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    max?: number;
+    /**
+     * Sets the step of each slide value.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Sets the step of each slide value.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @since 9
+     */
+    /**
+     * Sets the step of each slide value.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @since 10
+     */
+    /**
+     * Step of the slider.
+     * <p><strong>NOTE</strong>:
+     * <br>If this parameter is set to a value less than 0 or greater than the value of max, the default value is used.
+     * </p>
+     *
+     * @type { ?number }
+     * @default 1 - Value range: [0.01, max - min]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    step?: number;
+    /**
+     * Sets the slider style.
+     *
+     * @type { ?SliderStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Sets the slider style.
+     *
+     * @type { ?SliderStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @since 9
+     */
+    /**
+     * Sets the slider style.
+     *
+     * @type { ?SliderStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @since 10
+     */
+    /**
+     * Style of the slider thumb and track.
+     *
+     * @type { ?SliderStyle }
+     * @default SliderStyle.OutSet
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    style?: SliderStyle;
+    /**
+     * Sets the slider direction style.
+     *
+     * @type { ?Axis }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */
+    /**
+     * Sets the slider direction style.
+     *
+     * @type { ?Axis }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @since 9
+     */
+    /**
+     * Sets the slider direction style.
+     *
+     * @type { ?Axis }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @since 10
+     */
+    /**
+     * Whether the slider moves horizontally or vertically.
+     *
+     * @type { ?Axis }
+     * @default Axis.Horizontal
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    direction?: Axis;
+    /**
+     * Set whether the direction of the slider needs to be reversed.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */
+    /**
+     * Set whether the direction of the slider needs to be reversed.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @since 9
+     */
+    /**
+     * Set whether the direction of the slider needs to be reversed.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @since 10
+     */
+    /**
+     * Whether the slider values are reversed. By default, the values increase from left to right for a horizontal
+     * slider and from top to bottom for a vertical slider.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    reverse?: boolean;
 }
 
 /**
@@ -737,63 +687,57 @@ declare interface SliderOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare enum SliderBlockType {
-  /**
-   * Use the default block.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Round slider.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  DEFAULT,
-
-  /**
-   * Use an image as the slider block.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Slider with an image background.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  IMAGE,
-
-  /**
-   * Use a shape as the slider block.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Slider in a custom shape.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  SHAPE,
+    /**
+     * Use the default block.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Round slider.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    DEFAULT = 0,
+    /**
+     * Use an image as the slider block.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Slider with an image background.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    IMAGE = 1,
+    /**
+     * Use a shape as the slider block.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Slider in a custom shape.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    SHAPE = 2
 }
 
 /**
@@ -811,71 +755,65 @@ declare enum SliderBlockType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface SliderBlockStyle {
-  /**
-   * Sets the type of slider block.
-   *
-   * @type { SliderBlockType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Type of the slider in the block direction.
-   *
-   * @type { SliderBlockType }
-   * @default SliderBlockType.DEFAULT - indicating the round slider.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  type: SliderBlockType;
-
-  /**
-   * Sets the image of slider block while the type is set to SliderBlockType.Image.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Image resource of the slider. The area size for displaying the image is subject to the blockSize attribute.
-   * Be mindful of the image size when selecting an image.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  image?: ResourceStr;
-
-  /**
-   * Sets the shape of slider block while the type is set to SliderBlockType.Shape.
-   *
-   * @type { ?(CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Custom shape of the slider.
-   *
-   * @type { ?(CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  shape?: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute;
+    /**
+     * Sets the type of slider block.
+     *
+     * @type { SliderBlockType }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Type of the slider in the block direction.
+     *
+     * @type { SliderBlockType }
+     * @default SliderBlockType.DEFAULT - indicating the round slider.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    type: SliderBlockType;
+    /**
+     * Sets the image of slider block while the type is set to SliderBlockType.Image.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Image resource of the slider. The area size for displaying the image is subject to the blockSize attribute.
+     * Be mindful of the image size when selecting an image.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    image?: ResourceStr;
+    /**
+     * Sets the shape of slider block while the type is set to SliderBlockType.Shape.
+     *
+     * @type { ?(CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Custom shape of the slider.
+     *
+     * @type { ?(CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    shape?: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute;
 }
 
 /**
@@ -887,8 +825,7 @@ declare interface SliderBlockStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare type SliderTriggerChangeCallback = (value: number, mode: SliderChangeMode) => void;
 
@@ -900,69 +837,59 @@ declare type SliderTriggerChangeCallback = (value: number, mode: SliderChangeMod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare interface SliderConfiguration extends CommonConfiguration<SliderConfiguration> {
-  /**
-   * Current progress.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  value: number;
-
-  /**
-   * Minimum value.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  min: number;
-
-  /**
-   * Maximum value.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  max: number;
-
-  /**
-   * Step of the slider.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  step: number;
-
-  /**
-   * Triggers slider changes.
-   *
-   * @type { SliderTriggerChangeCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  triggerChange: SliderTriggerChangeCallback;
+    /**
+     * Current progress.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamic
+     */
+    value: number;
+    /**
+     * Minimum value.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamic
+     */
+    min: number;
+    /**
+     * Maximum value.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamic
+     */
+    max: number;
+    /**
+     * Step of the slider.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamic
+     */
+    step: number;
+    /**
+     * Triggers slider changes.
+     *
+     * @type { SliderTriggerChangeCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamic
+     */
+    triggerChange: SliderTriggerChangeCallback;
 }
 
 /**
@@ -997,50 +924,48 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 interface SliderInterface {
-  /**
-   * Called when the slider bar component is used.
-   *
-   * @param { SliderOptions } options
-   * @returns { SliderAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the slider bar component is used.
-   *
-   * @param { SliderOptions } options
-   * @returns { SliderAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the slider bar component is used.
-   *
-   * @param { SliderOptions } options
-   * @returns { SliderAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the slider bar component is used.
-   *
-   * @param { SliderOptions } options
-   * @returns { SliderAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  (options?: SliderOptions): SliderAttribute;
+    /**
+     * Called when the slider bar component is used.
+     *
+     * @param { SliderOptions } options
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    /**
+     * Called when the slider bar component is used.
+     *
+     * @param { SliderOptions } options
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
+     * @since 9
+     */
+    /**
+     * Called when the slider bar component is used.
+     *
+     * @param { SliderOptions } options
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @since 10
+     */
+    /**
+     * Called when the slider bar component is used.
+     *
+     * @param { SliderOptions } options
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    (options?: SliderOptions): SliderAttribute;
 }
 
 /**
@@ -1050,7 +975,7 @@ interface SliderInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare interface SliderStepItemAccessibility {
   /**
@@ -1060,7 +985,7 @@ declare interface SliderStepItemAccessibility {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   text?: ResourceStr;
 }
@@ -1072,7 +997,7 @@ declare interface SliderStepItemAccessibility {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare interface SliderShowStepOptions {
   /**
@@ -1082,7 +1007,7 @@ declare interface SliderShowStepOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   stepsAccessibility?: Map<number, SliderStepItemAccessibility>;
 }
@@ -1095,7 +1020,7 @@ declare interface SliderShowStepOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 interface SliderCustomContentOptions {
   /**
@@ -1106,7 +1031,7 @@ interface SliderCustomContentOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityText?: ResourceStr;
 
@@ -1118,7 +1043,7 @@ interface SliderCustomContentOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityDescription?: ResourceStr;
    
@@ -1130,7 +1055,7 @@ interface SliderCustomContentOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityLevel?: string;
   
@@ -1141,7 +1066,7 @@ interface SliderCustomContentOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityGroup?: boolean;
 }
@@ -1155,7 +1080,7 @@ interface SliderCustomContentOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 interface SliderPrefixOptions extends SliderCustomContentOptions {
 }
@@ -1169,7 +1094,7 @@ interface SliderPrefixOptions extends SliderCustomContentOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 interface SliderSuffixOptions extends SliderCustomContentOptions {
 }
@@ -1206,8 +1131,7 @@ interface SliderSuffixOptions extends SliderCustomContentOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   /**
@@ -1246,12 +1170,11 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   blockColor(value: ResourceColor): SliderAttribute;
   /**
-   * Called when the slider color of the slider bar is set.
+   * Set the color of the slider bar.
    *
    * @param { ResourceColor | LinearGradient } value
    * @returns { SliderAttribute }
@@ -1259,7 +1182,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   blockColor(value: ResourceColor | LinearGradient): SliderAttribute;
 
@@ -1310,8 +1233,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   trackColor(value: ResourceColor | LinearGradient): SliderAttribute;
 
@@ -1351,8 +1273,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   selectedColor(value: ResourceColor): SliderAttribute;
   /**
@@ -1364,8 +1285,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   selectedColor(selectedColor: ResourceColor | LinearGradient): SliderAttribute;
 
@@ -1375,7 +1295,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @param { string } value
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead min
    */
@@ -1387,7 +1307,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @param { string } value
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead max
    */
@@ -1429,8 +1349,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   showSteps(value: boolean): SliderAttribute;
 
@@ -1444,7 +1363,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   showSteps(value: boolean, options?: SliderShowStepOptions): SliderAttribute;
 
@@ -1488,8 +1407,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   showTips(value: boolean, content?: ResourceStr): SliderAttribute;
 
@@ -1529,8 +1447,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   trackThickness(value: Length): SliderAttribute;
 
@@ -1575,8 +1492,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   onChange(callback: (value: number, mode: SliderChangeMode) => void): SliderAttribute;
 
@@ -1597,8 +1513,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   blockBorderColor(value: ResourceColor): SliderAttribute;
 
@@ -1619,8 +1534,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   blockBorderWidth(value: Length): SliderAttribute;
 
@@ -1641,8 +1555,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   stepColor(value: ResourceColor): SliderAttribute;
 
@@ -1663,8 +1576,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   trackBorderRadius(value: Length): SliderAttribute;
 
@@ -1676,188 +1588,167 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
     selectedBorderRadius(value: Dimension): SliderAttribute;
-  
-  /**
-   * Called when the size of block is set.
-   *
-   * @param { SizeOptions } value - the size of block.
-   * @returns { SliderAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the size of block is set.
-   *
-   * @param { SizeOptions } value - the size of block.
-   * @returns { SliderAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  blockSize(value: SizeOptions): SliderAttribute;
-
-  /**
-   * Called when the style of block is set.
-   *
-   * @param { SliderBlockStyle } value - the style of block.
-   * @returns { SliderAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the style of the slider in the block direction.
-   *
-   * @param { SliderBlockStyle } value - Style of the slider in the block direction.
-   * <br>Default value is SliderBlockType.DEFAULT, indicating the round slider.
-   * @returns { SliderAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  blockStyle(value: SliderBlockStyle): SliderAttribute;
-
-  /**
-   * Called when the diameter of step is set.
-   *
-   * @param { Length } value - the diameter of step.
-   * @returns { SliderAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the diameter of step is set.
-   *
-   * @param { Length } value - the diameter of step.
-   * @returns { SliderAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  stepSize(value: Length): SliderAttribute;
-
-  /**
-   * Sets the interaction mode between the user and the slider.
-   *
-   * @param { SliderInteraction } value - Interaction mode between the user and the slider.
-   * <br>Default value is SliderInteraction.SLIDE_AND_CLICK.
-   * @returns { SliderAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  sliderInteractionMode(value: SliderInteraction): SliderAttribute;
-
-  /**
-   * Sets the min value when Slider response to drag event.
-   *
-   * @param { number } value
-   * @returns { SliderAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  minResponsiveDistance(value: number): SliderAttribute;
-
-  /**
-   * Creates a content modifier.
-   *
-   * @param { ContentModifier<SliderConfiguration> } modifier - Content modifier to apply to the slider.
-   * modifier: content modifier. You need a custom class to implement the ContentModifier API.
-   * @returns { SliderAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  contentModifier(modifier: ContentModifier<SliderConfiguration>): SliderAttribute;
-
-  /**
-   * Set the valid slidable range.
-   *
-   * @param { SlideRange } value
-   * @returns { SliderAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  slideRange(value: SlideRange): SliderAttribute;
-
-  /**
-   * Set the sensitivity of rotating crown.
-   *
-   * @param { Optional<CrownSensitivity> } sensitivity - The sensitivity of rotating crown, default value is { MEDIUM }.
-   * @returns { SliderAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): SliderAttribute;
-
-  /**
-   * Enable or disable haptic feedback.
-   *
-   * @param { boolean } enabled - Default value is true, set false to disable haptic feedback.
-   * @returns { SliderAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  enableHapticFeedback(enabled: boolean): SliderAttribute;
-
-  /**
-   * Sets the prefix part of the slider.
-   * The prefix is the content that appears before the main slider component.
-   *
-   * @param { ComponentContent } content - Custom components that will be displayed as the prefix.
-   *                                       This can be any valid custom UI component structure.
-   * @param { SliderPrefixOptions } [options] - Optional options for customizing the prefix.
-   *                                            These options can include accessibility settings.
-   * @returns { SliderAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  prefix(content: ComponentContent, options?: SliderPrefixOptions): SliderAttribute;
-
-  /**
-   * Sets the suffix part of the slider.
-   * The suffix is the content that appears after the main slider component.
-   *
-   * @param { ComponentContent } content - Custom components that will be displayed as the suffix.
-   *                                       This can be any valid custom UI component structure.
-   * @param { SliderSuffixOptions } [options] - Optional options for customizing the suffix.
-   *                                            These options can include accessibility settings.
-   * @returns { SliderAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  suffix(content: ComponentContent, options?: SliderSuffixOptions): SliderAttribute;
+    /**
+     * Called when the size of block is set.
+     *
+     * @param { SizeOptions } value - the size of block.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Called when the size of block is set.
+     *
+     * @param { SizeOptions } value - the size of block.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    blockSize(value: SizeOptions): SliderAttribute;
+    /**
+     * Called when the style of block is set.
+     *
+     * @param { SliderBlockStyle } value - the style of block.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Sets the style of the slider in the block direction.
+     *
+     * @param { SliderBlockStyle } value - Style of the slider in the block direction.
+     * <br>Default value is SliderBlockType.DEFAULT, indicating the round slider.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    blockStyle(value: SliderBlockStyle): SliderAttribute;
+    /**
+     * Called when the diameter of step is set.
+     *
+     * @param { Length } value - the diameter of step.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Called when the diameter of step is set.
+     *
+     * @param { Length } value - the diameter of step.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11 dynamic
+     */
+    stepSize(value: Length): SliderAttribute;
+    /**
+     * Sets the interaction mode between the user and the slider.
+     *
+     * @param { SliderInteraction } value - Interaction mode between the user and the slider.
+     * <br>Default value is SliderInteraction.SLIDE_AND_CLICK.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamic
+     */
+    sliderInteractionMode(value: SliderInteraction): SliderAttribute;
+    /**
+     * Sets the min value when Slider response to drag event.
+     *
+     * @param { number } value
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamic
+     */
+    minResponsiveDistance(value: number): SliderAttribute;
+    /**
+     * Creates a content modifier.
+     *
+     * @param { ContentModifier<SliderConfiguration> } modifier - Content modifier to apply to the slider.
+     * modifier: content modifier. You need a custom class to implement the ContentModifier API.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamic
+     */
+    contentModifier(modifier: ContentModifier<SliderConfiguration>): SliderAttribute;
+    /**
+     * Set the valid slidable range.
+     *
+     * @param { SlideRange } value
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamic
+     */
+    slideRange(value: SlideRange): SliderAttribute;
+    /**
+     * Set the sensitivity of rotating crown.
+     *
+     * @param { Optional<CrownSensitivity> } sensitivity - The sensitivity of rotating crown, default value is { MEDIUM }.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 18 dynamic
+     */
+    digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): SliderAttribute;
+    /**
+     * Enable or disable haptic feedback.
+     *
+     * @param { boolean } enabled - Default value is true, set false to disable haptic feedback.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 18 dynamic
+     */
+    enableHapticFeedback(enabled: boolean): SliderAttribute;
+    /**
+     * Sets the prefix part of the slider.
+     * The prefix is the content that appears before the main slider component.
+     *
+     * @param { ComponentContent } content - Custom components that will be displayed as the prefix.
+     *                                       This can be any valid custom UI component structure.
+     * @param { SliderPrefixOptions } [options] - Optional options for customizing the prefix.
+     *                                            These options can include accessibility settings.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20 dynamic
+     */
+    prefix(content: ComponentContent, options?: SliderPrefixOptions): SliderAttribute;
+    /**
+     * Sets the suffix part of the slider.
+     * The suffix is the content that appears after the main slider component.
+     *
+     * @param { ComponentContent } content - Custom components that will be displayed as the suffix.
+     *                                       This can be any valid custom UI component structure.
+     * @param { SliderSuffixOptions } [options] - Optional options for customizing the suffix.
+     *                                            These options can include accessibility settings.
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20 dynamic
+     */
+    suffix(content: ComponentContent, options?: SliderSuffixOptions): SliderAttribute;
 }
 
 /**
@@ -1888,7 +1779,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Slider: SliderInterface;
 
@@ -1920,6 +1811,6 @@ declare const Slider: SliderInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const SliderInstance: SliderAttribute;

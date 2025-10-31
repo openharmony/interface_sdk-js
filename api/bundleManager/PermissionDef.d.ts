@@ -24,7 +24,8 @@
  * @typedef PermissionDef
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
- * @since 9
+ * @since 9 dynamic
+ * @since 20 static
  */
 export interface PermissionDef {
   /**
@@ -34,40 +35,44 @@ export interface PermissionDef {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   readonly permissionName: string;
 
   /**
    * Indicates the grant mode of this permission
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
-  readonly grantMode: number;
+  readonly grantMode: int;
 
   /**
    * Indicates the labelId of this permission
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
-  readonly labelId: number;
+  readonly labelId: long;
 
   /**
    * Indicates the descriptionId of this permission
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
-  readonly descriptionId: number;
+  readonly descriptionId: long;
 }

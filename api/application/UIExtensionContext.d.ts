@@ -20,20 +20,23 @@
 
 
 import type { AsyncCallback } from '../@ohos.base';
+import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import ExtensionContext from './ExtensionContext';
 import type Want from '../@ohos.app.ability.Want';
 import type StartOptions from '../@ohos.app.ability.StartOptions';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type { AbilityResult } from '../ability/abilityResult';
 import type { ConnectOptions } from '../ability/connectOptions';
 import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
-import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import type UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { AbilityResult } from '../ability/abilityResult';
+import { ConnectOptions } from '../ability/connectOptions';
+import UIServiceProxy from './UIServiceProxy';
+import UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 /*** endif */
 
 /**
@@ -42,8 +45,8 @@ import { AbilityResult } from '../ability/abilityResult';
  * @extends ExtensionContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 20 static
  */
 declare class UIExtensionContext extends ExtensionContext {
   /**
@@ -154,8 +157,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -264,8 +267,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -380,8 +383,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -416,7 +419,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   openLink(link: string, options?: OpenLinkOptions, callback?: AsyncCallback<AbilityResult>): Promise<void>;
 
@@ -528,7 +531,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
 
@@ -637,7 +641,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
 
@@ -752,7 +757,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
 
@@ -811,7 +817,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbilityForResultAsCaller(want: Want, options?: StartOptions): Promise<AbilityResult>;
 
@@ -824,7 +830,7 @@ declare class UIExtensionContext extends ExtensionContext {
    *
    * @param { Want } want - The element name of the service ability
    * @param { ConnectOptions } options - The remote object instance
-   * @returns { number } Returns the number code of the ability connected
+   * @returns { long } Returns the number code of the ability connected
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
@@ -840,37 +846,40 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000070 - The extension cannot start the service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
-  connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
+  connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
   /**
    * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
    *
-   * @param { number } connection - The number code of the ability connected
+   * @param { long } connection - The number code of the ability connected
    * @param { AsyncCallback<void> } callback - The callback of disconnectAbility.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
-  disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
+  disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>): void;
 
   /**
    * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
    *
-   * @param { number } connection - The number code of the ability connected
+   * @param { long } connection - The number code of the ability connected
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
-  disconnectServiceExtensionAbility(connection: number): Promise<void>;
+  disconnectServiceExtensionAbility(connection: long): Promise<void>;
 
   /**
    * Report to system when the extension is drawn completed.
@@ -880,7 +889,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   reportDrawnCompleted(callback: AsyncCallback<void>): void;
 
@@ -891,8 +901,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   terminateSelf(callback: AsyncCallback<void>): void;
 
@@ -902,8 +912,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   terminateSelf(): Promise<void>;
 
@@ -915,8 +925,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
 
@@ -928,8 +938,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
 
@@ -950,7 +960,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<AbilityResult>;
 
@@ -979,7 +989,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   startUIServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -1007,7 +1018,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnectCallback) : Promise<UIServiceProxy>;
 
@@ -1022,7 +1034,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise<void>;
 
@@ -1053,7 +1066,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 18
+   * @since 18 dynamic
    */
   startServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -1086,7 +1099,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 18
+   * @since 18 dynamic
    */
   startServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
 
@@ -1101,7 +1114,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 15
+   * @since 15 dynamic
    */
   setHostPageOverlayForbidden(isForbidden: boolean) : void;
 
@@ -1112,7 +1125,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 18
+   * @since 18 dynamic
+   * @since 20 static
    */
    setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 
@@ -1152,7 +1166,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   startUIAbilities(wantList: Array<Want>): Promise<void>;
 
@@ -1194,9 +1208,9 @@ declare class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 21 dynamic
    */
-  startUIAbilitiesInSplitWindowMode(primaryWindowId: number, secondaryWant: Want): Promise<void>;
+  startUIAbilitiesInSplitWindowMode(primaryWindowId: int, secondaryWant: Want): Promise<void>;
 }
 
 export default UIExtensionContext;

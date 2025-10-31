@@ -26,67 +26,73 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * @namespace sim
  * @syscap SystemCapability.Telephony.CoreService
- * @since 6
+ * @since 6 dynamic
+ * @since 20 static
  */
 declare namespace sim {
   /**
    * Checks whether the SIM card in a specified slot is activated.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from {@code 0} to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<boolean> } callback - Indicates the callback for checking
    * whether the SIM card in a specified slot is activated.
    * Returns {@code true} if the SIM card is activated; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
+   * @since 20 static
    */
-  function isSimActive(slotId: number, callback: AsyncCallback<boolean>): void;
+  function isSimActive(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
    * Checks whether the SIM card in a specified slot is activated.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from {@code 0} to the maximum card slot index number supported by the device.
    * @returns { Promise<boolean> } Returns {@code true} if the SIM card is activated; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
+   * @since 20 static
    */
-  function isSimActive(slotId: number): Promise<boolean>;
+  function isSimActive(slotId: int): Promise<boolean>;
 
   /**
    * Checks whether the SIM card in a specified slot is activated.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slots supported by the device.
    * @returns { boolean } Returns {@code true} if the SIM card is activated; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
-  function isSimActiveSync(slotId: number): boolean;
+  function isSimActiveSync(slotId: int): boolean;
 
   /**
    * Obtains the default card slot for the voice service.
    *
-   * @param { AsyncCallback<number> } callback - Indicates the callback for getting
+   * @param { AsyncCallback<int> } callback - Indicates the callback for getting
    * the default card slot for the voice service.
    * Returns {@code 0} if card 1 is used as the default card slot for the voice service;
    * returns {@code 1} if card 2 is used as the default card slot for the voice service;
    * returns {@code -1} if no card is available for the voice service.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
+   * @since 20 static
    */
-  function getDefaultVoiceSlotId(callback: AsyncCallback<number>): void;
+  function getDefaultVoiceSlotId(callback: AsyncCallback<int>): void;
 
   /**
    * Obtains the default card slot for the voice service.
    *
-   * @returns { Promise<number> } Returns {@code 0} if card 1 is used as the default card slot for the voice service;
+   * @returns { Promise<int> } Returns {@code 0} if card 1 is used as the default card slot for the voice service;
    * returns {@code 1} if card 2 is used as the default card slot for the voice service;
    * returns {@code -1} if no card is available for the voice service.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
+   * @since 20 static
    */
-  function getDefaultVoiceSlotId(): Promise<number>;
+  function getDefaultVoiceSlotId(): Promise<int>;
 
   /**
    * Checks whether your application (the caller) has been granted the operator permissions.
@@ -103,7 +109,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
    */
   function hasOperatorPrivileges(slotId: number, callback: AsyncCallback<boolean>): void;
 
@@ -122,14 +128,14 @@ declare namespace sim {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
    */
   function hasOperatorPrivileges(slotId: number): Promise<boolean>;
 
   /**
    * Obtains the ISO country code of the SIM card in a specified slot.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<string> } callback - Indicates the callback for getting the country code defined
    * in ISO 3166-2; returns an empty string if no SIM card is inserted.
@@ -141,14 +147,15 @@ declare namespace sim {
    * @throws { BusinessError } 8300004 - No SIM card found.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since 6 dynamic
+   * @since 20 static
    */
-  function getISOCountryCodeForSim(slotId: number, callback: AsyncCallback<string>): void;
+  function getISOCountryCodeForSim(slotId: int, callback: AsyncCallback<string>): void;
 
   /**
    * Obtains the ISO country code of the SIM card in a specified slot.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<string> } Returns the country code defined in ISO 3166-2;
    * returns an empty string if no SIM card is inserted.
@@ -160,9 +167,10 @@ declare namespace sim {
    * @throws { BusinessError } 8300004 - No SIM card found.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since 6 dynamic
+   * @since 20 static
    */
-  function getISOCountryCodeForSim(slotId: number): Promise<string>;
+  function getISOCountryCodeForSim(slotId: int): Promise<string>;
 
   /**
    * Obtains the ISO country code of the SIM card in a specified slot.
@@ -172,7 +180,7 @@ declare namespace sim {
    * @returns { string } Returns the country code defined in ISO 3166-2; returns an empty string if no SIM card
    * is inserted.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
    */
   function getISOCountryCodeForSimSync(slotId: number): string;
 
@@ -194,7 +202,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300004 - No SIM card found.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since 6 dynamic
    */
   function getSimOperatorNumeric(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -215,7 +223,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300004 - No SIM card found.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since 6 dynamic
    */
   function getSimOperatorNumeric(slotId: number): Promise<string>;
 
@@ -229,7 +237,7 @@ declare namespace sim {
    * ranging from 0 to the maximum card slots supported by the device.
    * @returns { string } Returns the PLMN number; returns an empty string if no SIM card is inserted.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
    */
   function getSimOperatorNumericSync(slotId: number): string;
 
@@ -251,7 +259,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300004 - No SIM card found.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since 6 dynamic
    */
   function getSimSpn(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -273,7 +281,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300004 - No SIM card found.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since 6 dynamic
    */
   function getSimSpn(slotId: number): Promise<string>;
 
@@ -288,14 +296,14 @@ declare namespace sim {
    * @returns { string } Returns the SPN; returns an empty string if no EFSPN file is configured for the SIM card.
    * in the SIM card.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
    */
   function getSimSpnSync(slotId: number): string;
 
   /**
    * Obtains the state of the SIM card in a specified slot.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from {@code 0} to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<SimState> } callback - Indicates the callback for getting one of the following SIM card states:
    * <ul>
@@ -313,14 +321,15 @@ declare namespace sim {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since 6 dynamic
+   * @since 20 static
    */
-  function getSimState(slotId: number, callback: AsyncCallback<SimState>): void;
+  function getSimState(slotId: int, callback: AsyncCallback<SimState>): void;
 
   /**
    * Obtains the state of the SIM card in a specified slot.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from {@code 0} to the maximum card slot index number supported by the device.
    * @returns { Promise<SimState> } Returns one of the following SIM card states:
    * <ul>
@@ -338,14 +347,15 @@ declare namespace sim {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since 6 dynamic
+   * @since 20 static
    */
-  function getSimState(slotId: number): Promise<SimState>;
+  function getSimState(slotId: int): Promise<SimState>;
 
   /**
    * Obtains the state of the SIM card in a specified slot.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slots supported by the device.
    * @returns { SimState } Returns one of the following SIM card states:
    * <ul>
@@ -357,9 +367,10 @@ declare namespace sim {
    * <li>{@code SimState#SIM_STATE_LOADED}
    * </ul>
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
-  function getSimStateSync(slotId: number): SimState;
+  function getSimStateSync(slotId: int): SimState;
 
   /**
    * Obtains the type of the SIM card installed in a specified slot.
@@ -375,7 +386,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300004 - No SIM card found.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
    */
   function getCardType(slotId: number, callback: AsyncCallback<CardType>): void;
 
@@ -393,7 +404,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300004 - No SIM card found.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
    */
   function getCardType(slotId: number): Promise<CardType>;
 
@@ -404,7 +415,7 @@ declare namespace sim {
    * ranging from 0 to the maximum card slots supported by the device.
    * @returns { CardType } Returns the SIM card type.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
    */
   function getCardTypeSync(slotId: number): CardType;
 
@@ -430,7 +441,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function getSimIccId(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -455,7 +466,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function getSimIccId(slotId: number): Promise<string>;
 
@@ -478,7 +489,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getVoiceMailIdentifier(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -501,7 +512,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getVoiceMailIdentifier(slotId: number): Promise<string>;
 
@@ -524,7 +535,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getVoiceMailNumber(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -547,7 +558,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getVoiceMailNumber(slotId: number): Promise<string>;
 
@@ -572,7 +583,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function setVoiceMailInfo(slotId: number, mailName: string, mailNumber: string, callback: AsyncCallback<void>): void;
 
@@ -597,7 +608,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function setVoiceMailInfo(slotId: number, mailName: string, mailNumber: string): Promise<void>;
 
@@ -622,7 +633,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getSimTelephoneNumber(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -646,7 +657,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getSimTelephoneNumber(slotId: number): Promise<string>;
 
@@ -670,7 +681,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function getSimGid1(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -694,7 +705,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function getSimGid1(slotId: number): Promise<string>;
 
@@ -702,11 +713,12 @@ declare namespace sim {
    * Obtains the maximum number of SIM cards that can be used simultaneously on the device,
    * that is, the maximum number of SIM card slots.
    *
-   * @returns { number } Returns the maximum number of SIM card slots.
+   * @returns { int } Returns the maximum number of SIM card slots.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
+   * @since 20 static
    */
-  function getMaxSimCount(): number;
+  function getMaxSimCount(): int;
 
   /**
    * Get the international mobile subscriber ID.
@@ -727,7 +739,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamic
    */
   function getIMSI(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -749,7 +761,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 6 dynamic
    */
   function getIMSI(slotId: number): Promise<string>;
 
@@ -770,14 +782,14 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function isOperatorSimCard(slotId: number, operator: OperatorSimCard): boolean;
 
   /**
    * Checks whether a SIM card is inserted in a specified slot.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<boolean> } callback - Indicates the callback for hasSimCard.
    * Returns {@code true} if a SIM card is inserted; return {@code false} otherwise.
@@ -788,14 +800,15 @@ declare namespace sim {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
+   * @since 20 static
    */
-  function hasSimCard(slotId: number, callback: AsyncCallback<boolean>): void;
+  function hasSimCard(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
    * Checks whether a SIM card is inserted in a specified slot.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<boolean> } Returns {@code true} if a SIM card is inserted; return {@code false} otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -805,9 +818,10 @@ declare namespace sim {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
+   * @since 20 static
    */
-  function hasSimCard(slotId: number): Promise<boolean>;
+  function hasSimCard(slotId: int): Promise<boolean>;
 
   /**
    * Checks whether a SIM card is inserted in a specified slot.
@@ -816,7 +830,7 @@ declare namespace sim {
    * ranging from 0 to the maximum card slots supported by the device.
    * @returns { boolean } Returns {@code true} if a SIM card is inserted; return {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
    */
   function hasSimCardSync(slotId: number): boolean;
 
@@ -824,11 +838,12 @@ declare namespace sim {
    * Get account information of SIM card.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<IccAccountInfo> } callback - Indicates the callback for
    * getting a {@code IccAccountInfo} object. The ICCID and phone number will be null
    * if has no ohos.permission.GET_TELEPHONY_STATE.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -838,18 +853,20 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
-  function getSimAccountInfo(slotId: number, callback: AsyncCallback<IccAccountInfo>): void;
+  function getSimAccountInfo(slotId: int, callback: AsyncCallback<IccAccountInfo>): void;
 
   /**
    * Get account information of SIM card.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<IccAccountInfo> } Returns a {@code IccAccountInfo} object. The ICCID and phone number
    * will be null if has no ohos.permission.GET_TELEPHONY_STATE.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -859,9 +876,10 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
-  function getSimAccountInfo(slotId: number): Promise<IccAccountInfo>;
+  function getSimAccountInfo(slotId: int): Promise<IccAccountInfo>;
 
   /**
    * Get the list of active SIM card account information.
@@ -878,7 +896,8 @@ declare namespace sim {
    * @throws { BusinessError } 8300004 - No SIM card found.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getActiveSimAccountInfoList(callback: AsyncCallback<Array<IccAccountInfo>>): void;
 
@@ -893,7 +912,8 @@ declare namespace sim {
    * @throws { BusinessError } 8300004 - No SIM card found.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getActiveSimAccountInfoList(): Promise<Array<IccAccountInfo>>;
 
@@ -916,7 +936,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function setDefaultVoiceSlotId(slotId: number, callback: AsyncCallback<void>): void;
 
@@ -939,7 +959,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function setDefaultVoiceSlotId(slotId: number): Promise<void>;
 
@@ -961,7 +981,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function activateSim(slotId: number, callback: AsyncCallback<void>): void;
 
@@ -983,7 +1003,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function activateSim(slotId: number): Promise<void>;
 
@@ -1005,7 +1025,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function deactivateSim(slotId: number, callback: AsyncCallback<void>): void;
 
@@ -1027,7 +1047,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function deactivateSim(slotId: number): Promise<void>;
 
@@ -1050,7 +1070,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function setShowName(slotId: number, name: string, callback: AsyncCallback<void>): void;
 
@@ -1073,7 +1093,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function setShowName(slotId: number, name: string): Promise<void>;
 
@@ -1095,7 +1115,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getShowName(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -1117,7 +1137,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getShowName(slotId: number): Promise<string>;
 
@@ -1140,7 +1160,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function setShowNumber(slotId: number, number: string, callback: AsyncCallback<void>): void;
 
@@ -1163,7 +1183,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function setShowNumber(slotId: number, number: string): Promise<void>;
 
@@ -1185,7 +1205,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getShowNumber(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -1207,7 +1227,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getShowNumber(slotId: number): Promise<string>;
 
@@ -1215,7 +1235,7 @@ declare namespace sim {
    * Obtains the operatorconfigs of the SIM card in a specified slot.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<Array<OperatorConfig>> } callback - Indicates the callback for
    * getting the operatorconfigs in a specified slot;
@@ -1230,15 +1250,16 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 20 static
    */
-  function getOperatorConfigs(slotId: number, callback: AsyncCallback<Array<OperatorConfig>>): void;
+  function getOperatorConfigs(slotId: int, callback: AsyncCallback<Array<OperatorConfig>>): void;
 
   /**
    * Obtains the operatorconfigs of the SIM card in a specified slot.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<Array<OperatorConfig>> } Returns the operatorconfigs in a specified slot;
    * returns empty OperatorConfig if no SIM card is inserted.
@@ -1252,15 +1273,16 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 20 static
    */
-  function getOperatorConfigs(slotId: number): Promise<Array<OperatorConfig>>;
+  function getOperatorConfigs(slotId: int): Promise<Array<OperatorConfig>>;
 
   /**
    * Unlock the SIM card password of the specified card slot.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } pin - Indicates the password of the SIM card.
    * @param { AsyncCallback<LockStatusResponse> } callback - Indicates the callback for getting
@@ -1277,15 +1299,16 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
+   * @since 20 static
    */
-  function unlockPin(slotId: number, pin: string, callback: AsyncCallback<LockStatusResponse>): void;
+  function unlockPin(slotId: int, pin: string, callback: AsyncCallback<LockStatusResponse>): void;
 
   /**
    * Unlock the SIM card password of the specified card slot.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } pin - Indicates the password of the SIM card.
    * @returns { Promise<LockStatusResponse> } Returns the response to obtain
@@ -1302,15 +1325,16 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
+   * @since 20 static
    */
-  function unlockPin(slotId: number, pin: string): Promise<LockStatusResponse>;
+  function unlockPin(slotId: int, pin: string): Promise<LockStatusResponse>;
 
   /**
    * Unlock the SIM card password in the specified card slot.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } newPin - Indicates to reset the SIM card password.
    * @param { string } puk - Indicates the unlock password of the SIM card password.
@@ -1328,15 +1352,16 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
+   * @since 20 static
    */
-  function unlockPuk(slotId: number, newPin: string, puk: string, callback: AsyncCallback<LockStatusResponse>): void;
+  function unlockPuk(slotId: int, newPin: string, puk: string, callback: AsyncCallback<LockStatusResponse>): void;
 
   /**
    * Unlock the SIM card password in the specified card slot.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } newPin - Indicates to reset the SIM card password.
    * @param { string } puk - Indicates the unlock password of the SIM card password.
@@ -1354,9 +1379,10 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
+   * @since 20 static
    */
-  function unlockPuk(slotId: number, newPin: string, puk: string): Promise<LockStatusResponse>;
+  function unlockPuk(slotId: int, newPin: string, puk: string): Promise<LockStatusResponse>;
 
   /**
    * Change Pin Password.
@@ -1380,7 +1406,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function alterPin(slotId: number, newPin: string, oldPin: string, callback: AsyncCallback<LockStatusResponse>): void;
 
@@ -1406,7 +1432,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function alterPin(slotId: number, newPin: string, oldPin: string): Promise<LockStatusResponse>;
 
@@ -1431,7 +1457,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function setLockState(slotId: number, options: LockInfo, callback: AsyncCallback<LockStatusResponse>): void;
 
@@ -1456,7 +1482,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function setLockState(slotId: number, options: LockInfo): Promise<LockStatusResponse>;
 
@@ -1481,7 +1507,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function unlockPin2(slotId: number, pin2: string, callback: AsyncCallback<LockStatusResponse>): void;
 
@@ -1506,7 +1532,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function unlockPin2(slotId: number, pin2: string): Promise<LockStatusResponse>;
 
@@ -1532,7 +1558,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function unlockPuk2(slotId: number, newPin2: string, puk2: string, callback: AsyncCallback<LockStatusResponse>): void;
 
@@ -1558,7 +1584,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function unlockPuk2(slotId: number, newPin2: string, puk2: string): Promise<LockStatusResponse>;
 
@@ -1584,7 +1610,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function alterPin2(slotId: number, newPin2: string, oldPin2: string, callback: AsyncCallback<LockStatusResponse>): void;
 
@@ -1610,7 +1636,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function alterPin2(slotId: number, newPin2: string, oldPin2: string): Promise<LockStatusResponse>;
 
@@ -1635,7 +1661,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function queryIccDiallingNumbers(slotId: number, type: ContactType, callback: AsyncCallback<Array<DiallingNumbersInfo>>): void;
 
@@ -1659,7 +1685,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function queryIccDiallingNumbers(slotId: number, type: ContactType): Promise<Array<DiallingNumbersInfo>>;
 
@@ -1684,7 +1710,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function addIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo, callback: AsyncCallback<void>): void;
 
@@ -1709,7 +1735,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function addIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo): Promise<void>;
 
@@ -1734,7 +1760,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function delIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo, callback: AsyncCallback<void>): void;
 
@@ -1759,7 +1785,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function delIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo): Promise<void>;
 
@@ -1784,7 +1810,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function updateIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo, callback: AsyncCallback<void>): void;
 
@@ -1809,7 +1835,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function updateIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo): Promise<void>;
 
@@ -1817,7 +1843,7 @@ declare namespace sim {
    * Get the lock status of the SIM card in the specified slot.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { LockType } lockType - Indicates the lock type.
    * @param { AsyncCallback<LockState> } callback - Indicates the callback for getting the sim card lock status.
@@ -1833,15 +1859,16 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 20 static
    */
-  function getLockState(slotId: number, lockType: LockType, callback: AsyncCallback<LockState>): void;
+  function getLockState(slotId: int, lockType: LockType, callback: AsyncCallback<LockState>): void;
 
   /**
    * Get the lock status of the SIM card in the specified slot.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { LockType } lockType - Indicates the lock type.
    * @returns { Promise<LockState> } Returns the sim card lock status.
@@ -1857,9 +1884,10 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 20 static
    */
-  function getLockState(slotId: number, lockType: LockType): Promise<LockState>;
+  function getLockState(slotId: int, lockType: LockType): Promise<LockState>;
 
   /**
    * Send envelope command to SIM card.
@@ -1880,7 +1908,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function sendEnvelopeCmd(slotId: number, cmd: string, callback: AsyncCallback<void>): void;
 
@@ -1903,7 +1931,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function sendEnvelopeCmd(slotId: number, cmd: string): Promise<void>;
 
@@ -1926,7 +1954,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function sendTerminalResponseCmd(slotId: number, cmd: string, callback: AsyncCallback<void>): void;
 
@@ -1949,7 +1977,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function sendTerminalResponseCmd(slotId: number, cmd: string): Promise<void>;
 
@@ -1975,7 +2003,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function unlockSimLock(slotId: number, lockInfo: PersoLockInfo, callback: AsyncCallback<LockStatusResponse>): void;
 
@@ -2000,7 +2028,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function unlockSimLock(slotId: number, lockInfo: PersoLockInfo): Promise<LockStatusResponse>;
 
@@ -2019,7 +2047,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 9
+   * @since 9 dynamic
    */
   function getOpKey(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -2038,7 +2066,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 9
+   * @since 9 dynamic
    */
   function getOpKey(slotId: number): Promise<string>;
 
@@ -2050,7 +2078,7 @@ declare namespace sim {
    * @returns { string } Returns the operator key; returns an empty string if no SIM card is inserted or
    * no operator key is matched.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
    */
   function getOpKeySync(slotId: number): string;
 
@@ -2069,7 +2097,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 9
+   * @since 9 dynamic
    */
   function getOpName(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -2088,7 +2116,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 9
+   * @since 9 dynamic
    */
   function getOpName(slotId: number): Promise<string>;
 
@@ -2100,7 +2128,7 @@ declare namespace sim {
    * @returns { string } Returns the operator name; returns an empty string if no SIM card is inserted or
    * no operator name is matched.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
    */
   function getOpNameSync(slotId: number): string;
 
@@ -2118,7 +2146,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
    */
   function getDefaultVoiceSimId(callback: AsyncCallback<number>): void;
 
@@ -2134,7 +2162,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
    */
   function getDefaultVoiceSimId(): Promise<number>;
 
@@ -2160,7 +2188,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function getDsdsMode(callback: AsyncCallback<DsdsMode>): void;
 
@@ -2186,7 +2214,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function getDsdsMode(): Promise<DsdsMode>;
 
@@ -2213,7 +2241,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - An error occurred when operating the SIM card.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 14
+   * @since 14 dynamic
    */
   function getSimAuthentication(slotId: number, authType: AuthType, authData: string): Promise<SimAuthenticationResponse>;
 
@@ -2233,8 +2261,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function getAllSimAccountInfoList(callback: AsyncCallback<Array<IccAccountInfo>>): void;
 
@@ -2252,8 +2279,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function getAllSimAccountInfoList(): Promise<Array<IccAccountInfo>>;
 
@@ -2266,8 +2292,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function getSimLabel(slotId: number, callback: AsyncCallback<SimLabel>): void;
 
@@ -2280,8 +2305,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function getSimLabel(slotId: number): Promise<SimLabel>;
 
@@ -2291,8 +2315,7 @@ declare namespace sim {
    * by the device.
    * @returns { SimLabel } SIM card label.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function getSimLabelSync(slotId: number): SimLabel;
 
@@ -2301,16 +2324,14 @@ declare namespace sim {
    *
    * @enum { number }
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   export enum SimType {
     /**
      * Indicates psim type.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     PSIM = 0,
 
@@ -2318,8 +2339,7 @@ declare namespace sim {
      * Indicates esim type.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     ESIM = 1
   }
@@ -2328,16 +2348,14 @@ declare namespace sim {
    * Defines the SIM card label.
    * @interface SimLabel
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   export interface SimLabel {
     /**
      * Represents the SIM card type.
      * @type { SimType }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     simType: SimType;
 
@@ -2345,8 +2363,7 @@ declare namespace sim {
      * Represents the SIM card index.
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     index: number;
   }
@@ -2357,7 +2374,8 @@ declare namespace sim {
    * @interface OperatorConfig
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 20 static
    */
   export interface OperatorConfig {
     /**
@@ -2366,7 +2384,8 @@ declare namespace sim {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 20 static
      */
     field: string;
 
@@ -2376,7 +2395,8 @@ declare namespace sim {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 20 static
      */
     value: string;
   }
@@ -2386,34 +2406,38 @@ declare namespace sim {
    *
    * @interface IccAccountInfo
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
   export interface IccAccountInfo {
     /**
      * Indicates the sim Id for card.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 10
+     * @since 10 dynamic
+     * @since 20 static
      */
-    simId: number;
+    simId: int;
 
     /**
      * Indicates the card slot index number,
      * ranging from 0 to the maximum card slot index number supported by the device.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 10
+     * @since 10 dynamic
+     * @since 20 static
      */
-    slotIndex: number;
+    slotIndex: int;
 
     /**
      * Indicates the mark card is eSim or not.
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 10
+     * @since 10 dynamic
+     * @since 20 static
      */
     isEsim: boolean;
 
@@ -2422,7 +2446,8 @@ declare namespace sim {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 10
+     * @since 10 dynamic
+     * @since 20 static
      */
     isActive: boolean;
 
@@ -2431,7 +2456,8 @@ declare namespace sim {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 10
+     * @since 10 dynamic
+     * @since 20 static
      */
     iccId: string;
 
@@ -2440,7 +2466,8 @@ declare namespace sim {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 10
+     * @since 10 dynamic
+     * @since 20 static
      */
     showName: string;
 
@@ -2449,7 +2476,8 @@ declare namespace sim {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 10
+     * @since 10 dynamic
+     * @since 20 static
      */
     showNumber: string;
   }
@@ -2460,28 +2488,31 @@ declare namespace sim {
    * @interface LockStatusResponse
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
+   * @since 20 static
    */
   export interface LockStatusResponse {
     /**
      * Indicates the current operation result.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 20 static
      */
-    result: number;
+    result: int;
 
     /**
      * Indicates the operations remaining.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
+     * @since 20 static
      */
-    remain?: number;
+    remain?: int;
   }
 
   /**
@@ -2490,7 +2521,7 @@ declare namespace sim {
    * @interface DiallingNumbersInfo
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface DiallingNumbersInfo {
     /**
@@ -2499,7 +2530,7 @@ declare namespace sim {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     alphaTag: string;
 
@@ -2509,7 +2540,7 @@ declare namespace sim {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     number: string;
 
@@ -2519,7 +2550,7 @@ declare namespace sim {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     recordNumber?: number;
 
@@ -2529,7 +2560,7 @@ declare namespace sim {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     pin2?: string;
   }
@@ -2540,7 +2571,7 @@ declare namespace sim {
    * @interface LockInfo
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface LockInfo {
     /**
@@ -2549,7 +2580,7 @@ declare namespace sim {
      * @type { LockType }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     lockType: LockType;
 
@@ -2559,7 +2590,7 @@ declare namespace sim {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     password: string;
 
@@ -2569,7 +2600,7 @@ declare namespace sim {
      * @type { LockState }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     state: LockState;
   }
@@ -2580,7 +2611,7 @@ declare namespace sim {
    * @interface PersoLockInfo
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface PersoLockInfo {
     /**
@@ -2589,7 +2620,7 @@ declare namespace sim {
      * @type { PersoLockType }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     lockType: PersoLockType;
 
@@ -2599,7 +2630,7 @@ declare namespace sim {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     password: string;
   }
@@ -2607,10 +2638,11 @@ declare namespace sim {
   /**
    * Indicates the lock types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 20 static
    */
   export enum LockType {
     /**
@@ -2618,7 +2650,8 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 20 static
      */
     PIN_LOCK = 1,
 
@@ -2627,7 +2660,8 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 20 static
      */
     FDN_LOCK = 2
   }
@@ -2635,16 +2669,18 @@ declare namespace sim {
   /**
    * Indicates the SIM card types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 7 dynamic
+   * @since 20 static
    */
   export enum CardType {
     /**
      * Icc card type: unknown type Card.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since 7 dynamic
+     * @since 20 static
      */
     UNKNOWN_CARD = -1,
 
@@ -2652,7 +2688,8 @@ declare namespace sim {
      * Icc card type: Single sim card type.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since 7 dynamic
+     * @since 20 static
      */
     SINGLE_MODE_SIM_CARD = 10,
 
@@ -2660,7 +2697,8 @@ declare namespace sim {
      * Icc card type: Single usim card type.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since 7 dynamic
+     * @since 20 static
      */
     SINGLE_MODE_USIM_CARD = 20,
 
@@ -2668,7 +2706,8 @@ declare namespace sim {
      * Icc card type: Single ruim card type.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since 7 dynamic
+     * @since 20 static
      */
     SINGLE_MODE_RUIM_CARD = 30,
 
@@ -2676,7 +2715,8 @@ declare namespace sim {
      * Icc card type: Double card C+G.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since 7 dynamic
+     * @since 20 static
      */
     DUAL_MODE_CG_CARD = 40,
 
@@ -2684,7 +2724,8 @@ declare namespace sim {
      * Icc card type: China Telecom Internal Roaming Card (Dual Mode).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since 7 dynamic
+     * @since 20 static
      */
     CT_NATIONAL_ROAMING_CARD = 41,
 
@@ -2692,7 +2733,8 @@ declare namespace sim {
      * Icc card type: China Unicom Dual Mode Card.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since 7 dynamic
+     * @since 20 static
      */
     CU_DUAL_MODE_CARD = 42,
 
@@ -2700,7 +2742,8 @@ declare namespace sim {
      * Icc card type: China Telecom LTE Card (Dual Mode).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since 7 dynamic
+     * @since 20 static
      */
     DUAL_MODE_TELECOM_LTE_CARD = 43,
 
@@ -2708,14 +2751,16 @@ declare namespace sim {
      * Icc card type: Double card U+G.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since 7 dynamic
+     * @since 20 static
      */
     DUAL_MODE_UG_CARD = 50,
 
     /**
      * Icc card type: Single isim card type.
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 8
+     * @since 8 dynamic
+     * @since 20 static
      */
     SINGLE_MODE_ISIM_CARD = 60
   }
@@ -2723,9 +2768,10 @@ declare namespace sim {
   /**
    * Indicates the SIM card states.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
+   * @since 6 dynamic
+   * @since 20 static
    */
   export enum SimState {
     /**
@@ -2733,7 +2779,8 @@ declare namespace sim {
      * obtained.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since 6 dynamic
+     * @since 20 static
      */
     SIM_STATE_UNKNOWN = 0,
 
@@ -2742,7 +2789,8 @@ declare namespace sim {
      * no SIM card is inserted into the card slot.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since 6 dynamic
+     * @since 20 static
      */
     SIM_STATE_NOT_PRESENT = 1,
 
@@ -2752,7 +2800,8 @@ declare namespace sim {
      * unblocking key (PUK) or network.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since 6 dynamic
+     * @since 20 static
      */
     SIM_STATE_LOCKED = 2,
 
@@ -2761,7 +2810,8 @@ declare namespace sim {
      * the SIM card is in position but cannot work properly.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since 6 dynamic
+     * @since 20 static
      */
     SIM_STATE_NOT_READY = 3,
 
@@ -2770,7 +2820,8 @@ declare namespace sim {
      * SIM card is in position and is working properly.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since 6 dynamic
+     * @since 20 static
      */
     SIM_STATE_READY = 4,
 
@@ -2779,7 +2830,8 @@ declare namespace sim {
      * SIM card is in position and is working properly.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 6
+     * @since 6 dynamic
+     * @since 20 static
      */
     SIM_STATE_LOADED = 5
   }
@@ -2787,10 +2839,11 @@ declare namespace sim {
   /**
    * Indicates the lock states.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
+   * @since 20 static
    */
   export enum LockState {
     /**
@@ -2798,7 +2851,8 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 20 static
      */
     LOCK_OFF = 0,
 
@@ -2807,7 +2861,8 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
+     * @since 20 static
      */
     LOCK_ON = 1
   }
@@ -2818,7 +2873,7 @@ declare namespace sim {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export enum ContactType {
     /**
@@ -2826,7 +2881,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     GENERAL_CONTACT = 1,
 
@@ -2835,7 +2890,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     FIXED_DIALING = 2
   }
@@ -2846,7 +2901,7 @@ declare namespace sim {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export enum PersoLockType {
     /**
@@ -2854,7 +2909,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PN_PIN_LOCK = 0,
 
@@ -2863,7 +2918,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PN_PUK_LOCK = 1,
 
@@ -2872,7 +2927,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PU_PIN_LOCK = 2,
 
@@ -2881,7 +2936,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PU_PUK_LOCK = 3,
 
@@ -2890,7 +2945,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PP_PIN_LOCK = 4,
 
@@ -2899,7 +2954,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PP_PUK_LOCK = 5,
 
@@ -2908,7 +2963,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PC_PIN_LOCK = 6,
 
@@ -2917,7 +2972,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     PC_PUK_LOCK = 7,
 
@@ -2926,7 +2981,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     SIM_PIN_LOCK = 8,
 
@@ -2935,7 +2990,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     SIM_PUK_LOCK = 9
   }
@@ -2946,7 +3001,7 @@ declare namespace sim {
    * @enum { string }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   export enum OperatorConfigKey {
 
@@ -2955,7 +3010,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_VOICE_MAIL_NUMBER_STRING = 'voice_mail_number_string',
 
@@ -2964,7 +3019,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_IMS_SWITCH_ON_BY_DEFAULT_BOOL = 'ims_switch_on_by_default_bool',
 
@@ -2973,7 +3028,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_HIDE_IMS_SWITCH_BOOL = 'hide_ims_switch_bool',
 
@@ -2982,7 +3037,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_VOLTE_SUPPORTED_BOOL = 'volte_supported_bool',
 
@@ -2991,7 +3046,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_NR_MODE_SUPPORTED_LIST_INT_ARRAY = 'nr_mode_supported_list_int_array',
 
@@ -3000,7 +3055,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_VOLTE_PROVISIONING_SUPPORTED_BOOL = 'volte_provisioning_supported_bool',
 
@@ -3009,7 +3064,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_SS_OVER_UT_SUPPORTED_BOOL = 'ss_over_ut_supported_bool',
 
@@ -3018,7 +3073,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_IMS_GBA_REQUIRED_BOOL = 'ims_gba_required_bool',
 
@@ -3027,7 +3082,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_UT_PROVISIONING_SUPPORTED_BOOL = 'ut_provisioning_supported_bool',
 
@@ -3036,7 +3091,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_IMS_PREFER_FOR_EMERGENCY_BOOL = 'ims_prefer_for_emergency_bool',
 
@@ -3045,7 +3100,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_CALL_WAITING_SERVICE_CLASS_INT = 'call_waiting_service_class_int',
 
@@ -3054,7 +3109,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_CALL_TRANSFER_VISIBILITY_BOOL = 'call_transfer_visibility_bool',
 
@@ -3063,7 +3118,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_IMS_CALL_DISCONNECT_REASON_INFO_MAPPING_STRING_ARRAY =
     'ims_call_disconnect_reason_info_mapping_string_array',
@@ -3073,7 +3128,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_FORCE_VOLTE_SWITCH_ON_BOOL = 'force_volte_switch_on_bool',
 
@@ -3082,7 +3137,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_ENABLE_OPERATOR_NAME_CUST_BOOL = 'enable_operator_name_cust_bool',
 
@@ -3091,7 +3146,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_OPERATOR_NAME_CUST_STRING = 'operator_name_cust_string',
 
@@ -3100,7 +3155,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_SPN_DISPLAY_CONDITION_CUST_INT = 'spn_display_condition_cust_int',
 
@@ -3109,7 +3164,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_PNN_CUST_STRING_ARRAY = 'pnn_cust_string_array',
 
@@ -3118,7 +3173,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_OPL_CUST_STRING_ARRAY = 'opl_cust_string_array',
 
@@ -3127,7 +3182,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     KEY_EMERGENCY_CALL_STRING_ARRAY = 'emergency_call_string_array'
   }
@@ -3138,7 +3193,7 @@ declare namespace sim {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   export enum DsdsMode {
     /**
@@ -3146,7 +3201,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     DSDS_MODE_V2 = 0,
 
@@ -3155,7 +3210,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     DSDS_MODE_V3 = 1,
 
@@ -3164,7 +3219,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     DSDS_MODE_V5_TDM = 2,
 
@@ -3173,7 +3228,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     DSDS_MODE_V5_DSDA = 3
   }
@@ -3184,7 +3239,7 @@ declare namespace sim {
    * @enum { string }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   export enum OperatorSimCard {
     /**
@@ -3192,7 +3247,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     CHINA_TELECOM_CARD = 'china_telecom_card'
   }
@@ -3203,7 +3258,7 @@ declare namespace sim {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 14
+   * @since 14 dynamic
    */
   export enum AuthType {
     /**
@@ -3211,7 +3266,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 14
+     * @since 14 dynamic
      */
     SIM_AUTH_EAP_SIM_TYPE = 128,
     /**
@@ -3219,7 +3274,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 14
+     * @since 14 dynamic
      */
     SIM_AUTH_EAP_AKA_TYPE = 129
   }
@@ -3230,7 +3285,7 @@ declare namespace sim {
    * @interface SimAuthenticationResponse
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 14
+   * @since 14 dynamic
    */
   export interface SimAuthenticationResponse {
     /**
@@ -3239,7 +3294,7 @@ declare namespace sim {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 14
+     * @since 14 dynamic
      */
     simStatusWord1: number;
 
@@ -3249,7 +3304,7 @@ declare namespace sim {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 14
+     * @since 14 dynamic
      */
     simStatusWord2: number;
 
@@ -3259,7 +3314,7 @@ declare namespace sim {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 14
+     * @since 14 dynamic
      */
     response: string;
   }

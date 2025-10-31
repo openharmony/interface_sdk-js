@@ -21,6 +21,7 @@
 import { AsyncCallback } from './@ohos.base';
 import { Callback } from './@ohos.base';
 import BaseContext from './application/BaseContext';
+import { WantAgent } from './@ohos.app.ability.wantAgent';
 
 /**
  * Upload and download
@@ -43,8 +44,8 @@ import BaseContext from './application/BaseContext';
  * @syscap SystemCapability.Request.FileTransferAgent
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace request {
   /**
@@ -58,9 +59,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const EXCEPTION_PERMISSION: number;
+  const EXCEPTION_PERMISSION: int;
   /**
    * Error code 401 - The parameters check fails.
    *
@@ -72,9 +73,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const EXCEPTION_PARAMCHECK: number;
+  const EXCEPTION_PARAMCHECK: int;
   /**
    * Error code 801 - Call unsupported api.
    *
@@ -86,9 +87,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const EXCEPTION_UNSUPPORTED: number;
+  const EXCEPTION_UNSUPPORTED: int;
   /**
    * Error code 13400001 - Invalid file or file system error.
    *
@@ -100,9 +101,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const EXCEPTION_FILEIO: number;
+  const EXCEPTION_FILEIO: int;
   /**
    * Error code 13400002 - File path not supported or invalid.
    *
@@ -114,9 +115,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const EXCEPTION_FILEPATH: number;
+  const EXCEPTION_FILEPATH: int;
   /**
    * Error code 13400003 - Task service ability error.
    *
@@ -128,9 +129,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const EXCEPTION_SERVICE: number;
+  const EXCEPTION_SERVICE: int;
   /**
    * Error code 13499999 - Others error.
    *
@@ -142,9 +143,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const EXCEPTION_OTHERS: number;
+  const EXCEPTION_OTHERS: int;
 
   /**
    * Code 0x00000001 - Bit flag indicating download is allowed when using the cellular network.
@@ -157,9 +158,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const NETWORK_MOBILE: number;
+  const NETWORK_MOBILE: int;
 
   /**
    * Code 0x00010000 - Bit flag indicating download is allowed when using the WLAN.
@@ -172,9 +173,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const NETWORK_WIFI: number;
+  const NETWORK_WIFI: int;
 
   /**
    * Error code 0 - Indicates that the download cannot be resumed for network reasons.
@@ -187,9 +188,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const ERROR_CANNOT_RESUME: number;
+  const ERROR_CANNOT_RESUME: int;
 
   /**
    * Error code 1 - Indicates that no storage device, such as an SD card, is found.
@@ -202,9 +203,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const ERROR_DEVICE_NOT_FOUND: number;
+  const ERROR_DEVICE_NOT_FOUND: int;
 
   /**
    * Error code 2 - Indicates that files to be downloaded already exist, and that the download session cannot overwrite the existing files.
@@ -217,9 +218,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const ERROR_FILE_ALREADY_EXISTS: number;
+  const ERROR_FILE_ALREADY_EXISTS: int;
 
   /**
    * Error code 3 - Indicates that a file operation fails.
@@ -232,9 +233,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const ERROR_FILE_ERROR: number;
+  const ERROR_FILE_ERROR: int;
 
   /**
    * Error code 4 - Indicates that the HTTP transmission fails.
@@ -247,9 +248,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const ERROR_HTTP_DATA_ERROR: number;
+  const ERROR_HTTP_DATA_ERROR: int;
 
   /**
    * Error code 5 - Indicates insufficient storage space.
@@ -262,9 +263,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const ERROR_INSUFFICIENT_SPACE: number;
+  const ERROR_INSUFFICIENT_SPACE: int;
 
   /**
    * Error code 6 - Indicates an error caused by too many network redirections.
@@ -277,9 +278,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const ERROR_TOO_MANY_REDIRECTS: number;
+  const ERROR_TOO_MANY_REDIRECTS: int;
 
   /**
    * Error code 7 - Indicates an HTTP code that cannot be identified.
@@ -292,9 +293,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const ERROR_UNHANDLED_HTTP_CODE: number;
+  const ERROR_UNHANDLED_HTTP_CODE: int;
 
   /**
    * Error code 8 - Indicates an undefined error.
@@ -307,9 +308,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const ERROR_UNKNOWN: number;
+  const ERROR_UNKNOWN: int;
 
   /**
    * Error code 9 - Indicates network offline.
@@ -322,9 +323,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const ERROR_OFFLINE: number;
+  const ERROR_OFFLINE: int;
 
   /**
    * Error code 10 - Indicates network type configuration error.
@@ -337,9 +338,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const ERROR_UNSUPPORTED_NETWORK_TYPE: number;
+  const ERROR_UNSUPPORTED_NETWORK_TYPE: int;
 
   /**
    * Paused code 0 - Indicates that the download is paused and waiting for a WLAN connection,
@@ -354,9 +355,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const PAUSED_QUEUED_FOR_WIFI: number;
+  const PAUSED_QUEUED_FOR_WIFI: int;
 
   /**
    * Paused code 1 - Indicates that the download is paused due to a network problem, for example, network disconnection.
@@ -369,9 +370,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const PAUSED_WAITING_FOR_NETWORK: number;
+  const PAUSED_WAITING_FOR_NETWORK: int;
 
   /**
    * Paused code 2 - Indicates that a network error occurs, and the download session will be retried.
@@ -384,9 +385,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const PAUSED_WAITING_TO_RETRY: number;
+  const PAUSED_WAITING_TO_RETRY: int;
 
   /**
    * Paused code 3 - Indicates that the download is paused due to the user.
@@ -399,9 +400,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const PAUSED_BY_USER: number;
+  const PAUSED_BY_USER: int;
 
   /**
    * Paused code 4 - Indicates that the download is paused for some reasons.
@@ -414,9 +415,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const PAUSED_UNKNOWN: number;
+  const PAUSED_UNKNOWN: int;
 
   /**
    * Session status code 0 - Indicates that the download session is completed.
@@ -429,9 +430,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const SESSION_SUCCESSFUL: number;
+  const SESSION_SUCCESSFUL: int;
 
   /**
    * Session status code 1 - Indicates that the download session is in progress.
@@ -444,9 +445,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const SESSION_RUNNING: number;
+  const SESSION_RUNNING: int;
 
   /**
    * Session status code 2 - Indicates that the download session is being scheduled.
@@ -459,9 +460,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const SESSION_PENDING: number;
+  const SESSION_PENDING: int;
 
   /**
    * Session status code 3 - Indicates that the download session has been paused.
@@ -474,9 +475,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const SESSION_PAUSED: number;
+  const SESSION_PAUSED: int;
 
   /**
    * Session status code 4 - Indicates that the download session has failed and will not be retried.
@@ -489,9 +490,9 @@ declare namespace request {
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
-  const SESSION_FAILED: number;
+  const SESSION_FAILED: int;
 
   /**
    * Starts a download task.
@@ -502,7 +503,7 @@ declare namespace request {
    * @throws { BusinessError } 201 - The permissions check fails.
    * @syscap SystemCapability.MiscServices.Download
    * @FAModelOnly
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.downloadFile
    */
@@ -539,7 +540,7 @@ declare namespace request {
    * @throws { BusinessError } 13400003 - Task service ability error.
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   function downloadFile(context: BaseContext, config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
 
@@ -552,7 +553,7 @@ declare namespace request {
    * @throws { BusinessError } 201 - The permissions check fails.
    * @syscap SystemCapability.MiscServices.Download
    * @FAModelOnly
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.downloadFile
    */
@@ -589,7 +590,7 @@ declare namespace request {
    * @throws { BusinessError } 13400003 - Task service ability error.
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   function downloadFile(context: BaseContext, config: DownloadConfig): Promise<DownloadTask>;
 
@@ -602,7 +603,7 @@ declare namespace request {
    * @throws { BusinessError } 201 - The permissions check fails.
    * @syscap SystemCapability.MiscServices.Upload
    * @FAModelOnly
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.uploadFile
    */
@@ -635,7 +636,7 @@ declare namespace request {
    * @throws { BusinessError } 13400002 - File path not supported or invalid.
    * @syscap SystemCapability.MiscServices.Upload
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   function uploadFile(context: BaseContext, config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
 
@@ -648,7 +649,7 @@ declare namespace request {
    * @throws { BusinessError } 201 - The permissions check fails.
    * @syscap SystemCapability.MiscServices.Upload
    * @FAModelOnly
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.request.uploadFile
    */
@@ -681,7 +682,7 @@ declare namespace request {
    * @throws { BusinessError } 13400002 - File path not supported or invalid.
    * @syscap SystemCapability.MiscServices.Upload
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   function uploadFile(context: BaseContext, config: UploadConfig): Promise<UploadTask>;
 
@@ -701,7 +702,7 @@ declare namespace request {
    * @typedef DownloadConfig
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    * @name DownloadConfig
    */
   interface DownloadConfig {
@@ -728,7 +729,7 @@ declare namespace request {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 15
+     * @since 15 dynamic
      */
     url: string;
     /**
@@ -743,7 +744,7 @@ declare namespace request {
      * @type { ?Object }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     header?: Object;
     /**
@@ -758,7 +759,7 @@ declare namespace request {
      * @type { ?boolean }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     enableMetered?: boolean;
     /**
@@ -773,7 +774,7 @@ declare namespace request {
      * @type { ?boolean }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     enableRoaming?: boolean;
     /**
@@ -788,7 +789,7 @@ declare namespace request {
      * @type { ?string }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     description?: string;
     /**
@@ -800,12 +801,12 @@ declare namespace request {
     /**
      * Sets the network type allowed for download.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
-    networkType?: number;
+    networkType?: int;
     /**
      * Sets the path where the downloaded file is stored.
      *
@@ -818,7 +819,7 @@ declare namespace request {
      * @type { ?string }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     filePath?: string;
     /**
@@ -833,7 +834,7 @@ declare namespace request {
      * @type { ?string }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     title?: string;
     /**
@@ -848,7 +849,7 @@ declare namespace request {
      * @type { ?boolean }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     background?: boolean;
   }
@@ -869,7 +870,7 @@ declare namespace request {
    * @typedef DownloadInfo
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   interface DownloadInfo {
     /**
@@ -884,7 +885,7 @@ declare namespace request {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     description: string;
     /**
@@ -896,12 +897,12 @@ declare namespace request {
     /**
      * The real-time downloads size (in bytes).
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
-    downloadedBytes: number;
+    downloadedBytes: long;
     /**
      * The ID of a file to be downloaded.
      *
@@ -911,12 +912,12 @@ declare namespace request {
     /**
      * The ID of a file to be downloaded.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
-    downloadId: number;
+    downloadId: long;
     /**
      * Cause of the download failure, which can be any DownloadSession.ERROR_* constant.
      *
@@ -926,12 +927,12 @@ declare namespace request {
     /**
      * Cause of the download failure, which can be any DownloadSession.ERROR_* constant.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
-    failedReason: number;
+    failedReason: int;
     /**
      * The name of a file to be downloaded.
      *
@@ -944,7 +945,7 @@ declare namespace request {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     fileName: string;
     /**
@@ -959,7 +960,7 @@ declare namespace request {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     filePath: string;
     /**
@@ -971,12 +972,12 @@ declare namespace request {
     /**
      * Cause of download pause, which can be any DownloadSession.PAUSED_* constant.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
-    pausedReason: number;
+    pausedReason: int;
     /**
      * The download task status code, which can be any DownloadSession.SESSION_* constant.
      *
@@ -986,12 +987,12 @@ declare namespace request {
     /**
      * The download task status code, which can be any DownloadSession.SESSION_* constant.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
-    status: number;
+    status: int;
     /**
      * The URI of files to be downloaded.
      *
@@ -1004,7 +1005,7 @@ declare namespace request {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     targetURI: string;
     /**
@@ -1019,7 +1020,7 @@ declare namespace request {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     downloadTitle: string;
     /**
@@ -1031,12 +1032,12 @@ declare namespace request {
     /**
      * The total size of files to be downloaded (in bytes).
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
-    downloadTotalBytes: number;
+    downloadTotalBytes: long;
   }
 
   /**
@@ -1054,7 +1055,7 @@ declare namespace request {
    * @typedef DownloadTask
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   interface DownloadTask {
     /**
@@ -1095,9 +1096,9 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
-    on(type: 'progress', callback: (receivedSize: number, totalSize: number) => void): void;
+    on(type: 'progress', callback: (receivedSize: long, totalSize: long) => void): void;
 
     /**
      * Called when the current download session is in process.
@@ -1137,9 +1138,9 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
-    off(type: 'progress', callback?: (receivedSize: number, totalSize: number) => void): void;
+    off(type: 'progress', callback?: (receivedSize: long, totalSize: long) => void): void;
 
     /**
      * Called when the current download session complete pause or remove.
@@ -1179,7 +1180,7 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     on(type: 'complete' | 'pause' | 'remove', callback: () => void): void;
 
@@ -1221,7 +1222,7 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     off(type: 'complete' | 'pause' | 'remove', callback?: () => void): void;
 
@@ -1257,9 +1258,9 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
-    on(type: 'fail', callback: (err: number) => void): void;
+    on(type: 'fail', callback: (err: int) => void): void;
 
     /**
      * Called when the current download session fails.
@@ -1293,9 +1294,9 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
-    off(type: 'fail', callback?: (err: number) => void): void;
+    off(type: 'fail', callback?: (err: int) => void): void;
 
     /**
      * Deletes a download session and the downloaded files.
@@ -1304,7 +1305,7 @@ declare namespace request {
      * @param { AsyncCallback<boolean> } callback Indicates asynchronous invoking Result.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.request.delete
      */
@@ -1317,7 +1318,7 @@ declare namespace request {
      * @returns { Promise<boolean> } the promise returned by the function.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.request.delete
      */
@@ -1330,7 +1331,7 @@ declare namespace request {
      * @param { AsyncCallback<void> } callback Indicates asynchronous invoking Result.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.request.suspend
      */
@@ -1343,7 +1344,7 @@ declare namespace request {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.request.suspend
      */
@@ -1356,7 +1357,7 @@ declare namespace request {
      * @param { AsyncCallback<void> } callback Indicates asynchronous invoking Result.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.request.restore
      */
@@ -1369,7 +1370,7 @@ declare namespace request {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.request.restore
      */
@@ -1382,7 +1383,7 @@ declare namespace request {
      * @param { AsyncCallback<DownloadInfo> } callback Indicate the callback function to receive download info.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.request.getTaskInfo
      */
@@ -1395,7 +1396,7 @@ declare namespace request {
      * @returns { Promise<DownloadInfo> } the promise returned by the function.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.request.getTaskInfo
      */
@@ -1408,7 +1409,7 @@ declare namespace request {
      * @param { AsyncCallback<string> } callback Indicate the callback function to receive download file MIME type.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.request.getTaskMimeType
      */
@@ -1421,7 +1422,7 @@ declare namespace request {
      * @returns { Promise<string> } the promise returned by the function.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.request.getTaskMimeType
      */
@@ -1456,7 +1457,7 @@ declare namespace request {
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     delete(callback: AsyncCallback<boolean>): void;
 
@@ -1489,7 +1490,7 @@ declare namespace request {
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     delete(): Promise<boolean>;
 
@@ -1522,7 +1523,7 @@ declare namespace request {
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     suspend(callback: AsyncCallback<boolean>): void;
 
@@ -1555,7 +1556,7 @@ declare namespace request {
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     suspend(): Promise<boolean>;
 
@@ -1588,7 +1589,7 @@ declare namespace request {
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     restore(callback: AsyncCallback<boolean>): void;
 
@@ -1621,7 +1622,7 @@ declare namespace request {
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     restore(): Promise<boolean>;
 
@@ -1657,7 +1658,7 @@ declare namespace request {
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     getTaskInfo(callback: AsyncCallback<DownloadInfo>): void;
 
@@ -1693,7 +1694,7 @@ declare namespace request {
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     getTaskInfo(): Promise<DownloadInfo>;
 
@@ -1729,7 +1730,7 @@ declare namespace request {
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     getTaskMimeType(callback: AsyncCallback<string>): void;
 
@@ -1765,7 +1766,7 @@ declare namespace request {
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     getTaskMimeType(): Promise<string>;
   }
@@ -1786,7 +1787,7 @@ declare namespace request {
    * @typedef File
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   interface File {
     /**
@@ -1801,7 +1802,7 @@ declare namespace request {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     filename: string;
     /**
@@ -1816,7 +1817,7 @@ declare namespace request {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     name: string;
     /**
@@ -1831,7 +1832,7 @@ declare namespace request {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     uri: string;
     /**
@@ -1846,7 +1847,7 @@ declare namespace request {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     type: string;
   }
@@ -1867,7 +1868,7 @@ declare namespace request {
    * @typedef RequestData
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   interface RequestData {
     /**
@@ -1882,7 +1883,7 @@ declare namespace request {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     name: string;
     /**
@@ -1897,7 +1898,7 @@ declare namespace request {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     value: string;
   }
@@ -1918,7 +1919,7 @@ declare namespace request {
    * @typedef UploadConfig
    * @syscap SystemCapability.MiscServices.Upload
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   interface UploadConfig {
     /**
@@ -1944,7 +1945,7 @@ declare namespace request {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 15
+     * @since 15 dynamic
      */
     url: string;
     /**
@@ -1959,7 +1960,7 @@ declare namespace request {
      * @type { Object }
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     header: Object;
     /**
@@ -1974,7 +1975,7 @@ declare namespace request {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     method: string;
     /**
@@ -1991,12 +1992,12 @@ declare namespace request {
      * Usually used for a continuous job.
      * The default is 0.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
-    index?: number;
+    index?: int;
     /**
      * The start point of a file.
      * Usually used for a continuous job.
@@ -2013,12 +2014,12 @@ declare namespace request {
      * It will start read at the point in upload.
      * The default is 0.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
-    begins?: number;
+    begins?: long;
     /**
      * The end point of a file.
      * Usually used for a continuous job.
@@ -2035,12 +2036,12 @@ declare namespace request {
      * It will end read at the point in upload.
      * The default is -1 indicating the end of the data for upload.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
-    ends?: number;
+    ends?: long;
     /**
      * A list of files to be uploaded. Please use multipart/form-data to submit.
      *
@@ -2053,7 +2054,7 @@ declare namespace request {
      * @type { Array<File> }
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     files: Array<File>;
     /**
@@ -2068,7 +2069,7 @@ declare namespace request {
      * @type { Array<RequestData> }
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     data: Array<RequestData>;
   }
@@ -2089,7 +2090,7 @@ declare namespace request {
    * @typedef TaskState
    * @syscap SystemCapability.MiscServices.Upload
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   interface TaskState {
     /**
@@ -2104,7 +2105,7 @@ declare namespace request {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     path: string;
     /**
@@ -2120,12 +2121,12 @@ declare namespace request {
      * The value 0 means that the task is successful,
      * and other values means that the task fails.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
-    responseCode: number;
+    responseCode: int;
     /**
      * Upload task information.
      *
@@ -2138,7 +2139,7 @@ declare namespace request {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     message: string;
   }
@@ -2158,7 +2159,7 @@ declare namespace request {
    * @typedef UploadTask
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   interface UploadTask {
     /**
@@ -2199,9 +2200,9 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
-    on(type: 'progress', callback: (uploadedSize: number, totalSize: number) => void): void;
+    on(type: 'progress', callback: (uploadedSize: long, totalSize: long) => void): void;
 
     /**
      * Called when the current upload session is in process.
@@ -2241,9 +2242,9 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
-    off(type: 'progress', callback?: (uploadedSize: number, totalSize: number) => void): void;
+    off(type: 'progress', callback?: (uploadedSize: long, totalSize: long) => void): void;
 
     /**
      * Called when the header of the current upload session has been received.
@@ -2277,7 +2278,7 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     on(type: 'headerReceive', callback: (header: object) => void): void;
 
@@ -2313,7 +2314,7 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     off(type: 'headerReceive', callback?: (header: object) => void): void;
 
@@ -2349,7 +2350,7 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     on(type: 'complete' | 'fail', callback: Callback<Array<TaskState>>): void;
 
@@ -2385,7 +2386,7 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     off(type: 'complete' | 'fail', callback?: Callback<Array<TaskState>>): void;
 
@@ -2396,7 +2397,7 @@ declare namespace request {
      * @param { AsyncCallback<boolean> } callback Indicates asynchronous invoking Result.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.request.delete
      */
@@ -2409,7 +2410,7 @@ declare namespace request {
      * @returns { Promise<boolean> } the promise returned by the function.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.request.delete
      */
@@ -2444,7 +2445,7 @@ declare namespace request {
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     delete(callback: AsyncCallback<boolean>): void;
 
@@ -2477,7 +2478,7 @@ declare namespace request {
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     delete(): Promise<boolean>;
   }
@@ -2521,8 +2522,8 @@ declare namespace request {
    * @syscap SystemCapability.Request.FileTransferAgent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   namespace agent {
     /**
@@ -2530,7 +2531,7 @@ declare namespace request {
      * 
      * @constant
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 22
+     * @since 21 dynamic
      */
     const VISIBILITY_COMPLETION: 1;
     /**
@@ -2538,7 +2539,7 @@ declare namespace request {
      * 
      * @constant
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 22
+     * @since 21 dynamic
      */
     const VISIBILITY_PROGRESS: 2;
     /**
@@ -2555,8 +2556,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     enum Action {
       /**
@@ -2571,8 +2572,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
       DOWNLOAD,
       /**
@@ -2587,8 +2588,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
       UPLOAD
     }
@@ -2607,7 +2608,7 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     enum Mode {
       /**
@@ -2621,7 +2622,7 @@ declare namespace request {
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       BACKGROUND,
       /**
@@ -2636,7 +2637,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       FOREGROUND
     }
@@ -2655,7 +2656,7 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     enum Network {
       /**
@@ -2670,7 +2671,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       ANY,
       /**
@@ -2685,7 +2686,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       WIFI,
       /**
@@ -2700,7 +2701,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       CELLULAR
     }
@@ -2710,8 +2711,7 @@ declare namespace request {
      *
      * @enum { string } BroadcastEvent
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     enum BroadcastEvent {
       /**
@@ -2720,8 +2720,7 @@ declare namespace request {
        * The data in the commonEventData contains the id of the task.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since arkts{ '1.1':'11','1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
        */
       COMPLETE = 'ohos.request.event.COMPLETE'
     }
@@ -2740,8 +2739,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     interface FileSpec {
       /**
@@ -2775,8 +2774,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'12', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 12 dynamic
+       * @since 20 static
        */
       path: string;
       /**
@@ -2795,7 +2794,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamiconly
        * @deprecated since 18
        * @useinstead ohos.request.agent.FileSpec.contentType
        */
@@ -2806,7 +2805,7 @@ declare namespace request {
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 18
+       * @since 18 dynamic
        */
       contentType?: string;
       /**
@@ -2823,8 +2822,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
       filename?: string;
       /**
@@ -2843,7 +2842,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       extras?: object;
     }
@@ -2862,8 +2861,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     interface FormItem {
       /**
@@ -2880,8 +2879,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
       name: string;
       /**
@@ -2898,8 +2897,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
       value: string | FileSpec | Array<FileSpec>;
     }
@@ -2909,7 +2908,7 @@ declare namespace request {
      *
      * @typedef Notification
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 15
+     * @since 15 dynamic
      */
     interface Notification {
       /**
@@ -2919,7 +2918,7 @@ declare namespace request {
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 15
+       * @since 15 dynamic
        */
       title?: string;
       /**
@@ -2929,7 +2928,7 @@ declare namespace request {
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 15
+       * @since 15 dynamic
        */
       text?: string;
       /**
@@ -2940,7 +2939,7 @@ declare namespace request {
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @systemapi Hide this for inner system use.
-       * @since 20
+       * @since 20 dynamic
        */
       disable?: boolean;
       /**
@@ -2951,9 +2950,17 @@ declare namespace request {
        * 
        * @type { ?number }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 22
+       * @since 21 dynamic
        */
       visibility?: number;
+      /**
+       * The intent to send when click the notification.
+       * 
+       * @type { ?WantAgent }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 22 dynamic
+       */
+      wantAgent?: WantAgent;
     }
 
     /**
@@ -2961,7 +2968,7 @@ declare namespace request {
      *
      * @typedef MinSpeed
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 20
+     * @since 20 dynamic
      */
     interface MinSpeed {
       /**
@@ -2969,21 +2976,21 @@ declare namespace request {
        * If the speed of the task is lower than this value for a period of time, the task fails.
        * If the value is set to 0, no minimum speed limit will be activated.
        *
-       * @type { number }
+       * @type { long }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
+       * @since 20 dynamic
        */
-      speed: number;
+      speed: long;
       /**
        * Duration of the speed which is allowed to be below the minimum speed, in seconds.
        * If the speed of the task is lower than this value for a period of time, the task fails.
        * If the value is set to 0, no minimum speed limit will be activated.
        *
-       * @type { number }
+       * @type { int }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
+       * @since 20 dynamic
        */
-      duration: number;
+      duration: int;
     }
 
     /**
@@ -2991,7 +2998,7 @@ declare namespace request {
      *
      * @typedef Timeout
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 20
+     * @since 20 dynamic
      */
     interface Timeout {
       /**
@@ -3000,11 +3007,11 @@ declare namespace request {
        * If this value is not specified, use default value instead. The default value is 60 seconds.
        * The minimum value allowed is 1 second.
        *
-       * @type { ?number }
+       * @type { ?int }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
+       * @since 20 dynamic
        */
-      connectionTimeout?: number;
+      connectionTimeout?: int;
       /**
        * Total timeout of the task, in seconds.
        * Total timeout includes the time to establish a connection, send a request and receive a response.
@@ -3012,11 +3019,11 @@ declare namespace request {
        * The minimum value allowed is 1 second.
        * The maximum value allowed is 604,800 seconds(1 week).
        *
-       * @type { ?number }
+       * @type { ?int }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
+       * @since 20 dynamic
        */
-      totalTimeout?: number;
+      totalTimeout?: int;
     }
 
     /**
@@ -3039,8 +3046,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     interface Config {
       /**
@@ -3057,8 +3064,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
       action: Action;
       /**
@@ -3091,8 +3098,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'15', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 15 dynamic
+       * @since 20 static
        */
       url: string;
       /**
@@ -3113,7 +3120,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       title?: string;
       /**
@@ -3134,7 +3141,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       description?: string;
       /**
@@ -3158,7 +3165,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       mode?: Mode;
       /**
@@ -3182,7 +3189,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
+       * @since 20 static
        */
       overwrite?: boolean;
       /**
@@ -3205,8 +3213,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
       method?: string;
       /**
@@ -3227,7 +3235,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       headers?: object;
       /**
@@ -3250,8 +3258,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
       data?: string | Array<FormItem>;
       /**
@@ -3291,8 +3299,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'12', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 12 dynamic
+       * @since 20 static
        */
       saveas?: string;
       /**
@@ -3313,7 +3321,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       network?: Network;
       /**
@@ -3334,7 +3342,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       metered?: boolean;
       /**
@@ -3353,7 +3361,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       roaming?: boolean;
       /**
@@ -3371,7 +3379,7 @@ declare namespace request {
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       retry?: boolean;
       /**
@@ -3390,7 +3398,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       redirect?: boolean;
       /**
@@ -3410,7 +3418,7 @@ declare namespace request {
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 20
+       * @since 20 dynamic
        */
       proxy?: string;
       /**
@@ -3427,13 +3435,13 @@ declare namespace request {
        * Usually used for a continuous job.
        * The default is 0.
        *
-       * @type { ?number }
+       * @type { ?int }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
-      index?: number;
+      index?: int;
       /**
        * The start point of a file.
        * Usually used for a continuous job.
@@ -3452,13 +3460,13 @@ declare namespace request {
        * It will start read at the point in upload.
        * The default is 0.
        *
-       * @type { ?number }
+       * @type { ?long }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
-      begins?: number;
+      begins?: long;
       /**
        * The end point of a file.
        * Usually used for a continuous job.
@@ -3477,13 +3485,13 @@ declare namespace request {
        * It will end read at the point in upload.
        * The default is -1 indicating the end of the data for upload or download.
        *
-       * @type { ?number }
+       * @type { ?long }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
-      ends?: number;
+      ends?: long;
       /**
        * The policy of the progress notification for background task.
        * If false: only completed or failed notification, the default.
@@ -3501,7 +3509,7 @@ declare namespace request {
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       gauge?: boolean;
       /**
@@ -3522,7 +3530,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       precise?: boolean;
       /**
@@ -3551,7 +3559,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       token?: string;
       /**
@@ -3560,11 +3568,11 @@ declare namespace request {
        * In tasks of the same mode, the smaller the number, the higher the priority.
        * The default is 0.
        *
-       * @type { ?number }
+       * @type { ?int }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 11
+       * @since 11 dynamic
        */
-      priority?: number;
+      priority?: int;
       /**
        * The extras for the configuration.
        * This parameter is left empty by default.
@@ -3581,7 +3589,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       extras?: object;
       /**
@@ -3592,7 +3600,7 @@ declare namespace request {
        *
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 15
+       * @since 15 dynamic
        */
       multipart?: boolean;
       /**
@@ -3600,7 +3608,7 @@ declare namespace request {
        *
        * @type { ?Notification }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 15
+       * @since 15 dynamic
        */
       notification?: Notification;
       /**
@@ -3608,7 +3616,7 @@ declare namespace request {
        *
        * @type { ?MinSpeed }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
+       * @since 20 dynamic
        */
       minSpeed?: MinSpeed;
       /**
@@ -3616,7 +3624,7 @@ declare namespace request {
        *
        * @type { ?Timeout }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
+       * @since 20 dynamic
        */
       timeout?: Timeout;
     }
@@ -3635,8 +3643,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     enum State {
       /**
@@ -3651,8 +3659,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
       INITIALIZED = 0x00,
       /**
@@ -3667,8 +3675,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
       WAITING = 0x10,
       /**
@@ -3683,8 +3691,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
       RUNNING = 0x20,
       /**
@@ -3699,8 +3707,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
       RETRYING = 0x21,
       /**
@@ -3715,8 +3723,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
       PAUSED = 0x30,
       /**
@@ -3731,8 +3739,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
       STOPPED = 0x31,
       /**
@@ -3747,8 +3755,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
       COMPLETED = 0x40,
       /**
@@ -3763,8 +3771,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
       FAILED = 0x41,
       /**
@@ -3779,8 +3787,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
       REMOVED = 0x50
     }
@@ -3815,8 +3823,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     interface Progress {
       /**
@@ -3835,8 +3843,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
       readonly state: State;
       /**
@@ -3850,15 +3858,15 @@ declare namespace request {
       /**
        * The current processing file index in a task.
        *
-       * @type { number }
+       * @type { int }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
-      readonly index: number;
+      readonly index: int;
       /**
        * The processed data size for the current file in a task.
        *
@@ -3870,15 +3878,15 @@ declare namespace request {
       /**
        * The processed data size for the current file in a task.
        *
-       * @type { number }
+       * @type { long }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 11 dynamic
+       * @since 20 static
        */
-      readonly processed: number;
+      readonly processed: long;
       /**
        * The sizes of files in a task, in bytes.
        *
@@ -3890,14 +3898,15 @@ declare namespace request {
       /**
        * The sizes of files in a task, in bytes.
        *
-       * @type { Array<number> }
+       * @type { Array<long> }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
+       * @since 20 static
        */
-      readonly sizes: Array<number>;
+      readonly sizes: Array<long>;
       /**
        * The extras for an interaction.
        * Such as headers and body of response from server.
@@ -3921,7 +3930,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       readonly extras?: object;
     }
@@ -3940,7 +3949,7 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     enum Faults {
       /**
@@ -3955,7 +3964,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       OTHERS = 0xFF,
       /**
@@ -3970,7 +3979,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       DISCONNECTED = 0x00,
       /**
@@ -3985,7 +3994,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       TIMEOUT = 0x10,
       /**
@@ -4000,7 +4009,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       PROTOCOL = 0x20,
       /**
@@ -4009,7 +4018,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since 12 dynamic
        */
       PARAM = 0x30,
       /**
@@ -4024,7 +4033,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       FSIO = 0x40,
       /**
@@ -4033,7 +4042,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since 12 dynamic
        */
       DNS = 0x50,
       /**
@@ -4042,7 +4051,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since 12 dynamic
        */
       TCP = 0x60,
       /**
@@ -4051,7 +4060,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since 12 dynamic
        */
       SSL = 0x70,
       /**
@@ -4060,14 +4069,14 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since 12 dynamic
        */
       REDIRECT = 0x80,
       /**
        * Indicates the speed of the task is too slow.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
+       * @since 20 dynamic
        */
       LOW_SPEED = 0x90
     }
@@ -4089,7 +4098,7 @@ declare namespace request {
      * @typedef Filter
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     interface Filter {
       /**
@@ -4100,7 +4109,8 @@ declare namespace request {
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @systemapi Hide this for inner system use.
-       * @since 10
+       * @since 10 dynamic
+       * @since 20 static
        */
       bundle?: string;
       /**
@@ -4115,12 +4125,12 @@ declare namespace request {
        * Specify the end Unix timestamp.
        * The default is the moment of calling.
        *
-       * @type { ?number }
+       * @type { ?long }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
-      before?: number;
+      before?: long;
       /**
        * Specify the start Unix timestamp.
        * The default is "`before` - 24 hours".
@@ -4133,12 +4143,12 @@ declare namespace request {
        * Specify the start Unix timestamp.
        * The default is "`before` - 24 hours".
        *
-       * @type { ?number }
+       * @type { ?long }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
-      after?: number;
+      after?: long;
       /**
        * Specify the state of tasks.
        * The default is any state.
@@ -4154,7 +4164,7 @@ declare namespace request {
        * @type { ?State }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
       state?: State;
       /**
@@ -4172,7 +4182,7 @@ declare namespace request {
        * @type { ?Action }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
       action?: Action;
       /**
@@ -4190,7 +4200,7 @@ declare namespace request {
        * @type { ?Mode }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
       mode?: Mode;
     }
@@ -4210,7 +4220,7 @@ declare namespace request {
      * @typedef TaskInfo
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     interface TaskInfo {
       /**
@@ -4221,7 +4231,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @systemapi Hide this for inner system use.
-       * @since 10
+       * @since 10 dynamic
+       * @since 20 static
        */
       readonly uid?: string;
       /**
@@ -4232,7 +4243,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @systemapi Hide this for inner system use.
-       * @since 10
+       * @since 10 dynamic
+       * @since 20 static
        */
       readonly bundle?: string;
       /**
@@ -4249,7 +4261,7 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
       readonly saveas?: string;
       /**
@@ -4270,7 +4282,7 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
       readonly url?: string;
       /**
@@ -4290,7 +4302,7 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
       readonly data?: string | Array<FormItem>;
       /**
@@ -4308,7 +4320,7 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
       readonly tid: string;
       /**
@@ -4326,7 +4338,7 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
       readonly title: string;
       /**
@@ -4344,7 +4356,7 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
       readonly description: string;
       /**
@@ -4362,7 +4374,7 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
       readonly action: Action;
       /**
@@ -4381,7 +4393,7 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
       readonly mode: Mode;
       /**
@@ -4390,12 +4402,12 @@ declare namespace request {
        * In tasks of the same mode, the smaller the number, the higher the priority.
        * The default is 0.
        *
-       * @type { number }
+       * @type { int }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 11
+       * @since 11 dynamic
        */
-      readonly priority: number;
+      readonly priority: int;
       /**
        * The MIME type in the configuration of the task.
        *
@@ -4411,7 +4423,7 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
       readonly mimeType: string;
       /**
@@ -4429,7 +4441,7 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
       readonly progress: Progress;
       /**
@@ -4438,7 +4450,7 @@ declare namespace request {
        * @type { boolean }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
+       * @since 10 dynamic
        */
       readonly gauge: boolean;
       /**
@@ -4454,13 +4466,13 @@ declare namespace request {
        * The creating date and time of a task in Unix timestamp.
        * It is generated by system of current device.
        *
-       * @type { number }
+       * @type { long }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
-      readonly ctime: number;
+      readonly ctime: long;
       /**
        * The modified date and time of a task in Unix timestamp.
        * It is generated by system of current device.
@@ -4474,13 +4486,13 @@ declare namespace request {
        * The modified date and time of a task in Unix timestamp.
        * It is generated by system of current device.
        *
-       * @type { number }
+       * @type { long }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
-      readonly mtime: number;
+      readonly mtime: long;
       /**
        * The retry switch of a task.
        * Just for background, frontend always disabled.
@@ -4488,18 +4500,18 @@ declare namespace request {
        * @type { boolean }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
+       * @since 10 dynamic
        */
       readonly retry: boolean;
       /**
        * The tried times of a task.
        *
-       * @type { number }
+       * @type { int }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
+       * @since 10 dynamic
        */
-      readonly tries: number;
+      readonly tries: int;
       /**
        * The faults case of a task.
        *
@@ -4515,7 +4527,7 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
       readonly faults: Faults;
       /**
@@ -4533,7 +4545,7 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
       readonly reason: string;
       /**
@@ -4554,7 +4566,7 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 11
+       * @since 11 dynamic
        */
       readonly extras?: object;
     }
@@ -4576,8 +4588,7 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     interface HttpResponse {
       /**
@@ -4597,8 +4608,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 20
-       * @arkts 1.1&1.2
+       * @since 20 dynamic&static
        */
       readonly version: string,
       /**
@@ -4613,15 +4623,14 @@ declare namespace request {
       /**
        * The status code of the HTTP response.
        *
-       * @type { number }
+       * @type { int }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 20
-       * @arkts 1.1&1.2 
+       * @since 20 dynamic&static
        */
-      readonly statusCode: number,
+      readonly statusCode: int,
       /**
        * The reason of the HTTP response.
        *
@@ -4639,8 +4648,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 20
-       * @arkts 1.1&1.2 
+       * @since 20 dynamic&static
        */
       readonly reason: string,
       /**
@@ -4660,7 +4668,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 20
+       * @since 20 dynamic
        */
       readonly headers: Map<string, Array<string>>,
     }
@@ -4670,35 +4678,35 @@ declare namespace request {
      *
      * @enum { number }
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 20
+     * @since 20 dynamic
      */
     enum WaitingReason {
       /**
        * Indicates the task is waiting for running queue to be free.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
+       * @since 20 dynamic
        */
       TASK_QUEUE_FULL = 0x00,
       /**
        * Indicates the task is waiting for network to recover.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
+       * @since 20 dynamic
        */
       NETWORK_NOT_MATCH = 0x01,
       /**
        * Indicates the task is waiting for app to return to the foreground.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
+       * @since 20 dynamic
        */
       APP_BACKGROUND = 0x02,
       /**
        * Indicates the task is waiting for user to become activated.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
+       * @since 20 dynamic
        */
       USER_INACTIVATED = 0x03,
     }
@@ -4727,8 +4735,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 11 dynamic
+     * @since 20 static
      */
     interface Task {
       /**
@@ -4749,7 +4757,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       readonly tid: string;
       /**
@@ -4766,7 +4774,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       config: Config;
       /**
@@ -4792,7 +4800,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
+       * @since 20 static
        */
       on(event: 'progress', callback: (progress: Progress) => void): void;
       /**
@@ -4818,7 +4827,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       off(event: 'progress', callback?: (progress: Progress) => void): void;
       /**
@@ -4844,8 +4853,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'11', '1.2':'20'}
-       * @arkts 1.1&1.2 
+       * @since 11 dynamic
+       * @since 20 static
        */
       on(event: 'completed', callback: (progress: Progress) => void): void;
       /**
@@ -4871,7 +4880,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       off(event: 'completed', callback?: (progress: Progress) => void): void;
       /**
@@ -4897,7 +4906,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       on(event: 'failed', callback: (progress: Progress) => void): void;
       /**
@@ -4923,7 +4932,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       off(event: 'failed', callback?: (progress: Progress) => void): void;
       /**
@@ -4947,7 +4956,7 @@ declare namespace request {
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 20
+       * @since 20 dynamic
        */
       on(event: 'pause', callback: (progress: Progress) => void): void;
       /**
@@ -4971,7 +4980,7 @@ declare namespace request {
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 20
+       * @since 20 dynamic
        */
       off(event: 'pause', callback?: (progress: Progress) => void): void;
       /**
@@ -4995,7 +5004,7 @@ declare namespace request {
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 20
+       * @since 20 dynamic
        */
       on(event: 'resume', callback: (progress: Progress) => void): void;
       /**
@@ -5019,7 +5028,7 @@ declare namespace request {
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 20
+       * @since 20 dynamic
        */
       off(event: 'resume', callback?: (progress: Progress) => void): void;
       /**
@@ -5043,7 +5052,7 @@ declare namespace request {
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 20
+       * @since 20 dynamic
        */
       on(event: 'remove', callback: (progress: Progress) => void): void;
       /**
@@ -5067,7 +5076,7 @@ declare namespace request {
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 20
+       * @since 20 dynamic
        */
       off(event: 'remove', callback?: (progress: Progress) => void): void;
       /**
@@ -5093,8 +5102,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 20
-       * @arkts 1.1&1.2 
+       * @since 20 dynamic&static
        */
       on(event: 'response', callback: Callback<HttpResponse>): void;
       /**
@@ -5120,7 +5128,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 20
+       * @since 20 dynamic
        */
       off(event: 'response', callback?: Callback<HttpResponse>): void;
       /**
@@ -5133,7 +5141,7 @@ declare namespace request {
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
+       * @since 20 dynamic
        */
       on(event: 'faultOccur', callback: Callback<Faults>): void;
       /**
@@ -5144,7 +5152,7 @@ declare namespace request {
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
+       * @since 20 dynamic
        */
       off(event: 'faultOccur', callback?: Callback<Faults>): void;
       /**
@@ -5157,7 +5165,7 @@ declare namespace request {
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
+       * @since 20 dynamic
        */
       on(event: 'wait', callback: Callback<WaitingReason>): void;
       /**
@@ -5168,7 +5176,7 @@ declare namespace request {
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
+       * @since 20 dynamic
        */
       off(event: 'wait', callback?: Callback<WaitingReason>): void;
       /**
@@ -5208,8 +5216,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'12', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 12 dynamic
+       * @since 20 static
        */
       start(callback: AsyncCallback<void>): void;
       /**
@@ -5249,8 +5257,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'12', '1.2':'20'}
-       * @arkts 1.1&1.2 
+       * @since 12 dynamic
+       * @since 20 static
        */
       start(): Promise<void>;
       /**
@@ -5280,7 +5288,7 @@ declare namespace request {
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 20
+       * @since 20 dynamic
        */
       pause(callback: AsyncCallback<void>): void;
       /**
@@ -5310,7 +5318,7 @@ declare namespace request {
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 20
+       * @since 20 dynamic
        */
       pause(): Promise<void>;
       /**
@@ -5346,7 +5354,7 @@ declare namespace request {
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 20
+       * @since 20 dynamic
        */
       resume(callback: AsyncCallback<void>): void;
       /**
@@ -5382,7 +5390,7 @@ declare namespace request {
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
-       * @since 20
+       * @since 20 dynamic
        */
       resume(): Promise<void>;
       /**
@@ -5403,7 +5411,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       stop(callback: AsyncCallback<void>): void;
       /**
@@ -5424,22 +5432,22 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since 11 dynamic
        */
       stop(): Promise<void>;
       /**
        * Sets the maximum transfer speed of the task.
        * The minimum value of the speed limit is 16,384 bytes per second(16 KB/s).
        *
-       * @param { number } speed - the maximum transfer speed of the task, in bytes per second.
+       * @param { long } speed - the maximum transfer speed of the task, in bytes per second.
        * @returns { Promise<void> } the promise returned by the function.
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       *     2. Incorrect parameter type. 3. Parameter verification failed.
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 18
+       * @since 18 dynamic
        */
-      setMaxSpeed(speed: number): Promise<void>;
+      setMaxSpeed(speed: long): Promise<void>;
     }
 
     /**
@@ -5483,8 +5491,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     function create(context: BaseContext, config: Config, callback: AsyncCallback<Task>): void;
 
@@ -5529,8 +5537,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     function create(context: BaseContext, config: Config): Promise<Task>;
 
@@ -5547,7 +5555,7 @@ declare namespace request {
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 11
+     * @since 11 dynamic
      */
     function getTask(context: BaseContext, id: string, token?: string): Promise<Task>;
 
@@ -5577,7 +5585,7 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     function remove(id: string, callback: AsyncCallback<void>): void;
 
@@ -5607,7 +5615,7 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     function remove(id: string): Promise<void>;
 
@@ -5636,7 +5644,7 @@ declare namespace request {
      * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     function show(id: string, callback: AsyncCallback<TaskInfo>): void;
 
@@ -5665,7 +5673,7 @@ declare namespace request {
      * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     function show(id: string): Promise<TaskInfo>;
 
@@ -5696,7 +5704,7 @@ declare namespace request {
      * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     function touch(id: string, token: string, callback: AsyncCallback<TaskInfo>): void;
 
@@ -5727,7 +5735,7 @@ declare namespace request {
      * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     function touch(id: string, token: string): Promise<TaskInfo>;
 
@@ -5752,7 +5760,7 @@ declare namespace request {
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     function search(callback: AsyncCallback<Array<string>>): void;
 
@@ -5779,7 +5787,7 @@ declare namespace request {
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     function search(filter: Filter, callback: AsyncCallback<Array<string>>): void;
 
@@ -5806,7 +5814,7 @@ declare namespace request {
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     function search(filter?: Filter): Promise<Array<string>>;
 
@@ -5825,7 +5833,7 @@ declare namespace request {
      * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
     function query(id: string, callback: AsyncCallback<TaskInfo>): void;
 
@@ -5843,7 +5851,7 @@ declare namespace request {
      * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
     function query(id: string): Promise<TaskInfo>;
 
@@ -5852,7 +5860,7 @@ declare namespace request {
      *
      * @typedef GroupConfig
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 15
+     * @since 15 dynamic
      */
     interface GroupConfig {
       /**
@@ -5863,7 +5871,7 @@ declare namespace request {
        *
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 15
+       * @since 15 dynamic
        */
       gauge?: boolean;
       /**
@@ -5871,7 +5879,7 @@ declare namespace request {
        *
        * @type { Notification }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 15
+       * @since 15 dynamic
        */
       notification: Notification;
     }
@@ -5886,7 +5894,7 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 15
+     * @since 15 dynamic
      */
     function createGroup(config: GroupConfig): Promise<string>;
 
@@ -5906,7 +5914,7 @@ declare namespace request {
      * @throws { BusinessError } 21900007 - Operation with wrong task state.
      * @throws { BusinessError } 21900008 - Group deleted or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 15
+     * @since 15 dynamic
      */
     function attachGroup(gid: string, tids: string[]): Promise<void>;
 
@@ -5921,7 +5929,7 @@ declare namespace request {
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @throws { BusinessError } 21900008 - Group deleted or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 15
+     * @since 15 dynamic
      */
     function deleteGroup(gid: string): Promise<void>;
   }

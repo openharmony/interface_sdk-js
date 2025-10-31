@@ -24,7 +24,7 @@ import { AsyncCallback } from './@ohos.base';
 /**
  * @namespace prompt
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
+ * @since 22 static
  * @deprecated since 9
  * @useinstead ohos.promptAction
  */
@@ -33,7 +33,7 @@ import { AsyncCallback } from './@ohos.base';
   /**
    * @interface ShowToastOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 22 static
    * @deprecated since 9
    */
   interface ShowToastOptions {
@@ -43,7 +43,7 @@ import { AsyncCallback } from './@ohos.base';
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
+     * @since 22 static
      * @deprecated since 9
      */
     message: string;
@@ -55,7 +55,7 @@ import { AsyncCallback } from './@ohos.base';
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
+     * @since 22 static
      * @deprecated since 9
      */
     duration?: number;
@@ -65,7 +65,7 @@ import { AsyncCallback } from './@ohos.base';
      *
      * @type { ?(string | number) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
+     * @since 22 static
      * @deprecated since 9
      */
     bottom?: string | number;
@@ -74,7 +74,7 @@ import { AsyncCallback } from './@ohos.base';
   /**
    * @interface Button
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 22 static
    * @deprecated since 9
    */
   interface Button {
@@ -82,7 +82,7 @@ import { AsyncCallback } from './@ohos.base';
     /**
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
+     * @since 22 static
      * @deprecated since 9
      */
     text: string;
@@ -90,7 +90,7 @@ import { AsyncCallback } from './@ohos.base';
     /**
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
+     * @since 22 static
      * @deprecated since 9
      */
     color: string;
@@ -99,7 +99,7 @@ import { AsyncCallback } from './@ohos.base';
   /**
    * @interface ShowDialogSuccessResponse
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 22 static
    * @deprecated since 9
    */
   interface ShowDialogSuccessResponse {
@@ -107,7 +107,7 @@ import { AsyncCallback } from './@ohos.base';
     /**
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
+     * @since 22 static
      * @deprecated since 9
      */
     index: number;
@@ -116,7 +116,7 @@ import { AsyncCallback } from './@ohos.base';
   /**
    * @interface ShowDialogOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 22 static
    * @deprecated since 9
    */
   interface ShowDialogOptions {
@@ -126,7 +126,7 @@ import { AsyncCallback } from './@ohos.base';
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
+     * @since 22 static
      * @deprecated since 9
      */
     title?: string;
@@ -136,7 +136,7 @@ import { AsyncCallback } from './@ohos.base';
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
+     * @since 22 static
      * @deprecated since 9
      */
     message?: string;
@@ -148,7 +148,7 @@ import { AsyncCallback } from './@ohos.base';
      *
      * @type { ?[Button, Button | undefined, Button | undefined] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
+     * @since 22 static
      * @deprecated since 9
      */
     buttons?: [Button, Button | undefined, Button | undefined];
@@ -157,7 +157,7 @@ import { AsyncCallback } from './@ohos.base';
   /**
    * @interface ActionMenuSuccessResponse
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 22 static
    * @deprecated since 9
    */
   interface ActionMenuSuccessResponse {
@@ -165,7 +165,7 @@ import { AsyncCallback } from './@ohos.base';
     /**
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
+     * @since 22 static
      * @deprecated since 9
      */
     index: number;
@@ -174,7 +174,7 @@ import { AsyncCallback } from './@ohos.base';
   /**
    * @interface ActionMenuOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 22 static
    * @deprecated since 9
    */
   interface ActionMenuOptions {
@@ -184,7 +184,7 @@ import { AsyncCallback } from './@ohos.base';
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
+     * @since 22 static
      * @deprecated since 9
      */
     title?: string;
@@ -196,7 +196,7 @@ import { AsyncCallback } from './@ohos.base';
      *
      * @type { [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined, Button | undefined] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
+     * @since 22 static
      * @deprecated since 9
      */
     buttons: [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined, Button | undefined];
@@ -207,7 +207,7 @@ import { AsyncCallback } from './@ohos.base';
    *
    * @param { ShowToastOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 22 static
    * @deprecated since 9
    */
   function showToast(options: ShowToastOptions): void;
@@ -218,7 +218,7 @@ import { AsyncCallback } from './@ohos.base';
    * @param { ShowDialogOptions } options - Options.
    * @param { AsyncCallback<ShowDialogSuccessResponse> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 22 static
    * @deprecated since 9
    */
   function showDialog(options: ShowDialogOptions, callback: AsyncCallback<ShowDialogSuccessResponse>): void;
@@ -229,7 +229,7 @@ import { AsyncCallback } from './@ohos.base';
    * @param { ShowDialogOptions } options - Options.
    * @returns { Promise<ShowDialogSuccessResponse> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 22 static
    * @deprecated since 9
    */
   function showDialog(options: ShowDialogOptions): Promise<ShowDialogSuccessResponse>;
@@ -240,7 +240,7 @@ import { AsyncCallback } from './@ohos.base';
    * @param { ActionMenuOptions } options - Options.
    * @param { AsyncCallback<ActionMenuSuccessResponse> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 22 static
    * @deprecated since 9
    */
   function showActionMenu(options: ActionMenuOptions, callback: AsyncCallback<ActionMenuSuccessResponse>): void;
@@ -251,7 +251,7 @@ import { AsyncCallback } from './@ohos.base';
    * @param { ActionMenuOptions } options - Options.
    * @returns { Promise<ActionMenuSuccessResponse> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 22 static
    * @deprecated since 9
    */
   function showActionMenu(options: ActionMenuOptions): Promise<ActionMenuSuccessResponse>;

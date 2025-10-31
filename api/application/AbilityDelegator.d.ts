@@ -49,8 +49,8 @@ import { AbilityStageMonitor } from './AbilityStageMonitor';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface AbilityDelegator {
   /**
@@ -84,8 +84,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   addAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void;
 
@@ -120,8 +120,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   addAbilityMonitor(monitor: AbilityMonitor): Promise<void>;
 
@@ -144,8 +144,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   addAbilityMonitorSync(monitor: AbilityMonitor): void;
 
@@ -180,8 +180,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   addAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<void>): void;
 
@@ -216,8 +216,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   addAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>;
 
@@ -240,8 +240,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   addAbilityStageMonitorSync(monitor: AbilityStageMonitor): void;
 
@@ -276,8 +276,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   removeAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void;
 
@@ -312,8 +312,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   removeAbilityMonitor(monitor: AbilityMonitor): Promise<void>;
 
@@ -336,8 +336,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   removeAbilityMonitorSync(monitor: AbilityMonitor): void;
 
@@ -372,8 +372,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   removeAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<void>): void;
 
@@ -408,8 +408,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   removeAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>;
 
@@ -432,8 +432,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   removeAbilityStageMonitorSync(monitor: AbilityStageMonitor): void;
 
@@ -468,8 +468,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   waitAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<UIAbility>): void;
 
@@ -500,17 +500,17 @@ export interface AbilityDelegator {
    * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
    *
    * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @param { number } timeout - Maximum wait time, in milliseconds.
+   * @param { long } timeout - Maximum wait time, in milliseconds.
    * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling WaitAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
-  waitAbilityMonitor(monitor: AbilityMonitor, timeout: number, callback: AsyncCallback<UIAbility>): void;
+  waitAbilityMonitor(monitor: AbilityMonitor, timeout: long, callback: AsyncCallback<UIAbility>): void;
 
   /**
    * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
@@ -539,17 +539,17 @@ export interface AbilityDelegator {
    * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
    *
    * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @param { number } [timeout] - Maximum wait time, in milliseconds.
+   * @param { long } [timeout] - Maximum wait time, in milliseconds.
    * @returns { Promise<UIAbility> } Returns the Ability object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling WaitAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
-  waitAbilityMonitor(monitor: AbilityMonitor, timeout?: number): Promise<UIAbility>;
+  waitAbilityMonitor(monitor: AbilityMonitor, timeout?: long): Promise<UIAbility>;
 
   /**
    * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
@@ -582,8 +582,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   waitAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<AbilityStage>): void;
 
@@ -614,17 +614,17 @@ export interface AbilityDelegator {
    * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
    *
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { number } timeout - Maximum wait time, in milliseconds.
+   * @param { long } timeout - Maximum wait time, in milliseconds.
    * @param { AsyncCallback<AbilityStage> } callback - The callback is used to return the AbilityStage object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling WaitAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
-  waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout: number, callback: AsyncCallback<AbilityStage>): void;
+  waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout: long, callback: AsyncCallback<AbilityStage>): void;
 
   /**
    * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
@@ -653,17 +653,17 @@ export interface AbilityDelegator {
    * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
    *
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { number } [timeout] - Maximum wait time, in milliseconds.
+   * @param { long } [timeout] - Maximum wait time, in milliseconds.
    * @returns { Promise<AbilityStage> } Returns the AbilityStage object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling WaitAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
-  waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout?: number): Promise<AbilityStage>;
+  waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout?: long): Promise<AbilityStage>;
 
   /**
    * Obtain the application context.
@@ -687,8 +687,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   getAppContext(): Context;
 
@@ -715,15 +715,15 @@ export interface AbilityDelegator {
    * Obtain the lifecycle state of a specified ability.
    *
    * @param { UIAbility } ability - The Ability object.
-   * @returns { number } Returns the state of the Ability object.
+   * @returns { int } Returns the state of the Ability object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
-  getAbilityState(ability: UIAbility): number;
+  getAbilityState(ability: UIAbility): int;
 
   /**
    * Obtain the ability that is currently being displayed in this process.
@@ -753,8 +753,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   getCurrentTopAbility(callback: AsyncCallback<UIAbility>): void;
 
@@ -783,8 +783,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   getCurrentTopAbility(): Promise<UIAbility>;
 
@@ -859,8 +859,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -935,8 +935,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   startAbility(want: Want): Promise<void>;
 
@@ -971,8 +971,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   doAbilityForeground(ability: UIAbility, callback: AsyncCallback<void>): void;
 
@@ -1007,8 +1007,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   doAbilityForeground(ability: UIAbility): Promise<void>;
 
@@ -1043,8 +1043,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   doAbilityBackground(ability: UIAbility, callback: AsyncCallback<void>): void;
 
@@ -1079,8 +1079,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   doAbilityBackground(ability: UIAbility): Promise<void>;
 
@@ -1112,8 +1112,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   print(msg: string, callback: AsyncCallback<void>): void;
 
@@ -1145,8 +1145,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   print(msg: string): Promise<void>;
 
@@ -1178,8 +1178,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   printSync(msg: string): void;
 
@@ -1198,8 +1198,8 @@ export interface AbilityDelegator {
    * @param { AsyncCallback<ShellCmdResult> } callback - The callback of executeShellCommand.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   executeShellCommand(cmd: string, callback: AsyncCallback<ShellCmdResult>): void;
 
@@ -1220,8 +1220,8 @@ export interface AbilityDelegator {
    * @param { AsyncCallback<ShellCmdResult> } callback - The callback of executeShellCommand.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   executeShellCommand(cmd: string, timeoutSecs: number, callback: AsyncCallback<ShellCmdResult>): void;
 
@@ -1242,8 +1242,8 @@ export interface AbilityDelegator {
    * @returns { Promise<ShellCmdResult> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   executeShellCommand(cmd: string, timeoutSecs?: number): Promise<ShellCmdResult>;
 
@@ -1277,17 +1277,17 @@ export interface AbilityDelegator {
    * The total length of the log information to be printed cannot exceed 1000 characters.
    *
    * @param { string } msg - Log information.
-   * @param { number } code - Result code.
+   * @param { long } code - Result code.
    * @param { AsyncCallback<void> } callback - The callback of finishTest.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling FinishTest failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
-  finishTest(msg: string, code: number, callback: AsyncCallback<void>): void;
+  finishTest(msg: string, code: long, callback: AsyncCallback<void>): void;
 
   /**
    * Finish the test and print log information to the unit testing console.
@@ -1319,17 +1319,17 @@ export interface AbilityDelegator {
    * The total length of the log information to be printed cannot exceed 1000 characters.
    *
    * @param { string } msg - Log information.
-   * @param { number } code - Result code.
+   * @param { long } code - Result code.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling FinishTest failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
-  finishTest(msg: string, code: number): Promise<void>;
+  finishTest(msg: string, code: long): Promise<void>;
 
   /**
    * Used to set a list of mock data.
@@ -1340,11 +1340,11 @@ export interface AbilityDelegator {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   setMockList(mockList: Record<string, string>): void;
 }
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 export default AbilityDelegator;
 /*** endif */

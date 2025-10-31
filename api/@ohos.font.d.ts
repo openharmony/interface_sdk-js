@@ -17,9 +17,6 @@
  * @file
  * @kit ArkUI
  */
-/*** if arkts 1.2 */
-import { Resource } from './global/resource'
-/*** endif */
 
 /**
  * @namespace font
@@ -37,8 +34,7 @@ import { Resource } from './global/resource'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare namespace font {
   /**
@@ -57,8 +53,7 @@ declare namespace font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface FontOptions {
 
@@ -91,8 +86,7 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     familyName: string | Resource;
 
@@ -125,8 +119,7 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     familySrc: string | Resource;
   }
@@ -147,8 +140,7 @@ declare namespace font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface FontInfo {
 
@@ -174,8 +166,7 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     path: string;
 
@@ -201,8 +192,7 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     postScriptName: string;
 
@@ -228,8 +218,7 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     fullName: string;
 
@@ -255,8 +244,7 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     family: string;
 
@@ -282,8 +270,7 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     subfamily: string;
 
@@ -309,8 +296,7 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     weight: number;
 
@@ -336,8 +322,7 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     width: number;
 
@@ -363,8 +348,7 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     italic: boolean;
 
@@ -390,8 +374,7 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     monoSpace: boolean;
 
@@ -417,8 +400,7 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     symbolic: boolean;
   }
@@ -432,8 +414,7 @@ declare namespace font {
    * @typedef UIFontConfig
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface UIFontConfig {
     /**
@@ -447,8 +428,7 @@ declare namespace font {
      * @type { Array<string> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     fontDir: Array<string>;
 
@@ -463,8 +443,7 @@ declare namespace font {
      * @type { Array<UIFontGenericInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     generic: Array<UIFontGenericInfo>;
 
@@ -479,8 +458,7 @@ declare namespace font {
      * @type { Array<UIFontFallbackGroupInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     fallbackGroups: Array<UIFontFallbackGroupInfo>;
   }
@@ -494,8 +472,7 @@ declare namespace font {
    * @typedef UIFontGenericInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface UIFontGenericInfo {
     /**
@@ -509,8 +486,7 @@ declare namespace font {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     family: string;
 
@@ -525,8 +501,7 @@ declare namespace font {
      * @type { Array<UIFontAliasInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     alias: Array<UIFontAliasInfo>;
 
@@ -541,8 +516,7 @@ declare namespace font {
      * @type { Array<UIFontAdjustInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     adjust: Array<UIFontAdjustInfo>;
   }
@@ -556,8 +530,7 @@ declare namespace font {
    * @typedef UIFontAliasInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface UIFontAliasInfo {
     /**
@@ -571,8 +544,7 @@ declare namespace font {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     name: string;
 
@@ -589,8 +561,7 @@ declare namespace font {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     weight: number;
   }
@@ -604,8 +575,7 @@ declare namespace font {
    * @typedef UIFontAdjustInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface UIFontAdjustInfo {
     /**
@@ -619,8 +589,7 @@ declare namespace font {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     weight: number;
     /**
@@ -634,8 +603,7 @@ declare namespace font {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     to: number;
   }
@@ -649,8 +617,7 @@ declare namespace font {
    * @typedef UIFontFallbackGroupInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface UIFontFallbackGroupInfo {
     /**
@@ -666,8 +633,7 @@ declare namespace font {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     fontSetName: string;
 
@@ -682,8 +648,7 @@ declare namespace font {
      * @type { Array<UIFontFallbackInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     fallback: Array<UIFontFallbackInfo>;
   }
@@ -697,8 +662,7 @@ declare namespace font {
    * @typedef UIFontFallbackInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   interface UIFontFallbackInfo {
     /**
@@ -712,8 +676,7 @@ declare namespace font {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     language: string;
 
@@ -728,8 +691,7 @@ declare namespace font {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     family: string;
   }
@@ -756,7 +718,7 @@ declare namespace font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Font#registerFont
    */
@@ -784,7 +746,7 @@ declare namespace font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Font#getSystemFontList
    */
@@ -815,7 +777,7 @@ declare namespace font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Font#getFontByName
    */
@@ -834,8 +796,7 @@ declare namespace font {
    * @returns { UIFontConfig } Returns the ui font config
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   function getUIFontConfig(): UIFontConfig;
 }

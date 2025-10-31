@@ -19,9 +19,7 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
-/*** if arkts 1.1 */
 import stream from './@ohos.util.stream';
-/*** endif */
 
 /**
  * Hash
@@ -45,8 +43,7 @@ import stream from './@ohos.util.stream';
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic&static
  */
 declare namespace hash {
   /**
@@ -83,8 +80,7 @@ declare namespace hash {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function hash(path: string, algorithm: string): Promise<string>;
 
@@ -122,8 +118,7 @@ declare namespace hash {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function hash(path: string, algorithm: string, callback: AsyncCallback<string>): void;
 
@@ -140,7 +135,7 @@ declare namespace hash {
    * @extends stream.Transform
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic&static
    */
   class HashStream extends stream.Transform {
     /**
@@ -160,7 +155,7 @@ declare namespace hash {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     digest(): string;
 
@@ -181,7 +176,7 @@ declare namespace hash {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     update(data: ArrayBuffer): void;
   }
@@ -207,7 +202,7 @@ declare namespace hash {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic&static
    */
   function createHash(algorithm: string): HashStream;
 }

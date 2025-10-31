@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkTS
- * @arkts 1.2
  */
 
 /**
@@ -26,20 +25,9 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 staticonly
  */
 declare namespace transfer {
-
-    /**
-     * Any is used for the parameter type and return type of the transfer methods
-     * 
-     * @typedef {Object | undefined | null}
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    type Any = Object | undefined | null;
 
     /**
      * Converting the 1.0 object to a 1.2 object.
@@ -47,10 +35,11 @@ declare namespace transfer {
      * @param { Any } input The 1.0 object that needs to be converted
      * @param { string } inputName name registered by the subsystem.
      * @returns { Object } Object
+     * @throws { BusinessError } 10200067 - Transfer Error. The input name is not supported!
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 staticonly
      */
     function transferStatic(input: Any, inputName: string): Object;
 
@@ -60,10 +49,11 @@ declare namespace transfer {
      * @param { Object } input The 1.2 object that needs to be converted
      * @param { string } inputName name registered by the subsystem.
      * @returns { Any } Object
+     * @throws { BusinessError } 10200067 - Transfer Error. The input name is not supported!
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 staticonly
      */
     function transferDynamic(input: Object, inputName: string): Any;
 

@@ -40,7 +40,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @deprecated since 12
  */
 declare enum PanelMode {
@@ -63,7 +63,7 @@ declare enum PanelMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   Mini,
@@ -87,7 +87,7 @@ declare enum PanelMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   Half,
@@ -111,7 +111,7 @@ declare enum PanelMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   Full,
@@ -139,7 +139,7 @@ declare enum PanelMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @deprecated since 12
  */
 declare enum PanelType {
@@ -162,7 +162,7 @@ declare enum PanelType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   Minibar = 0,
@@ -189,7 +189,7 @@ declare enum PanelType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   Foldable = 1,
@@ -216,7 +216,7 @@ declare enum PanelType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   Temporary = 2,
@@ -234,7 +234,7 @@ declare enum PanelType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   CUSTOM = 3,
@@ -255,7 +255,7 @@ declare enum PanelType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @deprecated since 12
  */
 declare enum PanelHeight {
@@ -272,7 +272,7 @@ declare enum PanelHeight {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   WRAP_CONTENT = 'wrapContent',
@@ -300,7 +300,7 @@ declare enum PanelHeight {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @deprecated since 12
  */
 interface PanelInterface {
@@ -329,7 +329,7 @@ interface PanelInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   (show: boolean): PanelAttribute;
@@ -355,7 +355,7 @@ interface PanelInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @deprecated since 12
  */
 declare class PanelAttribute extends CommonMethod<PanelAttribute> {
@@ -384,7 +384,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   mode(value: PanelMode): PanelAttribute;
@@ -414,7 +414,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   type(value: PanelType): PanelAttribute;
@@ -444,7 +444,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   dragBar(value: boolean): PanelAttribute;
@@ -464,7 +464,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   customHeight(value: Dimension | PanelHeight): PanelAttribute;
@@ -494,7 +494,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   fullHeight(value: number | string): PanelAttribute;
@@ -524,7 +524,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   halfHeight(value: number | string): PanelAttribute;
@@ -554,7 +554,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   miniHeight(value: number | string): PanelAttribute;
@@ -584,7 +584,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   show(value: boolean): PanelAttribute;
@@ -614,7 +614,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   backgroundMask(color: ResourceColor): PanelAttribute;
@@ -634,7 +634,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @returns { PanelAttribute } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   showCloseIcon(value: boolean): PanelAttribute;
@@ -664,7 +664,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   onChange(
@@ -680,7 +680,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      * @deprecated since 12
      */
       width: number,
@@ -696,7 +696,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      * @deprecated since 12
      */
       height: number,
@@ -712,7 +712,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      * @deprecated since 12
      */
       mode: PanelMode,
@@ -744,7 +744,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   onHeightChange(callback: (value: number) => void): PanelAttribute;
@@ -769,7 +769,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamiconly
  * @deprecated since 12
  * @useinstead bindSheet
  */
@@ -794,7 +794,7 @@ declare const Panel: PanelInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @deprecated since 12
  */
 declare const PanelInstance: PanelAttribute;

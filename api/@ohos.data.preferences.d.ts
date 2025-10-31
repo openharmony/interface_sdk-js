@@ -45,8 +45,8 @@ import Context from './application/BaseContext';
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  * @name preferences
  */
 declare namespace preferences {
@@ -79,8 +79,8 @@ declare namespace preferences {
    * bigint}
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   type ValueType = number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array | object | bigint;
 
@@ -114,9 +114,10 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  const MAX_KEY_LENGTH: number;
+  const MAX_KEY_LENGTH: int;
 
   /**
    * Indicates the maximum length of a string (8192 characters).
@@ -148,7 +149,7 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   const MAX_VALUE_LENGTH: number;
 
@@ -158,7 +159,7 @@ declare namespace preferences {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   enum StorageType {
     /**
@@ -166,7 +167,7 @@ declare namespace preferences {
      *
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     XML = 0,
 
@@ -175,7 +176,7 @@ declare namespace preferences {
      *
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     GSKV
   }
@@ -195,8 +196,8 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   interface Options {
     /**
@@ -213,8 +214,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     name: string;
 
@@ -232,8 +233,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @StageModelOnly
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     dataGroupId?: string | null | undefined;
 
@@ -243,7 +244,7 @@ declare namespace preferences {
      * @type { ?(StorageType | null | undefined) }
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     storageType?: StorageType | null | undefined;
   }
@@ -295,8 +296,8 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>): void;
 
@@ -338,8 +339,8 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getPreferences(context: Context, options: Options, callback: AsyncCallback<Preferences>): void;
 
@@ -387,8 +388,8 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getPreferences(context: Context, name: string): Promise<Preferences>;
 
@@ -428,8 +429,8 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getPreferences(context: Context, options: Options): Promise<Preferences>;
 
@@ -471,8 +472,8 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getPreferencesSync(context: Context, options: Options): Preferences;
 
@@ -483,7 +484,7 @@ declare namespace preferences {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   function isStorageTypeSupported(type: StorageType): boolean;
   /**
@@ -542,8 +543,8 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function deletePreferences(context: Context, name: string, callback: AsyncCallback<void>): void;
 
@@ -591,8 +592,8 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function deletePreferences(context: Context, options: Options, callback: AsyncCallback<void>): void;
 
@@ -652,8 +653,8 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function deletePreferences(context: Context, name: string): Promise<void>;
 
@@ -701,8 +702,8 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function deletePreferences(context: Context, options: Options): Promise<void>;
 
@@ -756,8 +757,8 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function removePreferencesFromCache(context: Context, name: string, callback: AsyncCallback<void>): void;
 
@@ -801,8 +802,8 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function removePreferencesFromCache(context: Context, options: Options, callback: AsyncCallback<void>): void;
 
@@ -856,8 +857,8 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function removePreferencesFromCache(context: Context, name: string): Promise<void>;
 
@@ -901,8 +902,8 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function removePreferencesFromCache(context: Context, options: Options): Promise<void>;
 
@@ -938,8 +939,8 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function removePreferencesFromCacheSync(context: Context, name: string): void;
 
@@ -981,8 +982,8 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function removePreferencesFromCacheSync(context: Context, options: Options): void;
 
@@ -1020,8 +1021,8 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   interface Preferences {
     /**
@@ -1071,8 +1072,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     get(key: string, defValue: ValueType, callback: AsyncCallback<ValueType>): void;
 
@@ -1123,8 +1124,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     get(key: string, defValue: ValueType): Promise<ValueType>;
 
@@ -1160,8 +1161,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getSync(key: string, defValue: ValueType): ValueType;
 
@@ -1191,8 +1192,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getAll(callback: AsyncCallback<Object>): void;
 
@@ -1219,8 +1220,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getAll(): Promise<Object>;
 
@@ -1242,8 +1243,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getAllSync(): Object;
 
@@ -1288,8 +1289,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     has(key: string, callback: AsyncCallback<boolean>): void;
 
@@ -1334,8 +1335,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     has(key: string): Promise<boolean>;
 
@@ -1369,8 +1370,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     hasSync(key: string): boolean;
 
@@ -1432,8 +1433,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     put(key: string, value: ValueType, callback: AsyncCallback<void>): void;
 
@@ -1499,8 +1500,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     put(key: string, value: ValueType): Promise<void>;
 
@@ -1544,8 +1545,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     putSync(key: string, value: ValueType): void;
 
@@ -1590,8 +1591,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     delete(key: string, callback: AsyncCallback<void>): void;
 
@@ -1636,8 +1637,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     delete(key: string): Promise<void>;
 
@@ -1669,8 +1670,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     deleteSync(key: string): void;
 
@@ -1703,8 +1704,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     clear(callback: AsyncCallback<void>): void;
 
@@ -1734,8 +1735,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     clear(): Promise<void>;
 
@@ -1754,8 +1755,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     clearSync(): void;
 
@@ -1785,8 +1786,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     flush(callback: AsyncCallback<void>): void;
 
@@ -1813,8 +1814,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     flush(): Promise<void>;
 
@@ -1825,7 +1826,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     flushSync(): void;
 
@@ -1864,7 +1866,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
+     * @since 20 static
      */
     on(type: 'change', callback: Callback<string>): void;
 
@@ -1892,7 +1895,8 @@ declare namespace preferences {
      * @throws { BusinessError } 15500019 - Failed to obtain the subscription service.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
+     * @since 20 static
      */
     on(type: 'multiProcessChange', callback: Callback<string>): void;
 
@@ -1923,7 +1927,7 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     on(type: 'dataChange', keys: Array<string>, callback: Callback<Record<string, ValueType>>): void;
 
@@ -1962,7 +1966,8 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
+     * @since 20 static
      */
     off(type: 'change', callback?: Callback<string>): void;
 
@@ -1988,7 +1993,8 @@ declare namespace preferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
+     * @since 20 static
      */
     off(type: 'multiProcessChange', callback?: Callback<string>): void;
 
@@ -2019,7 +2025,7 @@ declare namespace preferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic&static
      */
     off(type: 'dataChange', keys: Array<string>, callback?: Callback<Record<string, ValueType>>): void;
   }

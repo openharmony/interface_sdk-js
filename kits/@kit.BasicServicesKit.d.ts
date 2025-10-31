@@ -74,7 +74,7 @@ import SelectionExtensionAbility from '@ohos.selectionInput.SelectionExtensionAb
 import { PanelInfo, PanelType } from '@ohos.selectionInput.SelectionPanel';
 import selectionManager from '@ohos.selectionInput.selectionManager';
 import SelectionExtensionContext from '@ohos.selectionInput.SelectionExtensionContext';
-
+import { Available } from '@ohos.annotation';
 export {
   AsyncCallback, Battery, BatteryResponse, Brightness, BrightnessModeResponse,
   BrightnessResponse, BusinessError, Callback, Device, DeviceResponse,
@@ -87,13 +87,19 @@ export {
   screenLock, settings, systemCapability, systemDateTime, systemParameter, systemParameterEnhance, systemTime,
   systemTimer, thermal, update, usb, usbManager, serialManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
   StaticSubscriberExtensionContext, systemLoad, intelligentVoice, selectionManager, SelectionExtensionAbility,
-  PanelInfo, PanelType, SelectionExtensionContext
+  PanelInfo, PanelType, SelectionExtensionContext, Available
 };
 
-/*** if arkts 1.2 */
+/*** if arkts static */
+import configPolicy from '@ohos.configPolicy';
+import customConfig from '@ohos.customization.customConfig';
 import zlib from '@ohos.zlib';
+import systemDateTime from '@ohos.systemDateTime';
+import systemTimer from '@ohos.systemTimer';
+import systemLoad from '@ohos.resourceschedule.systemload';
+import request from '@ohos.request';
 
 export {
-  zlib
+  zlib, configPolicy, customConfig, systemDateTime, systemTimer, systemLoad, request
 };
 /*** endif */

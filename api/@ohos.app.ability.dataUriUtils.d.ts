@@ -23,33 +23,36 @@
  *
  * @namespace dataUriUtils
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 9
+ * @since 9 dynamic
+ * @since 20 static
  */
 declare namespace dataUriUtils {
   /**
    * Obtains the ID attached to the end of the path component of the given uri.
    *
    * @param { string } uri - Indicates the uri object from which the ID is to be obtained.
-   * @returns { number } Returns the ID attached to the end of the path component;
+   * @returns { double } Returns the ID attached to the end of the path component;
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
-  function getId(uri: string): number;
+  function getId(uri: string): double;
 
   /**
    * Attaches the given ID to the end of the path component of the given uri.
    *
    * @param { string } uri - Indicates the uri string from which the ID is to be obtained.
-   * @param { number } id - Indicates the ID to attach.
+   * @param { double } id - Indicates the ID to attach.
    * @returns { string } Returns the uri object with the given ID attached.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
-  function attachId(uri: string, id: number): string;
+  function attachId(uri: string, id: double): string;
 
   /**
    * Deletes the ID from the end of the path component of the given uri.
@@ -59,7 +62,8 @@ declare namespace dataUriUtils {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   function deleteId(uri: string): string;
 
@@ -67,13 +71,14 @@ declare namespace dataUriUtils {
    * Updates the ID in the specified uri
    *
    * @param { string } uri - Indicates the uri object to be updated.
-   * @param { number } id - Indicates the new ID.
+   * @param { double } id - Indicates the new ID.
    * @returns { string } Returns the updated uri object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
-  function updateId(uri: string, id: number): string;
+  function updateId(uri: string, id: double): string;
 }
 export default dataUriUtils;

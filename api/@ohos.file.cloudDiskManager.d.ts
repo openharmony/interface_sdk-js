@@ -24,7 +24,7 @@
  * @namespace cloudDiskManager
  * @syscap SystemCapability.FileManagement.CloudDiskManager
  * @systemapi
- * @since 21
+ * @since 21 dynamic
  */
 declare namespace cloudDiskManager {
   /**
@@ -33,7 +33,7 @@ declare namespace cloudDiskManager {
    * @enum {number}
    * @syscap SystemCapability.FileManagement.CloudDiskManager
    * @systemapi
-   * @since 21
+   * @since 21 dynamic
    */
   enum SyncFolderState {
     /**
@@ -41,7 +41,7 @@ declare namespace cloudDiskManager {
      *
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
      */
     INACTIVE = 0,
 
@@ -50,7 +50,7 @@ declare namespace cloudDiskManager {
      *
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
      */
     ACTIVE = 1
   }
@@ -61,7 +61,7 @@ declare namespace cloudDiskManager {
    * @typedef SyncFolder
    * @syscap SystemCapability.FileManagement.CloudDiskManager
    * @systemapi
-   * @since 21
+   * @since 21 dynamic
    */
   interface SyncFolder {
     /**
@@ -70,7 +70,7 @@ declare namespace cloudDiskManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
      */
     path: string;
 
@@ -80,7 +80,7 @@ declare namespace cloudDiskManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
      */
     bundleName: string;
 
@@ -90,7 +90,7 @@ declare namespace cloudDiskManager {
      * @type { SyncFolderState }
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
      */
     state: SyncFolderState;
 
@@ -100,7 +100,7 @@ declare namespace cloudDiskManager {
      * @type { ?number }
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
      */
     displayNameResId?: number;
 
@@ -110,7 +110,7 @@ declare namespace cloudDiskManager {
      * @type { ?string }
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
      */
     customAlias?: string;
   }
@@ -120,7 +120,7 @@ declare namespace cloudDiskManager {
    *
    * @syscap SystemCapability.FileManagement.CloudDiskManager
    * @systemapi
-   * @since 21
+   * @since 21 dynamic
    */
   class SyncFolderAccessor {
     /**
@@ -132,7 +132,7 @@ declare namespace cloudDiskManager {
      *    application which is not a system application uses system API.
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
      */
     constructor();
 
@@ -144,12 +144,13 @@ declare namespace cloudDiskManager {
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - Permission verification failed,
      *    application which is not a system application uses system API.
+     * @throws { BusinessError } 801 - Device not supported.
      * @throws { BusinessError } 34400003 - IPC communication failed.
-     * @throws { BusinessError } 34400015 - Internal error.
-     * @throws { BusinessError } 34400016 - Cloud disk not support.
+     * @throws { BusinessError } 34400014 - Temporary failure, Retry is recommended (e.g., network issues).
+     * @throws { BusinessError } 34400015 - Cloud disk not allowed on this device.
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
-     * @since 21
+     * @since 21 dynamic
      */
     getAllSyncFolders(): Promise<Array<SyncFolder>>;
   }

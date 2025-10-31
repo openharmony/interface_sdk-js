@@ -18,8 +18,10 @@
  * @kit AbilityKit
  */
 
+/*** if arkts dynamic */
 import type { AutoStartupCallback } from './application/AutoStartupCallback';
 import type { AutoStartupInfo } from './application/AutoStartupInfo';
+/*** endif */
 import type { AsyncCallback } from './@ohos.base';
 
 /**
@@ -35,8 +37,7 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * @namespace autoStartupManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 21
- * @arkts 1.1&1.2
+ * @since 21 dynamic&static
  */
 declare namespace autoStartupManager {
   /**
@@ -54,7 +55,7 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'systemAutoStartup', callback: AutoStartupCallback): void;
 
@@ -73,7 +74,7 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
    */
   function off(type: 'systemAutoStartup', callback?: AutoStartupCallback): void;
 
@@ -94,7 +95,7 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
    */
   function setApplicationAutoStartup(info: AutoStartupInfo, callback: AsyncCallback<void>): void;
 
@@ -115,7 +116,7 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
    */
   function setApplicationAutoStartup(info: AutoStartupInfo): Promise<void>;
 
@@ -136,7 +137,7 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
    */
   function cancelApplicationAutoStartup(info: AutoStartupInfo, callback: AsyncCallback<void>): void;
 
@@ -157,7 +158,7 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
    */
   function cancelApplicationAutoStartup(info: AutoStartupInfo): Promise<void>;
 
@@ -176,7 +177,7 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
    */
   function queryAllAutoStartupApplications(callback: AsyncCallback<Array<AutoStartupInfo>>): void;
 
@@ -194,7 +195,7 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
    */
   function queryAllAutoStartupApplications(): Promise<Array<AutoStartupInfo>>;
 
@@ -208,8 +209,7 @@ declare namespace autoStartupManager {
    *     2.System service failed to communicate with dependency module.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic&static
    */
   function getAutoStartupStatusForSelf(): Promise<boolean>;
 }

@@ -18,9 +18,7 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import { DrawableDescriptor } from './../@ohos.arkui.drawableDescriptor';
-/*** endif */
 
 /**
  * Obtains resource information about a bundle
@@ -28,8 +26,8 @@ import { DrawableDescriptor } from './../@ohos.arkui.drawableDescriptor';
  * @typedef BundleResourceInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Resource
  * @systemapi
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface BundleResourceInfo {
   /**
@@ -39,8 +37,8 @@ export interface BundleResourceInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly bundleName: string;
 
@@ -51,8 +49,8 @@ export interface BundleResourceInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly icon: string;
 
@@ -63,8 +61,8 @@ export interface BundleResourceInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly label: string;
 
@@ -75,19 +73,30 @@ export interface BundleResourceInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   readonly drawableDescriptor: DrawableDescriptor;
 
   /**
-   * Indicates the index of the bundle
+   * Indicates the drawable descriptor of this bundle icon
    *
-   * @type { number }
+   * @type { DrawableDescriptor | null }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20 static
    */
-  readonly appIndex: number;
+  readonly drawableDescriptor: DrawableDescriptor | null;
+
+  /**
+   * Indicates the index of the bundle
+   *
+   * @type { int }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
+   * @since 12 dynamic
+   * @since 20 static
+   */
+  readonly appIndex: int;
 }

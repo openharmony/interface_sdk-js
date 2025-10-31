@@ -42,8 +42,8 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'13','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 13 dynamic
+ * @since 20 static
  */
 declare namespace access {
   /**
@@ -80,8 +80,8 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 20 static
    */
   function enableBluetooth(): void;
 
@@ -119,8 +119,8 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 20 static
    */
   function disableBluetooth(): void;
 
@@ -138,7 +138,7 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   function enableBluetoothAsync(): Promise<void>;
 
@@ -156,7 +156,7 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   function disableBluetoothAsync(): Promise<void>;
 
@@ -173,7 +173,7 @@ declare namespace access {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   function notifyDialogResult(notifyDialogResultParams: NotifyDialogResultParams): Promise<void>;
 
@@ -189,8 +189,8 @@ declare namespace access {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function restrictBluetooth(): Promise<void>;
 
@@ -229,8 +229,8 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 20 static
    */
   function getState(): BluetoothState;
 
@@ -248,7 +248,7 @@ declare namespace access {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function factoryReset(callback: AsyncCallback<void>): void;
 
@@ -264,7 +264,7 @@ declare namespace access {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function factoryReset(): Promise<void>;
 
@@ -280,7 +280,7 @@ declare namespace access {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function getLocalAddress(): string;
 
@@ -341,7 +341,8 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
+   * @since 20 static
    */
   function on(type: 'stateChange', callback: Callback<BluetoothState>): void;
 
@@ -402,7 +403,8 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
+   * @since 20 static
    */
   function off(type: 'stateChange', callback?: Callback<BluetoothState>): void;
 
@@ -422,7 +424,7 @@ declare namespace access {
    * @throws { BusinessError } 2900099 - Add persistent device address failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
-   * @since 16
+   * @since 16 dynamic
    */
   function addPersistentDeviceId(deviceId: string): Promise<void>;
 
@@ -440,7 +442,7 @@ declare namespace access {
    * @throws { BusinessError } 2900099 - delete persistent device address failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
-   * @since 16
+   * @since 16 dynamic
    */
   function deletePersistentDeviceId(deviceId: string): Promise<void>;
 
@@ -455,7 +457,7 @@ declare namespace access {
    * @throws { BusinessError } 2900099 - Get persistent device address failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
-   * @since 16
+   * @since 16 dynamic
    */
   function getPersistentDeviceIds(): string[];
 
@@ -473,9 +475,19 @@ declare namespace access {
    * @throws { BusinessError } 2900099 - Check persistent device address failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
-   * @since 16
+   * @since 16 dynamic
    */
   function isValidRandomDeviceId(deviceId: string): boolean;
+
+  /**
+   * Convert 2-byte and 4-byte UUID strings to the 16-byte UUID string standard used in Bluetooth.
+   *
+   * @param { string } uuid - 2-byte, 4-byte, 16-byte UUID string data.
+   * @returns { string } Return the converted 16-byte UUID string.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 22 dynamic
+   */
+  function convertUuid(uuid: string): string;
 
   /**
    * The enum of bluetooth state.
@@ -495,12 +507,12 @@ declare namespace access {
   /**
    * The enum of bluetooth state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 20 static
    */
   export enum BluetoothState {
     /**
@@ -522,8 +534,8 @@ declare namespace access {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 20 static
      */
     STATE_OFF = 0,
     /**
@@ -545,8 +557,8 @@ declare namespace access {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 20 static
      */
     STATE_TURNING_ON = 1,
     /**
@@ -568,8 +580,8 @@ declare namespace access {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 20 static
      */
     STATE_ON = 2,
     /**
@@ -591,8 +603,8 @@ declare namespace access {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 20 static
      */
     STATE_TURNING_OFF = 3,
     /**
@@ -606,8 +618,8 @@ declare namespace access {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     STATE_BLE_TURNING_ON = 4,
     /**
@@ -621,8 +633,8 @@ declare namespace access {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     STATE_BLE_ON = 5,
     /**
@@ -636,8 +648,8 @@ declare namespace access {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     STATE_BLE_TURNING_OFF = 6
   }
@@ -648,26 +660,29 @@ declare namespace access {
    * @typedef NotifyDialogResultParams
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface NotifyDialogResultParams {
     /**
      * The type of bluetooth dialog.
-     * 
+     *
      * @type { DialogType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     dialogType: DialogType;
     /**
      * The result of bluetooth dialog. The value true indicates that the user approves the request,
      * and the value false indicates that the user rejects the request.
-     * 
+     *
      * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     dialogResult: boolean;
   }
@@ -678,7 +693,8 @@ declare namespace access {
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum DialogType {
     /**
@@ -686,7 +702,8 @@ declare namespace access {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     BLUETOOTH_SWITCH = 0
   }

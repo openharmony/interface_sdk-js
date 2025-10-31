@@ -19,10 +19,6 @@
  */
 
 
-/*** if arkts 1.2 */
-import { CommonMethod } from './common';
-import { LengthMetrics } from '../Graphics';
-/*** endif */
 
 /**
  * Defines the lazy vertical grid layout component.
@@ -31,8 +27,7 @@ import { LengthMetrics } from '../Graphics';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19 dynamic
  */
 interface LazyVGridLayoutInterface {
   /**
@@ -42,8 +37,7 @@ interface LazyVGridLayoutInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   (): LazyVGridLayoutAttribute;
 }
@@ -55,8 +49,7 @@ interface LazyVGridLayoutInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19 dynamic
  */
 declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
   /**
@@ -67,8 +60,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   rowsGap(value: LengthMetrics): T;
 
@@ -80,8 +72,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   columnsGap(value: LengthMetrics): T;
 }
@@ -93,8 +84,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19 dynamic
  */
 declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGridLayoutAttribute> {
   /**
@@ -105,8 +95,7 @@ declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGrid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   columnsTemplate(value: string): LazyVGridLayoutAttribute;
 }
@@ -117,7 +106,7 @@ declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGrid
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 19
+ * @since 19 dynamic
  */
 declare const LazyVGridLayout: LazyVGridLayoutInterface;
 
@@ -127,7 +116,7 @@ declare const LazyVGridLayout: LazyVGridLayoutInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 19
+ * @since 19 dynamic
  */
 declare const LazyVGridLayoutInstance: LazyVGridLayoutAttribute;
   

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -32,7 +32,13 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
- * @noninterop
+ */
+/**
+ * Declare SplitLayout.The SplitLayout is used for upper and lower graphic layouts.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
  */
 @Component
 export declare struct SplitLayout {
@@ -49,6 +55,14 @@ export declare struct SplitLayout {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Container in the user-defined splitlayout display area.
+   * @type { container: () => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   @BuilderParam container: () => void;
 
   /**
@@ -63,6 +77,14 @@ export declare struct SplitLayout {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Image in the layout.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   @State mainImage: ResourceStr;
 
@@ -79,6 +101,14 @@ export declare struct SplitLayout {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Title text in the layout.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   @Prop primaryText: ResourceStr;
 
   /**
@@ -94,6 +124,14 @@ export declare struct SplitLayout {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Description text in the layout.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   @Prop secondaryText?: ResourceStr;
 
   /**
@@ -108,6 +146,14 @@ export declare struct SplitLayout {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Auxiliary text in the layout.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   @Prop tertiaryText?: ResourceStr;
 }

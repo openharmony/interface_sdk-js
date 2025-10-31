@@ -25,7 +25,8 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 14
+ * @since 14 dynamic
+ * @since 20 static
  */
 export default interface UIServiceHostProxy {
   /**
@@ -39,7 +40,8 @@ export default interface UIServiceHostProxy {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   sendData(data: Record<string, Object>): void;
 }

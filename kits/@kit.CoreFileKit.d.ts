@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,6 +18,7 @@
  * @kit CoreFileKit
  */
 
+/*** if arkts dynamic */
 import BackupExtensionAbility, { BundleVersion } from '@ohos.application.BackupExtensionAbility';
 import BackupExtensionContext from '@ohos.file.BackupExtensionContext';
 import backup from '@ohos.file.backup';
@@ -51,3 +52,28 @@ export {
   fileIo, fileShare, fileUri, hash, picker, recent, securityLabel, statfs,
   storageStatistics, trash, userFileManager, volumeManager, keyManager, DfsListeners, TaskSignal
 };
+/*** endif */
+
+/*** if arkts static */
+import BackupExtensionAbility from '@ohos.application.BackupExtensionAbility';
+import { BundleVersion } from '@ohos.application.BackupExtensionAbility';
+import cloudSync from '@ohos.file.cloudSync';
+import cloudSyncManager from '@ohos.file.cloudSyncManager';
+import Environment from '@ohos.file.environment';
+import fileUri from '@ohos.file.fileuri';
+import fileIo from '@ohos.file.fs'
+import {
+  Filter, Options, ReaderIteratorResult, WatchEvent, WatchEventListener,
+  Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions, TaskSignal
+} from '@ohos.file.fs';
+import hash from '@ohos.file.hash';
+import securityLabel from '@ohos.file.securityLabel';
+import statfs from '@ohos.file.statvfs';
+import fileShare from '@ohos.fileshare';
+
+export {
+  BackupExtensionAbility, BundleVersion, Environment, Filter, Options, ReaderIteratorResult,
+  WatchEvent, WatchEventListener, Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions,
+  cloudSync, cloudSyncManager, fileIo, fileShare, fileUri, hash, securityLabel, statfs, TaskSignal
+};
+/*** endif */

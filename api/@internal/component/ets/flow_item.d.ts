@@ -18,9 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonMethod } from './common'
-/*** endif */
 
 /**
  * Mesh container for static fixed-size layout scenarios.
@@ -44,8 +41,7 @@ import { CommonMethod } from './common'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 interface FlowItemInterface {
   /**
@@ -70,8 +66,7 @@ interface FlowItemInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   (): FlowItemAttribute;
 }
@@ -98,8 +93,7 @@ interface FlowItemInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class FlowItemAttribute extends CommonMethod<FlowItemAttribute> {}
 
@@ -122,7 +116,7 @@ declare class FlowItemAttribute extends CommonMethod<FlowItemAttribute> {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const FlowItem: FlowItemInterface
 
@@ -145,6 +139,6 @@ declare const FlowItem: FlowItemInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const FlowItemInstance: FlowItemAttribute;

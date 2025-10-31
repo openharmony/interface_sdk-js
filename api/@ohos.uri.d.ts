@@ -44,8 +44,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace uri {
   /**
@@ -69,8 +69,8 @@ declare namespace uri {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    * @name URI
    */
   class URI {
@@ -112,8 +112,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     constructor(uri: string);
     /**
@@ -138,8 +138,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     toString(): string;
 
@@ -149,7 +149,7 @@ declare namespace uri {
      * @param { URI } other - other other URI object to be compared
      * @returns { boolean } boolean Tests whether this URI is equivalent to other URI objects.
      * @syscap SystemCapability.Utils.Lang
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.uri.URI.equalsTo
      */
@@ -189,8 +189,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     equalsTo(other: URI): boolean;
 
@@ -216,8 +216,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     checkIsAbsolute(): boolean;
 
@@ -243,8 +243,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     normalize(): URI;
     /**
@@ -259,7 +259,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     getQueryValue(key: string): string;
     /**
@@ -274,8 +274,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     getQueryValue(key: string): string | null;
     /**
@@ -290,8 +289,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     addQueryValue(key: string, value: string): URI;
     /**
@@ -301,20 +300,10 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     getQueryNames(): string[];
-    /**
-     * Obtains all non-repeated keys in the query component of this URI. 
-     *
-     * @returns { Array<string> } Return a set of decoded names.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    getQueryNames(): Array<string>;
     /**
      * Obtains the values of a given key from the query component of this URI.
      *
@@ -326,22 +315,10 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     getQueryValues(key: string): string[];
-
-    /**
-     * Obtains the values of a given key from the query component of this URI.
-     *
-     * @param { string } key - Key of the URI query parameter.
-     * @returns { Array<string> } Return a set of decoded values.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    getQueryValues(key: string): Array<string>;    
     /**
      * Obtains the value of the Boolean type of a query parameter in this URI.
      *
@@ -354,8 +331,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getBooleanQueryValue(key: string, defaultValue: boolean): boolean;
     /**
@@ -365,8 +342,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     clearQuery(): URI;
     /**
@@ -376,8 +353,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getLastSegment(): string;
     /**
@@ -387,20 +364,10 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 20 static
      */
     getSegment(): string[];
-    /**
-     * Obtains all segments of this URI.
-     *
-     * @returns { Array<string> } Return decoded path segments, each without a leading or trailing "/".
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    getSegment(): Array<string>;
     /**
      * Encodes a given field, appends it to the path component of this URI to create a new URI, and returns the new URI,
      * while keeping the existing URI unchanged.
@@ -413,8 +380,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     addSegment(pathSegment: string): URI;
     /**
@@ -429,8 +396,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     addEncodedSegment(pathSegment: string): URI;
     /**
@@ -441,8 +408,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     checkHierarchical(): boolean;
     /**
@@ -452,8 +419,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     checkOpaque(): boolean;
     /**
@@ -463,8 +430,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     checkRelative(): boolean;
     /**
@@ -481,8 +448,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     static createFromParts(scheme: string, ssp: string, fragment: string): URI;
     /**
@@ -516,7 +483,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     scheme: string;
 
@@ -551,7 +518,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     userInfo: string;
 
@@ -577,7 +544,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     host: string;
 
@@ -603,7 +570,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     port: string;
 
@@ -638,7 +605,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     path: string;
 
@@ -673,7 +640,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     query: string;
 
@@ -708,7 +675,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     fragment: string;
 
@@ -743,7 +710,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     authority: string;
 
@@ -778,7 +745,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ssp: string;
     /**
@@ -788,7 +755,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     encodedUserInfo: string;
     /**
@@ -798,7 +765,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     encodedPath: string;
     /**
@@ -808,7 +775,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     encodedQuery: string;
     /**
@@ -818,7 +785,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     encodedFragment: string;
     /**
@@ -828,7 +795,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     encodedAuthority: string;
     /**
@@ -839,7 +806,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     encodedSSP: string;
     /**
@@ -849,8 +816,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     get scheme(): string | null;
 
@@ -861,10 +827,9 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
-    set scheme(input: string | null);
+    set scheme(input: string);
 
     /**
      * Gets Obtains the user information part of the URI.
@@ -873,8 +838,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     get userInfo(): string | null;
 
@@ -885,18 +849,16 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
-    set userInfo(input: string | null);
+    set userInfo(input: string);
 
     /**
      * Gets the hostname portion of the URI without a port.
      *
      * @type { string | null }
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     get host(): string | null;
 
@@ -905,8 +867,7 @@ declare namespace uri {
      *
      * @type { string }
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     get port(): string;
 
@@ -917,8 +878,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     get path(): string | null;
 
@@ -929,10 +889,9 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
-    set path(input: string | null);
+    set path(input: string);
 
     /**
      * Gets the query portion of the URI
@@ -941,8 +900,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     get query(): string | null;
 
@@ -953,10 +911,9 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
-    set query(input: string | null);
+    set query(input: string);
 
     /**
      * Gets the fragment part of the URI.
@@ -965,8 +922,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     get fragment(): string | null;
 
@@ -977,10 +933,9 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
-    set fragment(input: string | null);
+    set fragment(input: string);
 
     /**
      * Gets the decoding permission component part of this URI.
@@ -989,8 +944,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     get authority(): string | null;
 
@@ -1001,10 +955,9 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
-    set authority(input: string | null);
+    set authority(input: string);
 
     /**
      * Gets the decoding scheme-specific part of the URI.
@@ -1013,8 +966,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     get ssp(): string;
 
@@ -1025,10 +977,9 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
-    set ssp(input: string | null);
+    set ssp(input: string);
 
     /**
      * Gets Obtains the encoded user information part of the URI.
@@ -1037,8 +988,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     get encodedUserInfo(): string | null;
     /**
@@ -1048,10 +998,9 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
-    set encodedUserInfo(input: string | null);
+    set encodedUserInfo(input: string);
 
     /**
      * Gets the encoded path portion of the URI.
@@ -1060,8 +1009,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     get encodedPath(): string | null;
     /**
@@ -1071,10 +1019,9 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
-    set encodedPath(input: string | null);
+    set encodedPath(input: string);
 
     /**
      * Gets the encoded query component from this URI.
@@ -1083,8 +1030,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     get encodedQuery(): string | null;
     /**
@@ -1094,10 +1040,9 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
-    set encodedQuery(input: string | null);
+    set encodedQuery(input: string);
 
     /**
      * Gets the encoded fragment part of this URI, everything after the '#'.
@@ -1106,8 +1051,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     get encodedFragment(): string | null;
     /**
@@ -1117,10 +1061,9 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
-    set encodedFragment(input: string | null);
+    set encodedFragment(input: string);
 
     /**
      * Gets the encoded authority part of this URI.
@@ -1129,8 +1072,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     get encodedAuthority(): string | null;
     /**
@@ -1140,10 +1082,9 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
-    set encodedAuthority(input: string | null);
+    set encodedAuthority(input: string);
 
     /**
      * Gets the scheme-specific part of this URI, i.e. everything between the scheme separator ':' and
@@ -1153,8 +1094,7 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     get encodedSSP(): string;
 
@@ -1166,10 +1106,9 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
-    set encodedSSP(input: string | null);
+    set encodedSSP(input: string);
   }
 }
 export default uri;

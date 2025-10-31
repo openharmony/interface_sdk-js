@@ -30,8 +30,8 @@ import type insightIntent from './@ohos.app.ability.insightIntent';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @StageModelOnly
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace insightIntentDriver {
   /**
@@ -41,8 +41,8 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   interface ExecuteParam {
     /**
@@ -52,8 +52,8 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     bundleName: string;
 
@@ -64,8 +64,8 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     moduleName: string;
 
@@ -76,8 +76,8 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     abilityName: string;
 
@@ -88,8 +88,8 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     insightIntentName: string;
 
@@ -100,8 +100,8 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     insightIntentParam: Record<string, Object>;
 
@@ -112,22 +112,22 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     executeMode: insightIntent.ExecuteMode;
 
     /**
      * Indicates the display Id, only works when executeMode is UIAbility foreground.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
-    displayId?: number;
+    displayId?: long;
 
     /**
      * Indicates the URIs will be authorized to the insight intent executor.
@@ -136,8 +136,8 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     uris?: Array<string>;
 
@@ -148,14 +148,14 @@ declare namespace insightIntentDriver {
      * {@link wantConstant#Flags#FLAG_AUTH_READ_URI_PERMISSION}|
      * {@link wantConstant#Flags#FLAG_AUTH_WRITE_URI_PERMISSION}.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
-    flags?: number;
+    flags?: int;
   }
 
   /**
@@ -188,8 +188,8 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function execute(param: ExecuteParam, callback: AsyncCallback<insightIntent.ExecuteResult>): void;
 
@@ -223,8 +223,8 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function execute(param: ExecuteParam): Promise<insightIntent.ExecuteResult>;
 
@@ -235,7 +235,7 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   enum InsightIntentType {
     /**
@@ -245,7 +245,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     LINK = '@InsightIntentLink',
 
@@ -256,7 +256,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     PAGE = '@InsightIntentPage',
 
@@ -267,7 +267,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     ENTRY = '@InsightIntentEntry',
 
@@ -278,7 +278,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     FUNCTION = '@InsightIntentFunctionMethod',
 
@@ -289,7 +289,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     FORM = '@InsightIntentForm',
   }
@@ -301,7 +301,7 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   interface InsightIntentInfo {
     /**
@@ -312,7 +312,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly bundleName: string;
 
@@ -324,7 +324,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly moduleName: string;
 
@@ -336,7 +336,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly intentName: string;
 
@@ -348,7 +348,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly domain: string;
 
@@ -360,7 +360,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly intentVersion: string;
 
@@ -372,7 +372,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly displayName: string;
 
@@ -384,7 +384,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly displayDescription: string;
 
@@ -396,7 +396,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly schema: string;
 
@@ -408,7 +408,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly icon: string;
 
@@ -420,7 +420,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly llmDescription: string;
 
@@ -432,7 +432,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly keywords: string[];
 
@@ -444,7 +444,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly intentType: InsightIntentType;
 
@@ -461,7 +461,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly subIntentInfo: LinkIntentInfo | PageIntentInfo | FunctionIntentInfo | FormIntentInfo | EntryIntentInfo;
 
@@ -473,7 +473,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly parameters: Record<string, Object>;
 
@@ -485,7 +485,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly result: Record<string, Object>;
 
@@ -497,7 +497,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly entities: Array<EntityInfo>;
   }
@@ -509,7 +509,7 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   interface LinkIntentInfo {
     /**
@@ -520,7 +520,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly uri: string;
   }
@@ -532,7 +532,7 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   interface PageIntentInfo {
     /**
@@ -543,7 +543,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly uiAbility: string;
 
@@ -555,7 +555,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly pagePath: string;
 
@@ -567,7 +567,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly navigationId: string;
 
@@ -579,7 +579,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly navDestinationName: string;
   }
@@ -591,7 +591,7 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   interface FunctionIntentInfo {}
 
@@ -602,7 +602,7 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   interface FormIntentInfo {
     /**
@@ -613,7 +613,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly abilityName: string;
 
@@ -625,7 +625,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly formName: string;
   }
@@ -637,7 +637,7 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   interface EntryIntentInfo {
     /**
@@ -648,7 +648,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly abilityName: string;
 
@@ -660,7 +660,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly executeMode: insightIntent.ExecuteMode[];
   }
@@ -672,7 +672,7 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   enum GetInsightIntentFlag {
     /**
@@ -681,7 +681,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     GET_FULL_INSIGHT_INTENT = 0x00000001,
 
@@ -691,7 +691,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     GET_SUMMARY_INSIGHT_INTENT = 0x00000002,
 
@@ -701,7 +701,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     GET_ENTITY_INFO = 0x00000004,
   }
@@ -713,7 +713,7 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   interface EntityInfo {
     /**
@@ -724,7 +724,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly className: string;
 
@@ -736,7 +736,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly entityId: string;
 
@@ -748,7 +748,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly entityCategory: string;
 
@@ -760,7 +760,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly parameters: Record<string, Object>;
 
@@ -772,7 +772,7 @@ declare namespace insightIntentDriver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     readonly parentClassName: string;
   }
@@ -790,7 +790,7 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   function getAllInsightIntentInfo(intentFlags: number): Promise<Array<InsightIntentInfo>>;
 
@@ -808,7 +808,7 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   function getInsightIntentInfoByBundleName(bundleName: string, intentFlags: number): Promise<Array<InsightIntentInfo>>;
 
@@ -828,7 +828,7 @@ declare namespace insightIntentDriver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   function getInsightIntentInfoByIntentName(bundleName: string, moduleName: string, intentName: string, intentFlags: number): Promise<InsightIntentInfo>;
 }

@@ -37,7 +37,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class BlankModifier extends BlankAttribute implements AttributeModifier<BlankAttribute> {
 
@@ -48,7 +48,7 @@ export declare class BlankModifier extends BlankAttribute implements AttributeMo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: BlankAttribute): void;
 }

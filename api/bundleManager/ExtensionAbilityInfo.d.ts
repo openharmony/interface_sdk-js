@@ -36,8 +36,8 @@ import { Skill } from './Skill';
  * @typedef ExtensionAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface ExtensionAbilityInfo {
   /**
@@ -55,8 +55,8 @@ export interface ExtensionAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly bundleName: string;
 
@@ -75,8 +75,8 @@ export interface ExtensionAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly moduleName: string;
 
@@ -95,8 +95,8 @@ export interface ExtensionAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly name: string;
 
@@ -111,14 +111,14 @@ export interface ExtensionAbilityInfo {
   /**
    * Indicates the label id of the extension ability info
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
-  readonly labelId: number;
+  readonly labelId: long;
 
   /**
    * Indicates the description id of the extension ability info
@@ -131,14 +131,14 @@ export interface ExtensionAbilityInfo {
   /**
    * Indicates the description id of the extension ability info
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
-  readonly descriptionId: number;
+  readonly descriptionId: long;
 
   /**
    * Indicates the icon id of the extension ability info
@@ -151,14 +151,14 @@ export interface ExtensionAbilityInfo {
   /**
    * Indicates the icon id of the extension ability info
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
-  readonly iconId: number;
+  readonly iconId: long;
 
   /**
    * Indicates whether this ability can be called by other abilities
@@ -175,8 +175,8 @@ export interface ExtensionAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly exported: boolean;
 
@@ -195,8 +195,8 @@ export interface ExtensionAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly extensionAbilityType: bundleManager.ExtensionAbilityType;
 
@@ -207,8 +207,8 @@ export interface ExtensionAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly extensionAbilityTypeName: string;
 
@@ -227,8 +227,8 @@ export interface ExtensionAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly permissions: Array<string>;
 
@@ -247,10 +247,19 @@ export interface ExtensionAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   readonly applicationInfo: ApplicationInfo;
+
+  /**
+   * Obtains configuration information about an application
+   *
+   * @type { ApplicationInfo | null }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 20 static
+   */
+  readonly applicationInfo: ApplicationInfo | null;
 
   /**
    * Indicates the metadata of bundle
@@ -267,8 +276,8 @@ export interface ExtensionAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly metadata: Array<Metadata>;
 
@@ -287,8 +296,8 @@ export interface ExtensionAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly enabled: boolean;
 
@@ -307,8 +316,8 @@ export interface ExtensionAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly readPermission: string;
 
@@ -327,8 +336,8 @@ export interface ExtensionAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly writePermission: string;
 
@@ -339,19 +348,19 @@ export interface ExtensionAbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   readonly skills: Array<Skill>;
 
   /**
    * Indicates the appIndex of extension ability, only work in clone app mode
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
-  readonly appIndex: number;
+  readonly appIndex: int;
 }

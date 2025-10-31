@@ -18,13 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
-import { CommonMethod } from './common';
-import { XComponentType } from './enums';
-import { VoidCallback } from './units';
-/*** endif */
-
 /**
  * Describes the rectangle of the surface held by the XComponent.
  *
@@ -40,8 +33,7 @@ import { VoidCallback } from './units';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'20','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 20 dynamic
  */
 declare interface SurfaceRect {
   /**
@@ -61,8 +53,7 @@ declare interface SurfaceRect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */  
   offsetX?: number;
 
@@ -83,8 +74,7 @@ declare interface SurfaceRect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   offsetY?: number;
 
@@ -104,8 +94,7 @@ declare interface SurfaceRect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   surfaceWidth: number;
 
@@ -125,8 +114,7 @@ declare interface SurfaceRect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   surfaceHeight: number;
 }
@@ -146,8 +134,7 @@ declare interface SurfaceRect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'20','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 20 dynamic
  */
 declare interface SurfaceRotationOptions {
   /**
@@ -166,10 +153,32 @@ declare interface SurfaceRotationOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   lock?: boolean;
+}
+
+/**
+ * Surface config.
+ *
+ * @interface SurfaceConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare interface SurfaceConfig {
+  /**
+   * Whether the surface held by XComponent needs to be considered opaque,
+   * even if the surface has translucent pixel.
+   * True means needing to be considered opaque, false otherwise.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  isOpaque?: boolean;
 }
 
 /**
@@ -186,8 +195,7 @@ declare interface SurfaceRotationOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare class XComponentController {
   /**
@@ -202,8 +210,7 @@ declare class XComponentController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   constructor();
 
@@ -223,8 +230,7 @@ declare class XComponentController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   getXComponentSurfaceId(): string;
 
@@ -246,8 +252,7 @@ declare class XComponentController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   getXComponentContext(): Object;
 
@@ -257,7 +262,7 @@ declare class XComponentController {
    *
    * @param { object } value - Width and Height of the surface held by the XComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    * @useinstead setXComponentSurfaceRect
    */
@@ -282,8 +287,7 @@ declare class XComponentController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   setXComponentSurfaceRect(rect: SurfaceRect): void;
 
@@ -303,8 +307,7 @@ declare class XComponentController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   getXComponentSurfaceRect(): SurfaceRect;
 
@@ -324,8 +327,7 @@ declare class XComponentController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   setXComponentSurfaceRotation(rotationOptions: SurfaceRotationOptions): void;
 
@@ -345,8 +347,7 @@ declare class XComponentController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   getXComponentSurfaceRotation(): Required<SurfaceRotationOptions>;
 
@@ -366,8 +367,7 @@ declare class XComponentController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   onSurfaceCreated(surfaceId: string): void;
 
@@ -389,8 +389,7 @@ declare class XComponentController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   onSurfaceChanged(surfaceId: string, rect: SurfaceRect): void;
 
@@ -410,8 +409,7 @@ declare class XComponentController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   onSurfaceDestroyed(surfaceId: string): void;
 
@@ -428,8 +426,7 @@ declare class XComponentController {
    * @throws { BusinessError } 110003 - Image analysis is stopped.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   startImageAnalyzer(config: ImageAnalyzerConfig): Promise<void>;
 
@@ -439,8 +436,7 @@ declare class XComponentController {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   stopImageAnalyzer(): void;
 
@@ -451,7 +447,7 @@ declare class XComponentController {
    *    Returns null if the surface is not available.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   lockCanvas(): DrawingCanvas | null;
 
@@ -461,9 +457,19 @@ declare class XComponentController {
    * @param { DrawingCanvas } canvas - The canvas previously obtained from lockCanvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   unlockCanvasAndPost(canvas: DrawingCanvas):void;
+
+  /**
+   * Set the config of the surface created by the XComponent.
+   *
+   * @param { SurfaceConfig } config - surface config
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  setXComponentSurfaceConfig(config: SurfaceConfig):void;
 }
 
 /**
@@ -481,8 +487,7 @@ declare class XComponentController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'20','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 20 dynamic
  */
 declare interface XComponentOptions {
   /**
@@ -500,8 +505,7 @@ declare interface XComponentOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   type: XComponentType;
 
@@ -521,8 +525,7 @@ declare interface XComponentOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   controller: XComponentController;
 
@@ -533,8 +536,7 @@ declare interface XComponentOptions {
    * @type { ?ImageAIOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   imageAIOptions?: ImageAIOptions;
 
@@ -544,8 +546,7 @@ declare interface XComponentOptions {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17 dynamic
    */
   screenId?: number;
 }
@@ -556,8 +557,7 @@ declare interface XComponentOptions {
  * @interface NativeXComponentParameters
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19 dynamic
  */
 declare interface NativeXComponentParameters {
   /**
@@ -566,8 +566,7 @@ declare interface NativeXComponentParameters {
    * @type { XComponentType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   type: XComponentType;
 
@@ -577,8 +576,7 @@ declare interface NativeXComponentParameters {
    * @type { ?ImageAIOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
    */
   imageAIOptions?: ImageAIOptions;
 }
@@ -597,7 +595,7 @@ declare interface NativeXComponentParameters {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 interface XComponentInterface {
   /**
@@ -606,7 +604,7 @@ interface XComponentInterface {
    * @param { object } value - Indicates the options of the xcomponent.
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 12
    */
   (value: { id: string; type: string; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
@@ -627,7 +625,7 @@ interface XComponentInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   (value: { id: string; type: XComponentType; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
 
@@ -648,7 +646,7 @@ interface XComponentInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   (options: XComponentOptions): XComponentAttribute;
 
@@ -659,7 +657,7 @@ interface XComponentInterface {
    * @returns { XComponentAttribute } The attribute of the xcomponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   (params: NativeXComponentParameters): XComponentAttribute;
 }
@@ -673,8 +671,7 @@ interface XComponentInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
  */
 declare type OnNativeLoadCallback = (event?: object) => void;
 
@@ -692,8 +689,7 @@ declare type OnNativeLoadCallback = (event?: object) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
   /**
@@ -723,8 +719,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   onLoad(callback: OnNativeLoadCallback): XComponentAttribute;
 
@@ -755,8 +750,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   onDestroy(event: VoidCallback): XComponentAttribute;
 
@@ -770,8 +764,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   enableAnalyzer(enable: boolean): XComponentAttribute;
 
@@ -782,8 +775,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
    */
   enableSecure(isSecure: boolean): XComponentAttribute;
 
@@ -803,8 +795,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
    */
   hdrBrightness(brightness: number): XComponentAttribute;
   
@@ -815,8 +806,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   enableTransparentLayer(enabled: boolean): XComponentAttribute;
 }
@@ -833,7 +823,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare const XComponent: XComponentInterface;
 
@@ -849,112 +839,6 @@ declare const XComponent: XComponentInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare const XComponentInstance: XComponentAttribute;
-
-/**
- * Defines the XComponent parameter interface.
- *
- * @interface XComponentParameter
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare interface XComponentParameter {
-  /**
-   * The id of xcomponent
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  id: string;
-  /**
-   * The type of xcomponent
-   *
-   * @type { XComponentType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  type: XComponentType;
-  /**
-   * The name of the dynamic library compiled and output by the native layer.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  libraryname?: string;
-  /**
-   * The controller of xcomponent.
-   *
-   * @type { ?XComponentController }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  controller?: XComponentController;
-}
-
-/**
- * Defines XComponent.
- *
- * @interface XComponentInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-interface XComponentInterface {
-  /**
-   * Constructor parameters
-   *
-   * @param { XComponentParameter } value - Indicates the options of the xcomponent.
-   * @returns { XComponentAttribute } The attribute of the xcomponent.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (value: XComponentParameter): XComponentAttribute;
-
-  /**
-   * Constructor parameters
-   *
-   * @param { XComponentOptions } options - Indicates the options of the xcomponent.
-   * @returns { XComponentAttribute } The attribute of the xcomponent.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (options: XComponentOptions): XComponentAttribute;
-
-  /**
-   * Constructor parameters
-   *
-   * @param { NativeXComponentParameters } params - Indicates the constructor parameters of the xcomponent for native developing.
-   * @returns { XComponentAttribute } The attribute of the xcomponent.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (params: NativeXComponentParameters): XComponentAttribute;
-}

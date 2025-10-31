@@ -40,7 +40,7 @@ import { TextModifier } from './@ohos.arkui.modifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 export declare enum OperationType {
   /**
@@ -59,7 +59,7 @@ export declare enum OperationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   TEXT_ARROW = 0,
 
@@ -79,7 +79,7 @@ export declare enum OperationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   BUTTON = 1,
 
@@ -99,7 +99,7 @@ export declare enum OperationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   ICON_GROUP = 2,
 
@@ -119,7 +119,7 @@ export declare enum OperationType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   LOADING = 3
 }
@@ -140,7 +140,7 @@ export declare enum OperationType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 export declare class OperationOption {
   /**
@@ -162,39 +162,39 @@ export declare class OperationOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   value: ResourceStr;
 
   /**
    * callback function when operate the text or icon.
-   * @type { () => void }.
+   * @type { ?function }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * callback function when operate the text or icon.
-   * @type { () => void }.
+   * @type { ?function }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
   /**
    * callback function when operate the text or icon.
-   * @type { () => void }.
+   * @type { ?function }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   action?: () => void;
 
   /**
-   * The accessibilityText of this text or icon.
-   * @type { ?ResourceStr }.
+   * Accessible label name for the icon on the right side of the subheader.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   accessibilityText?: ResourceStr;
 
@@ -203,7 +203,7 @@ export declare class OperationOption {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   accessibilityDescription?: ResourceStr;
 
@@ -213,7 +213,7 @@ export declare class OperationOption {
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   accessibilityLevel?: string;
 
@@ -223,7 +223,7 @@ export declare class OperationOption {
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   defaultFocus?: boolean;
 }
@@ -244,7 +244,7 @@ export declare class OperationOption {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 export declare class SelectOptions {
   /**
@@ -266,7 +266,7 @@ export declare class SelectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   options: Array<SelectOption>;
 
@@ -289,7 +289,7 @@ export declare class SelectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   selected?: number;
 
@@ -320,7 +320,7 @@ export declare class SelectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   value?: ResourceStr;
 
@@ -343,7 +343,7 @@ export declare class SelectOptions {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 18
+  * @since 18 dynamic
   */
   onSelect?: (index: number, value?: string) => void;
 
@@ -353,7 +353,7 @@ export declare class SelectOptions {
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   defaultFocus?: boolean;
 }
@@ -369,7 +369,7 @@ export declare class SelectOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18 
+ * @since 18 dynamic
  */
 export declare class SymbolOptions {
   /**
@@ -385,7 +385,7 @@ export declare class SymbolOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   fontSize?: number | string | Resource;
 
@@ -402,7 +402,7 @@ export declare class SymbolOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   fontColor?: Array<ResourceColor>;
 
@@ -419,7 +419,7 @@ export declare class SymbolOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   fontWeight?: number | FontWeight | string;
 
@@ -436,7 +436,7 @@ export declare class SymbolOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   effectStrategy?: SymbolEffectStrategy;
 
@@ -453,7 +453,7 @@ export declare class SymbolOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   renderingStrategy?: SymbolRenderingStrategy;
 }
@@ -474,7 +474,7 @@ export declare class SymbolOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 @Component
 export declare struct SubHeader {
@@ -494,209 +494,209 @@ export declare struct SubHeader {
    */
   /**
    * Icon resource of content area.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Prop icon?: ResourceStr;
 
   /**
    * Attributes of Symbol icon.
-   * @type { SymbolOptions}.
+   * @type { ?SymbolOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
   /**
    * Attributes of Symbol icon.
-   * @type { SymbolOptions}.
+   * @type { ?SymbolOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   iconSymbolOptions?: SymbolOptions;
 
   /**
    * The first line text of content area.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * The first line text of content area.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
   /**
    * The first line text of content area.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Prop primaryTitle?: ResourceStr;
 
   /**
    * The secondary line text of content area.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * The secondary line text of content area.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
   /**
    * The secondary line text of content area.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Prop secondaryTitle?: ResourceStr;
 
   /**
    * Select option of content area.
-   * @type { SelectOptions }.
+   * @type { ?SelectOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Select option of content area.
-   * @type { SelectOptions }.
+   * @type { ?SelectOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
   /**
    * Select option of content area.
-   * @type { SelectOptions }.
+   * @type { ?SelectOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   select?: SelectOptions;
 
   /**
    * Operation style of SubHeader.
-   * @type { OperationStyle }.
+   * @type { ?OperationType }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Operation style of SubHeader.
-   * @type { OperationStyle }.
+   * @type { ?OperationType }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
   /**
    * Operation style of SubHeader.
-   * @type { OperationStyle }.
+   * @type { ?OperationType }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Prop operationType?: OperationType;
 
   /**
    * operation item.
-   * @type { Array<OperationOption> }.
+   * @type { ?Array<OperationOption> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * operation item.
-   * @type { Array<OperationOption> }.
+   * @type { ?Array<OperationOption> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
   /**
    * operation item.
-   * @type { Array<OperationOption> }.
+   * @type { ?Array<OperationOption> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   operationItem?: Array<OperationOption>;
 
   /**
    * Attributes of Symbol icons in operation area.
-   * @type { Array<SymbolOptions> }.
+   * @type { ?Array<SymbolOptions> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
   /**
    * Attributes of Symbol icons in operation area.
-   * @type { Array<SymbolOptions> }.
+   * @type { ?Array<SymbolOptions> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   operationSymbolOptions?: Array<SymbolOptions>;
 
   /**
    * Text modifier for primary title.
-   * @type { TextModifier }.
+   * @type { ?TextModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
   /**
    * Text modifier for primary title.
-   * @type { TextModifier }.
+   * @type { ?TextModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   primaryTitleModifier?: TextModifier;
 
   /**
    * Text modifier for secondary title.
-   * @type { TextModifier }.
+   * @type { ?TextModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
   /**
    * Text modifier for secondary title.
-   * @type { TextModifier }.
+   * @type { ?TextModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   secondaryTitleModifier?: TextModifier;
 
   /**
    * Set the title content.
-   * @type { () => void }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
   /**
    * Set the title content.
-   * @type { () => void }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @BuilderParam titleBuilder?: () => void;
 
@@ -717,7 +717,7 @@ export declare struct SubHeader {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Prop contentMargin?: LocalizedMargin;
 
@@ -740,7 +740,7 @@ export declare struct SubHeader {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   @Prop contentPadding?: LocalizedPadding;
 }

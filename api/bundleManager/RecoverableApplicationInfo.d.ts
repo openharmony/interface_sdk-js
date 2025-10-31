@@ -26,7 +26,8 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  * @typedef RecoverableApplicationInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
- * @since 11
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface RecoverableApplicationInfo {
   /**
@@ -36,7 +37,8 @@ export interface RecoverableApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly bundleName: string;
 
@@ -47,31 +49,34 @@ export interface RecoverableApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly moduleName: string;
 
   /**
    * Indicates the label id
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
-  readonly labelId: number;
+  readonly labelId: long;
 
   /**
    * Indicates the icon id
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
-  readonly iconId: number;
+  readonly iconId: long;
 
   /**
    * Indicates whether the application is a system application
@@ -80,7 +85,8 @@ export interface RecoverableApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   readonly systemApp: boolean;
 
@@ -91,7 +97,8 @@ export interface RecoverableApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   readonly bundleType: bundleManager.BundleType;
 
@@ -102,7 +109,8 @@ export interface RecoverableApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   readonly codePaths: Array<string>;
 }

@@ -22,51 +22,57 @@
  * The process data.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 14
+ * @since 14 dynamic
+ * @since 20 static
  */
-export default class ProcessData {
+declare class ProcessData {
   /**
    * The bundle name.
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   bundleName: string;
 
   /**
    * The pid.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  pid: number;
+  pid: int;
 
   /**
    * The uid.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  uid: number;
+  uid: int;
 
   /**
    * The process state.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
-  state: number;
+  state: int;
 
   /**
    * Whether the process is continuous task.
    *
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   isContinuousTask: boolean;
 
@@ -75,7 +81,10 @@ export default class ProcessData {
    *
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   isKeepAlive: boolean;
 }
+
+export default ProcessData;

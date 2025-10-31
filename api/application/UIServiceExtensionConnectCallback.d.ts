@@ -25,7 +25,8 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 14
+ * @since 14 dynamic
+ * @since 20 static
  */
 export default interface UIServiceExtensionConnectCallback {
   /**
@@ -35,7 +36,8 @@ export default interface UIServiceExtensionConnectCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   onData(data: Record<string, Object>): void;
 
@@ -45,7 +47,8 @@ export default interface UIServiceExtensionConnectCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   onDisconnect(): void;
 }

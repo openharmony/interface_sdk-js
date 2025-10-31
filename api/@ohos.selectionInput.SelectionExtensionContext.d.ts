@@ -26,7 +26,7 @@ import Want from './@ohos.app.ability.Want';
  * @extends ExtensionContext
  * @syscap SystemCapability.SelectionInput.Selection
  * @systemapi
- * @since 20
+ * @since 20 dynamic
  */
 export default class SelectionExtensionContext extends ExtensionContext {
 
@@ -60,7 +60,7 @@ export default class SelectionExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   startAbility(want: Want): Promise<void>;
 }

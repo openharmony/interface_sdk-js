@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -33,6 +33,13 @@
  * @atomicservice
  * @since 11
  */
+/**
+ * Declaration of the menu item on the right side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
 export declare class EditableTitleBarMenuItem {
   /**
    * Icon resource for this menu item.
@@ -47,6 +54,14 @@ export declare class EditableTitleBarMenuItem {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Icon resource for this menu item.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   value: ResourceStr;
 
   /**
@@ -56,6 +71,14 @@ export declare class EditableTitleBarMenuItem {
    * @atomicservice
    * @since 18
    */
+  /**
+   * Symbol style for this menu item.
+   * @type { ?SymbolGlyphModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   symbolStyle?: SymbolGlyphModifier;
 
   /**
@@ -64,6 +87,14 @@ export declare class EditableTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Icon label for this menu item.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   label?: ResourceStr;
 
@@ -80,6 +111,14 @@ export declare class EditableTitleBarMenuItem {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Whether to enable this menu item.
+   * @type { ?boolean }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   isEnabled?: boolean;
 
   /**
@@ -95,6 +134,14 @@ export declare class EditableTitleBarMenuItem {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Callback function when click on this menu item.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   action?: () => void;
 
   /**
@@ -104,6 +151,14 @@ export declare class EditableTitleBarMenuItem {
    * @atomicservice
    * @since 18
    */
+  /**
+   * The accessibilityText of this menu item.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   accessibilityText?: ResourceStr;
 
   /**
@@ -112,6 +167,14 @@ export declare class EditableTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
+   */
+  /**
+   * The accessibilityDescription of this menu item.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   accessibilityDescription?: ResourceStr;
 
@@ -123,6 +186,15 @@ export declare class EditableTitleBarMenuItem {
    * @atomicservice
    * @since 18
    */
+  /**
+   * The accessibilityLevel of this menu item.
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   accessibilityLevel?: string;
 
   /**
@@ -133,6 +205,15 @@ export declare class EditableTitleBarMenuItem {
    * @atomicservice
    * @since 18
    */
+  /**
+   * Set the default focus state of this menu item.
+   * @type { ?boolean }.
+   * @default { false }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   defaultFocus?: boolean;
 }
 
@@ -141,7 +222,7 @@ export declare class EditableTitleBarMenuItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export type EditableTitleBarItem = EditableTitleBarMenuItem;
 
@@ -158,6 +239,14 @@ export type EditableTitleBarItem = EditableTitleBarMenuItem;
  * @atomicservice
  * @since 11
  */
+/**
+ * Declaration of the left icon type.
+ * @enum { EditableLeftIconType }.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
 export declare enum EditableLeftIconType {
   /**
    * The back type.
@@ -169,6 +258,13 @@ export declare enum EditableLeftIconType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * The back type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   Back = 0,
 
@@ -183,6 +279,13 @@ export declare enum EditableLeftIconType {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The cancel type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   Cancel = 1
 }
 
@@ -193,7 +296,7 @@ export declare enum EditableLeftIconType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare interface EditableTitleBarOptions {
   /**
@@ -203,7 +306,7 @@ export declare interface EditableTitleBarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   backgroundColor?: ResourceColor;
 
@@ -214,7 +317,7 @@ export declare interface EditableTitleBarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   backgroundBlurStyle?: BlurStyle;
 
@@ -225,7 +328,7 @@ export declare interface EditableTitleBarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   safeAreaTypes?: Array<SafeAreaType>;
 
@@ -236,7 +339,7 @@ export declare interface EditableTitleBarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   safeAreaEdges?: Array<SafeAreaEdge>;
 }
@@ -251,6 +354,13 @@ export declare interface EditableTitleBarOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ */
+/**
+ * Declaration of the editable title bar.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
  */
 @Component
 export declare struct EditableTitleBar {
@@ -267,6 +377,14 @@ export declare struct EditableTitleBar {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Style of the left icon.
+   * @type { EditableLeftIconType }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   leftIconStyle: EditableLeftIconType;
 
   /**
@@ -275,7 +393,7 @@ export declare struct EditableTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   imageItem?: EditableTitleBarItem;
 
@@ -292,6 +410,14 @@ export declare struct EditableTitleBar {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Title of this title bar.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   title: ResourceStr;
 
   /**
@@ -300,7 +426,7 @@ export declare struct EditableTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   subtitle?: ResourceStr;
 
@@ -311,7 +437,7 @@ export declare struct EditableTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   isSaveIconRequired: boolean;
 
@@ -328,6 +454,14 @@ export declare struct EditableTitleBar {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Menu items on the right side.
+   * @type { ?Array<EditableTitleBarMenuItem> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   menuItems?: Array<EditableTitleBarMenuItem>;
 
   /**
@@ -342,6 +476,14 @@ export declare struct EditableTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Callback function when click on the save icon at the right side.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   onSave?: () => void;
 
@@ -358,6 +500,14 @@ export declare struct EditableTitleBar {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Callback function when click on the cancel icon at the left side.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   onCancel?: () => void;
   
   /**
@@ -367,7 +517,7 @@ export declare struct EditableTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   options: EditableTitleBarOptions;
 
@@ -379,7 +529,7 @@ export declare struct EditableTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   @Prop contentMargin?: LocalizedMargin;
 
@@ -390,7 +540,7 @@ export declare struct EditableTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   leftIconDefaultFocus?: boolean;
 
@@ -401,7 +551,7 @@ export declare struct EditableTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   saveIconDefaultFocus?: boolean;
 }

@@ -23,14 +23,16 @@
  *
  * @enum { number }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 6
+ * @since 6 dynamic
+ * @since 20 static
  */
 export enum ErrorCode {
   /**
    * Permission denied.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 6
+   * @since 6 dynamic
+   * @since 20 static
    */
   PERMISSION_DENY = -3,
 
@@ -38,7 +40,8 @@ export enum ErrorCode {
    * Ability not found.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 6
+   * @since 6 dynamic
+   * @since 20 static
    */
   ABILITY_NOT_FOUND = -2,
 
@@ -46,7 +49,8 @@ export enum ErrorCode {
    * Invalid parameter.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 6
+   * @since 6 dynamic
+   * @since 20 static
    */
   INVALID_PARAMETER = -1,
 
@@ -54,7 +58,8 @@ export enum ErrorCode {
    * No error.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 6
+   * @since 6 dynamic
+   * @since 20 static
    */
   NO_ERROR = 0
 }

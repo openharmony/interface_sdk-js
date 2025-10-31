@@ -21,6 +21,7 @@ const commander = require('commander');
 let dirType = '';
 const deleteApiSet = new Set();
 const importNameSet = new Set();
+const ARKTS_FLAG = 'use static';
 
 // 处理的目录类型，ets代表处理的是1.1目录，ets2代表处理的是1.2目录里有@arkts 1.1&1.2标签的文件，
 // noTagInEts2代表处理的是1.2目录里无标签的文件
@@ -38,6 +39,11 @@ const NotNullFilePath = [
   'arkts',
   'kits',
 ];
+
+const COMPILER_OPTIONS = {
+  target: ts.ScriptTarget.ES2017,
+  etsAnnotationsEnable: true
+};
 
 const NOT_COPY_DIR = ['build-tools', '.git', '.gitee'];
 
@@ -165,11 +171,12 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) 
 
   if (isEndWithStatic) {
     if (type === 'ets2') {
+      let staticFileCotent = deleteArktsTag(fileContent);
       if (isPublic === 'true') {
-        writeFile(outputPath, deleteArktsTag(fileContent));
+        writeFile(outputPath, deleteUnsportedTag(staticFileCotent));
         return;
       } else {
-        writeFile(outputPath.replace(/\.static\.d\.ets$/, '.d.ets'), deleteArktsTag(fileContent));
+        writeFile(outputPath.replace(/\.static\.d\.ets$/, '.d.ets'), deleteUnsportedTag(staticFileCotent));
         return;
       }
     } else {
@@ -233,24 +240,26 @@ function isHandleFullPath(fullPath, apiRelativePath, type) {
  * @returns 
  */
 function handleArktsDefinition(type, fileContent) {
-  let regx = /\/\*\*\* if arkts 1\.1 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
-  let regx2 = /\/\*\*\* if arkts 1\.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
-  let regx3 = /\/\*\*\* if arkts 1\.1\&1\.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
-  fileContent = fileContent.replace(regx, (substring, p1) => {
-    return type === 'ets' ? p1 : '';
+  const REGX_DYNAMIC = /\/\*\*\* if arkts (1\.1|dynamic) \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
+  const REGX_STATIC = /\/\*\*\* if arkts (1\.2|static) \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
+  const REGX_DYNAMIC_STATIC = /\/\*\*\* if arkts (1.1&1.2|dynamic&static) \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
+  fileContent = fileContent.replace(REGX_DYNAMIC, (substring, p1, p2) => {
+    return type === 'ets' ? p2 : '';
   });
-  fileContent = fileContent.replace(regx2, (substring, p1) => {
+  fileContent = fileContent.replace(REGX_STATIC, (substring, p1, p2) => {
+    // todo if arkts 特殊用法
     if (type === 'ets2') {
-      return p1.replace(/(\s*)(\*\s\@since)/g, '$1* @arkts 1.2$1$2');
+      return p2.replace(/(\s*)(\*\s\@since)/g, '$1* @arkts 1.2$1$2');
     } else {
       return '';
     }
   });
-  fileContent = fileContent.replace(regx3, (substring, p1) => {
+  fileContent = fileContent.replace(REGX_DYNAMIC_STATIC, (substring, p1, p2) => {
+    // todo if arkts 特殊用法
     if (type === 'ets') {
-      return p1;
+      return p2;
     } else {
-      return p1.replace(/(\s*)(\*\s\@since)/g, '$1* @arkts 1.2$1$2');
+      return p2.replace(/(\s*)(\*\s\@since)/g, '$1* @arkts 1.2$1$2');
     }
   });
   return fileContent;
@@ -287,9 +296,9 @@ function handleFileInFirstType(apiRelativePath, fullPath, type, output) {
   //删除使用/*** if arkts 1.2 */
   fileContent = handleArktsDefinition(type, fileContent);
 
-  const sourceFile = ts.createSourceFile(path.basename(apiRelativePath), fileContent, ts.ScriptTarget.ES2017, true);
-  const secondRegx = /(?:@arkts1.2only|@arkts\s+>=\s*1.2|@arkts\s*1.2)/;
-  const thirdRegx = /(?:\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*)/;
+  const sourceFile = ts.createSourceFile(path.basename(apiRelativePath), fileContent, ts.ScriptTarget.ES2017, true, undefined, COMPILER_OPTIONS);
+  const secondRegx = /(?:\*\s(@arkts\s1.2|@arkts\sstatic)\s*(\r|\n)\s*)/;
+  const thirdRegx = /(?:\*\s(@arkts\s1\.1&1\.2|@arkts\sdynamic&static)\s*(\r|\n)\s*)/;
   if (sourceFile.statements.length === 0) {
     // reference文件识别不到首段jsdoc，全文匹配1.2标签，有的话直接删除
     if (secondRegx.test(sourceFile.getFullText())) {
@@ -357,10 +366,23 @@ function handleNoTagFileInFirstType(sourceFile, outputPath, fileContent) {
  * @returns 
  */
 function deleteArktsTag(fileContent) {
-  const arktsTagRegx = /\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*|\*\s*@arkts\s*1.2s*(\r|\n)\s*|\*\s*@arkts\s*1.1s*(\r|\n)\s*/g;
+  const arktsTagRegx = /\s*\*\s*@arkts\s(1\.1|1\.2|1\.1&1\.2|dynamic|static|dynamic&static)\s*(?=\r|\n)/g;
   fileContent = fileContent.replace(arktsTagRegx, (substring, p1) => {
     return '';
   });
+  const arktsSinceTagRegx = /\s*\*\s*@since\s\S*\s(dynamic&static|dynamiconly|dynamic|staticonly|static)\s*(?=\r|\n)/g;
+  // 处理@since xx dynamic&static格式标签文本
+  fileContent = fileContent.replace(arktsSinceTagRegx, (substring, p1) => {
+    if (dirType === DirType.typeOne && substring.indexOf('dynamic') !== -1) {
+      substring = substring.replace(/\s(dynamiconly|dynamic(&static)?)/g, '');
+    } else if ((dirType === DirType.typeTwo || dirType === DirType.typeThree) && substring.indexOf('static') !== -1) {
+      substring = substring.replace(/\s(staticonly|(dynamic&)?static)/g, '');
+    } else {
+      substring = '';
+    }
+    return substring;
+  });
+
   return fileContent;
 }
 
@@ -388,7 +410,9 @@ function deleteUnsportedTag(fileContent) {
 function handleSinceInFirstType(fileContent) {
   const regx = /@since\s+arkts\s*(\{.*\})/g;
   fileContent = fileContent.replace(regx, (substring, p1) => {
-    return '@since ' + JSON.parse(p1.replace(/'/g, '"'))['1.1'];
+    const versionObj = JSON.parse(p1.replace(/'/g, '"'));
+    const dynamicVersion = versionObj['1.1'] || versionObj['dynamic'];
+    return '@since ' + dynamicVersion;
   });
   return fileContent;
 }
@@ -400,11 +424,11 @@ function handleSinceInFirstType(fileContent) {
  * @returns 
  */
 function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
-  const secondRegx = /(?:@arkts1.2only|@arkts\s+>=\s*1.2|@arkts\s*1.2)/;
-  const thirdRegx = /(?:\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*)/;
-  const arktsRegx = /\/\*\*\* if arkts (1.1&)?1.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
+  const secondRegx = /(?:\*\s(@arkts\s1.2|@arkts\sstatic|@since\s\S*\sstatic)\s*(\r|\n)\s*)/;
+  const thirdRegx = /(?:\*\s(@arkts\s1\.1&1\.2|@arkts\sdynamic&static|@since\s\S*\sdynamic&static)\s*(\r|\n)\s*)/;
+  const arktsRegx = /\/\*\*\* if arkts ((1.1|dynamic)&)?(1.2|static) \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
   let fileContent = fs.readFileSync(fullPath, 'utf-8');
-  let sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true);
+  let sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true, undefined, COMPILER_OPTIONS);
   const outputPath = output ? path.join(output, apiRelativePath) : fullPath;
   if (!secondRegx.test(fileContent) && !thirdRegx.test(fileContent) && arktsRegx.test(fileContent)) {
     saveApiByArktsDefinition(sourceFile, fileContent, outputPath);
@@ -412,14 +436,14 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
   }
   //删除使用/*** if arkts 1.2 */
   fileContent = handleArktsDefinition(type, fileContent);
-  sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true);
-  const regx = /(?:@arkts1.1only|@arkts\s+<=\s+1.1)/;
+  sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true, undefined, COMPILER_OPTIONS);
+  const regx = /(?:\*\s(@arkts\s1\.1|@since\s\S\sdynamic)\s*(\r|\n)\s*)/;
 
   if (sourceFile.statements.length === 0) {
     // 有1.2标签的文件，删除标记
     if (secondRegx.test(sourceFile.getFullText())) {
-      let newFileContent = deleteUnsportedTag(fileContent);
-      newFileContent = getFileContent(newFileContent, fullPath);
+      let newFileContent = getFileContent(deleteUnsportedTag(fileContent), fullPath);
+      newFileContent = addStaticString(newFileContent);
       writeFile(outputPath, deleteArktsTag(newFileContent));
       return;
     }
@@ -444,8 +468,8 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
     }
     // 有1.2标签的文件，删除标记
     if (secondRegx.test(firstJsdocText)) {
-      let newFileContent = deleteUnsportedTag(fileContent);
-      newFileContent = getFileContent(newFileContent, fullPath);
+      let newFileContent = getFileContent(deleteUnsportedTag(fileContent), fullPath);
+      newFileContent = addStaticString(newFileContent);
       writeFile(outputPath, deleteArktsTag(newFileContent));
       return;
     }
@@ -504,7 +528,7 @@ function handlehasTagFile(sourceFile, outputPath) {
  */
 function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
   dirType = DirType.typeThree;
-  const arktsTagRegx = /\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*|@arkts\s*1.2/g;
+  const arktsTagRegx = /\*\s*(@arkts\s(1.1&)?1.2|@since\s\S*\s(staticonly|(dynamic&)?static))\s*(\r|\n)\s*/g;
   const fileContent = sourceFile.getFullText();
   let newContent = '';
   // API未标@arkts 1.2或@arkts 1.1&1.2标签，删除文件
@@ -539,7 +563,7 @@ function getFileContent(newContent, filePath) {
   if (!regex.test(newContent)) {
     return newContent;
   }
-  const sourceFile = ts.createSourceFile(path.basename(filePath), newContent, ts.ScriptTarget.ES2017, true);
+  const sourceFile = ts.createSourceFile(path.basename(filePath), newContent, ts.ScriptTarget.ES2017, true, undefined, COMPILER_OPTIONS);
   const printer = ts.createPrinter();
   const result = ts.transform(sourceFile, [deleteOverLoadJsDoc], { etsAnnotationsEnable: true });
   const output = printer.printFile(result.transformed[0]);
@@ -595,14 +619,15 @@ function processStructDeclaration(node) {
  * @param {*} outputPath 
  */
 function saveApiByArktsDefinition(sourceFile, fileContent, outputPath) {
-  const regx = /\/\*\*\* if arkts (1.1&)?1.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
+  const regx = /\/\*\*\* if arkts ((1\.1|dynamic)&)?(1\.2|static) \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
   const regex = /\/\*\r?\n\s*\*\s*Copyright[\s\S]*?\*\//g;
   const copyrightMessage = fileContent.match(regex)[0];
   const firstNode = sourceFile.statements.find(statement => {
     return !ts.isExpressionStatement(statement);
   });
   let fileJsdoc = firstNode ? getFileJsdoc(firstNode) + '*/\n' : '';
-  let newContent = copyrightMessage + fileJsdoc + Array.from(fileContent.matchAll(regx), match => match[2]).join('\n');
+  let newContent = copyrightMessage + fileJsdoc + Array.from(fileContent.matchAll(regx), match => match[4]).join('\n');
+  newContent = addStaticString(newContent);
 
   writeFile(outputPath, saveLatestJsDoc(newContent));
 }
@@ -637,6 +662,7 @@ function joinFileJsdoc(deletionContent, sourceFile) {
 
   if (dirType !== DirType.typeOne) {
     // TODO：添加use static字符串
+    newContent = addStaticString(newContent);
   }
   return newContent;
 }
@@ -678,14 +704,18 @@ function writeFile(outputPath, fileContent) {
  * @param {*} copyrightMessage 版权头内容
  * @returns 
  */
-function addStaticString(fileContent, copyrightMessage) {
-  const hasStaticMessage = /use\s+static/g.test(fileContent);
-  const regex = /\/\*\r?\n\s*\*\s*Copyright[\s\S]*?limitations under the License\.\r?\n\s*\*\//g;
-  const staticMessage = 'use static';
+function addStaticString(fileContent) {
   let newContent = fileContent;
+  //判断是否存在use static且位置在第一个行
+  const fileContentRegex = /^\s*(['"])use static\1\s*;?$/gm;
+  if (fileContentRegex.test(fileContent) && fileContentRegex.exec(fileContent) &&
+    fileContentRegex.exec(fileContent).index > 0) {
+    newContent = newContent.replace(/^\s*(['"])use static\1\s*;?$/gm, '');
+  }
+  const hasStaticMessage = fileContentRegex.test(newContent);
+  const staticMessage = 'use static';
   if (!hasStaticMessage) {
-    const newfileJsdoc = `${copyrightMessage}'${staticMessage}'\r\n`;
-    newContent = newContent.replace(regex, newfileJsdoc);
+    newContent = `'${staticMessage}'\r\n${newContent}`;
   }
   return newContent;
 }
@@ -761,8 +791,9 @@ const transformExportApi = (context) => {
         importNameSet.add(node.name?.getText());
       }
       // 剩下未被删除的API中，如果还有与被删除API名字一样的API，就将其从set集合中删掉
-      if (apiNodeTypeArr.includes(node.kind) && deleteApiSet.has(node.name?.getText())) {
-        deleteApiSet.delete(node.name?.getText());
+      const apiNodeName = getApiNodeName(node);
+      if (apiNodeTypeArr.includes(node.kind) && deleteApiSet.has(apiNodeName)) {
+        deleteApiSet.delete(apiNodeName);
       }
       // 非目标节点：继续遍历子节点
       return ts.visitEachChild(node, importOrExportNodeVisitor, context);
@@ -788,12 +819,64 @@ const transformExportApi = (context) => {
   };
 };
 
+/**
+ * 获取api节点名称，VariableStatement需要特殊处理
+ *
+ * @param { ts.Node } node 
+ * @returns { string }
+ */
+function getApiNodeName(node) {
+  let apiName = '';
+  if (ts.isVariableStatement(node)) {
+    apiName = variableStatementGetEscapedText(node);
+  } else {
+    apiName = node.name?.getText();
+  }
+  return apiName;
+}
+
+/**
+ * 获取 variableStatement节点名称
+ * @param {ts.Node} statement 
+ * @returns 
+ */
+function variableStatementGetEscapedText(statement) {
+  let name = '';
+  if (
+    statement &&
+    statement.declarationList &&
+    statement.declarationList.declarations &&
+    statement.declarationList.declarations.length > 0 &&
+    statement.declarationList.declarations[0].name &&
+    statement.declarationList.declarations[0].name.escapedText
+  ) {
+    name = statement.declarationList.declarations[0].name.escapedText.toString();
+  }
+  return name;
+}
+
+/**
+ * 判断是否为use static标记
+ * @param { ts.Node } node 
+ * @returns { boolean }
+ */
+function isStaticFlag(node) {
+  return ts.isExpressionStatement(node) &&
+    node.expression &&
+    ts.isStringLiteral(node.expression) &&
+    node.expression.text &&
+    node.expression.text === ARKTS_FLAG;
+}
+
 function isEmptyFile(node) {
   let isEmpty = true;
   if (ts.isSourceFile(node) && node.statements) {
     const needExportName = new Set();
     for (let i = 0; i < node.statements.length; i++) {
       const statement = node.statements[i];
+      if (isStaticFlag(statement)) {
+        continue;
+      }
       if (ts.isExportDeclaration(statement) && statement.moduleSpecifier) {
         isEmpty = false;
         break;
@@ -884,26 +967,33 @@ function processImportDeclaration(statement, needExportName) {
  * @returns 
  */
 function judgeIsDeleteApi(node) {
-  const notesContent = node.getFullText().replace(node.getText(), '').replace(/[\s]/g, '');
+  // 删除api适配arkts标签
+  const notesContent = node.getFullText().replace(node.getText(), '');
+  if (notesContent.replace(/\s/g, '') === '') {
+    return false;
+  }
   const notesArr = notesContent.split(/\/\*\*/);
   const notesStr = notesArr[notesArr.length - 1];
-  const sinceArr = notesStr.match(/@since\d+/);
+  const sinceArr = notesStr.match(/@since\s*\d+/);
   let sinceVersion = 20;
 
   if (dirType === DirType.typeOne) {
-    return /@arkts1\.2(?!\d)/g.test(notesStr);
+    return /@arkts\s*1\.2/g.test(notesStr) ||
+      (/@since\s\S*\s(staticonly|static)/g.test(notesStr) && !/@since\s\S*\sdynamic/g.test(notesStr));
   }
 
   if (sinceArr) {
-    sinceVersion = sinceArr[0].replace('@since', '');
+    sinceVersion = sinceArr[0].replace(/@since\s*/, '');
   }
 
   if (dirType === DirType.typeTwo) {
-    return (/@deprecated/g.test(notesStr) && sinceVersion < 20) || /@arkts<=1.1/g.test(notesStr);
+    return (/@deprecated/g.test(notesStr) && sinceVersion < 20) ||
+      /@arkts\s*1\.1(?!&1\.2)/g.test(notesStr) ||
+      (/@since\s\S*\s(dynamiconly|dynamic)/g.test(notesStr) && !/@since\s\S*\s(dynamic&)?static/g.test(notesStr));
   }
 
   if (dirType === DirType.typeThree) {
-    return !/@arkts1\.2\*|@arkts1\.1&1\.2\*/g.test(notesStr);
+    return !/@arkts\s*(1\.1&)?1\.2\s/g.test(notesStr) && !/@since\s\S*\s(staticonly|(dynamic&)?static)/g.test(notesStr);
   }
 
   return false;
@@ -918,7 +1008,9 @@ function judgeIsDeleteApi(node) {
 function handleSinceInSecondType(fileContent) {
   const regx = /@since\s+arkts\s*(\{.*\})/g;
   fileContent = fileContent.replace(regx, (substring, p1) => {
-    return '@since ' + JSON.parse(p1.replace(/'/g, '"'))['1.2'];
+    const versionObj = JSON.parse(p1.replace(/'/g, '"'));
+    const staticVersion = versionObj['1.2'] || versionObj['static'];
+    return '@since ' + staticVersion;
   });
   return fileContent;
 }

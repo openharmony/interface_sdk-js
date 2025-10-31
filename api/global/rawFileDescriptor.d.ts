@@ -25,7 +25,7 @@
  * @syscap SystemCapability.Global.ResourceManager
  * @since 8
  */
- /**
+/**
  * Contains rawFile descriptor information.
  *
  * @interface RawFileDescriptor
@@ -40,8 +40,8 @@
  * @syscap SystemCapability.Global.ResourceManager
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export interface RawFileDescriptor {
   /**
@@ -60,14 +60,14 @@ export interface RawFileDescriptor {
   /**
    * rawfile descriptor
    * 
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
-  fd: number;
+  fd: int;
 
   /**
    * the offset from where the raw file starts in the HAP
@@ -85,14 +85,14 @@ export interface RawFileDescriptor {
   /**
    * the offset from where the raw file starts in the HAP
    *
-   * @type { number }
+   * @type { long }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
-  offset: number;
+  offset: long;
 
   /**
    * the length of the raw file in the HAP
@@ -110,12 +110,12 @@ export interface RawFileDescriptor {
   /**
    * the length of the raw file in the HAP
    *
-   * @type { number }
+   * @type { long }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
-  length: number;
+  length: long;
 }

@@ -27,8 +27,8 @@ import type Want from './@ohos.app.ability.Want';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare class InsightIntentContext {
   /**
@@ -57,7 +57,8 @@ declare class InsightIntentContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -87,7 +88,8 @@ declare class InsightIntentContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   startAbility(want: Want): Promise<void>;
 }

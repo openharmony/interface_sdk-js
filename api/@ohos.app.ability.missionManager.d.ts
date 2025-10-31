@@ -20,9 +20,11 @@
 
 import { AsyncCallback } from './@ohos.base';
 import { MissionInfo as _MissionInfo } from './application/MissionInfo';
+/*** if arkts dynamic */
 import { MissionListener as _MissionListener } from './application/MissionListener';
 import { MissionSnapshot as _MissionSnapshot } from './application/MissionSnapshot';
 import StartOptions from './@ohos.app.ability.StartOptions';
+/*** endif */
 
 /**
  * This module provides the capability to manage abilities and obtaining system task information.
@@ -30,7 +32,8 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  * @namespace missionManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since 9
+ * @since 9 dynamic
+ * @since 20 static
  */
 declare namespace missionManager {
   /**
@@ -46,7 +49,7 @@ declare namespace missionManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function on(type: 'mission', listener: MissionListener): number;
 
@@ -64,7 +67,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 16300002 - The specified mission listener does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function off(type: 'mission', listenerId: number, callback: AsyncCallback<void>): void;
 
@@ -82,7 +85,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 16300002 - The specified mission listener does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function off(type: 'mission', listenerId: number): Promise<void>;
 
@@ -91,7 +94,7 @@ declare namespace missionManager {
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { string } deviceId - Indicates the device to be queried.
-   * @param { number } missionId - Indicates mission id to be queried.
+   * @param { int } missionId - Indicates mission id to be queried.
    * @param { AsyncCallback<MissionInfo> } callback - The callback is used to return the MissionInfo of the given id.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -99,16 +102,17 @@ declare namespace missionManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
-  function getMissionInfo(deviceId: string, missionId: number, callback: AsyncCallback<MissionInfo>): void;
+  function getMissionInfo(deviceId: string, missionId: int, callback: AsyncCallback<MissionInfo>): void;
 
   /**
    * Get the missionInfo with the given missionId.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { string } deviceId - Indicates the device to be queried.
-   * @param { number } missionId - Indicates mission id to be queried.
+   * @param { int } missionId - Indicates mission id to be queried.
    * @returns { Promise<MissionInfo> } Returns the MissionInfo of the given id.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -116,9 +120,10 @@ declare namespace missionManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
-  function getMissionInfo(deviceId: string, missionId: number): Promise<MissionInfo>;
+  function getMissionInfo(deviceId: string, missionId: int): Promise<MissionInfo>;
 
   /**
    * Get missionInfos in the given deviceId with maximum number of numMax.
@@ -133,7 +138,7 @@ declare namespace missionManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getMissionInfos(deviceId: string, numMax: number, callback: AsyncCallback<Array<MissionInfo>>): void;
 
@@ -150,7 +155,7 @@ declare namespace missionManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getMissionInfos(deviceId: string, numMax: number): Promise<Array<MissionInfo>>;
 
@@ -168,7 +173,7 @@ declare namespace missionManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getMissionSnapShot(deviceId: string, missionId: number, callback: AsyncCallback<MissionSnapshot>): void;
 
@@ -185,7 +190,7 @@ declare namespace missionManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
 
@@ -203,7 +208,7 @@ declare namespace missionManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getLowResolutionMissionSnapShot(
     deviceId: string,
@@ -224,7 +229,7 @@ declare namespace missionManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getLowResolutionMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
 
@@ -241,7 +246,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 16300001 - Mission not found.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function lockMission(missionId: number, callback: AsyncCallback<void>): void;
 
@@ -258,7 +263,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 16300001 - Mission not found.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function lockMission(missionId: number): Promise<void>;
 
@@ -275,7 +280,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 16300001 - Mission not found.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function unlockMission(missionId: number, callback: AsyncCallback<void>): void;
 
@@ -292,7 +297,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 16300001 - Mission not found.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function unlockMission(missionId: number): Promise<void>;
 
@@ -308,7 +313,7 @@ declare namespace missionManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function clearMission(missionId: number, callback: AsyncCallback<void>): void;
 
@@ -324,7 +329,7 @@ declare namespace missionManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function clearMission(missionId: number): Promise<void>;
 
@@ -339,7 +344,8 @@ declare namespace missionManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   function clearAllMissions(callback: AsyncCallback<void>): void;
 
@@ -352,7 +358,8 @@ declare namespace missionManager {
    * @throws { BusinessError } 202 - Not system application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   function clearAllMissions(): Promise<void>;
 
@@ -369,7 +376,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function moveMissionToFront(missionId: number, callback: AsyncCallback<void>): void;
 
@@ -387,7 +394,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function moveMissionToFront(missionId: number, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -405,7 +412,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function moveMissionToFront(missionId: number, options?: StartOptions): Promise<void>;
 
@@ -422,7 +429,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function moveMissionsToForeground(missionIds: Array<number>, callback: AsyncCallback<void>): void;
 
@@ -440,7 +447,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function moveMissionsToForeground(missionIds: Array<number>, topMission: number, callback: AsyncCallback<void>): void;
 
@@ -458,7 +465,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function moveMissionsToForeground(missionIds: Array<number>, topMission?: number): Promise<void>;
 
@@ -475,7 +482,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function moveMissionsToBackground(missionIds: Array<number>, callback: AsyncCallback<Array<number>>): void;
 
@@ -492,7 +499,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function moveMissionsToBackground(missionIds: Array<number>): Promise<Array<number>>;
 
@@ -502,7 +509,8 @@ declare namespace missionManager {
    * @typedef { _MissionInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export type MissionInfo = _MissionInfo;
 
@@ -512,7 +520,7 @@ declare namespace missionManager {
    * @typedef { _MissionListener }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   export type MissionListener = _MissionListener;
 
@@ -522,7 +530,7 @@ declare namespace missionManager {
    * @typedef { _MissionSnapshot }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   export type MissionSnapshot = _MissionSnapshot;
 }

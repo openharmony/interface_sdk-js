@@ -18,10 +18,8 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 import { Configuration } from './@ohos.app.ability.Configuration';
-/*** endif */
 
 /**
  * The class of an ability.
@@ -36,10 +34,10 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
-export default class Ability {
+declare class Ability {
   /**
    * Called when the system configuration is updated.
    *
@@ -55,7 +53,8 @@ export default class Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   onConfigurationUpdate(newConfig: Configuration): void;
 
@@ -78,7 +77,10 @@ export default class Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 }
+
+export default Ability;

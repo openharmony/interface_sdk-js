@@ -42,9 +42,10 @@ import { BusinessError } from '../@ohos.base';
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
+ * @since 20 static
  */
-export default class EventHub {
+declare class EventHub {
   /**
    * Subscribe to an event.
    *
@@ -79,7 +80,8 @@ export default class EventHub {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   on(event: string, callback: Function): void;
 
@@ -117,7 +119,8 @@ export default class EventHub {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
   off(event: string, callback?: Function): void;
 
@@ -155,7 +158,21 @@ export default class EventHub {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   emit(event: string, ...args: Object[]): void;
+ 
+  /**
+   * Trigger the event callbacks.
+   *
+   * @param { string } event - Indicates the event.
+   * @param { (Object|null|undefined)[] } args - Indicates the callback arguments.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @since 20 static
+   */
+  emit(event: string, ...args: (Object|null|undefined)[]): void;
 }
+
+export default EventHub;

@@ -45,8 +45,8 @@ import { Skill } from './Skill';
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface AbilityInfo {
   /**
@@ -74,8 +74,8 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly bundleName: string;
 
@@ -104,8 +104,8 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly moduleName: string;
 
@@ -134,8 +134,8 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly name: string;
 
@@ -164,8 +164,8 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly label: string;
 
@@ -189,15 +189,15 @@ export interface AbilityInfo {
   /**
    * Indicates the label id of the ability
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
-  readonly labelId: number;
+  readonly labelId: long;
 
   /**
    * Indicates the ability
@@ -224,8 +224,8 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly description: string;
 
@@ -249,15 +249,15 @@ export interface AbilityInfo {
   /**
    * Indicates the description id of the ability
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
-  readonly descriptionId: number;
+  readonly descriptionId: long;
 
   /**
    * Indicates the icon of the ability
@@ -284,8 +284,8 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly icon: string;
 
@@ -309,15 +309,15 @@ export interface AbilityInfo {
   /**
    * Indicates the icon id of the ability
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
-  readonly iconId: number;
+  readonly iconId: long;
 
   /**
    * Process of ability, if user do not set it, the value equal application process
@@ -344,8 +344,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   readonly process: string;
 
@@ -374,8 +373,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   readonly exported: boolean;
 
@@ -386,7 +384,7 @@ export interface AbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   readonly type: bundleManager.AbilityType;
 
@@ -415,8 +413,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   readonly orientation: bundleManager.DisplayOrientation;
 
@@ -445,8 +442,8 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly launchType: bundleManager.LaunchType;
 
@@ -475,8 +472,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   readonly permissions: Array<string>;
 
@@ -487,7 +483,7 @@ export interface AbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   readonly readPermission: string;
 
@@ -498,7 +494,7 @@ export interface AbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   readonly writePermission: string;
 
@@ -509,7 +505,7 @@ export interface AbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   readonly uri: string;
 
@@ -538,8 +534,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   readonly deviceTypes: Array<string>;
 
@@ -568,10 +563,20 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   readonly applicationInfo: ApplicationInfo;
+
+  /**
+   * Obtains configuration information about an application
+   *
+   * @type { ApplicationInfo | null }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 20 static
+   */
+  readonly applicationInfo: ApplicationInfo | null;
 
   /**
    * Indicates the metadata of ability
@@ -598,8 +603,8 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   readonly metadata: Array<Metadata>;
 
@@ -628,8 +633,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   readonly enabled: boolean;
 
@@ -658,8 +662,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   readonly supportWindowModes: Array<bundleManager.SupportWindowMode>;
 
@@ -688,8 +691,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   readonly windowSize: WindowSize;
 
@@ -700,8 +702,8 @@ export interface AbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   readonly excludeFromDock: boolean;
 
@@ -712,33 +714,33 @@ export interface AbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   readonly skills: Array<Skill>;
 
   /**
    * Indicates the appIndex of application, only work in clone app mode
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
-  readonly appIndex: number;
+  readonly appIndex: int;
 
   /**
    * Indicates the orientation id of the ability
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
-  readonly orientationId: number;
+  readonly orientationId: long;
 }
 
 /**
@@ -763,8 +765,7 @@ export interface AbilityInfo {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform
  * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic&static
  */
 export interface WindowSize {
   /**
@@ -787,15 +788,14 @@ export interface WindowSize {
   /**
    * Indicates maximum ratio of width over height of window under free window status.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
-  readonly maxWindowRatio: number;
+  readonly maxWindowRatio: double;
 
   /**
    * Indicates minimum ratio of width over height of window under free window status.
@@ -817,15 +817,14 @@ export interface WindowSize {
   /**
    * Indicates minimum ratio of width over height of window under free window status.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
-  readonly minWindowRatio: number;
+  readonly minWindowRatio: double;
 
   /**
    * Indicates maximum width of window under free window status.
@@ -847,15 +846,14 @@ export interface WindowSize {
   /**
    * Indicates maximum width of window under free window status.
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
-  readonly maxWindowWidth: number;
+  readonly maxWindowWidth: long;
 
   /**
    * Indicates minimum width of window under free window status.
@@ -877,15 +875,14 @@ export interface WindowSize {
   /**
    * Indicates minimum width of window under free window status.
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
-  readonly minWindowWidth: number;
+  readonly minWindowWidth: long;
 
   /**
    * Indicates maximum height of window under free window status.
@@ -907,15 +904,14 @@ export interface WindowSize {
   /**
    * Indicates maximum height of window under free window status.
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
-  readonly maxWindowHeight: number;
+  readonly maxWindowHeight: long;
 
   /**
    * Indicates minimum height of window under free window status.
@@ -937,13 +933,12 @@ export interface WindowSize {
   /**
    * Indicates minimum height of window under free window status.
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
-  readonly minWindowHeight: number;
+  readonly minWindowHeight: long;
 }

@@ -18,10 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CustomBuilder } from './arkui/component/builder';
-/*** endif */
-
 import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
 
@@ -40,8 +36,7 @@ import image from './@ohos.multimedia.image';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
  */
 declare namespace componentSnapshot {
   /**
@@ -51,10 +46,9 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
    */
-  export interface SnapshotRegion {
+  interface SnapshotRegion {
     /**
      * Left side position of rectangle, in PX.
      *
@@ -62,8 +56,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     left: number;
 
@@ -74,8 +67,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     right: number;
 
@@ -86,8 +78,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     top: number;
 
@@ -98,8 +89,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     bottom: number;
   }
@@ -112,10 +102,9 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
    */
-  export interface LocalizedSnapshotRegion {
+  interface LocalizedSnapshotRegion {
     /**
      * Left/Right side position of rectangle, in PX
      *
@@ -123,8 +112,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     start: number;
 
@@ -135,8 +123,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     end: number;
 
@@ -147,8 +134,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     top: number;
 
@@ -159,8 +145,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     bottom: number;
   }
@@ -172,10 +157,9 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
    */
-  export type SnapshotRegionType = SnapshotRegion | LocalizedSnapshotRegion;
+  type SnapshotRegionType = SnapshotRegion | LocalizedSnapshotRegion;
 
   /**
    * Defines the extra options for snapshot taking.
@@ -184,10 +168,9 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
-  export interface SnapshotOptions {
+  interface SnapshotOptions {
     /**
      * Defines the scale property to render the snapshot.
      *
@@ -195,8 +178,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     scale?: number
 
@@ -207,8 +189,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     waitUntilRenderFinished?: boolean
 
@@ -219,8 +200,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
      */
     region?: SnapshotRegionType
   }
@@ -253,10 +233,9 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#get
-   * @arkts 1.1&1.2
    */
   function get(id: string, callback: AsyncCallback<image.PixelMap>, options?: SnapshotOptions): void;
 
@@ -288,10 +267,9 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#get
-   * @arkts 1.1&1.2
    */
   function get(id: string, options?: SnapshotOptions): Promise<image.PixelMap>;
 
@@ -327,10 +305,9 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#createFromBuilder
-   * @arkts 1.1&1.2
    */
   function createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>,
     delay?: number, checkImageStatus?: boolean, options?: SnapshotOptions): void;
@@ -367,10 +344,9 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#createFromBuilder
-   * @arkts 1.1&1.2
    */
   function createFromBuilder(builder: CustomBuilder, delay?: number,
     checkImageStatus?: boolean, options?: SnapshotOptions): Promise<image.PixelMap>;
@@ -392,10 +368,9 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
-  export function getSync(id: string, options?: SnapshotOptions): image.PixelMap;
+  function getSync(id: string, options?: SnapshotOptions): image.PixelMap;
 }
 
 export default componentSnapshot;

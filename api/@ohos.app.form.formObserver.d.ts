@@ -28,7 +28,8 @@ import formInfo from './@ohos.app.form.formInfo';
  * @namespace formObserver
  * @syscap SystemCapability.Ability.Form
  * @systemapi
- * @since 10
+ * @since 10 dynamic
+ * @since 20 static
  */
 declare namespace formObserver {
   /**
@@ -44,9 +45,26 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function on(type: 'formAdd', observerCallback: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Listens to the event of add form.
+   * <p>You can use this method to listen to the event of add form.</p>
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { 'formAdd' } type - Indicates event type.
+   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running  form info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onFormAdd(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
    * Listens to the event of add form.
@@ -62,9 +80,26 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function on(type: 'formAdd', hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Listens to the event of add form.
+   * <p>You can use this method to listen to the event of add form for a particular card host.</p>
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
+   * @param { Callback<formInfo.RunningFormInfo>} observerCallback - The callback is used to return the running form info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onFormAdd(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
    * Cancels listening to the event of add form.
@@ -80,9 +115,26 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function off(type: 'formAdd', hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Cancels listening to the event of add form.
+   * <p>You can use this method to cancel listening to the event of add form.</p>
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
+   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running form info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function offFormAdd(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
   /**
    * Listens to the event of remove form.
@@ -97,9 +149,25 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function on(type: 'formRemove', observerCallback: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Listens to the event of remove form.
+   * <p>You can use this method to listen to the event of remove form.</p>
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onFormRemove(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
    * Listens to the event of remove form.
@@ -115,9 +183,26 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function on(type: 'formRemove', hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Listens to the event of remove form.
+   * <p>You can use this method to listen to the event of remove form for a particular card host.</p>
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onFormRemove(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
    * Cancels listening to the event of remove form.
@@ -133,9 +218,26 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function off(type: 'formRemove', hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Cancels listening to the event of remove form.
+   * <p>You can use this method to cancel listening to the event of remove form.</p>
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
+   *                                                                    form info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function offFormRemove(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
   /**
    * Listens to the event of notifyVisible type change.
@@ -150,9 +252,26 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function on(type: 'notifyVisible', observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
+
+  /**
+   * Listens to the event of notifyVisible type change.
+   * <p>You can use this method to listen to the event of notifyVisible type change.</p>
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
+   *                                                                         the running form info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onNotifyVisible(observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
 
   /**
    * Listens to the event of notifyVisible type change.
@@ -168,13 +287,30 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function on(
     type: 'notifyVisible',
     hostBundleName: string,
     observerCallback: Callback<Array<formInfo.RunningFormInfo>>
   ): void;
+
+  /**
+   * Listens to the event of notifyVisible type change.
+   * <p>You can use this method to listen to the event of notifyVisible type change for a particular card host.</p>
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param {string} hostBundleName - Indicates the bundle name of the form host application.
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return the running form info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onNotifyVisible(hostBundleName: string, observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
 
   /**
    * Listens to the event of notifyInvisible type change.
@@ -189,9 +325,26 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function on(type: 'notifyInvisible', observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
+
+  /**
+   * Listens to the event of notifyInvisible type change.
+   * <p>You can use this method to listen to the event of notifyInvisible type change.</p>
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
+   *                                                                         the running form info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onNotifyInvisible(observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
 
   /**
    * Listens to the event of notifyInvisible type change.
@@ -207,13 +360,31 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function on(
     type: 'notifyInvisible',
     hostBundleName: string,
     observerCallback: Callback<Array<formInfo.RunningFormInfo>>,
   ): void;
+
+  /**
+   * Listens to the event of notifyInvisible type change.
+   * <p>You can use this method to listen to the event of notifyInvisible type change.</p>
+   * 
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param {string} hostBundleName - Indicates the bundle name of the form host application.
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
+   *                                                                         the running form info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onNotifyInvisible(hostBundleName: string, observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
 
   /**
    * Cancels listening to the event of notifyVisible type change.
@@ -229,13 +400,30 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function off(
     type: 'notifyVisible',
     hostBundleName?: string,
     observerCallback?: Callback<Array<formInfo.RunningFormInfo>>
   ): void;
+
+  /**
+   * Cancels listening to the event of notifyVisible type change.
+   * <p>You can use this method to cancel listening to the event of notifyVisible type change.</p>
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } [observerCallback] - The callback is used to return the running form info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function offNotifyVisible(hostBundleName?: string, observerCallback?: Callback<Array<formInfo.RunningFormInfo>>): void;
 
   /**
    * Cancels listening to the event of notifyInvisible type change.
@@ -251,14 +439,31 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   function off(
     type: 'notifyInvisible',
     hostBundleName?: string,
     observerCallback?: Callback<Array<formInfo.RunningFormInfo>>
   ): void;
-  
+
+  /**
+   * Cancels listening to the event of notifyInvisible type change.
+   * <p>You can use this method to cancel listening to the event of notifyInvisible type change.</p>
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } [observerCallback] - The callback is used to return the running form info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function offNotifyInvisible(hostBundleName?: string, observerCallback?: Callback<Array<formInfo.RunningFormInfo>>): void;
+
   /**
    * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
    *
@@ -274,7 +479,8 @@ declare namespace formObserver {
    * @throws { BusinessError } 16500060 - Service connection error.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getRunningFormInfos(callback: AsyncCallback<Array<formInfo.RunningFormInfo>>, hostBundleName?: string): void;
 
@@ -294,7 +500,8 @@ declare namespace formObserver {
    * @throws { BusinessError } 16500060 - Service connection error.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getRunningFormInfos(
     callback: AsyncCallback<Array<formInfo.RunningFormInfo>>,
@@ -316,7 +523,8 @@ declare namespace formObserver {
    * @throws { BusinessError } 16500060 - Service connection error.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getRunningFormInfos(hostBundleName?: string): Promise<Array<formInfo.RunningFormInfo>>;
 
@@ -335,7 +543,8 @@ declare namespace formObserver {
    * @throws { BusinessError } 16500060 - Service connection error.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getRunningFormInfos(
     isUnusedIncluded: boolean,
@@ -358,7 +567,8 @@ declare namespace formObserver {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getRunningFormInfosByFilter(
     formProviderFilter: formInfo.FormProviderFilter
@@ -380,7 +590,8 @@ declare namespace formObserver {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getRunningFormInfosByFilter(
     formProviderFilter: formInfo.FormProviderFilter,
@@ -403,7 +614,8 @@ declare namespace formObserver {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getRunningFormInfoById(formId: string): Promise<formInfo.RunningFormInfo>;
 
@@ -424,7 +636,8 @@ declare namespace formObserver {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getRunningFormInfoById(formId: string, isUnusedIncluded: boolean): Promise<formInfo.RunningFormInfo>;
 
@@ -444,7 +657,8 @@ declare namespace formObserver {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getRunningFormInfoById(formId: string, callback: AsyncCallback<formInfo.RunningFormInfo>): void;
 
@@ -465,7 +679,8 @@ declare namespace formObserver {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getRunningFormInfoById(
     formId: string,
@@ -486,9 +701,25 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'router', observerCallback: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Router event listening in registered form.
+   * <p>This interface requires permission to receive callback.</p>
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onRouter(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
    * Router event listening in registered form.
@@ -504,9 +735,26 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'router', hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Router event listening in registered form.
+   * <p>This interface requires permission to receive callback.</p>
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onRouter(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
    * Unregister form router event Listening.
@@ -521,9 +769,26 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function off(type: 'router', hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Unregister form router event Listening.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
+   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
+   *                                                                    form info.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function offRouter(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
   /**
    * Message event listening in registered form.
@@ -538,9 +803,26 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'message', observerCallback: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Message event listening in registered form.
+   * <p>This interface requires permission to receive callback.</p>
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
+   *                                                                  form info.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onMessage(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
    * Message event listening in registered form.
@@ -556,9 +838,27 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'message', hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Message event listening in registered form.
+   * <p>This interface requires permission to receive callback.</p>
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
+   *                                                                  form info.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onMessage(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
    * Unregister form message event Listening.
@@ -573,9 +873,26 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function off(type: 'message', hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Unregister form message event Listening.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
+   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
+   *                                                                    form info.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function offMessage(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
   /**
    * Call event listening in registered form.
@@ -590,9 +907,26 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'call', observerCallback: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Call event listening in registered form.
+   * <p>This interface requires permission to receive callback.</p>
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
+   *                                                                  form info.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onCall(observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
    * Call event listening in registered form.
@@ -608,9 +942,27 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'call', hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Call event listening in registered form.
+   * <p>This interface requires permission to receive callback.</p>
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
+   *                                                                  form info.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function onCall(hostBundleName: string, observerCallback: Callback<formInfo.RunningFormInfo>): void;
 
   /**
    * Unregister form call event Listening.
@@ -625,8 +977,25 @@ declare namespace formObserver {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function off(type: 'call', hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
+
+  /**
+   * Unregister form call event Listening.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
+   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
+   *                                                                    form info.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 static
+   */
+  function offCall(hostBundleName?: string, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 }
 export default formObserver;

@@ -23,84 +23,47 @@ import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 import Want from './@ohos.app.ability.Want';
 import window from './@ohos.window';
 import UIAbilityContext from './application/UIAbilityContext';
-/*** if arkts 1.1 */
 import rpc from './@ohos.rpc';
-/*** endif */
-
-/**
- * The prototype of the listener function interface registered by the Caller.
- *
- * @typedef OnReleaseCallback
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
- * @since 9
- */
-export interface OnReleaseCallback {
-/**
- * Defines the callback that is invoked when the stub on the target UIAbility is disconnected.
- *
- * @param { string } msg - Message used for disconnection.
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
- * @since 9
- */
-  (msg: string): void;
-}
 
 /**
  * The prototype of the listener function interface registered by the Caller.
  * Defines the callback of OnRelease.
  *
- * @typedef OnReleaseCallback
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @typedef { function } OnReleaseCallback
  * @param { string } msg - The notification event string listened to by the OnRelease.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 20
- * @arkts 1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
-export type OnReleaseCallback = (msg: string)=> void;
-
+export type OnReleaseCallback = (msg: string) => void;
 
 /**
  * The prototype of the listener function interface registered by the Caller.
+ * Defines the callback of OnRemoteStateChange.
  *
- * @typedef OnRemoteStateChangeCallback
+ * @typedef { function } OnRemoteStateChangeCallback
+ * @param { string } msg - The notification event string listened to by the OnRemoteStateChange.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 10
+ * @since 10 dynamic
+ * @since 20 static
  */
-export interface OnRemoteStateChangeCallback {
-/**
- * Defines the callback that is invoked when the remote UIAbility state changes in the collaboration scenario.
- *
- * @param { string } msg - Message used for disconnection.
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
- * @since 10
- */
-  (msg: string): void;
-}
+export type OnRemoteStateChangeCallback = (msg: string) => void;
 
 /**
  * The prototype of the message listener function interface registered by the Callee.
+ * Defines the callback of Callee.
  *
- * @typedef CalleeCallback
+ * @typedef { function } CalleeCallback
+ * @param { rpc.MessageSequence } indata - Notification indata to the callee.
+ * @returns { rpc.Parcelable } Returns the callee's notification result indata.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 9
+ * @since 9 dynamic
+ * @since 20 static
  */
-export interface CalleeCallback {
-/**
- * Defines the callback of the registration message notification of the UIAbility.
- *
- * @param { rpc.MessageSequence } indata - Data to be transferred.
- * @returns { rpc.Parcelable } Returned data object.
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
- * @since 9
- */
-  (indata: rpc.MessageSequence): rpc.Parcelable;
-}
+export type CalleeCallback = (indata: rpc.MessageSequence) => rpc.Parcelable;
 
 /**
  * Implements sending of parcelable data to the target UIAbility when the CallerAbility invokes the target UIAbility (CalleeAbility).
@@ -108,8 +71,8 @@ export interface CalleeCallback {
  * @interface Caller
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 export interface Caller {
   /**
@@ -126,7 +89,8 @@ export interface Caller {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   call(method: string, data: rpc.Parcelable): Promise<void>;
 
@@ -145,7 +109,8 @@ export interface Caller {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   callWithResult(method: string, data: rpc.Parcelable): Promise<rpc.MessageSequence>;
 
@@ -156,7 +121,8 @@ export interface Caller {
    * @throws { BusinessError } 16200002 - The callee does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   release(): void;
 
@@ -170,8 +136,8 @@ export interface Caller {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   onRelease(callback: OnReleaseCallback): void;
 
@@ -185,7 +151,8 @@ export interface Caller {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
   onRemoteStateChange(callback: OnRemoteStateChangeCallback): void;
 
@@ -200,7 +167,8 @@ export interface Caller {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   on(type: 'release', callback: OnReleaseCallback): void;
 
@@ -214,7 +182,8 @@ export interface Caller {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   off(type: 'release', callback: OnReleaseCallback): void;
 
@@ -227,7 +196,8 @@ export interface Caller {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   off(type: 'release'): void;
 }
@@ -238,7 +208,8 @@ export interface Caller {
  * @interface Callee
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 9
+ * @since 9 dynamic
+ * @since 20 static
  */
 export interface Callee {
   /**
@@ -253,7 +224,8 @@ export interface Callee {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   on(method: string, callback: CalleeCallback): void;
 
@@ -267,7 +239,8 @@ export interface Callee {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   off(method: string): void;
 }
@@ -303,8 +276,8 @@ export interface Callee {
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare class UIAbility extends Ability {
   /**
@@ -332,8 +305,8 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   context: UIAbilityContext;
 
@@ -352,8 +325,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   launchWant: Want;
 
@@ -372,8 +345,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   lastRequestWant: Want;
 
@@ -383,7 +356,8 @@ declare class UIAbility extends Ability {
    * @type { Callee }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   callee: Callee;
 
@@ -418,8 +392,8 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void;
 
@@ -448,8 +422,8 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onWindowStageCreate(windowStage: window.WindowStage): void;
 
@@ -460,8 +434,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   onWindowStageWillDestroy(windowStage: window.WindowStage): void;
 
@@ -487,8 +461,8 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onWindowStageDestroy(): void;
 
@@ -507,8 +481,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onWindowStageRestore(windowStage: window.WindowStage): void;
 
@@ -545,7 +519,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onDestroy(): void | Promise<void>;
 
@@ -565,8 +539,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   onDestroy(): void;
 
@@ -586,8 +559,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   onDestroyAsync(): Promise<void>;
 
@@ -620,8 +592,8 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onForeground(): void;
 
@@ -639,7 +611,7 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic&static
    */
   onWillForeground(): void;
 
@@ -657,7 +629,7 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic&static
    */
   onDidForeground(): void;
 
@@ -685,8 +657,8 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onBackground(): void;
 
@@ -703,7 +675,7 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic&static
    */
   onWillBackground(): void;
 
@@ -720,7 +692,7 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic&static
    */
   onDidBackground(): void;
 
@@ -757,7 +729,7 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onContinue(wantParam: Record<string, Object>):
     AbilityConstant.OnContinueResult | Promise<AbilityConstant.OnContinueResult>;
@@ -799,8 +771,8 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void;
 
@@ -823,7 +795,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   onDump(params: Array<string>): Array<string>;
 
@@ -853,7 +826,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   onSaveState(reason: AbilityConstant.StateType, wantParam: Record<string, Object>): AbilityConstant.OnSaveResult;
 
@@ -867,7 +841,7 @@ declare class UIAbility extends Ability {
   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
   * @stagemodelonly
   * @atomicservice
-  * @since 20
+  * @since 20 dynamic
   */
   onSaveStateAsync(stateType: AbilityConstant.StateType, wantParam: Record<string, Object>): Promise<AbilityConstant.OnSaveResult>;
 
@@ -886,7 +860,7 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onShare(wantParam: Record<string, Object>): void;
 
@@ -920,7 +894,7 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onPrepareToTerminate(): boolean;
 
@@ -946,7 +920,7 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   onPrepareToTerminateAsync(): Promise<boolean>;
 
@@ -975,8 +949,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onBackPressed(): boolean;
 
@@ -998,7 +972,7 @@ declare class UIAbility extends Ability {
    * accepts the collaboration request.	
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 18
+   * @since 18 dynamic
    */
   onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult;
 }

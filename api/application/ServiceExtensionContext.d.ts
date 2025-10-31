@@ -18,13 +18,13 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
-import { ConnectOptions } from '../ability/connectOptions';
+/*** if arkts dynamic */
 import { Caller } from '../@ohos.app.ability.UIAbility';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
 import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 /*** endif */
 import { AsyncCallback } from '../@ohos.base';
+import { ConnectOptions } from '../ability/connectOptions';
 import ExtensionContext from './ExtensionContext';
 import StartOptions from '../@ohos.app.ability.StartOptions';
 import Want from '../@ohos.app.ability.Want';
@@ -37,8 +37,8 @@ import Want from '../@ohos.app.ability.Want';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 declare class ServiceExtensionContext extends ExtensionContext {
   /**
@@ -174,8 +174,8 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -310,8 +310,8 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -452,8 +452,8 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -488,7 +488,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   openLink(link: string, options?: OpenLinkOptions): Promise<void>;
 
@@ -601,7 +601,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbilityAsCaller(want: Want, callback: AsyncCallback<void>): void;
 
@@ -711,7 +711,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbilityAsCaller(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -827,7 +827,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbilityAsCaller(want: Want, options?: StartOptions): Promise<void>;
 
@@ -948,7 +948,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
 
@@ -1096,7 +1096,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbilityWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -1220,7 +1220,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbilityWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<void>;
 
@@ -1303,8 +1303,8 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   startServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -1387,8 +1387,8 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   startServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -1477,7 +1477,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   startServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
 
@@ -1566,7 +1566,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   startServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
 
@@ -1614,7 +1614,8 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
   stopServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -1662,7 +1663,8 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
   stopServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -1715,7 +1717,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
    */
   stopServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
 
@@ -1768,7 +1770,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
    */
   stopServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
 
@@ -1801,8 +1803,8 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   terminateSelf(callback: AsyncCallback<void>): void;
 
@@ -1831,8 +1833,8 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   terminateSelf(): Promise<void>;
 
@@ -1869,7 +1871,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    *
    * @param { Want } want - Indicates the service extension to connect.
    * @param { ConnectOptions } options - Indicates the callback of connection.
-   * @returns { number } Returns the connection id.
+   * @returns { long } Returns the connection id.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1886,9 +1888,10 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
+   * @since 20 static
    */
-  connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
+  connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
   /**
    * Connects an ability to a Service extension with account.
@@ -1946,14 +1949,14 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
    */
   connectServiceExtensionAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
 
   /**
    * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
    *
-   * @param { number } connection - the connection id returned from connectAbility api.
+   * @param { long } connection - the connection id returned from connectAbility api.
    * @param { AsyncCallback<void> } callback - The callback of disconnectAbility.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1962,14 +1965,15 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
-  disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
+  disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>): void;
 
   /**
    * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
    *
-   * @param { number } connection - the connection id returned from connectAbility api.
+   * @param { long } connection - the connection id returned from connectAbility api.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1978,9 +1982,10 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
-  disconnectServiceExtensionAbility(connection: number): Promise<void>;
+  disconnectServiceExtensionAbility(connection: long): Promise<void>;
 
   /**
    * Get the caller object of the startup capability.
@@ -2030,7 +2035,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
    */
   startAbilityByCall(want: Want): Promise<Caller>;
 
@@ -2065,7 +2070,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 10 dynamic
    */
   startAbilityByCallWithAccount(want: Want, accountId: number): Promise<Caller>;
 
@@ -2164,7 +2169,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startRecentAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -2262,7 +2267,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startRecentAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -2364,7 +2369,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startRecentAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -2407,7 +2412,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   requestModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
 
@@ -2450,7 +2455,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   requestModalUIExtension(pickerWant: Want): Promise<void>;
 
@@ -2473,7 +2478,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */  
   preStartMission(bundleName: string, moduleName: string, abilityName: string, startTime: string): Promise<void>;
 
@@ -2504,7 +2509,8 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
+   * @since 20 static
    */
   startUIServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -2529,7 +2535,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 18
+   * @since 18 dynamic
    */
   openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<void>;
 
@@ -2569,7 +2575,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   startUIAbilities(wantList: Array<Want>): Promise<void>;
 }

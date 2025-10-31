@@ -1,0 +1,975 @@
+/*
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * @file
+ * @kit ArkUI
+ */
+import { ResourceColor, ResourceStr, Length } from './units';
+import { DecorationStyleInterface, MutableStyledString, StyledString } from './styledString';
+import { SelectionOptions, Callback } from './common';
+import { TextDecorationType, TextDecorationStyle } from './enums';
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { AttributeModifier, CommonMethod } from './common';
+/**
+ * Defines the text data detector type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare enum TextDataDetectorType {
+    /**
+     * Detector type phone number.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    PHONE_NUMBER = 0,
+    /**
+     * Detector type URL.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    URL = 1,
+    /**
+     * Detector type email.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    EMAIL = 2,
+    /**
+     * Detector type address.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    ADDRESS = 3,
+    /**
+     * Detector type datetime.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    DATE_TIME = 4
+}
+/**
+ * Text data detector config.
+ *
+ * @interface TextDataDetectorConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface TextDataDetectorConfig {
+    /**
+     * Text data detector types.
+     *
+     * @type { TextDataDetectorType[] }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    types: TextDataDetectorType[];
+    /**
+     * Text data detect result callback.
+     *
+     * @type { ?Callback<string> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    onDetectResultUpdate?: Callback<string>;
+    /**
+     * The color of AI entity.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    color?: ResourceColor;
+    /**
+     * The decoration of AI entity.
+     *
+     * @type { ?DecorationStyleInterface }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    decoration?: DecorationStyleInterface;
+}
+/**
+ * Defines range of text type component.
+ *
+ * @interface TextRange
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface TextRange {
+    /**
+     * Start offset.
+     *
+     * @type { ?int }
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    start?: int;
+    /**
+     * End offset.
+     *
+     * @type { ?int }
+     * @default text length
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    end?: int;
+}
+/**
+ * Defines the inserted text value info.
+ *
+ * @interface InsertValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface InsertValue {
+    /**
+     * The location info where the value will be inserted.
+     *
+     * @type { int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    insertOffset: int;
+    /**
+     * The inserted value.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    insertValue: string;
+}
+/**
+ * Defines delete text direction.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare enum TextDeleteDirection {
+    /**
+     * Delete backward.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    BACKWARD = 0,
+    /**
+     * Delete forward.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    FORWARD = 1
+}
+/**
+ * Defines menu type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare enum MenuType {
+    /**
+     * Selection menu.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    SELECTION_MENU = 0,
+    /**
+     * Preview menu, only for image.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    PREVIEW_MENU = 1
+}
+/**
+ * Declare the type of automatic case mode switching.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare enum AutoCapitalizationMode {
+    /**
+     * The default status is invalid.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    NONE = 0,
+    /**
+     * Automatic case by words.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    WORDS = 1,
+    /**
+     * Automatic case by sentences.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    SENTENCES = 2,
+    /**
+     * Automatic case by full characters.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    ALL_CHARACTERS = 3
+}
+/**
+ * Provides an interface for deleting value from text.
+ *
+ * @interface DeleteValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface DeleteValue {
+    /**
+     * The location info where the value will be deleted.
+     *
+     * @type { int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    deleteOffset: int;
+    /**
+     * The deleted direction.
+     *
+     * @type { TextDeleteDirection }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    direction: TextDeleteDirection;
+    /**
+     * The deleted value.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    deleteValue: string;
+}
+/**
+ * Callback after content changed.
+ *
+ * @typedef { function } OnDidChangeCallback
+ * @param { TextRange } rangeBefore - Range of content that had been replaced.
+ * @param { TextRange } rangeAfter - Range of content that newly added.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRange) => void;
+/**
+ * Callback when input sometimes has info of previewText.
+ *
+ * @typedef { function } EditableTextOnChangeCallback
+ * @param { string } value - Value of body text, without previewText value.
+ * @param { PreviewText } [previewText] - info of previewText, contains previewText value and start index.
+ * @param { TextChangeOptions } [options] - contains the selection range before and after the change, as well as
+ *    the old content.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export type EditableTextOnChangeCallback =
+                                      (value: string, previewText?: PreviewText, options?: TextChangeOptions) => void;
+/**
+ * Define the text selection controller.
+ *
+ * @interface TextBaseController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface TextBaseController {
+    /**
+     * Set selection to select a range of content.
+     *
+     * @param { number } selectionStart - The start position of the selected text.
+     * @param { number } selectionEnd - The end position of the selected text.
+     * @param { SelectionOptions } [options] - Indicates the options of selection.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
+    /**
+     * Close the select menu when menu is on.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    closeSelectionMenu(): void;
+    /**
+     * Get LayoutManager.
+     *
+     * @returns { LayoutManager } - Return the LayoutManager.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    getLayoutManager(): LayoutManager;
+}
+/**
+ * Define the text extended editing controller.
+ *
+ * @extends TextBaseController
+ * @interface TextEditControllerEx
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface TextEditControllerEx extends TextBaseController {
+    /**
+     * Judge whether is in editing state
+     *
+     * @returns { boolean } - true means that the component is in editing state, false means is non in editing status
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    isEditing(): boolean;
+    /**
+     * Stop editing state.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    stopEditing(): void;
+    /**
+     * Set caret offset.
+     *
+     * @param { number } offset - caret offset.
+     * @returns { boolean } - Return true if the caret offset was successfully set, false otherwise.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    setCaretOffset(offset: number): boolean;
+    /**
+     * Get caret offset from controller.
+     *
+     * @returns { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    getCaretOffset(): number;
+    /**
+     * Get PreviewText.
+     *
+     * @returns { PreviewText } - Return the PreviewText.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    getPreviewText(): PreviewText;
+}
+/**
+ * The previewText.
+ * @interface PreviewText
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface PreviewText {
+    /**
+     * Start offset of the previewText
+     *
+     * @type { int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    offset: int;
+    /**
+     * Value of the previewText.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    value: string;
+}
+/**
+ * Define the StyledString controller.
+ *
+ * @interface StyledStringController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface StyledStringController {
+    /**
+     * Set the StyledString of the component.
+     *
+     * @param { StyledString } styledString - StyledString.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    setStyledString(styledString: StyledString): void;
+    /**
+     * Get the StyledString of the component.
+     *
+     * @returns { MutableStyledString }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    getStyledString(): MutableStyledString;
+}
+/**
+ * Define the StyledString changed listener.
+ *
+ * @interface StyledStringChangedListener
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface StyledStringChangedListener {
+    /**
+     * Called before text changed.
+     *
+     * @type { ?Callback<StyledStringChangeValue, boolean> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    onWillChange?: Callback<StyledStringChangeValue, boolean>;
+    /**
+     * Called after text changed.
+     *
+     * @type { ?OnDidChangeCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    onDidChange?: OnDidChangeCallback;
+}
+/**
+ * Define the StyledString changed value.
+ *
+ * @interface StyledStringChangeValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export interface StyledStringChangeValue {
+    /**
+     * Range of the content to be replaced.
+     *
+     * @type { TextRange }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    range: TextRange;
+    /**
+     * StyledString to replace.
+     *
+     * @type { StyledString }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    replacementString: StyledString;
+    /**
+     * Preview StyledString
+     *
+     * @type { ?StyledString }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    previewText?: StyledString;
+}
+/**
+ * Define the LayoutManager for querying layout information.
+ *
+ * @interface LayoutManager
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface LayoutManager {
+    /**
+     * Get the line count.
+     *
+     * @returns { int } The line count value returned to the caller.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    getLineCount(): int;
+    /**
+     * Get the glyph position at coordinate.
+     *
+     * @param { double } x - the positionX of typography.
+     * @param { double } y - the positionY of typography.
+     * @returns { PositionWithAffinity } TextBlob object.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    getGlyphPositionAtCoordinate(x: double, y: double): PositionWithAffinity;
+}
+/**
+ * Position and affinity.
+ *
+ * @typedef PositionWithAffinity
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export interface PositionWithAffinity {
+    /**
+     * Position of text.
+     *
+     * @type { int }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    position: int;
+}
+/**
+ * Defines the cursor style
+ *
+ * @interface CaretStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export interface CaretStyle {
+    /**
+     * Set the cursor width
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    width?: Length;
+    /**
+     * Set the cursor color
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    color?: ResourceColor;
+}
+/**
+ * Defines the TextMenuItemId.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare class TextMenuItemId {
+    /**
+     * Init a TextMenuItemId with id.
+     *
+     * @param { ResourceStr } id - The id of the TextMenuItemId.
+     * @returns { TextMenuItemId } - Returns the TextMenuItemId object.
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    static of(id: ResourceStr): TextMenuItemId;
+    /**
+     * Judge if two TextMenuItemId are equal.
+     *
+     * @param { TextMenuItemId } id - id TextMenuItemId.
+     * @returns { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    equals(id: TextMenuItemId): boolean;
+    /**
+     * Indicates the TextMenuItemId to copy and delete the currently selected text.
+     *
+     * @type { TextMenuItemId }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    static readonly CUT: TextMenuItemId;
+    /**
+     * Indicates the TextMenuItemId to copy the currently selected text to the clipboard.
+     *
+     * @type { TextMenuItemId }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    static readonly COPY: TextMenuItemId;
+    /**
+     * Indicates the TextMenuItemId to copy the current contents of the clipboard into the text view.
+     *
+     * @type { TextMenuItemId }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    static readonly PASTE: TextMenuItemId;
+    /**
+     * Indicates the TextMenuItemId to select all text in a text view.
+     *
+     * @type { TextMenuItemId }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    static readonly SELECT_ALL: TextMenuItemId;
+    /**
+     * Indicates the TextMenuItemId for collaboration service menu items.
+     *
+     * @type { TextMenuItemId }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    static readonly COLLABORATION_SERVICE: TextMenuItemId;
+    /**
+     * Indicates the TextMenuItemId to recognize the text in the picture and input it into the text view.
+     *
+     * @type { TextMenuItemId }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    static readonly CAMERA_INPUT: TextMenuItemId;
+    /**
+     * Indicates the TextMenuItemId to help with text creation by invoking large models.
+     *
+     * @type { TextMenuItemId }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    static readonly AI_WRITER: TextMenuItemId;
+    /**
+     * Indicates the TextMenuItemId to translate the selected content.
+     *
+     * @type { TextMenuItemId }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    static readonly TRANSLATE: TextMenuItemId;
+    /**
+     * Indicates the TextMenuItemId to search the selected content.
+     *
+     * @type { TextMenuItemId }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    static readonly SEARCH: TextMenuItemId;
+    /**
+     * Indicates the TextMenuItemId to share the selected content.
+     *
+     * @type { TextMenuItemId }
+     * @readonly
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    static readonly SHARE: TextMenuItemId;
+}
+/**
+ * TextMenuItem
+ *
+ * @interface TextMenuItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface TextMenuItem {
+    /**
+     * Customize what the menu displays.
+     *
+     * @type { ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    content: ResourceStr;
+    /**
+     * Customize the icon before the menu displays content.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    icon?: ResourceStr;
+    /**
+     * Distinguish clicked menu content by Id.
+     *
+     * @type { TextMenuItemId }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    id: TextMenuItemId;
+    /**
+     * Customize what the menu item shortcut displays.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    labelInfo?: ResourceStr;
+}
+/**
+ * Callback function when the selection menu create.
+ *
+ * @typedef { function } OnCreateMenuCallback
+ * @param { Array<TextMenuItem> } menuItems - currently displayed menu items.
+ * @returns { Array<TextMenuItem> } Return the menu items will displayed after operations.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export type OnCreateMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuItem>;
+/**
+ * Invoke upon clicking an item, capable of intercepting the default system menu execution behavior.
+ *
+ * @typedef { function } OnMenuItemClickCallback
+ * @param { TextMenuItem } menuItem - current default menu.
+ * @param { TextRange } range - current selected range.
+ * @returns { boolean } - Return True, the event is consumed, false otherwise.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export type OnMenuItemClickCallback = (menuItem: TextMenuItem, range: TextRange) => boolean;
+/**
+ * EditMenuOptions
+ *
+ * @interface EditMenuOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface EditMenuOptions {
+    /**
+     * Passes the default menu, invokes before every display to generate a menu for triggering click events.
+     *
+     * @type { OnCreateMenuCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    onCreateMenu: OnCreateMenuCallback;
+    /**
+     * Invoke upon clicking an item, capable of intercepting the default system menu execution behavior.
+     *
+     * @type { OnMenuItemClickCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    onMenuItemClick: OnMenuItemClickCallback;
+}
+/**
+ * Defines the font decoration result.
+ *
+ * @interface DecorationStyleResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export interface DecorationStyleResult {
+    /**
+     * Font decoration type.
+     *
+     * @type { TextDecorationType }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    type: TextDecorationType;
+    /**
+     * Font decoration color.
+     *
+     * @type { ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    color: ResourceColor;
+    /**
+     * The style value of the decoration property object.
+     *
+     * @type { ?TextDecorationStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    style?: TextDecorationStyle;
+}
+/**
+ * Defines the options of font.
+ *
+ * @interface FontSettingOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface FontSettingOptions {
+    /**
+      * Define whether VariableFontWeight is supported.
+      *
+      * @type { ?boolean }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @since 20 static
+      */
+    enableVariableFontWeight?: boolean;
+}
+/**
+* The TextChangeOptions.
+* @interface TextChangeOptions
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @since 20 static
+*/
+export declare interface TextChangeOptions {
+    /**
+     * The selected area before the change.
+     *
+     * @type { TextRange }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    rangeBefore: TextRange;
+    /**
+     * The selected area after the change.
+     *
+     * @type { TextRange }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    rangeAfter: TextRange;
+    /**
+     * The content before the change.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    oldContent: string;
+    /**
+     * The info of PreviewText before the change.
+     *
+     * @type { PreviewText }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    oldPreviewText: PreviewText;
+}
+/**
+ * Define the editableText Component changed value.
+ *
+ * @interface EditableTextChangeValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export interface EditableTextChangeValue {
+    /**
+     * Value of body text, without previewText value.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    content: string;
+    /**
+     * Info of previewText, contains previewText value and start index.
+     *
+     * @type { ?PreviewText }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    previewText?: PreviewText;
+    /**
+     * The TextChangeOptions.
+     *
+     * @type { ?TextChangeOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    options?: TextChangeOptions;
+}
+/**
+ * Defines text menu show mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare enum TextMenuShowMode {
+    /**
+     * Display the text selection menu in the current window.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    DEFAULT = 0,
+    /**
+     * Prefer to display the text selection menu in a separate window
+     * and continue to display it within the current window if a separate window is not supported
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    PREFER_WINDOW = 1
+}
+/**
+ * Defines text menu options.
+ *
+ * @interface TextMenuOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface TextMenuOptions {
+    /**
+     * Text menu show mode.
+     *
+     * @type { ?TextMenuShowMode }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    showMode?: TextMenuShowMode;
+}
+/**
+ * Defines keyboard appearance.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare enum KeyboardAppearance {
+    /**
+     * Default appearance mode, don't adopt immersive styles
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    NONE_IMMERSIVE = 0,
+    /**
+     * Immersive mode
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    IMMERSIVE = 1,
+    /**
+     * Light immersive style
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    LIGHT_IMMERSIVE = 2,
+    /**
+     * Dark immersive style
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    DARK_IMMERSIVE = 3
+}

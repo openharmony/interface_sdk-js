@@ -18,6 +18,7 @@
  * @kit AVSessionKit
  */
 
+/*** if arkts dynamic */
 import AVCastPicker from '@ohos.multimedia.avCastPicker';
 import { AVInputCastPicker } from '@ohos.multimedia.avInputCastPicker';
 import { AVCastPickerState, AVCastPickerStyle, AVCastPickerColorMode } from '@ohos.multimedia.avCastPickerParam';
@@ -25,3 +26,12 @@ import avSession from '@ohos.multimedia.avsession';
 import MediaControlExtensionAbility from '@ohos.app.ability.MediaControlExtensionAbility';
 
 export { AVCastPicker, AVInputCastPicker, AVCastPickerState, AVCastPickerStyle, AVCastPickerColorMode, avSession, MediaControlExtensionAbility };
+/*** endif */
+
+/*** if arkts static */
+import { AVCastPickerState, AVCastPickerStyle, AVCastPickerColorMode } from '@ohos.multimedia.avCastPickerParam';
+import avSession from '@ohos.multimedia.avsession';
+import MediaControlExtensionAbility from '@ohos.app.ability.MediaControlExtensionAbility';
+
+export { AVCastPickerState, AVCastPickerStyle, AVCastPickerColorMode, avSession, MediaControlExtensionAbility };
+/*** endif */

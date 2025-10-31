@@ -40,8 +40,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 declare class TreeSet<T> {
   /**
@@ -87,7 +87,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(comparator?: (firstValue: T, secondValue: T) => boolean);
 
@@ -99,8 +99,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   constructor(comparator?: TreeSetComparator<T>);
 
@@ -126,21 +125,20 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   length: number;
 
   /**
    * Gets the element number of the TreeSet.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
-  get length(): number;
+  get length(): int;
 
   /**
    * Returns whether the Set object contains elements
@@ -167,8 +165,8 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   isEmpty(): boolean;
   /**
@@ -199,8 +197,8 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   has(value: T): boolean;
   /**
@@ -243,8 +241,8 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   add(value: T): boolean;
   /**
@@ -275,8 +273,8 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   remove(value: T): boolean;
   /**
@@ -301,8 +299,8 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   clear(): void;
   /**
@@ -330,7 +328,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getFirstValue(): T;
   /**
@@ -358,7 +356,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getLastValue(): T;
   /**
@@ -404,7 +402,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getLowerValue(key: T): T;
   /**
@@ -450,7 +448,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getHigherValue(key: T): T;
   /**
@@ -478,7 +476,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   popFirst(): T;
   /**
@@ -506,7 +504,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   popLast(): T;
 
@@ -517,8 +515,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   getFirstValue(): T | undefined;
 
@@ -529,8 +526,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   getLastValue(): T | undefined;
 
@@ -543,8 +539,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   getLowerValue(key: T): T | undefined;
 
@@ -557,8 +552,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   getHigherValue(key: T): T | undefined;
 
@@ -569,8 +563,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   popFirst(): T | undefined;
 
@@ -581,8 +574,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   popLast(): T | undefined;
 
@@ -635,7 +627,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   forEach(callbackFn: (value?: T, key?: T, set?: TreeSet<T>) => void, thisArg?: Object): void;
 
@@ -646,8 +638,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   forEach(callbackFn: TreeSetForEachCb<T>): void;
 
@@ -676,8 +667,8 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   values(): IterableIterator<T>;
   /**
@@ -705,8 +696,8 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   entries(): IterableIterator<[T, T]>;
   /**
@@ -734,7 +725,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   [Symbol.iterator](): IterableIterator<T>;
 
@@ -745,8 +736,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   $_iterator(): IterableIterator<T>;
 
@@ -762,10 +752,9 @@ declare class TreeSet<T> {
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
-type TreeSetForEachCb<T> = (value: T, key: T, set: TreeSet<T>) => void
+export type TreeSetForEachCb<T> = (value: T, key: T, set: TreeSet<T>) => void
 
 /**
  * The type of TreeSet comparator.
@@ -773,12 +762,11 @@ type TreeSetForEachCb<T> = (value: T, key: T, set: TreeSet<T>) => void
  * @typedef { function } TreeSetComparator
  * @param { T } firstValue - The first value compared
  * @param { T } secondValue - The second value compared
- * @returns { number } - Comparison results
+ * @returns { double } - Comparison results
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
-type TreeSetComparator<T> = (firstValue: T, secondValue: T) => number
+export type TreeSetComparator<T> = (firstValue: T, secondValue: T) => double
 
 export default TreeSet;

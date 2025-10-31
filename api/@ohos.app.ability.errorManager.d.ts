@@ -44,7 +44,7 @@ import { LoopObserver as _LoopObserver } from './application/LoopObserver';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since 19
+ * @since 19 dynamic
  */
 declare namespace errorManager {
   /**
@@ -54,8 +54,8 @@ declare namespace errorManager {
    * @param { ErrorObserver } observer - The error observer.
    * @returns { number } Returns the number code of the observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000003 - The specified ID does not exist.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000003 - Id does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -66,7 +66,7 @@ declare namespace errorManager {
    * @param { ErrorObserver } observer - The error observer.
    * @returns { number } Returns the number code of the observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000003 - The specified ID does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
@@ -77,14 +77,28 @@ declare namespace errorManager {
    *
    * @param { 'error' } type - error.
    * @param { ErrorObserver } observer - The error observer.
-   * @returns { number } Returns the number code of the observer.
+   * @returns { int } Returns the number code of the observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000003 - The specified ID does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
+   */
+  /**
+   * Register error observer.
+   *
+   * @param { 'error' } type - error.
+   * @param { ErrorObserver } observer - The error observer.
+   * @returns { number } Returns the number code of the observer.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000003 - The specified ID does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   function on(type: 'error', observer: ErrorObserver): number;
 
@@ -95,8 +109,8 @@ declare namespace errorManager {
    * @param { number } observerId - Indicates the number code of the observer.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000003 - The specified ID does not exist.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000003 - Id does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -107,7 +121,7 @@ declare namespace errorManager {
    * @param { number } observerId - Indicates the number code of the observer.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000003 - The specified ID does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
@@ -117,15 +131,29 @@ declare namespace errorManager {
    * Unregister error observer.
    *
    * @param { 'error' } type - error.
-   * @param { number } observerId - Indicates the number code of the observer.
+   * @param { int } observerId - Indicates the number code of the observer.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000003 - The specified ID does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
    * @since 19
+   */
+  /**
+   * Unregister error observer.
+   *
+   * @param { 'error' } type - error.
+   * @param { number } observerId - Indicates the number code of the observer.
+   * @param { AsyncCallback<void> } callback - The callback of off.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000003 - The specified ID does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   function off(type: 'error', observerId: number, callback: AsyncCallback<void>): void;
 
@@ -136,8 +164,8 @@ declare namespace errorManager {
    * @param { number } observerId - Indicates the number code of the observer.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000003 - The specified ID does not exist.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000003 - Id does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -148,7 +176,7 @@ declare namespace errorManager {
    * @param { number } observerId - Indicates the number code of the observer.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000003 - The specified ID does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
@@ -158,15 +186,29 @@ declare namespace errorManager {
    * Unregister error observer.
    *
    * @param { 'error' } type - error.
-   * @param { number } observerId - Indicates the number code of the observer.
+   * @param { int } observerId - Indicates the number code of the observer.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000003 - The specified ID does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
+   */
+  /**
+   * Unregister error observer.
+   *
+   * @param { 'error' } type - error.
+   * @param { number } observerId - Indicates the number code of the observer.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000003 - The specified ID does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
    */
   function off(type: 'error', observerId: number): Promise<void>;
 
@@ -179,7 +221,7 @@ declare namespace errorManager {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   function on(type: 'globalErrorOccurred', observer: GlobalObserver): void;
 
@@ -192,7 +234,7 @@ declare namespace errorManager {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   function on(type: 'globalUnhandledRejectionDetected', observer: GlobalObserver): void;
 
@@ -206,7 +248,7 @@ declare namespace errorManager {
    * @throws { BusinessError } 16300004 - The observer does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   function off(type: 'globalErrorOccurred', observer?: GlobalObserver): void;
 
@@ -220,7 +262,7 @@ declare namespace errorManager {
    * @throws { BusinessError } 16300004 - The observer does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   function off(type: 'globalUnhandledRejectionDetected', observer?: GlobalObserver): void;
 
@@ -231,7 +273,7 @@ declare namespace errorManager {
    * { GlobalError } reason - the reason of the error or rejection.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   export type GlobalObserver = (reason: GlobalError) => void;
 
@@ -242,7 +284,7 @@ declare namespace errorManager {
    * @typedef GlobalError
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   export interface GlobalError extends Error {
     /**
@@ -250,7 +292,7 @@ declare namespace errorManager {
      * @type { string } instanceName
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     instanceName: string;
 
@@ -259,7 +301,7 @@ declare namespace errorManager {
      * @type { InstanceType } instanceType
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     instanceType: InstanceType;
   }
@@ -269,7 +311,7 @@ declare namespace errorManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   export enum InstanceType {
     /**
@@ -277,7 +319,7 @@ declare namespace errorManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     MAIN = 0,
 
@@ -286,7 +328,7 @@ declare namespace errorManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
      WORKER = 1,
 
@@ -295,7 +337,7 @@ declare namespace errorManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     TASKPOOL = 2,
 
@@ -304,7 +346,7 @@ declare namespace errorManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     CUSTOM = 3,
   }
@@ -313,12 +355,12 @@ declare namespace errorManager {
    * Register loop observer. This function can only by called from main thread,
    * and if call this function multiple times, the last
    * modification will overwrite the previous one.
-   * 
+   *
    * @param { 'loopObserver' } type - loopObserver.
    * @param { number } timeout - Indicates timeout(ms) value of loop observer.
    * @param { LoopObserver } observer - The loop observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
@@ -327,16 +369,31 @@ declare namespace errorManager {
    * Register loop observer. This function can only by called from main thread,
    * and if call this function multiple times, the last
    * modification will overwrite the previous one.
-   * 
+   *
+   * @param { 'loopObserver' } type - loopObserver.
+   * @param { int } timeout - Indicates timeout(ms) value of loop observer.
+   * @param { LoopObserver } observer - The loop observer.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 19 dynamic
+   */
+    /**
+   * Register loop observer. This function can only by called from main thread,
+   * and if call this function multiple times, the last
+   * modification will overwrite the previous one.
+   *
    * @param { 'loopObserver' } type - loopObserver.
    * @param { number } timeout - Indicates timeout(ms) value of loop observer.
    * @param { LoopObserver } observer - The loop observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 22 dynamic
    */
   function on(type: 'loopObserver', timeout: number, observer: LoopObserver): void;
 
@@ -361,7 +418,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   function off(type: 'loopObserver', observer?: LoopObserver): void;
 
@@ -388,7 +445,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   function on(type: 'unhandledRejection', observer: UnhandledRejectionObserver): void;
 
@@ -417,7 +474,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   function off(type: 'unhandledRejection', observer?: UnhandledRejectionObserver): void;
 
@@ -433,7 +490,7 @@ declare namespace errorManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
     function on(type: 'freeze', observer: FreezeObserver): void;
 
@@ -448,13 +505,15 @@ declare namespace errorManager {
    * @throws { BusinessError } 16300004 - The observer does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   function off(type: 'freeze', observer?: FreezeObserver): void;
 
   /**
    * Set the default exception handler, This function will be excuted right after the callback function registered
    * through errorManger.on is executed. You can use it to implement chain calls instead of errorManager.on.
+   * If the interface parameters are empty, subsequently registered processors will be unable to establish
+   * associations with previously registered processors, and vice versa.thereby interrupting the chain of calls.
    * This API must be called in the main thread.
    *
    * @param { ErrorHandler } [defaultHandler] - the default error handler.
@@ -462,8 +521,7 @@ declare namespace errorManager {
    * @throws { BusinessError } 16000205 - The API is not called in the main thread.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 21
-   * @arkts 1.1
+   * @since 21 dynamic
    */
     function setDefaultErrorHandler(defaultHandler?: ErrorHandler): ErrorHandler;
 
@@ -488,7 +546,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   export type ErrorObserver = _ErrorObserver.default;
   /**
@@ -506,7 +564,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   export type LoopObserver = _LoopObserver;
   /**
@@ -528,7 +586,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   export type UnhandledRejectionObserver = (reason: Error | any, promise: Promise<any>) => void;
   /**
@@ -537,7 +595,7 @@ declare namespace errorManager {
    * @typedef { function }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   export type FreezeObserver = () => void;
   /**
@@ -547,8 +605,7 @@ declare namespace errorManager {
    * @param { Error} errObject - the error object about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 21
-   * @arkts 1.1
+   * @since 21 dynamic
    */
   export type ErrorHandler = (errObject: Error) => void;
 }

@@ -40,8 +40,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 declare class ArrayList<T> {
   /**
@@ -66,8 +66,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   constructor();
   /**
@@ -92,20 +92,19 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   length: number;
   /**
    * Gets the number of elements in an array list.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
-  get length(): number;
+  get length(): int;
   /**
    * Appends the specified element to the end of this arraylist.
    *
@@ -134,8 +133,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   add(element: T): boolean;
   /**
@@ -175,7 +174,7 @@ declare class ArrayList<T> {
    * Inserts an element at the specified position in this container.
    *
    * @param { T } element - Target element.
-   * @param { number } index - Index of the position where the element is to be inserted.
+   * @param { int } index - Index of the position where the element is to be inserted.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -185,10 +184,10 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
-  insert(element: T, index: number): void;
+  insert(element: T, index: int): void;
   /**
    * Check if arraylist contains the specified element
    *
@@ -217,8 +216,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   has(element: T): boolean;
   /**
@@ -246,15 +245,15 @@ declare class ArrayList<T> {
    * Obtains the index of the first occurrence of the specified element in this container.
    *
    * @param { T } element - Target element.
-   * @returns { number } the number type ,returns the lowest index such that or -1 if there is no such index.
+   * @returns { int } the number type ,returns the lowest index such that or -1 if there is no such index.
    * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
-  getIndexOf(element: T): number;
+  getIndexOf(element: T): int;
   /**
    * Find the corresponding element according to the index,
    * delete the element, and move the index of all elements to the right of the element forward by one.
@@ -289,7 +288,7 @@ declare class ArrayList<T> {
   /**
    * Removes an element with the specified position from this container.
    *
-   * @param { number } index - Position index of the target element.
+   * @param { int } index - Position index of the target element.
    * @returns { T } the T type ,returns undefined if arraylist is empty,If the index is
    * @throws { BusinessError } 10200001 - The value of "index" is out of range.
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
@@ -300,10 +299,10 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
-  removeByIndex(index: number): T;
+  removeByIndex(index: int): T;
   /**
    * Removes the first occurrence of the specified element from this arraylist,
    * if it is present.  If the arraylist does not contain the element, it is
@@ -336,8 +335,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   remove(element: T): boolean;
   /**
@@ -365,15 +364,15 @@ declare class ArrayList<T> {
    * Obtains the index of the last occurrence of the specified element in this container.
    *
    * @param { T } element - Target element.
-   * @returns { number } the number type
+   * @returns { int } the number type
    * @throws { BusinessError } 10200011 - The getLastIndexOf method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
-  getLastIndexOf(element: T): number;
+  getLastIndexOf(element: T): int;
   /**
    * Removes from this arraylist all of the elements whose index is between fromIndex,inclusive,and toIndex ,exclusive.
    *
@@ -407,8 +406,8 @@ declare class ArrayList<T> {
    * Removes from this container all of the elements within a range, including the element at the start position but
    * not that at the end position.
    *
-   * @param { number } fromIndex - Index of the start position.
-   * @param { number } toIndex - Index of the end position.
+   * @param { int } fromIndex - Index of the start position.
+   * @param { int } toIndex - Index of the end position.
    * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
    * @throws { BusinessError } 10200011 - The removeByRange method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -418,10 +417,10 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
-  removeByRange(fromIndex: number, toIndex: number): void;
+  removeByRange(fromIndex: int, toIndex: int): void;
   /**
    * Replaces each element of this arraylist with the result of applying the operator to that element.
    *
@@ -467,21 +466,20 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   replaceAllElements(callbackFn: (value: T, index?: number, arrlist?: ArrayList<T>) => T, thisArg?: Object): void;
 
   /**
    * Replaces all elements in this container with new elements, and returns the new ones.
    *
-   * @param { ArrayListCbFn1<T> } callbackFn - Callback invoked for the replacement.
+   * @param { ArrayListReplaceCb<T> } callbackFn - Callback invoked for the replacement.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
-  replaceAllElements(callbackFn: ArrayListCbFn1<T>): void;
+  replaceAllElements(callbackFn: ArrayListReplaceCb<T>): void;
 
   /**
    * Executes a provided function once for each value in the arraylist object.
@@ -532,21 +530,20 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   forEach(callbackFn: (value: T, index?: number, arrlist?: ArrayList<T>) => void, thisArg?: Object): void;
 
   /**
    * Iterates over elements in a generic ArrayList and executes a callback function for each element.
    *
-   * @param { ArrayListCbFn<T> } callbackFn - A callback function to execute for each element.
+   * @param { ArrayListForEachCb<T> } callbackFn - A callback function to execute for each element.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
-  forEach(callbackFn: ArrayListCbFn<T>): void;
+  forEach(callbackFn: ArrayListForEachCb<T>): void;
 
   /**
    * Sorts this arraylist according to the order induced by the specified comparator,without comparator this parameter,
@@ -593,10 +590,28 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  sort(comparator?: (firstValue: T, secondValue: T) => number): void;
+  /**
+   * Sorts this arraylist according to the order induced by the specified comparator,without comparator this parameter,
+   * it will default to ASCII sorting
+   *
+   * Anonymous Object Rectification
+   * @param { ArrayListComparatorFn<T> } [comparator] - comparator
+   * comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
+   * Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
+   * sorted in ascending order;If it returns secondValue minus firstValue, it returns an arraylist sorted in descending order;
+   * If this parameter is empty, it will default to ASCII sorting
+   * @throws { BusinessError } 10200011 - The sort method cannot be bound.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Incorrect parameter types;
+   * 2.Parameter verification failed.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic&static
+   */
+  sort(comparator?: ArrayListComparatorFn<T>): void;
   /**
    * Returns a view of the portion of this arraylist between the specified fromIndex,inclusive,and toIndex,exclusive
    *
@@ -632,8 +647,8 @@ declare class ArrayList<T> {
    * Obtains elements within a range in this container, including the element at the start position but not that at the
    * end position, and returns these elements as a new ArrayList instance.
    *
-   * @param { number } fromIndex - Index of the start position.
-   * @param { number } toIndex - Index of the end position.
+   * @param { int } fromIndex - Index of the start position.
+   * @param { int } toIndex - Index of the end position.
    * @returns { ArrayList<T> }
    * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
    * @throws { BusinessError } 10200011 - The subArrayList method cannot be bound.
@@ -644,10 +659,10 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
-  subArrayList(fromIndex: number, toIndex: number): ArrayList<T>;
+  subArrayList(fromIndex: int, toIndex: int): ArrayList<T>;
   /**
    * Removes all of the elements from this arraylist.The arraylist will
    * be empty after this call returns.length becomes 0
@@ -672,8 +687,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   clear(): void;
   /**
@@ -701,8 +716,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   clone(): ArrayList<T>;
   /**
@@ -725,15 +740,15 @@ declare class ArrayList<T> {
   /**
    * Obtains the capacity of this container.
    *
-   * @returns { number } the number type
+   * @returns { int } the number type
    * @throws { BusinessError } 10200011 - The getCapacity method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
-  getCapacity(): number;
+  getCapacity(): int;
   /**
    * convert arraylist to array
    *
@@ -759,8 +774,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   convertToArray(): Array<T>;
   /**
@@ -788,48 +803,24 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   isEmpty(): boolean;
   /**
    * Returns the element at the given index.
    * 
-   * @param { number } index - Index. The value must be less than or equal to int32_max, that is, 2147483647.
+   * @param { int } index - Index. The value must be less than or equal to int32_max, that is, 2147483647.
    * @returns { T } The element in the arraylist matching the given index. 
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  [index: number]: T;
-
-  /**
-   * Returns the item at that index.
-   * 
-   * @param { number } index - The zero-based index of the desired code unit.
-   * @returns { T } The element in the arrayList matching the given index.
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  $_get(index: number): T;
-
-  /**
-   * Set the value of item at that index.
-   *
-   * @param { number } index - The index of the element to set.
-   * @param { T } value - The value to set at the specified index.
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  $_set(index: number, value: T): void;
+  [index: int]: T;
 
   /**
    * If the newCapacity provided by the user is greater than or equal to length,
@@ -859,7 +850,7 @@ declare class ArrayList<T> {
   /**
    * Increases the capacity of this container.
    *
-   * @param { number } newCapacity - New capacity.
+   * @param { int } newCapacity - New capacity.
    * @throws { BusinessError } 10200011 - The increaseCapacityTo method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -867,10 +858,10 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
-  increaseCapacityTo(newCapacity: number): void;
+  increaseCapacityTo(newCapacity: int): void;
   /**
    * Limit the capacity to the current length
    *
@@ -894,8 +885,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   trimToCurrentLength(): void;
   /**
@@ -923,7 +914,7 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   [Symbol.iterator](): IterableIterator<T>;
 
@@ -934,40 +925,51 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   $_iterator(): IterableIterator<T>;
 }
 
-  /**
-   * The type of ArrayList callback function.
-   *
-   * @typedef { function } ArrayListCbFn
-   * @param { T } value - The current element being processed
-   * @param { number } index - The index of the current element
-   * @param { ArrayList<T> } arrlist - The ArrayList instance being traversed
-   * @returns { void } This callback does not return a value
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  type ArrayListCbFn<T> =  (value: T, index: number, arrlist: ArrayList<T>) => void;
+/**
+ * This type specifies the comparator of sort in comparation.
+ *
+ * @typedef { function } ArrayListComparatorFn
+ * @param { T } firstValue - firstValue (required) previous element.
+ * @param { T } secondValue - secondValue (required) next element.
+ * @returns { double } the number type
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 20 dynamic&static
+ */
+export type ArrayListComparatorFn<T> = (firstValue: T, secondValue: T) => double;
 
-  /**
-   * The type of ArrayList callback function.
-   *
-   * @typedef { function } ArrayListCbFn
-   * @param { T } value - The current element being processed
-   * @param { number } [index] - The index of the current element
-   * @param { ArrayList<T> } [arrlist] - The ArrayList instance being traversed
-   * @returns { T } This callback does not return a value
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  type ArrayListCbFn1<T> =  (value: T, index?: number, arrlist?: ArrayList<T>) => T;  
+/**
+ * The type of ArrayList callback function.
+ *
+ * @typedef { function } ArrayListForEachCb
+ * @param { T } value - The current element being processed
+ * @param { int } index - The index of the current element
+ * @param { ArrayList<T> } arrlist - The ArrayList instance being traversed
+ * @returns { void } This callback does not return a value
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 20 static
+ */
+export type ArrayListForEachCb<T> =  (value: T, index: int, arrlist: ArrayList<T>) => void;
+
+/**
+ * The type of ArrayList callback function.
+ *
+ * @typedef { function } ArrayListReplaceCb
+ * @param { T } value - The current element being processed
+ * @param { int } index - The index of the current element
+ * @param { ArrayList<T> } arrlist - The ArrayList instance being traversed
+ * @returns { T } This callback does not return a value
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 20 static
+ */
+export type ArrayListReplaceCb<T> =  (value: T, index: int, arrlist: ArrayList<T>) => T;
 
 export default ArrayList;

@@ -26,7 +26,8 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace update
  * @syscap SystemCapability.Update.UpdateService
  * @systemapi hide for inner use.
- * @since 9
+ * @since 9 dynamic
+ * @since 20 static
  */
 declare namespace update {
   /**
@@ -37,7 +38,8 @@ declare namespace update {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getOnlineUpdater(upgradeInfo: UpgradeInfo): Updater;
 
@@ -48,7 +50,8 @@ declare namespace update {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getRestorer(): Restorer;
 
@@ -59,7 +62,8 @@ declare namespace update {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getLocalUpdater(): LocalUpdater;
 
@@ -69,7 +73,8 @@ declare namespace update {
    * @interface Updater
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface Updater {
     /**
@@ -82,7 +87,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     checkNewVersion(callback: AsyncCallback<CheckResult>): void;
 
@@ -96,7 +102,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     checkNewVersion(): Promise<CheckResult>;
 
@@ -110,7 +117,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     getNewVersionInfo(callback: AsyncCallback<NewVersionInfo>): void;
 
@@ -124,7 +132,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     getNewVersionInfo(): Promise<NewVersionInfo>;
 
@@ -141,7 +150,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     getNewVersionDescription(
       versionDigestInfo: VersionDigestInfo,
@@ -162,7 +172,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     getNewVersionDescription(
       versionDigestInfo: VersionDigestInfo,
@@ -179,7 +190,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     getCurrentVersionInfo(callback: AsyncCallback<CurrentVersionInfo>): void;
 
@@ -193,7 +205,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     getCurrentVersionInfo(): Promise<CurrentVersionInfo>;
 
@@ -209,7 +222,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     getCurrentVersionDescription(
       descriptionOptions: DescriptionOptions,
@@ -228,7 +242,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     getCurrentVersionDescription(descriptionOptions: DescriptionOptions): Promise<Array<ComponentDescription>>;
 
@@ -242,7 +257,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     getTaskInfo(callback: AsyncCallback<TaskInfo>): void;
 
@@ -256,7 +272,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     getTaskInfo(): Promise<TaskInfo>;
 
@@ -267,7 +284,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { DownloadOptions } downloadOptions - Download options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      *    If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -275,7 +292,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     download(
       versionDigestInfo: VersionDigestInfo,
@@ -297,7 +315,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     download(versionDigestInfo: VersionDigestInfo, downloadOptions: DownloadOptions): Promise<void>;
 
@@ -308,7 +327,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { ResumeDownloadOptions } resumeDownloadOptions - Options for resume download.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -316,7 +335,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     resumeDownload(
       versionDigestInfo: VersionDigestInfo,
@@ -338,7 +358,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     resumeDownload(versionDigestInfo: VersionDigestInfo, resumeDownloadOptions: ResumeDownloadOptions): Promise<void>;
 
@@ -349,7 +370,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { PauseDownloadOptions } pauseDownloadOptions - Options for pause download.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      *    If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -357,7 +378,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     pauseDownload(
       versionDigestInfo: VersionDigestInfo,
@@ -379,7 +401,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     pauseDownload(versionDigestInfo: VersionDigestInfo, pauseDownloadOptions: PauseDownloadOptions): Promise<void>;
 
@@ -390,7 +413,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { UpgradeOptions } upgradeOptions - Update options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -398,7 +421,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     upgrade(versionDigestInfo: VersionDigestInfo, upgradeOptions: UpgradeOptions, callback: AsyncCallback<void>): void;
 
@@ -416,7 +440,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     upgrade(versionDigestInfo: VersionDigestInfo, upgradeOptions: UpgradeOptions): Promise<void>;
 
@@ -426,7 +451,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { ClearOptions } clearOptions - Clear options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -434,7 +459,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     clearError(versionDigestInfo: VersionDigestInfo, clearOptions: ClearOptions, callback: AsyncCallback<void>): void;
 
@@ -451,7 +477,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     clearError(versionDigestInfo: VersionDigestInfo, clearOptions: ClearOptions): Promise<void>;
 
@@ -465,7 +492,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     getUpgradePolicy(callback: AsyncCallback<UpgradePolicy>): void;
 
@@ -479,7 +507,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     getUpgradePolicy(): Promise<UpgradePolicy>;
 
@@ -494,7 +523,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     setUpgradePolicy(policy: UpgradePolicy, callback: AsyncCallback<void>): void;
 
@@ -509,7 +539,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     setUpgradePolicy(policy: UpgradePolicy): Promise<void>;
 
@@ -524,7 +555,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     terminateUpgrade(callback: AsyncCallback<void>): void;
 
@@ -538,7 +570,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     terminateUpgrade(): Promise<void>;
 
@@ -550,7 +583,8 @@ declare namespace update {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     on(eventClassifyInfo: EventClassifyInfo, taskCallback: UpgradeTaskCallback): void;
 
@@ -562,7 +596,8 @@ declare namespace update {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     off(eventClassifyInfo: EventClassifyInfo, taskCallback?: UpgradeTaskCallback): void;
   }
@@ -573,21 +608,23 @@ declare namespace update {
    * @interface Restorer
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface Restorer {
     /**
      * Reboot and clean user data.
      *
      * @permission ohos.permission.FACTORY_RESET
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     factoryReset(callback: AsyncCallback<void>): void;
 
@@ -601,7 +638,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     factoryReset(): Promise<void>;
   }
@@ -612,7 +650,8 @@ declare namespace update {
    * @interface LocalUpdater
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface LocalUpdater {
     /**
@@ -628,7 +667,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string, callback: AsyncCallback<void>): void;
 
@@ -645,7 +685,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string): Promise<void>;
 
@@ -662,7 +703,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     applyNewVersion(upgradeFiles: Array<UpgradeFile>, callback: AsyncCallback<void>): void;
 
@@ -679,7 +721,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     applyNewVersion(upgradeFiles: Array<UpgradeFile>): Promise<void>;
 
@@ -691,7 +734,8 @@ declare namespace update {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     on(eventClassifyInfo: EventClassifyInfo, taskCallback: UpgradeTaskCallback): void;
 
@@ -703,7 +747,8 @@ declare namespace update {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     off(eventClassifyInfo: EventClassifyInfo, taskCallback?: UpgradeTaskCallback): void;
   }
@@ -714,7 +759,8 @@ declare namespace update {
    * @typedef UpgradeInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface UpgradeInfo {
     /**
@@ -723,7 +769,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     upgradeApp: string;
 
@@ -733,7 +780,8 @@ declare namespace update {
      * @type { BusinessType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     businessType: BusinessType;
   }
@@ -744,7 +792,8 @@ declare namespace update {
    * @typedef BusinessType
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface BusinessType {
     /**
@@ -753,7 +802,8 @@ declare namespace update {
      * @type { BusinessVendor }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     vendor: BusinessVendor;
 
@@ -763,7 +813,8 @@ declare namespace update {
      * @type { BusinessSubType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     subType: BusinessSubType;
   }
@@ -774,7 +825,8 @@ declare namespace update {
    * @typedef CheckResult
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+     * @since 9 dynamic
+     * @since 20 static
    */
   export interface CheckResult {
     /**
@@ -783,7 +835,8 @@ declare namespace update {
      * @type { boolean }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     isExistNewVersion: boolean;
 
@@ -793,7 +846,8 @@ declare namespace update {
      * @type { NewVersionInfo }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     newVersionInfo: NewVersionInfo;
   }
@@ -804,7 +858,8 @@ declare namespace update {
    * @typedef NewVersionInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface NewVersionInfo {
     /**
@@ -813,7 +868,8 @@ declare namespace update {
      * @type { VersionDigestInfo }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     versionDigestInfo: VersionDigestInfo;
 
@@ -823,7 +879,8 @@ declare namespace update {
      * @type { Array<VersionComponent> }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     versionComponents: Array<VersionComponent>;
   }
@@ -834,7 +891,8 @@ declare namespace update {
    * @typedef VersionDigestInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface VersionDigestInfo {
     /**
@@ -843,7 +901,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     versionDigest: string;
   }
@@ -854,7 +913,8 @@ declare namespace update {
    * @typedef VersionComponent
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface VersionComponent {
     /**
@@ -863,7 +923,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     componentId: string;
 
@@ -873,7 +934,8 @@ declare namespace update {
      * @type { ComponentType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     componentType: ComponentType;
 
@@ -883,7 +945,8 @@ declare namespace update {
      * @type { UpgradeAction }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     upgradeAction: UpgradeAction;
 
@@ -893,7 +956,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     displayVersion: string;
 
@@ -903,19 +967,21 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     innerVersion: string;
 
     /**
      * Update package size
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    size: number;
+    size: int;
 
     /**
      * Effective mode
@@ -923,7 +989,8 @@ declare namespace update {
      * @type { EffectiveMode }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     effectiveMode: EffectiveMode;
 
@@ -933,7 +1000,8 @@ declare namespace update {
      * @type { DescriptionInfo }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     descriptionInfo: DescriptionInfo;
 
@@ -943,7 +1011,7 @@ declare namespace update {
      * @type { ?OtaMode }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 20
+     * @since 20 dynamic&static
      */
     otaMode?: OtaMode;
   }
@@ -954,7 +1022,8 @@ declare namespace update {
    * @typedef DescriptionOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface DescriptionOptions {
     /**
@@ -963,7 +1032,8 @@ declare namespace update {
      * @type { DescriptionFormat }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     format: DescriptionFormat;
 
@@ -973,7 +1043,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     language: string;
   }
@@ -984,7 +1055,8 @@ declare namespace update {
    * @typedef ComponentDescription
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface ComponentDescription {
     /**
@@ -993,7 +1065,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     componentId: string;
 
@@ -1003,7 +1076,8 @@ declare namespace update {
      * @type { DescriptionInfo }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     descriptionInfo: DescriptionInfo;
   }
@@ -1014,7 +1088,8 @@ declare namespace update {
    * @typedef DescriptionInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface DescriptionInfo {
     /**
@@ -1023,7 +1098,8 @@ declare namespace update {
      * @type { DescriptionType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     descriptionType: DescriptionType;
 
@@ -1033,7 +1109,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     content: string;
   }
@@ -1044,7 +1121,8 @@ declare namespace update {
    * @typedef CurrentVersionInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface CurrentVersionInfo {
     /**
@@ -1053,7 +1131,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     osVersion: string;
 
@@ -1063,7 +1142,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     deviceName: string;
 
@@ -1073,7 +1153,8 @@ declare namespace update {
      * @type { Array<VersionComponent> }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     versionComponents: Array<VersionComponent>;
   }
@@ -1084,7 +1165,8 @@ declare namespace update {
    * @typedef DownloadOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface DownloadOptions {
     /**
@@ -1093,7 +1175,8 @@ declare namespace update {
      * @type { NetType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     allowNetwork: NetType;
 
@@ -1103,7 +1186,8 @@ declare namespace update {
      * @type { Order }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     order: Order;
   }
@@ -1114,7 +1198,8 @@ declare namespace update {
    * @typedef ResumeDownloadOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface ResumeDownloadOptions {
     /**
@@ -1123,7 +1208,8 @@ declare namespace update {
      * @type { NetType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     allowNetwork: NetType;
   }
@@ -1134,7 +1220,8 @@ declare namespace update {
    * @typedef PauseDownloadOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface PauseDownloadOptions {
     /**
@@ -1143,7 +1230,8 @@ declare namespace update {
      * @type { boolean }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     isAllowAutoResume: boolean;
   }
@@ -1154,7 +1242,8 @@ declare namespace update {
    * @typedef UpgradeOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface UpgradeOptions {
     /**
@@ -1163,7 +1252,8 @@ declare namespace update {
      * @type { Order }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     order: Order;
   }
@@ -1174,7 +1264,8 @@ declare namespace update {
    * @typedef ClearOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface ClearOptions {
     /**
@@ -1183,7 +1274,8 @@ declare namespace update {
      * @type { UpgradeStatus }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     status: UpgradeStatus;
   }
@@ -1194,7 +1286,8 @@ declare namespace update {
    * @typedef UpgradePolicy
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface UpgradePolicy {
     /**
@@ -1203,7 +1296,8 @@ declare namespace update {
      * @type { boolean }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     downloadStrategy: boolean;
 
@@ -1213,7 +1307,8 @@ declare namespace update {
      * @type { boolean }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     autoUpgradeStrategy: boolean;
 
@@ -1223,7 +1318,8 @@ declare namespace update {
      * @type { Array<UpgradePeriod> }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     autoUpgradePeriods: Array<UpgradePeriod>;
   }
@@ -1234,28 +1330,31 @@ declare namespace update {
    * @typedef UpgradePeriod
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface UpgradePeriod {
     /**
      * Start time of upgrade period
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    start: number;
+    start: int;
 
     /**
      * End time of upgrade period
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    end: number;
+    end: int;
   }
 
   /**
@@ -1264,7 +1363,8 @@ declare namespace update {
    * @typedef TaskInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface TaskInfo {
     /**
@@ -1273,7 +1373,8 @@ declare namespace update {
      * @type { boolean }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     existTask: boolean;
 
@@ -1283,7 +1384,8 @@ declare namespace update {
      * @type { TaskBody }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     taskBody: TaskBody;
   }
@@ -1294,7 +1396,8 @@ declare namespace update {
    * @typedef EventInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface EventInfo {
     /**
@@ -1303,7 +1406,8 @@ declare namespace update {
      * @type { EventId }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     eventId: EventId;
 
@@ -1313,7 +1417,8 @@ declare namespace update {
      * @type { TaskBody }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     taskBody: TaskBody;
   }
@@ -1324,7 +1429,8 @@ declare namespace update {
    * @typedef TaskBody
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface TaskBody {
     /**
@@ -1333,7 +1439,8 @@ declare namespace update {
      * @type { VersionDigestInfo }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     versionDigestInfo: VersionDigestInfo;
 
@@ -1343,39 +1450,43 @@ declare namespace update {
      * @type { UpgradeStatus }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     status: UpgradeStatus;
 
     /**
      * Upgrade sub status
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    subStatus: number;
+    subStatus: int;
 
     /**
      * Upgrade progress
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    progress: number;
+    progress: int;
 
     /**
      * Install mode
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    installMode: number;
+    installMode: int;
 
     /**
      * Error messages
@@ -1383,7 +1494,8 @@ declare namespace update {
      * @type { Array<ErrorMessage> }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     errorMessages: Array<ErrorMessage>;
 
@@ -1393,7 +1505,8 @@ declare namespace update {
      * @type { Array<VersionComponent> }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     versionComponents: Array<VersionComponent>;
   }
@@ -1404,18 +1517,20 @@ declare namespace update {
    * @typedef ErrorMessage
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface ErrorMessage {
     /**
      * Error code
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    errorCode: number;
+    errorCode: int;
 
     /**
      * Error message
@@ -1423,7 +1538,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     errorMessage: string;
   }
@@ -1434,7 +1550,8 @@ declare namespace update {
    * @typedef EventClassifyInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface EventClassifyInfo {
     /**
@@ -1443,7 +1560,8 @@ declare namespace update {
      * @type { EventClassify }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     eventClassify: EventClassify;
 
@@ -1453,7 +1571,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     extraInfo: string;
   }
@@ -1464,7 +1583,8 @@ declare namespace update {
    * @typedef UpgradeFile
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface UpgradeFile {
     /**
@@ -1473,7 +1593,8 @@ declare namespace update {
      * @type { ComponentType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     fileType: ComponentType;
 
@@ -1483,7 +1604,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     filePath: string;
   }
@@ -1497,17 +1619,18 @@ declare namespace update {
    * @systemapi hide for inner use.
    * @since 9
    */
-  export interface UpgradeTaskCallback {
-    /**
-     * Event callback.
-     *
-     * @param { EventInfo } eventInfo - Event information.
-     * @syscap SystemCapability.Update.UpdateService
-     * @systemapi hide for inner use.
-     * @since 9
-     */
-    (eventInfo: EventInfo): void;
-  }
+  /**
+   * UpgradeTaskCallback change form interface to type.
+   * Called when upgrade task info changes.
+   * You need to implement this method in a child class.
+   *
+   * @typedef { function } UpgradeTaskCallback
+   * @param { EventInfo } eventInfo - Event information.
+   * @syscap SystemCapability.Update.UpdateService
+   * @systemapi hide for inner use.
+   * @since 20 dynamic&static
+   */
+  export type UpgradeTaskCallback = (eventInfo: EventInfo) => void;
 
   /**
    * Enumerates business vendor type.
@@ -1515,7 +1638,8 @@ declare namespace update {
    * @enum { string }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export enum BusinessVendor {
     /**
@@ -1523,7 +1647,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     PUBLIC = 'public'
   }
@@ -1534,7 +1659,8 @@ declare namespace update {
    * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export enum BusinessSubType {
     /**
@@ -1542,7 +1668,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     FIRMWARE = 1
   }
@@ -1553,7 +1680,8 @@ declare namespace update {
    * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export enum ComponentType {
     /**
@@ -1561,7 +1689,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     OTA = 1
   }
@@ -1572,7 +1701,8 @@ declare namespace update {
    * @enum { string }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export enum UpgradeAction {
     /**
@@ -1580,7 +1710,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     UPGRADE = 'upgrade',
 
@@ -1589,7 +1720,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     RECOVERY = 'recovery'
   }
@@ -1600,7 +1732,8 @@ declare namespace update {
    * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export enum EffectiveMode {
     /**
@@ -1608,7 +1741,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     COLD = 1,
 
@@ -1617,7 +1751,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     LIVE = 2,
 
@@ -1626,7 +1761,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     LIVE_AND_COLD = 3
   }
@@ -1637,7 +1773,7 @@ declare namespace update {
    * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 20
+   * @since 20 dynamic&static
    */
   export enum OtaMode {
     /**
@@ -1645,7 +1781,7 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 20
+     * @since 20 dynamic&static
      */
     REGULAR_OTA = 0,
 
@@ -1654,7 +1790,7 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 20
+     * @since 20 dynamic&static
      */
     STREAM_OTA = 1,
 
@@ -1663,7 +1799,7 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 20
+     * @since 20 dynamic&static
      */
     AB_REGULAR_OTA = 2,
 
@@ -1672,7 +1808,7 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 20
+     * @since 20 dynamic&static
      */
     AB_STREAM_OTA = 3
   }
@@ -1683,7 +1819,8 @@ declare namespace update {
    * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export enum DescriptionType {
     /**
@@ -1691,7 +1828,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     CONTENT = 0,
 
@@ -1700,7 +1838,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     URI = 1
   }
@@ -1711,7 +1850,8 @@ declare namespace update {
    * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export enum DescriptionFormat {
     /**
@@ -1719,7 +1859,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     STANDARD = 0,
 
@@ -1728,7 +1869,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     SIMPLIFIED = 1
   }
@@ -1739,7 +1881,8 @@ declare namespace update {
    * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export enum NetType {
     /**
@@ -1747,7 +1890,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     CELLULAR = 1,
 
@@ -1756,7 +1900,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     METERED_WIFI = 2,
 
@@ -1765,7 +1910,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     NOT_METERED_WIFI = 4,
 
@@ -1774,7 +1920,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     WIFI = 6,
 
@@ -1783,7 +1930,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     CELLULAR_AND_WIFI = 7
   }
@@ -1794,7 +1942,8 @@ declare namespace update {
    * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export enum Order {
     /**
@@ -1802,7 +1951,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     DOWNLOAD = 1,
 
@@ -1811,7 +1961,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     INSTALL = 2,
 
@@ -1820,7 +1971,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     DOWNLOAD_AND_INSTALL = 3,
 
@@ -1829,7 +1981,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     APPLY = 4,
 
@@ -1838,7 +1991,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     INSTALL_AND_APPLY = 6
   }
@@ -1849,7 +2003,8 @@ declare namespace update {
    * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export enum UpgradeStatus {
     /**
@@ -1857,7 +2012,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     WAITING_DOWNLOAD = 20,
 
@@ -1866,7 +2022,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     DOWNLOADING = 21,
 
@@ -1875,7 +2032,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     DOWNLOAD_PAUSED = 22,
 
@@ -1884,7 +2042,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     DOWNLOAD_FAIL = 23,
 
@@ -1893,7 +2052,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     WAITING_INSTALL = 30,
 
@@ -1902,7 +2062,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     UPDATING = 31,
 
@@ -1911,7 +2072,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     WAITING_APPLY = 40,
 
@@ -1920,7 +2082,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     APPLYING = 41,
 
@@ -1929,7 +2092,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     UPGRADE_SUCCESS = 50,
 
@@ -1938,7 +2102,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     UPGRADE_FAIL = 51
   }
@@ -1949,7 +2114,8 @@ declare namespace update {
    * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export enum EventClassify {
     /**
@@ -1957,7 +2123,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     TASK = 0x01000000
   }
@@ -1968,7 +2135,8 @@ declare namespace update {
    * @enum { number }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   export enum EventId {
     /**
@@ -1976,7 +2144,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     EVENT_TASK_BASE = EventClassify.TASK,
 
@@ -1985,144 +2154,160 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    EVENT_TASK_RECEIVE,
+    EVENT_TASK_RECEIVE = 0x01000001,
 
     /**
      * Event id is task cancelled.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    EVENT_TASK_CANCEL,
+    EVENT_TASK_CANCEL = 0x01000002,
 
     /**
      * Event id is waiting for download.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    EVENT_DOWNLOAD_WAIT,
+    EVENT_DOWNLOAD_WAIT = 0x01000003,
 
     /**
      * Event id is download started.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    EVENT_DOWNLOAD_START,
+    EVENT_DOWNLOAD_START = 0x01000004,
 
     /**
      * Event id is download progress update.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    EVENT_DOWNLOAD_UPDATE,
+    EVENT_DOWNLOAD_UPDATE = 0x01000005,
 
     /**
      * Event id is download paused.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    EVENT_DOWNLOAD_PAUSE,
+    EVENT_DOWNLOAD_PAUSE = 0x01000006,
 
     /**
      * Event id is download resumed.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    EVENT_DOWNLOAD_RESUME,
+    EVENT_DOWNLOAD_RESUME = 0x01000007,
 
     /**
      * Event id is download succeeded.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    EVENT_DOWNLOAD_SUCCESS,
+    EVENT_DOWNLOAD_SUCCESS = 0x01000008,
 
     /**
      * Event id is download failed.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    EVENT_DOWNLOAD_FAIL,
+    EVENT_DOWNLOAD_FAIL = 0x01000009,
 
     /**
      * Event id is waiting for update.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    EVENT_UPGRADE_WAIT,
+    EVENT_UPGRADE_WAIT = 0x0100000a,
 
     /**
      * Event id is update started.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    EVENT_UPGRADE_START,
+    EVENT_UPGRADE_START = 0x0100000b,
 
     /**
      * Event id is update in progress.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    EVENT_UPGRADE_UPDATE,
+    EVENT_UPGRADE_UPDATE = 0x0100000c,
 
     /**
      * Event id is waiting for applying the update.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    EVENT_APPLY_WAIT,
+    EVENT_APPLY_WAIT = 0x0100000d,
 
     /**
      * Event id is applying the update.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    EVENT_APPLY_START,
+    EVENT_APPLY_START = 0x0100000e,
 
     /**
      * Event id is update succeeded.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    EVENT_UPGRADE_SUCCESS,
+    EVENT_UPGRADE_SUCCESS = 0x0100000f,
 
     /**
      * Event id is update failed.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
-    EVENT_UPGRADE_FAIL
+    EVENT_UPGRADE_FAIL = 0x01000010
   }
 }
 

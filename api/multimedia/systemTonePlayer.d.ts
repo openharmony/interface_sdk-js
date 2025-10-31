@@ -25,9 +25,10 @@ import { ErrorCallback, Callback } from '../@ohos.base';
  * @typedef SystemTonePlayer
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
- * @since 11
+ * @since 11 dynamic
+ * @since 20 static
  */
-export interface SystemTonePlayer {
+export declare interface SystemTonePlayer {
   /**
    * Gets the title of system tone.
    * @returns { Promise<string> } Promise used to return the title.
@@ -35,13 +36,14 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 5400103 - I/O error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   getTitle(): Promise<string>;
 
   /**
    * Sets the volume scale of audio.
-   * @param { number } scale - Audio volume scale, should be float in [0,1]
+   * @param { double } scale - Audio volume scale, should be float in [0,1]
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1.Mandatory parameters are left unspecified;
@@ -50,19 +52,21 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 20700002 - Parameter check error. For example, value is outside [0,1].
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 13
+   * @since 13 dynamic
+   * @since 20 static
    */
-  setAudioVolumeScale(scale: number): void;
+  setAudioVolumeScale(scale: double): void;
 
   /**
    * Gets the volume scale of audio.
-   * @returns { number } Audio volume scale.
+   * @returns { double } Audio volume scale.
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 13
+   * @since 13 dynamic
+   * @since 20 static
    */
-  getAudioVolumeScale(): number;
+  getAudioVolumeScale(): double;
 
   /**
    * Get supported haptics features currently.
@@ -71,7 +75,8 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 20700003 - Unsupported operation.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 13
+   * @since 13 dynamic
+   * @since 20 static
    */
   getSupportedHapticsFeatures(): Promise<Array<systemSoundManager.ToneHapticsFeature>>;
 
@@ -86,7 +91,8 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 20700003 - Unsupported operation.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 13
+   * @since 13 dynamic
+   * @since 20 static
    */
   setHapticsFeature(hapticsFeature: systemSoundManager.ToneHapticsFeature): void;
 
@@ -97,7 +103,8 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 20700003 - Unsupported operation.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 13
+   * @since 13 dynamic
+   * @since 20 static
    */
   getHapticsFeature(): systemSoundManager.ToneHapticsFeature;
 
@@ -109,7 +116,8 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 5400103 - I/O error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   prepare(): Promise<void>;
 
@@ -118,7 +126,7 @@ export interface SystemTonePlayer {
    * or haptics. If haptics is needed, caller should have the permission of ohos.permission.VIBRATE.
    * @permission ohos.permission.VIBRATE
    * @param { SystemToneOptions } toneOptions - Tone options used for this play.
-   * @returns { Promise<number> } Promise used to return the id of this playback.
+   * @returns { Promise<int> } Promise used to return the id of this playback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -127,13 +135,14 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 5400102 - Operation not allowed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
-  start(toneOptions?: SystemToneOptions): Promise<number>;
+  start(toneOptions?: SystemToneOptions): Promise<int>;
 
   /**
    * Stop with playback id.
-   * @param { number } id - The Playback id to stop.
+   * @param { int } id - The Playback id to stop.
    * @returns { Promise<void> } Promise used to return result of this stop.
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -142,9 +151,10 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 5400102 - Operation not allowed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
-  stop(id: number): Promise<void>;
+  stop(id: int): Promise<void>;
 
   /**
    * Release this system tone player.
@@ -152,35 +162,60 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   release(): Promise<void>;
 
   /**
    * Subscribes the play finished events.
    * @param { 'playFinished' } type - Type of the event to listen for.
-   * @param { number } streamId - Stream id, received from start().
-   * @param { Callback<number> } callback - Callback used to obtain the finished event. The callback info is the stream
+   * @param { int } streamId - Stream id, received from start().
+   * @param { Callback<int> } callback - Callback used to obtain the finished event. The callback info is the stream
    * id that is finished.
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
    */
-  on(type: 'playFinished', streamId: number, callback: Callback<number>): void;
+  on(type: 'playFinished', streamId: int, callback: Callback<int>): void;
 
-  /**
-   * Unsubscribes the play finished events.
-   * @param { 'playFinished' } type - Type of the event to listen for.
-   * @param { Callback<number> } callback - Callback used to obtain the finished event.
+   /**
+   * Subscribes the play finished events.
+   * @param { int } streamId - Stream id, received from start().
+   * @param { Callback<int> } callback - Callback used to obtain the finished event. The callback info is the stream
+   *     id that is finished.
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 18
+   * @since 22 static
    */
-  off(type: 'playFinished', callback?: Callback<number>): void;
+  onPlayFinished(streamId: int, callback: Callback<int>): void;
+
+  /**
+   * Unsubscribes the play finished events.
+   * @param { 'playFinished' } type - Type of the event to listen for.
+   * @param { Callback<int> } [callback] - Callback used to obtain the finished event.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 20700002 -Parameter check error.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 18 dynamic
+   */
+  off(type: 'playFinished', callback?: Callback<int>): void;
+
+  /**
+   * Unsubscribes the play finished events.
+   * @param { Callback<int> } [callback] - Callback used to obtain the finished event.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 20700002 -Parameter check error.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 22 static
+   */
+  offPlayFinished(callback?: Callback<int>): void;
 
   /**
    * Subscribes the error events.
@@ -190,21 +225,43 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
    */
   on(type: 'error', callback: ErrorCallback): void;
 
   /**
-   * Unsubscribes the error events.
-   * @param { 'error'} type - Type of the event to listen for.
+   * Subscribes the error events.
    * @param { ErrorCallback } callback - Error callback while receiving the error event.
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 18
+   * @since 22 static
    */
-  off(type: 'error', callback?: ErrorCallback): void
+  onError(callback: ErrorCallback): void;
+
+  /**
+   * Unsubscribes the error events.
+   * @param { 'error'} type - Type of the event to listen for.
+   * @param { ErrorCallback } [callback] - Error callback while receiving the error event.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 20700002 -Parameter check error.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 18 dynamic
+   */
+  off(type: 'error', callback?: ErrorCallback): void;
+
+  /**
+   * Unsubscribes the error events.
+   * @param { ErrorCallback } [callback] - Error callback while receiving the error event.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 20700002 -Parameter check error.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 22 static
+   */
+  offError(callback?: ErrorCallback): void;
 }
 
 /**
@@ -212,7 +269,8 @@ export interface SystemTonePlayer {
  * @typedef SystemToneOptions
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
- * @since 11
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface SystemToneOptions {
   /**
@@ -220,7 +278,8 @@ export interface SystemToneOptions {
    * @type {?boolean}
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   muteAudio?: boolean;
 
@@ -229,7 +288,8 @@ export interface SystemToneOptions {
    * @type {?boolean}
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 20 static
    */
   muteHaptics?: boolean;
 }

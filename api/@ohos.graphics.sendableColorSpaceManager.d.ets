@@ -28,7 +28,7 @@ import colorSpaceManager from '@ohos.graphics.colorSpaceManager';
  * @namespace sendableColorSpaceManager
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
  * @crossplatform
- * @since 12
+ * @since 12 dynamiconly
  */
 declare namespace sendableColorSpaceManager {
   /**
@@ -37,7 +37,7 @@ declare namespace sendableColorSpaceManager {
    * @typedef { lang.ISendable } ISendable
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
-   * @since 12
+   * @since 12 dynamiconly
    */
   type ISendable = lang.ISendable;
   /**
@@ -45,7 +45,7 @@ declare namespace sendableColorSpaceManager {
    * @interface ColorSpaceManager
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
-   * @since 12
+   * @since 12 dynamiconly
    */
   interface ColorSpaceManager extends ISendable {
     /**
@@ -54,7 +54,7 @@ declare namespace sendableColorSpaceManager {
      * @throws { BusinessError } 18600001 - The parameter value is abnormal.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 12
+     * @since 12 dynamiconly
      */
     getColorSpaceName(): colorSpaceManager.ColorSpace;
 
@@ -64,7 +64,7 @@ declare namespace sendableColorSpaceManager {
      * @throws { BusinessError } 18600001 - The parameter value is abnormal.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 12
+     * @since 12 dynamiconly
      */
     getWhitePoint(): collections.Array<number>;
 
@@ -74,7 +74,7 @@ declare namespace sendableColorSpaceManager {
      * @throws { BusinessError } 18600001 - The parameter value is abnormal.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
-     * @since 12
+     * @since 12 dynamiconly
      */
     getGamma(): number;
   }
@@ -88,7 +88,7 @@ declare namespace sendableColorSpaceManager {
    * @throws { BusinessError } 18600001 - The parameter value is abnormal.
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
-   * @since 12
+   * @since 12 dynamiconly
    */
   function create(colorSpaceName: colorSpaceManager.ColorSpace): ColorSpaceManager;
 
@@ -102,7 +102,7 @@ declare namespace sendableColorSpaceManager {
    * @throws { BusinessError } 18600001 - The parameter value is abnormal.
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
-   * @since 12
+   * @since 12 dynamiconly
    */
   function create(primaries: colorSpaceManager.ColorSpacePrimaries, gamma: number): ColorSpaceManager;
 }

@@ -18,6 +18,10 @@
  * @kit AbilityKit
  */
 
+/*** if arkts static */
+import { RecordData } from '../@ohos.base';
+/*** endif */
+
 /**
  * User defined data. When the modal window of AutoFillExtension needs to be raised again,
  * pass this parameter to the application framework and bring it back to the developer through FillRequest.
@@ -27,7 +31,8 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 13
+ * @since 13 dynamic
+ * @since 20 static
  */
 export default interface CustomData {
     /**
@@ -38,7 +43,19 @@ export default interface CustomData {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi
      * @stagemodelonly
-     * @since 13
+     * @since 13 dynamic
      */
     data: Record<string, Object>;
+
+    /**
+     * User defined data. When the modal window of AutoFillExtension needs to be raised again,
+     * pass this parameter to the application framework.
+     *
+     * @type { Record<string, RecordData> }
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @systemapi
+     * @stagemodelonly
+     * @since 20 static
+     */
+    data: Record<string, RecordData>;
   }

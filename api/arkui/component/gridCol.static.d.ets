@@ -1,0 +1,177 @@
+/*
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * @file
+ * @kit ArkUI
+ */
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { AttributeModifier, CommonMethod } from './common';
+/**
+ * Defines the option in number unit of grid-container child component.
+ *
+ * @interface GridColColumnOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface GridColColumnOption {
+    /**
+     * Grid Col Column Option xs
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    xs?: number;
+    /**
+     * Grid Col Column Option sm
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    sm?: number;
+    /**
+     * Grid Col Column Option md
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    md?: number;
+    /**
+     * Grid Col Column Option lg
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    lg?: number;
+    /**
+     * Grid Col Column Option xl
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    xl?: number;
+    /**
+     * Grid Col Column Option xxl
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    xxl?: number;
+}
+/**
+ * Defines the options of grid-container child component.
+ *
+ * @interface GridColOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export declare interface GridColOptions {
+    /**
+     * Sets the span of current gird-container item.
+     *
+     * @type { ?(number | GridColColumnOption) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    span?: number | GridColColumnOption;
+    /**
+     * Sets the offset of current gird-container item.
+     *
+     * @type { ?(number | GridColColumnOption) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    offset?: number | GridColColumnOption;
+    /**
+     * Sets the order of current gird-container item.
+     *
+     * @type { ?(number | GridColColumnOption) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    order?: number | GridColColumnOption;
+}
+
+/**
+ * The GridColAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface GridColAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ * @noninterop
+ */
+export declare interface GridColAttribute extends CommonMethod {
+    /**
+     * Sets the span of current gird-container item.
+     *
+     * @param { number | GridColColumnOption } value
+     * @returns { GridColAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    default span(value: number | GridColColumnOption | undefined): this;
+    /**
+     * Sets the offset of current gird-container item.
+     *
+     * @param { number | GridColColumnOption } value
+     * @returns { GridColAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    default gridColOffset(value: number | GridColColumnOption | undefined): this;
+    /**
+     * Sets the order of current gird-container item.
+     *
+     * @param { number | GridColColumnOption } value
+     * @returns { GridColAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    default order(value: number | GridColColumnOption | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<GridColAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { GridColAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    default attributeModifier(modifier: AttributeModifier<GridColAttribute> | AttributeModifier<CommonMethod>
+        | undefined): this;
+}
+
+/**
+ * Defines GridCol Component.
+ *
+ * @param { GridColOptions } [option] - GridCol options.
+ * @param { function } [content_] - container
+ * @returns { GridColAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ * @noninterop
+ */
+@memo
+@ComponentBuilder
+export declare function GridCol(
+    option?: GridColOptions, 
+    @memo
+    content_?: () => void,
+): GridColAttribute

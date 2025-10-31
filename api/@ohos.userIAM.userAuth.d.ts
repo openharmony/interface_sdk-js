@@ -18,10 +18,10 @@
  * @kit UserAuthenticationKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type { AsyncCallback } from './@ohos.base';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import Context from './application/Context';
 /*** endif */
 
@@ -39,8 +39,8 @@ import Context from './application/Context';
  * @namespace userAuth
  * @syscap SystemCapability.UserIAM.UserAuth.Core
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'22'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 22 static
  */
 declare namespace userAuth {
   /**
@@ -49,7 +49,7 @@ declare namespace userAuth {
    * @constant
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   const MAX_ALLOWABLE_REUSE_DURATION: 300000;
   /**
@@ -57,17 +57,26 @@ declare namespace userAuth {
    *
    * @constant
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   const MAX_ALLOWABLE_REUSE_DURATION: int = 300000;
+
+  /**
+   * Permanent lockout duration, in milliseconds. The value is 0x7fffffff.
+   *
+   * @constant
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  const PERMANENT_LOCKOUT_DURATION: int = 0x7fffffff;
 
   /**
    * Enum for authentication result.
    *
    * @enum { number }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 8
    * @useinstead ohos.userIAM.userAuth.ResultCode
    */
@@ -76,7 +85,7 @@ declare namespace userAuth {
      * Indicates that the device does not support authentication.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 8
      */
     NO_SUPPORT = -1,
@@ -85,7 +94,7 @@ declare namespace userAuth {
      * Indicates that authentication is success.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 8
      */
     SUCCESS = 0,
@@ -94,7 +103,7 @@ declare namespace userAuth {
      * Indicates the authenticator fails to identify user.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 8
      */
     COMPARE_FAILURE = 1,
@@ -103,7 +112,7 @@ declare namespace userAuth {
      * Indicates that authentication has been canceled.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 8
      */
     CANCELED = 2,
@@ -112,7 +121,7 @@ declare namespace userAuth {
      * Indicates that authentication has timed out.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 8
      */
     TIMEOUT = 3,
@@ -121,7 +130,7 @@ declare namespace userAuth {
      * Indicates a failure to open the camera.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 8
      */
     CAMERA_FAIL = 4,
@@ -130,7 +139,7 @@ declare namespace userAuth {
      * Indicates that the authentication task is busy. Wait for a few seconds and try again.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 8
      */
     BUSY = 5,
@@ -139,7 +148,7 @@ declare namespace userAuth {
      * Indicates incorrect parameters.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 8
      */
     INVALID_PARAMETERS = 6,
@@ -148,7 +157,7 @@ declare namespace userAuth {
      * Indicates that the authenticator is locked.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 8
      */
     LOCKED = 7,
@@ -157,7 +166,7 @@ declare namespace userAuth {
      * Indicates that the user has not enrolled the authenticator.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 8
      */
     NOT_ENROLLED = 8,
@@ -166,7 +175,7 @@ declare namespace userAuth {
      * Indicates other errors.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 8
      */
     GENERAL_ERROR = 100
@@ -177,7 +186,7 @@ declare namespace userAuth {
    *
    * @typedef { 'ALL' | 'FACE_ONLY' }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 8
    */
   type AuthType = 'ALL' | 'FACE_ONLY';
@@ -187,7 +196,7 @@ declare namespace userAuth {
    *
    * @typedef { 'S1' | 'S2' | 'S3' | 'S4' }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 8
    */
   type SecureLevel = 'S1' | 'S2' | 'S3' | 'S4';
@@ -197,7 +206,7 @@ declare namespace userAuth {
    *
    * @interface Authenticator
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 8
    */
   interface Authenticator {
@@ -209,7 +218,7 @@ declare namespace userAuth {
      * @param { SecureLevel } level - Indicates the security level.
      * @param { AsyncCallback<number> } callback - Async callback of execute.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 8
      */
     execute(type: AuthType, level: SecureLevel, callback: AsyncCallback<number>): void;
@@ -222,7 +231,7 @@ declare namespace userAuth {
      * @param { SecureLevel } level - Indicates the security level.
      * @returns { Promise<number> }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 8
      */
     execute(type: AuthType, level: SecureLevel): Promise<number>;
@@ -233,7 +242,7 @@ declare namespace userAuth {
    *
    * @returns { Authenticator } Returns an Authenticator.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 8
    */
   function getAuthenticator(): Authenticator;
@@ -242,7 +251,7 @@ declare namespace userAuth {
    * User authentication.
    *
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.userIAM.userAuth.AuthInstance
    */
@@ -251,7 +260,7 @@ declare namespace userAuth {
      * Constructor to get the UserAuth class instance.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.userIAM.userAuth.getAuthInstance
      */
@@ -263,7 +272,7 @@ declare namespace userAuth {
      * @permission ohos.permission.ACCESS_BIOMETRIC
      * @returns { number } Returns version information.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.userIAM.userAuth.getVersion
      */
@@ -278,7 +287,7 @@ declare namespace userAuth {
      * @returns { number } Returns a check result, which is specified by getAvailableStatus, the value of number is related to the ResultCode enum, **201** is
      * check permission failed.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.userIAM.userAuth.getAvailableStatus
      */
@@ -295,7 +304,7 @@ declare namespace userAuth {
      * **201** is check permission failed.
      * @returns { Uint8Array } Returns ContextId for cancel.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.userIAM.userAuth.AuthInstance.start
      */
@@ -314,7 +323,7 @@ declare namespace userAuth {
      * @returns { number } Returns a number value indicating whether Cancel authentication was successful, the value of number is related to the ResultCode
      * enum, **201** is check permission failed.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.userIAM.userAuth.AuthInstance.cancel
      */
@@ -326,7 +335,7 @@ declare namespace userAuth {
    *
    * @interface IUserAuthCallback
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.userIAM.userAuth.AuthEvent
    */
@@ -339,7 +348,7 @@ declare namespace userAuth {
      *
      * @type { function }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.userIAM.userAuth.AuthEvent.callback
      */
@@ -350,7 +359,7 @@ declare namespace userAuth {
      *
      * @type { ?function }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.userIAM.userAuth.AuthEvent.callback
      */
@@ -362,7 +371,7 @@ declare namespace userAuth {
    *
    * @typedef AuthResult
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.userIAM.userAuth.AuthResultInfo
    */
@@ -372,7 +381,7 @@ declare namespace userAuth {
      *
      * @type { ?Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     token?: Uint8Array;
@@ -382,7 +391,7 @@ declare namespace userAuth {
      *
      * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     remainTimes?: number;
@@ -392,7 +401,7 @@ declare namespace userAuth {
      *
      * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     freezingTime?: number;
@@ -403,7 +412,7 @@ declare namespace userAuth {
    *
    * @enum { number }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.userIAM.userAuth.UserAuthResultCode
    */
@@ -412,7 +421,7 @@ declare namespace userAuth {
      * Indicates that the result is success or ability is supported.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     SUCCESS = 0,
@@ -421,7 +430,7 @@ declare namespace userAuth {
      * Indicates that authentication failed.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     FAIL = 1,
@@ -430,7 +439,7 @@ declare namespace userAuth {
      * Indicates other errors.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     GENERAL_ERROR = 2,
@@ -439,7 +448,7 @@ declare namespace userAuth {
      * Indicates that this operation has been canceled.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     CANCELED = 3,
@@ -448,7 +457,7 @@ declare namespace userAuth {
      * Indicates that this operation has timed out.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     TIMEOUT = 4,
@@ -457,7 +466,7 @@ declare namespace userAuth {
      * Indicates that this authentication type is not supported.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     TYPE_NOT_SUPPORT = 5,
@@ -466,7 +475,7 @@ declare namespace userAuth {
      * Indicates that the authentication trust level is not supported.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     TRUST_LEVEL_NOT_SUPPORT = 6,
@@ -475,7 +484,7 @@ declare namespace userAuth {
      * Indicates that the authentication task is busy. Wait for a few seconds and try again.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     BUSY = 7,
@@ -484,7 +493,7 @@ declare namespace userAuth {
      * Indicates incorrect parameters.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     INVALID_PARAMETERS = 8,
@@ -493,7 +502,7 @@ declare namespace userAuth {
      * Indicates that the authenticator is locked.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     LOCKED = 9,
@@ -502,7 +511,7 @@ declare namespace userAuth {
      * Indicates that the user has not enrolled the authenticator.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 9
      */
     NOT_ENROLLED = 10
@@ -513,7 +522,7 @@ declare namespace userAuth {
    *
    * @enum { number }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 11
    */
   enum FaceTips {
@@ -521,7 +530,7 @@ declare namespace userAuth {
      * Indicates that the obtained facial image is too bright due to high illumination.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_BRIGHT = 1,
@@ -530,7 +539,7 @@ declare namespace userAuth {
      * Indicates that the obtained facial image is too dark due to low illumination.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_DARK = 2,
@@ -539,7 +548,7 @@ declare namespace userAuth {
      * Indicates that the face is too close to the device.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_CLOSE = 3,
@@ -548,7 +557,7 @@ declare namespace userAuth {
      * Indicates that the face is too far away from the device.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_FAR = 4,
@@ -557,7 +566,7 @@ declare namespace userAuth {
      * Indicates that the device is too high, and that only the upper part of the face is captured.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_HIGH = 5,
@@ -566,7 +575,7 @@ declare namespace userAuth {
      * Indicates that the device is too low, and that only the lower part of the face is captured.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_LOW = 6,
@@ -575,7 +584,7 @@ declare namespace userAuth {
      * Indicates that the device is deviated to the right, and that only the right part of the face is captured.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_RIGHT = 7,
@@ -584,7 +593,7 @@ declare namespace userAuth {
      * Indicates that the device is deviated to the left, and that only the left part of the face is captured.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_LEFT = 8,
@@ -593,7 +602,7 @@ declare namespace userAuth {
      * Indicates that the face moves too fast during facial information collection.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_MUCH_MOTION = 9,
@@ -602,7 +611,7 @@ declare namespace userAuth {
      * Indicates that the face is not facing the device.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 11
      */
     FACE_AUTH_TIP_POOR_GAZE = 10,
@@ -611,7 +620,7 @@ declare namespace userAuth {
      * Indicates that no face is detected.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 11
      */
     FACE_AUTH_TIP_NOT_DETECTED = 11
@@ -622,7 +631,7 @@ declare namespace userAuth {
    *
    * @enum { number }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 11
    */
   enum FingerprintTips {
@@ -630,7 +639,7 @@ declare namespace userAuth {
      * Indicates that the image acquired is good.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 11
      */
     FINGERPRINT_AUTH_TIP_GOOD = 0,
@@ -639,7 +648,7 @@ declare namespace userAuth {
      * Indicates that the fingerprint image is too noisy due to suspected or detected dirt on sensor.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 11
      */
     FINGERPRINT_AUTH_TIP_DIRTY = 1,
@@ -648,7 +657,7 @@ declare namespace userAuth {
      * Indicates that the fingerprint image is too noisy to process due to a detected condition.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 11
      */
     FINGERPRINT_AUTH_TIP_INSUFFICIENT = 2,
@@ -657,7 +666,7 @@ declare namespace userAuth {
      * Indicates that only a partial fingerprint image is detected.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 11
      */
     FINGERPRINT_AUTH_TIP_PARTIAL = 3,
@@ -666,7 +675,7 @@ declare namespace userAuth {
      * Indicates that the fingerprint image is incomplete due to quick motion.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 11
      */
     FINGERPRINT_AUTH_TIP_TOO_FAST = 4,
@@ -675,7 +684,7 @@ declare namespace userAuth {
      * Indicates that the fingerprint image is unreadable due to lack of motion.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8
+     * @since 8 dynamic
      * @deprecated since 11
      */
     FINGERPRINT_AUTH_TIP_TOO_SLOW = 5
@@ -694,8 +703,8 @@ declare namespace userAuth {
    * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   enum UserAuthType {
     /**
@@ -709,8 +718,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     PIN = 1,
 
@@ -725,8 +734,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FACE = 2,
 
@@ -741,8 +750,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FINGERPRINT = 4,
 
@@ -751,8 +760,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'14','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     PRIVATE_PIN = 16
   }
@@ -772,8 +781,8 @@ declare namespace userAuth {
    * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   enum AuthTrustLevel {
     /**
@@ -789,8 +798,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     ATL1 = 10000,
 
@@ -807,8 +816,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     ATL2 = 20000,
 
@@ -824,8 +833,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     ATL3 = 30000,
 
@@ -841,8 +850,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     ATL4 = 40000
   }
@@ -852,7 +861,7 @@ declare namespace userAuth {
    *
    * @typedef { 'result' | 'tip' }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 11
    */
   type AuthEventKey = 'result' | 'tip';
@@ -862,7 +871,7 @@ declare namespace userAuth {
    *
    * @typedef { AuthResultInfo | TipInfo }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 11
    * @useinstead ohos.userIAM.userAuth.UserAuthResult
    */
@@ -873,7 +882,7 @@ declare namespace userAuth {
    *
    * @interface AuthEvent
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 11
    * @useinstead ohos.userIAM.userAuth.IAuthCallback
    */
@@ -883,7 +892,7 @@ declare namespace userAuth {
      *
      * @param { EventInfo } result - Event info.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9
+     * @since 9 dynamiconly
      * @deprecated since 11
      * @useinstead ohos.userIAM.userAuth.IAuthCallback.onResult
      */
@@ -895,7 +904,7 @@ declare namespace userAuth {
    *
    * @typedef AuthResultInfo
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 11
    */
   interface AuthResultInfo {
@@ -904,7 +913,7 @@ declare namespace userAuth {
      *
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 11
      */
     result: number;
@@ -914,7 +923,7 @@ declare namespace userAuth {
      *
      * @type { ?Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 11
      */
     token?: Uint8Array;
@@ -924,7 +933,7 @@ declare namespace userAuth {
      *
      * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 11
      */
     remainAttempts?: number;
@@ -934,7 +943,7 @@ declare namespace userAuth {
      *
      * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 11
      */
     lockoutDuration?: number;
@@ -945,7 +954,7 @@ declare namespace userAuth {
    *
    * @typedef TipInfo
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 11
    */
   interface TipInfo {
@@ -954,7 +963,7 @@ declare namespace userAuth {
      *
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 11
      */
     module: number;
@@ -964,7 +973,7 @@ declare namespace userAuth {
      *
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 11
      */
     tip: number;
@@ -975,7 +984,7 @@ declare namespace userAuth {
    *
    * @interface AuthInstance
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.userIAM.userAuth.UserAuthInstance
    */
@@ -986,7 +995,7 @@ declare namespace userAuth {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 10
      */
     on: (name: AuthEventKey, callback: AuthEvent) => void;
@@ -997,7 +1006,7 @@ declare namespace userAuth {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 10
      */
     off: (name: AuthEventKey) => void;
@@ -1019,7 +1028,7 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500009 - The authenticator is locked.
      * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 10
      */
     start: () => void;
@@ -1033,7 +1042,7 @@ declare namespace userAuth {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9
+     * @since 9 dynamic
      * @deprecated since 10
      */
     cancel: () => void;
@@ -1085,8 +1094,8 @@ declare namespace userAuth {
    * @throws { BusinessError } 12500013 - Operation failed because of PIN expired.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   function getAvailableStatus(authType: UserAuthType, authTrustLevel: AuthTrustLevel): void;
 
@@ -1096,8 +1105,8 @@ declare namespace userAuth {
    * @typedef EnrolledState
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface EnrolledState {
     /**
@@ -1106,8 +1115,8 @@ declare namespace userAuth {
      * @type { int }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     credentialDigest: int;
 
@@ -1117,8 +1126,8 @@ declare namespace userAuth {
      * @type { int }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     credentialCount: int;
   }
@@ -1137,10 +1146,71 @@ declare namespace userAuth {
    * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   function getEnrolledState(authType: UserAuthType): EnrolledState;
+
+  /**
+   * Authentication lock State.
+   *
+   * @typedef AuthLockState
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  interface AuthLockState {
+    /**
+     * Indicates that the authenticator has been locked or not, true if locked.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    isLocked: boolean;
+
+    /**
+     * The remaining attempts if the authentication has not been locked.
+     *
+     * @type { int }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    remainingAuthAttempts: int;
+
+    /**
+     * The remaining lockout duration if the authentication has been locked.
+     * It would be PERMANENT_LOCKOUT_DURATION if permanently locked and requires PIN authentication to unlock.
+     *
+     * @type { int }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    lockoutDuration: int;
+  }
+
+  /**
+   * Obtains the lock state of specified authentication type.
+   *
+   * @permission ohos.permission.ACCESS_BIOMETRIC
+   * @param { UserAuthType } authType - Authentication type.
+   * @returns { Promise<AuthLockState } AuthLockState - Returns the lock state of the specified authType,
+   *     which contains lock state,
+   *     remaining attempts if the authentication has not been locked,
+   *     or remaining lockout duration if the authentication has been locked.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 12500002 - General operation error.
+   * @throws { BusinessError } 12500005 - The authentication type is not supported.
+   * @throws { BusinessError } 12500008 - The parameter is out of range.
+   * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  function getAuthLockState(authType: UserAuthType): Promise<AuthLockState>;
 
   /**
    * Get Authentication instance.
@@ -1154,7 +1224,7 @@ declare namespace userAuth {
    * @throws { BusinessError } 12500005 - The authentication type is not supported.
    * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.userIAM.userAuth.getUserAuthInstance
    */
@@ -1166,8 +1236,8 @@ declare namespace userAuth {
    * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   enum WindowModeType {
     /**
@@ -1175,8 +1245,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     DIALOG_BOX = 1,
 
@@ -1185,8 +1255,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     FULLSCREEN = 2
   }
@@ -1197,8 +1267,8 @@ declare namespace userAuth {
    * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   enum ReuseMode {
     /**
@@ -1207,8 +1277,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     AUTH_TYPE_RELEVANT = 1,
 
@@ -1218,8 +1288,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     AUTH_TYPE_IRRELEVANT = 2,
 
@@ -1230,8 +1300,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     CALLER_IRRELEVANT_AUTH_TYPE_RELEVANT = 3,
 
@@ -1241,8 +1311,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     CALLER_IRRELEVANT_AUTH_TYPE_IRRELEVANT = 4
   }
@@ -1264,8 +1334,8 @@ declare namespace userAuth {
    * @typedef ReuseUnlockResult
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface ReuseUnlockResult {
     /**
@@ -1274,8 +1344,8 @@ declare namespace userAuth {
      * @type { ReuseMode }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     reuseMode: ReuseMode;
 
@@ -1286,8 +1356,8 @@ declare namespace userAuth {
      * @type { int }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     reuseDuration: int;
   }
@@ -1305,8 +1375,8 @@ declare namespace userAuth {
    * @typedef AuthParam
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface AuthParam {
     /**
@@ -1323,8 +1393,8 @@ declare namespace userAuth {
      * @type { Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     challenge: Uint8Array;
 
@@ -1341,8 +1411,8 @@ declare namespace userAuth {
      * @type { UserAuthType[] }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     authType: UserAuthType[];
 
@@ -1359,8 +1429,8 @@ declare namespace userAuth {
      * @type { AuthTrustLevel }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     authTrustLevel: AuthTrustLevel;
 
@@ -1370,8 +1440,8 @@ declare namespace userAuth {
      * @type { ?ReuseUnlockResult }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     reuseUnlockResult?: ReuseUnlockResult;
 
@@ -1382,8 +1452,8 @@ declare namespace userAuth {
      * @default The ID of the current user. The value is a positive integer greater than or equal to 0.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'18','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     userId?: int;
 
@@ -1393,8 +1463,8 @@ declare namespace userAuth {
      * @type { ?boolean }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'20','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     skipLockedBiometricAuth?: boolean;
   }
@@ -1412,8 +1482,8 @@ declare namespace userAuth {
    * @typedef WidgetParam
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface WidgetParam {
     /**
@@ -1429,8 +1499,8 @@ declare namespace userAuth {
      * @type { string }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     title: string;
 
@@ -1449,8 +1519,8 @@ declare namespace userAuth {
      * @type { ?string }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     navigationButtonText?: string;
 
@@ -1461,8 +1531,8 @@ declare namespace userAuth {
      * @default WindowModeType.DIALOG_BOX
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     windowMode?: WindowModeType;
 
@@ -1474,8 +1544,8 @@ declare namespace userAuth {
      * @type { ?Context }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     uiContext?: Context;
   }
@@ -1494,8 +1564,8 @@ declare namespace userAuth {
    * @typedef UserAuthResult
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface UserAuthResult {
     /**
@@ -1512,8 +1582,8 @@ declare namespace userAuth {
      * @type { int }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     result: int;
 
@@ -1530,8 +1600,8 @@ declare namespace userAuth {
      * @type { ?Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     token?: Uint8Array;
 
@@ -1548,8 +1618,8 @@ declare namespace userAuth {
      * @type { ?UserAuthType }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     authType?: UserAuthType;
 
@@ -1560,8 +1630,8 @@ declare namespace userAuth {
      * @type { ?EnrolledState }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     enrolledState?: EnrolledState;
   }
@@ -1573,8 +1643,7 @@ declare namespace userAuth {
    * @typedef { function } AuthCallbackOnResultFunc
    * @param { UserAuthResult } result - Authentication result information.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   type AuthCallbackOnResultFunc = (result: UserAuthResult) => void;
 
@@ -1591,8 +1660,8 @@ declare namespace userAuth {
    * @interface IAuthCallback
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface IAuthCallback {
     /**
@@ -1610,7 +1679,7 @@ declare namespace userAuth {
      * @param { UserAuthResult } result - Authentication result information.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onResult(result: UserAuthResult): void;
 
@@ -1620,8 +1689,7 @@ declare namespace userAuth {
      *
      * @type { AuthCallbackOnResultFunc }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 22
-     * @arkts 1.2
+     * @since 22 static
      */
     onResult: AuthCallbackOnResultFunc;
   }
@@ -1632,8 +1700,8 @@ declare namespace userAuth {
    * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum UserAuthTipCode {
     /**
@@ -1641,8 +1709,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'20','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     COMPARE_FAILURE = 1,
   
@@ -1651,8 +1719,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'20','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     TIMEOUT = 2,
   
@@ -1661,8 +1729,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'20','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     TEMPORARILY_LOCKED = 3,
   
@@ -1671,8 +1739,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'20','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     PERMANENTLY_LOCKED = 4,
   
@@ -1681,8 +1749,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'20','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     WIDGET_LOADED = 5,
   
@@ -1691,8 +1759,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'20','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     WIDGET_RELEASED = 6,
 
@@ -1701,8 +1769,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'20','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     COMPARE_FAILURE_WITH_FROZEN = 7
   }
@@ -1713,8 +1781,8 @@ declare namespace userAuth {
    * @typedef AuthTipInfo
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface AuthTipInfo {
     /**
@@ -1723,8 +1791,8 @@ declare namespace userAuth {
      * @type { UserAuthType }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'20','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     tipType: UserAuthType;
   
@@ -1734,8 +1802,8 @@ declare namespace userAuth {
      * @type { UserAuthTipCode }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'20','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     tipCode: UserAuthTipCode;
   }
@@ -1747,8 +1815,8 @@ declare namespace userAuth {
    * @param { AuthTipInfo } authTipInfo - Tips returned during authentication process.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   type AuthTipCallback = (authTipInfo: AuthTipInfo) => void;
 
@@ -1766,8 +1834,8 @@ declare namespace userAuth {
    * @interface UserAuthInstance
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface UserAuthInstance {
     /**
@@ -1795,10 +1863,23 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     on(type: 'result', callback: IAuthCallback): void;
+
+    /**
+     * Subscribes to the user authentication result.
+     *
+     * @param { IAuthCallback } callback - Callback used to return the user authentication result.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Incorrect parameter types.
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 22 static
+     */
+    onResult(callback: IAuthCallback): void;
 
     /**
      * Turn off widget authentication result event listening.
@@ -1829,10 +1910,27 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     off(type: 'result', callback?: IAuthCallback): void;
+
+    /**
+     * Unsubscribes from the user authentication result.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>The UserAuthInstance instance used to invoke this API must be the one used to subscribe to the event.
+     * </p>
+     *
+     * @param { IAuthCallback } [callback] - Callback to unregister.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Incorrect parameter types.
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 22 static
+     */
+    offResult(callback?: IAuthCallback): void;
 
     /**
      * Start this authentication, an instance can only perform authentication once.
@@ -1855,8 +1953,8 @@ declare namespace userAuth {
      * @since 10
      */
     /**
-     * Start this authentication, an instance can only perform authentication once.
-     *
+     * Starts authentication. Each <b class="+ topic/ph hi-d/b " id="b14455114972312">UserAuthInstance</b>
+     * instance can be used for authentication only once.
      * @permission ohos.permission.ACCESS_BIOMETRIC
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1901,8 +1999,8 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500013 - Operation failed because of PIN expired.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'20','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     start(): void;
 
@@ -1931,8 +2029,8 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     cancel(): void;
 
@@ -1944,9 +2042,19 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     on(type: 'authTip', callback: AuthTipCallback): void;
+
+    /**
+     * Turn on authentication tip event listening.
+     *
+     * @param { AuthTipCallback } callback - Indicates the listener.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 22 static
+     */
+    onAuthTip(callback: AuthTipCallback): void;
 
     /**
      * Turn off authentication tip event listening.
@@ -1956,9 +2064,19 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     off(type: 'authTip', callback?: AuthTipCallback): void;
+
+    /**
+     * Turn off authentication tip event listening.
+     *
+     * @param { AuthTipCallback } [callback] - Indicates the listener.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 22 static
+     */
+    offAuthTip(callback?: AuthTipCallback): void;
   }
 
   /**
@@ -1996,8 +2114,8 @@ declare namespace userAuth {
    * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   function getUserAuthInstance(authParam: AuthParam, widgetParam: WidgetParam): UserAuthInstance;
 
@@ -2007,8 +2125,8 @@ declare namespace userAuth {
    * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   enum NoticeType {
     /**
@@ -2016,8 +2134,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     WIDGET_NOTICE = 1
   }
@@ -2037,8 +2155,8 @@ declare namespace userAuth {
    * @throws { BusinessError } 12500002 - General operation error.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function sendNotice(noticeType: NoticeType, eventData: string): void;
 
@@ -2055,8 +2173,8 @@ declare namespace userAuth {
    * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   enum UserAuthResultCode {
     /**
@@ -2070,8 +2188,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     SUCCESS = 12500000,
 
@@ -2086,8 +2204,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     FAIL = 12500001,
 
@@ -2102,8 +2220,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     GENERAL_ERROR = 12500002,
 
@@ -2118,8 +2236,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     CANCELED = 12500003,
 
@@ -2134,8 +2252,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     TIMEOUT = 12500004,
 
@@ -2150,8 +2268,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     TYPE_NOT_SUPPORT = 12500005,
 
@@ -2166,8 +2284,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     TRUST_LEVEL_NOT_SUPPORT = 12500006,
 
@@ -2182,8 +2300,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     BUSY = 12500007,
 
@@ -2192,8 +2310,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'20','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     INVALID_PARAMETERS = 12500008,
 
@@ -2208,8 +2326,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     LOCKED = 12500009,
 
@@ -2224,8 +2342,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     NOT_ENROLLED = 12500010,
 
@@ -2241,8 +2359,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     CANCELED_FROM_WIDGET = 12500011,
 
@@ -2251,8 +2369,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     PIN_EXPIRED = 12500013,
 
@@ -2261,8 +2379,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'18','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     AUTH_TOKEN_CHECK_FAILED = 12500015,
 
@@ -2272,8 +2390,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'18','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     AUTH_TOKEN_EXPIRED = 12500016,
 
@@ -2282,8 +2400,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'20','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     REUSE_AUTH_RESULT_FAILED = 12500017
   }
@@ -2295,46 +2413,75 @@ declare namespace userAuth {
    * @interface UserAuthWidgetMgr
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   interface UserAuthWidgetMgr {
     /**
      * Subscribes to commands from the user authentication framework for the user authentication widget.
      *
      * @param { 'command' } type - Event type. The vlaue is command, which indicates the command sent from the user
-     * authentication framework to the user authentication widget.
+     *     authentication framework to the user authentication widget.
      * @param { IAuthWidgetCallback } callback - Callback used to return the command from the user authentication
-     * framework to the user authentication widget.
+     *     framework to the user authentication widget.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br>1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
-     * <br>3. Parameter verification failed.
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Incorrect parameter types.
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
      */
     on(type: 'command', callback: IAuthWidgetCallback): void;
+
+    /**
+     * Subscribes to commands from the user authentication framework for the user authentication widget.
+     *
+     * @param { IAuthWidgetCallback } callback - Callback used to return the command from the user authentication
+     *     framework to the user authentication widget.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Incorrect parameter types.
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    onCommand(callback: IAuthWidgetCallback): void;
 
     /**
      * Unsubscribes from commands sent from the user authentication framework.
      *
      * @param { 'command' } type - Event type. The value is command, which indicates the command sent from the user
-     * authentication framework to the user authentication widget.
+     *     authentication framework to the user authentication widget.
      * @param { IAuthWidgetCallback } callback - Callback to unregister.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br>1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
-     * <br>3. Parameter verification failed.
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Incorrect parameter types.
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
      */
     off(type: 'command', callback?: IAuthWidgetCallback): void;
+
+    /**
+     * Unsubscribes from commands sent from the user authentication framework.
+     *
+     * @param { IAuthWidgetCallback } [callback] - Callback to unregister.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Incorrect parameter types.
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 22 static
+     */
+    offCommand(callback?: IAuthWidgetCallback): void;
   }
 
   /**
@@ -2355,8 +2502,8 @@ declare namespace userAuth {
    * @throws { BusinessError } 12500002 - General operation error.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function getUserAuthWidgetMgr(version: int): UserAuthWidgetMgr;
 
@@ -2367,8 +2514,7 @@ declare namespace userAuth {
    * @param { string } cmdData - Command sent from the user authentication framework to the user authentication widget.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   type AuthWidgetCallbackSendCommandFunc = (cmdData: string) => void;
 
@@ -2379,8 +2525,8 @@ declare namespace userAuth {
    * @interface IAuthWidgetCallback
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   interface IAuthWidgetCallback {
     /**
@@ -2389,7 +2535,7 @@ declare namespace userAuth {
      * @param { string } cmdData - Command sent from the user authentication framework to the user authentication widget.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
     sendCommand(cmdData: string): void;
 
@@ -2399,8 +2545,7 @@ declare namespace userAuth {
      * @type { AuthWidgetCallbackSendCommandFunc }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 22
-     * @arkts 1.2
+     * @since 22 static
      */
     sendCommand: AuthWidgetCallbackSendCommandFunc;
   }
@@ -2418,8 +2563,8 @@ declare namespace userAuth {
    * @throws { BusinessError } 12500017 - Failed to reuse authentication result.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'20','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   function queryReusableAuthResult(authParam: AuthParam): Uint8Array;
 }

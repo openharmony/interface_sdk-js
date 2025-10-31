@@ -37,7 +37,7 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamiconly
  */
 export interface WorkerOptions {
   /**
@@ -60,7 +60,7 @@ export interface WorkerOptions {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   type?: 'classic' | 'module';
 
@@ -84,7 +84,7 @@ export interface WorkerOptions {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   name?: string;
 
@@ -108,7 +108,7 @@ export interface WorkerOptions {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   shared?: boolean;
 
@@ -118,7 +118,16 @@ export interface WorkerOptions {
    * @type { ?ThreadWorkerPriority }
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
+   */
+  /**
+   * Priority of the Worker thread.
+   *
+   * @type { ?ThreadWorkerPriority }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamiconly
    */
   priority?: ThreadWorkerPriority;
 }
@@ -129,7 +138,17 @@ export interface WorkerOptions {
  * @enum { number } ThreadWorkerPriority
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 18
+ * @since 18 dynamiconly
+ */
+/**
+ * Enumerates the priorities available for Worker threads.
+ * For details about the mappings between priorities and QoS levels, see QoS Level.
+ *
+ * @enum { number } ThreadWorkerPriority
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamiconly
  */
 export enum ThreadWorkerPriority {
   /**
@@ -137,7 +156,15 @@ export enum ThreadWorkerPriority {
    *
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
+   */
+  /**
+   * High priority, corresponding to QOS_USER_INITIATED.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamiconly
    */
   HIGH = 0,
 
@@ -146,7 +173,15 @@ export enum ThreadWorkerPriority {
    *
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
+   */
+  /**
+   * Medium priority, corresponding to QOS_DEFAULT.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamiconly
    */
   MEDIUM = 1,
 
@@ -155,7 +190,15 @@ export enum ThreadWorkerPriority {
    *
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
+   */
+  /**
+   * Low priority, corresponding to QOS_UTILITY.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamiconly
    */
   LOW = 2,
 
@@ -164,7 +207,15 @@ export enum ThreadWorkerPriority {
    *
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
+   */
+  /**
+   * Background priority, corresponding to QOS_BACKGROUND.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamiconly
    */
   IDLE = 3,
 
@@ -173,7 +224,15 @@ export enum ThreadWorkerPriority {
    *
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
+   */
+  /**
+   * Deadline priority, corresponding to QOS_DEADLINE_REQUEST.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamiconly
    */
   DEADLINE = 4,
 
@@ -182,7 +241,15 @@ export enum ThreadWorkerPriority {
    *
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
+   */
+  /**
+   * Vip priority, corresponding to QOS_USER_INTERACTIVE.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamiconly
    */
   VIP = 5
 }
@@ -206,7 +273,7 @@ export enum ThreadWorkerPriority {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamiconly
  */
 export interface Event {
   /**
@@ -230,7 +297,7 @@ export interface Event {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   readonly type: string;
 
@@ -255,7 +322,7 @@ export interface Event {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   readonly timeStamp: number;
 }
@@ -280,7 +347,7 @@ export interface Event {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamiconly
  */
 export interface ErrorEvent extends Event {
   /**
@@ -304,7 +371,7 @@ export interface ErrorEvent extends Event {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   readonly message: string;
 
@@ -329,7 +396,7 @@ export interface ErrorEvent extends Event {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   readonly filename: string;
 
@@ -354,7 +421,7 @@ export interface ErrorEvent extends Event {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   readonly lineno: number;
 
@@ -379,7 +446,7 @@ export interface ErrorEvent extends Event {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   readonly colno: number;
 
@@ -404,7 +471,7 @@ export interface ErrorEvent extends Event {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   readonly error: Object;
 }
@@ -429,7 +496,7 @@ export interface ErrorEvent extends Event {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  */
 export interface MessageEvent<T> extends Event {
   /**
@@ -453,7 +520,7 @@ export interface MessageEvent<T> extends Event {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   readonly data: T;
 }
@@ -478,7 +545,7 @@ export interface MessageEvent<T> extends Event {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamiconly
  */
 export interface MessageEvents extends Event {
   /**
@@ -504,7 +571,7 @@ export interface MessageEvents extends Event {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   readonly data: any;
 }
@@ -531,7 +598,7 @@ export interface MessageEvents extends Event {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamiconly
  */
 export interface PostMessageOptions {
   /**
@@ -554,7 +621,7 @@ export interface PostMessageOptions {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   transfer?: Object[];
 }
@@ -563,7 +630,7 @@ export interface PostMessageOptions {
  * @typedef EventListener
  * Implements event listening.
  * @syscap SystemCapability.Utils.Lang
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.worker.WorkerEventListener
  */
@@ -574,7 +641,7 @@ export interface EventListener {
    * @param { Event } evt - evt evt Event class for the callback to invoke.
    * @returns { void | Promise<void> }
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.worker.WorkerEventListener.(event: Event)
    */
@@ -600,7 +667,7 @@ export interface EventListener {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  */
 export interface WorkerEventListener {
   /**
@@ -646,7 +713,7 @@ export interface WorkerEventListener {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   (event: Event): void | Promise<void>;
 }
@@ -671,7 +738,7 @@ export interface WorkerEventListener {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  */
 type MessageType = 'message' | 'messageerror';
 
@@ -679,7 +746,7 @@ type MessageType = 'message' | 'messageerror';
  * @typedef EventTarget
  * Specific event features.
  * @syscap SystemCapability.Utils.Lang
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.worker.WorkerEventTarget
  */
@@ -690,7 +757,7 @@ export interface EventTarget {
    * @param { string } type - type Type of the event to listen for.
    * @param { EventListener } listener - listener Callback to invoke when an event of the specified type occurs.
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.worker.WorkerEventTarget.addEventListener
    */
@@ -702,7 +769,7 @@ export interface EventTarget {
    * @param { Event } event - event Event to dispatch.
    * @returns { boolean }
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.worker.WorkerEventTarget.dispatchEvent
    */
@@ -714,7 +781,7 @@ export interface EventTarget {
    * @param { string } type - type Type of the event for which the event listener is removed.
    * @param { EventListener } callback - callback Callback of the event listener to remove.
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.worker.WorkerEventTarget.removeEventListener
    */
@@ -724,7 +791,7 @@ export interface EventTarget {
    * Removes all event listeners for the worker.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.worker.WorkerEventTarget.removeAllListener
    */
@@ -750,7 +817,7 @@ export interface EventTarget {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamiconly
  */
 export interface WorkerEventTarget {
   /**
@@ -810,7 +877,7 @@ export interface WorkerEventTarget {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   addEventListener(type: string, listener: WorkerEventListener): void;
   /**
@@ -853,7 +920,7 @@ export interface WorkerEventTarget {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   dispatchEvent(event: Event): boolean;
   /**
@@ -896,7 +963,7 @@ export interface WorkerEventTarget {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   removeEventListener(type: string, callback?: WorkerEventListener): void;
   /**
@@ -921,7 +988,7 @@ export interface WorkerEventTarget {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   removeAllListener(): void;
 }
@@ -930,7 +997,7 @@ export interface WorkerEventTarget {
  * @typedef WorkerGlobalScope
  * Specifies the worker thread running environment, which is isolated from the host thread environment.
  * @syscap SystemCapability.Utils.Lang
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.worker.GlobalScope
  */
@@ -939,7 +1006,7 @@ declare interface WorkerGlobalScope extends EventTarget {
    * Worker name specified when there is a new worker.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.worker.GlobalScope.name
    */
@@ -951,7 +1018,7 @@ declare interface WorkerGlobalScope extends EventTarget {
    * The event handler is executed in the worker thread.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.worker.GlobalScope.onerror
    */
@@ -961,7 +1028,7 @@ declare interface WorkerGlobalScope extends EventTarget {
    * Specify the type attribute for self.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.worker.GlobalScope.self
    */
@@ -988,7 +1055,7 @@ declare interface WorkerGlobalScope extends EventTarget {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamiconly
  */
 declare interface GlobalScope extends WorkerEventTarget {
   /**
@@ -1012,7 +1079,7 @@ declare interface GlobalScope extends WorkerEventTarget {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   readonly name: string;
 
@@ -1041,7 +1108,7 @@ declare interface GlobalScope extends WorkerEventTarget {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   onerror?: (ev: ErrorEvent) => void;
   /**
@@ -1065,7 +1132,7 @@ declare interface GlobalScope extends WorkerEventTarget {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   readonly self: GlobalScope & typeof globalThis;
 }
@@ -1074,7 +1141,7 @@ declare interface GlobalScope extends WorkerEventTarget {
  * @typedef DedicatedWorkerGlobalScope
  * Specifies the worker thread running environment, which is isolated from the host thread environment
  * @syscap SystemCapability.Utils.Lang
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.worker.ThreadWorkerGlobalScope
  */
@@ -1086,7 +1153,7 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * The event handler is executed in the worker thread.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.worker.ThreadWorkerGlobalScope.onmessage
    */
@@ -1098,7 +1165,7 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * The event handler is executed in the worker thread.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.worker.ThreadWorkerGlobalScope.onmessageerror
    */
@@ -1108,7 +1175,7 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * Close the worker thread to stop the worker from receiving messages
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.worker.ThreadWorkerGlobalScope.close
    */
@@ -1120,7 +1187,7 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * @param { Object } messageObject - messageObject Data to be sent to the worker
    * @param { Transferable[] } transfer - transfer array cannot contain null.
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.worker.ThreadWorkerGlobalScope.postMessage
    */
@@ -1132,7 +1199,7 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * @param { Object } messageObject - messageObject Data to be sent to the worker
    * @param { PostMessageOptions } [options] - options Option can be set for postmessage.
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.worker.ThreadWorkerGlobalScope.postMessage
    */
@@ -1144,7 +1211,7 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * @param { Object } messageObject - messageObject Data to be sent to the worker
    * @param { ArrayBuffer[] } transfer - transfer array cannot contain null.
    * @syscap SystemCapability.Utils.Lang
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 9
    */
   postMessage(messageObject: Object, transfer: ArrayBuffer[]): void;
@@ -1171,7 +1238,7 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamiconly
  */
 export interface ThreadWorkerGlobalScope extends GlobalScope {
   /**
@@ -1211,7 +1278,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   onmessage?: (this: ThreadWorkerGlobalScope, ev: MessageEvents) => void;
 
@@ -1250,7 +1317,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   onmessageerror?: (this: ThreadWorkerGlobalScope, ev: MessageEvents) => void;
 
@@ -1276,7 +1343,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   close(): void;
 
@@ -1325,7 +1392,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   postMessage(messageObject: Object, transfer: ArrayBuffer[]): void;
 
@@ -1376,7 +1443,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   postMessage(messageObject: Object, options?: PostMessageOptions): void;
 
@@ -1399,7 +1466,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   postMessageWithSharedSendable(message: Object, transfer?: ArrayBuffer[]): void;
 
@@ -1447,7 +1514,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   callGlobalCallObjectMethod(instanceName: string, methodName: string, timeout: number, ...args: Object[]): Object;
 }
@@ -1460,7 +1527,19 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
  * @returns { void }
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 18
+ * @since 18 dynamiconly
+ */
+/**
+ * The event handler to be called when an exception occurs during worker execution.
+ *
+ * @typedef { function } ErrorCallback
+ * @param { ErrorEvent } err - Error event class,
+ *      which provides detailed information about the exception occurred during Worker execution.
+ * @returns { void }
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamiconly
  */
 type ErrorCallback = (err: ErrorEvent) => void;
 
@@ -1486,7 +1565,7 @@ type ErrorCallback = (err: ErrorEvent) => void;
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamiconly
  */
 declare namespace worker {
   /**
@@ -1509,7 +1588,7 @@ declare namespace worker {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   class ThreadWorker implements WorkerEventTarget {
     /**
@@ -1555,7 +1634,7 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      */
     constructor(scriptURL: string, options?: WorkerOptions);
     /**
@@ -1590,7 +1669,7 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      */
     onexit?: (code: number) => void;
     /**
@@ -1627,7 +1706,7 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      */
     onerror?: (err: ErrorEvent) => void;
 
@@ -1647,7 +1726,28 @@ declare namespace worker {
      * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
+     */
+    /**
+     * Called when an exception occurs within the lifecycle of the Worker thread.
+     * The event handler is executed in the host thread.
+     *
+     * onerror can capture only exceptions generated by synchronous methods within the onmessage callback.
+     * It cannot capture exceptions from multithreaded callbacks or modularization-related exceptions.
+     * Once an exception is captured, the Worker thread will proceed to the destruction process and cannot be used.
+     *
+     * onAllErrors can capture global exceptions generated during the onmessage callback, timer callback,
+     * and file execution of the Worker thread. After an exception is captured by onAllErrors,
+     * the Worker thread remains alive and can continue to be used.
+     * You are advised to use onAllErrors instead of onerror.
+     *
+     * @type { ?function }
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
+     * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamiconly
      */
     onAllErrors?: ErrorCallback;
 
@@ -1687,7 +1787,7 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      */
     onmessage?: (event: MessageEvents) => void;
     /**
@@ -1724,7 +1824,7 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      */
     onmessageerror?: (event: MessageEvents) => void;
     /**
@@ -1773,7 +1873,7 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      */
     postMessage(message: Object, transfer: ArrayBuffer[]): void;
     /**
@@ -1825,7 +1925,7 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      */
     postMessage(message: Object, options?: PostMessageOptions): void;
 
@@ -1848,7 +1948,7 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     postMessageWithSharedSendable(message: Object, transfer?: ArrayBuffer[]): void;
 
@@ -1895,7 +1995,7 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     on(type: string, listener: WorkerEventListener): void;
     /**
@@ -1943,7 +2043,7 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     once(type: string, listener: WorkerEventListener): void;
     /**
@@ -1989,7 +2089,7 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     off(type: string, listener?: WorkerEventListener): void;
     /**
@@ -2014,7 +2114,7 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      */
     terminate(): void;
     /**
@@ -2060,7 +2160,7 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     addEventListener(type: string, listener: WorkerEventListener): void;
     /**
@@ -2103,7 +2203,7 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     dispatchEvent(event: Event): boolean;
     /**
@@ -2146,7 +2246,7 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     removeEventListener(type: string, callback?: WorkerEventListener): void;
     /**
@@ -2171,7 +2271,7 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     removeAllListener(): void;
 
@@ -2202,7 +2302,7 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     registerGlobalCallObject(instanceName: string, globalCallObject: Object): void;
 
@@ -2232,7 +2332,7 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     unregisterGlobalCallObject(instanceName?: string): void;
   }
@@ -2250,7 +2350,7 @@ declare namespace worker {
    * @extends ThreadWorker
    * @syscap SystemCapability.Utils.Lang
    * @systemapi
-   * @since 12
+   * @since 12 dynamiconly
    */
   class RestrictedWorker extends ThreadWorker {
     /**
@@ -2280,7 +2380,7 @@ declare namespace worker {
      * @throws { BusinessError } 10200007 - The worker file patch is invalid path.
      * @syscap SystemCapability.Utils.Lang
      * @systemapi
-     * @since 12
+     * @since 12 dynamiconly
      */
     constructor(scriptURL: string, options?: WorkerOptions);
   }
@@ -2289,7 +2389,7 @@ declare namespace worker {
    * The Worker class contains all Worker functions.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.worker.ThreadWorker
    */
@@ -2300,7 +2400,7 @@ declare namespace worker {
      * @param { string } scriptURL - scriptURL URL of the script to be executed by the worker
      * @param { WorkerOptions } options - options Options that can be set for the worker
      * @syscap SystemCapability.Utils.Lang
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.worker.ThreadWorker.constructor
      */
@@ -2311,7 +2411,7 @@ declare namespace worker {
      * when the worker exits. The handler is executed in the host thread.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.worker.ThreadWorker.onexit
      */
@@ -2323,7 +2423,7 @@ declare namespace worker {
      * The event handler is executed in the host thread.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.worker.ThreadWorker.onerror
      */
@@ -2336,7 +2436,7 @@ declare namespace worker {
      * The event handler is executed in the host thread.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.worker.ThreadWorker.onmessage
      */
@@ -2348,7 +2448,7 @@ declare namespace worker {
      * The event handler is executed in the host thread.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.worker.ThreadWorker.onmessageerror
      */
@@ -2362,7 +2462,7 @@ declare namespace worker {
      * @param { ArrayBuffer[] } transfer - transfer ArrayBuffer instance that can be transferred.
      * The transferList array cannot contain null.
      * @syscap SystemCapability.Utils.Lang
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.worker.ThreadWorker.postMessage
      */
@@ -2376,7 +2476,7 @@ declare namespace worker {
      * @param { PostMessageOptions } [options] - options Option can be set for postmessage.
      * The transferList array cannot contain null.
      * @syscap SystemCapability.Utils.Lang
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.worker.ThreadWorker.postMessage
      */
@@ -2388,7 +2488,7 @@ declare namespace worker {
      * @param { string } type - type Adds an event listener to the worker.
      * @param { EventListener } listener - listener Callback to invoke when an event of the specified type occurs.
      * @syscap SystemCapability.Utils.Lang
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.worker.ThreadWorker.on
      */
@@ -2401,7 +2501,7 @@ declare namespace worker {
      * @param { string } type - type Type of the event to listen for
      * @param { EventListener } listener - listener Callback to invoke when an event of the specified type occurs
      * @syscap SystemCapability.Utils.Lang
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.worker.ThreadWorker.once
      */
@@ -2413,7 +2513,7 @@ declare namespace worker {
      * @param { string } type - type Type of the event for which the event listener is removed.
      * @param { EventListener } listener - listener Callback of the event listener to remove.
      * @syscap SystemCapability.Utils.Lang
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.worker.ThreadWorker.off
      */
@@ -2423,7 +2523,7 @@ declare namespace worker {
      * Terminates the worker thread to stop the worker from receiving messages
      *
      * @syscap SystemCapability.Utils.Lang
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.worker.ThreadWorker.terminate
      */
@@ -2435,7 +2535,7 @@ declare namespace worker {
    *
    * @constant
    * @syscap SystemCapability.Utils.Lang
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.worker.workerPort
    */
@@ -2462,7 +2562,7 @@ declare namespace worker {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    */
   const workerPort: ThreadWorkerGlobalScope;
 }

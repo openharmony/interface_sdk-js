@@ -18,11 +18,7 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { Scroller } from './scroll'
-import { BarState } from './enums'
-import { Optional, CommonMethod } from './common'
-/*** endif */
+
 
 /**
  * Content scroll direction.
@@ -46,8 +42,7 @@ import { Optional, CommonMethod } from './common'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare enum ScrollBarDirection {
   /**
@@ -69,8 +64,7 @@ declare enum ScrollBarDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Vertical,
 
@@ -93,8 +87,7 @@ declare enum ScrollBarDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   Horizontal,
 }
@@ -121,8 +114,7 @@ declare enum ScrollBarDirection {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface ScrollBarOptions {
   /**
@@ -147,8 +139,7 @@ declare interface ScrollBarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   scroller: Scroller;
 
@@ -174,8 +165,7 @@ declare interface ScrollBarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   direction?: ScrollBarDirection;
 
@@ -201,8 +191,7 @@ declare interface ScrollBarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   state?: BarState;
 }
@@ -229,8 +218,7 @@ declare interface ScrollBarOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 interface ScrollBarInterface {
   /**
@@ -258,8 +246,7 @@ interface ScrollBarInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   (value: ScrollBarOptions): ScrollBarAttribute;
 }
@@ -286,8 +273,7 @@ interface ScrollBarInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
     /**
@@ -297,8 +283,7 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
      */
     enableNestedScroll(enabled: Optional<boolean>): ScrollBarAttribute;
 
@@ -310,7 +295,7 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     scrollBarColor(color: Optional<ColorMetrics>): ScrollBarAttribute;
 }
@@ -334,7 +319,7 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const ScrollBar: ScrollBarInterface;
 
@@ -357,6 +342,6 @@ declare const ScrollBar: ScrollBarInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const ScrollBarInstance: ScrollBarAttribute;

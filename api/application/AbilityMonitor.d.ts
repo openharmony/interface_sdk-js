@@ -45,8 +45,8 @@ import UIAbility from '../@ohos.app.ability.UIAbility';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface AbilityMonitor {
   /**
@@ -71,8 +71,8 @@ export interface AbilityMonitor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   abilityName: string;
 
@@ -98,8 +98,8 @@ export interface AbilityMonitor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   moduleName?: string;
 
@@ -123,8 +123,8 @@ export interface AbilityMonitor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onAbilityCreate?: (ability: UIAbility) => void;
 
@@ -148,8 +148,8 @@ export interface AbilityMonitor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onAbilityForeground?: (ability: UIAbility) => void;
 
@@ -173,8 +173,8 @@ export interface AbilityMonitor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onAbilityBackground?: (ability: UIAbility) => void;
 
@@ -198,8 +198,8 @@ export interface AbilityMonitor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onAbilityDestroy?: (ability: UIAbility) => void;
 
@@ -223,8 +223,8 @@ export interface AbilityMonitor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onWindowStageCreate?: (ability: UIAbility) => void;
 
@@ -240,8 +240,8 @@ export interface AbilityMonitor {
    * @type { ?function }.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onWindowStageRestore?: (ability: UIAbility) => void;
 
@@ -265,12 +265,12 @@ export interface AbilityMonitor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onWindowStageDestroy?: (ability: UIAbility) => void;
 }
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 export default AbilityMonitor;
 /*** endif */
