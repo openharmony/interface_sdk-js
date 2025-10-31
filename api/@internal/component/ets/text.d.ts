@@ -1580,16 +1580,6 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 22 dynamic
    */
   enableSelectedDataDetector(enable: boolean | undefined): TextAttribute
-  /**
-   * Config selected data detector.
-   *
-   * @param { SelectDataDetectorConfig | undefined } config - Set the config of selected data detector.
-   * @returns { TextAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  selectedDataDetectorConfig(config: SelectDataDetectorConfig | undefined): TextAttribute
 
   /**
    * Bind to the selection menu.
