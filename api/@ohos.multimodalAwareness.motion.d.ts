@@ -26,7 +26,6 @@ import type { Callback } from "./@ohos.base";
  * @namespace motion
  * @syscap SystemCapability.MultimodalAwareness.Motion
  * @since 15 dynamic
- * @since 20 static
  */
 
 declare namespace motion {
@@ -44,7 +43,6 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 15 dynamic
-     * @since 20 static
      */
     UNKNOWN_STATUS = 0,
     /**
@@ -52,7 +50,6 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 15 dynamic
-     * @since 20 static
      */
     LEFT_HAND_OPERATED = 1,
     /**
@@ -60,7 +57,6 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 15 dynamic
-     * @since 20 static
      */
     RIGHT_HAND_OPERATED = 2
   }
@@ -70,42 +66,42 @@ declare namespace motion {
    *
    * @enum { int } HoldingHandStatus
    * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   export enum HoldingHandStatus {
     /**
      * indicates no holding has been detected.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     NOT_HELD = 0,
     /**
      * indicates holding with the left hand.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     LEFT_HAND_HELD = 1,
     /**
      * indicates holding with the right hand.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     RIGHT_HAND_HELD = 2,
     /**
      * indicates holding with both hands.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     BOTH_HANDS_HELD = 3,
     /**
      * indicates nothing has been detected.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     UNKNOWN_STATUS = 16
   }
@@ -126,7 +122,6 @@ declare namespace motion {
    * <br>2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15 dynamic
-   * @since 20 static
    */
   function on(type: 'operatingHandChanged', callback: Callback<OperatingHandStatus>): void;
 
@@ -146,7 +141,6 @@ declare namespace motion {
    * <br>2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15 dynamic
-   * @since 20 static
    */
   function off(type: 'operatingHandChanged', callback?: Callback<OperatingHandStatus>): void;
 
@@ -162,7 +156,6 @@ declare namespace motion {
    * <br>2. N-API invocation exception, invalid N-API status.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15 dynamic
-   * @since 20 static
    */
   function getRecentOperatingHandStatus(): OperatingHandStatus;
 
@@ -180,7 +173,7 @@ declare namespace motion {
    * @throws { BusinessError } 31500002 - Subscription failed. Possible causes: 1. Callback registration failure;
    * <br>2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   function on(type: 'holdingHandChanged', callback: Callback<HoldingHandStatus>): void;
 
@@ -198,7 +191,7 @@ declare namespace motion {
    * @throws { BusinessError } 31500003 - Unsubscription failed. Possible causes: 1. Callback failure;
    * <br>2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   function off(type: 'holdingHandChanged', callback?: Callback<HoldingHandStatus>): void;
 }
