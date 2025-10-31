@@ -28,6 +28,7 @@ import common from './@ohos.app.ability.common';
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
  * @since 12 dynamic
+ * @since 22 static
  */
 declare namespace startupManager {
   /**
@@ -47,6 +48,7 @@ declare namespace startupManager {
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
   function run(startupTasks: Array<string>, config?: StartupConfig): Promise<void>;
 
@@ -65,6 +67,7 @@ declare namespace startupManager {
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 22 static
    */
   function run(startupTasks: Array<string>, context: common.AbilityStageContext, config: StartupConfig): Promise<void>;
 
@@ -74,6 +77,7 @@ declare namespace startupManager {
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
   function removeAllStartupTaskResults(): void;
 
@@ -91,6 +95,17 @@ declare namespace startupManager {
   function getStartupTaskResult(startupTask: string): Object;
 
   /**
+   * Obtains specific startup task result.
+   *
+   * @param { string } startupTask - Indicates name of specific startup task.
+   * @returns { Any } The result of specific startup task.
+   * @syscap SystemCapability.Ability.AppStartup
+   * @stagemodelonly
+   * @since 22 static
+   */
+  function getStartupTaskResult(startupTask: string): Any;
+
+  /**
    * Obtains whether specific startup task has already been initialized.
    *
    * @param { string } startupTask - Indicates name of specific startup task.
@@ -100,6 +115,7 @@ declare namespace startupManager {
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
   function isStartupTaskInitialized(startupTask: string): boolean;
 
@@ -112,6 +128,7 @@ declare namespace startupManager {
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
   function removeStartupTaskResult(startupTask: string): void;
 }
