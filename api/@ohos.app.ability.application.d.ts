@@ -175,6 +175,18 @@ declare namespace application {
   export function getApplicationContext(): ApplicationContext;
 
   /**
+   * Get application context instance.
+   *
+   * @returns { ApplicationContext } Returns the application context.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+    export function getApplicationContextInstance(): ApplicationContext;
+
+  /**
    * Elevate the current process to be a candidate master process.
    * If the current process is already a master process,
    * calling this interface will not perform any operation and will not throw an error code.
