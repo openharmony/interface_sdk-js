@@ -526,7 +526,7 @@ export declare class RenderNode {
    * Get shape clip of the RenderNode.
    *
    * @returns { ShapeClip } - Returns the shape clip of the RenderNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.clip
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
   get shapeClip(): ShapeClip;
