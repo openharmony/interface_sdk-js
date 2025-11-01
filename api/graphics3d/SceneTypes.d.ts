@@ -194,6 +194,7 @@ export interface Quaternion {
  * @typedef Aabb 
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
+ * @since 20 static
  */
 export interface Aabb {
   /**
@@ -202,6 +203,7 @@ export interface Aabb {
    * @type { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
+   * @since 20 static
    */
   aabbMin: Vec3;
 
@@ -211,6 +213,7 @@ export interface Aabb {
    * @type { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
+   * @since 20 static
    */
   aabbMax: Vec3;
 }
@@ -300,6 +303,7 @@ export interface Rect {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
+   * @since 20 static
    */
   width: double;
 
@@ -309,13 +313,14 @@ export interface Rect {
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
+   * @since 20 static
    */
   height: double;
 }
 
 /**
  * Types of geometric shapes.
- * 
+ *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
@@ -324,7 +329,7 @@ export interface Rect {
 export enum GeometryType {
   /**
    * A custom geometric shape.
-   * 
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
    * @since 20 static
@@ -333,7 +338,7 @@ export enum GeometryType {
 
   /**
    * A cube.
-   * 
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
    * @since 20 static
@@ -342,7 +347,7 @@ export enum GeometryType {
 
   /**
    * A plane.
-   * 
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
    * @since 20 static
@@ -392,7 +397,7 @@ export enum RenderingPipelineType {
 
 /**
  * Define a geometric shape for mesh creation.
- * 
+ *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
  * @since 20 static
@@ -400,7 +405,7 @@ export enum RenderingPipelineType {
 export declare abstract class GeometryDefinition {
   /**
    * Which geometry shape to interpret from this definition.
-   * 
+   *
    * @type { GeometryType }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -412,7 +417,7 @@ export declare abstract class GeometryDefinition {
 
 /**
  * How vertices in a sequence form triangles.
- * 
+ *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
@@ -421,7 +426,7 @@ export declare abstract class GeometryDefinition {
 export enum PrimitiveTopology {
   /**
    * The vertices form a set of independent triangle. Vertices (0, 1, 2), (3, 4, 5), ... define separate triangles.
-   * 
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
    * @since 20 static
@@ -430,7 +435,7 @@ export enum PrimitiveTopology {
 
   /**
    * The vertices form a triangle strip. Starting from the 3rd, each vertex defines a triangle with the previous two.
-   * 
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
    * @since 20 static
@@ -440,7 +445,7 @@ export enum PrimitiveTopology {
 
 /**
  * An array of vertices and their data defining a custom geometric shape.
- * 
+ *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
@@ -638,7 +643,7 @@ export declare class CustomGeometry extends GeometryDefinition {
 
 /**
  * Define a rectangular cuboid.
- * 
+ *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
@@ -668,7 +673,7 @@ export declare class CubeGeometry extends GeometryDefinition {
 
 /**
  * Define a plane.
- * 
+ *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
@@ -698,7 +703,7 @@ export declare class PlaneGeometry extends GeometryDefinition {
 
 /**
  * Define a sphere.
- * 
+ *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
@@ -762,6 +767,7 @@ export type Position3 = Vec3;
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
+ * @since 20 static
  */
 export type Rotation3 = Vec3;
 
