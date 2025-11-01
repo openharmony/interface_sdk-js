@@ -982,7 +982,7 @@ export class RenderNode {
    * Get shape clip of the RenderNode.
    *
    * @returns { ShapeClip } - Returns the shape clip of the RenderNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.clip
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
