@@ -2307,6 +2307,62 @@ export class UIObserver {
   off(type: 'tabContentUpdate', callback?: Callback<observer.TabContentInfo>): void;
 
   /**
+   * Registers a callback function to be called when the tabContent is showed or hidden.
+   * Include the cases when the first tab content shows and when the tab changes current index.
+   *
+   * @param { 'tabChange' } type - The type of event to listen for. Must be 'tabChange'.
+   * @param { observer.ObserverOptions } config - The options object. Includes the observed component id.
+   * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called
+   *     when when the tabContent is showed or hidden.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  on(type: 'tabChange', config: observer.ObserverOptions, callback: Callback<observer.TabContentInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'tabChange' } type - The type of event to remove the listener for. Must be 'tabChange'.
+   * @param { observer.ObserverOptions } config - The config object. Includes the observed component id.
+   * @param { Callback<observer.TabContentInfo> } [callback] - The callback function to remove.
+   *     If not provided, all callbacks for the given event type and Tabs ID will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  off(type: 'tabChange', config: observer.ObserverOptions, callback?: Callback<observer.TabContentInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the tabContent is showed or hidden.
+   * Include the cases when the first tab content shows and when the tab changes current index.
+   *
+   * @param { 'tabChange' } type - The type of event to listen for. Must be 'tabChange'.
+   * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called
+   *     when the tabContent is showed or hidden.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  on(type: 'tabChange', callback: Callback<observer.TabContentInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'tabChange' } type - The type of event to remove the listener for. Must be 'tabChange'.
+   * @param { Callback<observer.TabContentInfo> } [callback] - The callback function to remove.
+   *     If not provided, all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  off(type: 'tabChange', callback?: Callback<observer.TabContentInfo>): void;
+
+  /**
    * Registers a callback function to be called when the specific node's render state changed.
    * This callback will be executed once immediately when the register is successful.
    * [Notes]:
