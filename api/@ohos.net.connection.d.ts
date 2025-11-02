@@ -1143,6 +1143,18 @@ declare namespace connection {
   function factoryReset(): Promise<void>;
 
   /**
+   * Obtain the IP and MAC address correspondence table of the neighboring network.
+   * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.GET_IP_MAC_INFO
+   * @returns { Promise<Array<NetIpMacInfo>> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 22 dynamic&static
+   */
+  function getIpNeighTable(): Promise<Array<NetIpMacInfo>>;
+
+  /**
    * Represents the network connection handle.
    * @interface NetConnection
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -2329,6 +2341,39 @@ declare namespace connection {
      */
     exclusionList: Array<string>;
   }
+
+  /**
+   * The correspondence information between IP and MAC address.
+   * @interface NetIpMacInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 22 dynamic&static
+   */
+  export interface NetIpMacInfo {
+    /**
+     * Link address of the network.
+     * @type {NetAddress}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic&static
+     */
+    ipAddress: NetAddress;
+
+    /**
+     * Mac address of the network.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic&static
+     */
+    macAddress: string;
+
+    /**
+     * Interface name of the network.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 22 dynamic&static
+     */
+    iface: string;
+  }
+  
 }
 
 export default connection;
