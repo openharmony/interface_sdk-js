@@ -20,15 +20,13 @@
 
 /*** if arkts static */
 import { Resource } from '../global/resource';
-import { Shader, Animation, Environment, Image, MeshResource, Sampler, SceneResource } from './SceneResources';
-import { Camera, LightType, Light, Node, NodeType } from './SceneNodes';
-import { Position3, Color, GeometryDefinition, RenderingPipelineType, Vec2, Vec3, Vec4 } from './SceneTypes';
 /*** endif */
 /*** if arkts dynamic */
-import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource, Effect } from './SceneResources';
+import { Effect } from './SceneResources';
+/*** endif */
+import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource } from './SceneResources';
 import { Camera, LightType, Light, Node, NodeType, Geometry } from './SceneNodes';
 import { Position3, Color, GeometryDefinition, RenderingPipelineType, Vec2, Vec3, Vec4 } from './SceneTypes';
-/*** endif */
 
 /**
  * Defines the string which can use resource.
@@ -64,6 +62,7 @@ export interface SceneResourceParameters {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
+   * @since 20 static
    */
   uri?: ResourceStr;
 }
@@ -93,6 +92,7 @@ export interface SceneNodeParameters {
    * @type { ?string }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
+   * @since 20 static
    */
   path?: string;
 }
@@ -326,6 +326,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    * @returns { Promise<Node> } promise a node
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
+   * @since 20 static
    */
   createNode(params: SceneNodeParameters): Promise<Node>;
 
@@ -337,6 +338,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    * @returns { Promise<Material> } promise a material
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
+   * @since 20 static
    */
   createMaterial(params: SceneResourceParameters, materialType: MaterialType): Promise<Material>;
 
@@ -347,17 +349,19 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    * @returns { Promise<Environment> } promise a Environment
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
+   * @since 20 static
    */
   createEnvironment(params: SceneResourceParameters): Promise<Environment>;
 
   /**
    * Create a geometry node.
-   * 
+   *
    * @param { SceneNodeParameters } params - the param of creating a geometry
    * @param { MeshResource } mesh resource - The mesh data for the geometry
    * @returns { Promise<Geometry> } promise a geometry
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   createGeometry(params: SceneNodeParameters, mesh:MeshResource): Promise<Geometry>;
 
@@ -536,10 +540,11 @@ export declare class Scene {
   /**
    * The root node of the scene.
    *
-   * @type { Node | null }
+   * @return { Node | null }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
+   * @since 20 static
    */
   get root(): Node | null;
 
@@ -584,6 +589,7 @@ export declare class Scene {
    * @returns { Node } The newly created node.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   importNode(name: string, node: Node, parent: Node | null): Node;
 
@@ -597,6 +603,7 @@ export declare class Scene {
    * @returns { Node } The newly created node.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   importScene(name: string, scene: Scene, parent: Node | null): Node;
 
