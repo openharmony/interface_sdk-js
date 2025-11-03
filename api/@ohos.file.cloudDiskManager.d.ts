@@ -25,15 +25,17 @@
  * @syscap SystemCapability.FileManagement.CloudDiskManager
  * @systemapi
  * @since 21 dynamic
+ * @since 22 static
  */
 declare namespace cloudDiskManager {
   /**
    * Enumerates the syncFolder state of the cloud disk.
    *
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.FileManagement.CloudDiskManager
    * @systemapi
    * @since 21 dynamic
+   * @since 22 static
    */
   enum SyncFolderState {
     /**
@@ -42,6 +44,7 @@ declare namespace cloudDiskManager {
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
+     * @since 22 static
      */
     INACTIVE = 0,
 
@@ -51,6 +54,7 @@ declare namespace cloudDiskManager {
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
+     * @since 22 static
      */
     ACTIVE = 1
   }
@@ -62,6 +66,7 @@ declare namespace cloudDiskManager {
    * @syscap SystemCapability.FileManagement.CloudDiskManager
    * @systemapi
    * @since 21 dynamic
+   * @since 22 static
    */
   interface SyncFolder {
     /**
@@ -71,6 +76,7 @@ declare namespace cloudDiskManager {
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
+     * @since 22 static
      */
     path: string;
 
@@ -81,6 +87,7 @@ declare namespace cloudDiskManager {
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
+     * @since 22 static
      */
     bundleName: string;
 
@@ -91,18 +98,20 @@ declare namespace cloudDiskManager {
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
+     * @since 22 static
      */
     state: SyncFolderState;
 
     /**
      * The displayNameResId of the syncFolder.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
+     * @since 22 static
      */
-    displayNameResId?: number;
+    displayNameResId?: int;
 
     /**
      * The alias of the syncFolder supports user customization.
@@ -111,6 +120,7 @@ declare namespace cloudDiskManager {
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
+     * @since 22 static
      */
     customAlias?: string;
   }
@@ -121,6 +131,7 @@ declare namespace cloudDiskManager {
    * @syscap SystemCapability.FileManagement.CloudDiskManager
    * @systemapi
    * @since 21 dynamic
+   * @since 22 static
    */
   class SyncFolderAccessor {
     /**
@@ -133,6 +144,7 @@ declare namespace cloudDiskManager {
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
+     * @since 22 static
      */
     constructor();
 
@@ -151,6 +163,7 @@ declare namespace cloudDiskManager {
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21 dynamic
+     * @since 22 static
      */
     getAllSyncFolders(): Promise<Array<SyncFolder>>;
   }
