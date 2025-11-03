@@ -480,7 +480,7 @@ declare namespace securityManager {
     function setExternalSourceExtensionsPolicy(admin: Want, policy: common.ManagedPolicy): void;
 
   /**
-   * Sets the policy of the extensions from external sources.
+   * Gets the policy of the extensions from external sources.
    * 
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
    * @param { Want } admin - admin indicates the administrator ability information.
