@@ -2792,6 +2792,15 @@ declare namespace commonEventManager {
      * @since 21 dynamic&static
      */
     COMMON_EVENT_CLOUD_DISK_STATE_CHANGED = 'usual.event.CLOUD_DISK_STATE_CHANGED',
+
+    /**
+     * This common event means that lid mode has been changed.
+     * 
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi 
+     * @since 21
+     */
+    COMMON_EVENT_LID_MODE_CHANGED = 'usual.event.LID_MODE_CHANGED',
   }
 
   /**
