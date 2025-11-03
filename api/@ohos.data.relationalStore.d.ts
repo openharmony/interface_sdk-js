@@ -5344,7 +5344,7 @@ declare namespace relationalStore {
      * The key-value pairs are associated with column names of the database table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the specified update condition by
      * the instance object of {@link dataSharePredicates.DataSharePredicates}.
-     * @returns { Promise<number> } The number of affected rows.
+     * @returns { Promise<long> } The number of affected rows.
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -5373,8 +5373,9 @@ declare namespace relationalStore {
      * @systemapi
      * @StageModelOnly
      * @since 12 dynamic
+     * @since 20 static
      */
-    update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
+    update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<long>;
 
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates.
@@ -5647,7 +5648,7 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the target table.
      * @param { dataSharePredicates.DataSharePredicates } predicates -
      * The specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
-     * @returns { Promise<number> } The number of affected rows.
+     * @returns { Promise<long> } The number of affected rows.
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -5678,7 +5679,7 @@ declare namespace relationalStore {
      * @since 12 dynamic
      * @since 20 static
      */
-    delete(table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
+    delete(table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<long>;
 
     /**
      * Queries data in the database based on specified conditions.
@@ -5925,6 +5926,7 @@ declare namespace relationalStore {
      * @systemapi
      * @StageModelOnly
      * @since 12 dynamic
+     * @since 20 static
      */
     query(
       table: string,
