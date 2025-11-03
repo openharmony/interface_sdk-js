@@ -285,7 +285,7 @@ declare namespace PiPWindow {
      * @atomicservice
      * @since 22 dynamic&static
      */
-    cornerAdsorption?: boolean;
+    cornerAdsorptionEnabled?: boolean;
   }
 
   /**
