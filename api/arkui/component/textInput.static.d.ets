@@ -46,7 +46,7 @@ export declare enum InputType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    Number = 2,
+    NUMBER = 2,
     /**
      * Phone number entry mode.
      *
