@@ -21121,6 +21121,89 @@ declare class CommonMethod<T> {
   mouseResponseRegion(value: Array<Rectangle> | Rectangle): T;
 
   /**
+   * Defines the response region interface.
+   * 
+   * @interface ResponseRegion
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23
+   */
+  declare interface ResponseRegion {
+    /**
+     *  The event tool type applicable to this response region.
+     * 
+     * @type { ?ResponseRegionSupportedTool }
+     * @default ResponseRegionSupportedTool.ALL
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23
+     */
+    tool?: ResponseRegionSupportedTool;
+
+    /**
+     * Horizontal axis coordinate.
+     * 
+     * @type { ?LengthMetrics }
+     * @default LengthMetrics.vp(0)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23
+     */
+    x?: LengthMetrics;
+
+    /**
+     * Vertical axis coordinate.
+     * 
+     * @type { ?LengthMetrics }
+     * @default LengthMetrics.vp(0)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23
+     */
+    y?: LengthMetrics;
+
+    /**
+     * Sets the width of the current touchRect.
+     * 
+     * @type { ?(LengthMetrics | string) }
+     * @default LengthMetrics.percent(1)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23
+     */
+    width?: LengthMetrics | string;
+
+    /**
+     * Sets the height of the current touchRect.
+     * 
+     * @type { ?(LengthMetrics | string) }
+     * @default LengthMetrics.percent(1)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 23
+     */
+    height?: LengthMetrics | string;
+  }
+  
+  /**
+   * Sets the response region list of tyeh current component.
+   * 
+   * @param { Array<ResponseRegion> } value
+   * @returns { T } return the component attribute
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23
+   */
+  responseRegionList(regions: Array<ResponseRegion>): T;
+  
+  /**
    * The size of the current component.
    *
    * @param { SizeOptions } value

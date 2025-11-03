@@ -2349,6 +2349,57 @@ export declare enum CopyOptions {
 }
 
 /**
+ * Defines the event tool type that support response region settings.
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23
+ */
+export declare enum ResponseRegionSupportedTool {
+  /**
+   * All source tool type.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23
+   */
+  ALL = 0,
+
+  /**
+   * The finger type.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23
+   */
+  FINGER = 1,
+
+  /**
+   * The pen type.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23
+   */
+  PEN = 2,
+
+  /**
+   * The mouse type.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23
+   */
+  MOUSE = 3,
+}
+
+/**
  * Defines the hit test mode.
  *
  * @enum { number }
