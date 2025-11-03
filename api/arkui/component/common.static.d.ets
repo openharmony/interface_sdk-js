@@ -7796,9 +7796,7 @@ export declare interface ClickEffect {
      * Set the click effect level.
      *
      * @type { ClickEffectLevel }
-     * @default ClickEffectLevel.Light
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20 static
      */
     level: ClickEffectLevel;
