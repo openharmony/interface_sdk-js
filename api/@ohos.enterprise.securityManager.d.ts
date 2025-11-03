@@ -19,8 +19,8 @@
  */
 
 import type Want from './@ohos.app.ability.Want';
+import type common from './@ohos.enterprise.common';
 import type image from './@ohos.multimedia.image';
-import type common from './@ohos.enterprise.common'
 
 /**
  * This module provides the capability to manage the security of the enterprise devices.
@@ -476,6 +476,7 @@ declare namespace securityManager {
    *  The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
+   * @since 22
    */
     function setExternalSourceExtensionsPolicy(admin: Want, policy: common.ManagedPolicy): void;
 
@@ -490,6 +491,7 @@ declare namespace securityManager {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
+   * @since 22
    */
     function getExternalSourceExtensionsPolicy(admin: Want): common.ManagedPolicy;
 
