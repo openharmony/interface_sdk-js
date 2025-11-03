@@ -6677,6 +6677,47 @@ declare namespace photoAccessHelper {
      * @since 22
      */
     getClonedAlbumUris(oldUris: Array<string>): Promise<Map<string, string>>;
+
+    /**
+     * Start medialibrary database backup and wait for returning with backup information which only works on beta device.
+     *
+     * @param { string } betaIssueId - The beta issue id.
+     * @param { string } betaScenario - The beta scenario.
+     * @returns { Promise<Map<string, string>> } The returning with backup information,
+     *     which includes FILE_FD, FILE_NAME and FILE_SIZE.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     1. The betaIssueId parameter is invalid, such as null, undefined or empty string.
+     *     2. The betaScenario parameter is invalid, such as null, undefined or empty string.
+     *     3. The same betaIssueId task is processing.
+     * @throws { BusinessError } 23800201 - Unsupported operation type, this api only works on beta device.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    acquireDebugDatabase(betaIssueId: string, betaScenario: string): Promise<Map<string, string>>;
+
+    /**
+     * Release medialibrary database backup resources includes closing backup database fd and
+     *     deleting temporary backup database file which only works on beta device.
+     *
+     * @param { string } betaIssueId - The beta issue id.
+     * @param { int } dbFd - The backup database fd.
+     * @returns { Promise<void> } Return void.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     1. The betaIssueId parameter is invalid, such as null, undefined or empty string.
+     *     2. The dbFd parameter is invalid, such as out of range 0~1023.
+     * @throws { BusinessError } 23800201 - Unsupported operation type, this api only works on beta device.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    releaseDebugDatabase(betaIssueId: string, dbFd: int): Promise<void>;
   }
 
   /**
