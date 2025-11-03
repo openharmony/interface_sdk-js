@@ -213,7 +213,7 @@ export declare struct TipsDialog {
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 20 staticonly
    */
   @Builder build(): void;
 }
@@ -294,7 +294,7 @@ export declare struct SelectDialog {
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 20 staticonly
    */
   @Builder build(): void;
 }
@@ -391,7 +391,7 @@ export declare struct ConfirmDialog {
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 20 staticonly
    */
   @Builder build(): void;
 }
@@ -472,7 +472,7 @@ export declare struct AlertDialog {
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 20 staticonly
    */
   @Builder build(): void;
 }
@@ -521,7 +521,7 @@ export declare struct LoadingDialog {
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 20 staticonly
    */
   @Builder build(): void;
 }
@@ -611,7 +611,7 @@ export declare struct CustomContentDialog {
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 20 staticonly
    */
   @Builder build(): void;
 }
@@ -654,7 +654,7 @@ export declare struct PopoverDialog {
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 20 staticonly
    */
   @Builder build(): void;
 }

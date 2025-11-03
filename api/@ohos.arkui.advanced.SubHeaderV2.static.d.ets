@@ -539,7 +539,7 @@ export declare struct SubHeaderV2 {
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 20 staticonly
    */
   @Builder
   build(): void;

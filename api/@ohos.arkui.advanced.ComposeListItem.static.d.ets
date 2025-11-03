@@ -334,7 +334,7 @@ export declare class OperateItem {
    *
    * @type { ?OperateCheck }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 20 staticonly
    */
   public toggle?: OperateCheck;
   /**
@@ -418,7 +418,7 @@ export declare struct ComposeListItem {
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 20 staticonly
    */
   @Builder
   build(): void;

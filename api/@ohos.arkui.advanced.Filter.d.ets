@@ -75,7 +75,7 @@ export declare enum FilterType {
  * This parameter is used to define the input of each filtering dimension.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @noninterop
  */
 export declare class FilterParams {
@@ -120,7 +120,7 @@ export declare class FilterParams {
  * The index starts from 0.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  * @noninterop
  */
 export declare class FilterResult {
