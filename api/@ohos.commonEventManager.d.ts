@@ -2777,7 +2777,7 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 22 dynamic&static
      */
     COMMON_EVENT_RESTORE_END = 'usual.event.RESTORE_END',
 
