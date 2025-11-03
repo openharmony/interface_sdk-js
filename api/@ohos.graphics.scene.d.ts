@@ -37,6 +37,13 @@ export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, 
   RenderingPipelineType } from './graphics3d/SceneTypes';
 
 /**
+ * Export scene types
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 23 dynamic&static
+ */
+export { CylinderGeometry } from './graphics3d/SceneTypes';
+
+/**
  * Export scene resources
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
