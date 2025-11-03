@@ -11881,12 +11881,12 @@ declare namespace photoAccessHelper {
   /**
    * Indicates possible value types
    *
-   * @typedef { number | string | boolean | Uint8Array | null } ValueType
+   * @typedef {int | long | double | string | boolean | Uint8Array | null } ValueType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 22 dynamic&static
    */
-  type ValueType = number | string | boolean | Uint8Array | null;
+  type ValueType = int | long | double | string | boolean | Uint8Array | null;
 
   /**
    * Values in buckets are stored in key-value pairs, change {[key: string]: ValueType;} to Record<string, ValueType>
@@ -11909,30 +11909,30 @@ declare namespace photoAccessHelper {
     /**
      * Obtains the number of columns in the result set.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic&static
      */
-    columnCount: number;
+    columnCount: int;
     /**
      * Obtains the number of rows in the result set.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic&static
      */
-    rowCount: number;
+    rowCount: int;
     /**
      * Obtains the current index of the result set.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic&static
      */
-    rowIndex: number;
+    rowIndex: int;
     /**
      * Checks whether the cursor is positioned at the last row.
      *
@@ -11945,7 +11945,7 @@ declare namespace photoAccessHelper {
     /**
      * Go to the specified row of the result set.
      *
-     * @param { number } position - Indicates the index of the specified row, which starts from 0.
+     * @param { int } position - Indicates the index of the specified row, which starts from 0.
      * @returns { boolean } True if the result set is moved successfully; Returns false otherwise.
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes: position invalid.
@@ -11955,7 +11955,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 22 dynamic&static
      */
-    goToRow(position: number): boolean;
+    goToRow(position: int): boolean;
     /**
      * Go to the first row of the result set.
      *
@@ -11995,7 +11995,7 @@ declare namespace photoAccessHelper {
     /**
      * Obtains the value of the specified column in the current row.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { ValueType } The value of the specified column..
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes: columnIndex invalid.
@@ -12005,7 +12005,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 22 dynamic&static
      */
-    getValue(columnIndex: number): ValueType;
+    getValue(columnIndex: int): ValueType;
     /**
      * Closes the result set.
      *
