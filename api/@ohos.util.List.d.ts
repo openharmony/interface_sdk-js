@@ -1018,7 +1018,7 @@ declare class List<T> {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 20 dynamic&static
+ * @since 22 dynamic&static
  */
 export type ListComparatorFn<T> = (firstValue: T, secondValue: T) => double;
 /**
