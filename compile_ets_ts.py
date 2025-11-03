@@ -141,6 +141,8 @@ def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str, out
         with open(os.path.abspath(os.path.join(out_interop_path, INTEROP_NAME, "interop_tool.log")), 'w', encoding='utf-8') as f:
             f.write("=== Output from interop1.2 tool ===\n")
             f.write(result.stdout)
+        check_static_interop_path_exists(interop_path_declaration)
+        check_static_interop_path_exists(interop_path_bridge)
         print(f"run_compile_ets_ts success: {result.returncode}")
     except subprocess.CalledProcessError as e:
         print(f"run_compile_ets_ts error: {e.returncode}")
@@ -150,6 +152,12 @@ def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str, out
                        text=True, capture_output=True)
         print(f"run_compile_ets_ts: {str(e)}")
 
+def check_static_interop_path_exists(intput_path: str):
+    interop_path_api = os.path.join(intput_path, "api")
+    interop_path_kits = os.path.join(intput_path, "kits")
+    interop_path_arkts = os.path.join(intput_path, "arkts")
+    if not os.path.exists(interop_path_api) or not os.path.exists(interop_path_kits) or not os.path.exists(interop_path_arkts):
+        raise FileNotFoundError(f"Missing interop directories in output")
 
 def run_compile_ets_ts_main():
     parser = argparse.ArgumentParser()
