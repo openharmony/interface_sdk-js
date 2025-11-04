@@ -1071,6 +1071,41 @@ export declare class FileSelectorParam {
      * @since 22 static
      */
     getMimeTypes(): Array<string>;
+    /**
+    * Gets suggested file names.
+    *
+    * @returns { string } Return the suggested file names.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    getSuggestedName(): string;
+
+    /**
+    * Get the default path opened when pulling up the selector.
+    *
+    * @returns { string } Return to the default path opened when pulling up the selector.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    getDefaultPath(): string;
+
+    /**
+    * Gets a description array of file types.
+    *
+    * @returns { Array<string> } Return an array of description of the file type.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    getDescriptions(): Array<string>;
+
+    /**
+    * Gets whether to filter fully matching file types.
+    *
+    * @returns { boolean } Return whether to filter all matching file types.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    isAcceptAllOptionExcluded(): boolean;
 }
 /**
  * Defines the js result.
@@ -4536,7 +4571,7 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 22 static
      */
     default mediaOptions(options: WebMediaOptions | undefined): this;
-    
+
     /**
      * Sets whether to load web pages by using the overview mode, which means reducing the content to fit the screen width.
      * Currently, only mobile devices are supported.

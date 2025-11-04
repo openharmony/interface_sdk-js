@@ -25,6 +25,7 @@ import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConsta
 import Want from '../@ohos.app.ability.Want';
 import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
 import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
+import InteropAbilityLifecycleCallback from '../@ohos.app.ability.InteropAbilityLifecycleCallback';
 /*** if arkts dynamic */
 import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 /*** endif */
@@ -116,6 +117,20 @@ declare class ApplicationContext extends Context {
    * @since 22 static
    */
   onAbilityLifecycle(callback: AbilityLifecycleCallback): int;
+
+  /**	
+   * Registers a listener to monitor the ability lifecycle of the application for interoperability.	
+   * 
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { InteropAbilityLifecycleCallback } callback - Callback used to be registered as the listener.	
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core	
+   * @stagemodelonly	
+   * @since 22 static
+   */	
+  onInteropAbilityLifecycle(callback: InteropAbilityLifecycleCallback): void;
 
   /**
    * Unregister ability lifecycle callback.
@@ -232,6 +247,20 @@ declare class ApplicationContext extends Context {
    * @since 22 static
    */
   offAbilityLifecycle(callbackId: int): Promise<void>;
+
+  /**
+   * Unregisters the listener that monitors the ability lifecycle of the application for interoperability.
+   * 
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { InteropAbilityLifecycleCallback } callback - Callback used to be unregistered.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  offInteropAbilityLifecycle(callback?: InteropAbilityLifecycleCallback): void;
 
   /**
    * Register environment callback.

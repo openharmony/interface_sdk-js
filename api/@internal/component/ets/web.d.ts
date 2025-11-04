@@ -1990,6 +1990,42 @@ declare class FileSelectorParam {
    * @since 18 dynamic
    */
   getMimeTypes(): Array<string>;
+
+  /**
+   * Gets suggested file names.
+   *
+   * @returns { string } Return the suggested file names.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  getSuggestedName(): string;
+
+  /**
+   * Get the default path opened when pulling up the selector.
+   *
+   * @returns { string } Return to the default path opened when pulling up the selector.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  getDefaultPath(): string;
+
+  /**
+   * Gets a description array of file types.
+   *
+   * @returns { Array<string> } Return an array of description of the file type.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  getDescriptions(): Array<string>;
+
+  /**
+   * Gets whether to filter fully matching file types.
+   *
+   * @returns { boolean } Return whether to filter all matching file types.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 dynamic
+   */
+  isAcceptAllOptionExcluded(): boolean;
 }
 
 /**

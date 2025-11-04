@@ -3041,7 +3041,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 22
      */
     HDR_MODE = 'hdr_mode',
     /**
@@ -6677,6 +6677,47 @@ declare namespace photoAccessHelper {
      * @since 22
      */
     getClonedAlbumUris(oldUris: Array<string>): Promise<Map<string, string>>;
+
+    /**
+     * Start medialibrary database backup and wait for returning with backup information which only works on beta device.
+     *
+     * @param { string } betaIssueId - The beta issue id.
+     * @param { string } betaScenario - The beta scenario.
+     * @returns { Promise<Map<string, string>> } The returning with backup information,
+     *     which includes FILE_FD, FILE_NAME and FILE_SIZE.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     1. The betaIssueId parameter is invalid, such as null, undefined or empty string.
+     *     2. The betaScenario parameter is invalid, such as null, undefined or empty string.
+     *     3. The same betaIssueId task is processing.
+     * @throws { BusinessError } 23800201 - Unsupported operation type, this api only works on beta device.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    acquireDebugDatabase(betaIssueId: string, betaScenario: string): Promise<Map<string, string>>;
+
+    /**
+     * Release medialibrary database backup resources includes closing backup database fd and
+     *     deleting temporary backup database file which only works on beta device.
+     *
+     * @param { string } betaIssueId - The beta issue id.
+     * @param { int } dbFd - The backup database fd.
+     * @returns { Promise<void> } Return void.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     1. The betaIssueId parameter is invalid, such as null, undefined or empty string.
+     *     2. The dbFd parameter is invalid, such as out of range 0~1023.
+     * @throws { BusinessError } 23800201 - Unsupported operation type, this api only works on beta device.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    releaseDebugDatabase(betaIssueId: string, dbFd: int): Promise<void>;
   }
 
   /**
@@ -11881,12 +11922,12 @@ declare namespace photoAccessHelper {
   /**
    * Indicates possible value types
    *
-   * @typedef { number | string | boolean | Uint8Array | null } ValueType
+   * @typedef {int | long | double | string | boolean | Uint8Array | null } ValueType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 22 dynamic&static
    */
-  type ValueType = number | string | boolean | Uint8Array | null;
+  type ValueType = int | long | double | string | boolean | Uint8Array | null;
 
   /**
    * Values in buckets are stored in key-value pairs, change {[key: string]: ValueType;} to Record<string, ValueType>
@@ -11909,30 +11950,30 @@ declare namespace photoAccessHelper {
     /**
      * Obtains the number of columns in the result set.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic&static
      */
-    columnCount: number;
+    columnCount: int;
     /**
      * Obtains the number of rows in the result set.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic&static
      */
-    rowCount: number;
+    rowCount: int;
     /**
      * Obtains the current index of the result set.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic&static
      */
-    rowIndex: number;
+    rowIndex: int;
     /**
      * Checks whether the cursor is positioned at the last row.
      *
@@ -11945,7 +11986,7 @@ declare namespace photoAccessHelper {
     /**
      * Go to the specified row of the result set.
      *
-     * @param { number } position - Indicates the index of the specified row, which starts from 0.
+     * @param { int } position - Indicates the index of the specified row, which starts from 0.
      * @returns { boolean } True if the result set is moved successfully; Returns false otherwise.
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes: position invalid.
@@ -11955,7 +11996,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 22 dynamic&static
      */
-    goToRow(position: number): boolean;
+    goToRow(position: int): boolean;
     /**
      * Go to the first row of the result set.
      *
@@ -11995,7 +12036,7 @@ declare namespace photoAccessHelper {
     /**
      * Obtains the value of the specified column in the current row.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { ValueType } The value of the specified column..
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes: columnIndex invalid.
@@ -12005,7 +12046,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 22 dynamic&static
      */
-    getValue(columnIndex: number): ValueType;
+    getValue(columnIndex: int): ValueType;
     /**
      * Closes the result set.
      *
@@ -12025,7 +12066,7 @@ declare namespace photoAccessHelper {
    * @enum { number } HdrMode
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 21 dynamic&static
+   * @since 22
    */
   enum HdrMode {
     /**
@@ -12033,7 +12074,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 22
      */
     DEFAULT = 0,
     /**
@@ -12041,7 +12082,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 22
      */
     HDR_ISO_SINGLE = 1,
     /**
@@ -12049,7 +12090,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 22
      */
     HDR_ISO_DUAL = 2,
     /**
@@ -12057,7 +12098,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 22
      */
     HDR_CUVA = 3,
     /**
@@ -12065,7 +12106,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 22
      */
     HDR_VIVID_SINGLE = 4,
     /**
@@ -12073,7 +12114,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 22
      */
     HDR_VIVID_DUAL = 5,
   }

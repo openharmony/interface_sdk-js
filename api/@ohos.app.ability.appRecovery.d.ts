@@ -320,7 +320,6 @@ declare namespace appRecovery {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   function saveAppState(): boolean;
   /**
@@ -343,7 +342,7 @@ declare namespace appRecovery {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function saveAppState(context?: UIAbilityContext): boolean;
 }

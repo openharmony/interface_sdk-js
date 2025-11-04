@@ -216,6 +216,7 @@ declare class By {
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamic
    * @deprecated since 9
+   * @useinstead ohos.UiTest.On#id
    * @test
    */
   id(id: number): By;
@@ -380,6 +381,7 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamic
    * @deprecated since 9
+   * @useinstead ohos.UiTest.Component#getId
    * @test
    */
   getId(): Promise<number>;

@@ -1435,6 +1435,14 @@ declare namespace media {
     title?: string;
 
     /**
+     * Description of the media asset.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 23 dynamic&static
+     */
+    description?: string;
+
+    /**
      * If the media contains video, this key retrieves its height.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
@@ -9119,6 +9127,22 @@ declare namespace media {
      * @since 21 dynamic&static
      */
     MD_KEY_ORIGINAL_HEIGHT = 'original_height',
+
+    /**
+     * Key for reference track IDs, value type is string, in comma separated format.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    MD_KEY_REFERENCE_TRACK_IDS = 'ref_track_ids',
+
+    /**
+     * Key for track reference type, value type is string.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    MD_KEY_TRACK_REFERENCE_TYPE = 'track_ref_type',
   }
 
   /**
