@@ -68,6 +68,43 @@ declare namespace common {
        */
       appIndex: number;
     }
+
+    /**
+     * The managed policy of enterprise device
+     *
+     * @enum { number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 22
+     */
+    export enum ManagedPolicy {
+      /**
+       * Not managed the feature of the device
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 22
+       */
+      DEFAULT = 0,
+
+      /**
+       * Disallow the feature of the device
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 22
+       */
+      DISALLOW = 1,
+  
+      /**
+       * Force open the feature of the device
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 22
+       */
+      FORCE_OPEN = 2,
+    }
 }
 
 export default common;
