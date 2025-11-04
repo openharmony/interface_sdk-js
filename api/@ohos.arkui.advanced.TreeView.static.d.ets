@@ -73,7 +73,7 @@ export declare enum TreeListenType {
  * @typedef { function } OnChangedCallback
  * @param { CallbackParam } callbackParam - The result of event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 20 staticonly
  * @noninterop
  */
 declare type OnChangedCallback = (callbackParam: CallbackParam) => void;
@@ -162,7 +162,7 @@ export declare struct TreeView {
      * The method to build component.
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 20 staticonly
      */
     @Builder build(): void;
 }
