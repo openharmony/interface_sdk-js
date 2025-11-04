@@ -738,7 +738,7 @@ export declare class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23
    */
-  isOnMainTree(): boolean;
+  isOnRenderTree(): boolean;
 }
 
 /**
