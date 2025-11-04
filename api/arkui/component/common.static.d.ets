@@ -211,12 +211,12 @@ export declare interface AnimatableArithmetic<T> {
     /**
      * Defines the multiplication rule of the data type.
      *
-     * @param { number } scale - scale value
+     * @param { double } scale - scale value
      * @returns { AnimatableArithmetic<T> } new value which implements AnimatableArithmetic<T> interface
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    multiply(scale: number): AnimatableArithmetic<T>;
+    multiply(scale: double): AnimatableArithmetic<T>;
     /**
      * Defines the equality judgment rule of the data type.
      *
@@ -351,29 +351,29 @@ export declare interface ExpectedFrameRateRange {
     /**
      * The minimum animation drawing FPS.
      * The minimum value should be less than or equal to the maximum value.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    min: number;
+    min: int;
     /**
      * The maximum animation drawing FPS.
      * The maximum value should be greater than or equal to the minimum value.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    max: number;
+    max: int;
     /**
      * The expected frame rate of dynamical callback rate range.
      * The value should be between the minimum and maximum value.
      * Otherwise, the actual callback rate will be dynamically
      * adjusted to better align with other animation sources.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    expected: number;
+    expected: int;
 }
 /**
  * global $r function
@@ -1312,22 +1312,22 @@ export declare interface AnimateParam {
     /**
      * Animation duration, in ms.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 1000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    duration?: number;
+    duration?: int;
     /**
      * Animation playback speed. A larger value indicates faster animation playback, and a smaller value indicates slower
      * animation playback. The value 0 means that there is no animation.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 1.0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    tempo?: number;
+    tempo?: double;
     /**
      * Animation curve.
      *
@@ -1340,23 +1340,23 @@ export declare interface AnimateParam {
     /**
      * Animation delay time, in ms. By default, the animation has no delay.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    delay?: number;
+    delay?: int;
     /**
      * Number of times that the animation is played. By default, the animation is played once.
      * The value **-1** indicates that the animation is played for an unlimited number of times.
      * The value **0** indicates that there is no animation.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    iterations?: number;
+    iterations?: int;
     /**
      * Playback mode. By default, the animation is played from the beginning after the playback is complete.
      *
@@ -1433,24 +1433,24 @@ export declare interface MotionPathOptions {
      * Value range: [0, 1].
      * A value less than 0 or greater than 1 evaluates to the default value **0**.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 0.0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    from?: number;
+    from?: double;
     /**
      * End point of the motion path.
      * Value range: [0, 1].
      * A value less than 0 or greater than 1 evaluates to the default value **1**,
      * provided that the value of **to** is greater than or equal to the value of **from**.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 1.0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    to?: number;
+    to?: double;
     /**
      * Whether to rotate along the path.
      *
@@ -1475,12 +1475,12 @@ export declare interface sharedTransitionOptions {
      * <br>Unit: ms.
      * <br>Value range: [0, +∞).
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 1000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    duration?: number;
+    duration?: int;
     /**
      * Animation curve.<br>You are advised to specify the curve using the **Curve** or
      * ** ICurve** type.<br>For the string type, this parameter indicates an animation
@@ -1497,12 +1497,12 @@ export declare interface sharedTransitionOptions {
     /**
      * Animation delay time, in ms.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    delay?: number;
+    delay?: int;
     /**
      * The motion path info.
      *
@@ -1514,11 +1514,11 @@ export declare interface sharedTransitionOptions {
     /**
      * Z index info.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    zIndex?: number;
+    zIndex?: int;
     /**
      * the animate type.
      *
@@ -1669,43 +1669,43 @@ export declare interface SweepGradientOptions {
      * Defines the starting point of angle gradient.
      *
      * Anonymous Object Rectification.
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    start?: number | string;
+    start?: double | string;
     /**
      * Defines end point of angle gradient.
      *
      * Anonymous Object Rectification.
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    end?: number | string;
+    end?: double | string;
     /**
      * Defines the rotation angle of the gradient.
      *
      * Anonymous Object Rectification.
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    rotation?: number | string;
+    rotation?: double | string;
     /**
      * Defines color description for gradients.
      *
      * Anonymous Object Rectification.
-     * @type { Array<[ResourceColor, number]> }
+     * @type { Array<[ResourceColor, double]> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
     colors: Array<[
         ResourceColor,
-        number
+        double
     ]>;
     /**
      * Defines gradient colors with repeated coloring.
@@ -1751,13 +1751,13 @@ export declare interface RadialGradientOptions {
      * Defines color description for gradients.
      *
      * Anonymous Object Rectification.
-     * @type { Array<[ResourceColor, number]> }
+     * @type { Array<[ResourceColor, double]> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
     colors: Array<[
         ResourceColor,
-        number
+        double
     ]>;
     /**
      * Defines gradient colors with repeated coloring.
@@ -1783,30 +1783,30 @@ export declare interface TranslateOptions {
      * For the number type, the unit is VP, and the value range is (-∞, +∞).
      * For the string type, the value follows the format of length string type.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    x?: number | string;
+    x?: double | string;
     /**
      * Translation distance along the y-axis.
      * For the number type, the unit is VP, and the value range is (-∞, +∞).
      * For the string type, the value follows the format of length string type.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    y?: number | string;
+    y?: double | string;
     /**
      * Distance to translate along the z-axis. The value is a floating
      * point number, the default value is 0.0, and the unit is px.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    z?: number | string;
+    z?: double | string;
 }
 /**
  * Defines the options of scale.
@@ -1822,48 +1822,48 @@ export declare interface ScaleOptions {
      * 0 < x < 1: The component is scaled down along the x-axis.
      * x < 0: The component is scaled in the reverse direction of the x-axis.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    x?: number;
+    x?: double;
     /**
      * Scale ratio along the y-axis.
      * y > 1: The component is scaled up along the y-axis.
      * 0 < y < 1: The component is scaled down along the y-axis.
      * y < 0: The component is scaled in the reverse direction of the y-axis.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    y?: number;
+    y?: double;
     /**
      * Scale ratio along the z-axis. z > 1: The component is scaled up along the z-axis.
      * <br>0 < z < 1: The component is scaled down along the z-axis.
      * <br>z < 0: The component is scaled in the reverse direction of the z-axis.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    z?: number;
+    z?: double;
     /**
      * X coordinate of the transformation center point (anchor). Unit is vp.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    centerX?: number | string;
+    centerX?: double | string;
     /**
      * Y coordinate of the transformation center point (anchor). Unit is vp.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    centerY?: number | string;
+    centerY?: double | string;
 }
 /**
  * Defines the align rule options of relative container.
@@ -2144,71 +2144,71 @@ export declare interface RotateOptions {
     /**
      * X coordinate of the rotation axis vector.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    x?: number;
+    x?: double;
     /**
      * Y coordinate of the rotation axis vector.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    y?: number;
+    y?: double;
     /**
      * Z coordinate of the rotation axis vector.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    z?: number;
+    z?: double;
     /**
      * X coordinate of the transformation center point (anchor). Unit is vp.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    centerX?: number | string;
+    centerX?: double | string;
     /**
      * Y coordinate of the transformation center point (anchor). Unit is vp.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    centerY?: number | string;
+    centerY?: double | string;
     /**
      * Z-axis anchor, that is, the z-component of the 3D rotation center point.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    centerZ?: number;
+    centerZ?: double;
     /**
      * Distance from the user to the z=0 plane.
      * The axis and center of rotation are set based on the coordinate system,
      * which remains where it is when the component is moved.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    perspective?: number;
+    perspective?: double;
     /**
      * The param of angle.
      *
-     * @type { number | string }
+     * @type { double | string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    angle: number | string;
+    angle: double | string;
 }
 /**
  * Defines the Edge object.
@@ -2411,7 +2411,7 @@ export declare class TransitionEffect {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    static opacity(alpha: number): TransitionEffect;
+    static opacity(alpha: double): TransitionEffect;
     /**
      * Creates a move transition effect
      *
@@ -2450,7 +2450,7 @@ export declare class TransitionEffect {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    constructor(type: 'opacity', effect: number);
+    constructor(type: 'opacity', effect: double);
     /**
      * move TransitionEffect constructor
      *
@@ -3218,13 +3218,13 @@ export declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {
 export declare interface BlurOptions {
     /**
      * Fuzzy gray scale parameter.
-     * @type { [number, number] }
+     * @type { [double, double] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
     grayscale: [
-        number,
-        number
+        double,
+        double
     ];
 }
 /**
@@ -3277,12 +3277,12 @@ export declare interface BlurStyleOptions {
      * <br>Default value: **1.0**.
      * <br>Value range: [0.0, 1.0].
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 1.0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    scale?: number;
+    scale?: double;
     /**
      * Defines the options of blur
      *
@@ -3306,33 +3306,33 @@ export declare interface BackgroundEffectOptions {
      * Value range: [0, +∞).
      * Default value: **0**.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    radius: number;
+    radius: double;
     /**
      * Saturation.
      * Value range: [0, +∞).
      * Recommended value range: [0, 50].
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    saturation?: number;
+    saturation?: double;
     /**
      * Brightness.
      * <br>Value range: [0, +∞).
      * <br>Default value: **1** Recommended value range: [0, 2].
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    brightness?: number;
+    brightness?: double;
     /**
      * Color.
      *
@@ -3390,11 +3390,11 @@ export declare interface ForegroundEffectOptions {
     /**
      * Define the radius size of ForegroundEffect.The range of this value is [0, ∞)
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    radius: number;
+    radius: double;
 }
 /**
  * Provide an interface for the text style of picker
@@ -3552,11 +3552,11 @@ export declare interface ShadowOptions {
     /**
      * Blur radius of the shadow.
      *
-     * @type { number | Resource }
+     * @type { double | Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    radius: number | Resource;
+    radius: double | Resource;
     /**
      * Shadow type.
      * <br>Default value: **COLOR**.
@@ -3578,19 +3578,19 @@ export declare interface ShadowOptions {
     /**
      * Offset of the shadow along the x-axis. Unit is px. Default value is 0.
      *
-     * @type { ?(number | Resource) }
+     * @type { ?(double | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    offsetX?: number | Resource;
+    offsetX?: double | Resource;
     /**
      * Offset of the shadow along the y-axis. Unit is px. Default value is 0.
      *
-     * @type { ?(number | Resource) }
+     * @type { ?(double | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    offsetY?: number | Resource;
+    offsetY?: double | Resource;
     /**
      * Whether to fill the inside of the component with shadow. **true**: Fill
      * the inside of the component with shadow.
@@ -3681,22 +3681,22 @@ export declare interface MultiShadowOptions {
      * Offset on the x-axis.
      * Unit: vp.
      *
-     * @type { ?(number | Resource) }
+     * @type { ?(double | Resource) }
      * @default 5
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    offsetX?: number | Resource;
+    offsetX?: double | Resource;
     /**
      * Offset on the y-axis.
      * Unit: vp.
      *
-     * @type { ?(number | Resource) }
+     * @type { ?(double | Resource) }
      * @default 5
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    offsetY?: number | Resource;
+    offsetY?: double | Resource;
 }
 /**
  * The types of expanded safe areas.
@@ -6214,20 +6214,20 @@ export declare interface SheetOptions extends BindOptions {
      * <br>For a bottom sheet, the final height is returned when there are changes in detents.
      * <br>The return value is in px.
      * </p>
-     * @type { ?Callback<number> }
+     * @type { ?Callback<int> }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    onDetentsDidChange?: Callback<number>;
+    onDetentsDidChange?: Callback<int>;
     /**
      * Called when width of the sheet changed
      *
-     * @type { ?Callback<number> }
+     * @type { ?Callback<int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    onWidthDidChange?: Callback<number>;
+    onWidthDidChange?: Callback<int>;
     /**
      * Called when the sheet type changed
      *
@@ -6289,7 +6289,7 @@ export declare interface SheetOptions extends BindOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    effectEdge?: number;
+    effectEdge?: int;
     /**
      * Defines sheet radius
      *
@@ -7954,21 +7954,21 @@ export declare class ProgressMask {
     /**
      * constructor.
      *
-     * @param { number } value - Current value of the progress mask. Value range: [0.0, +∞).
-     * @param { number } total - Maximum value of the progress mask. Value range: [0.0, +∞).
+     * @param { double } value - Current value of the progress mask. Value range: [0.0, +∞).
+     * @param { double } total - Maximum value of the progress mask. Value range: [0.0, +∞).
      * @param { ResourceColor } color - Color of the progress mask.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    constructor(value: number, total: number, color: ResourceColor);
+    constructor(value: double, total: double, color: ResourceColor);
     /**
      * Updates the progress value of the progress mask.
      *
-     * @param { number } value - Current value of the progress mask.
+     * @param { double } value - Current value of the progress mask.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    updateProgress(value: number): void;
+    updateProgress(value: double): void;
     /**
      * Update the color of the mask.
      *
@@ -8664,35 +8664,35 @@ export declare interface InvertOptions {
     /**
      * Defines the low value of threshold
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    low: number;
+    low: double;
     /**
      * Defines the high value of threshold
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    high: number;
+    high: double;
     /**
      * Defines the threshold
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    threshold: number;
+    threshold: double;
     /**
      *Defines the threshold range
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    thresholdRange: number;
+    thresholdRange: double;
 }
 /**
  * Defines the type that can be undefined.
@@ -9190,12 +9190,12 @@ export declare interface CommonMethod {
     /**
      * Sets the opacity of the component.
      *
-     * @param { number | Resource | undefined } value - Opacity of the component. The value ranges from 0 to 1.
+     * @param { double | Resource | undefined } value - Opacity of the component. The value ranges from 0 to 1.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default opacity(value: number | Resource | undefined): this;
+    default opacity(value: double | Resource | undefined): this;
     /**
      * Sets the border.
      *
@@ -9520,12 +9520,12 @@ export declare interface CommonMethod {
     /**
      * Set focus index by key tab.
      * The tabIndex and focusScopeId cannot be used together.
-     * @param { number | undefined } index
+     * @param { int | undefined } index
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default tabIndex(index: number | undefined): this;
+    default tabIndex(index: int | undefined): this;
     /**
      * Set default focused component when a page create.
      *
@@ -9653,25 +9653,25 @@ export declare interface CommonMethod {
      * The larger the blurring radius, the more blurring the content.
      * If the value is 0, the content blurring effect is not blurring.
      *
-     * @param { number | undefined } blurRadius - value indicates radius of backdrop blur.
+     * @param { double | undefined } blurRadius - value indicates radius of backdrop blur.
      * @param { BlurOptions } [options] - options indicates blur options.
      * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default blur(blurRadius: number | undefined, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): this;
+    default blur(blurRadius: double | undefined, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): this;
     /**
      * Applies a linear gradient foreground blur effect to the component.
      *
-     * @param { number | undefined } value - the blurring radius. The larger the blurring radius, the more
+     * @param { double | undefined } value - the blurring radius. The larger the blurring radius, the more
      *     blurring the content, and if the value is 0, the content blurring effect is not blurring.
      * @param { LinearGradientBlurOptions | undefined } options - the linear gradient blur options.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default linearGradientBlur(value: number | undefined, options: LinearGradientBlurOptions | undefined): this;
+    default linearGradientBlur(value: double | undefined, options: LinearGradientBlurOptions | undefined): this;
     /**
      * Apply a motion blur effect to the component being scaled or moved.
      * 1.Do not use this API in intra-component transitions, shared element transitions,
@@ -9696,7 +9696,7 @@ export declare interface CommonMethod {
     /**
      * Applies a brightness effect to the component.
      *
-     * @param { number | undefined } value - Brightness of the component. The value **1** indicates no effects.
+     * @param { double | undefined } value - Brightness of the component. The value **1** indicates no effects.
      *     The value **0** indicates the complete darkness. If the value is less than **1**, the brightness
      *     decreases. If the value is greater than **1**, the brightness increases. A larger value indicates
      *     a higher brightness. A brightness of 2 turns the component completely white.
@@ -9708,11 +9708,11 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default brightness(value: number | undefined): this;
+    default brightness(value: double | undefined): this;
     /**
      * Applies a contrast effect to the component.
      *
-     * @param { number | undefined } value - Contrast of the component. The input parameter is a
+     * @param { double | undefined } value - Contrast of the component. The input parameter is a
      *     contrast value. If the value is **1**, the source image is displayed. If the
      *     value is greater than 1, a larger value indicates a higher contrast and a clearer
      *     image. If the value is less than 1, a smaller value indicates a lower contrast is.
@@ -9725,11 +9725,11 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default contrast(value: number | undefined): this;
+    default contrast(value: double | undefined): this;
     /**
      * Applies a grayscale effect to the component.
      *
-     * @param { number | undefined } value - Grayscale conversion ratio of the component.
+     * @param { double | undefined } value - Grayscale conversion ratio of the component.
      *     <br>If the value is **1.0**, the component is completely converted to grayscale.
      *     <br>If the value is **0.0**, the component remains unchanged. Between **0** and **1**,
      *     <br>the value applies a linear multiplier on the grayscale effect. The unit is percentage.
@@ -9743,7 +9743,7 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default grayscale(value: number | undefined): this;
+    default grayscale(value: double | undefined): this;
     /**
      * Applies a color blend effect to the component.
      *
@@ -9756,7 +9756,7 @@ export declare interface CommonMethod {
     /**
      * Applies a saturation effect to the component.
      *
-     * @param { number | undefined } value - Saturation of the component. The saturation is the ratio of the
+     * @param { double | undefined } value - Saturation of the component. The saturation is the ratio of the
      *     chromatic component to the achromatic component (gray) in a color. If the value is **1**,
      *     the original image is displayed. If the value is greater than **1**, a higher percentage of
      *     the chromatic component indicates a higher saturation. If the value is less than **1**, a higher
@@ -9769,28 +9769,28 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default saturate(value: number | undefined): this;
+    default saturate(value: double | undefined): this;
     /**
      * Sepia conversion ratio of the component.
      *
-     * @param { number | undefined } value - Sepia conversion ratio of the component. If the value is **1**, the image
+     * @param { double | undefined } value - Sepia conversion ratio of the component. If the value is **1**, the image
      *     is completely sepia. If the value is **0**, the component remains unchanged. The unit is percentage.
      *     <br> Value range: [0, +∞).
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default sepia(value: number | undefined): this;
+    default sepia(value: double | undefined): this;
     /**
      * Invert the input image. Value defines the scale of the conversion. 100% of the value is a complete reversal.
      * A value of 0% does not change the image. (Percentage)
      *
-     * @param { number | InvertOptions | undefined } value - value indicates the scale of the conversion or the options of invert.
+     * @param { double | InvertOptions | undefined } value - value indicates the scale of the conversion or the options of invert.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default invert(value: number | InvertOptions | undefined): this;
+    default invert(value: double | InvertOptions | undefined): this;
     /**
      * Applies a system bar effect to the component, which means to invert colors based on the background and add a blur.
      *
@@ -9802,7 +9802,7 @@ export declare interface CommonMethod {
     /**
      * Rotates the hue of the component.
      *
-     * @param { number | string | undefined } value - Hue rotation angle of the component.
+     * @param { double | string | undefined } value - Hue rotation angle of the component.
      *     <br>A rotation of 360 degrees leaves the color unchanged.
      *     <br>A rotation of 180 degrees and then -180 degrees also leaves the color unchanged.
      *     <br>When the data type is number, the value **90** is equivalent to **'90deg'**.
@@ -9810,7 +9810,7 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default hueRotate(value: number | string | undefined): this;
+    default hueRotate(value: double | string | undefined): this;
     /**
      * Sets whether to draw shadows of child nodes in the component at the same layer,
      * so that the shadows of elements at the same layer overlap.
@@ -9862,14 +9862,14 @@ export declare interface CommonMethod {
      * Adds the background blur effect for the current component. The input parameter is the blur radius.
      * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
      *
-     * @param { number | undefined } radius - radius indicates radius of backdrop blur.
+     * @param { double | undefined } radius - radius indicates radius of backdrop blur.
      * @param { BlurOptions } [options] - options indicates the backdrop blur options.
      * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default backdropBlur(radius: number | undefined, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): this;
+    default backdropBlur(radius: double | undefined, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): this;
     /**
      * Sets whether the component and its child components are rendered off
      * the screen as a whole before being blended with its parent.
@@ -10649,7 +10649,7 @@ export declare interface CommonMethod {
     /**
      * Applies a spherical effect to the component.
      *
-     * @param { number | undefined } value - Spherical degree of the component.
+     * @param { double | undefined } value - Spherical degree of the component.
      *     <br>The value ranges from 0 to 1.
      *     <p>**NOTE**:
      *     <br>1. If the value is **0**, the component remains unchanged. If the value is 1, the component is completely
@@ -10663,11 +10663,11 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default sphericalEffect(value: number | undefined): this;
+    default sphericalEffect(value: double | undefined): this;
     /**
      * Applies a light up effect to the component.
      *
-     * @param { number | undefined } value - Light up degree of the component.
+     * @param { double | undefined } value - Light up degree of the component.
      *     <br>The value ranges from 0 to 1.
      *     <br>If the value is **0**, the component is dark. If the value is **1**, the component is fully illuminated.
      *     <br>Between **0** and **1**, a larger value indicates higher luminance.
@@ -10677,7 +10677,7 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default lightUpEffect(value: number | undefined): this;
+    default lightUpEffect(value: double | undefined): this;
     /**
      * Applies a pixel stretch effect to the component.
      *
@@ -11099,13 +11099,13 @@ export declare interface OverlayOffset {
  * The second element means the stop position.
  * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
  *
- * @typedef { [ number, number ] } FractionStop
+ * @typedef { [ double, double ] } FractionStop
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
 export type FractionStop = [
-    number,
-    number
+    double,
+    double
 ];
 
 /**
@@ -11321,19 +11321,19 @@ export declare interface MotionBlurAnchor {
     /**
      * Define anchor coordinate x-value.Value range [0.0, 1.0].
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    x: number;
+    x: double;
     /**
      * Define anchor coordinate y-value.Value range [0.0, 1.0].
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    y: number;
+    y: double;
 }
 /**
  * Define motion blur options.
@@ -11346,11 +11346,11 @@ export declare interface MotionBlurOptions {
     /**
      * Define the size of motion blur radius.The range of this value is  [0.0, ∞).
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    radius: number;
+    radius: double;
     /**
      * Define motion blur anchor coordinates.
      *
@@ -12275,19 +12275,19 @@ export declare interface BackgroundBrightnessOptions {
      * Brightness change rate. A higher rate means that brightness decreases more quickly.
      * If **rate** is set to **0**, **lightUpDegree** will not take effect, meaning no brightening effect will occur.
      *
-     * @type { number } - The default value is 0.0, value range: (0.0, +∞).
+     * @type { double } - The default value is 0.0, value range: (0.0, +∞).
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    rate: number;
+    rate: double;
     /**
      * Light up degree. A greater degree indicates a greater increase in brightness.
      *
-     * @type { number } - The default value is 0.0, value range: [-1.0, 1.0].
+     * @type { double } - The default value is 0.0, value range: [-1.0, 1.0].
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    lightUpDegree: number;
+    lightUpDegree: double;
 }
 
 /**
@@ -12399,21 +12399,21 @@ export declare interface KeyframeAnimateParam {
     /**
      * Animation delay time, in ms.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    delay?: number;
+    delay?: int;
     /**
      * Animation iterations. When set to -1, the animation playing it repeatedly. The value range is greater than or equal to -1.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    iterations?: number;
+    iterations?: int;
     /**
      * Callback invoked when the whole keyframe animation is complete or the ability is about to enter the background.
      *
@@ -12442,11 +12442,11 @@ export declare interface KeyframeState {
     /**
      * Animation duration of this keyframe, in ms.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    duration: number;
+    duration: int;
     /**
      * Animation curve of this keyframe.
      *

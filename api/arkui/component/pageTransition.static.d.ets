@@ -141,12 +141,12 @@ export declare class CommonTransition {
     /**
      * Called when the transparency value of the starting point of entry or the ending point of exit is set.
      *
-     * @param { number } value
+     * @param { double } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    opacity(value: number): this;
+    opacity(value: double): this;
 }
 /**
  * Defines pageTransition constructor parameters.
@@ -165,11 +165,11 @@ export declare interface PageTransitionOptions {
     type?: RouteType;
     /**
      * PageTransition animation duration, in ms.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    duration?: number;
+    duration?: int;
     /**
      * PageTransition animation curve.
      * @type { ?(Curve | string | ICurve) }
@@ -180,23 +180,23 @@ export declare interface PageTransitionOptions {
     curve?: Curve | string | ICurve;
     /**
      * PageTransition animation delay time, in ms.
-     * @type { ?number }
+     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    delay?: number;
+    delay?: int;
 }
 /**
  * Callback used to report page trasition events.
  *
  * @typedef { function } PageTransitionCallback
  * @param { RouteType } type - transition route type
- * @param { number } progress - transition progess
+ * @param { double } progress - transition progess
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export type PageTransitionCallback = (type: RouteType, progress: number) => void;
+export type PageTransitionCallback = (type: RouteType, progress: double) => void;
 /**
  * Provides an interface to set transition style when a page enters.
  *

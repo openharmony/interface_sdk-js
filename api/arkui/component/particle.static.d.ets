@@ -230,35 +230,35 @@ export interface EmitterProperty {
     /**
      * Emitter index.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    index: number;
+    index: int;
     /**
      * Emitter emission rate.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    emitRate?: number;
+    emitRate?: int;
     /**
      * Emitter emission rate. Only support number type.
      *
-     * @type { ?PositionT<number> }
+     * @type { ?PositionT<double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    position?: PositionT<number>;
+    position?: PositionT<double>;
     /**
      * Emitter emission window size. Only support number type.
      *
-     * @type { ?SizeT<number> }
+     * @type { ?SizeT<double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    size?: SizeT<number>;
+    size?: SizeT<double>;
     /**
      * the description of the annulus region. This parameter is valid only for emitter whose shape is annulus.
      *
@@ -295,35 +295,35 @@ export interface EmitterParticleOptions {
      */
     config: ParticleConfigs;
     /**
-     * Particle count.
+     * Particle int.
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      * @noninterop
      */
-    count: number;
+    count: int;
     /**
      * Particle lifetime.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 1000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      * @noninterop
      */
-    lifetime?: number;
+    lifetime?: int;
     /**
      * Particle lifetimeRange,value range [0, ∞).
      * when lifetimeRange>lifetime,minimum lifetime is 0.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      * @noninterop
      */
-    lifetimeRange?: number;
+    lifetimeRange?: int;
 }
 /**
  * Defines the emitter Options.
@@ -342,12 +342,12 @@ export interface EmitterOptions {
     particle: EmitterParticleOptions;
     /**
      * Emitting rate, that is, the number of particles produced per second.
-     * @type { ?number }
+     * @type { ?int }
      * @default 5
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    emitRate?: number;
+    emitRate?: int;
     /**
      * Shape of emitter.
      * @type { ?ParticleEmitterShape }
@@ -582,18 +582,18 @@ export interface ParticlePropertyAnimation<T> {
     to: T;
     /**
      * Start millis of the particle animation.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    startMillis: number;
+    startMillis: int;
     /**
      * End millis of the particle animation.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    endMillis: number;
+    endMillis: int;
     /**
      * Curve of the particle animation.
      * @type { ?(Curve | ICurve) }
@@ -767,12 +767,12 @@ export declare interface DisturbanceFieldOptions {
      * with positive numbers indicating outward repulsion and negative numbers indicating
      * inward attraction.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    strength?: number;
+    strength?: double;
     /**
      * Disturbance filed shape.
      *
@@ -785,21 +785,21 @@ export declare interface DisturbanceFieldOptions {
     /**
      * Disturbance filed size width value width, height.
      *
-     * @type { ?SizeT<number> }
+     * @type { ?SizeT<double> }
      * @default {width:0,height:0}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    size?: SizeT<number>;
+    size?: SizeT<double>;
     /**
      * Disturbance filed position width value x, y.
      *
-     * @type { ?PositionT<number> }
+     * @type { ?PositionT<double> }
      * @default {x:0,y:0}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    position?: PositionT<number>;
+    position?: PositionT<double>;
     /**
      * Attenuation degree of the field from the center point to the field boundary.
      * ranging from 0 to 100 integers. If 0, it indicates that the field is a rigid body,
@@ -807,39 +807,39 @@ export declare interface DisturbanceFieldOptions {
      * a larger feather value indicates a greater degree of relaxation in the field,
      * and more particles near the center point will appear in the field strength range. The default value is 0.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    feather?: number;
+    feather?: int;
     /**
      * Scaling parameter is used to control the overall size of noise, with a value greater or equal 0.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    noiseScale?: number;
+    noiseScale?: double;
     /**
     * Noise frequency with a value greater or equal 0.
     *
-    * @type { ?number }
+    * @type { ?double }
     * @default 1
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 22 static
     */
-    noiseFrequency?: number;
+    noiseFrequency?: double;
     /**
      * NoiseAmplitude fluctuation range of noise,  value,
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    noiseAmplitude?: number;
+    noiseAmplitude?: double;
 }
 /**
  * Defines particle disturbance shape.
@@ -906,21 +906,21 @@ export declare interface ParticleAnnulusRegion {
     /**
      * The start angle of the annulus, in degree
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    startAngle?: number;
+    startAngle?: double;
     /**
      * The end angle of the annulus, in degree
      *
-     * @type { ?number }
+     * @type { ?double }
      * @default 360
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    endAngle?: number;
+    endAngle?: double;
 }
 
 

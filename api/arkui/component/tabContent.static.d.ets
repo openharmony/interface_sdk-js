@@ -171,27 +171,27 @@ export declare interface TabBarLabelStyle {
   /**
    * Label max lines.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  maxLines?: number;
+  maxLines?: int;
   /**
    * Min font size for adapted height.
    *
-   * @type { ?(number | ResourceStr) }
+   * @type { ?(double | ResourceStr) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  minFontSize?: number | ResourceStr;
+  minFontSize?: double | ResourceStr;
   /**
    * Max font size for adapted height.
    *
-   * @type { ?(number | ResourceStr) }
+   * @type { ?(double | ResourceStr) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  maxFontSize?: number | ResourceStr;
+  maxFontSize?: double | ResourceStr;
   /**
    * Adapt text height option.
    *
