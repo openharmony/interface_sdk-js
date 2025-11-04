@@ -178,7 +178,7 @@ declare namespace application {
    * Get application context instance.
    *
    * @returns { ApplicationContext } Returns the application context.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Memory operation error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
