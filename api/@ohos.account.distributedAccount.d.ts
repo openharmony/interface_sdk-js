@@ -388,11 +388,11 @@ declare namespace distributedAccount {
     /**
      * The scalable data in the distributed information of the OS account.
      *
-     * @type { ?RecordData }
+     * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Account.OsAccount
      * @since 20 static
      */
-    scalableData?: RecordData;
+    scalableData?: Record<string, RecordData>;
   }
 }
 

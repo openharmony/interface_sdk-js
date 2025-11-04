@@ -3372,12 +3372,12 @@ declare namespace osAccount {
     /**
      * Indicates the business parameters.
      *
-     * @type { RecordData }
+     * @type { Record<string, RecordData> }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 20 static
      */
-    businessParams: RecordData;
+    businessParams: Record<string, RecordData>;
 
     /**
      * Indicates caller UID.
@@ -4190,7 +4190,7 @@ declare namespace osAccount {
     /**
      * Gets the business access token of the current domain account.
      *
-     * @param { RecordData } businessParams - Indicates the business parameters.
+     * @param { Record<string, RecordData> } businessParams - Indicates the business parameters.
      * @param { AsyncCallback<Uint8Array> } callback - Indicates the result callback.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -4207,7 +4207,7 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 20 static
      */
-    static getAccessToken(businessParams: RecordData, callback: AsyncCallback<Uint8Array>): void;
+    static getAccessToken(businessParams: Record<string, RecordData>, callback: AsyncCallback<Uint8Array>): void;
 
     /**
      * Gets the business access token for the current domain account.
@@ -4236,7 +4236,7 @@ declare namespace osAccount {
     /**
      * Gets the business access token for the current domain account.
      *
-     * @param { RecordData } businessParams - Indicates the business parameters.
+     * @param { Record<string, RecordData> } businessParams - Indicates the business parameters.
      * @returns { Promise<Uint8Array> } The promise returned by the function.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -4253,7 +4253,7 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 20 static
      */
-    static getAccessToken(businessParams: RecordData): Promise<Uint8Array>;
+    static getAccessToken(businessParams: Record<string, RecordData>): Promise<Uint8Array>;
 
     /**
      * Checks whether the authentication of the target domain account is expired.
@@ -4298,11 +4298,11 @@ declare namespace osAccount {
     /**
      * Indicates the detail config parameters.
      *
-     * @type { RecordData }
+     * @type { Record<string, RecordData> }
      * @syscap SystemCapability.Account.OsAccount
      * @since 20 static
      */
-    parameters: RecordData;
+    parameters: Record<string, RecordData>;
 
     /**
      * Indicates the config identifier.
@@ -4356,7 +4356,7 @@ declare namespace osAccount {
      * Adds a domain server config.
      *
      * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
-     * @param { RecordData } parameters - Indicates the server config parameters.
+     * @param { Record<string, RecordData> } parameters - Indicates the server config parameters.
      * @returns { Promise<DomainServerConfig> } Returns the added domain server config.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -4369,7 +4369,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @since 20 static
      */
-    static addServerConfig(parameters: RecordData): Promise<DomainServerConfig>;
+    static addServerConfig(parameters: Record<string, RecordData>): Promise<DomainServerConfig>;
 
     /**
      * Removes a domain server config.
@@ -4415,7 +4415,7 @@ declare namespace osAccount {
      *
      * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
      * @param { string } configId - Indicates the server config identifier.
-     * @param { RecordData } parameters - Indicates the server config parameters.
+     * @param { Record<string, RecordData> } parameters - Indicates the server config parameters.
      * @returns { Promise<DomainServerConfig> } Returns the updated domain server config.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -4429,7 +4429,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @since 20 static
      */
-    static updateServerConfig(configId: string, parameters: RecordData): Promise<DomainServerConfig>;
+    static updateServerConfig(configId: string, parameters: Record<string, RecordData>): Promise<DomainServerConfig>;
 
     /**
      * Gets the specified server config by identifier.

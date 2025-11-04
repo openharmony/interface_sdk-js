@@ -1339,7 +1339,7 @@ declare namespace appAccount {
      * @param { string } name - Indicates the account name of your application or third-party applications.
      * @param { string } owner - Indicates the account owner of your application or third-party applications.
      * @param { string } authType - Indicates the authentication type.
-     * @param { RecordData } options - Indicates the authenticator-specific options for the request.
+     * @param { Record<string, RecordData> } options - Indicates the authenticator-specific options for the request.
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, owner, authType or options.
@@ -1354,7 +1354,7 @@ declare namespace appAccount {
       name: string,
       owner: string,
       authType: string,
-      options: RecordData,
+      options: Record<string, RecordData>,
       callback: AuthCallback
     ): void;
 
@@ -2480,11 +2480,11 @@ declare namespace appAccount {
      * 1. Constants.KEY_CALLER_BUNDLE_NAME;
      * The above parameters are set by the appAccount management service and can be used for identify the caller.
      *
-     * @type { ?RecordData }
+     * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 20 static
      */
-    parameters?: RecordData;
+    parameters?: Record<string, RecordData>;
   }
 
   /**
@@ -2574,11 +2574,11 @@ declare namespace appAccount {
      * 1. Constants.KEY_CALLER_BUNDLE_NAME;
      * The above parameters are set by the appAccount management service and can be used for identify the caller.
      *
-     * @type { ?RecordData }
+     * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 20 static
      */
-    parameters?: RecordData;
+    parameters?: Record<string, RecordData>;
   }
 
   /**
@@ -2602,11 +2602,11 @@ declare namespace appAccount {
     /**
      * The properties to be set.
      *
-     * @type { ?RecordData }
+     * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 20 static
      */
-    properties?: RecordData;
+    properties?: Record<string, RecordData>;
 
     /**
      * The authenticator-specific parameters.
@@ -2626,11 +2626,11 @@ declare namespace appAccount {
      * 1. Constants.KEY_CALLER_BUNDLE_NAME;
      * The above parameters are set by the appAccount management service and can be used for identify the caller.
      *
-     * @type { ?RecordData }
+     * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 20 static
      */
-    parameters?: RecordData;
+    parameters?: Record<string, RecordData>;
   }
 
   /**
@@ -3127,12 +3127,12 @@ declare namespace appAccount {
      *
      * @param { string } name - Indicates the account name.
      * @param { string } authType - Indicates the authentication type.
-     * @param { RecordData } options - Indicates the authenticator-specific options for the request.
+     * @param { Record<string, RecordData> } options - Indicates the authenticator-specific options for the request.
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @syscap SystemCapability.Account.AppAccount
      * @since 20 static
      */
-    auth(name: string, authType: string, options: RecordData, callback: AuthCallback): void;
+    auth(name: string, authType: string, options: Record<string, RecordData>, callback: AuthCallback): void;
 
     /**
      * Verifies the credential to ensure the user is the owner of the specified application account.
