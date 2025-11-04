@@ -1435,6 +1435,14 @@ declare namespace media {
     title?: string;
 
     /**
+     * Description of the media asset.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 23 dynamic&static
+     */
+    description?: string;
+
+    /**
      * If the media contains video, this key retrieves its height.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
