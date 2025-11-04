@@ -2785,7 +2785,7 @@ declare function createReadStream(path: string, options?: ReadStreamOptions): Re
  *
  * @param { string } path - Path of the file.
  * @param { WriteStreamOptions } [options] - Defines the options used in createWriteStream().
- * @returns { WriteStream } ReadStream instance obtained.
+ * @returns { WriteStream } WriteStream instance obtained.
  * @throws { BusinessError } 401 - Parameter error
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2816,7 +2816,7 @@ declare function createReadStream(path: string, options?: ReadStreamOptions): Re
  * <br>By default, data is written from the current position.
  * <br>mode (number): mode for creating the writeable stream. This parameter is optional.
  * <br>The default value is the write-only mode.
- * @returns { WriteStream } ReadStream instance obtained.
+ * @returns { WriteStream } WriteStream instance obtained.
  * @throws { BusinessError } 401 - Parameter error
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -3464,7 +3464,7 @@ declare function listFile(
  * Lists all file names in a directory. This API uses a promise to return the result.
  *
  * @param { string } path - Application sandbox path of the directory.
- * @param { AsyncCallback<string[]> } callback - Options for filtering files. The files are not filtered by default
+ * @param { AsyncCallback<string[]> } callback - Options for filtering files. The files are not filtered by default.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
