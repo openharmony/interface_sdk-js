@@ -47,7 +47,6 @@ import infraredEmitter from '@ohos.multimodalInput.infraredEmitter';
 /*** endif */
 
 /* 1.1 独有部分 */
-
 import inputDeviceCooperate from '@ohos.multimodalInput.inputDeviceCooperate';
 import inputEventClient from '@ohos.multimodalInput.inputEventClient';
 import inputMonitor from '@ohos.multimodalInput.inputMonitor';
