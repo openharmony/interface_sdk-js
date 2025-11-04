@@ -1225,7 +1225,7 @@ export class FrameNode {
    * @atomicservice
    * @since 23
    */
-  isOnMainTree(): boolean;
+  isOnRenderTree(): boolean;
 }
 
 /**
