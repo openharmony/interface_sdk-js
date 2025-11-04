@@ -524,44 +524,18 @@ declare class UIAbility extends Ability {
   onDestroy(): void | Promise<void>;
 
   /**
-   * Called to clear resources when this UIAbility is destroyed.
-   * This API returns the result synchronously or uses a promise to return the result.
-   * 
-   * <p>**NOTE**:
-   * <br>After the onDestroy() lifecycle callback is executed, the application may exit. Consequently,
-   * the asynchronous function (for example, asynchronously writing data to the database) in onDestroy() may fail to be
-   * executed. You can use the asynchronous lifecycle to ensure that the subsequent lifecycle continues only after the
-   * asynchronous function in onDestroy() finishes the execution.
-   * </p>
+   * Called back before an ability is destroyed.
+   * After the onDestroy() lifecycle callback is executed, the application may exit. Consequently,
+   * the asynchronous function (for example, asynchronously writing data to the database) in synchronous onDestroy()
+   * may fail to be executed. You can use the asynchronous lifecycle to ensure that the subsequent lifecycle
+   * continues only after the asynchronous function in onDestroy() finishes the execution.
    *
-   * @returns { void } the promise returned by the function.
+   * @returns { Promise<void> | undefined } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
    * @since 20 static
    */
-  onDestroy(): void;
-
-  /**
-   * Called to clear resources when this UIAbility is destroyed.
-   * This API returns the result synchronously or uses a promise to return the result.
-   * 
-   * <p>**NOTE**:
-   * <br>After the onDestroyAsync() lifecycle callback is executed, the application may exit. Consequently,
-   * the asynchronous function (for example, asynchronously writing data to the database) in onDestroyAsync() may fail to be
-   * executed. You can use the asynchronous lifecycle to ensure that the subsequent lifecycle continues only after the
-   * asynchronous function in onDestroyAsync() finishes the execution.
-   * </p>
-   *
-   * @returns { Promise<void> } the promise returned by the function.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 static
-   */
-  onDestroyAsync(): Promise<void>;
+  onDestroy(): Promise<void> | undefined;
 
   /**
    * Called back when the state of an ability changes to foreground.
