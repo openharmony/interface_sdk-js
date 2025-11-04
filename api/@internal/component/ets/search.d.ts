@@ -749,6 +749,7 @@ interface CancelButtonOptions {
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
+ * @noninterop
  */
 interface CancelButtonSymbolOptions {
   /**
