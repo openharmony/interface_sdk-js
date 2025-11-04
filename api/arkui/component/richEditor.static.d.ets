@@ -1609,6 +1609,14 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
      * @since 20 static
      */
     getCaretRect(): RectResult | undefined;
+
+    /**
+    * Delete the last character of the input field component.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 23 static
+    */
+    deleteBackward(): void;
 }
 /**
  * Provides Controller for RichEditor.
