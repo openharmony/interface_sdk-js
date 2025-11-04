@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -28,6 +28,7 @@ import abilityAccessCtrl, {
 import Ability from '@ohos.app.ability.Ability';
 import AbilityConstant from '@ohos.app.ability.AbilityConstant';
 import AbilityLifecycleCallback from '@ohos.app.ability.AbilityLifecycleCallback';
+import InteropAbilityLifecycleCallback from '@ohos.app.ability.InteropAbilityLifecycleCallback';
 import abilityManager from '@ohos.app.ability.abilityManager';
 import AbilityStage from '@ohos.app.ability.AbilityStage';
 import ActionExtensionAbility from '@ohos.app.ability.ActionExtensionAbility';
@@ -135,7 +136,7 @@ export {
   sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application, appDomainVerify,
   InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntryExecutor,
   InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager,
-  CompletionHandlerForAtomicService, CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, FailureCode
+  CompletionHandlerForAtomicService, CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, FailureCode, InteropAbilityLifecycleCallback
 };
 
 /*** if arkts static */
