@@ -50,7 +50,7 @@ import type { NotificationCheckRequest as _NotificationCheckRequest } from './no
 import type UIAbilityContext from './application/UIAbilityContext';
 /*** endif */
 /*** if arkts static */
-import { AsyncCallback } from '@ohos.base';
+import { AsyncCallback, RecordData } from '@ohos.base';
 import { NotificationLiveViewContent as _NotificationLiveViewContent } from './notification/notificationContent';
 import { NotificationIconButton as _NotificationIconButton } from './notification/notificationContent';
 import { LiveViewStatus as _LiveViewStatus } from './notification/notificationContent';
@@ -59,7 +59,6 @@ import { NotificationFilter as _NotificationFilter } from './notification/notifi
 import { NotificationCheckRequest as _NotificationCheckRequest } from './notification/notificationRequest';
 import type UIAbilityContext from './application/UIAbilityContext';
 /*** endif */
-
 
 /**
  * The NotificationManager module provides notification management capabilities, covering notifications,
@@ -847,9 +846,24 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
    */
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot>): void;
+
+  /**
+   * Obtains a notification slot of a specified type. This API uses an asynchronous callback to return the result.
+   *
+   * @param { SlotType } slotType - Type of a notification slot, such as social communication, service notification, content consultation, and so on.
+   * @param { AsyncCallback<NotificationSlot|null> } callback - Callback used to return the result. If the operation is successful, err is undefined
+   *                                                       and data is the obtained NotificationSlot; otherwise, err is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 20 static
+   */
+  function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot|null>): void;
 
   /**
    * Obtains a notification slot of a specified type. This API uses a promise to return the result.
@@ -863,9 +877,23 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
    */
   function getSlot(slotType: SlotType): Promise<NotificationSlot>;
+
+  /**
+   * Obtains a notification slot of a specified type. This API uses a promise to return the result.
+   *
+   * @param { SlotType } slotType - Type of a notification slot, such as social communication, service notification, content consultation, and so on.
+   * @returns { Promise<NotificationSlot|null> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 20 static
+   */
+  function getSlot(slotType: SlotType): Promise<NotificationSlot|null>;
 
   /**
    * Obtains all notification slots of this application. This API uses an asynchronous callback to return the result.
@@ -1540,9 +1568,31 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
    */
   function getSlotByBundle(bundle: BundleOption, slotType: SlotType): Promise<NotificationSlot>;
+
+  /**
+   * Get notification slot for the specified bundle.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { SlotType } slotType - Indicates the notification slot.
+   * @returns { Promise<NotificationSlot|null> } Returns the NotificationSlot.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 20 static
+   */
+  function getSlotByBundle(bundle: BundleOption, slotType: SlotType): Promise<NotificationSlot|null>;
 
   /**
    * Obtains all notification slots belonging to the specified bundle.
@@ -1775,9 +1825,25 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
    */
   function getActiveNotificationByFilter(filter: NotificationFilter, callback: AsyncCallback<NotificationRequest>): void;
+
+  /**
+   * Get the live view notification by bundle option and notification key. If the extraInfoKeys is provided,
+   * filter the additional information of the live view notification and return the filtered result.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { NotificationFilter } filter - The bundle, notification key and additional information filter of the live view notification.
+   * @param { AsyncCallback<NotificationRequest|null> } callback - The callback of getActiveNotificationByFilter.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 20 static
+   */
+  function getActiveNotificationByFilter(filter: NotificationFilter, callback: AsyncCallback<NotificationRequest|null>): void;
 
   /**
    * Get the live view notification by bundle option and notification key. If the extraInfoKeys is provided,
@@ -1793,9 +1859,25 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
    */
   function getActiveNotificationByFilter(filter: NotificationFilter): Promise<NotificationRequest>;
+
+  /**
+   * Get the live view notification by bundle option and notification key. If the extraInfoKeys is provided,
+   * filter the additional information of the live view notification and return the filtered result.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { NotificationFilter } filter - The bundle, notification key and additional information filter of the live view notification.
+   * @returns { Promise<NotificationRequest|null> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 20 static
+   */
+  function getActiveNotificationByFilter(filter: NotificationFilter): Promise<NotificationRequest|null>;
 
   /**
    * Cancels notifications under a notification group of this application. This API uses an asynchronous callback to return the result.
@@ -3609,9 +3691,23 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
    */
   function on(type: 'checkNotification', callback: (checkInfo: NotificationCheckInfo) => NotificationCheckResult): void;
+
+  /**
+   * Subscribe the callback for check notifications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { function } callback - callback - The callback of check notifications.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 static
+   */
+  function onCheckNotification(callback: (checkInfo: NotificationCheckInfo) => NotificationCheckResult): void;
 
   /**
    * Subscribe the callback for check notifications.
@@ -3648,9 +3744,28 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
    */
   function on(type: 'checkNotification', checkRequest: NotificationCheckRequest,
+    callback: (checkInfo: NotificationCheckInfo) => Promise<NotificationCheckResult>): void;
+
+  /**
+   * Subscribe the callback for check notifications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { NotificationCheckRequest } checkRequest - Check Request for filter notification request.
+   * @param { function } callback - callback - The callback of check notifications.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 static
+   */
+  function onCheckNotification(checkRequest: NotificationCheckRequest,
     callback: (checkInfo: NotificationCheckInfo) => Promise<NotificationCheckResult>): void;
 
   /**
@@ -3680,10 +3795,26 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
    */
   function off(
     type: 'checkNotification',
+    callback?: (checkInfo: NotificationCheckInfo) => NotificationCheckResult
+  ): void;
+
+  /**
+   * Unsubscribe the callback for check notifications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { function } [callback] - callback - The callback of check notifications.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 22 static
+   */
+  function offCheckNotification(
     callback?: (checkInfo: NotificationCheckInfo) => NotificationCheckResult
   ): void;
 
@@ -4053,23 +4184,6 @@ declare namespace notificationManager {
    */
   function getDoNotDisturbProfile(id: long): Promise<DoNotDisturbProfile>;
 
-  /**
-   * Disabling notifications based on the application list.
-   *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER or ohos.permission.MANAGE_EDM_POLICY
-   * @param { boolean } disabled - The switch of disableNotification.
-   * @param { Array<string> } bundleList - The bundles of disableNotification.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1600001 - Internal error.
-   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 18
-   */
   /**
    * Disabling notifications based on the application list.
    *
@@ -4620,9 +4734,19 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
      */
     extraInfos?: Record<string, Object>;
+
+    /**
+     * Additional information of the live view notification.
+     *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+     * @type { ?Record<string, RecordData> }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 20 static
+     */
+    extraInfos?: Record<string, RecordData>;
   }
 
   /**
