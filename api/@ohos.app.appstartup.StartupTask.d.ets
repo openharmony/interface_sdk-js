@@ -28,7 +28,7 @@ import AbilityStageContext from './application/AbilityStageContext';
  * @since 12 dynamic
  * @since 22 static
  */
-/*** if arkts dynmaic */
+/*** if arkts dynamic */
 @Sendable
 /*** endif */
 declare class StartupTask {
