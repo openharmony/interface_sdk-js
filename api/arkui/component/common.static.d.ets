@@ -48,6 +48,7 @@ import { StyledString } from "./styledString";
 import { CustomBuilder, WrappedBuilder, CustomBuilderT } from './builder';
 import curves from '../../@ohos.curves';
 import matrix4 from '../../@ohos.matrix4';
+import { AvoidanceMode } from './select';
 import uiMaterial from '../../@ohos.arkui.uiMaterial';
 /**
  * Define the ratio of characters entered by the the percentage of InputCounterOptions.
@@ -6574,35 +6575,32 @@ export declare interface PopupMaskType {
      */
     color: ResourceColor;
 }
-
 /**
  * Popup border LinearGradient
  *
  * @interface PopupBorderLinearGradient
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface PopupBorderLinearGradient {
-  /**
-   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
-   *
-   * @type { ?GradientDirection }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  direction?: GradientDirection;
-
-  /**
-   * Defines color description for gradients.
-   * number: The position of the color stop. The value range is 0 to 1.
-   *
-   * @type { Array<[ResourceColor, double]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  colors: Array<[ResourceColor, double]>;
+    /**
+     * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
+     *
+     * @type { ?GradientDirection }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    direction?: GradientDirection;
+    /**
+     * Defines color description for gradients.
+     * double: The position of the color stop. The value range is 0 to 1.
+     *
+     * @type { Array<[ResourceColor, double]> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    colors: Array<[ResourceColor, double]>;
 }
-
 /**
  * Popup common options
  *
@@ -6801,6 +6799,47 @@ export declare interface PopupCommonOptions {
      * @since 22 static
      */
     followTransformOfTarget?: boolean;
+    /**
+     * Determine if popup can avoid the target when the display space is insufficient.
+     *
+     * @type { ?AvoidanceMode }
+     * @default AvoidanceMode.COVER_TARGET
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    avoidTarget?: AvoidanceMode;
+    /**
+     * The width of popup's outline.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    outlineWidth?: Dimension;
+    /**
+     * The width of popup's border.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    borderWidth?: Dimension;
+    /**
+     * The LinearGradient of popup's outline.
+     *
+     * @type { ?PopupBorderLinearGradient }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    outlineLinearGradient?: PopupBorderLinearGradient;
+    /**
+     * The LinearGradient of popup's innerline.
+     *
+     * @type { ?PopupBorderLinearGradient }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
    * Define the popup theme color mode.
@@ -7179,6 +7218,47 @@ export declare interface PopupOptions {
      * @since 22 static
      */
     keyboardAvoidMode?: KeyboardAvoidMode;
+    /**
+     * Determine if popup can avoid the target when the display space is insufficient.
+     *
+     * @type { ?AvoidanceMode }
+     * @default AvoidanceMode.COVER_TARGET
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    avoidTarget?: AvoidanceMode;
+    /**
+     * The width of popup's outline.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    outlineWidth?: Dimension;
+    /**
+     * The width of popup's border.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    borderWidth?: Dimension;
+    /**
+     * The LinearGradient of popup's outline.
+     *
+     * @type { ?PopupBorderLinearGradient }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    outlineLinearGradient?: PopupBorderLinearGradient;
+    /**
+     * The LinearGradient of popup's innerline.
+     *
+     * @type { ?PopupBorderLinearGradient }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
    * Define the popup theme color mode.
@@ -7481,6 +7561,47 @@ export declare interface CustomPopupOptions {
      * @since 22 static
      */
     keyboardAvoidMode?: KeyboardAvoidMode;
+    /**
+     * Determine if popup can avoid the target when the display space is insufficient.
+     *
+     * @type { ?AvoidanceMode }
+     * @default AvoidanceMode.COVER_TARGET
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    avoidTarget?: AvoidanceMode;
+    /**
+     * The width of popup's outline.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    outlineWidth?: Dimension;
+    /**
+     * The width of popup's border.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    borderWidth?: Dimension;
+    /**
+     * The LinearGradient of popup's outline.
+     *
+     * @type { ?PopupBorderLinearGradient }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    outlineLinearGradient?: PopupBorderLinearGradient;
+    /**
+     * The LinearGradient of popup's innerline.
+     *
+     * @type { ?PopupBorderLinearGradient }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
    * Define the popup theme color mode.
@@ -7596,39 +7717,46 @@ export interface ContextMenuAnimationOptions {
      * @since 22 static
      */
     hoverScale?: AnimationNumberRange;
+    /**
+     * Sets whether support to interrupt the process of hover scale.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    hoverScaleInterruption?: boolean;
 }
-
 /**
  * Defines the scaling mode for custom preview of contextMenu.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum PreviewScaleMode {
-  /**
-   * Automatically resize preview based on the layout area.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  AUTO = 0,
-
-  /**
-   * Maintain original size of preview content without scaling.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  CONSTANT = 1,
-
-  /**
-   * Maintain aspect ratio to scale preview.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  MAINTAIN = 2
+    /**
+     * Automatically resize preview based on the layout area.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    AUTO = 0,
+    /**
+     * Maintain original size of preview content without scaling.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    CONSTANT = 1,
+    /**
+     * Maintain aspect ratio to scale preview.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    MAINTAIN = 2
 }
 /**
  * Defines the type of border radius.
@@ -7900,21 +8028,118 @@ export declare interface ContextMenuOptions {
       */
     enableHoverMode?: boolean;
     /**
-      * The color of menu's outer border.
-      *
-      * @type { ?(ResourceColor | EdgeColors) }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @since 22 static
-      */
+     * Defines the haptic feedback mode of menu.
+     *
+     * @type { ?HapticFeedbackMode }
+     * @default HapticFeedbackMode.DISABLED
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    hapticFeedbackMode?: HapticFeedbackMode;
+    /**
+     * The color of menu's outer border.
+     *
+     * @type { ?(ResourceColor | EdgeColors) }
+     * @default '#19ffffff'
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
     outlineColor?: ResourceColor | EdgeColors;
     /**
-      * The width of menu's outer border.
-      *
-      * @type { ?(Dimension | EdgeOutlineWidths) }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @since 22 static
-      */
+     * The width of menu's outer border.
+     * If outline effects are required, outlineWidth is required.
+     *
+     * @type { ?(Dimension | EdgeOutlineWidths) }
+     * @default 0vp - Percentage values are not supported.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
     outlineWidth?: Dimension | EdgeOutlineWidths;
+    /**
+     * Whether it is a menu without mask.
+     *
+     * @type { ?(boolean | MenuMaskType) }
+     * @default true when preview is enabled, or is false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    mask?: boolean | MenuMaskType;
+    /**
+     * Defines modal mode of menu.
+     *
+     * @type { ?ModalMode }
+     * @default ModalMode.AUTO
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    modalMode?: ModalMode;
+    /**
+     * Callback function when the menu appears.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onDidAppear?: VoidCallback;
+    /**
+     * Callback function when the menu disappears.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onDidDisappear?: VoidCallback;
+    /**
+     * Callback function before the menu openAnimation starts.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onWillAppear?: VoidCallback;
+    /**
+     * Callback function before the menu closeAnimation starts.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onWillDisappear?: VoidCallback;
+    /**
+     * Defines the scaling mode for custom preview of contextMenu.
+     *
+     * @type { ?PreviewScaleMode }
+     * @default PreviewScaleMode.AUTO
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    previewScaleMode?: PreviewScaleMode;
+    /**
+     * Defines the available layout area of preview.
+     *
+     * @type { ?AvailableLayoutArea }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    availableLayoutArea?: AvailableLayoutArea;
+    /**
+     * Defines the menu position.
+     *
+     * @type { ?Position }
+     * @default { x: 0, y: 0 }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    anchorPosition?: Position;
 
   /**
    * Defines the max height of menu.
@@ -7934,16 +8159,6 @@ export declare interface ContextMenuOptions {
    * @since 23 static
    */
   colorMode?: AnchoredColorMode;
-
-    /**
-     * Defines the haptic feedback mode of menu.
-     *
-     * @type { ?HapticFeedbackMode }
-     * @default HapticFeedbackMode.DISABLED
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    hapticFeedbackMode?: HapticFeedbackMode;
 
   /**
    * Determine if preview scale maintain aspect ratio.
@@ -8725,84 +8940,78 @@ export type Optional<T> = T | undefined;
  * @since 22 static
  */
 export type TipsMessageType = ResourceStr | StyledString;
-
 /**
- * Define the modal mode of menu
+ * Define the modal mode of menu.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ModalMode {
-  /**
-   * Modal modal automatically.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  AUTO = 0,
-
-  /**
-   * Operation takes effect around menu.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  NONE = 1,
-
-  /**
-   * Operation takes no effect around menu in target window
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  TARGET_WINDOW = 2
+    /**
+     * Modal modal automatically.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    AUTO = 0,
+    /**
+     * Operation takes effect around menu.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    NONE = 1,
+    /**
+     * Operation takes no effect around menu in target window.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    TARGET_WINDOW = 2
 }
-
 /**
  * Menu mask type
  *
  * @interface MenuMaskType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare interface MenuMaskType {
-  /**
-   * Mask color of menu.
-   *
-   * @type { ?ResourceColor }
-   * @default Color.Transparent
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  color?: ResourceColor;
-
-  /**
-   * Set menu mask background blur Style.
-   *
-   * @type { ?BlurStyle }
-   * @default BlurStyle.COMPONENT_ULTRA_THICK
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  backgroundBlurStyle?: BlurStyle;
+    /**
+     * Mask color of menu.
+     *
+     * @type { ?ResourceColor }
+     * @default Color.Transparent
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    color?: ResourceColor;
+    /**
+     * Set menu mask background blur Style.
+     *
+     * @type { ?BlurStyle }
+     * @default BlurStyle.COMPONENT_ULTRA_THICK
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    backgroundBlurStyle?: BlurStyle;
 }
-
 /**
  * Defines the available layout area.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare enum AvailableLayoutArea {
-  /**
-   * Size of safe area.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  SAFE_AREA = 0
+    /**
+     * Size of safe area.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    SAFE_AREA = 0
 }
 /**
  * Define the options for background image.
