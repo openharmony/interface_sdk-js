@@ -1510,7 +1510,7 @@ declare namespace certificateManager {
    * Get the detail of USB key certificate.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } ukeyCertIndex - Indicates the USB key certificate index.
+   * @param { string } keyUri - Indicates the USB key certificate uri.
    * @param { UkeyInfo } ukeyInfo - Indicates USB key certificate attribute information.
    * @returns { Promise<CMResult> } Indicates the USB key certificate detail.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1525,7 +1525,7 @@ declare namespace certificateManager {
    * @syscap SystemCapability.Security.CertificateManager
    * @since 22 dynamic&static
    */
-  function getUkeyCertificate(ukeyCertIndex: string, ukeyInfo: UkeyInfo): Promise<CMResult>;
+  function getUkeyCertificate(keyUri: string, ukeyInfo: UkeyInfo): Promise<CMResult>;
 
   /**
    * Provides the USB key certificate attribute information.

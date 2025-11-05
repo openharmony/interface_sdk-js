@@ -471,14 +471,14 @@ declare namespace certificateManagerDialog {
       certType: CertificateType;
 
     /**
-     * Indicates the index of certificate.
+     * Indicates the uri of certificate.
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 22 dynamic&static
      */   
-      index: string;
+      keyUri: string;
   }
 
   /**
@@ -515,14 +515,14 @@ declare namespace certificateManagerDialog {
    */
   export interface UkeyAuthRequest {
     /**
-     * Indicates the USB key certificate index.
+     * Indicates the USB key certificate uri.
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 22 dynamic&static
      */  
-      ukeyCertIndex: string;
+      keyUri: string;
   }
 }
 
