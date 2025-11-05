@@ -17,7 +17,8 @@
  * @file
  * @kit ArkUI
  */
-import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { CustomBuilder } from './builder';
+import { ComponentBuilder } from './../stateManagement/runtime';
 import { Resource } from '../../global/resource';
 import { ResourceStr, ResourceColor, Length, Font } from './units';
 import { TextOverflow, FontWeight, FontStyle, TextHeightAdaptivePolicy } from './enums';
@@ -440,17 +441,30 @@ export declare interface ButtonAttribute extends CommonMethod {
 /**
  * Defines Button Component.
  *
- * @param { ButtonOptions | ResourceStr } label - the label of Button.
+ * @param { ResourceStr } label - the label of Button.
  * @param { ButtonOptions } [options] - the options of Button.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ButtonAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Button(
-    label: ButtonOptions | ResourceStr, options?: ButtonOptions, 
-    @memo
-    content_?: () => void,
+    label: ResourceStr, options?: ButtonOptions, 
+    content_?: CustomBuilder,
+): ButtonAttribute
+
+/**
+ * Defines Button Component.
+ *
+ * @param { ButtonOptions } [options] - the options of Button.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { ButtonAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+@ComponentBuilder
+export declare function Button(
+    options?: ButtonOptions, 
+    content_?: CustomBuilder,
 ): ButtonAttribute
