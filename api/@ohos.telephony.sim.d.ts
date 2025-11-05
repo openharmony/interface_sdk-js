@@ -2630,8 +2630,7 @@ declare namespace sim {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 8 dynamic
-     * @since 20 static
+     * @since 8 dynamiconly
      */
     number: string;
 
@@ -2641,7 +2640,7 @@ declare namespace sim {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 20 static
+     * @since 20 staticonly
      */
     teleNumber: string;
 
