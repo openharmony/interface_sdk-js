@@ -1984,8 +1984,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Subscribes to the OS account switching event.
@@ -2017,8 +2017,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Unsubscribes from the OS account switching event.
@@ -2050,8 +2050,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Subscribes to the OS account switched event.
@@ -2083,8 +2083,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Unsubscribes from the OS account switched event.
@@ -4462,8 +4462,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid authType.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     /**
      * Gets authentication information.

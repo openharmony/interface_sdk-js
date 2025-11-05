@@ -36,8 +36,7 @@ import { Resource } from './global/resource';
  * @namespace drawing
  * @syscap SystemCapability.Graphics.Drawing
  * @crossplatform
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic&static
  */
 /**
  * The common2D module defines some common data types in the 2D graphics field.
@@ -1071,8 +1070,7 @@ declare namespace drawing {
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   /**
    * A compound geometric path consisting of line segments, arcs, quadratic Bezier curves, and cubic Bezier curves.
@@ -1092,8 +1090,7 @@ declare namespace drawing {
      * Constructs a path.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     /**
      * Constructs a path.
@@ -1115,8 +1112,7 @@ declare namespace drawing {
      * @param { Path } path - Path to copy.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     /**
      * Constructs a copy of an existing path.
@@ -1257,8 +1253,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     /**
      * Draws an arc to this path using angle arc mode.
@@ -2696,8 +2691,7 @@ declare namespace drawing {
    * A carrier that carries the drawn content and drawing status.
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   /**
    * A carrier that carries the drawn content and drawing status.
@@ -2722,8 +2716,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     /**
      * Creates a Canvas object that uses a PixelMap as the drawing target.
@@ -4421,8 +4414,7 @@ declare namespace drawing {
    * Provides an interface to the drawing, and describe the arguments for a font.
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   /**
    * Provides an interface to the drawing, and describe the arguments for a font.
@@ -4436,8 +4428,7 @@ declare namespace drawing {
      * Constructor for the TypefaceArguments.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     /**
      * Constructor for the TypefaceArguments.
@@ -4480,8 +4471,7 @@ declare namespace drawing {
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   /**
    * Describes the style of a typeface, such as SimSun or KaiTi.
@@ -4534,8 +4524,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     /**
      * Constructs a typeface from a file.
@@ -4596,8 +4585,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     /**
      * Generate typeface from file and TypefaceArguments.
@@ -4839,8 +4827,7 @@ declare namespace drawing {
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   /**
    * Describes the attributes used for text rendering, such as size and typeface.
@@ -4964,8 +4951,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     /**
      * Sets the font size.
@@ -5018,8 +5004,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     /**
      * Sets the typeface style (including attributes such as font name, weight, and italic) for the font.
@@ -5044,8 +5029,7 @@ declare namespace drawing {
      * @returns { Typeface } Typeface object.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     /**
      * Obtains the typeface.
@@ -5068,8 +5052,7 @@ declare namespace drawing {
      * @returns { FontMetrics } The fontMetrics value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     /**
      * Obtains the font metrics of the typeface.
@@ -6040,8 +6023,7 @@ declare namespace drawing {
    * @typedef FontMetrics
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   /**
    * Describes the attributes that describe the font size and layout. A typeface has similar font metrics.
@@ -6086,8 +6068,7 @@ declare namespace drawing {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     /**
      * Maximum distance from the baseline to the highest coordinate of the text. The value is a floating point number.
@@ -6109,8 +6090,7 @@ declare namespace drawing {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     /**
      * Distance from the baseline to the highest coordinate of the text. The value is a floating point number.
@@ -6132,8 +6112,7 @@ declare namespace drawing {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     /**
      * Distance from the baseline to the lowest coordinate of the text. The value is a floating point number.
@@ -6155,8 +6134,7 @@ declare namespace drawing {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     /**
      * Maximum distance from the baseline to the lowest coordinate of the text. The value is a floating point number.
@@ -6180,8 +6158,7 @@ declare namespace drawing {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     /**
      * Interline spacing, that is, the distance from the descent of one line of text to the ascent of the next line.
