@@ -86,8 +86,13 @@ export class ComponentContent<T extends Object> extends Content {
 
   /**
    * Reuse the ComponentContent based on the provided parameters.
-   *
-   * @param { Object } [param] - Parameters for reusing ComponentContent.
+   * @param { Object } [param] - Parameters for reusing ComponentContent. These parameters will be directly applied
+   *     to the reuse of all top-level custom components in the ComponentContent. They should include the content
+   *     required for the constructor parameters of each custom component; otherwise, undefined behavior may occur.
+   *     Calling this method will synchronously trigger the aboutToReuse lifecycle callback of the internal custom
+   *     components, with these parameters passed as the callback's input. The default value is undefined, in which
+   *     case the custom components in the ComponentContent will directly use the data source from the construction
+   *     phase.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -175,10 +180,13 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
      constructor(uiContext: UIContext, builder: WrappedBuilder<T>, config: BuildOptions, ...args: T);
    /**
     * Reuse the ReactiveComponentContent based on the provided parameters.
-    *
-    * @param { Object } [param] - Parameters for reusing ReactiveComponentContent. It is of the same type as the
-    *     parameter passed to the build API. If this parameter is not passed, the default value is undefined, which
-    *     applies to parameterless ReactiveBuilderNode scenarios.
+    * @param { Object } [param] - Parameters for reusing ReactiveComponentContent. These parameters will be
+    *     directly applied to the reuse of all top-level custom components in the ReactiveComponentContent.
+    *     They should include the content required for the constructor parameters of each custom component;
+    *     otherwise, undefined behavior may occur. Calling this method will synchronously trigger the aboutToReuse
+    *     lifecycle callback of the internal custom components, with these parameters passed as the callback's
+    *     input. The default value is undefined, in which case the custom components in the ReactiveComponentContent
+    *     will directly use the data source from the construction phase.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
