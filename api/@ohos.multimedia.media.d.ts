@@ -6332,6 +6332,15 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 20 dynamic
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * avRecorder.setWillMuteWhenInterrupted(true).then(() => {
+     *   console.info('Succeeded in doing setWillMuteWhenInterrupted');
+     * }).catch((err: Error) => {
+     *   let error: BusinessError = err as BusinessError;
+     *   console.error(`Failed to do setWillMuteWhenInterrupted and error is: Code: ${error.code}, message: ${error.message}`);
+     * });
      */
     setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise<void>;
 
