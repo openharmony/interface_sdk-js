@@ -711,6 +711,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 21 dynamic
+     * @since 22 static
      */
     readonly rsId: long;
 
