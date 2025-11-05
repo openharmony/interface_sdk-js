@@ -277,7 +277,7 @@ declare namespace componentUtils {
         
         /**
         * Axis of rotation vector y coordinate.
-        * @type {number}
+        * @type {double}
         * @syscap SystemCapability.ArkUI.ArkUI.Full
         * @since 20 static
         */
