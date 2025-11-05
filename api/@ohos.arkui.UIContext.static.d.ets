@@ -1798,8 +1798,8 @@ export declare class UIObserver {
    * Registers a callback function to be called when the tabContent is showed or hidden.
    *
    * @param { observer.ObserverOptions } config - The options object.
-   * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called when when the tabContent is
-   *     showed or hidden.
+   * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called when when
+   *     the tabContent is showed or hidden.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
@@ -1829,8 +1829,8 @@ export declare class UIObserver {
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { Callback<observer.TabContentInfo> } [callback] - The callback function to remove. If not provided, all callbacks
-   *     for the given event type will be removed.
+   * @param { Callback<observer.TabContentInfo> } [callback] - The callback function to remove.
+   *     If not provided, all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
