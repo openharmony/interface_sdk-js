@@ -105,6 +105,63 @@ declare namespace common {
        */
       FORCE_OPEN = 2,
     }
+
+    /**
+     * The result of application installation.
+     *
+     * @interface InstallationResult
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 22
+     */
+    export interface InstallationResult {
+      /**
+       * The result code of application installation.
+       *
+       * @type { Result }
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 22
+       */
+      result : Result;
+
+      /**
+       * The result message of application installation.
+       *
+       * @type { string }
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 22
+       */
+      message: string;
+    }
+
+    /**
+     * Enum for result code.
+     *
+     * @enum { int }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 22
+     */
+    export enum Result {
+      /**
+       * Indicates the action succeeded.
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 22
+       */
+      SUCCESS = 0,
+      /**
+       * Indicates the action failed.
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 22
+       */
+      FAIL = -1,
+    }
 }
 
 export default common;
