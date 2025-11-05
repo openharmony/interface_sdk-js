@@ -100,6 +100,15 @@ declare namespace certificateManagerDialog {
      * @since 22 dynamic&static
      */
     ERROR_PARAMETER_VALIDATION_FAILED = 29700006,
+
+    /**
+     * Indicates that no available certificate to authorize.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    ERROR_NO_AVAILABLE_CERTIFICATE = 29700007
   }
 
   /**
@@ -414,6 +423,7 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 29700002 - The user cancels the authorization.
    * @throws { BusinessError } 29700006 - Indicates that the input parameters validation failed.
    *     For example, the parameter format is incorrect or the value range is invalid.
+   * @throws { BusinessError } 29700007 - No available certificate to authorize.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 22 dynamic&static
