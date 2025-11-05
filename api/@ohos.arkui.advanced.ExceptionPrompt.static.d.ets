@@ -32,7 +32,7 @@ import { Builder } from '@ohos.arkui.component';
  */
 export declare enum MarginType {
   /**
-   * Default margin of MarginType，Margin 1: references ohos_id_card_margin_start,
+   * Default margin of MarginType, Margin 1: references ohos_id_card_margin_start,
    * margin 2: references ohos_id_card_margin_end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -41,7 +41,7 @@ export declare enum MarginType {
    */
   DEFAULT_MARGIN = 0,
   /**
-   * Margins can be adapted of MarginType，Margin 1: references ohos_id_max_padding_start,
+   * Margins can be adapted of MarginType, Margin 1: references ohos_id_max_padding_start,
    * margin 2: references ohos_id_max_padding_end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -150,7 +150,7 @@ export declare struct ExceptionPrompt {
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 20 staticonly
    */
   @Builder build(): void;
 }
