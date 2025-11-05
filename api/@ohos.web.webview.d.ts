@@ -7335,7 +7335,6 @@ declare namespace webview {
      * Sets whether to switch web scrollbar mode.
      *
      * @param { ScrollbarMode } scrollbarMode - web scrollbar mode, default OVERLAY_LAYOUT_SCROLLBAR.
-     * @throws { BusinessError } 801 - Capability not supported.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic&static
@@ -10204,7 +10203,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21 dynamic
      * @since 22 static
-     */ 
+     */
     ignoreCacheControlNoStore: boolean;
 
     /**
