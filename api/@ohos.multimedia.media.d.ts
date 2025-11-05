@@ -6924,14 +6924,20 @@ declare namespace media {
      * @since 11 dynamic
      * @since 20 static
      * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
      * let encoderInfo: media.EncoderInfo;
      *
      * avRecorder.getAvailableEncoder((err: BusinessError, info: media.EncoderInfo[]) => {
      *   if (err) {
-     *     console.error('Failed to get AvailableEncoder and error is ' + err.message);
+     *     console.error(`Failed to get AvailableEncoder and error is: Code: ${err.code}, message: ${err.message}`);
      *   } else {
      *     console.info('Succeeded in getting AvailableEncoder');
-     *     encoderInfo = info[0];
+     *     if (info.length > 0) {
+     *       encoderInfo = info[0];
+     *     } else {
+     *       console.error('No available encoder');
+     *     }
      *   }
      * });
      */
