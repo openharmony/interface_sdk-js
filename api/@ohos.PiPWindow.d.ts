@@ -829,7 +829,6 @@ declare namespace PiPWindow {
     MUTE_SWITCH = 8,
   }
 
-
   /**
    * Describe picture-in-picture action event type.
    *
@@ -1235,6 +1234,30 @@ declare namespace PiPWindow {
      * @since 15 dynamic
      */
     off(type: 'pipWindowSizeChange', callback?: Callback<PiPWindowSize>): void;
+
+    /**
+     * Register picture-in-picture active status change listener
+     *
+     * @param { 'activeStatusChange' } type - Registration type, active status change, 'activeStatusChange'
+     * @param { Callback<boolean> } callback - Used to handle {'activeStatusChange'} command.
+     *     True indicates that the pip is onscreen, and vice verse.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22
+     */
+    on(type: 'activeStatusChange', callback: Callback<boolean>): void;
+
+    /**
+     * Unregister picture-in-picture active status change listener
+     *
+     * @param { 'activeStatusChange' } type - Registration type, active status change, 'activeStatusChange'
+     * @param { Callback<boolean> } [callback] - Used to handle {'activeStatusChange'} command. If not provided,
+     *     all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22
+     */
+    off(type: 'activeStatusChange', callback?: Callback<boolean>): void;
 
     /**
      * Returns a Boolean value that indicates whether picture-in-picture is supported
