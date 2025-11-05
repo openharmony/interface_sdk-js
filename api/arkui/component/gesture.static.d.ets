@@ -363,6 +363,63 @@ export declare interface GestureInfo {
     isSystemGesture: boolean;
 }
 /**
+ * The location info used in gesture event.
+ *
+ * @interface EventLocationInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export declare interface EventLocationInfo {
+    /**
+     * X-axis coordinates relative to the upper left corner of the component.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    x: double;
+    /**
+     * Y-axis coordinates relative to the upper left corner of the component.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    y: double;
+    /**
+     * X-axis coordinates relative to the upper left corner of the window.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    windowX: double;
+    /**
+     * Y-axis coordinates relative to the upper left corner of the window.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    windowY: double;
+    /**
+     * X-axis coordinates relative to the upper left corner of the screen.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    displayX: double;
+    /**
+     * Y-axis coordinates relative to the upper left corner of the screen.
+     *
+     * @type { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    displayY: double;
+}
+/**
  * Type of the finger information.
  *
  * @interface FingerInfo
@@ -460,6 +517,15 @@ export interface BaseGestureEvent extends BaseEvent {
      * @since 22 static
      */
     fingerList: FingerInfo[];
+    /**
+     * All finger information when the gesture event is triggered, the return value
+     * is one array, and the array length is just the total fingers count. 
+     * 
+     * @type { ?FingerInfo[] }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    fingerInfos?: FingerInfo[];
 }
 /**
  * Defines event info for tap gesture.
@@ -470,6 +536,14 @@ export interface BaseGestureEvent extends BaseEvent {
  * @since 22 static
  */
 export interface TapGestureEvent extends BaseGestureEvent {
+    /**
+     * The tap location info used in tap gesture.
+     * 
+     * @type {?EventLocationInfo}
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    tapLocation?: EventLocationInfo;
 }
 /**
  * Defines event info for long press gesture.
@@ -649,6 +723,15 @@ export interface GestureEvent extends BaseEvent {
      */
     fingerList: FingerInfo[];
     /**
+     * All finger information when the gesture event is triggered, the return value
+     * is one array, and the array length is just the total fingers count. 
+     * 
+     * @type { ?FingerInfo[] }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    fingerInfos?: FingerInfo[];
+    /**
      * Gesture event offset X.
      * The unit is vp.
      * Used in PanGesture.
@@ -738,6 +821,14 @@ export interface GestureEvent extends BaseEvent {
      * @since 22 static
      */
     velocity: double;
+    /**
+     * The tap location info used in tap gesture.
+     * 
+     * @type {?EventLocationInfo}
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    tapLocation?: EventLocationInfo;
 }
 /**
  * Defines the BaseHandlerOptions options.
