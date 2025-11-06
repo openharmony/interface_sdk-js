@@ -135,6 +135,16 @@ declare namespace infraredEmitter {
    * @since 15 dynamic
    * @since 20 static
    */
+  /**
+   * Queries the frequency range of IR signals supported by the mobile phone.
+   *
+   * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
+   * @returns { Array<InfraredFrequency> } Frequency range, including multiple groups of maximum and minimum frequencies.
+   *     When the device does not have an IR emitter, it returns a set of maximum and minimun frequencies both being 0.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
+   * @since 23 dynamic&static
+   */
   function getInfraredFrequencies(): Array<InfraredFrequency>;
 }
 
