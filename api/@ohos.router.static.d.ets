@@ -105,11 +105,11 @@ declare namespace router {
      * Index of the current page in the stack.
      * NOTE: The index starts from 1 from the bottom to the top of the stack.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    index: number;
+    index: int;
 
     /**
      * Name of the current page, that is, the file name.

@@ -132,41 +132,41 @@ export declare interface ButtonStyle {
    * Set the left of control button
    * default value is 16vp.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  left?: number;
+  left?: double;
 
   /**
    * Set the top of control button
    * default value is 48vp.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  top?: number;
+  top?: double;
 
   /**
    * Set the width of control button
    * default value is 24vp.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  width?: number;
+  width?: double;
 
   /**
    * Set the height of control button
    * default value is 24vp.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  height?: number;
+  height?: double;
 
   /**
    * Set the button icon when sidebar status has changed
