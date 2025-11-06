@@ -125,7 +125,7 @@ interface DecimalConfig {
    * The maximum number of significant digits of the result of an operation.
    * Default value: 20
    *
-   * @type { double } integer, 1 to 1e+9 inclusive
+   * @type { ?double } integer, 1 to 1e+9 inclusive
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -192,7 +192,7 @@ interface DecimalConfig {
    * The positive exponent value at and above which toString returns exponential notation.
    * Default value: 20
    *
-   * @type { double } integer, 0 to 9e15 inclusive
+   * @type { ?double } integer, 0 to 9e15 inclusive
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -213,7 +213,7 @@ interface DecimalConfig {
    * The negative exponent limit, i.e. the exponent value below which underflow to zero occurs.
    * Default value: -9e15
    *
-   * @type { double } integer, -9e15 to 0 inclusive
+   * @type { ?double } integer, -9e15 to 0 inclusive
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -234,7 +234,7 @@ interface DecimalConfig {
    * The positive exponent limit, i.e. the exponent value above which overflow to Infinity occurs.
    * Default value: 9e15
    *
-   * @type { double } integer, 0 to 9e15 inclusive
+   * @type { ?double } integer, 0 to 9e15 inclusive
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
