@@ -752,8 +752,7 @@ declare namespace formHost {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function onFormUninstall(callback: Callback<string>): void;
 
@@ -783,8 +782,7 @@ declare namespace formHost {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function offFormUninstall(callback?: Callback<string>): void;
 
