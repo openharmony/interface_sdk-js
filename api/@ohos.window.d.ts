@@ -2801,7 +2801,6 @@ declare namespace window {
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11 dynamic
-     * @since 20 static
      */
     /**
      * The right of the Rect.
@@ -2819,7 +2818,6 @@ declare namespace window {
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11 dynamic
-     * @since 20 static
      */
     /**
      * The top of the Rect.
@@ -2837,7 +2835,6 @@ declare namespace window {
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11 dynamic
-     * @since 20 static
      */
     /**
      * The width of the Rect.
@@ -2855,7 +2852,6 @@ declare namespace window {
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11 dynamic
-     * @since 20 static
      */
     /**
      * The height of the Rect.
