@@ -1215,6 +1215,18 @@ export class FrameNode {
    * @since 22 dynamic
    */
   convertPoint(position: Position, targetNode: FrameNode): Position
+
+   /**
+   * Get if the FrameNode is in the render state. A FrameNode is considered to be in the render state if its
+   * corresponding RenderNode is on the render tree.
+   * @returns { boolean } - Returns whether the node is in the render state. True indicates it is in the
+   *     render state, while false indicates it is not.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+   isInRenderState(): boolean;
 }
 
 /**
