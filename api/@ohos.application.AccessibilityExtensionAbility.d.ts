@@ -29,6 +29,9 @@ import type {
   WindowType as _WindowType,
   Rect as _Rect,
   Parameter as _Parameter,
+  FocusRule as _FocusRule,
+  FocusCondition as _FocusCondition,
+  FocusMoveResult as _FocusMoveResult,
 } from './application/AccessibilityExtensionContext';
 import type * as _AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
 /*** endif */
@@ -38,6 +41,9 @@ import type {
   FocusDirection as _FocusDirection,
   WindowType as _WindowType,
   Rect as _Rect,
+  FocusRule as _FocusRule,
+  FocusCondition as _FocusCondition,
+  FocusMoveResult as _FocusMoveResult,
 } from './application/AccessibilityExtensionContext';
 import AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
 /*** endif */
@@ -129,6 +135,36 @@ export type Parameter = _Parameter;
  * @since 10 dynamic
  */
 export type AccessibilityExtensionContext = _AccessibilityExtensionContext.default;
+
+/**
+ * Indicates the rule of the search focus.
+ *
+ * @typedef {_FocusRule}
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+export type FocusRule = _FocusRule;
+
+/**
+ * Indicates the condition of the search focus.
+ *
+ * @typedef {_FocusCondition}
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+export type FocusCondition = _FocusCondition;
+
+/**
+ * Indicates focus move result.
+ *
+ * @typedef {_FocusMoveResult}
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+export type FocusMoveResult = _FocusMoveResult;
 
 /**
  * The accessibility extension context. Used to configure, query information, and inject gestures.
