@@ -254,7 +254,7 @@ function accessSync(path: string, mode: AccessModeType, flag: AccessFlagType): b
 /**
  * Closes a file or directory. This API uses a promise to return the result.
  *
- * @param { number | File } file - File object or FD of the file to close.
+ * @param { int | File } file - File object or FD of the file to close.
  * <br>Once closed, the File object or FD cannot be used for read or write operations.
  * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -271,7 +271,7 @@ function close(file: int | File): Promise<void>;
 /**
  * Closes a file or directory. This API uses an asynchronous callback to return the result.
  *
- * @param { number | File } file - File object or FD of the file to close.
+ * @param { int | File } file - File object or FD of the file to close.
  * <br>Once closed, the File object or FD cannot be used for read or write operations.
  * @param { AsyncCallback<void> } callback - Callback invoked immediately after the file is closed.
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1089,9 +1089,9 @@ function createRandomAccessFileSync(file: string | File, mode?: int,
  *
  * @param { string } path - Path of the file.
  * @param { ReadStreamOptions } [options] - The options are as follows:
- * <br>start (number): start position of the data to read in the file. This parameter is optional.
+ * <br>start (long): start position of the data to read in the file. This parameter is optional.
  * <br>By default, data is read from the current position.
- * <br>end (number): end position of the data to read in the file. This parameter is optional.
+ * <br>end (long): end position of the data to read in the file. This parameter is optional.
  * <br>The default value is the end of the file.
  * @returns { ReadStream } ReadStream instance obtained.
  * @throws { BusinessError } 401 - Parameter error
@@ -1120,9 +1120,9 @@ function createReadStream(path: string, options?: ReadStreamOptions): ReadStream
  *
  * @param { string } path - Path of the file.
  * @param { WriteStreamOptions } [options] - The options are as follows:
- * <br>start (number): start position to write the data in the file. This parameter is optional.
+ * <br>start (long): start position to write the data in the file. This parameter is optional.
  * <br>By default, data is written from the current position.
- * <br>mode (number): mode for creating the writeable stream. This parameter is optional.
+ * <br>mode (int): mode for creating the writeable stream. This parameter is optional.
  * <br>The default value is the write-only mode.
  * @returns { WriteStream } WriteStream instance obtained.
  * @throws { BusinessError } 401 - Parameter error
@@ -1542,6 +1542,26 @@ function lseek(fd: int, offset: long, whence?: WhenceType): long;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 20 static
  */
+/**
+ * Obtains information about a symbolic link that is used to refer to a file or directory.
+ * This API uses a promise to return the result.
+ *
+ * @param { string } path - Application sandbox path or URI of the file.
+ *     <br>NOTE: URIs can be passed since API version 22.
+ * @returns { Promise<Stat> } Promise used to return the symbolic link information obtained.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 22 static
+ */
 function lstat(path: string): Promise<Stat>;
 
 /**
@@ -1563,6 +1583,26 @@ function lstat(path: string): Promise<Stat>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 20 static
  */
+/**
+ * Obtains information about a symbolic link that is used to refer to a file or directory.
+ * This API uses an asynchronous callback to return the result.
+ *
+ * @param { string } path - Application sandbox path or URI of the file.
+ *     <br>NOTE: URIs can be passed since API version 22.
+ * @param { AsyncCallback<Stat> } callback - Callback used to return the symbolic link information obtained.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 22 static
+ */
 function lstat(path: string, callback: AsyncCallback<Stat>): void;
 
 /**
@@ -1583,6 +1623,26 @@ function lstat(path: string, callback: AsyncCallback<Stat>): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 20 static
+ */
+/**
+ * Obtains information about a symbolic link that is used to refer to a file or directory.
+ * This API returns the result synchronously.
+ *
+ * @param { string } path - Application sandbox path or URI of the file.
+ *     <br>NOTE: URIs can be passed since API version 22.
+ * @returns { Stat } File information obtained.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 22 static
  */
 function lstatSync(path: string): Stat;
 
@@ -2847,6 +2907,28 @@ function rmdirSync(path: string): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 20 static
  */
+/**
+ * Obtains detailed attribute information of a file or directory. This API uses a promise to return the result.
+ *
+ * @param { string | int } file - Application sandbox path, URI, or FD of the file or directory.
+ *     <br>NOTE: URIs can be passed since API version 22.
+ * @returns { Promise<Stat> } Promise used to return detailed file information.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 22 static
+ */
 function stat(file: string | int): Promise<Stat>;
 
 /**
@@ -2871,6 +2953,29 @@ function stat(file: string | int): Promise<Stat>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 20 static
  */
+/**
+ * Obtains detailed attribute information of a file or directory.
+ * This API uses an asynchronous callback to return the result.
+ *
+ * @param { string | int } file - Application sandbox path, URI, or FD of the file or directory.
+ *     <br>NOTE: URIs can be passed since API version 22.
+ * @param { AsyncCallback<Stat> } callback - Callback used to return the file information obtained.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 22 static
+ */
 function stat(file: string | int, callback: AsyncCallback<Stat>): void;
 
 /**
@@ -2893,6 +2998,28 @@ function stat(file: string | int, callback: AsyncCallback<Stat>): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 20 static
+ */
+/**
+ * Obtains detailed attribute information of a file or directory. This API returns the result synchronously.
+ *
+ * @param { string | int } file - Application sandbox path, URI, or FD of the file or directory.
+ *     <br>NOTE: URIs can be passed since API version 22.
+ * @returns { Stat } File information obtained.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 22 static
  */
 function statSync(file: string | int): Stat;
 
@@ -3512,6 +3639,7 @@ interface File {
 
   /**
    * FD of the file.
+   * 
    * @type { int }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4144,6 +4272,7 @@ export class AtomicFile {
   /**
    * Starts to write new file data in the WriteStream object returned. If the file does not exist, create a file.
    * Call finishWrite() if the write operation is successful; call failWrite() if the write operation fails.
+   * 
    * @returns { WriteStream } Returns the file write stream.
    * @throws { BusinessError } 13900001 Operation not permitted
    * @throws { BusinessError } 13900002 No such file or directory
@@ -4207,6 +4336,7 @@ interface Stat {
    * @since 20 static
    */
   readonly ino: bigint;
+
   /**
    * File permissions. The meaning of each bit is as follows:
    * The following values are in octal format. The return values are in decimal format. You need to convert the values.
@@ -4228,6 +4358,7 @@ interface Stat {
    * @since 20 static
    */
   readonly mode: long;
+
   /**
    * ID of the file owner.
    *
@@ -4241,6 +4372,7 @@ interface Stat {
    * @since 20 static
    */
   readonly uid: long;
+
   /**
    * ID of the user group of the file.
    *
@@ -4252,6 +4384,7 @@ interface Stat {
    * @since 20 static
    */
   readonly gid: long;
+
   /**
    * File size, in bytes. This parameter is valid only for regular files.
    *
@@ -4263,6 +4396,7 @@ interface Stat {
    * @since 20 static
    */
   readonly size: long;
+
   /**
    * Time when the file was last accessed. The value is the number of seconds elapsed since 00:00:00 on January 1, 1970.
    * NOTE: Currently, user data partitions are mounted in noatime mode by default, and atime update is disabled.
@@ -4275,6 +4409,7 @@ interface Stat {
    * @since 20 static
    */
   readonly atime: long;
+
   /**
    * Time when the file content was last modified. The value is the number of seconds elapsed
    * since 00:00:00 on January 1, 1970.
@@ -4287,6 +4422,7 @@ interface Stat {
    * @since 20 static
    */
   readonly mtime: long;
+
   /**
    * Time when the file metadata was last modified. The value is the number of seconds elapsed
    * since 00:00:00 on January 1, 1970.
@@ -4358,6 +4494,7 @@ interface Stat {
    * @since 20 static
    */
   isBlockDevice(): boolean;
+
   /**
    * Checks whether this file is a character special file. A character special device supports random access, and it is not cached when accessed.
    *
@@ -4368,6 +4505,7 @@ interface Stat {
    * @since 20 static
    */
   isCharacterDevice(): boolean;
+
   /**
    * Checks whether this file is a directory.
    *
@@ -4378,6 +4516,7 @@ interface Stat {
    * @since 20 static
    */
   isDirectory(): boolean;
+
   /**
    * Checks whether this file is a named pipe (or FIFO). Named pipes are used for inter-process communication.
    *
@@ -4388,6 +4527,7 @@ interface Stat {
    * @since 20 static
    */
   isFIFO(): boolean;
+
   /**
    * Checks whether this file is a regular file.
    *
@@ -4398,6 +4538,7 @@ interface Stat {
    * @since 20 static
    */
   isFile(): boolean;
+
   /**
    * Checks whether this file is a socket.
    *
@@ -4408,6 +4549,7 @@ interface Stat {
    * @since 20 static
    */
   isSocket(): boolean;
+
   /**
    * Checks whether this file is a symbolic link.
    *
@@ -4497,7 +4639,7 @@ interface Stream {
   /**
    * Flushes this stream. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - Return the callback function.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
