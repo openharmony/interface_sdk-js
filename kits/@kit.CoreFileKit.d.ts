@@ -21,6 +21,7 @@
 /*** if arkts dynamic */
 import BackupExtensionAbility, { BundleVersion } from '@ohos.application.BackupExtensionAbility';
 import BackupExtensionContext from '@ohos.file.BackupExtensionContext';
+import backup from '@ohos.file.backup';
 import cloudSync from '@ohos.file.cloudSync';
 import cloudSyncManager from '@ohos.file.cloudSyncManager';
 import Environment from '@ohos.file.environment';
