@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { AttributeModifier } from './component/common';
-import { ButtonAttribute } from './component/button';
-
 /**
  * @file
  * @kit ArkUI
  */
+
+import { AttributeModifier } from './component/common';
+import { ButtonAttribute } from './component/button';
 
 /**
  * Defines Button Modifier
