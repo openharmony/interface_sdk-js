@@ -9754,7 +9754,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { OnVerifyPinCallback } callback The triggered callback when needs verify pin from the user.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @@since 22 dynamic&static
+   * @since 22 dynamic&static
    */
   onVerifyPin(callback: OnVerifyPinCallback): WebAttribute;
 
