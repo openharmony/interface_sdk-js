@@ -56,7 +56,7 @@ declare namespace roomLocation {
 
   /**
    * Subscribe to room-level location result data.
-   * @param { 'onRoomLocated' } type - Indicates the event type.
+   * @param { 'roomLocate' } type - Indicates the event type.
    * @param { Callback<RoomLocateResponse> } callback - Callback location result data.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to
@@ -67,11 +67,11 @@ declare namespace roomLocation {
    * @systemapi
    * @since 20 dynamic
    */
-  function on(type: 'onRoomLocated', callback: Callback<RoomLocateResponse>): void;
+  function on(type: 'roomLocate', callback: Callback<RoomLocateResponse>): void;
 
   /**
    * Unsubscribe to room-level location result data.
-   * @param { 'onRoomLocated' } type - Indicates the event type.
+   * @param { 'roomLocate' } type - Indicates the event type.
    * @param { Callback<RoomLocateResponse> } [callback] - Callback location result data.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to
@@ -82,7 +82,7 @@ declare namespace roomLocation {
    * @systemapi
    * @since 20 dynamic
    */
-  function off(type: 'onRoomLocated', callback?: Callback<RoomLocateResponse>): void;
+  function off(type: 'roomLocate', callback?: Callback<RoomLocateResponse>): void;
 
   /**
    * Get room-level location result data.
