@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Resource, Dimension, BorderRadiuses, SizeOptions } from './units';
 import { ButtonType } from './button';
