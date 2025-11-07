@@ -12909,7 +12909,7 @@ declare enum DragResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic
+   * @since 22 dynamic
    */
   UNKNOWN = -1,
   /**
