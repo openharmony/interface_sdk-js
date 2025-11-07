@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { CommonMethod, ShadowOptions, Optional, Callback, AttributeModifier } from "./common";
+import { CommonMethod, ShadowOptions, Optional, Callback, AttributeModifier, SelectionOptions } from "./common";
 import { CustomBuilder } from './builder';
 import { EllipsisMode, TextCase, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextSelectableMode } from "./enums";
 import { Resource, ResourceColor, Font, Length, LengthMetrics } from "./units";
@@ -949,6 +949,25 @@ export declare class TextController {
      * @since 20 static
      */
     getLayoutManager(): LayoutManager;
+    /**
+     * Text selection is achieved by specifying the start and end positions of the text.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>If selectionStart or selectionEnd is set to undefined, the value 0 will be used.
+     * <br>If a 2-in-1 device is used,
+     * calling setTextSelection does not display the context menu even when options is set to MenuPolicy.SHOW.
+     * <br>If the selected text contains an emoji,
+     * the emoji is selected when its start position is within the text selection range.
+     * </p>
+     *
+     * @param { int | undefined } selectionStart - The start position of the selected text.
+     * @param { int | undefined } selectionEnd - The end position of the selected text.
+     * @param { SelectionOptions } [options] - Indicates the options of the text selection.
+     * Default value is MenuPolicy.DEFAULT.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    setTextSelection(selectionStart: int | undefined, selectionEnd: int | undefined, options?: SelectionOptions): void;
 }
 
 /**
