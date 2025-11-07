@@ -100,6 +100,15 @@ declare namespace certificateManagerDialog {
      * @since 22 dynamic&static
      */
     ERROR_PARAMETER_VALIDATION_FAILED = 29700006,
+
+    /**
+     * Indicates that no available certificate for authorization.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 22 dynamic&static
+     */
+    ERROR_NO_AVAILABLE_CERTIFICATE = 29700007
   }
 
   /**
@@ -164,7 +173,7 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed; 
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 13 dynamic
@@ -231,7 +240,8 @@ declare namespace certificateManagerDialog {
    */
   export enum CertificateScope {
     /**
-     * Indicates the certificate scope is not specified and user can select the scope in the certificate install dialog.
+     * Indicates the certificate scope is not specified and user can select the scope 
+     * in the certificate install dialog.
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -274,7 +284,7 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 29700002 - The user cancels the installation operation.
    * @throws { BusinessError } 29700003 - The user install certificate failed in the certificate manager dialog.
    * @throws { BusinessError } 29700004 - The API is not supported on this device.
@@ -295,7 +305,7 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 29700002 - The user cancels the installation operation.
    * @throws { BusinessError } 29700003 - The user install certificate failed in the certificate manager dialog, such as the certificate is in an invalid format.
    * @throws { BusinessError } 29700004 - The API is not supported on this device.
@@ -319,8 +329,8 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. A mandatory parameter is left
    * unspecified.
    * 2. Incorrect parameter type. 3. Parameter verification failed.
-   * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed; 
-   * <br>2. Memory operation error; 3. File operation error.
+   * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed;
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 29700002 - The user cancels the authorization.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
@@ -340,7 +350,7 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed; 
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 29700003 - Show the certificate detail dialog failed, such as the certificate is in an invalid format.
    * @throws { BusinessError } 29700004 - The API is not supported on this device.
    * @syscap SystemCapability.Security.CertificateManagerDialog
@@ -362,7 +372,7 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed;
-   * <br>2. Memory operation error; 3. File operation error.
+   * <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 29700002 - The user cancels the uninstallation operation.
    * @throws { BusinessError } 29700003 - The user uninstall certificate failed in the certificate manager dialog, such as the certificate uri is not exist.
    * @throws { BusinessError } 29700004 - The API is not supported on this device.
@@ -405,20 +415,21 @@ declare namespace certificateManagerDialog {
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { common.Context } context - Context of the HAP.
    * @param { AuthorizeRequest } authorizeRequest - Authorize request.
-   * @returns { Promise<CertIndex> } Promise used to return the cert index of the certificate authorized.
+   * @returns { Promise<CertReference> } Promise used to return the cert reference of the certificate authorized.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
    *     permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. 
-   * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed; 
-   *     <br>2. Memory operation error; 3. File operation error; 4. Call other service failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed;
+   *     <br>2. Memory operation error; 3. File operation error; 4. Call other service failed. Please try again.
    * @throws { BusinessError } 29700002 - The user cancels the authorization.
    * @throws { BusinessError } 29700006 - Indicates that the input parameters validation failed.
-   *     For example, the parameter format is incorrect or the value range is invalid.
+   *     for example, the parameter format is incorrect or the value range is invalid.
+   * @throws { BusinessError } 29700007 - No available certificate for authorization.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 22 dynamic&static
    */
-  function openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest): Promise<CertIndex>;
+  function openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest): Promise<CertReference>;
 
   /**
    * Provides the certificate authorize request information.
@@ -452,14 +463,14 @@ declare namespace certificateManagerDialog {
   }
 
   /**
-   * Provides the cert index of the certificate.
+   * Provides the cert reference of the certificate.
    *
-   * @typedef CertIndex
+   * @typedef CertReference
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 22 dynamic&static
    */
-  export interface CertIndex {
+  export interface CertReference {
     /**
      * Indicates the type of certificate.
      *
@@ -471,14 +482,14 @@ declare namespace certificateManagerDialog {
       certType: CertificateType;
 
     /**
-     * Indicates the index of certificate.
+     * Indicates the uri of certificate.
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 22 dynamic&static
      */   
-      index: string;
+      keyUri: string;
   }
 
   /**
@@ -495,7 +506,7 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 29700006 - Indicates that the input parameters validation failed.
    *     For example, the parameter format is incorrect or the value range is invalid.
    * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed; 
-   *     <br>2. Memory operation error; 3. File operation error.
+   *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 29700002 - The user cancels the authentication operation.
    * @throws { BusinessError } 29700003 - The authentication operation failed, such as the USB key certificate
    *     does not exist, the USB key status is abnormal.
@@ -515,14 +526,14 @@ declare namespace certificateManagerDialog {
    */
   export interface UkeyAuthRequest {
     /**
-     * Indicates the USB key certificate index.
+     * Indicates the USB key certificate uri.
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
      * @since 22 dynamic&static
      */  
-      ukeyCertIndex: string;
+      keyUri: string;
   }
 }
 
