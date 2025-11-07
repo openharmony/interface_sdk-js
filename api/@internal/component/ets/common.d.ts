@@ -31423,6 +31423,16 @@ declare abstract class TextContentControllerBase {
    * @since 19 dynamic
    */
   getText(range?: TextRange): string;
+
+  /**
+   * Delete the last character of the input field component.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  deleteBackward(): void;
 }
 
 /**
