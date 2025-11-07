@@ -9123,16 +9123,6 @@ export declare interface CommonMethod {
      */
     default backgroundBlurStyle(style: BlurStyle | undefined, options?: BackgroundBlurStyleOptions, sysOptions?: SystemAdaptiveOptions): this;
     /**
-     * Sets the background effect of the component, including the blur radius, brightness, saturation, and color.
-     *
-     * @param { BackgroundEffectOptions | undefined } options - Background effect, including saturation,
-     *     brightness, and color.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default backgroundEffect(options: BackgroundEffectOptions | undefined): this;
-    /**
      * options:background effect options.
      * sysOptions: system adaptive options.
      *

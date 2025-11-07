@@ -1727,48 +1727,44 @@ export declare class UIObserver {
   /**
    * Registers a callback function to be called when the tabContent is showed or hidden.
    *
-   * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
    * @param { observer.ObserverOptions } options - The options object.
    * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called
-   *                                                         when the tabContent show or hide.
+   *     when the tabContent show or hide.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  on(type: 'tabContentUpdate', options: observer.ObserverOptions, callback: Callback<observer.TabContentInfo>): void;
+  onTabContentUpdate(options: observer.ObserverOptions, callback: Callback<observer.TabContentInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { 'tabContentUpdate' } type - The type of event to remove the listener for. Must be 'tabContentUpdate'.
    * @param { observer.ObserverOptions } options - The options object.
-   * @param { Callback<observer.TabContentInfo> } callback - The callback function to remove. If not provided,
-   *                                              all callbacks for the given event type and Tabs ID will be removed.
+   * @param { Callback<observer.TabContentInfo> } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type and Tabs ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  off(type: 'tabContentUpdate', options: observer.ObserverOptions, callback?: Callback<observer.TabContentInfo>): void;
+  offTabContentUpdate(options: observer.ObserverOptions, callback?: Callback<observer.TabContentInfo>): void;
 
   /**
    * Registers a callback function to be called when the tabContent is showed or hidden.
    *
-   * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
    * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called
-   *                                                         when the tabContent is showed or hidden.
+   *     when the tabContent is showed or hidden.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  on(type: 'tabContentUpdate', callback: Callback<observer.TabContentInfo>): void;
+  onTabContentUpdate(callback: Callback<observer.TabContentInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { 'tabContentUpdate'} type - The type of event to remove the listener for. Must be 'tabContentUpdate'.
-   * @param { Callback<observer.TabContentInfo> } callback - The callback function to remove. If not provided,
-   *                                              all callbacks for the given event type and Tabs ID will be removed.
+   * @param { Callback<observer.TabContentInfo> } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type and Tabs ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  off(type: 'tabContentUpdate', callback?: Callback<observer.TabContentInfo>): void;
+  offTabContentUpdate(callback?: Callback<observer.TabContentInfo>): void;
 
   /**
    * Registers a callback to monitor the gesture trigger information.
