@@ -35,8 +35,6 @@ export declare class NodeContent extends Content {
      * constructor
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     constructor();
@@ -45,18 +43,23 @@ export declare class NodeContent extends Content {
      *
      * @param { FrameNode } node - Newly added FrameNode.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
+    /**
+   * Add FrameNode to NodeContent based on parameters.
+   * 
+   * @param { FrameNode } node - Newly added FrameNode.
+   * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
+   *     are included in the error message. For example: "The parameter 'node' is invalid: it cannot be adopted."
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
     addFrameNode(node: FrameNode): void;
     /**
-     * Delete FrameNode based on the NodeContent parameter.
+     * Delete the target FrameNode.
      *
      * @param { FrameNode } node - FrameNode deleted.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20 static
      */
     removeFrameNode(node: FrameNode): void;
