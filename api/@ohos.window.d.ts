@@ -1138,6 +1138,51 @@ declare namespace window {
   }
 
   /**
+   * Frame metrics
+   *
+   * @interface FrameMetrics
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 22 dynamic&static
+   */
+  interface FrameMetrics {
+    /**
+     * Indicates whether the first frame of the window.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    firstDrawFrame: boolean;
+
+    /**
+     * Indicates the number of nanoseconds elapsed in the input handling stage of a frame.
+     *
+     * @type { long }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    inputHandlingDuration: long;
+
+    /**
+     * Indicates the number of nanoseconds elapsed in the layout measure stage of a frame.
+     *
+     * @type { long }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    layoutMeasureDuration: long;
+
+    /**
+     * Indicates the timestamp of the actual vsync for this frame. The value is expressed in nanoseconds.
+     *
+     * @type { long }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    vsyncTimestamp: long;
+  }
+
+  /**
    * Rectangle
    *
    * @interface Rect
@@ -7676,6 +7721,58 @@ declare namespace window {
      * @since 22 static
      */
     offOcclusionStateChanged(callback?: Callback<OcclusionState>): void;
+
+    /**
+     * Register the callback for frame metrics measured.
+     *
+     * @param { 'frameMetricsMeasured' } type - The event of frame metrics measured.
+     * @param { Callback<FrameMetrics> } callback - Callback used to return the result of frame metrics.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic
+     */
+    on(type: 'frameMetricsMeasured', callback: Callback<FrameMetrics>): void;
+
+    /**
+     * Register the callback for frame metrics measured.
+     *
+     * @param { Callback<FrameMetrics> } callback - Callback used to return the result of frame metrics.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onFrameMetricsMeasured(callback: Callback<FrameMetrics>): void;
+
+    /**
+     * Unregister the callback for frame metrics measured.
+     *
+     * @param { 'frameMetricsMeasured' } type - The event of frame metrics measured.
+     * @param { Callback<FrameMetrics> } [callback] - Callback used to return the result of frame metrics.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic
+     */
+    off(type: 'frameMetricsMeasured', callback?: Callback<FrameMetrics>): void;
+
+    /**
+     * Unregister the callback for frame metrics measured.
+     *
+     * @param { Callback<FrameMetrics> } [callback] - Callback used to return the result of frame metrics.
+     *    If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offFrameMetricsMeasured(callback?: Callback<FrameMetrics>): void;
 
     /**
      * System density change callback on.
