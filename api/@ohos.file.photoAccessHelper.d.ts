@@ -4653,6 +4653,13 @@ declare namespace photoAccessHelper {
      * @since 20 dynamic
      */
     NOTIFY_CHANGE_REMOVE = 2,
+    /**
+     * Data(YUV buffer of the photo asset) is ready.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    NOTIFY_CHANGE_YUV_READY = 3,
   }
 
   /**
