@@ -236,6 +236,7 @@ import {
 } from '@ohos.arkui.advanced.SegmentButtonV2';
 import { HalfScreenLaunchComponent } from '@ohos.atomicservice.HalfScreenLaunchComponent';
 import { GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, GestureListenerCallback } from '@ohos.arkui.UIContext';
+import { SwiperContentInfo , SwiperItemInfo } from '@ohos.arkui.UIContext';
 export {
   AtomicServiceSearch, InputFilterParams, SearchButtonParams, MenuAlignParams, SearchParams, SelectParams, OperationParams,
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOptions, App, AppResponse, AtomicServiceBar,
@@ -312,5 +313,6 @@ export {
   ConfirmDialogV2, LoadingDialogV2, SelectDialogV2, TipsDialogV2, CustomContentDialogV2, PopoverDialogV2, PopoverDialogV2OnVisibleChange, PopoverDialogV2Options,
   ExpandMode, Magnifier,
   HalfScreenLaunchComponent, ArcSliderPosition, ArcSwiper, ArcSwiperAttribute, ArcDotIndicator, ArcDirection, ArcSwiperController, TargetInfo, UIState,
-  StepperModifier, TextMenuController, InputEventType, GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, GestureListenerCallback, NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback
+  StepperModifier, TextMenuController, InputEventType, GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, GestureListenerCallback, NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback,
+  SwiperContentInfo , SwiperItemInfo
 };
