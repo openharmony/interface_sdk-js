@@ -11796,6 +11796,13 @@ export declare abstract class TextContentControllerBase {
      */
     getText(range?: TextRange): string;
 
+    /**
+     * Delete the last character of the input field component.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    deleteBackward(): void;
 }
 /**
  * Enum of scrollable containers' content clip mode.
