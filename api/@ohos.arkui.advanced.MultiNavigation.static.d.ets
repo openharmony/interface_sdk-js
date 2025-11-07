@@ -241,33 +241,22 @@ export declare class MultiNavPathStack extends NavPathStack {
   /**
    * Remove the specified NavDestinations by indexes.
    *
-   * @param { Array<number> } indexes - Indicates the indexes of the NavDestinations to be removed.
-   * @returns { number } Returns the number of removed pages. Invalid indexes will be ignored.
+   * @param { Array<int> } indexes - Indicates the indexes of the NavDestinations to be removed.
+   * @returns { int } Returns the number of removed pages. Invalid indexes will be ignored.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  removeByIndexes(indexes: Array<number>): number;
+  removeByIndexes(indexes: Array<int>): int;
  
   /**
    * Remove the specified NavDestination by name.
    *
    * @param { string } name - Indicates the name of the NavDestination to be removed.
-   * @returns { number } Returns the number of removed NavDestinations.
+   * @returns { int } Returns the number of removed NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  removeByName(name: string): number;
- 
-  /**
-   * Pop the top NavDestination of the stack.
-   *
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty,
-   *                                      otherwise returns undefined.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
-   */
-  pop(animated?: boolean): NavPathInfo | undefined;
+  removeByName(name: string): int;
  
   /**
    * Pop the top NavDestination of the stack. When keepBottomPage sets true, the page at the bottom of the
@@ -288,11 +277,11 @@ export declare class MultiNavPathStack extends NavPathStack {
    *
    * @param { string } name - Name of the NavDestination.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1.
+   * @returns { int } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  popToName(name: string, animated?: boolean): number;
+  popToName(name: string, animated?: boolean): int;
  
   /**
    * Pop to the NavDestination of specified name. Always the first one
@@ -301,32 +290,32 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { string } name - Name of the NavDestination.
    * @param { Object } result - Page Customization processing results.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1.
+   * @returns { int } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  popToName(name: string, result: Object, animated?: boolean): number;
+  popToName(name: string, result: Object, animated?: boolean): int;
  
   /**
    * Pop to the NavDestination of specified index. Do nothing if index is invalid.
    *
-   * @param { number } index - The index of NavDestination page.
+   * @param { int } index - The index of NavDestination page.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  popToIndex(index: number, animated?: boolean): void;
+  popToIndex(index: int, animated?: boolean): void;
  
   /**
    * Pop to the NavDestination of specified index. Do nothing if index is invalid.
    *
-   * @param { number } index - The index of NavDestination page.
+   * @param { int } index - The index of NavDestination page.
    * @param { Object } result - Page Customization processing results.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  popToIndex(index: number, result: Object, animated?: boolean): void;
+  popToIndex(index: int, result: Object, animated?: boolean): void;
  
   /**
    * Move the first NavDestination of specified name to the top of the stack. Always the first one
@@ -334,21 +323,21 @@ export declare class MultiNavPathStack extends NavPathStack {
    * 
    * @param { string } name - Indicates the name of the NavDestination to be moved to the top.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1.
+   * @returns { int } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  moveToTop(name: string, animated?: boolean): number;
+  moveToTop(name: string, animated?: boolean): int;
  
   /**
    * Move the first NavDestination of specified index to the top of the stack.
    *
-   * @param { number } index - Indicates the index of the NavDestination to be moved to the top.
+   * @param { int } index - Indicates the index of the NavDestination to be moved to the top.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  moveIndexToTop(index: number, animated?: boolean): void;
+  moveIndexToTop(index: int, animated?: boolean): void;
  
   /**
    * Clear the stack. When keepBottomPage sets true, the page at the bottom of the
@@ -372,13 +361,13 @@ export declare class MultiNavPathStack extends NavPathStack {
   /**
    * Obtains parameter information of the NavDestination page specified by index.
    *
-   * @param { number } index - The index of NavDestination page.
+   * @param { int } index - The index of NavDestination page.
    * @returns { Object | undefined } Returns the detailed parameter of the NavDestination
    *                                  if it exists in the stack, otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getParamByIndex(index: number): Object | undefined;
+  getParamByIndex(index: int): Object | undefined;
  
   /**
    * Obtains parameter information of all NavDestination pages specified by name.
@@ -394,20 +383,20 @@ export declare class MultiNavPathStack extends NavPathStack {
    * Obtains the index of all NavDestination pages specified by name.
    *
    * @param { string } name - Indicates the name of the NavDestination.
-   * @returns { Array<number> } Returns the index of all the NavDestinations.
+   * @returns { Array<int> } Returns the index of all the NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getIndexByName(name: string): Array<number>;
+  getIndexByName(name: string): Array<int>;
  
   /**
    * Obtains the size of the stack.
    *
-   * @returns { number } Returns the size of the stack.
+   * @returns { int } Returns the size of the stack.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  size(): number;
+  size(): int;
  
   /**
    * disable or enable all transition animation in this MultiNavigation.
@@ -432,12 +421,12 @@ export declare class MultiNavPathStack extends NavPathStack {
   /**
    * Sets the dragable range of the home page width.
    *
-   * @param { number } minPercent - Minimum Home Width Percentage.
-   * @param { number } maxPercent - Maximum Home Width Percentage.
+   * @param { double } minPercent - Minimum Home Width Percentage.
+   * @param { double } maxPercent - Maximum Home Width Percentage.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  setHomeWidthRange(minPercent: number, maxPercent: number): void;
+  setHomeWidthRange(minPercent: double, maxPercent: double): void;
  
   /**
    * Indicates whether to retain the bottom NavDestination of the stack when doing pop or clear.

@@ -258,11 +258,11 @@ declare namespace uiObserver {
         /**
          * NavDestination index.
          *
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        index: number;
+        index: int;
         /**
          * The detailed parameter of NavDestination.
          *
@@ -283,11 +283,11 @@ declare namespace uiObserver {
         /**
          * NavDestination uniqueId.
          *
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        uniqueId?: number;
+        uniqueId?: int;
 
         /**
          * NavDestination mode.
@@ -476,11 +476,11 @@ declare namespace uiObserver {
         /**
          * The index of the changed router page in router stack.
          *
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        index: number;
+        index: int;
         
         /**
          * The name of the changed router page.
@@ -634,32 +634,27 @@ declare namespace uiObserver {
     /**
      * Registers a callback function to be called when the navigation destination is updated.
      *
-     * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
      * @param { NavDestinationSwitchObserverOptions } options - The options object.
      * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation
      *     destination is updated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    export function on(
-        type: 'navDestinationUpdate',
+    export function onNavDestinationUpdate(
         options: NavDestinationSwitchObserverOptions,
         callback: Callback<NavDestinationInfo>
     ): void;
 
     /**
-     * Removes a callback function that was previously registered with `on()`.
+     * Removes a callback function that was previously registered with `onNavDestinationUpdate()`.
      *
-     * @param { 'navDestinationUpdate' } type - The type of event to remove the listener for. Must be
-     *     'navDestinationUpdate'.
      * @param { NavDestinationSwitchObserverOptions } options - The options object.
-     * @param { Callback<NavDestinationInfo> } callback - The callback function to remove. If not provided, all
-     *     callbacks for the given event type and navigation ID will be removed.
+     * @param { Callback<NavDestinationInfo> } callback - The callback function to remove. If not provided,
+     *     all callbacks for the given event type and navigation ID will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    export function off(
-        type: 'navDestinationUpdate',
+    export function offNavDestinationUpdate(
         options: NavDestinationSwitchObserverOptions,
         callback?: Callback<NavDestinationInfo>
     ): void;
@@ -667,25 +662,22 @@ declare namespace uiObserver {
     /**
      * Registers a callback function to be called when the navigation destination is updated.
      *
-     * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
      * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation
      *     destination is updated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    export function on(type: 'navDestinationUpdate', callback: Callback<NavDestinationInfo>): void;
+    export function onNavDestinationUpdate(callback: Callback<NavDestinationInfo>): void;
     
     /**
-     * Removes a callback function that was previously registered with `on()`.
+     * Removes a callback function that was previously registered with `onNavDestinationUpdate()`.
      *
-     * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be
-     *     'navDestinationUpdate'.
      * @param { Callback<NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all
      *     callbacks for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    export function off(type: 'navDestinationUpdate', callback?: Callback<NavDestinationInfo>): void;
+    export function offNavDestinationUpdate(callback?: Callback<NavDestinationInfo>): void;
     /**
      * Registers a callback function to be called when the scroll event start or stop.
      *
@@ -732,34 +724,24 @@ declare namespace uiObserver {
     /**
      * Registers a callback function to be called when the router page is updated.
      *
-     * @param { 'routerPageUpdate' } type - The type of event to listen for. Must be 'routerPageUpdate'.
      * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
      * @param { Callback<RouterPageInfo> } callback - The callback function to be called when the router page is
      *     updated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    export function on(
-        type: 'routerPageUpdate',
-        context: UIAbilityContext | UIContext,
-        callback: Callback<RouterPageInfo>
-    ): void;
+    export function onRouterPageUpdate(context: UIAbilityContext | UIContext, callback: Callback<RouterPageInfo>): void;
     
     /**
-     * Removes a callback function that was previously registered with `on()`.
+     * Removes a callback function that was previously registered with `onRouterPageUpdate()`.
      *
-     * @param { 'routerPageUpdate' } type - The type of event to remove the listener for. Must be 'routerPageUpdate'.
      * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
      * @param { Callback<RouterPageInfo> } [callback] - The callback function to remove. If not provided, all
      *     callbacks for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    export function off(
-        type: 'routerPageUpdate',
-        context: UIAbilityContext | UIContext,
-        callback?: Callback<RouterPageInfo>
-    ): void;
+    export function offRouterPageUpdate(context: UIAbilityContext | UIContext, callback?: Callback<RouterPageInfo>): void;
 
     /**
      * Registers a callback function to be called when the screen density is updated.
@@ -870,38 +852,32 @@ declare namespace uiObserver {
     /**
      * Registers a callback function to be called when the navigation switched to a new navDestination.
      *
-     * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
      * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
      * @param { Callback<NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation
      *     switched to a new navDestination.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    export function on(
-        type: 'navDestinationSwitch',
+    export function onNavDestinationSwitch(
         context: UIAbilityContext | UIContext,
         callback: Callback<NavDestinationSwitchInfo>
     ): void;
     /**
-     * Removes a callback function that was previously registered with `on()`.
+     * Removes a callback function that was previously registered with `onNavDestinationSwitch()`.
      *
-     * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be
-     *     'navDestinationSwitch'.
      * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
      * @param { Callback<NavDestinationSwitchInfo> } [callback] - The callback function to remove.
      *     If not provided, all callbacks for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    export function off(
-        type: 'navDestinationSwitch',
+    export function offNavDestinationSwitch(
         context: UIAbilityContext | UIContext,
         callback?: Callback<NavDestinationSwitchInfo>
     ): void;
     /**
      * Registers a callback function to be called when the navigation switched to a new navDestination.
      *
-     * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
      * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
      * @param { NavDestinationSwitchObserverOptions } observerOptions - Options.
      * @param { Callback<NavDestinationSwitchInfo> } callback - The callback function to be called when the
@@ -909,17 +885,14 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    export function on(
-        type: 'navDestinationSwitch',
+    export function onNavDestinationSwitch(
         context: UIAbilityContext | UIContext,
         observerOptions: NavDestinationSwitchObserverOptions,
         callback: Callback<NavDestinationSwitchInfo>
     ): void;
     /**
-     * Removes a callback function that was previously registered with `on()`.
+     * Removes a callback function that was previously registered with `onNavDestinationSwitch()`.
      *
-     * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be
-     *     'navDestinationSwitch'.
      * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
      * @param { NavDestinationSwitchObserverOptions } observerOptions - Options.
      * @param { Callback<NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided,
@@ -927,8 +900,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    export function off(
-        type: 'navDestinationSwitch',
+    export function offNavDestinationSwitch(
         context: UIAbilityContext | UIContext,
         observerOptions: NavDestinationSwitchObserverOptions,
         callback?: Callback<NavDestinationSwitchInfo>
