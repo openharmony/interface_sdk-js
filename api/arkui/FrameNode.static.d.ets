@@ -202,6 +202,24 @@ export declare class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
+  /**
+   * Add child to the end of the FrameNode's children.
+   * If this FrameNode is not modifiable, an exception is thrown.
+   * When appendChild is called, typeNode validates the type or number of child nodes.
+   * If the validation fails, an exception is thrown. For specific limitations, see typeNode.
+   *
+   * @param { FrameNode } node - The node will be added.
+   *     The child node cannot be one created declaratively, which is not modifiable.
+   *     Only declarative nodes obtained from a BuilderNode can be used as child nodes.
+   *     If the child node does not meet the specifications, an exception is thrown.
+   *     The FrameNode cannot have a parent node. Otherwise, an exception is thrown.
+   *     The node cannot be adopted. Otherwise, an exception is thrown.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
+   *     are included in the error message. For example: "The parameter 'node' is invalid: it cannot be adopted."
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
   appendChild(node: FrameNode): void;
 
   /**
@@ -213,6 +231,24 @@ export declare class FrameNode {
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
+   */
+  /**
+   * Add child to the current FrameNode.
+   * If this FrameNode is not modifiable, an exception is thrown.
+   *
+   * @param { FrameNode } child - The node will be added.
+   *     The child node cannot be a declarative node, that is, a FrameNode that cannot be modified.
+   *     Only declarative nodes obtained from a BuilderNode can be used as child nodes.
+   *     If the child node does not meet the specifications, an exception is thrown.
+   *     The child node cannot have a parent node. Otherwise, an exception is thrown.
+   *     The child node cannot be adopted. Otherwise, an exception is thrown.
+   * @param { FrameNode | null } sibling - The new node is added after this node. When sibling is null, insert node as
+   *     the first children of the node.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
+   *     are included in the error message. For example: "The parameter 'child' is invalid: it cannot be adopted."
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
    */
   insertChildAfter(child: FrameNode, sibling: FrameNode | null): void;
 
@@ -322,6 +358,30 @@ export declare class FrameNode {
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
+   */
+  /**
+   * Move node to the target Framenode as child.
+   * If this FrameNode is not modifiable, an exception is thrown.
+   * When targetParent is a typeNode, the API validates the type or number of child nodes.
+   * If the validation fails, an exception is thrown. For specific limitations, see typeNode.
+   * If this FrameNode is adopted, an exception is thrown.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>Currently, only the following types of TypedFrameNode are supported for the movement
+   * operations: Stack, XComponent.
+   * </p>
+   *
+   * @param { FrameNode } targetParent - The target parent node.
+   *     The target parent node must not be a declaratively created node, that is, a FrameNode that is not modifiable.
+   *     If it does not meet the specifications, an exception is thrown.
+   * @param { number } [index] - The index which the node is moved to. If the value is a negative number or invalid,
+   *     the node is moved to the end of the target parent node. Moves to the end of the target parent node by default.
+   *     If the target FrameNode has n nodes, the value range for index is 0 to n-1.
+   *     Default value: -1
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @throws { BusinessError } 100027 - The current node has been adopted.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
    */
   moveTo(targetParent: FrameNode, index?: number): void;
 
@@ -702,6 +762,34 @@ export declare class FrameNode {
    * @since 20 static
    */
   reuse(): void;
+
+  /**
+   * The current node adopts the target child node. The node being adopted must not have an existing parent node.
+   * This operation does not actually append it as a child, but only allows it to receive life-cycle
+   * callbacks as if it were a child.
+   *
+   * @param { FrameNode } child the target node being adopted.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
+   *     are included in the error message. For example: "The parameter 'child' is invalid: it cannot be disposed."
+   * @throws { BusinessError } 100026 - The curent FrameNode has been disposed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  adoptChild(child: FrameNode): void;
+
+  /**
+   * Remove the target adopted child node.
+   *
+   * @param { FrameNode } child the target node being adopted.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
+   *     are included in the error message. For example: "The parameter 'child' is invalid: it cannot be null."
+   * @throws { BusinessError } 100026 - The curent FrameNode has been disposed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  removeAdoptedChild(child: FrameNode): void;
 
   /**
   * Returns a flag indicating whether the current FrameNode was obtained through dynamic-static conversion,
