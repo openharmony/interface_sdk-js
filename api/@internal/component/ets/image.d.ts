@@ -402,6 +402,14 @@ declare enum ImageInterpolation {
  * @atomicservice
  * @since 14 dynamic
  */
+/**
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare enum ImageRotateOrientation {
   /**
    * Rotate according to the image rotation
@@ -410,6 +418,15 @@ declare enum ImageRotateOrientation {
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
+   */
+  /**
+   * Rotate according to the image rotation
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   AUTO = 0,
 
@@ -421,6 +438,15 @@ declare enum ImageRotateOrientation {
    * @atomicservice
    * @since 14 dynamic
    */
+  /**
+   * Ignore the rotation of the image
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
   UP = 1,
 
   /**
@@ -430,6 +456,15 @@ declare enum ImageRotateOrientation {
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
+   */
+  /**
+   * Based on image rotation, rotate clockwise 90 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   RIGHT = 2,
 
@@ -441,6 +476,15 @@ declare enum ImageRotateOrientation {
    * @atomicservice
    * @since 14 dynamic
    */
+  /**
+   * Based on image rotation, rotate clockwise 180 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
   DOWN = 3,
 
   /**
@@ -450,6 +494,15 @@ declare enum ImageRotateOrientation {
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
+   */
+  /**
+   * Based on image rotation, rotate clockwise 270 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   LEFT = 4,
 
@@ -461,6 +514,15 @@ declare enum ImageRotateOrientation {
    * @atomicservice
    * @since 20 dynamic
    */
+  /**
+   * Flip the orignial image horizontally
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
   UP_MIRRORED = 5,
 
   /**
@@ -470,6 +532,15 @@ declare enum ImageRotateOrientation {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
+   */
+  /**
+   * Flip the orignial image horizontally and rotate clockwise 90 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   RIGHT_MIRRORED = 6,
 
@@ -481,6 +552,15 @@ declare enum ImageRotateOrientation {
    * @atomicservice
    * @since 20 dynamic
    */
+  /**
+   * Flip the orignial image vertically
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
   DOWN_MIRRORED = 7,
 
   /**
@@ -490,6 +570,15 @@ declare enum ImageRotateOrientation {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
+   */
+  /**
+   * Flip the orignial image horizontally and rotate clockwise 270 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   LEFT_MIRRORED = 8,
 }
@@ -2013,6 +2102,18 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
+   */
+   /**
+   * Sets the display orientation of the image content.
+   *
+   * @param { ImageRotateOrientation } orientation - Display orientation of the image content, Default value
+   * is ImageRotateOrientation.UP.
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
    */
   orientation(orientation: ImageRotateOrientation) : ImageAttribute;
 
