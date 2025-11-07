@@ -207,7 +207,8 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
-   * @since 21 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function publishAsUser(event: string, userId: int, callback: AsyncCallback<void>): void;
 
@@ -262,7 +263,8 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
-   * @since 21 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function publishAsUser(
     event: string,
