@@ -107,7 +107,9 @@ declare namespace data {
    * Indicates that there is no uplink or downlink data.
    *
    * <p>It is a return value of service state query of cellular data services.
+   * @permission ohos.permission.GET_NETWORK_INFO
    * @param { AsyncCallback<DataFlowType> } callback - Indicates the data flow type.
+   * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
    */
@@ -117,7 +119,9 @@ declare namespace data {
    * Indicates that there is no uplink or downlink data.
    *
    * <p>It is a return value of service state query of cellular data services.
+   * @permission ohos.permission.GET_NETWORK_INFO
    * @returns { Promise<DataFlowType> } Returns the data flow type.
+   * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
    */
@@ -126,6 +130,7 @@ declare namespace data {
   /**
    * Obtain the connection state of the PS domain.
    *
+   * @permission ohos.permission.GET_NETWORK_INFO
    * @param { AsyncCallback<DataConnectState> } callback - Indicates the callback for getting the connection state,
    * which can be any of the following:
    * <ul>
@@ -135,6 +140,7 @@ declare namespace data {
    * <li>{@code DataConnectState#DATA_STATE_CONNECTED}
    * <li>{@code DataConnectState#DATA_STATE_SUSPENDED}
    * </ul>
+   * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
    * @since 22 static
@@ -144,6 +150,7 @@ declare namespace data {
   /**
    * Obtain the connection state of the PS domain.
    *
+   * @permission ohos.permission.GET_NETWORK_INFO
    * @returns { Promise<DataConnectState> } Returns the connection state, which can be any of the following:
    * <ul>
    * <li>{@code DataConnectState#DATA_STATE_UNKNOWN}
@@ -152,6 +159,7 @@ declare namespace data {
    * <li>{@code DataConnectState#DATA_STATE_CONNECTED}
    * <li>{@code DataConnectState#DATA_STATE_SUSPENDED}
    * </ul>
+   * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
    * @since 22 static
