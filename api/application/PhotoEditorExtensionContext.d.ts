@@ -29,7 +29,7 @@ import image from '../@ohos.multimedia.image';
  * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
  * @StageModelOnly
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class PhotoEditorExtensionContext extends ExtensionContext {
     /**
@@ -44,7 +44,7 @@ declare class PhotoEditorExtensionContext extends ExtensionContext {
      * @throws { BusinessError } 29600003 - Image too big.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     saveEditedContentWithUri(uri: string): Promise<AbilityResult>;
 
@@ -61,7 +61,7 @@ declare class PhotoEditorExtensionContext extends ExtensionContext {
      * @throws { BusinessError } 29600003 - Image too big.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     saveEditedContentWithImage(pixeMap: image.PixelMap, option: image.PackingOption): Promise<AbilityResult>;
 }

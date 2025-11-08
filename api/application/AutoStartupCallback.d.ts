@@ -33,7 +33,7 @@ import type AutoStartupInfo from './AutoStartupInfo';
  * @systemapi
  * @StageModelOnly
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface AutoStartupCallback {
   /**
@@ -44,7 +44,7 @@ export interface AutoStartupCallback {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onAutoStartupOn(info: AutoStartupInfo): void;
 
@@ -56,7 +56,7 @@ export interface AutoStartupCallback {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onAutoStartupOff(info: AutoStartupInfo): void;
 }

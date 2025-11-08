@@ -27,7 +27,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.FileManagement.StorageService.Volume
  * @systemapi
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace volumeManager {
   /**
@@ -37,7 +37,7 @@ declare namespace volumeManager {
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface Volume {
     /**
@@ -57,7 +57,7 @@ declare namespace volumeManager {
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uuid: string;
 
@@ -78,7 +78,7 @@ declare namespace volumeManager {
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     description: string;
 
@@ -136,7 +136,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllVolumes(callback: AsyncCallback<Array<Volume>>): void;
 
@@ -154,7 +154,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllVolumes(): Promise<Array<Volume>>;
 
@@ -267,7 +267,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getVolumeByUuid(uuid: string, callback: AsyncCallback<Volume>): void;
 
@@ -288,7 +288,7 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getVolumeByUuid(uuid: string): Promise<Volume>;
 

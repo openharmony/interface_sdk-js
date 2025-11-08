@@ -37,7 +37,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @StageModelOnly
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class Ability {
   /**
@@ -56,7 +56,7 @@ declare class Ability {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onConfigurationUpdate(newConfig: Configuration): void;
 
@@ -80,7 +80,7 @@ declare class Ability {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 }

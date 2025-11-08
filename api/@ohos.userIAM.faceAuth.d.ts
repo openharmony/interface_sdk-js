@@ -24,7 +24,7 @@
  * @namespace faceAuth
  * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace faceAuth {
   /**
@@ -33,7 +33,7 @@ declare namespace faceAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   class FaceAuthManager {
     /**
@@ -42,7 +42,7 @@ declare namespace faceAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     constructor();
 
@@ -57,7 +57,7 @@ declare namespace faceAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setSurfaceId(surfaceId: string): void;
   }

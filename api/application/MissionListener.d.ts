@@ -27,7 +27,7 @@ import image from '../@ohos.multimedia.image';
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
  * @since 8 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface MissionListener {
   /**
@@ -37,7 +37,7 @@ export interface MissionListener {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onMissionCreated(mission: int): void;
 
@@ -48,7 +48,7 @@ export interface MissionListener {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onMissionDestroyed(mission: int): void;
 
@@ -59,7 +59,7 @@ export interface MissionListener {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onMissionSnapshotChanged(mission: int): void;
 
@@ -70,7 +70,7 @@ export interface MissionListener {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onMissionMovedToFront(mission: int): void;
 
@@ -81,7 +81,7 @@ export interface MissionListener {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onMissionLabelUpdated(mission: int): void;
 
@@ -93,7 +93,7 @@ export interface MissionListener {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onMissionIconUpdated(mission: int, icon: image.PixelMap): void;
 
@@ -104,7 +104,7 @@ export interface MissionListener {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onMissionClosed(mission: int): void;
 }

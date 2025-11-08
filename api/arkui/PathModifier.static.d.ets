@@ -26,7 +26,7 @@ import { PathAttribute } from '@ohos.arkui.component';
  *
  * @implements PathAttribute, AttributeModifier<PathAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare class PathModifier implements PathAttribute, AttributeModifier<PathAttribute> {}

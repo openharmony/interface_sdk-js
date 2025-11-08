@@ -41,7 +41,7 @@ import { RecordData } from '../@ohos.base';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface WantAgentInfo {
   /**
@@ -58,7 +58,7 @@ export interface WantAgentInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   wants: Array<Want>;
 
@@ -97,7 +97,7 @@ export interface WantAgentInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   actionType?: abilityWantAgent.OperationType;
 
@@ -115,7 +115,7 @@ export interface WantAgentInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   requestCode: int;
 
@@ -154,7 +154,7 @@ export interface WantAgentInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   actionFlags?: Array<abilityWantAgent.WantAgentFlags>;
 
@@ -183,7 +183,7 @@ export interface WantAgentInfo {
    *
    * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 20 static
+   * @since 22 static
    */
   extraInfo?: Record<string, RecordData>;
 
@@ -215,7 +215,7 @@ export interface WantAgentInfo {
    *
    * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 20 static
+   * @since 22 static
    */
   extraInfos?: Record<string, RecordData>;
 }

@@ -28,7 +28,7 @@ import { Component, BuilderParam, TerminationInfo, Builder } from '@ohos.arkui.c
  * 
  * @typedef { function } ContentBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Builder
 type ContentBuilder = () => void;
@@ -38,7 +38,7 @@ type ContentBuilder = () => void;
  * development paradigm.
  * @struct { FullScreenLaunchComponent }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 @Component
@@ -47,21 +47,21 @@ export declare struct FullScreenLaunchComponent {
    * Sets the component content.
    * @type { ContentBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   @BuilderParam content: ContentBuilder;
   /**
    * Indicates atomic service appId.
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   appId: string;
   /**
    * Indicates the atomic service start options.
    * @type { ?AtomicServiceOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   options?: AtomicServiceOptions;
     /**
@@ -70,7 +70,7 @@ export declare struct FullScreenLaunchComponent {
     * with the parameter being of type BusinessError.
     * @type { ?ErrorCallback }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20 static
+    * @since 22 static
     */
     onError?: ErrorCallback;
     /**
@@ -79,21 +79,21 @@ export declare struct FullScreenLaunchComponent {
     * with the parameter being of type TerminationInfo.
     * @type { ?Callback<TerminationInfo> }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20 static
+    * @since 22 static
     */
     onTerminated?: Callback<TerminationInfo>;
     /**
     * Indicates the callback of onReceive.
     * @type { ?Callback<Record<string, RecordData>> }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20 static
+    * @since 22 static
     */
     onReceive?: Callback<Record<string, RecordData>>;
 
     /**
     * The method to build component.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20 static
+    * @since 22 static
     */
     @Builder build(): void;
 }

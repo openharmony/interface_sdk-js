@@ -25,6 +25,6 @@ import { LocalStorage } from './localStorage';
  * UI state of app-wide access and same life cycle as the app.
  * @type { LocalStorage }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare const AppStorage: LocalStorage;

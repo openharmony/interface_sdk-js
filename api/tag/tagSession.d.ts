@@ -39,7 +39,7 @@ import { AsyncCallback } from '../@ohos.base';
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface TagSession {
   /**
@@ -87,7 +87,7 @@ export interface TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   connect(): void;
 
@@ -122,7 +122,7 @@ export interface TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   resetConnection(): void;
 
@@ -154,7 +154,7 @@ export interface TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isConnected(): boolean;
 
@@ -202,7 +202,7 @@ export interface TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   setTimeout(timeout: int): void;
 
@@ -240,7 +240,7 @@ export interface TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getTimeout(): int;
 
@@ -307,7 +307,7 @@ export interface TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   transmit(data: int[]): Promise<int[]>;
 
@@ -344,7 +344,7 @@ export interface TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   transmit(data: int[], callback: AsyncCallback<int[]>): void;
 
@@ -382,7 +382,7 @@ export interface TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getMaxTransmitSize(): int;
 }

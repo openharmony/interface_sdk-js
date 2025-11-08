@@ -32,7 +32,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.Sensors.Sensor
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace sensor {
   /**
@@ -47,7 +47,7 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum SensorId {
     /**
@@ -60,7 +60,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACCELEROMETER = 1,
 
@@ -74,7 +74,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     GYROSCOPE = 2,
 
@@ -82,7 +82,7 @@ declare namespace sensor {
      * Ambient light sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AMBIENT_LIGHT = 5,
 
@@ -90,7 +90,7 @@ declare namespace sensor {
      * Magnetic field sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MAGNETIC_FIELD = 6,
 
@@ -98,7 +98,7 @@ declare namespace sensor {
      * Barometric pressure sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     BAROMETER = 8,
 
@@ -106,7 +106,7 @@ declare namespace sensor {
      * Hall effect sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     HALL = 10,
 
@@ -114,7 +114,7 @@ declare namespace sensor {
      * Proximity sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PROXIMITY = 12,
 
@@ -122,7 +122,7 @@ declare namespace sensor {
      * Humidity sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     HUMIDITY = 13,
 
@@ -131,7 +131,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COLOR = 14,
 
@@ -140,7 +140,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SAR = 15,
 
@@ -154,7 +154,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ORIENTATION = 256,
 
@@ -162,7 +162,7 @@ declare namespace sensor {
      * Gravity sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     GRAVITY = 257,
 
@@ -170,7 +170,7 @@ declare namespace sensor {
      * Linear acceleration sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     LINEAR_ACCELEROMETER = 258,
 
@@ -178,7 +178,7 @@ declare namespace sensor {
      * Rotation vector sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ROTATION_VECTOR = 259,
 
@@ -186,7 +186,7 @@ declare namespace sensor {
      * Ambient temperature sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AMBIENT_TEMPERATURE = 260,
 
@@ -194,7 +194,7 @@ declare namespace sensor {
      * Uncalibrated magnetic field sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MAGNETIC_FIELD_UNCALIBRATED = 261,
 
@@ -202,7 +202,7 @@ declare namespace sensor {
      * Uncalibrated gyroscope sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     GYROSCOPE_UNCALIBRATED = 263,
 
@@ -210,7 +210,7 @@ declare namespace sensor {
      * Significant motion sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SIGNIFICANT_MOTION = 264,
 
@@ -218,7 +218,7 @@ declare namespace sensor {
      * Pedometer detection sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PEDOMETER_DETECTION = 265,
 
@@ -226,7 +226,7 @@ declare namespace sensor {
      * Pedometer sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PEDOMETER = 266,
 
@@ -234,7 +234,7 @@ declare namespace sensor {
      * Heart rate sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     HEART_RATE = 278,
 
@@ -242,7 +242,7 @@ declare namespace sensor {
      * Wear detection sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WEAR_DETECTION = 280,
 
@@ -250,7 +250,7 @@ declare namespace sensor {
      * Uncalibrated acceleration sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACCELEROMETER_UNCALIBRATED = 281
   }
@@ -3295,7 +3295,7 @@ declare namespace sensor {
    * @typedef Sensor
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Sensor {
     /**
@@ -3303,7 +3303,7 @@ declare namespace sensor {
      * @type { string }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     sensorName:string;
 
@@ -3312,7 +3312,7 @@ declare namespace sensor {
      * @type { string }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     vendorName:string;
 
@@ -3321,7 +3321,7 @@ declare namespace sensor {
      * @type { string }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     firmwareVersion:string;
 
@@ -3330,7 +3330,7 @@ declare namespace sensor {
      * @type { string }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     hardwareVersion:string;
 
@@ -3339,7 +3339,7 @@ declare namespace sensor {
      * @type { int }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     sensorId:int;
 
@@ -3348,7 +3348,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     maxRange:double;
 
@@ -3357,7 +3357,7 @@ declare namespace sensor {
      * @type { long }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     minSamplePeriod:long;
 
@@ -3366,7 +3366,7 @@ declare namespace sensor {
      * @type { long }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     maxSamplePeriod:long;
 
@@ -3375,7 +3375,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     precision:double;
 
@@ -3384,7 +3384,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     power:double;
 
@@ -3444,7 +3444,7 @@ declare namespace sensor {
    * @throws { BusinessError } 14500102 - The sensor is not supported by the device.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSingleSensor(type: SensorId, callback: AsyncCallback<Sensor>): void;
 
@@ -3470,7 +3470,7 @@ declare namespace sensor {
    * @throws { BusinessError } 14500102 - The sensor is not supported by the device.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSingleSensor(type: SensorId): Promise<Sensor>;
 
@@ -3485,7 +3485,7 @@ declare namespace sensor {
    * @throws { BusinessError } 14500102 - The sensor is not supported by the device.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSingleSensorSync(type: SensorId): Sensor;
 
@@ -3508,7 +3508,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSensorList(callback: AsyncCallback<Array<Sensor>>): void;
 
@@ -3521,7 +3521,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSensorList(): Promise<Array<Sensor>>;
 
@@ -3532,7 +3532,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSensorListSync(): Array<Sensor>;
 
@@ -3550,7 +3550,7 @@ declare namespace sensor {
    * @typedef GeomagneticResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface GeomagneticResponse {
     /**
@@ -3558,7 +3558,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     x: double;
 
@@ -3567,7 +3567,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     y: double;
 
@@ -3576,7 +3576,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     z: double;
 
@@ -3585,7 +3585,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     geomagneticDip: double;
 
@@ -3594,7 +3594,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deflectionAngle: double;
 
@@ -3603,7 +3603,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     levelIntensity: double;
 
@@ -3612,7 +3612,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     totalIntensity: double;
   }
@@ -3622,7 +3622,7 @@ declare namespace sensor {
    * @typedef LocationOptions
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface LocationOptions {
     /**
@@ -3630,7 +3630,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     latitude: double;
 
@@ -3639,7 +3639,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     longitude: double;
 
@@ -3648,7 +3648,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     altitude: double;
   }
@@ -3691,7 +3691,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: long, callback: AsyncCallback<GeomagneticResponse>): void;
 
@@ -3707,7 +3707,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: long): Promise<GeomagneticResponse>;
 
@@ -3746,7 +3746,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDeviceAltitude(seaPressure: double, currentPressure: double, callback: AsyncCallback<double>): void;
 
@@ -3761,7 +3761,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDeviceAltitude(seaPressure: double, currentPressure: double): Promise<double>;
 
@@ -3797,7 +3797,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getInclination(inclinationMatrix: Array<double>, callback: AsyncCallback<double>): void;
 
@@ -3811,7 +3811,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getInclination(inclinationMatrix: Array<double>): Promise<double>;
 
@@ -3851,7 +3851,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAngleVariation(currentRotationMatrix: Array<double>, preRotationMatrix: Array<double>,
     callback: AsyncCallback<Array<double>>): void;
@@ -3867,7 +3867,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAngleVariation(currentRotationMatrix: Array<double>, preRotationMatrix: Array<double>): Promise<Array<double>>;
 
@@ -3903,7 +3903,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getRotationMatrix(rotationVector: Array<double>, callback: AsyncCallback<Array<double>>): void;
 
@@ -3917,7 +3917,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getRotationMatrix(rotationVector: Array<double>): Promise<Array<double>>;
 
@@ -3926,14 +3926,14 @@ declare namespace sensor {
    * @typedef CoordinatesOptions
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface CoordinatesOptions {
     /** Indicates the axis of the new coordinate system that coincides with the X axis of the original coordinate system. 
      * @type { int }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     x: int;
 
@@ -3941,7 +3941,7 @@ declare namespace sensor {
      * @type { int }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     y: int;
   }
@@ -3982,7 +3982,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function transformRotationMatrix(inRotationVector: Array<double>, coordinates: CoordinatesOptions,
     callback: AsyncCallback<Array<double>>): void;
@@ -3998,7 +3998,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function transformRotationMatrix(inRotationVector: Array<double>, coordinates: CoordinatesOptions): Promise<Array<double>>;
 
@@ -4034,7 +4034,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getQuaternion(rotationVector: Array<double>, callback: AsyncCallback<Array<double>>): void;
 
@@ -4048,7 +4048,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getQuaternion(rotationVector: Array<double>): Promise<Array<double>>;
 
@@ -4084,7 +4084,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getOrientation(rotationMatrix: Array<double>, callback: AsyncCallback<Array<double>>): void;
 
@@ -4098,7 +4098,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getOrientation(rotationMatrix: Array<double>): Promise<Array<double>>;
 
@@ -4107,7 +4107,7 @@ declare namespace sensor {
    * @typedef RotationMatrixResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface RotationMatrixResponse {
     /**
@@ -4115,7 +4115,7 @@ declare namespace sensor {
      * @type { Array<double> }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rotation: Array<double>;
 
@@ -4124,7 +4124,7 @@ declare namespace sensor {
      * @type { Array<double> }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inclination: Array<double>
   }
@@ -4164,7 +4164,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getRotationMatrix(gravity: Array<double>, geomagnetic: Array<double>, callback: AsyncCallback<RotationMatrixResponse>): void;
 
@@ -4179,7 +4179,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getRotationMatrix(gravity: Array<double>, geomagnetic: Array<double>): Promise<RotationMatrixResponse>;
 
@@ -4195,7 +4195,7 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Options {
     /**
@@ -4210,7 +4210,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     interval?: long | SensorFrequency;
 
@@ -4230,7 +4230,7 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type SensorFrequency = 'game' | 'ui' | 'normal';
 
@@ -4418,7 +4418,7 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum SensorAccuracy {
     /**
@@ -4426,7 +4426,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACCURACY_UNRELIABLE = 0,
 
@@ -4435,7 +4435,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACCURACY_LOW = 1,
 
@@ -4444,7 +4444,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACCURACY_MEDIUM = 2,
 
@@ -4453,7 +4453,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACCURACY_HIGH = 3
   }
@@ -4470,7 +4470,7 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Response {
     /**
@@ -4485,7 +4485,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     timestamp: long;
 
@@ -4495,7 +4495,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     accuracy: SensorAccuracy;
   }
@@ -4512,7 +4512,7 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AccelerometerResponse extends Response {
     /**
@@ -4527,7 +4527,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     x: double;
 
@@ -4543,7 +4543,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     y: double;
 
@@ -4559,7 +4559,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     z: double;
   }
@@ -4569,7 +4569,7 @@ declare namespace sensor {
    * @typedef LinearAccelerometerResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface LinearAccelerometerResponse extends Response {
     /**
@@ -4577,7 +4577,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     x: double;
 
@@ -4586,7 +4586,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     y: double;
 
@@ -4595,7 +4595,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     z: double;
   }
@@ -4605,7 +4605,7 @@ declare namespace sensor {
    * @typedef AccelerometerUncalibratedResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AccelerometerUncalibratedResponse extends Response {
     /**
@@ -4613,7 +4613,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     x: double;
 
@@ -4622,7 +4622,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     y: double;
 
@@ -4631,7 +4631,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     z: double;
 
@@ -4641,7 +4641,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     biasX: double;
 
@@ -4651,7 +4651,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     biasY: double;
 
@@ -4661,7 +4661,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     biasZ: double;
   }
@@ -4671,7 +4671,7 @@ declare namespace sensor {
    * @typedef GravityResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface GravityResponse extends Response {
     /**
@@ -4679,7 +4679,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     x: double;
 
@@ -4688,7 +4688,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     y: double;
 
@@ -4697,7 +4697,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     z: double;
   }
@@ -4714,7 +4714,7 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface OrientationResponse extends Response {
     /**
@@ -4729,7 +4729,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     alpha: double;
 
@@ -4745,7 +4745,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     beta: double;
 
@@ -4761,7 +4761,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gamma: double;
   }
@@ -4771,7 +4771,7 @@ declare namespace sensor {
    * @typedef RotationVectorResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface RotationVectorResponse extends Response {
     /**
@@ -4779,7 +4779,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     x: double;
 
@@ -4788,7 +4788,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     y: double;
 
@@ -4797,7 +4797,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     z: double;
 
@@ -4806,7 +4806,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     w: double;
   }
@@ -4823,7 +4823,7 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface GyroscopeResponse extends Response {
     /**
@@ -4838,7 +4838,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     x: double;
 
@@ -4854,7 +4854,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     y: double;
 
@@ -4870,7 +4870,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     z: double;
   }
@@ -4880,7 +4880,7 @@ declare namespace sensor {
    * @typedef GyroscopeUncalibratedResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface GyroscopeUncalibratedResponse extends Response {
     /**
@@ -4888,7 +4888,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     x: double;
 
@@ -4897,7 +4897,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     y: double;
 
@@ -4906,7 +4906,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     z: double;
 
@@ -4915,7 +4915,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     biasX: double;
 
@@ -4924,7 +4924,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     biasY: double;
 
@@ -4933,7 +4933,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     biasZ: double;
   }
@@ -4943,7 +4943,7 @@ declare namespace sensor {
    * @typedef SignificantMotionResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface SignificantMotionResponse extends Response {
     /**
@@ -4953,7 +4953,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     scalar: double;
   }
@@ -4963,7 +4963,7 @@ declare namespace sensor {
    * @typedef ProximityResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ProximityResponse extends Response {
     /**
@@ -4971,7 +4971,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     distance: double;
   }
@@ -4981,7 +4981,7 @@ declare namespace sensor {
    * @typedef LightResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface LightResponse extends Response {
     /**
@@ -4989,7 +4989,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     intensity: double;
 
@@ -4998,7 +4998,7 @@ declare namespace sensor {
      * @type { ?double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     colorTemperature?: double;
 
@@ -5007,7 +5007,7 @@ declare namespace sensor {
      * @type { ?double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     infraredLuminance?: double;
   }
@@ -5017,7 +5017,7 @@ declare namespace sensor {
    * @typedef HallResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface HallResponse extends Response {
     /**
@@ -5025,7 +5025,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     status: double;
   }
@@ -5035,7 +5035,7 @@ declare namespace sensor {
    * @typedef MagneticFieldResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface MagneticFieldResponse extends Response {
     /**
@@ -5043,7 +5043,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     x: double;
 
@@ -5052,7 +5052,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     y: double;
 
@@ -5061,7 +5061,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     z: double;
   }
@@ -5071,7 +5071,7 @@ declare namespace sensor {
    * @typedef MagneticFieldUncalibratedResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface MagneticFieldUncalibratedResponse extends Response {
     /**
@@ -5079,7 +5079,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     x: double;
 
@@ -5088,7 +5088,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     y: double;
 
@@ -5097,7 +5097,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     z: double;
 
@@ -5106,7 +5106,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     biasX: double;
 
@@ -5115,7 +5115,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     biasY: double;
 
@@ -5124,7 +5124,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     biasZ: double;
   }
@@ -5134,7 +5134,7 @@ declare namespace sensor {
    * @typedef PedometerResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface PedometerResponse extends Response {
     /**
@@ -5142,7 +5142,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     steps: double;
   }
@@ -5152,7 +5152,7 @@ declare namespace sensor {
    * @typedef HumidityResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface HumidityResponse extends Response {
     /**
@@ -5160,7 +5160,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     humidity: double;
   }
@@ -5170,7 +5170,7 @@ declare namespace sensor {
    * @typedef PedometerDetectionResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface PedometerDetectionResponse extends Response {
     /**
@@ -5179,7 +5179,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     scalar: double;
   }
@@ -5189,7 +5189,7 @@ declare namespace sensor {
    * @typedef  AmbientTemperatureResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AmbientTemperatureResponse extends Response {
     /**
@@ -5197,7 +5197,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     temperature: double;
   }
@@ -5207,7 +5207,7 @@ declare namespace sensor {
    * @typedef BarometerResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface BarometerResponse extends Response {
     /**
@@ -5215,7 +5215,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pressure: double;
   }
@@ -5225,7 +5225,7 @@ declare namespace sensor {
    * @typedef HeartRateResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface HeartRateResponse extends Response {
     /**
@@ -5233,7 +5233,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     heartRate: double;
   }
@@ -5243,7 +5243,7 @@ declare namespace sensor {
    * @typedef WearDetectionResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface WearDetectionResponse extends Response {
     /**
@@ -5251,7 +5251,7 @@ declare namespace sensor {
      * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     value: double;
   }
@@ -5262,7 +5262,7 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ColorResponse extends Response {
     /**
@@ -5271,7 +5271,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor      
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     lightIntensity: double;
     /**
@@ -5280,7 +5280,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     colorTemperature: double;
   }
@@ -5291,7 +5291,7 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface SarResponse extends Response {
     /**
@@ -5300,7 +5300,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     absorptionRatio: double;
   }
@@ -5390,7 +5390,7 @@ declare namespace sensor {
   * @syscap SystemCapability.Sensors.Sensor
   * @atomicservice
   * @since 19 dynamic
-  * @since 20 static
+  * @since 22 static
   */
   interface SensorInfoParam {
     /**
@@ -5401,7 +5401,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deviceId?: int;
 
@@ -5411,7 +5411,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     sensorIndex?: int;
   }

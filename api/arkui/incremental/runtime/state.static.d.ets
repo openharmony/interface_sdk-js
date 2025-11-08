@@ -46,7 +46,7 @@ export declare interface ReadableState<T> {
  * @returns { boolean } - Returns the comparison result between old value and new value,
  * if they are equal, ther true; otherwise, return false.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export type Equivalent<T> = (oldV: T, newV: T) => boolean;
 
@@ -121,7 +121,7 @@ export declare interface StateContext {
  *
  * @typedef { StateContext } __memo_context_type
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export type __memo_context_type = StateContext;
 
@@ -130,6 +130,6 @@ export type __memo_context_type = StateContext;
  *
  * @typedef { int } __memo_id_type
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export type __memo_id_type = int;

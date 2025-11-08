@@ -26,7 +26,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @namespace cloudSyncManager
  * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace cloudSyncManager {
   /**
@@ -43,7 +43,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean): Promise<void>;
 
@@ -61,7 +61,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function changeAppCloudSwitch(
     accountId: string,
@@ -83,7 +83,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function notifyDataChange(accountId: string, bundleName: string): Promise<void>;
 
@@ -100,7 +100,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function notifyDataChange(accountId: string, bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -118,7 +118,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enableCloud(accountId: string, switches: Record<string, boolean>): Promise<void>;
 
@@ -136,7 +136,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enableCloud(accountId: string, switches: Record<string, boolean>, callback: AsyncCallback<void>): void;
 
@@ -153,7 +153,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function disableCloud(accountId: string): Promise<void>;
 
@@ -170,7 +170,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function disableCloud(accountId: string, callback: AsyncCallback<void>): void;
 
@@ -181,7 +181,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum Action {
     /**
@@ -190,7 +190,7 @@ declare namespace cloudSyncManager {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RETAIN_DATA,
 
@@ -200,7 +200,7 @@ declare namespace cloudSyncManager {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CLEAR_DATA
   }
@@ -219,7 +219,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function clean(accountId: string, appActions: Record<string, Action>): Promise<void>;
 
@@ -237,7 +237,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function clean(accountId: string, appActions: Record<string, Action>, callback: AsyncCallback<void>): void;
 
@@ -256,7 +256,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function notifyDataChange(userId: int, extraData: ExtraData): Promise<void>;
 
@@ -275,7 +275,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function notifyDataChange(userId: int, extraData: ExtraData, callback: AsyncCallback<void>): void;
 
@@ -286,7 +286,7 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ExtraData {
     /**
@@ -296,7 +296,7 @@ declare namespace cloudSyncManager {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     eventId: string;
     /**
@@ -306,7 +306,7 @@ declare namespace cloudSyncManager {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     extraData: string;
   }

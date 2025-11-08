@@ -30,7 +30,7 @@ import type { AbilityResult } from '../ability/abilityResult';
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @since 18 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class FormEditExtensionContext extends UIExtensionContext {
 	/**

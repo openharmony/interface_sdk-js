@@ -24,7 +24,7 @@
  * @typedef NotificationUserInput
  * @syscap SystemCapability.Notification.Notification
  * @since 8 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationUserInput {
   /**
@@ -33,7 +33,7 @@ export interface NotificationUserInput {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   inputKey: string;
 }

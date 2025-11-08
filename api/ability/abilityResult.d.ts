@@ -30,7 +30,7 @@ import Want from '../@ohos.app.ability.Want';
  * @syscap SystemCapability.Ability.AbilityBase
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface AbilityResult {
   /**
@@ -49,7 +49,7 @@ export interface AbilityResult {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   resultCode: int;
 
@@ -69,7 +69,7 @@ export interface AbilityResult {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   want?: Want;
 }

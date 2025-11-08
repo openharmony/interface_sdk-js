@@ -28,7 +28,7 @@ import { Builder } from '@ohos.arkui.component';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare enum MarginType {
@@ -38,7 +38,7 @@ export declare enum MarginType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    *
-   * @since 20 static
+   * @since 22 static
    */
   DEFAULT_MARGIN = 0,
   /**
@@ -46,7 +46,7 @@ export declare enum MarginType {
    * margin 2: references ohos_id_max_padding_end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   FIT_MARGIN = 1,
 }
@@ -55,7 +55,7 @@ export declare enum MarginType {
  *
  * @interface PromptOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export interface PromptOptions {
@@ -64,7 +64,7 @@ export interface PromptOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   icon?: ResourceStr;
   /**
@@ -72,7 +72,7 @@ export interface PromptOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   symbolStyle?: SymbolGlyphModifier;
   /**
@@ -80,7 +80,7 @@ export interface PromptOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   tip?: ResourceStr;
   /**
@@ -88,7 +88,7 @@ export interface PromptOptions {
    *
    * @type { MarginType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   marginType: MarginType;
   /**
@@ -96,7 +96,7 @@ export interface PromptOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   actionText?: ResourceStr;
   /**
@@ -104,7 +104,7 @@ export interface PromptOptions {
    *
    * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   marginTop: Dimension
   /**
@@ -112,7 +112,7 @@ export interface PromptOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   isShown?: boolean
 }
@@ -120,7 +120,7 @@ export interface PromptOptions {
  * Declare struct ExceptionPrompt higher-order component.
  * @struct { ExceptionPrompt }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 @Component
@@ -130,7 +130,7 @@ export declare struct ExceptionPrompt {
    *
    * @type { PromptOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   @PropRef options: PromptOptions;
   /**
@@ -138,7 +138,7 @@ export declare struct ExceptionPrompt {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   onTipClick?: () => void;
   /**
@@ -146,7 +146,7 @@ export declare struct ExceptionPrompt {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   onActionTextClick?: () => void;
   /**

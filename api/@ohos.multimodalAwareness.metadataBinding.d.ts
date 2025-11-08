@@ -27,7 +27,7 @@ import type { Callback } from './@ohos.base';
  * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
  * @atomicservice
  * @since 18 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace metadataBinding {
   /**
@@ -41,7 +41,7 @@ declare namespace metadataBinding {
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function encodeImage(srcImage: image.PixelMap, metadata: string): Promise<image.PixelMap>;
 
@@ -55,7 +55,7 @@ declare namespace metadataBinding {
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
    function decodeImage(encodedImage: image.PixelMap): Promise<string>;
 
@@ -68,7 +68,7 @@ declare namespace metadataBinding {
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function notifyMetadataBindingEvent(bundleName: string): Promise<string>;
 

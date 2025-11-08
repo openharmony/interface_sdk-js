@@ -24,7 +24,7 @@
  * @namespace backgroundProcessManager
  * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
  * @since 17 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace backgroundProcessManager {
     /**
@@ -33,7 +33,7 @@ declare namespace backgroundProcessManager {
      * @enum { int }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 17 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     export enum ProcessPriority {
         /**
@@ -41,7 +41,7 @@ declare namespace backgroundProcessManager {
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
          * @since 17 dynamic
-         * @since 20 static
+         * @since 22 static
          */
         PROCESS_BACKGROUND = 1,
 
@@ -50,7 +50,7 @@ declare namespace backgroundProcessManager {
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
          * @since 17 dynamic
-         * @since 20 static
+         * @since 22 static
          */
         PROCESS_INACTIVE = 2,
     }
@@ -60,7 +60,8 @@ declare namespace backgroundProcessManager {
      *
      * @enum { int }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     export enum PowerSaveMode {
         /**
@@ -68,7 +69,8 @@ declare namespace backgroundProcessManager {
          * This setting may be overridden by settings in Task Manager
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         EFFICIENCY_MODE = 1,
 
@@ -76,7 +78,8 @@ declare namespace backgroundProcessManager {
          * Means the process operating mode follows the system and may entry power saving mode
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         DEFAULT_MODE = 2,
     }
@@ -90,7 +93,7 @@ declare namespace backgroundProcessManager {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: priority is out of range.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 17 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     function setProcessPriority(pid: int, priority: ProcessPriority): Promise<void>;
 
@@ -101,7 +104,7 @@ declare namespace backgroundProcessManager {
      * @returns { Promise<void> } The promise returned by the function.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 17 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     function resetProcessPriority(pid: int): Promise<void>;
 

@@ -26,7 +26,7 @@ import { PatternLockAttribute } from '@ohos.arkui.component';
  *
  * @implements { PatternLockAttribute, AttributeModifier<PatternLockAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare class PatternLockModifier implements PatternLockAttribute, AttributeModifier<PatternLockAttribute> {}

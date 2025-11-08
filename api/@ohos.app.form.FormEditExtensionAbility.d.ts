@@ -27,7 +27,7 @@ import FormEditExtensionContext from './application/FormEditExtensionContext';
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @since 18 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class FormEditExtensionAbility extends UIExtensionAbility {
 /**

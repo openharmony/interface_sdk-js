@@ -24,7 +24,7 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  * Define the ContainerSpan attribute functions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare interface ContainerSpanAttribute {
@@ -34,7 +34,7 @@ export declare interface ContainerSpanAttribute {
      * @param { TextBackgroundStyle | undefined } style - The background style of span.
      * @returns { ContainerSpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default textBackgroundStyle(style: TextBackgroundStyle | undefined): this;
     /**
@@ -43,7 +43,7 @@ export declare interface ContainerSpanAttribute {
      * @param { AttributeModifier<ContainerSpanAttribute> | undefined } modifier.
      * @returns { ContainerSpanAttribute } the attribute of the ContainerSpanAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<ContainerSpanAttribute> | undefined): this;
 }
@@ -54,7 +54,7 @@ export declare interface ContainerSpanAttribute {
  * @param { CustomBuilder } [content_]
  * @returns { ContainerSpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 @ComponentBuilder

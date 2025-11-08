@@ -77,7 +77,7 @@ import type UIAbilityContext from './application/UIAbilityContext';
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace notificationManager {
   /**
@@ -148,7 +148,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function publish(request: NotificationRequest, callback: AsyncCallback<void>): void;
 
@@ -217,7 +217,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function publish(request: NotificationRequest): Promise<void>;
 
@@ -300,7 +300,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function publish(request: NotificationRequest, userId: int, callback: AsyncCallback<void>): void;
 
@@ -383,7 +383,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function publish(request: NotificationRequest, userId: int): Promise<void>;
 
@@ -415,7 +415,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function publishAsBundle(
     request: NotificationRequest,
@@ -452,7 +452,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: int): Promise<void>;
 
@@ -483,7 +483,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function publishAsBundle(representativeBundle: BundleOption, request: NotificationRequest): Promise<void>;
 
@@ -517,7 +517,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function cancel(id: int, callback: AsyncCallback<void>): void;
 
@@ -536,7 +536,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function cancel(id: int, label: string, callback: AsyncCallback<void>): void;
 
@@ -554,7 +554,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function cancel(id: int, label?: string): Promise<void>;
 
@@ -576,7 +576,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function cancel(representativeBundle: BundleOption, id: int): Promise<void>;
 
@@ -601,7 +601,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function cancelAsBundle(
     id: int,
@@ -631,7 +631,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function cancelAsBundle(id: int, representativeBundle: string, userId: int): Promise<void>;
 
@@ -656,7 +656,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function cancelAsBundle(representativeBundle: BundleOption, id: int): Promise<void>;
 
@@ -686,7 +686,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function cancelAll(callback: AsyncCallback<void>): void;
 
@@ -710,7 +710,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function cancelAll(): Promise<void>;
 
@@ -731,7 +731,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
@@ -752,7 +752,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addSlot(slot: NotificationSlot): Promise<void>;
 
@@ -770,7 +770,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addSlot(type: SlotType, callback: AsyncCallback<void>): void;
 
@@ -787,7 +787,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addSlot(type: SlotType): Promise<void>;
 
@@ -808,7 +808,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addSlots(slots: Array<NotificationSlot>, callback: AsyncCallback<void>): void;
 
@@ -829,7 +829,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addSlots(slots: Array<NotificationSlot>): Promise<void>;
 
@@ -861,7 +861,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 20 static
+   * @since 22 static
    */
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot|null>): void;
 
@@ -891,7 +891,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 20 static
+   * @since 22 static
    */
   function getSlot(slotType: SlotType): Promise<NotificationSlot|null>;
 
@@ -907,7 +907,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSlots(callback: AsyncCallback<Array<NotificationSlot>>): void;
 
@@ -920,7 +920,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSlots(): Promise<Array<NotificationSlot>>;
 
@@ -937,7 +937,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllNotificationEnabledBundles(): Promise<Array<BundleOption>>;
 
@@ -954,7 +954,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void;
 
@@ -970,7 +970,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeSlot(slotType: SlotType): Promise<void>;
 
@@ -986,7 +986,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeAllSlots(callback: AsyncCallback<void>): void;
 
@@ -999,7 +999,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeAllSlots(): Promise<void>;
 
@@ -1021,7 +1021,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setNotificationEnable(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -1043,7 +1043,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setNotificationEnable(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -1064,7 +1064,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isNotificationEnabled(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -1085,7 +1085,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isNotificationEnabled(bundle: BundleOption): Promise<boolean>;
 
@@ -1136,7 +1136,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isNotificationEnabled(callback: AsyncCallback<boolean>): void;
 
@@ -1180,7 +1180,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isNotificationEnabled(): Promise<boolean>;
 
@@ -1194,7 +1194,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isNotificationEnabledSync(): boolean;
 
@@ -1215,7 +1215,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isNotificationEnabled(userId: int, callback: AsyncCallback<boolean>): void;
 
@@ -1236,7 +1236,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isNotificationEnabled(userId: int): Promise<boolean>;
 
@@ -1278,7 +1278,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function displayBadge(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -1320,7 +1320,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function displayBadge(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -1360,7 +1360,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isBadgeDisplayed(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -1400,7 +1400,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isBadgeDisplayed(bundle: BundleOption): Promise<boolean>;
 
@@ -1442,7 +1442,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
@@ -1484,7 +1484,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot): Promise<void>;
 
@@ -1524,7 +1524,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSlotsByBundle(bundle: BundleOption, callback: AsyncCallback<Array<NotificationSlot>>): void;
 
@@ -1590,7 +1590,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   function getSlotByBundle(bundle: BundleOption, slotType: SlotType): Promise<NotificationSlot|null>;
 
@@ -1630,7 +1630,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSlotsByBundle(bundle: BundleOption): Promise<Array<NotificationSlot>>;
 
@@ -1670,7 +1670,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSlotNumByBundle(bundle: BundleOption, callback: AsyncCallback<long>): void;
 
@@ -1710,7 +1710,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSlotNumByBundle(bundle: BundleOption): Promise<long>;
 
@@ -1730,7 +1730,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
 
@@ -1748,7 +1748,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllActiveNotifications(): Promise<Array<NotificationRequest>>;
 
@@ -1764,7 +1764,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getActiveNotificationCount(callback: AsyncCallback<long>): void;
 
@@ -1777,7 +1777,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getActiveNotificationCount(): Promise<long>;
 
@@ -1794,7 +1794,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
 
@@ -1807,7 +1807,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getActiveNotifications(): Promise<Array<NotificationRequest>>;
 
@@ -1841,7 +1841,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   function getActiveNotificationByFilter(filter: NotificationFilter, callback: AsyncCallback<NotificationRequest|null>): void;
 
@@ -1875,7 +1875,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   function getActiveNotificationByFilter(filter: NotificationFilter): Promise<NotificationRequest|null>;
 
@@ -1892,7 +1892,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function cancelGroup(groupName: string, callback: AsyncCallback<void>): void;
 
@@ -1908,7 +1908,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function cancelGroup(groupName: string): Promise<void>;
 
@@ -1930,7 +1930,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeGroupByBundle(bundle: BundleOption, groupName: string, callback: AsyncCallback<void>): void;
 
@@ -1952,7 +1952,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeGroupByBundle(bundle: BundleOption, groupName: string): Promise<void>;
 
@@ -1992,7 +1992,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setDoNotDisturbDate(date: DoNotDisturbDate, callback: AsyncCallback<void>): void;
 
@@ -2032,7 +2032,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setDoNotDisturbDate(date: DoNotDisturbDate): Promise<void>;
 
@@ -2076,7 +2076,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setDoNotDisturbDate(date: DoNotDisturbDate, userId: int, callback: AsyncCallback<void>): void;
 
@@ -2120,7 +2120,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setDoNotDisturbDate(date: DoNotDisturbDate, userId: int): Promise<void>;
 
@@ -2158,7 +2158,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDoNotDisturbDate(callback: AsyncCallback<DoNotDisturbDate>): void;
 
@@ -2192,7 +2192,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDoNotDisturbDate(): Promise<DoNotDisturbDate>;
 
@@ -2234,7 +2234,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDoNotDisturbDate(userId: int, callback: AsyncCallback<DoNotDisturbDate>): void;
 
@@ -2276,7 +2276,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDoNotDisturbDate(userId: int): Promise<DoNotDisturbDate>;
 
@@ -2297,7 +2297,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isSupportDoNotDisturbMode(callback: AsyncCallback<boolean>): void;
 
@@ -2315,7 +2315,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isSupportDoNotDisturbMode(): Promise<boolean>;
 
@@ -2333,7 +2333,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isSupportTemplate(templateName: string, callback: AsyncCallback<boolean>): void;
 
@@ -2350,7 +2350,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isSupportTemplate(templateName: string): Promise<boolean>;
 
@@ -2454,7 +2454,7 @@ declare namespace notificationManager {
    * @StageModelOnly
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>): void;
 
@@ -2546,7 +2546,7 @@ declare namespace notificationManager {
    * @StageModelOnly
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function requestEnableNotification(context: UIAbilityContext): Promise<void>;
 
@@ -2586,7 +2586,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setDistributedEnable(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -2626,7 +2626,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setDistributedEnable(enable: boolean): Promise<void>;
 
@@ -2643,7 +2643,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isDistributedEnabled(callback: AsyncCallback<boolean>): void;
 
@@ -2658,7 +2658,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isDistributedEnabled(): Promise<boolean>;
 
@@ -2702,7 +2702,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setDistributedEnableByBundle(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -2746,7 +2746,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setDistributedEnableByBundle(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -2794,7 +2794,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setDistributedEnabledByBundle(bundle: BundleOption, deviceType: string, enable: boolean): Promise<void>;
 
@@ -2838,7 +2838,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isDistributedEnabledByBundle(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -2880,7 +2880,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isDistributedEnabledByBundle(bundle: BundleOption): Promise<boolean>;
 
@@ -2926,7 +2926,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isDistributedEnabledByBundle(bundle: BundleOption, deviceType: string): Promise<boolean>;
 
@@ -2972,7 +2972,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setSmartReminderEnabled(deviceType: string, enable: boolean): Promise<void>;
 
@@ -3016,7 +3016,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isSmartReminderEnabled(deviceType: string): Promise<boolean>;
 
@@ -3052,7 +3052,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDeviceRemindType(callback: AsyncCallback<DeviceRemindType>): void;
 
@@ -3084,7 +3084,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDeviceRemindType(): Promise<DeviceRemindType>;
 
@@ -3150,7 +3150,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setNotificationEnableSlot(
     bundle: BundleOption,
@@ -3205,7 +3205,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setNotificationEnableSlot(
     bundle: BundleOption,
@@ -3281,7 +3281,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setNotificationEnableSlot(bundle: BundleOption, type: SlotType, enable: boolean, isForceControl?: boolean): Promise<void>;
 
@@ -3323,7 +3323,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType, callback: AsyncCallback<boolean>): void;
 
@@ -3365,7 +3365,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType): Promise<boolean>;
 
@@ -3407,7 +3407,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setSyncNotificationEnabledWithoutApp(userId: int, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -3449,7 +3449,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setSyncNotificationEnabledWithoutApp(userId: int, enable: boolean): Promise<void>;
 
@@ -3470,7 +3470,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSyncNotificationEnabledWithoutApp(userId: int, callback: AsyncCallback<boolean>): void;
 
@@ -3491,7 +3491,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSyncNotificationEnabledWithoutApp(userId: int): Promise<boolean>;
 
@@ -3545,7 +3545,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setBadgeNumber(badgeNumber: int, callback: AsyncCallback<void>): void;
 
@@ -3596,7 +3596,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setBadgeNumber(badgeNumber: int): Promise<void>;
 
@@ -3638,7 +3638,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setBadgeNumberByBundle(bundle: BundleOption, badgeNumber: int): Promise<void>;
 
@@ -3838,7 +3838,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function triggerSystemLiveView(bundle: BundleOption, notificationId: int, buttonOptions: ButtonOptions): Promise<void>;
 
@@ -3874,7 +3874,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function subscribeSystemLiveView(subscriber: SystemLiveViewSubscriber): Promise<void>;
 
@@ -3916,7 +3916,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setSlotFlagsByBundle(bundle: BundleOption, slotFlags: long): Promise<void>;
 
@@ -3956,7 +3956,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSlotFlagsByBundle(bundle: BundleOption): Promise<long>;
 
@@ -3968,7 +3968,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getNotificationSetting(): Promise<NotificationSetting>;
 
@@ -4008,7 +4009,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
 
@@ -4048,7 +4049,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
 
@@ -4088,7 +4089,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setAdditionalConfig(key: string, value: string): Promise<int>;
 
@@ -4118,7 +4119,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.NotificationSettings
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function openNotificationSettings(context: UIAbilityContext): Promise<void>;
 
@@ -4158,7 +4159,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDoNotDisturbProfile(id: long): Promise<DoNotDisturbProfile>;
 
@@ -4176,7 +4177,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setTargetDeviceStatus(deviceType: string, status: long): Promise<void>;
 
@@ -4197,7 +4198,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function disableNotificationFeature(disabled:boolean, bundleList: Array<string>): Promise<void>;
 
@@ -4216,7 +4217,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setDistributedEnabledBySlot(slot: SlotType, deviceType: string, enabled: boolean): Promise<void>;
 
@@ -4234,7 +4235,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isDistributedEnabledBySlot(slot: SlotType, deviceType: string): Promise<boolean>;
 
@@ -4245,7 +4246,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface ButtonOptions {
     /**
@@ -4256,7 +4257,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     buttonName: string;
   }
@@ -4268,7 +4269,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface SystemLiveViewSubscriber {
     /**
@@ -4278,7 +4279,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     onResponse?: (notificationId: int, buttonOptions: ButtonOptions) => void;
   }
@@ -4290,7 +4291,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface NotificationCheckInfo {
     /**
@@ -4301,7 +4302,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bundleName: string;
 
@@ -4313,7 +4314,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     notificationId: int;
 
@@ -4325,7 +4326,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     label?: string;
 
@@ -4337,7 +4338,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     contentType: ContentType;
 
@@ -4349,7 +4350,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     creatorUserId: int;
 
@@ -4361,7 +4362,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     slotType: SlotType;
 
@@ -4383,7 +4384,7 @@ declare namespace notificationManager {
      * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 20 static
+     * @since 22 static
      */
     extraInfos?: Record<string, RecordData>;
   }
@@ -4395,7 +4396,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface NotificationCheckResult {
     /**
@@ -4406,7 +4407,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     code: int;
 
@@ -4418,7 +4419,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     message: string;
   }
@@ -4428,7 +4429,8 @@ declare namespace notificationManager {
    *
    * @typedef NotificationSetting
    * @syscap SystemCapability.Notification.Notification
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   export interface NotificationSetting {
     /**
@@ -4436,7 +4438,8 @@ declare namespace notificationManager {
      *
      * @type { boolean }
      * @syscap SystemCapability.Notification.Notification
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     vibrationEnabled: boolean;
 
@@ -4445,7 +4448,8 @@ declare namespace notificationManager {
      *
      * @type { boolean }
      * @syscap SystemCapability.Notification.Notification
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     soundEnabled: boolean;
   }
@@ -4464,7 +4468,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum SlotType {
     /**
@@ -4479,7 +4483,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UNKNOWN_TYPE = 0,
 
@@ -4495,7 +4499,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SOCIAL_COMMUNICATION = 1,
 
@@ -4511,7 +4515,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SERVICE_INFORMATION = 2,
 
@@ -4527,7 +4531,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CONTENT_INFORMATION = 3,
 
@@ -4547,7 +4551,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     LIVE_VIEW = 4,
 
@@ -4565,7 +4569,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CUSTOMER_SERVICE = 5,
 
@@ -4575,7 +4579,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EMERGENCY_INFORMATION = 10,
 
@@ -4591,7 +4595,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     OTHER_TYPES = 0xFFFF
   }
@@ -4611,7 +4615,7 @@ declare namespace notificationManager {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum ContentType {
     /**
@@ -4627,7 +4631,7 @@ declare namespace notificationManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOTIFICATION_CONTENT_BASIC_TEXT,
 
@@ -4644,7 +4648,7 @@ declare namespace notificationManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOTIFICATION_CONTENT_LONG_TEXT,
 
@@ -4660,7 +4664,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOTIFICATION_CONTENT_PICTURE,
 
@@ -4676,7 +4680,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOTIFICATION_CONTENT_CONVERSATION,
 
@@ -4693,7 +4697,7 @@ declare namespace notificationManager {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOTIFICATION_CONTENT_MULTILINE,
 
@@ -4711,7 +4715,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOTIFICATION_CONTENT_SYSTEM_LIVE_VIEW,
 
@@ -4727,7 +4731,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOTIFICATION_CONTENT_LIVE_VIEW,
   }
@@ -4738,7 +4742,7 @@ declare namespace notificationManager {
    * @enum { int }
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum SlotLevel {
     /**
@@ -4746,7 +4750,7 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     LEVEL_NONE = 0,
 
@@ -4755,7 +4759,7 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     LEVEL_MIN = 1,
 
@@ -4764,7 +4768,7 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     LEVEL_LOW = 2,
 
@@ -4773,7 +4777,7 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     LEVEL_DEFAULT = 3,
 
@@ -4782,7 +4786,7 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     LEVEL_HIGH = 4
   }
@@ -4794,7 +4798,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum DoNotDisturbType {
     /**
@@ -4803,7 +4807,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_NONE = 0,
 
@@ -4813,7 +4817,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_ONCE = 1,
 
@@ -4823,7 +4827,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_DAILY = 2,
 
@@ -4833,7 +4837,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_CLEARLY = 3
   }
@@ -4845,7 +4849,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface DoNotDisturbDate {
     /**
@@ -4855,7 +4859,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     type: DoNotDisturbType;
 
@@ -4866,7 +4870,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     begin: Date;
 
@@ -4877,7 +4881,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     end: Date;
   }
@@ -4889,7 +4893,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface DoNotDisturbProfile {
     /**
@@ -4899,7 +4903,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     id: long;
 
@@ -4910,7 +4914,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -4921,7 +4925,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     trustlist?: Array<BundleOption>;
   }
@@ -4933,7 +4937,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum DeviceRemindType {
     /**
@@ -4942,7 +4946,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     IDLE_DONOT_REMIND = 0,
 
@@ -4952,7 +4956,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     IDLE_REMIND = 1,
 
@@ -4962,7 +4966,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACTIVE_DONOT_REMIND = 2,
 
@@ -4972,7 +4976,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACTIVE_REMIND = 3
   }
@@ -4984,7 +4988,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum SourceType {
     /**
@@ -4993,7 +4997,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_NORMAL = 0,
 
@@ -5003,7 +5007,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_CONTINUOUS = 1,
 
@@ -5013,7 +5017,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_TIMER = 2
   }
@@ -5025,7 +5029,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum NotificationControlFlagStatus {
     /**
@@ -5033,7 +5037,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOTIFICATION_STATUS_CLOSE_SOUND = 1 << 0,
 
@@ -5042,7 +5046,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOTIFICATION_STATUS_CLOSE_LOCKSCREEN = 1 << 1,
 
@@ -5051,7 +5055,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOTIFICATION_STATUS_CLOSE_BANNER = 1 << 2,
 
@@ -5060,7 +5064,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOTIFICATION_STATUS_CLOSE_LIGHT_SCREEN = 1 << 3,
 
@@ -5069,7 +5073,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOTIFICATION_STATUS_CLOSE_VIBRATION = 1 << 4,
 
@@ -5078,7 +5082,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOTIFICATION_STATUS_CLOSE_STATUSBAR_ICON = 1 << 5
   }
@@ -5089,7 +5093,7 @@ declare namespace notificationManager {
    * @typedef { _BundleOption } BundleOption
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type BundleOption = _BundleOption;
 
@@ -5099,7 +5103,7 @@ declare namespace notificationManager {
    * @typedef { _NotificationActionButton } NotificationActionButton
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationActionButton = _NotificationActionButton;
 
@@ -5116,7 +5120,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationBasicContent = _NotificationBasicContent;
 
@@ -5133,7 +5137,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationContent = _NotificationContent;
 
@@ -5150,7 +5154,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationLongTextContent = _NotificationLongTextContent;
 
@@ -5161,7 +5165,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationLiveViewContent = _NotificationLiveViewContent;
 
@@ -5178,7 +5182,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationMultiLineContent = _NotificationMultiLineContent;
 
@@ -5188,7 +5192,7 @@ declare namespace notificationManager {
    * @typedef { _NotificationPictureContent } NotificationPictureContent
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationPictureContent = _NotificationPictureContent;
 
@@ -5198,7 +5202,7 @@ declare namespace notificationManager {
    * @typedef { _NotificationSystemLiveViewContent } NotificationSystemLiveViewContent
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationSystemLiveViewContent = _NotificationSystemLiveViewContent;
 
@@ -5209,7 +5213,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationFlags = _NotificationFlags;
 
@@ -5220,7 +5224,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationFlagStatus = _NotificationFlagStatus;
 
@@ -5237,7 +5241,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationRequest = _NotificationRequest;
 
@@ -5248,7 +5252,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type UnifiedGroupInfo = _UnifiedGroupInfo;
 
@@ -5259,7 +5263,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationFilter = _NotificationFilter;
 
@@ -5270,7 +5274,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationCheckRequest = _NotificationCheckRequest;
 
@@ -5280,7 +5284,7 @@ declare namespace notificationManager {
    * @typedef { _DistributedOptions } DistributedOptions
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type DistributedOptions = _DistributedOptions;
 
@@ -5290,7 +5294,7 @@ declare namespace notificationManager {
    * @typedef { _NotificationSlot } NotificationSlot
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationSlot = _NotificationSlot;
 
@@ -5301,7 +5305,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type LiveViewStatus = _LiveViewStatus;
 
@@ -5312,7 +5316,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type LiveViewTypes = _LiveViewTypes;
 
@@ -5323,7 +5327,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationSorting = _NotificationSorting;
 
@@ -5333,7 +5337,7 @@ declare namespace notificationManager {
    * @typedef { _NotificationTemplate } NotificationTemplate
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationTemplate = _NotificationTemplate;
 
@@ -5343,7 +5347,7 @@ declare namespace notificationManager {
    * @typedef { _NotificationUserInput } NotificationUserInput
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationUserInput = _NotificationUserInput;
 
@@ -5353,7 +5357,7 @@ declare namespace notificationManager {
    * @typedef { _NotificationCapsule } NotificationCapsule
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationCapsule = _NotificationCapsule;
 
@@ -5363,7 +5367,7 @@ declare namespace notificationManager {
    * @typedef { _NotificationButton } NotificationButton
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationButton = _NotificationButton;
 
@@ -5373,7 +5377,7 @@ declare namespace notificationManager {
    * @typedef { _NotificationTime } NotificationTime
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationTime = _NotificationTime;
 
@@ -5383,7 +5387,7 @@ declare namespace notificationManager {
    * @typedef { _NotificationProgress } NotificationProgress
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationProgress = _NotificationProgress;
 
@@ -5392,7 +5396,7 @@ declare namespace notificationManager {
    *
    * @typedef { _NotificationIconButton } NotificationIconButton
    * @syscap SystemCapability.Notification.Notification
-   * @since 20 static
+   * @since 22 static
    */
   export type NotificationIconButton = _NotificationIconButton;
 }

@@ -28,7 +28,7 @@ import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
  * @systemapi
  * @StageModelOnly
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export default class MediaControlExtensionAbility extends UIExtensionAbility {
 }

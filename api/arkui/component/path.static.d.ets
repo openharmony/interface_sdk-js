@@ -24,28 +24,28 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @interface PathOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface PathOptions {
     /**
      * Width option.
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     width?: double | string;
     /**
      * Height option.
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     height?: double | string;
     /**
      * Commands option.
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     commands?: string;
 }
@@ -56,7 +56,7 @@ export declare interface PathOptions {
  * @extends CommonShapeMethod
  * @interface PathAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare interface PathAttribute extends CommonShapeMethod {
@@ -66,7 +66,7 @@ export declare interface PathAttribute extends CommonShapeMethod {
      * @param { string | undefined } value
      * @returns { PathAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default commands(value: string | undefined): this;
     /**
@@ -75,7 +75,7 @@ export declare interface PathAttribute extends CommonShapeMethod {
      * @param { AttributeModifier<PathAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { PathAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<PathAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -87,7 +87,7 @@ export declare interface PathAttribute extends CommonShapeMethod {
  * @param { CustomBuilder } [content_]
  * @returns { PathAttribute } The attribute of the Path.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 @ComponentBuilder

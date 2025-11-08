@@ -25,7 +25,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface AbilityFirstFrameStateData {
   /**
@@ -35,7 +35,7 @@ export interface AbilityFirstFrameStateData {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   bundleName: string;
 
@@ -46,7 +46,7 @@ export interface AbilityFirstFrameStateData {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   moduleName: string;
 
@@ -57,7 +57,7 @@ export interface AbilityFirstFrameStateData {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   abilityName: string;
 
@@ -69,7 +69,7 @@ export interface AbilityFirstFrameStateData {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   appIndex: int;
 
@@ -81,7 +81,7 @@ export interface AbilityFirstFrameStateData {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isColdStart: boolean;
 }

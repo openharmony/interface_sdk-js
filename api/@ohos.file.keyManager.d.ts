@@ -24,7 +24,7 @@
  * @namespace keyManager
  * @syscap SystemCapability.FileManagement.StorageService.Encryption
  * @since 15 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace keyManager {
    /**
@@ -42,7 +42,7 @@ declare namespace keyManager {
     * @syscap SystemCapability.FileManagement.StorageService.Encryption
     * @systemapi
     * @since 15 dynamic
-    * @since 20 static
+    * @since 22 static
     */
    function deactivateUserKey(userId: long):void;
  }

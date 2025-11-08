@@ -58,7 +58,7 @@ export default class AbilityLifecycleCallback {
  * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since 20 static
+ * @since 22 static
  */
 declare interface AbilityLifecycleCallback {
 /*** endif */
@@ -88,7 +88,7 @@ declare interface AbilityLifecycleCallback {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onAbilityCreate(ability: UIAbility): void;
 
@@ -132,7 +132,7 @@ declare interface AbilityLifecycleCallback {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -241,7 +241,7 @@ declare interface AbilityLifecycleCallback {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -283,7 +283,7 @@ declare interface AbilityLifecycleCallback {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onAbilityDestroy(ability: UIAbility): void;
 
@@ -324,7 +324,7 @@ declare interface AbilityLifecycleCallback {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onAbilityForeground(ability: UIAbility): void;
 
@@ -365,7 +365,7 @@ declare interface AbilityLifecycleCallback {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onAbilityBackground(ability: UIAbility): void;
 
