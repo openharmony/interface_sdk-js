@@ -40,7 +40,8 @@ import type { ContinuationExtraParams as _ContinuationExtraParams } from './cont
  * @namespace continuationManager
  * @syscap SystemCapability.Ability.DistributedAbilityManager
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
+ * @deprecated since 22
  */
 declare namespace continuationManager {
   /**
@@ -80,7 +81,8 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600004 - The specified callback has been registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
+   * @deprecated since 22
    */
   function on(type: 'deviceSelected', token: number, callback: Callback<Array<ContinuationResult>>): void;
 
@@ -115,7 +117,8 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600004 - The specified callback has been registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
+   * @deprecated since 22
    */
   function off(type: 'deviceSelected', token: number): void;
 
@@ -156,7 +159,8 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600004 - The specified callback has been registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
+   * @deprecated since 22
    */
   function on(type: 'deviceUnselected', token: number, callback: Callback<Array<ContinuationResult>>): void;
 
@@ -191,7 +195,8 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600004 - The specified callback has been registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
+   * @deprecated since 22
    */
   function off(type: 'deviceUnselected', token: number): void;
 
@@ -427,7 +432,8 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
+   * @deprecated since 22
    */
   function registerContinuation(callback: AsyncCallback<number>): void;
 
@@ -464,7 +470,8 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
+   * @deprecated since 22
    */
   function registerContinuation(options: ContinuationExtraParams, callback: AsyncCallback<number>): void;
 
@@ -501,7 +508,8 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
+   * @deprecated since 22
    */
   function registerContinuation(options?: ContinuationExtraParams): Promise<number>;
 
@@ -536,7 +544,8 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
+   * @deprecated since 22
    */
   function unregisterContinuation(token: number, callback: AsyncCallback<void>): void;
 
@@ -569,7 +578,8 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
+   * @deprecated since 22
    */
   function unregisterContinuation(token: number): Promise<void>;
 
@@ -604,7 +614,8 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
+   * @deprecated since 22
    */
   function updateContinuationState(
     token: number,
@@ -646,7 +657,8 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
+   * @deprecated since 22
    */
   function updateContinuationState(token: number, deviceId: string, status: DeviceConnectState): Promise<void>;
 
@@ -677,7 +689,8 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
+   * @deprecated since 22
    */
   function startContinuationDeviceManager(token: number, callback: AsyncCallback<void>): void;
 
@@ -712,7 +725,8 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
+   * @deprecated since 22
    */
   function startContinuationDeviceManager(
     token: number,
@@ -751,7 +765,8 @@ declare namespace continuationManager {
    * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
+   * @deprecated since 22
    */
   function startContinuationDeviceManager(token: number, options?: ContinuationExtraParams): Promise<void>;
 
@@ -768,7 +783,8 @@ declare namespace continuationManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
+   * @deprecated since 22
    */
   export enum DeviceConnectState {
     /**
@@ -782,7 +798,8 @@ declare namespace continuationManager {
      *
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11 dynamiconly
+     * @deprecated since 22
      */
     IDLE = 0,
 
@@ -797,7 +814,8 @@ declare namespace continuationManager {
      *
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11 dynamiconly
+     * @deprecated since 22
      */
     CONNECTING = 1,
 
@@ -812,7 +830,8 @@ declare namespace continuationManager {
      *
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11 dynamiconly
+     * @deprecated since 22
      */
     CONNECTED = 2,
 
@@ -827,7 +846,8 @@ declare namespace continuationManager {
      *
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11 dynamiconly
+     * @deprecated since 22
      */
     DISCONNECTING = 3
   }
@@ -845,7 +865,8 @@ declare namespace continuationManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
+   * @deprecated since 22
    */
   export enum ContinuationMode {
     /**
@@ -859,7 +880,8 @@ declare namespace continuationManager {
      *
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11 dynamiconly
+     * @deprecated since 22
      */
     COLLABORATION_SINGLE = 0,
 
@@ -874,7 +896,8 @@ declare namespace continuationManager {
      *
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11 dynamiconly
+     * @deprecated since 22
      */
     COLLABORATION_MULTIPLE = 1
   }
@@ -890,7 +913,8 @@ declare namespace continuationManager {
    * @typedef { _ContinuationResult }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
+   * @deprecated since 22
    */
   export type ContinuationResult = _ContinuationResult;
 
@@ -905,7 +929,8 @@ declare namespace continuationManager {
    * @typedef { _ContinuationExtraParams }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
+   * @deprecated since 22
    */
   export type ContinuationExtraParams = _ContinuationExtraParams;
 }

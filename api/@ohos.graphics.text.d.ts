@@ -4367,7 +4367,7 @@ declare namespace text {
      * @param { string } ellipsis - String used to mark a truncation.
      * @returns { TextLine | undefined } Truncated text line object.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 static
+     * @since 22 static
      */
     createTruncatedLine(width: double, ellipsisMode: EllipsisMode, ellipsis: string): TextLine | undefined;
 
@@ -4600,7 +4600,7 @@ declare namespace text {
      * returned.
      * @returns { Array<int> | undefined } Array holding the index of each glyph in the run.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 static
+     * @since 22 static
      */
     getGlyphs(range: Range): Array<int> | undefined;
 
@@ -4653,7 +4653,7 @@ declare namespace text {
      * @returns { Array<common2D.Point> | undefined } 	Array holding the position of each glyph relative to the respective line in
      * the run.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 static
+     * @since 22 static
      */
     getPositions(range: Range): Array<common2D.Point> | undefined;
 
@@ -4743,7 +4743,7 @@ declare namespace text {
      * If this parameter is not passed, the entire run is obtained.
      * @returns { Array<int> | undefined } Array of character indices.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 static
+     * @since 22 static
      */
     getStringIndices(range?: Range): Array<int> | undefined;
 
@@ -4850,7 +4850,7 @@ declare namespace text {
      *     the run.
      * @returns { Array<common2D.Point> | undefined } Array holding the advance width and height of each glyph.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 static
+     * @since 22 static
      */
     getAdvances(range: Range): Array<common2D.Point> | undefined;
   }

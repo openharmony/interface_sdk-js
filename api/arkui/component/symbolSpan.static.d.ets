@@ -27,18 +27,17 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 /**
  * Provides attribute for SymbolSpan.
  *
- * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
-export declare interface SymbolSpanAttribute extends CommonMethod {
+export declare interface SymbolSpanAttribute {
     /**
      * Called when the SymbolSpan size is set.
      *
      * @param { double | string | Resource | undefined } value
      * @returns { SymbolSpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default fontSize(value: double | string | Resource | undefined): this;
     /**
@@ -47,7 +46,7 @@ export declare interface SymbolSpanAttribute extends CommonMethod {
      * @param { Array<ResourceColor> | undefined } value
      * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default fontColor(value: Array<ResourceColor> | undefined): this;
     /**
@@ -56,7 +55,7 @@ export declare interface SymbolSpanAttribute extends CommonMethod {
      * @param { int | FontWeight | string | undefined } value
      * @returns { SymbolSpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default fontWeight(value: int | FontWeight | string | undefined): this;
     /**
@@ -65,7 +64,7 @@ export declare interface SymbolSpanAttribute extends CommonMethod {
      * @param { SymbolEffectStrategy | undefined } value
      * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default effectStrategy(value: SymbolEffectStrategy | undefined): this;
     /**
@@ -74,27 +73,38 @@ export declare interface SymbolSpanAttribute extends CommonMethod {
      * @param { SymbolRenderingStrategy | undefined } value
      * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default renderingStrategy(value: SymbolRenderingStrategy | undefined): this;
+    /**
+     * Key. User can set an key to the component to identify it.
+     *
+     * @param { string | undefined } value
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     * @test
+     */
+    default key(value: string | undefined): this;
+    /**
+     * Id. User can set an id to the component to identify it.
+     *
+     * @param { string | undefined } value
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    default id(value: string | undefined): this;
     /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<SymbolSpanAttribute> | undefined } modifier - The instance of symbol span modifier.
+     *     Passing `undefined` will do nothing.
      * @returns { SymbolSpanAttribute } the attribute of the SymbolSpanAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute> | undefined): this;
-    /**
-     * Sets the attribute modifier.
-     *
-     * @param { AttributeModifier<SymbolSpanAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
-     * @returns { SymbolSpanAttribute } the attribute of the SymbolSpanAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
@@ -104,7 +114,7 @@ export declare interface SymbolSpanAttribute extends CommonMethod {
  * @param { function } [content_]
  * @returns { SymbolSpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @memo
 @ComponentBuilder

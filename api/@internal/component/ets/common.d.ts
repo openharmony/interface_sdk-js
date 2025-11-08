@@ -12909,7 +12909,7 @@ declare enum DragResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic
+   * @since 22 dynamic
    */
   UNKNOWN = -1,
   /**
@@ -22214,13 +22214,13 @@ declare class CommonMethod<T> {
    * Sets the radius of the border rounded corners.
    *     The radius is restricted by the component size. The maximum value is half of the component width or height.
    * NOTE
-   *    1. **CornerApplyType.FAST**: The current component and its child components will be drawn directly
+   *    1. **RenderStrategy.FAST**: The current component and its child components will be drawn directly
    *        onto the canvas with rounded corners applied.
-   *    2. **CornerApplyType.OFFSCREEN**: The current component and its child components will first be rendered onto
+   *    2. **RenderStrategy.OFFSCREEN**: The current component and its child components will first be rendered onto
    *        an off-screen canvas, then undergo a rounded corner clipping, and finally be drawn onto the main canvas.
    * @param { Length | BorderRadiuses | LocalizedBorderRadiuses } value
-   * @param { CornerApplyType } [type] - Application types for drawing rounded corners.
-   *                                         Default value: **CornerApplyType.FAST**.
+   * @param { RenderStrategy } [type] - Application types for drawing rounded corners.
+   *                                         Default value: **RenderStrategy.FAST**.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -22228,7 +22228,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 22 dynamic
    */
-  borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses, type?: CornerApplyType): T;
+  borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses, type?: RenderStrategy): T;
 
   /**
    * Border image
@@ -31423,6 +31423,16 @@ declare abstract class TextContentControllerBase {
    * @since 19 dynamic
    */
   getText(range?: TextRange): string;
+
+  /**
+   * Delete the last character of the input field component.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  deleteBackward(): void;
 }
 
 /**

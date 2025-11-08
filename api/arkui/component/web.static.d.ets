@@ -1071,6 +1071,41 @@ export declare class FileSelectorParam {
      * @since 22 static
      */
     getMimeTypes(): Array<string>;
+    /**
+    * Gets suggested file names.
+    *
+    * @returns { string } Return the suggested file names.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    getSuggestedName(): string;
+
+    /**
+    * Get the default path opened when pulling up the selector.
+    *
+    * @returns { string } Return to the default path opened when pulling up the selector.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    getDefaultPath(): string;
+
+    /**
+    * Gets a description array of file types.
+    *
+    * @returns { Array<string> } Return an array of description of the file type.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    getDescriptions(): Array<string>;
+
+    /**
+    * Gets whether to filter fully matching file types.
+    *
+    * @returns { boolean } Return whether to filter all matching file types.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    isAcceptAllOptionExcluded(): boolean;
 }
 /**
  * Defines the js result.
@@ -3878,6 +3913,48 @@ export declare interface OnOverScrollEvent {
     yOffset: double;
 }
 /**
+ * Defines the function Triggered when the PDF page scrolling.
+ *
+ * @typedef OnPdfScrollEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare interface OnPdfScrollEvent {
+    /**
+     * PDF page url.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    url:string;
+}
+/**
+ * Defines the function Triggered when the PDF load.
+ *
+ * @typedef OnPdfLoadEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare interface OnPdfLoadEvent {
+    /**
+     * The PDF page load result.
+     *
+     * @type { PdfLoadResult }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    result: PdfLoadResult;
+    /**
+     * The PDF page url.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    url: string;
+}
+/**
  * Defines the JavaScript object to be injected.
  *
  * @typedef JavaScriptProxy
@@ -4045,6 +4122,50 @@ export declare enum AudioSessionType {
      * @since 22 static
      */
     AMBIENT = 3
+}
+/**
+ * PDF page load result
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare enum PdfLoadResult {
+    /**
+     * The PDF page load success.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    LOAD_SUCCESS = 0,
+    /**
+     * The error code for web load PDF file failed.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    PARSE_ERROR_FILE = 1,
+    /**
+     * The error code for the PDF format is not support.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    PARSE_ERROR_FORMAT = 2,
+    /**
+     * The error code for the PDF password is wrong.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    PARSE_ERROR_PASSWORD = 3,
+    /**
+     * The error code for the  PDF handler process failed.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    PARSE_ERROR_HANDLER = 4
 }
 /**
  * Enum type supplied to {@link bypassVsyncCondition} for setting the bypass vsync condition.
@@ -4450,7 +4571,7 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 22 static
      */
     default mediaOptions(options: WebMediaOptions | undefined): this;
-    
+
     /**
      * Sets whether to load web pages by using the overview mode, which means reducing the content to fit the screen width.
      * Currently, only mobile devices are supported.
@@ -5282,6 +5403,22 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 22 static
      */
     default onOverScroll(callback: Callback<OnOverScrollEvent> | undefined): this;
+    /**
+     * Triggered when the PDF in web page scrolling at bottom with pdf scroll event.
+     * @param { Callback<OnPdfScrollEvent> | undefined } callback Function Triggered when the scrolling to bottom.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    default onPdfScrollAtBottom(callback: Callback<OnPdfScrollEvent> | undefined): this;
+    /**
+     * Triggered when the PDF page load finish.
+     * @param { Callback<OnPdfLoadEvent> | undefined } callback
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    default onPdfLoadEvent(callback: Callback<OnPdfLoadEvent> | undefined): this;
     /**
      * Called when received website security risk check result.
      *

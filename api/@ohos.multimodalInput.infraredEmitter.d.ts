@@ -23,7 +23,8 @@
  *
  * @namespace infraredEmitter
  * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
- * @since 12 dynamiconly
+ * @since 12 dynamic
+ * @since 22 static
  */
 declare namespace infraredEmitter {
   /**
@@ -39,7 +40,8 @@ declare namespace infraredEmitter {
    *
    * @interface InfraredFrequency
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-   * @since 15 dynamiconly
+   * @since 15 dynamic
+   * @since 22 static
    */
   interface InfraredFrequency {
     /**
@@ -53,11 +55,12 @@ declare namespace infraredEmitter {
     /**
      * Maximum frequency, in Hz.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-     * @since 15 dynamiconly
+     * @since 15 dynamic
+     * @since 22 static
      */
-    max: number;
+    max: long;
 
     /**
      * Minimum frequency, in Hz.
@@ -70,11 +73,12 @@ declare namespace infraredEmitter {
     /**
      * Minimum frequency, in Hz.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-     * @since 15 dynamiconly
+     * @since 15 dynamic
+     * @since 22 static
      */
-    min: number;
+    min: long;
   }
 
   /**
@@ -97,17 +101,18 @@ declare namespace infraredEmitter {
    * Generates IR signals at the specified frequency and level.
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
-   * @param { number} infraredFrequency - IR infrared frequency, in Hz.
-   * @param { Array<number>} pattern - IR level signal, in μs. The value must be an even number within the value range of [0,1024]. 
+   * @param { long } infraredFrequency - IR infrared frequency, in Hz.
+   * @param { Array<long>} pattern - IR level signal, in μs. The value must be an even number within the value range of [0,1024]. 
    * For example, in the IR level signal array [100,200,300,400], 100 μs is a high-level signal, 
    * 200 μs is a low-level signal, 300 μs is a high-level signal, and 400 μs is a low-level signal.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-   * @since 15 dynamiconly
+   * @since 15 dynamic
+   * @since 22 static
    */
-  function transmitInfrared(infraredFrequency: number, pattern: Array<number>): void;
+  function transmitInfrared(infraredFrequency: long, pattern: Array<long>): void;
 
   /**
    * Queries the frequency range of IR signals supported by the mobile phone.
@@ -127,7 +132,8 @@ declare namespace infraredEmitter {
    * @returns { Array<InfraredFrequency> } Frequency range, including multiple groups of maximum and minimum frequencies.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-   * @since 15 dynamiconly
+   * @since 15 dynamic
+   * @since 22 static
    */
   function getInfraredFrequencies(): Array<InfraredFrequency>;
 }

@@ -46,7 +46,7 @@ import { Skill } from './Skill';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface AbilityInfo {
   /**
@@ -75,7 +75,7 @@ export interface AbilityInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly bundleName: string;
 
@@ -105,7 +105,7 @@ export interface AbilityInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly moduleName: string;
 
@@ -135,7 +135,7 @@ export interface AbilityInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly name: string;
 
@@ -165,7 +165,7 @@ export interface AbilityInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly label: string;
 
@@ -195,7 +195,7 @@ export interface AbilityInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly labelId: long;
 
@@ -225,7 +225,7 @@ export interface AbilityInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly description: string;
 
@@ -255,7 +255,7 @@ export interface AbilityInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly descriptionId: long;
 
@@ -285,7 +285,7 @@ export interface AbilityInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly icon: string;
 
@@ -315,7 +315,7 @@ export interface AbilityInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly iconId: long;
 
@@ -344,7 +344,8 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly process: string;
 
@@ -373,7 +374,8 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly exported: boolean;
 
@@ -413,7 +415,8 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly orientation: bundleManager.DisplayOrientation;
 
@@ -443,7 +446,7 @@ export interface AbilityInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly launchType: bundleManager.LaunchType;
 
@@ -472,7 +475,8 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly permissions: Array<string>;
 
@@ -534,7 +538,8 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly deviceTypes: Array<string>;
 
@@ -574,7 +579,7 @@ export interface AbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
-   * @since 20 static
+   * @since 22 static
    */
   readonly applicationInfo: ApplicationInfo | null;
 
@@ -604,7 +609,7 @@ export interface AbilityInfo {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly metadata: Array<Metadata>;
 
@@ -633,7 +638,8 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly enabled: boolean;
 
@@ -662,7 +668,8 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly supportWindowModes: Array<bundleManager.SupportWindowMode>;
 
@@ -691,7 +698,8 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly windowSize: WindowSize;
 
@@ -703,7 +711,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly excludeFromDock: boolean;
 
@@ -715,7 +723,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly skills: Array<Skill>;
 
@@ -726,7 +734,7 @@ export interface AbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly appIndex: int;
 
@@ -738,7 +746,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly orientationId: long;
 }
@@ -765,7 +773,8 @@ export interface AbilityInfo {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform
  * @atomicservice
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 export interface WindowSize {
   /**
@@ -793,7 +802,8 @@ export interface WindowSize {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly maxWindowRatio: double;
 
@@ -822,7 +832,8 @@ export interface WindowSize {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly minWindowRatio: double;
 
@@ -851,7 +862,8 @@ export interface WindowSize {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly maxWindowWidth: long;
 
@@ -880,7 +892,8 @@ export interface WindowSize {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly minWindowWidth: long;
 
@@ -909,7 +922,8 @@ export interface WindowSize {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly maxWindowHeight: long;
 
@@ -938,7 +952,8 @@ export interface WindowSize {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly minWindowHeight: long;
 }

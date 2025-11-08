@@ -39,7 +39,7 @@ import window from './@ohos.window';
  * @systemapi
  * @stagemodelonly
  * @since 14 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class UIServiceExtensionAbility extends ExtensionAbility {
   /**
@@ -50,7 +50,7 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   context: UIServiceExtensionContext;
 
@@ -62,7 +62,7 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onCreate(want: Want): void;
 
@@ -77,7 +77,7 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onRequest(want: Want, startId: int): void;
 
@@ -90,7 +90,7 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onConnect(want: Want, proxy: UIServiceHostProxy): void;
 
@@ -103,7 +103,7 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onDisconnect(want: Want, proxy: UIServiceHostProxy): void;
 
@@ -115,7 +115,7 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onWindowWillCreate(config: window.ExtensionWindowConfig): void;
 
@@ -127,7 +127,7 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onWindowDidCreate(window: window.Window): void;
 
@@ -140,7 +140,7 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onData(proxy: UIServiceHostProxy, data: Record<string, Object>): void;
 
@@ -151,7 +151,7 @@ declare class UIServiceExtensionAbility extends ExtensionAbility {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onDestroy(): void;
 }

@@ -102,7 +102,8 @@ declare namespace inputEventClient {
      * @type { ?boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     useGlobalCoordinate? : boolean;
   }
@@ -114,7 +115,7 @@ declare namespace inputEventClient {
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface TouchEventData {
     /**
@@ -124,7 +125,7 @@ declare namespace inputEventClient {
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     touchEvent: TouchEvent;
 
@@ -134,7 +135,8 @@ declare namespace inputEventClient {
      * @type { ?boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     useGlobalCoordinate?: boolean;
   }

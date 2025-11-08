@@ -18,7 +18,7 @@
  * @kit MultimodalAwarenessKit
  */
 
-import type { image } from '@ohos.multimedia.image';
+import type image from '@ohos.multimedia.image';
 import type { Callback } from './@ohos.base';
  
 /**
@@ -26,7 +26,8 @@ import type { Callback } from './@ohos.base';
  * @namespace metadataBinding
  * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
+ * @since 22 static
  */
 declare namespace metadataBinding {
   /**
@@ -39,7 +40,8 @@ declare namespace metadataBinding {
    * @throws { BusinessError } 32100002 - Encode process fail. Possible causes: 1. Image processing error; 2. Channel coding error
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
+   * @since 22 static
    */
   function encodeImage(srcImage: image.PixelMap, metadata: string): Promise<image.PixelMap>;
 
@@ -52,7 +54,8 @@ declare namespace metadataBinding {
    * @throws { BusinessError } 32100003 - Decode process fail. Possible causes: 1. Image is not an encoded Image; 2. Image destroyed, decoding failed
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
+   * @since 22 static
    */
    function decodeImage(encodedImage: image.PixelMap): Promise<string>;
 
@@ -64,7 +67,8 @@ declare namespace metadataBinding {
    * @throws { BusinessError } 32100001 - Internal handling failed. Obtain metadata failed.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
-   * @since 18
+   * @since 18 dynamic
+   * @since 22 static
    */
   function notifyMetadataBindingEvent(bundleName: string): Promise<string>;
 
@@ -74,7 +78,8 @@ declare namespace metadataBinding {
    * @throws { BusinessError } 32100001 - Internal handling failed. Set Meta data to screenshot app fail.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
+   * @since 22 static
    */
   function submitMetadata(metadata: string): void;
 
@@ -82,28 +87,30 @@ declare namespace metadataBinding {
    * Third-party app registration screenshot event
    * @param { 'operationSubmitMetadata' } type - Event Type
    * @param { string } bundleName - Bundle name of a third-party application
-   * @param { Callback<number> } callback - Call back the screenshot event
+   * @param { Callback<int> } callback - Call back the screenshot event
    * @throws { BusinessError } 32100001 - Internal handling failed. Service exception.
    * @throws { BusinessError } 32100004 - Subscribe Failed. Possible causes: 1. Abnormal system capability; 2. IPC communication abnormality;
    * <br>3. Algorithm loading exception.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
+   * @since 22 static
    */
-  function on(type: 'operationSubmitMetadata', bundleName: string, callback: Callback<number>): void;
+  function on(type: 'operationSubmitMetadata', bundleName: string, callback: Callback<int>): void;
  
   /**
    * Third-party app unregistration screenshot event
    * @param { 'operationSubmitMetadata' } type - Event Type
    * @param { string } bundleName - Bundle name of a third-party application
-   * @param { Callback<number> } callback - Call back the screenshot event
+   * @param { Callback<int> } callback - Call back the screenshot event
    * @throws { BusinessError } 32100001 - Internal handling failed. Service exception.
    * @throws { BusinessError } 32100005 - Unsubscribe Failed. Possible causes: 1. Abnormal system capability; 2. IPC communication abnormality
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
+   * @since 22 static
    */
-  function off(type: 'operationSubmitMetadata', bundleName: string, callback?: Callback<number>): void;
+  function off(type: 'operationSubmitMetadata', bundleName: string, callback?: Callback<int>): void;
 }
 
 export default metadataBinding;

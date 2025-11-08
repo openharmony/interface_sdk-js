@@ -27,7 +27,7 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare interface HyperlinkAttribute extends CommonMethod {
@@ -37,7 +37,7 @@ export declare interface HyperlinkAttribute extends CommonMethod {
      * @param { Color | int | string | Resource } value
      * @returns { HyperlinkAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default color(value: Color | int | string | Resource | undefined): this;
     /**
@@ -46,7 +46,7 @@ export declare interface HyperlinkAttribute extends CommonMethod {
      * @param { AttributeModifier<HyperlinkAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
      * @returns { HyperlinkAttribute } the attribute of the HyperlinkAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<HyperlinkAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -54,18 +54,20 @@ export declare interface HyperlinkAttribute extends CommonMethod {
 /**
  * Defines Hyperlink Component.
  *
- * @param { string | Resource } address
- * @param { string | Resource } [content]
- * @param { function } [content_]
+ * @param { string | Resource | undefined } address - The link address of component.
+ *     The default value is an empty string.
+ *     Passing `undefined` resets it to the default value.
+ * @param { string | Resource } [content] - The title of the component.
+ * @param { function } [content_] - The node of component.
  * @returns { HyperlinkAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 @memo
 @ComponentBuilder
 export declare function Hyperlink(
-    address: string | Resource, content?: string | Resource, 
+    address: string | Resource | undefined, content?: string | Resource, 
     @memo
     content_?: () => void,
 ): HyperlinkAttribute

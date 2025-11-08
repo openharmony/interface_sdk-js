@@ -53,7 +53,7 @@ function main() {
         errVersionArr.forEach(str => {
           errStr = errStr + '\n' + str + '\n';
         });
-        errStr = '以下接口版本号不合规，请检查！' + '\n' + errStr;
+        errStr = '当前API最高版本号不得高于' + opts.versionNumber + ', 以下接口版本号不合规，请检查！' + '\n' + errStr;
         console.log(errStr);
       }
     });

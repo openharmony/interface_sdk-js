@@ -28,7 +28,7 @@ import image from './@ohos.multimedia.image';
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi Hide this for inner system use.
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace screen {
   /**
@@ -40,7 +40,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllScreens(callback: AsyncCallback<Array<Screen>>): void;
 
@@ -53,7 +53,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllScreens(): Promise<Array<Screen>>;
 
@@ -69,7 +69,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(eventType: 'connect' | 'disconnect' | 'change', callback: Callback<long>): void;
 
@@ -86,7 +86,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(eventType: 'connect' | 'disconnect' | 'change', callback?: Callback<long>): void;
 
@@ -172,7 +172,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function makeMirror(mainScreen: long, mirrorScreen: Array<long>, callback: AsyncCallback<long>): void;
 
@@ -189,7 +189,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function makeMirror(mainScreen: long, mirrorScreen: Array<long>): Promise<long>;
 
@@ -637,7 +637,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum ScreenSourceMode {
     /**
@@ -646,7 +646,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
      */
     SCREEN_MAIN = 0,
 
@@ -656,7 +656,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SCREEN_MIRROR = 1,
 
@@ -666,7 +666,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SCREEN_EXTEND = 2,
 
@@ -676,7 +676,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SCREEN_ALONE = 3
   }
@@ -688,7 +688,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Screen {
     /**
@@ -699,7 +699,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readonly id: long;
     
@@ -711,6 +711,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 21 dynamic
+     * @since 22 static
      */
     readonly rsId: long;
 
@@ -722,7 +723,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readonly parent: long;
 
@@ -734,7 +735,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readonly supportedModeInfo: Array<ScreenModeInfo>;
 
@@ -746,7 +747,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readonly activeModeIndex: long;
 
@@ -758,7 +759,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readonly orientation: Orientation;
 
@@ -770,7 +771,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readonly sourceMode: ScreenSourceMode;
 
@@ -782,7 +783,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readonly serialNumber?: string;
     
@@ -858,7 +859,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setDensityDpi(densityDpi: double, callback: AsyncCallback<void>): void;
 
@@ -874,7 +875,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setDensityDpi(densityDpi: double): Promise<void>;
   }
@@ -886,7 +887,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum Orientation {
     /**
@@ -895,7 +896,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UNSPECIFIED = 0,
 
@@ -905,7 +906,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     VERTICAL = 1,
 
@@ -915,7 +916,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     HORIZONTAL = 2,
 
@@ -925,7 +926,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     REVERSE_VERTICAL = 3,
 
@@ -935,7 +936,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     REVERSE_HORIZONTAL = 4
   }
@@ -947,7 +948,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ScreenModeInfo {
     /**
@@ -957,7 +958,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     id: long;
 
@@ -968,7 +969,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     width: long;
 
@@ -979,7 +980,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     height: long;
 
@@ -990,7 +991,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     refreshRate: int;
   }
@@ -1002,7 +1003,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Rect {
     /**
@@ -1012,7 +1013,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     left: long;
 
@@ -1023,7 +1024,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     top: long;
 
@@ -1034,7 +1035,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     width: long;
 
@@ -1045,7 +1046,7 @@ declare namespace screen {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     height: long;
   }

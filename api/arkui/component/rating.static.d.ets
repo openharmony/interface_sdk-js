@@ -26,7 +26,7 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @interface RatingOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface RatingOptions {
     /**
@@ -34,7 +34,7 @@ export declare interface RatingOptions {
      *
      * @type { number | undefined | Bindable<number> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     rating: number | undefined | Bindable<number>;
     /**
@@ -42,7 +42,7 @@ export declare interface RatingOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     indicator?: boolean;
 }
@@ -51,7 +51,7 @@ export declare interface RatingOptions {
  *
  * @interface StarStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface StarStyleOptions {
     /**
@@ -60,7 +60,7 @@ export declare interface StarStyleOptions {
      *
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     backgroundUri: ResourceStr;
     /**
@@ -69,7 +69,7 @@ export declare interface StarStyleOptions {
      *
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     foregroundUri: ResourceStr;
     /**
@@ -78,7 +78,7 @@ export declare interface StarStyleOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     secondaryUri?: ResourceStr;
 }
@@ -88,7 +88,7 @@ export declare interface StarStyleOptions {
  * @extends CommonConfiguration<RatingConfiguration>
  * @interface RatingConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface RatingConfiguration extends CommonConfiguration<RatingConfiguration> {
     /**
@@ -96,7 +96,7 @@ export declare interface RatingConfiguration extends CommonConfiguration<RatingC
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     rating: number;
     /**
@@ -104,7 +104,7 @@ export declare interface RatingConfiguration extends CommonConfiguration<RatingC
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     indicator: boolean;
     /**
@@ -112,7 +112,7 @@ export declare interface RatingConfiguration extends CommonConfiguration<RatingC
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     stars: number;
     /**
@@ -120,7 +120,7 @@ export declare interface RatingConfiguration extends CommonConfiguration<RatingC
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     stepSize: number;
     /**
@@ -128,7 +128,7 @@ export declare interface RatingConfiguration extends CommonConfiguration<RatingC
      *
      * @type { Callback<number> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     triggerChange: Callback<number>;
 }
@@ -138,7 +138,7 @@ export declare interface RatingConfiguration extends CommonConfiguration<RatingC
  * @typedef {function} OnRatingChangeCallback
  * @param {number} rating - The rating of the rating bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export type OnRatingChangeCallback = (rating: number) => void;
 /**
@@ -147,7 +147,7 @@ export type OnRatingChangeCallback = (rating: number) => void;
  * @extends CommonMethod
  * @interface RatingAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface RatingAttribute extends CommonMethod {
     /**
@@ -156,7 +156,7 @@ export declare interface RatingAttribute extends CommonMethod {
      * @param { number | undefined } value
      * @returns { RatingAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default stars(value: number | undefined): this;
     /**
@@ -165,7 +165,7 @@ export declare interface RatingAttribute extends CommonMethod {
      * @param { number | undefined } value
      * @returns { RatingAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default stepSize(value: number | undefined): this;
     /**
@@ -175,7 +175,7 @@ export declare interface RatingAttribute extends CommonMethod {
      * @param { StarStyleOptions | undefined } options - star style options
      * @returns { RatingAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default starStyle(options: StarStyleOptions | undefined): this;
     /**
@@ -184,7 +184,7 @@ export declare interface RatingAttribute extends CommonMethod {
      * @param { OnRatingChangeCallback | undefined } callback
      * @returns { RatingAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onChange(callback: OnRatingChangeCallback | undefined): this;
     /**
@@ -193,7 +193,7 @@ export declare interface RatingAttribute extends CommonMethod {
      * @param { ContentModifier<RatingConfiguration> | undefined } modifier - The content modifier of rating.
      * @returns { RatingAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default contentModifier(modifier: ContentModifier<RatingConfiguration> | undefined): this;
     /**
@@ -203,7 +203,7 @@ export declare interface RatingAttribute extends CommonMethod {
      *     The attribute modifier of rating.
      * @returns { RatingAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<RatingAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -215,7 +215,7 @@ export declare interface RatingAttribute extends CommonMethod {
  * @param { function } [content_] - container
  * @returns { RatingAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @memo
 @ComponentBuilder

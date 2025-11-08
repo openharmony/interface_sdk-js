@@ -24,28 +24,28 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare enum ImageAnalyzerType {
     /**
      * Image analyze type subject.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     SUBJECT = 0,
     /**
      * Image analyze type text.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     TEXT,
     /**
      * Image analyze type object lookup.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     OBJECT_LOOKUP
 }
@@ -53,14 +53,14 @@ export declare enum ImageAnalyzerType {
  * Image analyzer controller.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare class ImageAnalyzerController {
     /**
      * Constructor.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     constructor();
     /**
@@ -68,7 +68,7 @@ export declare class ImageAnalyzerController {
      *
      * @returns { ImageAnalyzerType[] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     getImageAnalyzerSupportTypes(): ImageAnalyzerType[];
 }
@@ -77,7 +77,7 @@ export declare class ImageAnalyzerController {
  *
  * @interface ImageAnalyzerConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface ImageAnalyzerConfig {
     /**
@@ -85,7 +85,7 @@ export declare interface ImageAnalyzerConfig {
      *
      * @type { ImageAnalyzerType[] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     types: ImageAnalyzerType[];
 }
@@ -94,7 +94,7 @@ export declare interface ImageAnalyzerConfig {
  *
  * @interface ImageAIOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface ImageAIOptions {
     /**
@@ -102,7 +102,7 @@ export declare interface ImageAIOptions {
      *
      * @type { ?ImageAnalyzerType[] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     types?: ImageAnalyzerType[];
     /**
@@ -110,7 +110,7 @@ export declare interface ImageAIOptions {
      *
      * @type { ?ImageAnalyzerController }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     aiController?: ImageAnalyzerController;
 }

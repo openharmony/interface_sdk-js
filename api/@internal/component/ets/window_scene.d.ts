@@ -30,7 +30,7 @@ import { CommonMethod } from './common'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 interface WindowSceneInterface {
   /**
@@ -41,7 +41,7 @@ interface WindowSceneInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   (persistentId: number): WindowSceneAttribute;
 }
@@ -53,7 +53,7 @@ interface WindowSceneInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
   /**
@@ -67,7 +67,7 @@ declare class WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   attractionEffect(destination: Position, fraction: number): WindowSceneAttribute;
 }

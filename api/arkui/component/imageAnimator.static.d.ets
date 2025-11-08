@@ -29,7 +29,7 @@ import { AttributeModifier } from "./common";
  *
  * @interface ImageFrameInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export interface ImageFrameInfo {
     /**
@@ -37,7 +37,7 @@ export interface ImageFrameInfo {
      *
      * @type { string | Resource | PixelMap }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     src: string | Resource | PixelMap;
     /**
@@ -45,7 +45,7 @@ export interface ImageFrameInfo {
      *
      * @type { ?(number | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     width?: number | string;
     /**
@@ -53,7 +53,7 @@ export interface ImageFrameInfo {
      *
      * @type { ?(number | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     height?: number | string;
     /**
@@ -61,7 +61,7 @@ export interface ImageFrameInfo {
      *
      * @type { ?(number | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     top?: number | string;
     /**
@@ -69,7 +69,7 @@ export interface ImageFrameInfo {
      *
      * @type { ?(number | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     left?: number | string;
     /**
@@ -77,7 +77,7 @@ export interface ImageFrameInfo {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     duration?: number;
 }
@@ -87,7 +87,7 @@ export interface ImageFrameInfo {
  * @extends CommonMethod
  * @interface ImageAnimatorAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare interface ImageAnimatorAttribute extends CommonMethod {
@@ -101,7 +101,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * @param { Array<ImageFrameInfo> | undefined } value - Image frame informatio, Default value is [].
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default images(value: Array<ImageFrameInfo> | undefined): this;
     /**
@@ -111,7 +111,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      *     Default value is AnimationStatus.Initial.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default state(value: AnimationStatus | undefined): this;
     /**
@@ -125,7 +125,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * @param { number | undefined } value - Playback duration, Default value is 1000.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default duration(value: number | undefined): this;
     /**
@@ -134,7 +134,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * @param { boolean | undefined } value - Playback direction, Default value is false.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default reverse(value: boolean | undefined): this;
     /**
@@ -144,7 +144,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      *     component size, Default value is true.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default fixedSize(value: boolean | undefined): this;
     /**
@@ -155,7 +155,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * Default value is FillMode.Forwards.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default fillMode(value: FillMode | undefined): this;
     /**
@@ -165,7 +165,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * @param { number | undefined } value - Number of times that the animation is played, Default value is 1.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default iterations(value: number | undefined): this;
     /**
@@ -178,7 +178,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * @returns { ImageAnimatorAttribute }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default monitorInvisibleArea(monitorInvisibleArea: boolean | undefined): this;
     /**
@@ -187,7 +187,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onStart(event: (() => void) | undefined): this;
     /**
@@ -196,7 +196,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onPause(event: (() => void) | undefined): this;
     /**
@@ -205,7 +205,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onRepeat(event: (() => void) | undefined): this;
     /**
@@ -214,7 +214,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onCancel(event: (() => void) | undefined): this;
     /**
@@ -223,7 +223,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onFinish(event: (() => void) | undefined): this;
     /**
@@ -232,7 +232,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * @param { AttributeModifier<ImageAnimatorAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<ImageAnimatorAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -242,7 +242,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
  * @param { function } [content_]
  * @returns { ImageAnimatorAttribute } The attribute of the ImageAnimator.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 @memo

@@ -29,7 +29,7 @@ import type wantConstant from './@ohos.app.ability.wantConstant';
  * @StageModelOnly
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace insightIntent {
   /**
@@ -40,7 +40,7 @@ declare namespace insightIntent {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum ExecuteMode {
     /**
@@ -50,7 +50,7 @@ declare namespace insightIntent {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UI_ABILITY_FOREGROUND = 0,
 
@@ -61,7 +61,7 @@ declare namespace insightIntent {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UI_ABILITY_BACKGROUND = 1,
 
@@ -71,7 +71,7 @@ declare namespace insightIntent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UI_EXTENSION_ABILITY = 2,
 
@@ -82,7 +82,7 @@ declare namespace insightIntent {
      * @systemapi
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SERVICE_EXTENSION_ABILITY = 3,
   }
@@ -95,7 +95,7 @@ declare namespace insightIntent {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ExecuteResult {
     /**
@@ -106,7 +106,7 @@ declare namespace insightIntent {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     code: int;
 
@@ -118,7 +118,7 @@ declare namespace insightIntent {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     result?: Record<string, Object>;
 
@@ -130,7 +130,7 @@ declare namespace insightIntent {
      * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uris?: Array<string>;
 
@@ -146,7 +146,7 @@ declare namespace insightIntent {
      * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     flags?: int;
   }

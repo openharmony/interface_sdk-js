@@ -25,21 +25,21 @@ import { AttributeModifier, CommonMethod } from "./common";
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare enum GridItemStyle {
     /**
      * Show none style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     NONE = 0,
     /**
      * Show plain style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     PLAIN = 1
 }
@@ -48,7 +48,7 @@ export declare enum GridItemStyle {
  *
  * @interface GridItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface GridItemOptions {
     /**
@@ -56,7 +56,7 @@ export declare interface GridItemOptions {
      *
      * @type { ?GridItemStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     style?: GridItemStyle;
 }
@@ -66,7 +66,7 @@ export declare interface GridItemOptions {
  * @extends CommonMethod
  * @interface GridItemAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface GridItemAttribute extends CommonMethod {
     /**
@@ -75,7 +75,7 @@ export declare interface GridItemAttribute extends CommonMethod {
      * @param { numnumber | undefinedber } value
      * @returns { GridItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default rowStart(value: number | undefined): this;
     /**
@@ -84,7 +84,7 @@ export declare interface GridItemAttribute extends CommonMethod {
      * @param { number | undefined } value
      * @returns { GridItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default rowEnd(value: number | undefined): this;
     /**
@@ -93,7 +93,7 @@ export declare interface GridItemAttribute extends CommonMethod {
      * @param { number | undefined } value
      * @returns { GridItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default columnStart(value: number | undefined): this;
     /**
@@ -102,7 +102,7 @@ export declare interface GridItemAttribute extends CommonMethod {
      * @param { number | undefined } value
      * @returns { GridItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default columnEnd(value: number | undefined): this;
     /**
@@ -111,17 +111,17 @@ export declare interface GridItemAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { GridItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default selectable(value: boolean | undefined): this;
     /**
      * Called when judging whether it is selected.
-     * This parameter supports $$ for two-way binding of variables.
+     * This parameter supports $ for two-way binding of variables.
      *
      * @param { boolean | Bindable<boolean> | undefined } value
      * @returns { GridItemAttribute } the attribute of the gridItem.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default selected(value: boolean | Bindable<boolean> | undefined): this;
     /**
@@ -130,7 +130,7 @@ export declare interface GridItemAttribute extends CommonMethod {
      * @param { function | undefined } event
      * @returns { GridItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onSelect(event: ((isSelected: boolean) => void) | undefined): this;
     /**
@@ -139,7 +139,7 @@ export declare interface GridItemAttribute extends CommonMethod {
      * @param { AttributeModifier<GridItemAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<GridItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -151,7 +151,7 @@ export declare interface GridItemAttribute extends CommonMethod {
  * @param { function } [content_] - container
  * @returns { GridItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @memo
 @ComponentBuilder

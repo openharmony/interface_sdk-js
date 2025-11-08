@@ -39,7 +39,7 @@ import netFirewall from '@ohos.net.netFirewall';
 export {
   connection, ethernet, http, mdns, policy, sharing, webSocket,
   socket, statistics, vpn, vpnExtension, networkSecurity,
-  VpnExtensionAbility, VpnExtensionContext, netFirewall
+  VpnExtensionAbility, VpnExtensionContext, eap, netFirewall
 };
 
 /*** if arkts static */

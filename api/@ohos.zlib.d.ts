@@ -37,7 +37,7 @@ import { AsyncCallback } from './@ohos.base';
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace zlib {
   /**
@@ -78,7 +78,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum CompressLevel {
     /**
@@ -94,7 +94,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPRESS_LEVEL_NO_COMPRESSION = 0,
     /**
@@ -110,7 +110,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPRESS_LEVEL_BEST_SPEED = 1,
     /**
@@ -126,7 +126,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPRESS_LEVEL_BEST_COMPRESSION = 9,
     /**
@@ -142,7 +142,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPRESS_LEVEL_DEFAULT_COMPRESSION = -1
   }
@@ -162,7 +162,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum CompressStrategy {
     /**
@@ -178,7 +178,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPRESS_STRATEGY_DEFAULT_STRATEGY = 0,
     /**
@@ -194,7 +194,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPRESS_STRATEGY_FILTERED = 1,
     /**
@@ -210,7 +210,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPRESS_STRATEGY_HUFFMAN_ONLY = 2,
     /**
@@ -226,7 +226,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPRESS_STRATEGY_RLE = 3,
     /**
@@ -242,7 +242,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPRESS_STRATEGY_FIXED = 4
   }
@@ -255,7 +255,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum ParallelStrategy {
     /**
@@ -265,7 +265,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PARALLEL_STRATEGY_SEQUENTIAL = 0,
     /**
@@ -275,7 +275,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PARALLEL_STRATEGY_PARALLEL_DECOMPRESSION = 1
   }
@@ -286,7 +286,8 @@ declare namespace zlib {
    * @enum { int }
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 21 dynamic&static
+   * @since 21 dynamic
+   * @since 22 static
    */
   export enum PathSeparatorStrategy {
     /**
@@ -294,7 +295,8 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     PATH_SEPARATOR_STRATEGY_DEFAULT = 0,
     /**
@@ -303,7 +305,8 @@ declare namespace zlib {
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     PATH_SEPARATOR_STRATEGY_REPLACE_BACKSLASH = 1
   }
@@ -323,7 +326,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum MemLevel {
     /**
@@ -339,7 +342,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MEM_LEVEL_MIN = 1,
     /**
@@ -355,7 +358,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MEM_LEVEL_MAX = 9,
     /**
@@ -371,7 +374,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MEM_LEVEL_DEFAULT = 8
   }
@@ -540,7 +543,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Options {
     /**
@@ -557,7 +560,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     level?: CompressLevel;
     /**
@@ -574,7 +577,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     memLevel?: MemLevel;
     /**
@@ -591,7 +594,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     strategy?: CompressStrategy;
     /**
@@ -602,7 +605,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     parallel?: ParallelStrategy;
     /**
@@ -611,7 +614,8 @@ declare namespace zlib {
      * @type { ?PathSeparatorStrategy }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     pathSeparatorStrategy?: PathSeparatorStrategy;
   }
@@ -1070,7 +1074,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function compressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>): void;
 
@@ -1101,7 +1105,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function compressFile(inFile: string, outFile: string, options: Options): Promise<void>;
 
@@ -1118,7 +1122,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function compressFiles(inFiles: Array<string>, outFile: string, options: Options): Promise<void>;
 
@@ -1164,7 +1168,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function decompressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>): void;
 
@@ -1195,7 +1199,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function decompressFile(inFile: string, outFile: string, callback: AsyncCallback<void>): void;
 
@@ -1241,7 +1245,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function decompressFile(inFile: string, outFile: string, options?: Options): Promise<void>;
 
@@ -1257,7 +1261,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getOriginalSize(compressedFile: string): Promise<number>;
 
@@ -1268,7 +1272,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createChecksum(): Promise<Checksum>;
 
@@ -1279,7 +1283,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createChecksumSync(): Checksum;
 
@@ -1330,7 +1334,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Checksum {
     /**
@@ -1344,7 +1348,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     adler32(adler: number, buf: ArrayBuffer): Promise<number>;
 
@@ -1360,7 +1364,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     adler32Combine(adler1: number, adler2: number, len2: number): Promise<number>;
 
@@ -1375,7 +1379,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     crc32(crc: number, buf: ArrayBuffer): Promise<number>;
 
@@ -1391,7 +1395,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     crc32Combine(crc1: number, crc2: number, len2: number): Promise<number>;
 
@@ -1416,7 +1420,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getCrcTable(): Promise<Array<number>>;
 

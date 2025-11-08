@@ -2307,6 +2307,62 @@ export class UIObserver {
   off(type: 'tabContentUpdate', callback?: Callback<observer.TabContentInfo>): void;
 
   /**
+   * Registers a callback function to be called when the tabContent is showed or hidden.
+   * Include the cases when the first tab content shows and when the tab changes current index.
+   *
+   * @param { 'tabChange' } type - The type of event to listen for. Must be 'tabChange'.
+   * @param { observer.ObserverOptions } config - The options object. Includes the observed component id.
+   * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called
+   *     when when the tabContent is showed or hidden.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  on(type: 'tabChange', config: observer.ObserverOptions, callback: Callback<observer.TabContentInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'tabChange' } type - The type of event to remove the listener for. Must be 'tabChange'.
+   * @param { observer.ObserverOptions } config - The config object. Includes the observed component id.
+   * @param { Callback<observer.TabContentInfo> } [callback] - The callback function to remove.
+   *     If not provided, all callbacks for the given event type and Tabs ID will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  off(type: 'tabChange', config: observer.ObserverOptions, callback?: Callback<observer.TabContentInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the tabContent is showed or hidden.
+   * Include the cases when the first tab content shows and when the tab changes current index.
+   *
+   * @param { 'tabChange' } type - The type of event to listen for. Must be 'tabChange'.
+   * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called
+   *     when the tabContent is showed or hidden.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  on(type: 'tabChange', callback: Callback<observer.TabContentInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'tabChange' } type - The type of event to remove the listener for. Must be 'tabChange'.
+   * @param { Callback<observer.TabContentInfo> } [callback] - The callback function to remove.
+   *     If not provided, all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  off(type: 'tabChange', callback?: Callback<observer.TabContentInfo>): void;
+
+  /**
    * Registers a callback function to be called when the specific node's render state changed.
    * This callback will be executed once immediately when the register is successful.
    * [Notes]:
@@ -2465,7 +2521,134 @@ export class UIObserver {
    * @since 20 dynamic
    */
   removeGlobalGestureListener(type: GestureListenerType, callback?: GestureListenerCallback): void;
+
+ /**
+   * Registers a callback function to be called when the swiper content is updated.
+   *
+   * @param { Callback<SwiperContentInfo> } callback - The callback function to be called
+   *     when the content is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onSwiperContentUpdate(callback: Callback<SwiperContentInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with 'onSwiperContentUpdate'.
+   *
+   * @param { Callback<SwiperContentInfo> } callback - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  offSwiperContentUpdate(callback?: Callback<SwiperContentInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the swiper content is updated.
+   *
+   * @param { observer.ObserverOptions } config - The options object.
+   * @param { Callback<SwiperContentInfo> } callback - The callback function to be called
+   *     when the swiper content is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onSwiperContentUpdate(config: observer.ObserverOptions, callback: Callback<SwiperContentInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with 'onSwiperContentUpdate'.
+   *
+   * @param { observer.ObserverOptions } config - The options object.
+   * @param { Callback<SwiperContentInfo> } callback - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  offSwiperContentUpdate(config: observer.ObserverOptions, callback?: Callback<SwiperContentInfo>): void;
 }
+
+/**
+ * The information returned when the Swiper content changes.
+ *
+ * @interface SwiperContentInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export interface SwiperContentInfo {
+  /**
+   * Swiper id, set by the 'id' attribute.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  id: string;
+
+  /**
+   * Swiper uniqueId, generated by the system.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  uniqueId: number;
+
+  /**
+   * The array of changed SwiperItemInfo.
+   *
+   * @type { Array<SwiperItemInfo> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  swiperItemInfos: Array<SwiperItemInfo>;
+}
+
+/**
+ * The information of changed SwiperItem.
+ *
+ * @interface SwiperContentInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export interface SwiperItemInfo {
+  /**
+   * The uniqueId of SwiperItem.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  uniqueId: number;
+
+  /**
+   * The index of SwiperItem.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  index: number;
+}  
 
 /**
  * class ComponentUtils

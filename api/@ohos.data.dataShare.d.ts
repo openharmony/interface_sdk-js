@@ -39,7 +39,8 @@ import { ValuesBucket, ValueType } from './@ohos.data.ValuesBucket';
  * @namespace dataShare
  * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
  * @stagemodelonly
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 declare namespace dataShare {
   /**
@@ -50,7 +51,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface DataShareHelperOptions {
     /**
@@ -63,7 +64,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isProxy?: boolean;
     /**
@@ -107,7 +108,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createDataShareHelper(context: Context, uri: string, callback: AsyncCallback<DataShareHelper>): void;
   /**
@@ -140,7 +141,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createDataShareHelper(
     context: Context,
@@ -193,7 +194,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createDataShareHelper(
     context: Context,
@@ -229,7 +230,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enableSilentProxy(context: Context, uri?: string): Promise<void>;
 
@@ -261,7 +262,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function disableSilentProxy(context: Context, uri?: string): Promise<void>;
 
@@ -559,7 +560,8 @@ declare namespace dataShare {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum ChangeType {
     /**
@@ -575,7 +577,8 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     INSERT = 0,
 
@@ -592,7 +595,8 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     DELETE,
     /**
@@ -608,7 +612,8 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     UPDATE
   }
@@ -620,7 +625,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum SubscriptionType {
       /**
@@ -630,7 +635,7 @@ declare namespace dataShare {
        * @systemapi
        * @stagemodelonly
        * @since 12 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       SUBSCRIPTION_TYPE_EXACT_URI = 0,
   }
@@ -643,7 +648,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ChangeInfo {
       /**
@@ -654,7 +659,7 @@ declare namespace dataShare {
        * @systemapi
        * @stagemodelonly
        * @since 12 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       type: ChangeType;
 
@@ -666,7 +671,7 @@ declare namespace dataShare {
        * @systemapi
        * @stagemodelonly
        * @since 12 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       uri: string;
       /**
@@ -677,7 +682,7 @@ declare namespace dataShare {
         * @systemapi
         * @stagemodelonly
         * @since 12 dynamic
-        * @since 20 static
+        * @since 22 static
         */
       values: Array<ValuesBucket>;
   }
@@ -690,7 +695,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface DataShareHelper {
     /**
@@ -718,7 +723,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'dataChange', uri: string, callback: AsyncCallback<void>): void;
 
@@ -747,7 +752,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
     /**
@@ -765,7 +770,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(event: 'dataChange', type:SubscriptionType, uri: string, callback: AsyncCallback<ChangeInfo>): void;
 
@@ -784,7 +789,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(event: 'dataChange', type:SubscriptionType, uri: string, callback?: AsyncCallback<ChangeInfo>): void;
 
@@ -1336,7 +1341,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     query(
       uri: string,
@@ -1378,7 +1383,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     query(
       uri: string,
@@ -1417,7 +1422,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     update(
       uri: string,
@@ -1457,7 +1462,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     update(uri: string, predicates: dataSharePredicates.DataSharePredicates, value: ValuesBucket): Promise<number>;
 
@@ -1773,7 +1778,8 @@ declare namespace dataShare {
    *     restarted abnormally.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function createDataProxyHandle(): Promise<DataProxyHandle>;
 
@@ -1783,7 +1789,8 @@ declare namespace dataShare {
    * @interface ProxyData
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface ProxyData {
     /**
@@ -1792,7 +1799,8 @@ declare namespace dataShare {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     uri: string;
 
@@ -1804,7 +1812,8 @@ declare namespace dataShare {
      * @type { ?ValueType }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     value?: ValueType;
 
@@ -1818,7 +1827,8 @@ declare namespace dataShare {
      * @type { ?string[] }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     allowList?: string[];
   }
@@ -1829,7 +1839,8 @@ declare namespace dataShare {
    * @interface DataProxyChangeInfo
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface DataProxyChangeInfo {
     /**
@@ -1838,7 +1849,8 @@ declare namespace dataShare {
      * @type { ChangeType }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     type: ChangeType;
 
@@ -1848,7 +1860,8 @@ declare namespace dataShare {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     uri: string;
 
@@ -1858,7 +1871,8 @@ declare namespace dataShare {
      * @type { ValueType }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     value: ValueType;
   }
@@ -1869,7 +1883,8 @@ declare namespace dataShare {
    * @enum { number } DataProxyErrorCode
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum DataProxyErrorCode {
     /**
@@ -1877,7 +1892,8 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     SUCCESS = 0,
     
@@ -1886,7 +1902,8 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     URI_NOT_EXIST = 1,
 
@@ -1895,7 +1912,8 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     NO_PERMISSION = 2,
 
@@ -1904,7 +1922,8 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     OVER_LIMIT = 3
   }
@@ -1915,7 +1934,8 @@ declare namespace dataShare {
    * @interface DataProxyResult
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface DataProxyResult {
     /**
@@ -1924,7 +1944,8 @@ declare namespace dataShare {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     uri: string;
 
@@ -1933,7 +1954,8 @@ declare namespace dataShare {
      * @type { DataProxyErrorCode }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     result: DataProxyErrorCode;
   }
@@ -1944,7 +1966,8 @@ declare namespace dataShare {
    * @interface DataProxyGetResult
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface DataProxyGetResult {
     /**
@@ -1953,7 +1976,8 @@ declare namespace dataShare {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     uri: string;
 
@@ -1963,7 +1987,8 @@ declare namespace dataShare {
      * @type { DataProxyErrorCode }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     result: DataProxyErrorCode;
 
@@ -1974,7 +1999,8 @@ declare namespace dataShare {
      * @type { ValueType | undefined }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     value: ValueType | undefined;
 
@@ -1986,7 +2012,8 @@ declare namespace dataShare {
      * @type { string[] | undefined}
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     allowList: string[] | undefined;
   }
@@ -1997,7 +2024,8 @@ declare namespace dataShare {
    * @enum { number } DataProxyType
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum DataProxyType {
     /**
@@ -2005,7 +2033,8 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     SHARED_CONFIG = 0
   }
@@ -2016,7 +2045,8 @@ declare namespace dataShare {
    * @interface DataProxyConfig
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface DataProxyConfig {
     /**
@@ -2025,7 +2055,8 @@ declare namespace dataShare {
      * @type { DataProxyType }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     type: DataProxyType;
   }
@@ -2036,7 +2067,8 @@ declare namespace dataShare {
    * @interface DataProxyHandle
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface DataProxyHandle {
     /**
@@ -2052,7 +2084,8 @@ declare namespace dataShare {
      * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     on(
       event: 'dataChange',
@@ -2074,7 +2107,8 @@ declare namespace dataShare {
      * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     off(
       event: 'dataChange',
@@ -2097,7 +2131,8 @@ declare namespace dataShare {
      * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     publish(data: ProxyData[], config: DataProxyConfig): Promise<DataProxyResult[]>;
 
@@ -2113,7 +2148,8 @@ declare namespace dataShare {
      * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     delete(uris: string[], config: DataProxyConfig): Promise<DataProxyResult[]>;
 
@@ -2129,7 +2165,8 @@ declare namespace dataShare {
      * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     get(uris: string[], config: DataProxyConfig): Promise<DataProxyGetResult[]>;
   }

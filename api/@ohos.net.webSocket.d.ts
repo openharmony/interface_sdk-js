@@ -41,14 +41,14 @@ import type connection from './@ohos.net.connection';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace webSocket {
   /**
    * @typedef { connection.HttpProxy }
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type HttpProxy = connection.HttpProxy;
 
@@ -72,7 +72,7 @@ declare namespace webSocket {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createWebSocket(): WebSocket;
 
@@ -96,7 +96,7 @@ declare namespace webSocket {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface WebSocketRequestOptions {
     /**
@@ -205,7 +205,7 @@ declare namespace webSocket {
    * @typedef { 'system' | 'no-proxy' | HttpProxy }
    * @syscap SystemCapability.Communication.NetStack
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type ProxyConfiguration = 'system' | 'no-proxy' | HttpProxy;
 
@@ -293,7 +293,7 @@ declare namespace webSocket {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface WebSocketCloseOptions {
     /**
@@ -316,7 +316,7 @@ declare namespace webSocket {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     code?: int;
     /**
@@ -339,7 +339,7 @@ declare namespace webSocket {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     reason?: string;
   }
@@ -358,7 +358,7 @@ declare namespace webSocket {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface CloseResult {
     /**
@@ -375,7 +375,7 @@ declare namespace webSocket {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     code: int;
     /**
@@ -392,7 +392,7 @@ declare namespace webSocket {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     reason: string;
   }
@@ -430,7 +430,7 @@ declare namespace webSocket {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface WebSocket {
     /**
@@ -484,7 +484,7 @@ declare namespace webSocket {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     connect(url: string, callback: AsyncCallback<boolean>): void;
 
@@ -543,7 +543,7 @@ declare namespace webSocket {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     connect(url: string, options: WebSocketRequestOptions, callback: AsyncCallback<boolean>): void;
 
@@ -602,7 +602,7 @@ declare namespace webSocket {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     connect(url: string, options?: WebSocketRequestOptions): Promise<boolean>;
 
@@ -705,7 +705,7 @@ declare namespace webSocket {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     close(callback: AsyncCallback<boolean>): void;
 
@@ -776,7 +776,7 @@ declare namespace webSocket {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     close(options?: WebSocketCloseOptions): Promise<boolean>;
 

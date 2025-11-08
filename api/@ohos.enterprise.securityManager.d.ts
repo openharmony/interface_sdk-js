@@ -19,6 +19,7 @@
  */
 
 import type Want from './@ohos.app.ability.Want';
+import type common from './@ohos.enterprise.common';
 import type image from './@ohos.multimedia.image';
 
 /**
@@ -28,7 +29,7 @@ import type image from './@ohos.multimedia.image';
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @stagemodelonly
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace securityManager {
   /**
@@ -313,7 +314,7 @@ declare namespace securityManager {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getPasswordPolicy(): PasswordPolicy;
 
@@ -462,13 +463,46 @@ declare namespace securityManager {
   function cancelWatermarkImage(admin: Want, bundleName: string, accountId: number): void;
 
   /**
+   * Sets the policy of the extensions from external sources.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { common.ManagedPolicy } policy - policy indicates the policy of extensions.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *  The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 22
+   */
+    function setExternalSourceExtensionsPolicy(admin: Want, policy: common.ManagedPolicy): void;
+
+  /**
+   * Gets the policy of the extensions from external sources.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { common.ManagedPolicy } policy - policy indicates the policy of extensions.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 22
+   */
+    function getExternalSourceExtensionsPolicy(admin: Want): common.ManagedPolicy;
+
+  /**
    * Password policy.
    * 
    * @typedef PasswordPolicy
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface PasswordPolicy {
     /**
@@ -478,7 +512,7 @@ declare namespace securityManager {
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     complexityRegex?: string;
 
@@ -489,7 +523,7 @@ declare namespace securityManager {
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     validityPeriod?: long;
 
@@ -500,7 +534,7 @@ declare namespace securityManager {
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     additionalDescription?: string;
   }

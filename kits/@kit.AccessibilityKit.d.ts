@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,6 +18,7 @@
  * @kit AccessibilityKit
  */
 
+/*** if arkts dynamic */
 import config from '@ohos.accessibility.config';
 import accessibility from '@ohos.accessibility';
 import { GesturePath } from '@ohos.accessibility.GesturePath';
@@ -28,9 +29,29 @@ import AccessibilityExtensionAbility, {
   Parameter
 } from '@ohos.application.AccessibilityExtensionAbility';
 import { AccessibilityAction, AccessibilityEventType } from '@ohos.accessibility';
+/*** endif */
+
+/*** if arkts static */
+import config from '@ohos.accessibility.config';
+import accessibility from '@ohos.accessibility';
+import AccessibilityExtensionAbility, {
+  AccessibilityElement, AccessibilityExtensionContext, FocusDirection, Rect, WindowType, AccessibilityEventInfo
+} from '@ohos.application.AccessibilityExtensionAbility';
+import { AccessibilityEventType } from '@ohos.accessibility';
+/*** endif */
+
+/*** if arkts dynamic */
 export {
   AccessibilityElement, AccessibilityExtensionAbility, AccessibilityExtensionContext,
   ElementAttributeKeys, ElementAttributeValues, FocusDirection, FocusType, GesturePath,
   GesturePoint, Rect, WindowType, accessibility, config, AccessibilityEvent, AccessibilityEventInfo,
   AccessibilityAction, AccessibilityEventType, Parameter
 };
+/*** endif */
+
+/*** if arkts static */
+export {
+  AccessibilityElement, AccessibilityExtensionAbility, AccessibilityExtensionContext, FocusDirection, Rect,
+  WindowType, accessibility, config, AccessibilityEventInfo, AccessibilityEventType
+};
+/*** endif */

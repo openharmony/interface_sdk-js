@@ -37,7 +37,8 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * @namespace autoStartupManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 21 dynamic&static
+ * @since 21 dynamic
+ * @since 22 static
  */
 declare namespace autoStartupManager {
   /**
@@ -209,7 +210,8 @@ declare namespace autoStartupManager {
    *     2.System service failed to communicate with dependency module.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 21 dynamic&static
+   * @since 21 dynamic
+   * @since 22 static
    */
   function getAutoStartupStatusForSelf(): Promise<boolean>;
 }
