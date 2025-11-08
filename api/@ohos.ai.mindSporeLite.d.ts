@@ -28,30 +28,19 @@ import { Callback } from './@ohos.base';
  * @since 22 static
  */
 declare namespace mindSporeLite {
-  /**
-   * Create a Model instance from file path
-   * @param { string } model - model indicates model path to be loaded
-   * @param { Context } context - context indicates model context information
-   * @returns { Promise<Model> } the promise returned by the function.
-   * @syscap SystemCapability.AI.MindSporeLite
-   * @stagemodelonly
-   * @since 10 dynamic
-   */
-  function loadModelFromFile(
-    model: string,
-    context?: Context): Promise<Model>;
 
   /**
    * Create a Model instance from file path
    * @param { string } model - model indicates model path to be loaded
    * @param { Context } context - context indicates model context information
    * @returns { Promise<Model> } the promise returned by the function.
-   * @throws { BusinessError} 1000000 - Model Path error, Possible causes: 1.model path is null; 2.model path is not exists.
-   * @throws { BusinessError} 1000001 - Invalid context, Possible causes: 1.context target error; 2.device info error.
-   * @throws { BusinessError} 1000002 - Create native model fail from path: 1.insufficient permission to access the model path; 2.the model file is corrupted.
-   * @throws { BusinessError} 1000003 - Load model way error, Possible causes: 1.Load way must be path, buffer, fd.
+   * @throws { BusinessError} 1000000 - Model path error. Possible causes: 1. The model path is null; 2. The model path does not exist.
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
+   * @throws { BusinessError} 1000002 - Failed to create native model. Possible causes: 1. Insufficient permission to access the model path; 2. The model file is corrupted.
+   * @throws { BusinessError} 1000003 - Error in model loading method. Possible causes: 1. The loading method must be path, buffer, or fd.
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
+   * @since 10 dynamic
    * @since 22 static
    */
   function loadModelFromFile(
@@ -62,52 +51,30 @@ declare namespace mindSporeLite {
    * Create a Model instance from file path.
    * @param { string } model - model indicates model path to be loaded
    * @param { Callback<Model> } callback - the callback of model
+   * @throws { BusinessError} 1000000 - Model path error. Possible causes: 1. The model path is null; 2. The model path does not exist.
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
+   * @throws { BusinessError} 1000002 - Failed to create native model. Possible causes: 1. Insufficient permission to access the model path; 2. The model file is corrupted.
+   * @throws { BusinessError} 1000003 - Error in model loading method. Possible causes: 1. The loading method must be path, buffer, or fd.
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   */
-  function loadModelFromFile(
-    model: string, callback: Callback<Model>): void;
-
-  /**
-   * Create a Model instance from file path.
-   * @param { string } model - model indicates model path to be loaded
-   * @param { Callback<Model> } callback - the callback of model
-   * @throws { BusinessError} 1000000 - Model Path error, Possible causes: 1.model path is null; 2.model path is not exists.
-   * @throws { BusinessError} 1000001 - Invalid context, Possible causes: 1.context target error; 2.device info error.
-   * @throws { BusinessError} 1000002 - Create native model fail path: 1.insufficient permission to access the model path; 2.the model file is corrupted.
-   * @throws { BusinessError} 1000003 - Load model way error, Possible causes: 1.Load way must be path, buffer, fd.
-   * @syscap SystemCapability.AI.MindSporeLite
-   * @stagemodelonly
    * @since 22 static
    */
   function loadModelFromFile(
     model: string, callback: Callback<Model>): void;
-  
-  /**
-   * Create a Model instance from file path.
-   * @param { string } model - model indicates model path to be loaded
-   * @param { Context } context - context indicates model context information
-   * @param { Callback<Model> } callback - the callback of model
-   * @syscap SystemCapability.AI.MindSporeLite
-   * @stagemodelonly
-   * @since 10 dynamic
-   */
-  function loadModelFromFile(
-    model: string,
-    context: Context, callback: Callback<Model>): void;
 
   /**
    * Create a Model instance from file path.
    * @param { string } model - model indicates model path to be loaded
    * @param { Context } context - context indicates model context information
    * @param { Callback<Model> } callback - the callback of model
-   * @throws { BusinessError} 1000000 - Model Path error, Possible causes: 1.model path is null; 2.model path is not exists.
-   * @throws { BusinessError} 1000001 - Invalid context, Possible causes: 1.context target error; 2.device info error.
-   * @throws { BusinessError} 1000002 - Create native model fail from path: 1.insufficient permission to access the model path; 2.the model file is corrupted.
-   * @throws { BusinessError} 1000003 - Load model way error, Possible causes: 1.Load way must be path, buffer, fd.
+   * @throws { BusinessError} 1000000 - Model path error. Possible causes: 1. The model path is null; 2. The model path does not exist.
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
+   * @throws { BusinessError} 1000002 - Failed to create native model. Possible causes: 1. Insufficient permission to access the model path; 2. The model file is corrupted.
+   * @throws { BusinessError} 1000003 - Error in model loading method. Possible causes: 1. The loading method must be path, buffer, or fd.
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
+   * @since 10 dynamic
    * @since 22 static
    */
   function loadModelFromFile(
@@ -119,25 +86,13 @@ declare namespace mindSporeLite {
    * @param { ArrayBuffer } model - model indicates model buffer to be loaded
    * @param { Context } [context] - context indicates model context information
    * @returns { Promise<Model> } the promise returned by the function.
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
+   * @throws { BusinessError} 1000003 - Error in model loading method. Possible causes: 1. The loading method must be path, buffer, or fd.
+   * @throws { BusinessError} 1000004 - Model buffer error. Possible causes: 1. The buffer size is 0; 2. The buffer is a null pointer.
+   * @throws { BusinessError} 1000005 - Failed to create native model from buffer. Possible causes: 1. The buffer size is incorrect; 2. The buffer file is damaged.
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   */
-  function loadModelFromBuffer(
-    model: ArrayBuffer,
-    context?: Context): Promise<Model>;
-
-  /**
-   * Create a Model instance from buffer
-   * @param { ArrayBuffer } model - model indicates model buffer to be loaded
-   * @param { Context } [context] - context indicates model context information
-   * @returns { Promise<Model> } the promise returned by the function.
-   * @throws { BusinessError} 1000001 - Invalid context, Possible causes: 1.context target error; 2.device info error.
-   * @throws { BusinessError} 1000003 - Load model way error, Possible causes: 1.Load way must be path, buffer, fd.
-   * @throws { BusinessError} 1000004 - Model Buffer error, Possible causes: 1.buffer size is 0; 2.buffer is nullptr.
-   * @throws { BusinessError} 1000005 - Create native model fail from buffer: 1.buffer size is wrong. 2.buffer file is damaged.
-   * @syscap SystemCapability.AI.MindSporeLite
-   * @stagemodelonly
    * @since 22 static
    */
   function loadModelFromBuffer(
@@ -148,23 +103,13 @@ declare namespace mindSporeLite {
    * Create a Model instance from buffer
    * @param { ArrayBuffer } model - model indicates model buffer to be loaded
    * @param { Callback<Model> } callback - the callback of model
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
+   * @throws { BusinessError} 1000003 - Error in model loading method. Possible causes: 1. The loading method must be path, buffer, or fd.
+   * @throws { BusinessError} 1000004 - Model buffer error. Possible causes: 1. The buffer size is 0; 2. The buffer is a null pointer.
+   * @throws { BusinessError} 1000005 - Failed to create native model from buffer. Possible causes: 1. The buffer size is incorrect; 2. The buffer file is damaged.
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   */
-  function loadModelFromBuffer(
-    model: ArrayBuffer, callback: Callback<Model>): void;
-
-  /**
-   * Create a Model instance from buffer
-   * @param { ArrayBuffer } model - model indicates model buffer to be loaded
-   * @param { Callback<Model> } callback - the callback of model
-   * @throws { BusinessError} 1000001 - Invalid context, Possible causes: 1.context target error; 2.device info error.
-   * @throws { BusinessError} 1000003 - Load model way error, Possible causes: 1.Load way must be path, buffer, fd.
-   * @throws { BusinessError} 1000004 - Model Buffer error, Possible causes: 1.buffer size is 0; 2.buffer is nullptr.
-   * @throws { BusinessError} 1000005 - Create native model fail from buffer: 1.buffer size is wrong. 2.buffer file is damaged.
-   * @syscap SystemCapability.AI.MindSporeLite
-   * @stagemodelonly
    * @since 22 static
    */
   function loadModelFromBuffer(
@@ -175,25 +120,13 @@ declare namespace mindSporeLite {
    * @param { ArrayBuffer } model - model indicates model buffer to be loaded
    * @param { Context } context - context indicates model context information
    * @param { Callback<Model> } callback - the callback of model
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
+   * @throws { BusinessError} 1000003 - Error in model loading method. Possible causes: 1. The loading method must be path, buffer, or fd.
+   * @throws { BusinessError} 1000004 - Model buffer error. Possible causes: 1. The buffer size is 0; 2. The buffer is a null pointer.
+   * @throws { BusinessError} 1000005 - Failed to create native model from buffer. Possible causes: 1. The buffer size is incorrect; 2. The buffer file is damaged.
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   */
-  function loadModelFromBuffer(
-    model: ArrayBuffer,
-    context: Context, callback: Callback<Model>): void;
-
-  /**
-   * Create a Model instance from buffer
-   * @param { ArrayBuffer } model - model indicates model buffer to be loaded
-   * @param { Context } context - context indicates model context information
-   * @param { Callback<Model> } callback - the callback of model
-   * @throws { BusinessError} 1000001 - Invalid context, Possible causes: 1.context target error; 2.device info error.
-   * @throws { BusinessError} 1000003 - Load model way error, Possible causes: 1.Load way must be path, buffer, fd.
-   * @throws { BusinessError} 1000004 - Model Buffer error, Possible causes: 1.buffer size is 0; 2.buffer is nullptr.
-   * @throws { BusinessError} 1000005 - Create native model fail from buffer: 1.buffer size is wrong. 2.buffer file is damaged.
-   * @syscap SystemCapability.AI.MindSporeLite
-   * @stagemodelonly
    * @since 22 static
    */
   function loadModelFromBuffer(
@@ -205,23 +138,11 @@ declare namespace mindSporeLite {
    * @param { int } model - model indicates model file description to be loaded
    * @param { Context } [context] - context indicates model context information
    * @returns { Promise<Model> } the promise returned by the function.
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
+   * @throws { BusinessError} 1000007 - Failed to create native model from file descriptor (fd). Possible causes: 1. The file descriptor (fd) is incorrect; 2. The model file is damaged.
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   */
-  function loadModelFromFd(
-    model: int,
-    context?: Context): Promise<Model>;
-
-    /**
-   * Creates a Model instance file description
-   * @param { int } model - model indicates model file description to be loaded
-   * @param { Context } [context] - context indicates model context information
-   * @returns { Promise<Model> } the promise returned by the function.
-   * @throws { BusinessError} 1000001 - Invalid context, Possible causes: 1.context target error; 2.device info error.
-   * @throws { BusinessError} 1000007 - Create native model fail from fd: 1.file fd is wrong. 2.model file is damaged.
-   * @syscap SystemCapability.AI.MindSporeLite
-   * @stagemodelonly
    * @since 22 static
    */
   function loadModelFromFd(
@@ -232,21 +153,11 @@ declare namespace mindSporeLite {
    * Create a Model instance from file description
    * @param { int } model - model indicates model file description to be loaded
    * @param { Callback<Model> } callback - the callback of model
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
+   * @throws { BusinessError} 1000007 - Failed to create native model from file descriptor (fd). Possible causes: 1. The file descriptor (fd) is incorrect; 2. The model file is damaged.
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   */
-  function loadModelFromFd(
-    model: int, callback: Callback<Model>): void;
-
-  /**
-   * Create a Model instance from file description
-   * @param { int } model - model indicates model file description to be loaded
-   * @param { Callback<Model> } callback - the callback of model
-   * @throws { BusinessError} 1000001 - Invalid context, Possible causes: 1.context target error; 2.device info error.
-   * @throws { BusinessError} 1000007 - Create native model fail from fd: 1.file fd is wrong. 2.model file is damaged.
-   * @syscap SystemCapability.AI.MindSporeLite
-   * @stagemodelonly
    * @since 22 static
    */
   function loadModelFromFd(
@@ -257,23 +168,11 @@ declare namespace mindSporeLite {
    * @param { int } model - model indicates model file description to be loaded
    * @param { Context } context - context indicates model context information
    * @param { Callback<Model> } callback - the callback of model
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
+   * @throws { BusinessError} 1000007 - Failed to create native model from file descriptor (fd). Possible causes: 1. The file descriptor (fd) is incorrect; 2. The model file is damaged.
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10 dynamic
-   */
-  function loadModelFromFd(
-    model: int,
-    context: Context, callback: Callback<Model>): void;  
-
-  /**
-   * Create a Model instance from file description
-   * @param { int } model - model indicates model file description to be loaded
-   * @param { Context } context - context indicates model context information
-   * @param { Callback<Model> } callback - the callback of model
-   * @throws { BusinessError} 1000001 - Invalid context, Possible causes: 1.context target error; 2.device info error.
-   * @throws { BusinessError} 1000007 - Create native model fail from fd: 1.file fd is wrong. 2.model file is damaged.
-   * @syscap SystemCapability.AI.MindSporeLite
-   * @stagemodelonly
    * @since 22 static
    */
   function loadModelFromFd(
@@ -286,26 +185,12 @@ declare namespace mindSporeLite {
    * @param { TrainCfg } [trainCfg] - model train configuration
    * @param { Context } [context] - model build context
    * @returns { Promise<Model> } the promise of the built model
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
+   * @throws { BusinessError} 1000008 - Invalid model path in training. Possible causes: 1. The model path is null; 2. The model path does not exist.
+   * @throws { BusinessError} 1000009 - Failed to create native training model from path. Possible causes: 1. The model file is incorrect; 2. The training configuration is incorrect.
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 12 dynamic
-   */
-  function loadTrainModelFromFile(
-    model: string,
-    trainCfg?: TrainCfg,
-    context?: Context): Promise<Model>;
-
-  /**
-   * Load train model from file
-   * @param { string } model - model file path
-   * @param { TrainCfg } [trainCfg] - model train configuration
-   * @param { Context } [context] - model build context
-   * @returns { Promise<Model> } the promise of the built model
-   * @throws { BusinessError} 1000001 - Invalid context, Possible causes: 1.context target error; 2.device info error.
-   * @throws { BusinessError} 1000008 - Invalid model path in tarin, Possible causes: 1.model path is null; 2.model path is not exists.
-   * @throws { BusinessError} 1000009 - Create native train model fail from path: 1.model file is wrong. 2.train cfg is wrong.
-   * @syscap SystemCapability.AI.MindSporeLite
-   * @stagemodelonly
    * @since 22 static
    */
   function loadTrainModelFromFile(
@@ -319,26 +204,12 @@ declare namespace mindSporeLite {
    * @param { TrainCfg } [trainCfg] - model train configuration
    * @param { Context } [context] - model build context
    * @returns { Promise<Model> } the promise of the built model
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
+   * @throws { BusinessError} 1000010 - Invalid model buffer in training. Possible causes: 1. The model buffer size is incorrect; 2. The model buffer is null.
+   * @throws { BusinessError} 1000011 - Failed to create native training model from buffer. Possible causes: 1. The model buffer is incorrect; 2. The training configuration is incorrect.
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 12 dynamic
-   */
-  function loadTrainModelFromBuffer(
-    model: ArrayBuffer,
-    trainCfg?: TrainCfg,
-    context?: Context): Promise<Model>;
-
-  /**
-   * Load train model from buffer
-   * @param { ArrayBuffer } model - model buffer
-   * @param { TrainCfg } [trainCfg] - model train configuration
-   * @param { Context } [context] - model build context
-   * @returns { Promise<Model> } the promise of the built model
-   * @throws { BusinessError} 1000001 - Invalid context, Possible causes: 1.context target error; 2.device info error.
-   * @throws { BusinessError} 1000010 - Invalid model buffer in tarin, Possible causes: 1.model buffer size error; 2.model buffer is null.
-   * @throws { BusinessError} 1000011 - Create native train model fail from buffer: 1.model buffer is wrong. 2.train cfg is wrong.
-   * @syscap SystemCapability.AI.MindSporeLite
-   * @stagemodelonly
    * @since 22 static
    */
   function loadTrainModelFromBuffer(
@@ -352,25 +223,11 @@ declare namespace mindSporeLite {
    * @param { TrainCfg } [trainCfg] - model train configuration
    * @param { Context } [context] - model build context
    * @returns { Promise<Model> } the promise of the built model
+   * @throws { BusinessError} 1000001 - Invalid context. Possible causes: 1. The context target is incorrect; 2. The device information is incorrect.
+   * @throws { BusinessError} 1000012 - Failed to create native training model from file descriptor (fd). Possible causes: 1. The model file or file descriptor (fd) is incorrect; 2. The training configuration is incorrect.
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 12 dynamic
-   */
-  function loadTrainModelFromFd(
-    model: int,
-    trainCfg?: TrainCfg,
-    context?: Context): Promise<Model>;
-
-  /**
-   * Load train model from file description
-   * @param { int } model - model file description
-   * @param { TrainCfg } [trainCfg] - model train configuration
-   * @param { Context } [context] - model build context
-   * @returns { Promise<Model> } the promise of the built model
-   * @throws { BusinessError} 1000001 - Invalid context, Possible causes: 1.context target error; 2.device info error.
-   * @throws { BusinessError} 1000012 - Create native train model fail from fd: 1.model file or fd is wrong. 2.train cfg is wrong.
-   * @syscap SystemCapability.AI.MindSporeLite
-   * @stagemodelonly
    * @since 22 static
    */
   function loadTrainModelFromFd(
@@ -1109,18 +966,10 @@ declare namespace mindSporeLite {
     /**
      * Set MSTensor data
      * @param { ArrayBuffer } inputArray - indicates the buffer of tensor
+     * @throws { BusinessError} 1000013 - Failed to set MSTensor data. Possible causes: 1. The input array buffer size is incorrect.
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10 dynamic
-     */
-    setData(inputArray: ArrayBuffer): void;
-
-    /**
-     * Set MSTensor data
-     * @param { ArrayBuffer } inputArray - indicates the buffer of tensor
-     * @throws { BusinessError} 1000013 - Set mstensor data fail: 1.input array buffer size wrong.
-     * @syscap SystemCapability.AI.MindSporeLite
-     * @stagemodelonly
      * @since 22 static
      */
     setData(inputArray: ArrayBuffer): void;
