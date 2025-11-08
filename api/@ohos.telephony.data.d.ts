@@ -100,6 +100,7 @@ declare namespace data {
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 22 static
    */
   function setDefaultCellularDataSlotId(slotId: number): Promise<void>;
 
@@ -112,6 +113,7 @@ declare namespace data {
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
+   * @since 22 static
    */
   function getCellularDataFlowType(callback: AsyncCallback<DataFlowType>): void;
 
