@@ -27,7 +27,7 @@ import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
  * @namespace inputConsumer
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
  * @since 14 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace inputConsumer {
   /**
@@ -37,7 +37,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface KeyOptions {
     /**
@@ -49,7 +49,7 @@ declare namespace inputConsumer {
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     preKeys: Array<int>;
 
@@ -61,7 +61,7 @@ declare namespace inputConsumer {
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     finalKey: int;
 
@@ -73,7 +73,7 @@ declare namespace inputConsumer {
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isFinalKeyDown: boolean;
 
@@ -88,7 +88,7 @@ declare namespace inputConsumer {
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     finalKeyDownDuration: int;
 
@@ -100,7 +100,7 @@ declare namespace inputConsumer {
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isRepeat?: boolean;
   }
@@ -111,7 +111,7 @@ declare namespace inputConsumer {
    * @typedef HotkeyOptions
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface HotkeyOptions {
     /**
@@ -122,7 +122,7 @@ declare namespace inputConsumer {
      * @type { Array<int> }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     preKeys: Array<int>;
 
@@ -133,7 +133,7 @@ declare namespace inputConsumer {
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     finalKey: int;
 
@@ -144,7 +144,7 @@ declare namespace inputConsumer {
      * @type { ?boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isRepeat?: boolean;
   }
@@ -155,7 +155,7 @@ declare namespace inputConsumer {
    * @typedef KeyPressedConfig
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface KeyPressedConfig {
     /**
@@ -172,7 +172,7 @@ declare namespace inputConsumer {
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 21 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     key: int;
 
@@ -190,7 +190,7 @@ declare namespace inputConsumer {
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 21 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     action: int;
 
@@ -200,7 +200,7 @@ declare namespace inputConsumer {
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 16 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isRepeat: boolean;
   }
@@ -252,7 +252,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'key', keyOptions: KeyOptions, callback: Callback<KeyOptions>): void;
 
@@ -282,7 +282,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'key', keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
 
@@ -343,7 +343,7 @@ declare namespace inputConsumer {
    * @throws { BusinessError } 4200003 - The hotkey has been subscribed to by another.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void;
 
@@ -359,7 +359,7 @@ declare namespace inputConsumer {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void;
 
@@ -375,7 +375,7 @@ declare namespace inputConsumer {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback<KeyEvent>): void;
 
@@ -391,7 +391,7 @@ declare namespace inputConsumer {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'keyPressed', callback?: Callback<KeyEvent>): void;
 }

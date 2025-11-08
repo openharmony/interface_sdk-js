@@ -30,7 +30,7 @@ import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionConte
  * @StageModelOnly
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class InsightIntentExecutor {
   /**
@@ -41,7 +41,7 @@ declare class InsightIntentExecutor {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   context: InsightIntentContext;
 
@@ -56,7 +56,7 @@ declare class InsightIntentExecutor {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onExecuteInUIAbilityForegroundMode(name: string, param: Record<string, Object>, pageLoader: window.WindowStage):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
@@ -71,7 +71,7 @@ declare class InsightIntentExecutor {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onExecuteInUIAbilityBackgroundMode(name: string, param: Record<string, Object>):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
@@ -86,7 +86,7 @@ declare class InsightIntentExecutor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onExecuteInUIExtensionAbility(name: string, param: Record<string, Object>, pageLoader: UIExtensionContentSession):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
@@ -100,7 +100,7 @@ declare class InsightIntentExecutor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onExecuteInServiceExtensionAbility(name: string, param: Record<string, Object>):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;

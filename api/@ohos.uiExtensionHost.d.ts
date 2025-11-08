@@ -28,7 +28,7 @@ import uiExtension from './@ohos.arkui.uiExtension';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace uiExtensionHost {
   /**
@@ -38,7 +38,7 @@ declare namespace uiExtensionHost {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface UIExtensionHostWindowProxy {
     /**
@@ -50,7 +50,7 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getWindowAvoidArea(type: window.AvoidAreaType): window.AvoidArea;
 
@@ -168,7 +168,7 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     properties: UIExtensionHostWindowProxyProperties;
 
@@ -204,7 +204,7 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     hideNonSecureWindows(shouldHide: boolean): Promise<void>;
 
@@ -224,7 +224,7 @@ declare namespace uiExtensionHost {
      * @systemapi
      * @StageModelOnly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
      createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
 
@@ -239,7 +239,7 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWaterMarkFlag(enable: boolean): Promise<void>;
 
@@ -260,7 +260,7 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     hidePrivacyContentForHost(shouldHide: boolean): Promise<void>;
   }
@@ -272,7 +272,7 @@ declare namespace uiExtensionHost {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface UIExtensionHostWindowProxyProperties {
     /**
@@ -282,7 +282,7 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uiExtensionHostWindowProxyRect: window.Rect;
   }

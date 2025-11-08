@@ -32,7 +32,7 @@ import { ConnectOptions } from '../ability/connectOptions';
  * @systemapi
  * @stagemodelonly
  * @since 14 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class UIServiceExtensionContext extends ExtensionContext {
   /**
@@ -69,7 +69,7 @@ declare class UIServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -81,7 +81,7 @@ declare class UIServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   terminateSelf(): Promise<void>;
 
@@ -102,7 +102,7 @@ declare class UIServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
     abilityStartCallback: AbilityStartCallback): Promise<void>;
@@ -138,7 +138,7 @@ declare class UIServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
@@ -155,7 +155,7 @@ declare class UIServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   disconnectServiceExtensionAbility(connectionId: long): Promise<void>;
 }

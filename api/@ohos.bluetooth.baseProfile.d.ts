@@ -35,7 +35,7 @@ import type constant from './@ohos.bluetooth.constant';
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @crossplatform
  * @since 13 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace baseProfile {
   /**
@@ -52,7 +52,7 @@ declare namespace baseProfile {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type ProfileConnectionState = constant.ProfileConnectionState;
 
@@ -172,7 +172,7 @@ declare namespace baseProfile {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface StateChangeParam {
     /**
@@ -189,7 +189,7 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deviceId: string;
 
@@ -207,7 +207,7 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     state: ProfileConnectionState;
 
@@ -243,7 +243,7 @@ declare namespace baseProfile {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface BaseProfile {
     /**
@@ -426,7 +426,7 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'connectionStateChange', callback: Callback<StateChangeParam>): void;
 
@@ -456,7 +456,7 @@ declare namespace baseProfile {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'connectionStateChange', callback?: Callback<StateChangeParam>): void;
   }

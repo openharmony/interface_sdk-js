@@ -29,6 +29,6 @@ import { TextAttribute } from '@ohos.arkui.component';
  *
  * @implements { TextAttribute, AttributeModifier<TextAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
 */
 export declare class TextModifier implements TextAttribute, AttributeModifier<TextAttribute> {}

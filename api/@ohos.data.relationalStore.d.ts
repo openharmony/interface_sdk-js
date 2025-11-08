@@ -38,7 +38,7 @@ import sendableRelationalStore from './@ohos.data.sendableRelationalStore';
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @crossplatform
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace relationalStore {
   /**
@@ -48,7 +48,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum AssetStatus {
     /**
@@ -57,7 +57,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ASSET_NORMAL,
 
@@ -67,7 +67,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ASSET_INSERT,
 
@@ -77,7 +77,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ASSET_UPDATE,
 
@@ -87,7 +87,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ASSET_DELETE,
 
@@ -97,7 +97,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ASSET_ABNORMAL,
 
@@ -107,7 +107,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ASSET_DOWNLOADING
   }
@@ -119,7 +119,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Asset {
     /**
@@ -129,7 +129,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -140,7 +140,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uri: string;
 
@@ -151,7 +151,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     path: string;
 
@@ -162,7 +162,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     createTime: string;
 
@@ -173,7 +173,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     modifyTime: string;
 
@@ -184,7 +184,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     size: string;
 
@@ -195,7 +195,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     status?: AssetStatus;
   }
@@ -207,7 +207,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type Assets = Asset[];
 
@@ -233,7 +233,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type ValueType = null | long | double | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint;
 
@@ -259,7 +259,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type ValuesBucket = Record<string, ValueType>;
 
@@ -304,7 +304,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface StoreConfig {
     /**
@@ -320,7 +320,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -331,7 +331,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     securityLevel: SecurityLevel;
 
@@ -341,7 +341,7 @@ declare namespace relationalStore {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     encrypt?: boolean;
 
@@ -352,7 +352,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @StageModelOnly
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     dataGroupId?: string;
 
@@ -363,7 +363,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     customDir?: string;
 
@@ -384,7 +384,7 @@ declare namespace relationalStore {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     autoCleanDirtyData?: boolean;
 
@@ -395,7 +395,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isSearchable?: boolean;
 
@@ -405,7 +405,7 @@ declare namespace relationalStore {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     allowRebuild?: boolean;
 
@@ -415,7 +415,7 @@ declare namespace relationalStore {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     vector?: boolean;
 
@@ -434,7 +434,8 @@ declare namespace relationalStore {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     isReadOnly?: boolean;
 
@@ -444,7 +445,7 @@ declare namespace relationalStore {
      * @type { ?Array<string> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pluginLibs?: Array<string>;
 
@@ -455,7 +456,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     haMode?: HAMode;
 
@@ -472,7 +473,8 @@ declare namespace relationalStore {
      * @type { ?CryptoParam }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     cryptoParam?: CryptoParam;
 
@@ -522,7 +524,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum HAMode {
     /**
@@ -531,7 +533,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SINGLE = 0,
 
@@ -541,7 +543,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MAIN_REPLICA
   }
@@ -559,7 +561,8 @@ declare namespace relationalStore {
    * @typedef CryptoParam
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface CryptoParam {
     /**
@@ -577,7 +580,8 @@ declare namespace relationalStore {
      * @type { Uint8Array }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     encryptionKey: Uint8Array;
 
@@ -598,7 +602,8 @@ declare namespace relationalStore {
      * @type { ?number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     iterationCount?: number;
 
@@ -617,7 +622,8 @@ declare namespace relationalStore {
      * @type { ?EncryptionAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     encryptionAlgo?: EncryptionAlgo;
 
@@ -636,7 +642,8 @@ declare namespace relationalStore {
      * @type { ?HmacAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     hmacAlgo?: HmacAlgo;
 
@@ -655,7 +662,8 @@ declare namespace relationalStore {
      * @type { ?KdfAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     kdfAlgo?: KdfAlgo;
 
@@ -674,7 +682,8 @@ declare namespace relationalStore {
      * @type { ?number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     cryptoPageSize?: number;
   }
@@ -692,7 +701,8 @@ declare namespace relationalStore {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum EncryptionAlgo {
     /**
@@ -706,7 +716,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     AES_256_GCM = 0,
 
@@ -721,7 +732,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     AES_256_CBC,
 
@@ -748,7 +760,8 @@ declare namespace relationalStore {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum HmacAlgo {
     /**
@@ -762,7 +775,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     SHA1 = 0,
 
@@ -777,7 +791,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     SHA256,
 
@@ -792,7 +807,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     SHA512
   }
@@ -810,7 +826,8 @@ declare namespace relationalStore {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum KdfAlgo {
     /**
@@ -824,7 +841,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     KDF_SHA1 = 0,
 
@@ -839,7 +857,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     KDF_SHA256,
 
@@ -854,7 +873,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     KDF_SHA512
   }
@@ -1289,7 +1309,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum SecurityLevel {
     /**
@@ -1299,7 +1319,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     S1 = 1,
 
@@ -1310,7 +1330,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     S2 = 2,
 
@@ -1321,7 +1341,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     S3 = 3,
 
@@ -1332,7 +1352,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     S4 = 4
   }
@@ -1662,7 +1682,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum ConflictResolution {
     /**
@@ -1716,7 +1736,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ON_CONFLICT_REPLACE = 5
   }
@@ -2114,7 +2134,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   class RdbPredicates {
     /**
@@ -2135,7 +2155,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     constructor(name: string);
 
@@ -2951,7 +2971,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ResultSet {
     /**
@@ -3166,7 +3186,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getColumnIndex(columnName: string): int;
 
@@ -3464,7 +3484,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     goToFirstRow(): boolean;
 
@@ -3565,7 +3585,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     goToNextRow(): boolean;
 
@@ -3740,7 +3760,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getString(columnIndex: int): string;
 
@@ -3803,7 +3823,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getLong(columnIndex: number): number;
 
@@ -4319,7 +4339,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     close(): void;
   }
@@ -4340,7 +4360,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface RdbStore {
     /**
@@ -4615,7 +4635,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     insert(table: string, values: ValuesBucket, conflict: ConflictResolution): Promise<long>;
 
@@ -4752,7 +4772,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
 
@@ -4819,7 +4839,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     batchInsert(table: string, values: Array<ValuesBucket>): Promise<long>;
 
@@ -4855,7 +4875,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     batchInsertSync(table: string, values: Array<ValuesBucket>): number;
 
@@ -5373,7 +5393,7 @@ declare namespace relationalStore {
      * @systemapi
      * @StageModelOnly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<long>;
 
@@ -5434,7 +5454,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     delete(predicates: RdbPredicates, callback: AsyncCallback<number>): void;
 
@@ -5495,7 +5515,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     delete(predicates: RdbPredicates): Promise<number>;
 
@@ -5530,7 +5550,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deleteSync(predicates: RdbPredicates): number;
     /**
@@ -5603,7 +5623,7 @@ declare namespace relationalStore {
      * @systemapi
      * @StageModelOnly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
 
@@ -5677,7 +5697,7 @@ declare namespace relationalStore {
      * @systemapi
      * @StageModelOnly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     delete(table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<long>;
 
@@ -5926,7 +5946,7 @@ declare namespace relationalStore {
      * @systemapi
      * @StageModelOnly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     query(
       table: string,
@@ -6068,7 +6088,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
 
@@ -6087,7 +6107,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     querySqlSync(sql: string, bindArgs?: Array<ValueType>): ResultSet;
 
@@ -6564,7 +6584,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     executeSql(sql: string, callback: AsyncCallback<void>): void;
 
@@ -6629,7 +6649,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
 
@@ -6694,7 +6714,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
 
@@ -6730,7 +6750,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     execute(sql: string, args?: Array<ValueType>): Promise<ValueType>;
 
@@ -6850,7 +6870,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     beginTransaction(): void;
 
@@ -6926,7 +6946,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     commit(): void;
 
@@ -7002,7 +7022,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rollBack(): void;
 
@@ -8336,7 +8356,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     close(): Promise<void>;
 
@@ -9308,7 +9329,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<RdbStore>): void;
 
@@ -9405,7 +9426,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getRdbStore(context: Context, config: StoreConfig): Promise<RdbStore>;
 
@@ -9542,7 +9563,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function deleteRdbStore(context: Context, config: StoreConfig): Promise<void>;
 

@@ -24,7 +24,7 @@
  * @typedef BundleOption
  * @syscap SystemCapability.Notification.Notification
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface BundleOption {
   /**
@@ -33,7 +33,7 @@ export interface BundleOption {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   bundle: string;
 
@@ -43,7 +43,7 @@ export interface BundleOption {
    * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   uid?: int;
 }

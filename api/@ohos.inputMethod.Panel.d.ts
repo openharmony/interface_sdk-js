@@ -24,7 +24,7 @@
  * @typedef PanelInfo
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface PanelInfo {
   /**
@@ -33,7 +33,7 @@ export interface PanelInfo {
    * @type { PanelType }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type: PanelType;
 
@@ -45,7 +45,7 @@ export interface PanelInfo {
    * @default FLG_FIXED
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   flag?: PanelFlag;
 }
@@ -56,7 +56,7 @@ export interface PanelInfo {
  * @enum { number }
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export enum PanelFlag {
   /**
@@ -66,7 +66,7 @@ export enum PanelFlag {
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   FLAG_FIXED = 0,
 
@@ -77,7 +77,7 @@ export enum PanelFlag {
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   FLAG_FLOATING,
 
@@ -90,7 +90,7 @@ export enum PanelFlag {
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   FLAG_CANDIDATE
 }
@@ -101,7 +101,7 @@ export enum PanelFlag {
  * @enum { number }
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export enum PanelType {
   /**
@@ -109,7 +109,7 @@ export enum PanelType {
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   SOFT_KEYBOARD = 0,
 
@@ -118,7 +118,7 @@ export enum PanelType {
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   STATUS_BAR
 }

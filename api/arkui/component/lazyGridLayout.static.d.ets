@@ -28,7 +28,7 @@ import { AttributeModifier, CommonMethod } from "./common";
  * @extends CommonMethod
  * @interface LazyGridLayoutAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface LazyGridLayoutAttribute extends CommonMethod {
     /**
@@ -37,7 +37,7 @@ export declare interface LazyGridLayoutAttribute extends CommonMethod {
      * @param { LengthMetrics | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default rowsGap(value: LengthMetrics | undefined): this;
     /**
@@ -46,7 +46,7 @@ export declare interface LazyGridLayoutAttribute extends CommonMethod {
      * @param { LengthMetrics | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default columnsGap(value: LengthMetrics | undefined): this;
 }
@@ -57,7 +57,7 @@ export declare interface LazyGridLayoutAttribute extends CommonMethod {
  * @extends LazyGridLayoutAttribute
  * @interface LazyVGridLayoutAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface LazyVGridLayoutAttribute extends LazyGridLayoutAttribute {
     /**
@@ -66,7 +66,7 @@ export declare interface LazyVGridLayoutAttribute extends LazyGridLayoutAttribut
      * @param { string | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default columnsTemplate(value: string | undefined): this;
     /**
@@ -75,7 +75,7 @@ export declare interface LazyVGridLayoutAttribute extends LazyGridLayoutAttribut
      * @param { AttributeModifier<LazyVGridLayoutAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<LazyVGridLayoutAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -86,7 +86,7 @@ export declare interface LazyVGridLayoutAttribute extends LazyGridLayoutAttribut
  * @param { function } [content_] - container
  * @returns { LazyVGridLayoutAttribute } The attribute of the grid
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @memo
 @ComponentBuilder

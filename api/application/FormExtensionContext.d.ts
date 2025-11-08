@@ -43,7 +43,7 @@ import ExtensionContext from './ExtensionContext';
  * @stagemodelonly
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class FormExtensionContext extends ExtensionContext {
   /**

@@ -35,7 +35,7 @@ import type baseProfile from './@ohos.bluetooth.baseProfile';
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @crossplatform
  * @since 13 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace a2dp {
   /**
@@ -44,7 +44,7 @@ declare namespace a2dp {
    * @typedef { baseProfile.BaseProfile } BaseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type BaseProfile = baseProfile.BaseProfile;
 
@@ -68,7 +68,7 @@ declare namespace a2dp {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createA2dpSrcProfile(): A2dpSourceProfile;
 
@@ -87,7 +87,7 @@ declare namespace a2dp {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface A2dpSourceProfile extends BaseProfile {
     /**

@@ -45,7 +45,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface TouchEventReceiver {
     /**
@@ -57,7 +57,7 @@ declare namespace inputMonitor {
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     (touchEvent: TouchEvent): Boolean;
   }

@@ -30,7 +30,7 @@ import CompletionHandler from './@ohos.app.ability.CompletionHandler';
  * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export default interface OpenLinkOptions {
   /**
@@ -42,7 +42,7 @@ export default interface OpenLinkOptions {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   appLinkingOnly?: boolean;
 
@@ -54,7 +54,7 @@ export default interface OpenLinkOptions {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   parameters?: Record<string, Object>;
 
@@ -77,7 +77,8 @@ export default interface OpenLinkOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 21 dynamic&static
+   * @since 21 dynamic
+   * @since 22 static
    */
   hideFailureTipDialog?: boolean;
 }

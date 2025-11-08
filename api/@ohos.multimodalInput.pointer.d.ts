@@ -41,7 +41,7 @@ import image from './@ohos.multimedia.image';
  * @syscap SystemCapability.MultimodalInput.Input.Pointer
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace pointer {
   /**
@@ -58,7 +58,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum PointerStyle {
     /**
@@ -66,7 +66,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DEFAULT,
 
@@ -75,7 +75,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EAST,
 
@@ -84,7 +84,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WEST,
 
@@ -93,7 +93,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SOUTH,
 
@@ -102,7 +102,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NORTH,
 
@@ -111,7 +111,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WEST_EAST,
 
@@ -120,7 +120,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NORTH_SOUTH,
 
@@ -129,7 +129,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NORTH_EAST,
 
@@ -138,7 +138,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NORTH_WEST,
 
@@ -147,7 +147,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SOUTH_EAST,
 
@@ -156,7 +156,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SOUTH_WEST,
 
@@ -165,7 +165,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NORTH_EAST_SOUTH_WEST,
 
@@ -174,7 +174,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NORTH_WEST_SOUTH_EAST,
 
@@ -183,7 +183,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CROSS,
 
@@ -192,7 +192,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CURSOR_COPY,
 
@@ -201,7 +201,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CURSOR_FORBID,
 
@@ -210,7 +210,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COLOR_SUCKER,
 
@@ -219,7 +219,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     HAND_GRABBING,
 
@@ -228,7 +228,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     HAND_OPEN,
 
@@ -237,7 +237,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     HAND_POINTING,
 
@@ -246,7 +246,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     HELP,
 
@@ -255,7 +255,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MOVE,
 
@@ -264,7 +264,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESIZE_LEFT_RIGHT,
 
@@ -273,7 +273,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESIZE_UP_DOWN,
 
@@ -282,7 +282,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SCREENSHOT_CHOOSE,
 
@@ -291,7 +291,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SCREENSHOT_CURSOR,
 
@@ -300,7 +300,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TEXT_CURSOR,
 
@@ -309,7 +309,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ZOOM_IN,
 
@@ -318,7 +318,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ZOOM_OUT,
 
@@ -327,7 +327,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MIDDLE_BTN_EAST,
 
@@ -336,7 +336,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MIDDLE_BTN_WEST,
 
@@ -345,7 +345,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MIDDLE_BTN_SOUTH,
 
@@ -354,7 +354,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MIDDLE_BTN_NORTH,
 
@@ -363,7 +363,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MIDDLE_BTN_NORTH_SOUTH,
 
@@ -372,7 +372,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MIDDLE_BTN_NORTH_EAST,
 
@@ -381,7 +381,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MIDDLE_BTN_NORTH_WEST,
 
@@ -390,7 +390,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MIDDLE_BTN_SOUTH_EAST,
 
@@ -399,7 +399,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MIDDLE_BTN_SOUTH_WEST,
 
@@ -408,7 +408,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MIDDLE_BTN_NORTH_SOUTH_WEST_EAST,
 
@@ -417,7 +417,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     HORIZONTAL_TEXT_CURSOR,
 
@@ -426,7 +426,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CURSOR_CROSS,
 
@@ -435,7 +435,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CURSOR_CIRCLE,
 
@@ -451,7 +451,7 @@ declare namespace pointer {
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     LOADING,
 
@@ -467,7 +467,7 @@ declare namespace pointer {
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RUNNING,
 
@@ -476,7 +476,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MIDDLE_BTN_EAST_WEST,
 
@@ -484,7 +484,8 @@ declare namespace pointer {
      * Screen recorder cursor
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     SCREENRECORDER_CURSOR = 48
   }
@@ -495,7 +496,7 @@ declare namespace pointer {
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum PrimaryButton {
     /**
@@ -503,7 +504,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     LEFT = 0,
     /**
@@ -511,7 +512,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RIGHT = 1
   }
@@ -522,7 +523,7 @@ declare namespace pointer {
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum RightClickType {
     /**
@@ -530,7 +531,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TOUCHPAD_RIGHT_BUTTON = 1,
     /**
@@ -538,7 +539,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TOUCHPAD_LEFT_BUTTON = 2,
     /**
@@ -546,7 +547,7 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TOUCHPAD_TWO_FINGER_TAP = 3,
     /**
@@ -608,7 +609,7 @@ declare namespace pointer {
    * @interface CursorConfig
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface CursorConfig {
     /**
@@ -619,7 +620,7 @@ declare namespace pointer {
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     followSystem : boolean;
   }
@@ -752,7 +753,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setPointerStyle(windowId: int, pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
 
@@ -766,7 +767,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setPointerStyle(windowId: int, pointerStyle: PointerStyle): Promise<void>;
 
@@ -779,7 +780,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setPointerStyleSync(windowId: int, pointerStyle: PointerStyle): void;
 

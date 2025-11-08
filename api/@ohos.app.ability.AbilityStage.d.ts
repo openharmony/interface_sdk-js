@@ -48,7 +48,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class AbilityStage {
   /**
@@ -78,7 +78,7 @@ declare class AbilityStage {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   context: AbilityStageContext;
 
@@ -109,7 +109,7 @@ declare class AbilityStage {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onCreate(): void;
 
@@ -230,7 +230,7 @@ declare class AbilityStage {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onConfigurationUpdate(newConfig: Configuration): void;
 
@@ -275,7 +275,7 @@ declare class AbilityStage {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onDestroy(): void;
 

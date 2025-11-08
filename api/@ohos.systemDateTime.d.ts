@@ -34,7 +34,7 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.MiscServices.Time
  * @crossplatform
  * @since 18 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace systemDateTime {
   /**
@@ -49,7 +49,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setTime(time: long, callback: AsyncCallback<void>): void;
   /**
@@ -64,7 +64,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setTime(time: long): Promise<void>;
 
@@ -122,7 +122,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getTime(isNanoseconds?: boolean): long;
 
@@ -216,7 +216,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum TimeType {
     /**
@@ -231,7 +231,7 @@ declare namespace systemDateTime {
      * @syscap SystemCapability.MiscServices.Time
      * @crossplatform
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STARTUP = 0,
 
@@ -247,7 +247,7 @@ declare namespace systemDateTime {
      * @syscap SystemCapability.MiscServices.Time
      * @crossplatform
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACTIVE = 1
   }
@@ -285,7 +285,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getUptime(timeType: TimeType, isNanoseconds?: boolean): long;
 
@@ -361,7 +361,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setTimezone(timezone: string, callback: AsyncCallback<void>): void;
 
@@ -377,7 +377,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setTimezone(timezone: string): Promise<void>;
 
@@ -403,7 +403,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getTimezone(callback: AsyncCallback<string>): void;
 
@@ -429,7 +429,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getTimezone(): Promise<string>;
 
@@ -447,7 +447,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getTimezoneSync(): string;
 
@@ -460,7 +460,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function updateNtpTime(): Promise<void>;
 
@@ -473,7 +473,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getNtpTime(): long;
 

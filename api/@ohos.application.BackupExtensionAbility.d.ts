@@ -29,7 +29,7 @@ import type BackupExtensionContext from './@ohos.file.BackupExtensionContext';
  * @syscap SystemCapability.FileManagement.StorageService.Backup
  * @StageModelOnly
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface BundleVersion {
   /**
@@ -39,7 +39,7 @@ export interface BundleVersion {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   code: number;
 
@@ -50,7 +50,7 @@ export interface BundleVersion {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   name: string;
 }
@@ -61,7 +61,7 @@ export interface BundleVersion {
  * @syscap SystemCapability.FileManagement.StorageService.Backup
  * @StageModelOnly
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class BackupExtensionAbility {
   /**
@@ -89,7 +89,7 @@ declare class BackupExtensionAbility {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onBackup(): void;
 
@@ -115,7 +115,7 @@ declare class BackupExtensionAbility {
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onRestore(bundleVersion: BundleVersion): void;
 

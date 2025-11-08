@@ -92,7 +92,8 @@ declare namespace drawing {
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum BlendMode {
     /**
@@ -104,7 +105,8 @@ declare namespace drawing {
      * r = 0, sets the the destination pixels to fully transparent.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     CLEAR = 0,
     /**
@@ -116,7 +118,8 @@ declare namespace drawing {
      * r = s (all channels of the result equal those of the source), replaces the destination pixels with the source pixels.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     SRC = 1,
     /**
@@ -128,7 +131,8 @@ declare namespace drawing {
      * r = d (all channels of the result equal those of the destination), keeps the destination pixels unchanged.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     DST = 2,
     /**
@@ -140,7 +144,8 @@ declare namespace drawing {
      * r = s + (1 - sa) * d, draws the source pixels over the destination pixels, considering the source's transparency.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     SRC_OVER = 3,
     /**
@@ -152,7 +157,8 @@ declare namespace drawing {
      * r = d + (1 - da) * s, draws the destination pixels over the source pixels, considering the destination's transparency.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     DST_OVER = 4,
     /**
@@ -164,7 +170,8 @@ declare namespace drawing {
      * r = s * da, retains only the intersection of the source pixels with the opaque parts of the destination.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     SRC_IN = 5,
     /**
@@ -176,7 +183,8 @@ declare namespace drawing {
      * r = d * sa, retains only the intersection of the destination pixels with the opaque parts of the source.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     DST_IN = 6,
     /**
@@ -188,7 +196,8 @@ declare namespace drawing {
      * r = s * (1 - da), retains the parts of the source pixels that do not overlap with the destination.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     SRC_OUT = 7,
     /**
@@ -200,7 +209,8 @@ declare namespace drawing {
      * r = d * (1 - sa), retains the parts of the destination pixels that do not overlap with the source.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     DST_OUT = 8,
     /**
@@ -212,7 +222,8 @@ declare namespace drawing {
      * r = s * da + d * (1 - sa), covers the destination pixels with the source pixels, showing the source only in the opaque parts of the destination.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     SRC_ATOP = 9,
     /**
@@ -224,7 +235,8 @@ declare namespace drawing {
      * r = d * sa + s * (1 - da), covers the source pixels with the destination pixels, showing the destination only in the opaque parts of the source.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     DST_ATOP = 10,
     /**
@@ -236,7 +248,8 @@ declare namespace drawing {
      * r = s * (1 - da) + d * (1 - sa), shows only the non-overlapping parts of the source and destination pixels.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     XOR = 11,
     /**
@@ -248,7 +261,8 @@ declare namespace drawing {
      * r = min(s + d, 1), adds the color values of the source and destination pixels.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     PLUS = 12,
     /**
@@ -260,7 +274,8 @@ declare namespace drawing {
      * r = s * d, multiplies the color values of the source and destination pixels.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     MODULATE = 13,
     /**
@@ -274,7 +289,8 @@ declare namespace drawing {
      * and then inverts the result, typically producing a brighter outcome.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     SCREEN = 14,
     /**
@@ -286,7 +302,8 @@ declare namespace drawing {
      * Selectively applies MULTIPLY or SCREEN based on the brightness of the destination pixels, enhancing contrast.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     OVERLAY = 15,
     /**
@@ -298,7 +315,8 @@ declare namespace drawing {
      * rc = s + d - max(s * da, d * sa), ra = s + (1 - sa) * d, takes the darker color values between the source and destination pixels.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     DARKEN = 16,
     /**
@@ -310,7 +328,8 @@ declare namespace drawing {
      * rc = s + d - min(s * da, d * sa), ra = s + (1 - sa) * d, takes the lighter color values between the source and destination pixels.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     LIGHTEN = 17,
     /**
@@ -322,7 +341,8 @@ declare namespace drawing {
      * Brightens the destination pixels by reducing contrast to reflect the source pixels.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     COLOR_DODGE = 18,
     /**
@@ -334,7 +354,8 @@ declare namespace drawing {
      * Darkens the destination pixels by increasing contrast to reflect the source pixels.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     COLOR_BURN = 19,
     /**
@@ -346,7 +367,8 @@ declare namespace drawing {
      * Selectively applies MULTIPLY or SCREEN based on the brightness of the source pixels.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     HARD_LIGHT = 20,
     /**
@@ -358,7 +380,8 @@ declare namespace drawing {
      * Softly brightens or darkens the destination pixels based on the brightness of the source pixels.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     SOFT_LIGHT = 21,
     /**
@@ -370,7 +393,8 @@ declare namespace drawing {
      * rc = s + d - 2 * (min(s * da, d * sa)), ra = s + (1 - sa) * d, calculates the difference between the color values of the source and destination pixels.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     DIFFERENCE = 22,
     /**
@@ -382,7 +406,8 @@ declare namespace drawing {
      * rc = s + d - two(s * d), ra = s + (1 - sa) * d, similar to DIFFERENCE but with lower contrast.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     EXCLUSION = 23,
     /**
@@ -394,7 +419,8 @@ declare namespace drawing {
      * r = s * (1 - da) + d * (1 - sa) + s * d, multiplies the color values of the source and destination pixels, typically resulting in a darker outcome.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     MULTIPLY = 24,
     /**
@@ -406,7 +432,8 @@ declare namespace drawing {
      * Uses the hue of the source pixels and the saturation and brightness of the destination pixels.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     HUE = 25,
     /**
@@ -418,7 +445,8 @@ declare namespace drawing {
      * Uses the saturation of the source pixels and the hue and brightness of the destination pixels.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     SATURATION = 26,
     /**
@@ -430,7 +458,8 @@ declare namespace drawing {
      * Uses the hue and saturation of the source pixels and the brightness of the destination pixels.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     COLOR = 27,
     /**
@@ -442,7 +471,8 @@ declare namespace drawing {
      * Uses the brightness of the source pixels and the hue and saturation of the destination pixels.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     LUMINOSITY = 28,
   }
@@ -664,7 +694,8 @@ declare namespace drawing {
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   class RoundRect {
 
@@ -673,7 +704,8 @@ declare namespace drawing {
      * @param { RoundRect } roundRect - The round rect object to copy.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     constructor(roundRect: RoundRect);
 
@@ -704,7 +736,8 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     constructor(rect: common2D.Rect, xRadii: double, yRadii: double);
 
@@ -799,7 +832,8 @@ declare namespace drawing {
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum PathOp {
     /**
@@ -811,7 +845,8 @@ declare namespace drawing {
      * Difference operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     DIFFERENCE = 0,
 
@@ -824,7 +859,8 @@ declare namespace drawing {
      * Intersection operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     INTERSECT = 1,
 
@@ -837,7 +873,8 @@ declare namespace drawing {
      * Union operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     UNION = 2,
 
@@ -850,7 +887,8 @@ declare namespace drawing {
      * XOR operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     XOR = 3,
 
@@ -863,7 +901,8 @@ declare namespace drawing {
      * Reverse difference operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     REVERSE_DIFFERENCE = 4,
   }
@@ -985,7 +1024,8 @@ declare namespace drawing {
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   class PathIterator {
     /**
@@ -999,7 +1039,8 @@ declare namespace drawing {
      * @param { Path } path - Path object bound to the iterator.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     constructor(path: Path);
 
@@ -2138,7 +2179,8 @@ declare namespace drawing {
      * Resets the path data.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     reset(): void;
 
@@ -2167,7 +2209,8 @@ declare namespace drawing {
      * @returns { boolean } Returns true if the path represents a rectangle; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     isRect(rect: common2D.Rect | null): boolean;
 
@@ -2491,7 +2534,8 @@ declare namespace drawing {
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum FilterMode {
     /**
@@ -2503,7 +2547,8 @@ declare namespace drawing {
      * Nearest filter mode.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     FILTER_MODE_NEAREST = 0,
 
@@ -2516,7 +2561,8 @@ declare namespace drawing {
      * Linear filter mode.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     FILTER_MODE_LINEAR = 1,
   }
@@ -2597,7 +2643,8 @@ declare namespace drawing {
    * Implements sampling options.
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   class SamplingOptions {
     /**
@@ -2609,7 +2656,8 @@ declare namespace drawing {
      * Creates a SamplingOptions object. The default value of FilterMode is FILTER_MODE_NEAREST.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     constructor();
     /**
@@ -2627,7 +2675,8 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     constructor(filterMode: FilterMode);
   }
@@ -2745,7 +2794,8 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     drawRect(rect: common2D.Rect): void;
 
@@ -2780,7 +2830,8 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     drawRect(left: double, top: double, right: double, bottom: double): void;
 
@@ -3070,7 +3121,8 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     drawImageRect(pixelmap: image.PixelMap, dstRect: common2D.Rect, samplingOptions?: SamplingOptions): void;
 
@@ -3467,7 +3519,8 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     drawPixelMapMesh(pixelmap: image.PixelMap, meshWidth: int, meshHeight: int,
       vertices: Array<double>, vertOffset: int, colors: Array<int>, colorOffset: int): void;
@@ -3526,7 +3579,8 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     attachPen(pen: Pen): void;
 
@@ -3545,7 +3599,8 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     attachBrush(brush: Brush): void;
 
@@ -3558,7 +3613,8 @@ declare namespace drawing {
      * Detaches the pen from the canvas. When you draw on the canvas, the pen is no longer used to outline shapes.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     detachPen(): void;
 
@@ -3571,7 +3627,8 @@ declare namespace drawing {
      * Detaches the brush from the canvas. When you draw on the canvas, the brush is no longer used to fill the interior of shapes.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     detachBrush(): void;
 
@@ -3588,7 +3645,8 @@ declare namespace drawing {
      * @returns { int } Number of canvas statuses. The value is a positive integer.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     save(): int;
 
@@ -3614,7 +3672,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     saveLayer(rect?: common2D.Rect | null, brush?: Brush | null): long;
 
@@ -3661,7 +3720,8 @@ declare namespace drawing {
      * Restores the canvas state (canvas matrix and clipping area) saved on the top of the stack.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     restore(): void;
 
@@ -3699,7 +3759,8 @@ declare namespace drawing {
      * @returns { int } Number of canvas statuses that have been saved. The value is a positive integer.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     getSaveCount(): int;
 
@@ -3839,7 +3900,8 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     rotate(degrees: double, sx: double, sy: double) : void;
 
@@ -4082,7 +4144,8 @@ declare namespace drawing {
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum ClipOp {
     /**
@@ -4094,7 +4157,8 @@ declare namespace drawing {
      * Clips a specified area. That is, the difference set is obtained.	
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     DIFFERENCE = 0,
     /**
@@ -4106,7 +4170,8 @@ declare namespace drawing {
      * Retains a specified area. That is, the intersection is obtained.	
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     INTERSECT = 1,
   }
@@ -4493,7 +4558,8 @@ declare namespace drawing {
      * @returns { string } Family name.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     getFamilyName(): string;
 
@@ -6416,7 +6482,8 @@ declare namespace drawing {
    * Implements a lattice object, which is used to divide an image by lattice.
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   class Lattice {
     /**
@@ -6466,7 +6533,8 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     static createImageLattice(xDivs: Array<int>, yDivs: Array<int>, fXCount: int, fYCount: int,
       fBounds?: common2D.Rect | null, fRectTypes?: Array<RectType> | null, fColors?: Array<common2D.Color> | null): Lattice;
@@ -6537,7 +6605,8 @@ declare namespace drawing {
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum RectType {
     /**
@@ -6549,7 +6618,8 @@ declare namespace drawing {
      * Draws an image into the lattice.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     DEFAULT = 0,
 
@@ -6562,7 +6632,8 @@ declare namespace drawing {
      * Sets the lattice to transparent.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     TRANSPARENT = 1,
 
@@ -6575,7 +6646,8 @@ declare namespace drawing {
      * Draws the colors in the fColors array in Lattice into the lattice.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     FIXEDCOLOR = 2
   }
@@ -7304,7 +7376,8 @@ declare namespace drawing {
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   class ColorFilter {
     /**
@@ -7328,7 +7401,8 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     static createBlendModeColorFilter(color: common2D.Color, mode: BlendMode): ColorFilter;
 
@@ -7353,7 +7427,8 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     static createBlendModeColorFilter(color: common2D.Color | int, mode: BlendMode): ColorFilter;
 
@@ -7798,7 +7873,8 @@ declare namespace drawing {
    * Defines a pen, which is used to describe the style and color to outline a shape.
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   class Pen {
     /**
@@ -7810,7 +7886,8 @@ declare namespace drawing {
      * A constructor used to create a Pen object.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     constructor();
 
@@ -7829,7 +7906,8 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     constructor(pen: Pen);
 
@@ -8119,7 +8197,8 @@ declare namespace drawing {
     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Graphics.Drawing
     * @crossplatform
-    * @since 20 dynamic&static
+    * @since 20 dynamic
+    * @since 22 static
     */
     setAlpha(alpha: int): void;
 
@@ -8134,7 +8213,8 @@ declare namespace drawing {
      * @returns { int } Returns a 8-bit variable that describes the alpha.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     getAlpha(): int;
 
@@ -8155,7 +8235,8 @@ declare namespace drawing {
     * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
     * @crossplatform
-    * @since 20 dynamic&static
+    * @since 20 dynamic
+    * @since 22 static
     */
     setColorFilter(filter: ColorFilter): void;
     /**
@@ -8270,7 +8351,8 @@ declare namespace drawing {
     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Graphics.Drawing
     * @crossplatform
-    * @since 20 dynamic&static
+    * @since 20 dynamic
+    * @since 22 static
     */
     setBlendMode(mode: BlendMode): void;
 
@@ -8380,7 +8462,8 @@ declare namespace drawing {
      * Resets this pen to the initial state.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     reset(): void;
     /**
@@ -8418,7 +8501,8 @@ declare namespace drawing {
    * Defines a brush, which is used to describe the style and color to fill in a shape.
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   class Brush {
     /**
@@ -8430,7 +8514,8 @@ declare namespace drawing {
      * A constructor used to create a Brush object.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     constructor();
 
@@ -8449,7 +8534,8 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     constructor(brush: Brush);
 
@@ -8630,7 +8716,8 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     setAlpha(alpha: int): void;
 
@@ -8645,7 +8732,8 @@ declare namespace drawing {
      * @returns { int } Returns a 8-bit variable that describes the alpha.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     getAlpha(): int;
 
@@ -8664,7 +8752,8 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     setColorFilter(filter: ColorFilter): void;
 
@@ -8774,7 +8863,8 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     setBlendMode(mode: BlendMode): void;
 
@@ -8787,7 +8877,8 @@ declare namespace drawing {
      * Resets this brush to the initial state.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     reset(): void;
   }
@@ -8803,7 +8894,8 @@ declare namespace drawing {
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   class Matrix {
     /**
@@ -8815,7 +8907,8 @@ declare namespace drawing {
      * Creates a Matrix object.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     constructor();
 
@@ -8824,7 +8917,8 @@ declare namespace drawing {
      * @param { Matrix } matrix - The matrix object to copy.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     constructor(matrix: Matrix);
 
@@ -8929,7 +9023,8 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     setTranslation(dx: double, dy: double): void;
 
@@ -9037,7 +9132,8 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     preConcat(matrix: Matrix): void;
 
@@ -9117,7 +9213,8 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     getValue(index: int): double;
     /**
@@ -9337,7 +9434,8 @@ declare namespace drawing {
      * Resets this matrix to an identity matrix.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     reset(): void;
     /**
@@ -9554,14 +9652,16 @@ declare namespace drawing {
    * Describes a region, which is used to describe the region where the shape can be drawn.
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   class Region {
     /**
      * Creates an empty region.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     constructor();
 
@@ -9570,7 +9670,8 @@ declare namespace drawing {
      * @param { Region } region - The region object to copy.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     constructor(region: Region);
 
@@ -9582,7 +9683,8 @@ declare namespace drawing {
      * @param { int } bottom - Indicates the bottom edge of the rectangle.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     constructor(left: int, top: int, right: int, bottom: int);
 
@@ -9837,7 +9939,8 @@ declare namespace drawing {
      * Sets the region to empty.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     setEmpty(): void;
   }
@@ -9853,7 +9956,8 @@ declare namespace drawing {
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum RegionOp {
     /**
@@ -9865,7 +9969,8 @@ declare namespace drawing {
      * Difference operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     DIFFERENCE = 0,
 
@@ -9878,7 +9983,8 @@ declare namespace drawing {
      * Intersect operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     INTERSECT = 1,
 
@@ -9891,7 +9997,8 @@ declare namespace drawing {
      * Union operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     UNION = 2,
 
@@ -9904,7 +10011,8 @@ declare namespace drawing {
      * Xor operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     XOR = 3,
 
@@ -9917,7 +10025,8 @@ declare namespace drawing {
      * Reverse difference operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     REVERSE_DIFFERENCE = 4,
 
@@ -9930,7 +10039,8 @@ declare namespace drawing {
      * Replace operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     REPLACE = 5
   }
@@ -10101,7 +10211,8 @@ declare namespace drawing {
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   class RectUtils {
     /**
@@ -10148,7 +10259,8 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     static getWidth(rect: common2D.Rect): double;
 
@@ -10160,7 +10272,8 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     static getHeight(rect: common2D.Rect): double;
 
@@ -10197,7 +10310,8 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     static contains(rect: common2D.Rect, other: common2D.Rect): boolean;
 
@@ -10242,7 +10356,8 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     static inset(rect: common2D.Rect, left: double, top: double, right: double, bottom: double): void;
 
@@ -10257,7 +10372,8 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     static intersect(rect: common2D.Rect, other: common2D.Rect): boolean;
 
@@ -10295,7 +10411,8 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     static isEmpty(rect: common2D.Rect): boolean;
 
@@ -10309,7 +10426,8 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     static offset(rect: common2D.Rect, dx: double, dy: double): void;
 
@@ -10371,7 +10489,8 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     static sort(rect: common2D.Rect): void;
 
@@ -10385,7 +10504,8 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     static isEqual(rect: common2D.Rect, other: common2D.Rect): boolean;
   }
