@@ -82,6 +82,19 @@ declare namespace infraredEmitter {
   }
 
   /**
+   * Query if device has an IR emitter.
+   *
+   * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
+   * @returns { Promise<boolean> } Promise used to return the result. {@code true} is returned if device
+   *     has an IR emitter; {@code false} is returned otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 3800001 - Input service exception.
+   * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
+   * @since 23 dynamic&static
+   */
+  function hasIrEmitter(): Promise<boolean>;
+
+  /**
    * Generates IR signals at the specified frequency and level.
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
@@ -134,17 +147,6 @@ declare namespace infraredEmitter {
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @since 15 dynamic
    * @since 20 static
-   */
-  /**
-   * Queries the frequency range of IR signals supported by the mobile phone.
-   *
-   * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
-   * @returns { Array<InfraredFrequency> } Frequency range, including multiple groups of maximum and minimum frequencies.
-   *     When the device does not have an IR emitter, it returns a set of maximum and minimun frequencies both being 0.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 3800001 - Input service exception.
-   * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
-   * @since 23 dynamic&static
    */
   function getInfraredFrequencies(): Array<InfraredFrequency>;
 }
