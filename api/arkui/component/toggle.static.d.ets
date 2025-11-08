@@ -63,11 +63,11 @@ export declare interface SwitchStyle {
     /**
      * Set the radius of the point of the switch.
      *
-     * @type { ?(number | Resource) }
+     * @type { ?(double | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    pointRadius?: number | Resource;
+    pointRadius?: double | Resource;
     /**
      * Set the color of the unselected switch.
      *
@@ -87,11 +87,11 @@ export declare interface SwitchStyle {
     /**
      * Set the border radius of the track of the switch.
      *
-     * @type { ?(number | Resource) }
+     * @type { ?(double | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    trackBorderRadius?: number | Resource;
+    trackBorderRadius?: double | Resource;
 }
 /**
  * ToggleConfiguration used by toggle Modifier

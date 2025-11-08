@@ -6558,11 +6558,11 @@ export declare interface PopupBorderLinearGradient {
    * Defines color description for gradients.
    * number: The position of the color stop. The value range is 0 to 1.
    *
-   * @type { Array<[ResourceColor, number]> }
+   * @type { Array<[ResourceColor, double]> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 22 static
    */
-  colors: Array<[ResourceColor, number]>;
+  colors: Array<[ResourceColor, double]>;
 }
 
 /**
@@ -6821,35 +6821,35 @@ export declare interface TipsOptions {
     /**
      * Defines the delay time for appearing.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    appearingTime?: number;
+    appearingTime?: int;
     /**
      * Defines the delay time for disappearing.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    disappearingTime?: number;
+    disappearingTime?: int;
     /**
      * Define the delay time for the appearance of continuous operations.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    appearingTimeWithContinuousOperation?: number;
+    appearingTimeWithContinuousOperation?: int;
     /**
      * Define the delay time for the disappearance of continuous operations.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    disappearingTimeWithContinuousOperation?: number;
+    disappearingTimeWithContinuousOperation?: int;
     /**
      * whether show arrow
      *
@@ -7023,11 +7023,11 @@ export declare interface PopupOptions {
     /**
      * Set the background color of the popup.
      *
-     * @type { ?(Color | string | Resource | number) }
+     * @type { ?(Color | string | Resource | long) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    popupColor?: Color | string | Resource | number;
+    popupColor?: Color | string | Resource | long;
     /**
      * Whether hide popup when click mask
      *
@@ -7225,12 +7225,12 @@ export declare interface CustomPopupOptions {
     /**
      * Color of the popup. To remove the background blur, set backgroundBlurStyle to BlurStyle.NONE.
      *
-     * @type { ?(Color | string | Resource | number) }
+     * @type { ?(Color | string | Resource | long) }
      * @default TRANSPARENT plus COMPONENT_ULTRA_THICK
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    popupColor?: Color | string | Resource | number;
+    popupColor?: Color | string | Resource | long;
     /**
      * whether show arrow
      *
@@ -7517,13 +7517,13 @@ export declare enum MenuPreviewMode {
 /**
  * Defines the animator range of start and end property.
  *
- * @typedef { [number, number] } AnimationNumberRange
+ * @typedef { [double, double] } AnimationNumberRange
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
 export type AnimationNumberRange = [
-    number,
-    number
+    double,
+    double
 ];
 /**
  * Defines the ContextMenu's preview animator options.
@@ -10046,12 +10046,12 @@ export declare interface CommonMethod {
     /**
      * The sibling components in the same container are hierarchically displayed. A larger value of z indicates a higher display level.
      *
-     * @param { number | undefined } value
+     * @param { int | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default zIndex(value: number | undefined): this;
+    default zIndex(value: int | undefined): this;
     /**
      * If the components of the two pages are configured with the same ID.
      * The shared element transition is performed during transition.
