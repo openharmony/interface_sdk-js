@@ -32,7 +32,7 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  * @namespace launcherBundleManager
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @since 18 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace launcherBundleManager {
   /**
@@ -51,7 +51,7 @@ declare namespace launcherBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getLauncherAbilityInfo(bundleName: string,
     userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
@@ -72,7 +72,7 @@ declare namespace launcherBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getLauncherAbilityInfo(bundleName: string, userId: int): Promise<Array<LauncherAbilityInfo>>;
 
@@ -89,7 +89,7 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getLauncherAbilityInfoSync(bundleName: string, userId: int): Array<LauncherAbilityInfo>;
 
@@ -107,7 +107,7 @@ declare namespace launcherBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllLauncherAbilityInfo(userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
 
@@ -125,7 +125,7 @@ declare namespace launcherBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllLauncherAbilityInfo(userId: int): Promise<Array<LauncherAbilityInfo>>;
 
@@ -143,7 +143,7 @@ declare namespace launcherBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getShortcutInfo(bundleName: string, callback: AsyncCallback<Array<ShortcutInfo>>): void;
 
@@ -161,7 +161,7 @@ declare namespace launcherBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getShortcutInfo(bundleName: string): Promise<Array<ShortcutInfo>>;
 
@@ -179,7 +179,7 @@ declare namespace launcherBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getShortcutInfoSync(bundleName: string): Array<ShortcutInfo>;
 
@@ -200,7 +200,7 @@ declare namespace launcherBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getShortcutInfoSync(bundleName: string, userId: int): Array<ShortcutInfo>;
 
@@ -218,7 +218,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700061 - The specified app index is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getShortcutInfoByAppIndex(bundleName: string, appIndex: int): Array<ShortcutInfo>;
 
@@ -237,7 +238,7 @@ declare namespace launcherBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function startShortcut(shortcutInfo: ShortcutInfo, options?: StartOptions): Promise<void>;
 
@@ -255,7 +256,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700065 - The specified shortcut want in shortcut info is not supported to be started.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function startShortcutWithReason(shortcutInfo: ShortcutInfo, startReason: string, options?: StartOptions): Promise<void>;
 
@@ -265,7 +267,7 @@ declare namespace launcherBundleManager {
    * @typedef { _LauncherAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type LauncherAbilityInfo = _LauncherAbilityInfo;
 
@@ -282,7 +284,8 @@ declare namespace launcherBundleManager {
    *
    * @typedef { _ShortcutInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   export type ShortcutInfo = _ShortcutInfo;
   /**
@@ -298,7 +301,8 @@ declare namespace launcherBundleManager {
    *
    * @typedef { _ShortcutWant }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   export type ShortcutWant = _ShortcutWant;
   /**
@@ -314,7 +318,8 @@ declare namespace launcherBundleManager {
    *
    * @typedef { _ParameterItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   export type ParameterItem = _ParameterItem;
 }

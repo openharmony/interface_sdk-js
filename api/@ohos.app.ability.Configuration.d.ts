@@ -43,7 +43,7 @@ import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface Configuration {
   /**
@@ -69,7 +69,7 @@ export interface Configuration {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   language?: string;
 
@@ -96,7 +96,7 @@ export interface Configuration {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   colorMode?: ConfigurationConstant.ColorMode;
 
@@ -123,7 +123,7 @@ export interface Configuration {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   direction?: ConfigurationConstant.Direction;
 
@@ -150,7 +150,7 @@ export interface Configuration {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   screenDensity?: ConfigurationConstant.ScreenDensity;
 
@@ -168,7 +168,7 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   displayId?: long;
 
@@ -186,7 +186,7 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   hasPointerDevice?: boolean;
 
@@ -216,7 +216,7 @@ export interface Configuration {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   fontSizeScale?: double;
 
@@ -227,7 +227,7 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   fontWeightScale?: double;
 
@@ -238,7 +238,7 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   mcc?: string;
 
@@ -249,7 +249,7 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   mnc?: string;
 

@@ -28,7 +28,7 @@ import { MemoState } from './memorize/state';
  * @typedef { function } RememberFactory<T>
  * @returns { T }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 type RememberFactory<T> = () => T;
 
@@ -38,7 +38,7 @@ type RememberFactory<T> = () => T;
 * @param { RememberFactory<T> } factory - factory to create the initial state value.
 * @returns { MemoState<T> }
 * @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 20 static
+* @since 22 static
 */
 @memo
 export declare function memorizeUpdatedState<T>(factory: RememberFactory<T>): MemoState<T>;

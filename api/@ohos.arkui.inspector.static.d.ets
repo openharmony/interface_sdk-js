@@ -24,7 +24,7 @@ import { Callback, RecordData } from './@ohos.base';
  *
  * @namespace inspector
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 declare namespace inspector {
     
@@ -33,7 +33,7 @@ declare namespace inspector {
      *
      * @interface ComponentObserver
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     interface ComponentObserver {
         
@@ -98,7 +98,7 @@ declare namespace inspector {
      * @param { string } id - ID of the component whose attributes are to be obtained.
      * @returns { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      * @test
      */
     function getInspectorByKey(id: string): string;
@@ -107,7 +107,7 @@ declare namespace inspector {
      *
      * @returns { RecordData }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      * @test
      */
     function getInspectorTree(): RecordData;
@@ -119,7 +119,7 @@ declare namespace inspector {
      * @param { string } params - Event parameters. If there is no parameter, pass an empty string "".
      * @returns { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      * @test
      */
     function sendEventByKey(id: string, action: int, params: string): boolean;
@@ -129,20 +129,20 @@ export default inspector;
  * export function getInspectorByKey from inspector namespace and provide it for kit ArkUI.
  * @constant
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export const GETINSPECTORBYKEY = inspector.getInspectorByKey;
 /**
  * export function getInspectorTree from inspector namespace and provide it for kit ArkUI.
  * @constant
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export const GETINSPECTORTREE = inspector.getInspectorTree;
 /**
  * export function sendEventByKey from inspector namespace and provide it for kit ArkUI.
  * @constant
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export const SENDEVENTBYKEY = inspector.sendEventByKey;

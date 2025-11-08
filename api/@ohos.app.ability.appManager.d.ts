@@ -55,7 +55,7 @@ import { AbilityFirstFrameStateData as _AbilityFirstFrameStateData } from './app
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace appManager {
   /**
@@ -65,7 +65,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum ApplicationState {
     /**
@@ -74,7 +74,7 @@ declare namespace appManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_CREATE,
 
@@ -84,7 +84,7 @@ declare namespace appManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_FOREGROUND,
 
@@ -94,7 +94,7 @@ declare namespace appManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_ACTIVE,
 
@@ -104,7 +104,7 @@ declare namespace appManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_BACKGROUND,
 
@@ -114,7 +114,7 @@ declare namespace appManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_DESTROY
   }
@@ -133,7 +133,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum ProcessState {
     /**
@@ -148,7 +148,7 @@ declare namespace appManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_CREATE,
 
@@ -164,7 +164,7 @@ declare namespace appManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_FOREGROUND,
 
@@ -180,7 +180,7 @@ declare namespace appManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_ACTIVE,
 
@@ -196,7 +196,7 @@ declare namespace appManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_BACKGROUND,
 
@@ -212,7 +212,7 @@ declare namespace appManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_DESTROY
   }
@@ -225,7 +225,7 @@ declare namespace appManager {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum PreloadMode {
     /**
@@ -235,7 +235,7 @@ declare namespace appManager {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PRESS_DOWN
   }
@@ -246,7 +246,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
     export enum KeepAliveAppType {
       /**
@@ -255,7 +255,7 @@ declare namespace appManager {
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
        * @since 14 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       ALL = 0,
   
@@ -265,7 +265,7 @@ declare namespace appManager {
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
        * @since 14 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       THIRD_PARTY = 1,
   
@@ -275,7 +275,7 @@ declare namespace appManager {
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
        * @since 14 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       SYSTEM = 2
     }
@@ -286,7 +286,7 @@ declare namespace appManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     export enum KeepAliveSetter {
       /**
@@ -295,7 +295,7 @@ declare namespace appManager {
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
        * @since 14 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       SYSTEM = 0,
   
@@ -305,7 +305,7 @@ declare namespace appManager {
        * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
        * @systemapi
        * @since 14 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       USER = 1
     }
@@ -317,7 +317,7 @@ declare namespace appManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     export interface KeepAliveBundleInfo {
       /**
@@ -327,7 +327,7 @@ declare namespace appManager {
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
        * @since 14 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       bundleName: string;
   
@@ -338,7 +338,7 @@ declare namespace appManager {
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
        * @since 14 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       type: KeepAliveAppType;
   
@@ -349,7 +349,7 @@ declare namespace appManager {
        * @syscap SystemCapability.Ability.AbilityRuntime.Core
        * @systemapi
        * @since 14 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       setter: KeepAliveSetter;
 
@@ -691,7 +691,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'applicationState', observer: ApplicationStateObserver): int;
 
@@ -709,7 +709,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'applicationState', observer: ApplicationStateObserver, bundleNameList: Array<string>): int;
 
@@ -745,7 +745,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'appForegroundState', observer: AppForegroundStateObserver): void;
 
@@ -764,7 +764,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'abilityFirstFrameState', observer: AbilityFirstFrameStateObserver, bundleName?: string): void;
 
@@ -781,7 +781,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'applicationState', observerId: int, callback: AsyncCallback<void>): void;
 
@@ -798,7 +798,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'applicationState', observerId: int): Promise<void>;
 
@@ -816,7 +816,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'appForegroundState', observer?: AppForegroundStateObserver): void;
 
@@ -834,7 +834,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'abilityFirstFrameState', observer?: AbilityFirstFrameStateObserver): void;
 
@@ -851,7 +851,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getForegroundApplications(callback: AsyncCallback<Array<AppStateData>>): void;
 
@@ -866,7 +866,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getForegroundApplications(): Promise<Array<AppStateData>>;
 
@@ -902,7 +902,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function killProcessWithAccount(bundleName: string, accountId: int): Promise<void>;
 
@@ -923,7 +923,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function killProcessWithAccount(bundleName: string, accountId: int, clearPageStack: boolean, appIndex?: int):
     Promise<void>;
@@ -960,7 +960,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function killProcessWithAccount(bundleName: string, accountId: int, callback: AsyncCallback<void>): void;
 
@@ -984,7 +984,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isRunningInStabilityTest(callback: AsyncCallback<boolean>): void;
 
@@ -1004,7 +1004,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isRunningInStabilityTest(): Promise<boolean>;
 
@@ -1037,7 +1037,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function killProcessesByBundleName(bundleName: string): Promise<void>;
 
@@ -1054,7 +1054,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function killProcessesByBundleName(bundleName: string, clearPageStack: boolean, appIndex?: int): Promise<void>;
 
@@ -1087,7 +1087,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -1141,7 +1141,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isRamConstrainedDevice(): Promise<boolean>;
 
@@ -1165,7 +1165,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isRamConstrainedDevice(callback: AsyncCallback<boolean>): void;
 
@@ -1185,7 +1185,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAppMemorySize(): Promise<int>;
 
@@ -1209,7 +1209,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAppMemorySize(callback: AsyncCallback<int>): void;
 
@@ -1231,7 +1231,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
 
@@ -1249,7 +1249,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getRunningProcessInformationByBundleType(
     bundleType: bundleManager.BundleType): Promise<Array<ProcessInformation>>;
@@ -1276,7 +1276,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 
@@ -1295,7 +1295,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isSharedBundleRunning(bundleName: string, versionCode: long): Promise<boolean>;
 
@@ -1315,7 +1315,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isSharedBundleRunning(bundleName: string, versionCode: long, callback: AsyncCallback<boolean>): void;
 
@@ -1331,7 +1331,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getProcessMemoryByPid(pid: int): Promise<int>;
 
@@ -1347,7 +1347,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getProcessMemoryByPid(pid: int, callback: AsyncCallback<int>): void;
 
@@ -1363,7 +1363,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getRunningProcessInfoByBundleName(bundleName: string, callback: AsyncCallback<Array<ProcessInformation>>): void;
 
@@ -1380,7 +1380,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getRunningProcessInfoByBundleName(bundleName: string, userId: int, callback: AsyncCallback<Array<ProcessInformation>>): void;
 
@@ -1396,7 +1396,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getRunningProcessInfoByBundleName(bundleName: string): Promise<Array<ProcessInformation>>;
 
@@ -1413,7 +1413,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getRunningProcessInfoByBundleName(bundleName: string, userId: int): Promise<Array<ProcessInformation>>;
 
@@ -1471,7 +1471,7 @@ declare namespace appManager {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function preloadApplication(bundleName: string, userId: int, mode: PreloadMode, appIndex?: int): Promise<void>;
 
@@ -1491,7 +1491,7 @@ declare namespace appManager {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getRunningMultiAppInfo(bundleName: string): Promise<RunningMultiAppInfo>;
 
@@ -1509,7 +1509,7 @@ declare namespace appManager {
   * @throws { BusinessError } 16000073 - The app clone index is invalid.
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   * @since 14 dynamic
-  * @since 20 static
+  * @since 22 static
   */
   function isAppRunning(bundleName: string, appCloneIndex?: int): Promise<boolean>;
 
@@ -1565,7 +1565,7 @@ declare namespace appManager {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSupportedProcessCachePids(bundleName : string): Promise<Array<int>>;
 
@@ -1590,7 +1590,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
     function setKeepAliveForBundle(bundleName: string, userId: int, enable: boolean): Promise<void>;
 
@@ -1610,7 +1610,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getKeepAliveBundles(type: KeepAliveAppType, userId?: int): Promise<Array<KeepAliveBundleInfo>>;
 
@@ -1665,7 +1665,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function killProcessesInBatch(pids: Array<int>): Promise<void>;
 
@@ -1683,7 +1683,7 @@ declare namespace appManager {
    *
    * @typedef { _AbilityStateData }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 20 static
+   * @since 22 static
    */
   export type AbilityStateData = _AbilityStateData;
 
@@ -1701,7 +1701,7 @@ declare namespace appManager {
    *
    * @typedef { _AppStateData }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 20 static
+   * @since 22 static
    */
   export type AppStateData = _AppStateData;
 
@@ -1719,7 +1719,7 @@ declare namespace appManager {
    *
    * @typedef { _ApplicationStateObserver }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 20 static
+   * @since 22 static
    */
   export type ApplicationStateObserver = _ApplicationStateObserver;
 
@@ -1739,7 +1739,7 @@ declare namespace appManager {
    * @typedef { _AppForegroundStateObserver }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   export type AppForegroundStateObserver = _AppForegroundStateObserver;
 
@@ -1756,7 +1756,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type ProcessInformation = _ProcessInformation;
 
@@ -1774,7 +1774,7 @@ declare namespace appManager {
    *
    * @typedef { _ProcessData }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 20 static
+   * @since 22 static
    */
   export type ProcessData = _ProcessData;
 
@@ -1794,7 +1794,7 @@ declare namespace appManager {
    * @typedef { _AbilityFirstFrameStateObserver }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   export type AbilityFirstFrameStateObserver = _AbilityFirstFrameStateObserver;
 
@@ -1814,7 +1814,7 @@ declare namespace appManager {
    * @typedef { _AbilityFirstFrameStateData }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   export type AbilityFirstFrameStateData = _AbilityFirstFrameStateData;
 
@@ -1825,7 +1825,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type RunningMultiAppInfo = _RunningMultiAppInfo;
 }

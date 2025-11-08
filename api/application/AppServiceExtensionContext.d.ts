@@ -29,7 +29,8 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
  * @extends ExtensionContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 declare class AppServiceExtensionContext extends ExtensionContext {
   /**
@@ -51,7 +52,8 @@ declare class AppServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   connectServiceExtensionAbility(want: Want, callback: ConnectOptions): long;
 
@@ -64,7 +66,8 @@ declare class AppServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   disconnectServiceExtensionAbility(connection: long): Promise<void>;
 
@@ -101,7 +104,8 @@ declare class AppServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -114,7 +118,8 @@ declare class AppServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   terminateSelf(): Promise<void>;
 }

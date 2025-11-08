@@ -33,7 +33,8 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace statfs
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 declare namespace statfs {
   /**
@@ -77,7 +78,8 @@ declare namespace statfs {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getFreeSize(path: string): Promise<long>;
 
@@ -122,7 +124,8 @@ declare namespace statfs {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getFreeSize(path: string, callback: AsyncCallback<long>): void;
 
@@ -167,7 +170,8 @@ declare namespace statfs {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getFreeSizeSync(path: string): long;
 
@@ -212,7 +216,8 @@ declare namespace statfs {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getTotalSize(path: string): Promise<long>;
 
@@ -257,7 +262,8 @@ declare namespace statfs {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getTotalSize(path: string, callback: AsyncCallback<long>): void;
 
@@ -302,7 +308,8 @@ declare namespace statfs {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getTotalSizeSync(path: string): long;
 }

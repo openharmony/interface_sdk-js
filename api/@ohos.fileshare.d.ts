@@ -32,7 +32,7 @@ import type wantConstant from './@ohos.app.ability.wantConstant';
  * @namespace fileShare
  * @syscap SystemCapability.FileManagement.AppFileService
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace fileShare {
   /**
@@ -41,7 +41,7 @@ declare namespace fileShare {
    * @enum { number } OperationMode
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum OperationMode {
     /**
@@ -49,7 +49,7 @@ declare namespace fileShare {
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     READ_MODE = 0b1,
 
@@ -58,7 +58,7 @@ declare namespace fileShare {
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WRITE_MODE = 0b10,
 
@@ -170,7 +170,7 @@ declare namespace fileShare {
    * @interface PolicyInfo
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface PolicyInfo {
     /**
@@ -179,7 +179,7 @@ declare namespace fileShare {
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uri: string;
 
@@ -189,7 +189,7 @@ declare namespace fileShare {
      * @type { number }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     operationMode: number;
   }
@@ -262,7 +262,7 @@ declare namespace fileShare {
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function grantUriPermission(
     uri: string,
@@ -287,7 +287,7 @@ declare namespace fileShare {
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function grantUriPermission(uri: string, bundleName: string, flag: wantConstant.Flags): Promise<void>;
 

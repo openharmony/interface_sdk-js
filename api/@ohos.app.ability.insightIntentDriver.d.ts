@@ -31,7 +31,7 @@ import type insightIntent from './@ohos.app.ability.insightIntent';
  * @systemapi
  * @StageModelOnly
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace insightIntentDriver {
   /**
@@ -42,7 +42,7 @@ declare namespace insightIntentDriver {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ExecuteParam {
     /**
@@ -53,7 +53,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bundleName: string;
 
@@ -65,7 +65,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     moduleName: string;
 
@@ -77,7 +77,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     abilityName: string;
 
@@ -89,7 +89,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     insightIntentName: string;
 
@@ -101,7 +101,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     insightIntentParam: Record<string, Object>;
 
@@ -113,7 +113,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     executeMode: insightIntent.ExecuteMode;
 
@@ -125,7 +125,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @StageModelOnly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     displayId?: long;
 
@@ -137,7 +137,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uris?: Array<string>;
 
@@ -153,7 +153,7 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @stagemodelonly
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     flags?: int;
   }
@@ -189,7 +189,7 @@ declare namespace insightIntentDriver {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function execute(param: ExecuteParam, callback: AsyncCallback<insightIntent.ExecuteResult>): void;
 
@@ -224,7 +224,7 @@ declare namespace insightIntentDriver {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function execute(param: ExecuteParam): Promise<insightIntent.ExecuteResult>;
 

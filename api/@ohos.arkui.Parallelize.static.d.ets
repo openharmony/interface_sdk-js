@@ -25,7 +25,7 @@ import { memo } from '@ohos.arkui.stateManagement'
 *
 * @interface ParallelOption
 * @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 20 static
+* @since 22 static
 */
 export interface ParallelOption {
 	/**
@@ -33,7 +33,7 @@ export interface ParallelOption {
 	*
 	* @type { ?boolean }
 	* @syscap SystemCapability.ArkUI.ArkUI.Full
-	* @since 20 static
+	* @since 22 static
 	*/
 	enable?: boolean,
 }
@@ -44,7 +44,7 @@ export interface ParallelOption {
  * @param { ParallelOption | undefined } [options] - ParallelizeUI Option
  * @param { () => void } [content_] - Parallel creation of content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @memo
 export declare function ParallelizeUI(
@@ -60,7 +60,7 @@ export declare function ParallelizeUI(
  * @param { () => T } [param] - ParallelizeUI parameter
  * @param { (param: T) => void } [content_] - Parallel creation of content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @memo
 export declare function ParallelizeUI<T>(

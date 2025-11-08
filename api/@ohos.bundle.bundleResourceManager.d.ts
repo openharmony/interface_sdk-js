@@ -39,7 +39,7 @@ import bundleManager from './@ohos.bundle.bundleManager';
  * @syscap SystemCapability.BundleManager.BundleFramework.Resource
  * @systemapi
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace bundleResourceManager {
   /**
@@ -50,7 +50,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum ResourceFlag {
     /**
@@ -59,7 +59,7 @@ declare namespace bundleResourceManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     GET_RESOURCE_INFO_ALL = 0x00000001,
 
@@ -69,7 +69,7 @@ declare namespace bundleResourceManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     GET_RESOURCE_INFO_WITH_LABEL = 0x00000002,
 
@@ -79,7 +79,7 @@ declare namespace bundleResourceManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     GET_RESOURCE_INFO_WITH_ICON = 0x00000004,
 
@@ -90,7 +90,7 @@ declare namespace bundleResourceManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     GET_RESOURCE_INFO_WITH_SORTED_BY_LABEL = 0x00000008,
 
@@ -100,7 +100,7 @@ declare namespace bundleResourceManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     GET_RESOURCE_INFO_WITH_DRAWABLE_DESCRIPTOR = 0x00000010,
 
@@ -110,7 +110,8 @@ declare namespace bundleResourceManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     GET_RESOURCE_INFO_ONLY_WITH_MAIN_ABILITY = 0x00000020
   }
@@ -129,7 +130,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getBundleResourceInfo(bundleName: string, resourceFlags?: int): BundleResourceInfo;
 
@@ -149,7 +150,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getBundleResourceInfo(bundleName: string, resourceFlags?: int, appIndex?: int): BundleResourceInfo;
 
@@ -167,7 +168,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getLauncherAbilityResourceInfo(bundleName: string, resourceFlags?: int): Array<LauncherAbilityResourceInfo>;
 
@@ -188,7 +189,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getLauncherAbilityResourceInfo(bundleName: string, resourceFlags?: int, appIndex?: int): Array<LauncherAbilityResourceInfo>;
 
@@ -204,7 +205,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllBundleResourceInfo(resourceFlags: int, callback: AsyncCallback<Array<BundleResourceInfo>>): void;
 
@@ -220,7 +221,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllBundleResourceInfo(resourceFlags: int): Promise<Array<BundleResourceInfo>>;
 
@@ -236,7 +237,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllLauncherAbilityResourceInfo(resourceFlags: int, callback: AsyncCallback<Array<LauncherAbilityResourceInfo>>): void;
 
@@ -252,7 +253,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllLauncherAbilityResourceInfo(resourceFlags: int): Promise<Array<LauncherAbilityResourceInfo>>;
 
@@ -273,7 +274,8 @@ declare namespace bundleResourceManager {
    * @throws { BusinessError } 17700061 - AppIndex not in valid range or not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getExtensionAbilityResourceInfo(bundleName: string, extensionAbilityType: bundleManager.ExtensionAbilityType, resourceFlags: int, appIndex?: int): Array<LauncherAbilityResourceInfo>;
 
@@ -299,7 +301,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type BundleResourceInfo = _BundleResourceInfo;
 
@@ -310,7 +312,7 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type LauncherAbilityResourceInfo = _LauncherAbilityResourceInfo;
 }

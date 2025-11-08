@@ -33,7 +33,7 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace missionManager {
   /**
@@ -103,7 +103,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getMissionInfo(deviceId: string, missionId: int, callback: AsyncCallback<MissionInfo>): void;
 
@@ -121,7 +121,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getMissionInfo(deviceId: string, missionId: int): Promise<MissionInfo>;
 
@@ -345,7 +345,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function clearAllMissions(callback: AsyncCallback<void>): void;
 
@@ -359,7 +359,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function clearAllMissions(): Promise<void>;
 
@@ -510,7 +510,7 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type MissionInfo = _MissionInfo;
 

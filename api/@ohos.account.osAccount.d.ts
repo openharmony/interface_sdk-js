@@ -27,7 +27,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @namespace osAccount
  * @syscap SystemCapability.Account.OsAccount
  * @since 7 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace osAccount {
   /**
@@ -36,7 +36,7 @@ declare namespace osAccount {
    * @returns { AccountManager } Returns the instance of the AccountManager.
    * @syscap SystemCapability.Account.OsAccount
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAccountManager(): AccountManager;
 
@@ -46,7 +46,7 @@ declare namespace osAccount {
    * @interface AccountManager
    * @syscap SystemCapability.Account.OsAccount
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AccountManager {
     /**
@@ -97,7 +97,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     activateOsAccount(localId: int, callback: AsyncCallback<void>): void;
 
@@ -178,7 +178,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     activateOsAccount(localId: int): Promise<void>;
 
@@ -199,7 +199,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deactivateOsAccount(localId: int): Promise<void>;
 
@@ -608,7 +608,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isOsAccountUnlocked(): Promise<boolean>;
 
@@ -627,7 +627,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isOsAccountUnlocked(localId: int): Promise<boolean>;
 
@@ -867,7 +867,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getOsAccountLocalId(callback: AsyncCallback<int>): void;
 
@@ -878,7 +878,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getOsAccountLocalId(): Promise<int>;
 
@@ -917,7 +917,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getOsAccountLocalIdForUid(uid: int, callback: AsyncCallback<int>): void;
 
@@ -932,7 +932,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getOsAccountLocalIdForUid(uid: int): Promise<int>;
 
@@ -946,7 +946,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getOsAccountLocalIdForUidSync(uid: int): int;
 
@@ -1046,7 +1046,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     queryMaxLoggedInOsAccountNumber(): Promise<int>;
 
@@ -1143,7 +1143,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     queryAllCreatedOsAccounts(callback: AsyncCallback<Array<OsAccountInfo>>): void;
 
@@ -1158,7 +1158,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     queryAllCreatedOsAccounts(): Promise<Array<OsAccountInfo>>;
 
@@ -1193,7 +1193,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getActivatedOsAccountLocalIds(callback: AsyncCallback<Array<int>>): void;
 
@@ -1204,7 +1204,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getActivatedOsAccountLocalIds(): Promise<Array<int>>;
 
@@ -1215,7 +1215,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getForegroundOsAccountLocalId(): Promise<int>;
 
@@ -1293,7 +1293,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     createOsAccount(localName: string, type: OsAccountType, callback: AsyncCallback<OsAccountInfo>): void;
 
@@ -1341,7 +1341,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     createOsAccount(localName: string, type: OsAccountType, options?: CreateOsAccountOptions): Promise<OsAccountInfo>;
 
@@ -1532,7 +1532,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     queryOsAccount(): Promise<OsAccountInfo>;
 
@@ -1552,7 +1552,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     queryOsAccountById(localId: int, callback: AsyncCallback<OsAccountInfo>): void;
 
@@ -1572,7 +1572,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     queryOsAccountById(localId: int): Promise<OsAccountInfo>;
 
@@ -1626,7 +1626,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getOsAccountType(callback: AsyncCallback<OsAccountType>): void;
 
@@ -1638,7 +1638,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getOsAccountType(): Promise<OsAccountType>;
 
@@ -1657,7 +1657,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getOsAccountType(localId: int): Promise<OsAccountType>;
 
@@ -1752,7 +1752,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getOsAccountProfilePhoto(localId: int, callback: AsyncCallback<string>): void;
 
@@ -1773,7 +1773,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getOsAccountProfilePhoto(localId: int): Promise<string>;
 
@@ -1946,7 +1946,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'activate' | 'activating', name: string, callback: Callback<int>): void;
 
@@ -1966,7 +1966,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'activate' | 'activating', name: string, callback?: Callback<int>): void;
 
@@ -1999,7 +1999,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     on(type: 'switching', callback: Callback<OsAccountSwitchEventData>): void;
 
@@ -2032,7 +2033,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     off(type: 'switching', callback?: Callback<OsAccountSwitchEventData>): void;
 
@@ -2065,7 +2067,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     on(type: 'switched', callback: Callback<OsAccountSwitchEventData>): void;
 
@@ -2098,7 +2101,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     off(type: 'switched', callback?: Callback<OsAccountSwitchEventData>): void;
 
@@ -2163,7 +2167,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isMainOsAccount(callback: AsyncCallback<boolean>): void;
 
@@ -2179,7 +2183,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isMainOsAccount(): Promise<boolean>;
 
@@ -2258,7 +2262,7 @@ declare namespace osAccount {
    * @interface OsAccountInfo
    * @syscap SystemCapability.Account.OsAccount
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface OsAccountInfo {
     /**
@@ -2267,7 +2271,7 @@ declare namespace osAccount {
      * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     localId: int;
 
@@ -2277,7 +2281,7 @@ declare namespace osAccount {
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     localName: string;
 
@@ -2288,7 +2292,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     shortName?: string;
 
@@ -2298,7 +2302,7 @@ declare namespace osAccount {
      * @type { OsAccountType }
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     type: OsAccountType;
 
@@ -2308,7 +2312,7 @@ declare namespace osAccount {
      * @type { Array<string> }
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     constraints: Array<string>;
 
@@ -2329,7 +2333,7 @@ declare namespace osAccount {
      * @type { boolean }
      * @syscap SystemCapability.Account.OsAccount
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isUnlocked: boolean;
 
@@ -2339,7 +2343,7 @@ declare namespace osAccount {
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     photo: string;
 
@@ -2349,7 +2353,7 @@ declare namespace osAccount {
      * @type { long }
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     createTime: long;
 
@@ -2359,7 +2363,7 @@ declare namespace osAccount {
      * @type { long }
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     lastLoginTime: long;
 
@@ -2369,7 +2373,7 @@ declare namespace osAccount {
      * @type { long }
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     serialNumber: long;
 
@@ -2390,7 +2394,7 @@ declare namespace osAccount {
      * @type { boolean }
      * @syscap SystemCapability.Account.OsAccount
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isActivated: boolean;
 
@@ -2401,7 +2405,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isLoggedIn?: boolean;
 
@@ -2411,7 +2415,7 @@ declare namespace osAccount {
      * @type { boolean }
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isCreateCompleted: boolean;
 
@@ -2421,7 +2425,7 @@ declare namespace osAccount {
      * @type { distributedAccount.DistributedInfo }
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     distributedInfo: distributedAccount.DistributedInfo;
 
@@ -2431,7 +2435,7 @@ declare namespace osAccount {
      * @type { DomainAccountInfo }
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     domainInfo: DomainAccountInfo;
   }
@@ -2443,7 +2447,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface OsAccountSwitchEventData {
     /**
@@ -2453,7 +2457,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     fromAccountId: int;
 
@@ -2464,7 +2468,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     toAccountId: int;
 
@@ -2486,7 +2490,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface CreateOsAccountOptions {
     /**
@@ -2496,7 +2500,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     shortName: string;
 
@@ -2538,7 +2542,7 @@ declare namespace osAccount {
    * @interface DomainAccountInfo
    * @syscap SystemCapability.Account.OsAccount
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface DomainAccountInfo {
     /**
@@ -2547,7 +2551,7 @@ declare namespace osAccount {
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     domain: string;
 
@@ -2557,7 +2561,7 @@ declare namespace osAccount {
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     accountName: string;
 
@@ -2568,7 +2572,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     accountId?: string;
 
@@ -2579,7 +2583,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isAuthenticated?: boolean;
 
@@ -2589,7 +2593,7 @@ declare namespace osAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     serverConfigId?: string;
   }
@@ -2600,7 +2604,7 @@ declare namespace osAccount {
    * @enum { int } OsAccountType
    * @syscap SystemCapability.Account.OsAccount
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum OsAccountType {
     /**
@@ -2608,7 +2612,7 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ADMIN = 0,
 
@@ -2617,7 +2621,7 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NORMAL = 1,
 
@@ -2626,7 +2630,7 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     GUEST = 2,
 
@@ -2636,7 +2640,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PRIVATE = 1024
   }
@@ -2647,7 +2651,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    * @name UserAuth
    */
   class UserAuth {
@@ -2658,7 +2662,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     constructor();
 
@@ -2724,7 +2728,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getProperty(request: GetPropertyRequest, callback: AsyncCallback<ExecutorProperty>): void;
 
@@ -2760,7 +2764,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getProperty(request: GetPropertyRequest): Promise<ExecutorProperty>;
 
@@ -2799,7 +2803,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setProperty(request: SetPropertyRequest, callback: AsyncCallback<void>): void;
 
@@ -2818,7 +2822,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setProperty(request: SetPropertyRequest): Promise<void>;
 
@@ -2947,7 +2951,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     auth(
       challenge: Uint8Array,
@@ -3024,7 +3029,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     auth(
       challenge: Uint8Array,
@@ -3130,7 +3136,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     authUser(
       userId: int,
@@ -3154,7 +3161,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     cancelAuth(contextID: Uint8Array): void;
   }
@@ -3165,7 +3172,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    * @name PINAuth
    */
   class PINAuth {
@@ -3176,7 +3183,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     constructor();
 
@@ -3195,7 +3202,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     registerInputer(inputer: IInputer): void;
 
@@ -3208,7 +3215,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     unregisterInputer(): void;
   }
@@ -3219,7 +3226,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    * @name InputerManager
    */
   class InputerManager {
@@ -3241,7 +3248,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static registerInputer(authType: AuthType, inputer: IInputer): void;
 
@@ -3259,7 +3266,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static unregisterInputer(authType: AuthType): void;
   }
@@ -3412,7 +3419,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface DomainPlugin {
     /**
@@ -3528,7 +3535,7 @@ declare namespace osAccount {
    *
    * @syscap SystemCapability.Account.OsAccount
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   class DomainAccountManager {
     /**
@@ -3616,7 +3623,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
 
@@ -3960,7 +3967,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static isAuthenticationExpired(domainAccountInfo: DomainAccountInfo): Promise<boolean>;
   }
@@ -4118,7 +4125,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    * @name UserIdentityManager
    */
   class UserIdentityManager {
@@ -4129,7 +4136,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     constructor();
 
@@ -4149,7 +4156,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     openSession(callback: AsyncCallback<Uint8Array>): void;
 
@@ -4186,7 +4193,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     openSession(accountId?: int): Promise<Uint8Array>;
 
@@ -4242,7 +4249,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     addCredential(credentialInfo: CredentialInfo, callback: IIdmCallback): void;
 
@@ -4289,7 +4296,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     updateCredential(credentialInfo: CredentialInfo, callback: IIdmCallback): void;
 
@@ -4321,7 +4328,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     closeSession(accountId?: int): void;
 
@@ -4357,7 +4364,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     delUser(token: Uint8Array, callback: IIdmCallback): void;
 
@@ -4409,7 +4416,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300020 - Device hardware abnormal.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     getAuthInfo(callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
 
@@ -4444,7 +4452,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300020 - Device hardware abnormal.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     getAuthInfo(authType: AuthType, callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
 
@@ -4479,7 +4488,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300020 - Device hardware abnormal.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     getAuthInfo(authType: AuthType): Promise<Array<EnrolledCredInfo>>;
 
@@ -4515,7 +4525,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300020 - Device hardware abnormal.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     getAuthInfo(options?: GetAuthInfoOptions): Promise<Array<EnrolledCredInfo>>;
 
@@ -4556,7 +4567,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300106 - The authentication type is not supported.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     getEnrolledId(authType: AuthType, accountId?: int): Promise<Uint8Array>;
   }
@@ -4568,7 +4580,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface GetAuthInfoOptions {
     /**
@@ -4578,7 +4590,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     authType?: AuthType;
 
@@ -4589,7 +4601,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     accountId?: int;
   }
@@ -4601,7 +4613,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum AuthIntent {
     /**
@@ -4610,7 +4622,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UNLOCK = 1,
 
@@ -4620,7 +4632,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SILENT_AUTH = 2,
 
@@ -4630,7 +4642,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     QUESTION_AUTH = 3,
 
@@ -4639,7 +4651,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     ABANDONED_PIN_AUTH = 4
   }
@@ -4651,7 +4664,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface RemoteAuthOptions {
     /**
@@ -4661,7 +4674,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     verifierNetworkId?: string;
 
@@ -4672,7 +4685,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     collectorNetworkId?: string;
 
@@ -4683,7 +4696,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     collectorTokenId?: int;
   }
@@ -4695,7 +4708,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AuthOptions {
     /**
@@ -4705,7 +4718,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     accountId?: int;
 
@@ -4716,7 +4729,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     authIntent?: AuthIntent;
 
@@ -4727,7 +4740,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     remoteAuthOptions?: RemoteAuthOptions;
   }
@@ -4739,7 +4752,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface IInputData {
     /**
@@ -4754,7 +4767,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     onSetData(authSubType: AuthSubType, data: Uint8Array): void;
   }
@@ -4766,7 +4779,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface GetInputDataOptions {
     /**
@@ -4776,7 +4789,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     challenge?: Uint8Array;
   }
@@ -4788,7 +4801,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface IInputer {
     /**
@@ -4798,7 +4811,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     onGetData: (authSubType: AuthSubType, callback: IInputData, options: GetInputDataOptions) => void;
   }
@@ -4810,7 +4823,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface IUserAuthCallback {
     /**
@@ -4823,7 +4836,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     onResult: (result: int, extraInfo: AuthResult) => void;
 
@@ -4834,7 +4847,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     onAcquireInfo?: (module: int, acquire: int, extraInfo: Uint8Array) => void;
   }
@@ -4846,7 +4859,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface IIdmCallback {
     /**
@@ -4856,7 +4869,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     onResult: (result: int, extraInfo: RequestResult) => void;
 
@@ -4867,7 +4880,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     onAcquireInfo?: (module: int, acquire: int, extraInfo: Uint8Array) => void;
   }
@@ -4879,7 +4892,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface GetPropertyRequest {
     /**
@@ -4889,7 +4902,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     authType: AuthType;
 
@@ -4900,7 +4913,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     keys: Array<GetPropertyType>;
 
@@ -4911,7 +4924,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     accountId?: int;
   }
@@ -4923,7 +4936,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface SetPropertyRequest {
     /**
@@ -4933,7 +4946,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     authType: AuthType;
 
@@ -4944,7 +4957,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     key: SetPropertyType;
 
@@ -4955,7 +4968,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setInfo: Uint8Array;
   }
@@ -4967,7 +4980,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ExecutorProperty {
     /**
@@ -4977,7 +4990,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     result: int;
 
@@ -4988,7 +5001,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     authSubType: AuthSubType;
 
@@ -4999,7 +5012,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     remainTimes?: int;
 
@@ -5010,7 +5023,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     freezingTime?: int;
 
@@ -5021,7 +5034,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     nextPhaseFreezingTime?: int;
 
@@ -5032,7 +5045,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     enrollmentProgress?: string;
 
@@ -5043,7 +5056,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     sensorInfo?: string;
 
@@ -5053,7 +5066,8 @@ declare namespace osAccount {
      * @type { ?int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     credentialLength?: int;
   }
@@ -5065,7 +5079,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AuthResult {
     /**
@@ -5075,7 +5089,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     token?: Uint8Array;
 
@@ -5086,7 +5100,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     remainTimes?: int;
 
@@ -5097,7 +5111,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     freezingTime?: int;
 
@@ -5108,7 +5122,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     nextPhaseFreezingTime?: int;
 
@@ -5119,7 +5133,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     credentialId?: Uint8Array;
 
@@ -5130,7 +5144,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     accountId?: int;
 
@@ -5141,7 +5155,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pinValidityPeriod?: long;
   }
@@ -5153,7 +5167,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface CredentialInfo {
     /**
@@ -5163,7 +5177,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     credType: AuthType;
 
@@ -5174,7 +5188,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     credSubType: AuthSubType;
 
@@ -5185,7 +5199,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     token: Uint8Array;
 
@@ -5196,7 +5210,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     accountId?: int;
   }
@@ -5208,7 +5222,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface RequestResult {
     /**
@@ -5218,7 +5232,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     credentialId?: Uint8Array;
   }
@@ -5230,7 +5244,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface EnrolledCredInfo {
     /**
@@ -5240,7 +5254,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     credentialId: Uint8Array;
 
@@ -5251,7 +5265,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     authType: AuthType;
 
@@ -5262,7 +5276,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     authSubType: AuthSubType;
 
@@ -5273,7 +5287,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     templateId: Uint8Array;
 
@@ -5282,7 +5296,8 @@ declare namespace osAccount {
      * @type { ?boolean }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     isAbandoned?: boolean;
 
@@ -5292,7 +5307,8 @@ declare namespace osAccount {
      * @type { ?long }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     validityPeriod?: long;
   }
@@ -5304,7 +5320,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum GetPropertyType {
     /**
@@ -5313,7 +5329,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUTH_SUB_TYPE = 1,
 
@@ -5323,7 +5339,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     REMAIN_TIMES = 2,
 
@@ -5333,7 +5349,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FREEZING_TIME = 3,
 
@@ -5343,7 +5359,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ENROLLMENT_PROGRESS = 4,
 
@@ -5353,7 +5369,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SENSOR_INFO = 5,
 
@@ -5363,7 +5379,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NEXT_PHASE_FREEZING_TIME = 6,
 
@@ -5372,7 +5388,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     CREDENTIAL_LENGTH = 7
   }
@@ -5384,7 +5401,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum SetPropertyType {
     /**
@@ -5393,7 +5410,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INIT_ALGORITHM = 1
   }
@@ -5405,7 +5422,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum AuthType {
     /**
@@ -5414,7 +5431,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PIN = 1,
 
@@ -5424,7 +5441,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FACE = 2,
 
@@ -5434,7 +5451,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FINGERPRINT = 4,
 
@@ -5444,7 +5461,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RECOVERY_KEY = 8,
 
@@ -5454,7 +5471,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PRIVATE_PIN = 16,
 
@@ -5464,7 +5481,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DOMAIN = 1024
   }
@@ -5476,7 +5493,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum AuthSubType {
     /**
@@ -5485,7 +5502,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PIN_SIX = 10000,
 
@@ -5495,7 +5512,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PIN_NUMBER = 10001,
 
@@ -5505,7 +5522,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PIN_MIXED = 10002,
 
@@ -5515,7 +5532,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PIN_FOUR = 10003,
 
@@ -5525,7 +5542,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PIN_PATTERN = 10004,
 
@@ -5535,7 +5552,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PIN_QUESTION = 10005,
 
@@ -5545,7 +5562,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FACE_2D = 20000,
 
@@ -5555,7 +5572,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FACE_3D = 20001,
 
@@ -5565,7 +5582,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FINGERPRINT_CAPACITIVE = 30000,
 
@@ -5575,7 +5592,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FINGERPRINT_OPTICAL = 30001,
 
@@ -5585,7 +5602,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FINGERPRINT_ULTRASONIC = 30002,
 
@@ -5595,7 +5612,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DOMAIN_MIXED = 10240001
   }
@@ -5607,7 +5624,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum AuthTrustLevel {
     /**
@@ -5616,7 +5633,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ATL1 = 10000,
 
@@ -5626,7 +5643,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ATL2 = 20000,
 
@@ -5636,7 +5653,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ATL3 = 30000,
 
@@ -5646,7 +5663,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ATL4 = 40000
   }
@@ -5658,7 +5675,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum Module {
     /**
@@ -5667,7 +5684,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FACE_AUTH = 1
   }
@@ -5679,7 +5696,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum ResultCode {
     /**
@@ -5688,7 +5705,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SUCCESS = 0,
 
@@ -5698,7 +5715,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FAIL = 1,
 
@@ -5708,7 +5725,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     GENERAL_ERROR = 2,
 
@@ -5718,7 +5735,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CANCELED = 3,
 
@@ -5728,7 +5745,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TIMEOUT = 4,
 
@@ -5738,7 +5755,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_NOT_SUPPORT = 5,
 
@@ -5748,7 +5765,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TRUST_LEVEL_NOT_SUPPORT = 6,
 
@@ -5758,7 +5775,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     BUSY = 7,
 
@@ -5768,7 +5785,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INVALID_PARAMETERS = 8,
 
@@ -5778,7 +5795,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     LOCKED = 9,
 
@@ -5788,7 +5805,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOT_ENROLLED = 10
   }
@@ -5800,7 +5817,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum FaceTipsCode {
     /**
@@ -5809,7 +5826,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FACE_AUTH_TIP_TOO_BRIGHT = 1,
 
@@ -5819,7 +5836,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FACE_AUTH_TIP_TOO_DARK = 2,
 
@@ -5829,7 +5846,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FACE_AUTH_TIP_TOO_CLOSE = 3,
 
@@ -5839,7 +5856,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FACE_AUTH_TIP_TOO_FAR = 4,
 
@@ -5849,7 +5866,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FACE_AUTH_TIP_TOO_HIGH = 5,
 
@@ -5859,7 +5876,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FACE_AUTH_TIP_TOO_LOW = 6,
 
@@ -5869,7 +5886,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FACE_AUTH_TIP_TOO_RIGHT = 7,
 
@@ -5879,7 +5896,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FACE_AUTH_TIP_TOO_LEFT = 8,
 
@@ -5889,7 +5906,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FACE_AUTH_TIP_TOO_MUCH_MOTION = 9,
 
@@ -5899,7 +5916,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FACE_AUTH_TIP_POOR_GAZE = 10,
 
@@ -5909,7 +5926,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FACE_AUTH_TIP_NOT_DETECTED = 11
   }
@@ -5921,7 +5938,7 @@ declare namespace osAccount {
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum FingerprintTips {
     /**
@@ -5930,7 +5947,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FINGERPRINT_TIP_GOOD = 0,
 
@@ -5940,7 +5957,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FINGERPRINT_TIP_IMAGER_DIRTY = 1,
 
@@ -5950,7 +5967,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FINGERPRINT_TIP_INSUFFICIENT = 2,
 
@@ -5960,7 +5977,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FINGERPRINT_TIP_PARTIAL = 3,
 
@@ -5970,7 +5987,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FINGERPRINT_TIP_TOO_FAST = 4,
 
@@ -5980,7 +5997,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FINGERPRINT_TIP_TOO_SLOW = 5,
 
@@ -5990,7 +6007,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FINGERPRINT_TIP_FINGER_DOWN = 6,
 
@@ -6000,7 +6017,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FINGERPRINT_TIP_FINGER_UP = 7
   }

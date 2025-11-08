@@ -28,7 +28,7 @@ import ExtensionContext from './ExtensionContext';
  * @syscap SystemCapability.Driver.ExternalDevice
  * @StageModelOnly
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class DriverExtensionContext extends ExtensionContext {
   /**
@@ -36,7 +36,7 @@ declare class DriverExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   updateDriverState(): void;
 }
@@ -47,6 +47,6 @@ declare class DriverExtensionContext extends ExtensionContext {
  * @syscap SystemCapability.Driver.ExternalDevice
  * @stagemodelonly
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export default DriverExtensionContext;

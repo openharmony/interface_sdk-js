@@ -27,7 +27,7 @@ import { Callback } from './@ohos.base';
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace bundleMonitor {
   /**
@@ -37,7 +37,7 @@ declare namespace bundleMonitor {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface BundleChangedInfo {
     /**
@@ -48,7 +48,7 @@ declare namespace bundleMonitor {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readonly bundleName: string;
     /**
@@ -59,7 +59,7 @@ declare namespace bundleMonitor {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readonly userId: int;
     /**
@@ -70,7 +70,7 @@ declare namespace bundleMonitor {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readonly appIndex: int;
   }
@@ -82,7 +82,7 @@ declare namespace bundleMonitor {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type BundleChangedEvent = 'add' | 'update' | 'remove';
 
@@ -98,7 +98,7 @@ declare namespace bundleMonitor {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: BundleChangedEvent, callback: Callback<BundleChangedInfo>): void;
 
@@ -114,7 +114,7 @@ declare namespace bundleMonitor {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: BundleChangedEvent, callback?: Callback<BundleChangedInfo>): void;
 }

@@ -88,7 +88,7 @@ export enum DataType {
  * @systemapi
  * @StageModelOnly
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export default interface DataShareResultSet {
   /**
@@ -124,7 +124,7 @@ export default interface DataShareResultSet {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   rowCount: number;
 
@@ -149,7 +149,7 @@ export default interface DataShareResultSet {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   goToFirstRow(): boolean;
 
@@ -240,7 +240,7 @@ export default interface DataShareResultSet {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getString(columnIndex: number): string;
 
@@ -280,7 +280,7 @@ export default interface DataShareResultSet {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   close(): void;
 
@@ -294,7 +294,7 @@ export default interface DataShareResultSet {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getColumnIndex(columnName: string): number;
 

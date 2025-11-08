@@ -27,7 +27,7 @@ import { NotificationSorting } from './notificationSorting';
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 7 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationSortingMap {
   /**
@@ -38,7 +38,7 @@ export interface NotificationSortingMap {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly sortings: Record<string, NotificationSorting>;
 
@@ -50,7 +50,7 @@ export interface NotificationSortingMap {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly sortedHashCode: Array<string>;
 }

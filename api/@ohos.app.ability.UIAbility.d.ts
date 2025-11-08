@@ -34,7 +34,7 @@ import rpc from './@ohos.rpc';
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type OnReleaseCallback = (msg: string) => void;
 
@@ -47,7 +47,7 @@ export type OnReleaseCallback = (msg: string) => void;
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type OnRemoteStateChangeCallback = (msg: string) => void;
 
@@ -61,7 +61,7 @@ export type OnRemoteStateChangeCallback = (msg: string) => void;
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type CalleeCallback = (indata: rpc.MessageSequence) => rpc.Parcelable;
 
@@ -72,7 +72,7 @@ export type CalleeCallback = (indata: rpc.MessageSequence) => rpc.Parcelable;
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface Caller {
   /**
@@ -90,7 +90,7 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   call(method: string, data: rpc.Parcelable): Promise<void>;
 
@@ -110,7 +110,7 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   callWithResult(method: string, data: rpc.Parcelable): Promise<rpc.MessageSequence>;
 
@@ -122,7 +122,7 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   release(): void;
 
@@ -137,7 +137,7 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onRelease(callback: OnReleaseCallback): void;
 
@@ -152,7 +152,7 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onRemoteStateChange(callback: OnRemoteStateChangeCallback): void;
 
@@ -168,7 +168,7 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   on(type: 'release', callback: OnReleaseCallback): void;
 
@@ -183,7 +183,7 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   off(type: 'release', callback: OnReleaseCallback): void;
 
@@ -197,7 +197,7 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   off(type: 'release'): void;
 }
@@ -209,7 +209,7 @@ export interface Caller {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface Callee {
   /**
@@ -225,7 +225,7 @@ export interface Callee {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   on(method: string, callback: CalleeCallback): void;
 
@@ -240,7 +240,7 @@ export interface Callee {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   off(method: string): void;
 }
@@ -277,7 +277,7 @@ export interface Callee {
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class UIAbility extends Ability {
   /**
@@ -306,7 +306,7 @@ declare class UIAbility extends Ability {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   context: UIAbilityContext;
 
@@ -326,7 +326,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   launchWant: Want;
 
@@ -346,7 +346,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   lastRequestWant: Want;
 
@@ -357,7 +357,7 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   callee: Callee;
 
@@ -393,7 +393,7 @@ declare class UIAbility extends Ability {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void;
 
@@ -423,7 +423,7 @@ declare class UIAbility extends Ability {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onWindowStageCreate(windowStage: window.WindowStage): void;
 
@@ -435,7 +435,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onWindowStageWillDestroy(windowStage: window.WindowStage): void;
 
@@ -462,7 +462,7 @@ declare class UIAbility extends Ability {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onWindowStageDestroy(): void;
 
@@ -482,7 +482,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onWindowStageRestore(windowStage: window.WindowStage): void;
 
@@ -533,7 +533,7 @@ declare class UIAbility extends Ability {
    * @returns { Promise<void> | undefined } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 20 static
+   * @since 22 static
    */
   onDestroy(): Promise<void> | undefined;
 
@@ -567,7 +567,7 @@ declare class UIAbility extends Ability {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onForeground(): void;
 
@@ -585,7 +585,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   onWillForeground(): void;
 
@@ -603,7 +604,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   onDidForeground(): void;
 
@@ -632,7 +634,7 @@ declare class UIAbility extends Ability {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onBackground(): void;
 
@@ -649,7 +651,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   onWillBackground(): void;
 
@@ -666,7 +669,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   onDidBackground(): void;
 
@@ -746,7 +750,7 @@ declare class UIAbility extends Ability {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void;
 
@@ -770,7 +774,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onDump(params: Array<string>): Array<string>;
 
@@ -801,7 +805,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onSaveState(reason: AbilityConstant.StateType, wantParam: Record<string, Object>): AbilityConstant.OnSaveResult;
 
@@ -924,7 +928,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onBackPressed(): boolean;
 

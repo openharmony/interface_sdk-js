@@ -87,7 +87,7 @@ import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace common {
   /**
@@ -125,7 +125,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   export type UIAbilityContext = _UIAbilityContext;
 
@@ -164,7 +164,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   export type AbilityStageContext = _AbilityStageContext;
 
@@ -203,7 +203,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   export type ApplicationContext = _ApplicationContext;
 
@@ -241,7 +241,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
-   * @since 20 static
+   * @since 22 static
    */
   export type BaseContext = _BaseContext;
 
@@ -284,7 +284,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   export type Context = _Context;
 
@@ -313,7 +313,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   export type ExtensionContext = _ExtensionContext;
 
@@ -345,7 +345,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   export type FormExtensionContext = _FormExtensionContext;
 
@@ -370,7 +370,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20 static
+   * @since 22 static
    */
   export type ServiceExtensionContext = _ServiceExtensionContext;
 
@@ -433,7 +433,7 @@ declare namespace common {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type AbilityResult = _AbilityResult;
 
@@ -444,7 +444,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type ConnectOptions = _ConnectOptions;
 
@@ -466,7 +466,7 @@ declare namespace common {
    * @typedef { _UIExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 static
+   * @since 22 static
    */
   export type UIExtensionContext = _UIExtensionContext;
 
@@ -490,7 +490,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20 static
+   * @since 22 static
    */
   export type AutoFillExtensionContext = _AutoFillExtensionContext;
 
@@ -502,7 +502,7 @@ declare namespace common {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export type AbilityStartCallback = _AbilityStartCallback;
 
@@ -579,7 +579,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20 static
+   * @since 22 static
    */
   export type UIServiceExtensionContext = _UIServiceExtensionContext;
 
@@ -601,7 +601,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   export type UIServiceProxy = _UIServiceProxy;
 
@@ -623,7 +623,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20 static
+   * @since 22 static
    */
   export type UIServiceHostProxy = _UIServiceHostProxy;
 
@@ -645,7 +645,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   export type UIServiceExtensionConnectCallback = _UIServiceExtensionConnectCallback;
 
@@ -667,7 +667,7 @@ declare namespace common {
    * @typedef { _AppServiceExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 static
+   * @since 22 static
    */
   export type AppServiceExtensionContext = _AppServiceExtensionContext;
 }

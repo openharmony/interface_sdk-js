@@ -25,7 +25,7 @@ import { Callback } from './@ohos.base';
  *
  * @namespace mediaquery
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */ 
 declare namespace mediaquery {
 
@@ -34,7 +34,7 @@ declare namespace mediaquery {
    *
    * @interface MediaQueryResult
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   export interface MediaQueryResult {
 
@@ -44,7 +44,7 @@ declare namespace mediaquery {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     readonly matches: boolean;
 
@@ -54,7 +54,7 @@ declare namespace mediaquery {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     readonly media: string;
   }
@@ -65,7 +65,7 @@ declare namespace mediaquery {
    * @interface MediaQueryListener
    * @extends MediaQueryResult
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   export interface MediaQueryListener extends MediaQueryResult {
 
@@ -76,7 +76,7 @@ declare namespace mediaquery {
      * @param { 'change' } type
      * @param { Callback<MediaQueryResult> } callback
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'change', callback: Callback<MediaQueryResult>): void;
 
@@ -87,7 +87,7 @@ declare namespace mediaquery {
      * @param { 'change' } type
      * @param { Callback<MediaQueryResult> } callback
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'change', callback?: Callback<MediaQueryResult>): void;
   }
@@ -98,7 +98,7 @@ declare namespace mediaquery {
    * @param { string } condition
    * @returns { MediaQueryListener }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   export function matchMediaSync(condition: string): MediaQueryListener;
 }

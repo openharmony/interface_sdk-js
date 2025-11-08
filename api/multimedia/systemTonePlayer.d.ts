@@ -26,7 +26,7 @@ import { ErrorCallback, Callback } from '../@ohos.base';
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export declare interface SystemTonePlayer {
   /**
@@ -37,7 +37,7 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getTitle(): Promise<string>;
 
@@ -53,7 +53,7 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   setAudioVolumeScale(scale: double): void;
 
@@ -64,7 +64,7 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getAudioVolumeScale(): double;
 
@@ -76,7 +76,7 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getSupportedHapticsFeatures(): Promise<Array<systemSoundManager.ToneHapticsFeature>>;
 
@@ -92,7 +92,7 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   setHapticsFeature(hapticsFeature: systemSoundManager.ToneHapticsFeature): void;
 
@@ -104,7 +104,7 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getHapticsFeature(): systemSoundManager.ToneHapticsFeature;
 
@@ -117,7 +117,7 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   prepare(): Promise<void>;
 
@@ -136,7 +136,7 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   start(toneOptions?: SystemToneOptions): Promise<int>;
 
@@ -152,7 +152,7 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   stop(id: int): Promise<void>;
 
@@ -163,7 +163,7 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   release(): Promise<void>;
 
@@ -270,7 +270,7 @@ export declare interface SystemTonePlayer {
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface SystemToneOptions {
   /**
@@ -279,7 +279,7 @@ export interface SystemToneOptions {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   muteAudio?: boolean;
 
@@ -289,7 +289,7 @@ export interface SystemToneOptions {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   muteHaptics?: boolean;
 }

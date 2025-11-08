@@ -49,7 +49,7 @@ import type appManager from './@ohos.app.ability.appManager';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace AbilityConstant {
   /**
@@ -90,7 +90,7 @@ declare namespace AbilityConstant {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface LaunchParam {
     /**
@@ -119,7 +119,7 @@ declare namespace AbilityConstant {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     launchReason: LaunchReason;
 
@@ -131,7 +131,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     launchReasonMessage?: string;
 
@@ -161,7 +161,7 @@ declare namespace AbilityConstant {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     lastExitReason: LastExitReason;
 
@@ -173,7 +173,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     lastExitMessage: string;
 
@@ -185,7 +185,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     lastExitDetailInfo?: LastExitDetailInfo;
   }
@@ -198,7 +198,7 @@ declare namespace AbilityConstant {
    * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface LastExitDetailInfo {
     /**
@@ -209,7 +209,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pid: int;
 
@@ -221,7 +221,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     processName: string;
 
@@ -233,7 +233,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uid: int;
 
@@ -245,7 +245,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     exitSubReason: int;
 
@@ -257,7 +257,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     exitMsg: string;
 
@@ -269,7 +269,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rss: int;
 
@@ -281,7 +281,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pss: int;
 
@@ -293,7 +293,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     timestamp: long;
 
@@ -337,7 +337,7 @@ declare namespace AbilityConstant {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum LaunchReason {
     /**
@@ -361,7 +361,7 @@ declare namespace AbilityConstant {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UNKNOWN = 0,
 
@@ -379,7 +379,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     START_ABILITY = 1,
 
@@ -397,7 +397,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL = 2,
 
@@ -415,7 +415,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CONTINUATION = 3,
 
@@ -433,7 +433,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     APP_RECOVERY = 4,
 
@@ -451,7 +451,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SHARE = 5,
 
@@ -461,7 +461,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUTO_STARTUP = 8,
 
@@ -472,7 +472,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INSIGHT_INTENT = 9,
 
@@ -483,7 +483,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PREPARE_CONTINUATION = 10,
 
@@ -493,7 +493,8 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     PRELOAD = 11,
   }
@@ -526,7 +527,7 @@ declare namespace AbilityConstant {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum LastExitReason {
     /**
@@ -554,7 +555,7 @@ declare namespace AbilityConstant {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UNKNOWN = 0,
 
@@ -583,7 +584,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NORMAL = 2,
 
@@ -601,7 +602,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CPP_CRASH = 3,
 
@@ -620,7 +621,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     JS_ERROR = 4,
 
@@ -638,7 +639,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     APP_FREEZE = 5,
 
@@ -656,7 +657,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PERFORMANCE_CONTROL = 6,
 
@@ -681,7 +682,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESOURCE_CONTROL = 7,
 
@@ -699,7 +700,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UPGRADE = 8,
 
@@ -711,7 +712,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USER_REQUEST = 9,
 
@@ -722,7 +723,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SIGNAL = 10
   }
@@ -745,7 +746,7 @@ declare namespace AbilityConstant {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum OnContinueResult {
     /**
@@ -762,7 +763,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AGREE = 0,
 
@@ -782,7 +783,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     REJECT = 1,
 
@@ -802,7 +803,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MISMATCH = 2
   }
@@ -824,7 +825,7 @@ declare namespace AbilityConstant {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum MemoryLevel {
     /**
@@ -841,7 +842,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MEMORY_LEVEL_MODERATE = 0,
 
@@ -859,7 +860,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MEMORY_LEVEL_LOW = 1,
 
@@ -877,7 +878,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MEMORY_LEVEL_CRITICAL = 2
   }
@@ -890,7 +891,7 @@ declare namespace AbilityConstant {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum WindowMode {
     /**
@@ -900,7 +901,7 @@ declare namespace AbilityConstant {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WINDOW_MODE_UNDEFINED = 0,
 
@@ -910,7 +911,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WINDOW_MODE_FULLSCREEN = 1,
 
@@ -922,7 +923,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WINDOW_MODE_SPLIT_PRIMARY = 100,
 
@@ -934,7 +935,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WINDOW_MODE_SPLIT_SECONDARY = 101,
 
@@ -945,7 +946,7 @@ declare namespace AbilityConstant {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WINDOW_MODE_FLOATING = 102
   }
@@ -967,7 +968,7 @@ declare namespace AbilityConstant {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum OnSaveResult {
     /**
@@ -984,7 +985,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ALL_AGREE = 0,
 
@@ -1002,7 +1003,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CONTINUATION_REJECT = 1,
 
@@ -1020,7 +1021,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CONTINUATION_MISMATCH = 2,
 
@@ -1038,7 +1039,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RECOVERY_AGREE = 3,
 
@@ -1056,7 +1057,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RECOVERY_REJECT = 4,
 
@@ -1074,7 +1075,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ALL_REJECT
   }
@@ -1096,7 +1097,7 @@ declare namespace AbilityConstant {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum StateType {
     /**
@@ -1113,7 +1114,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CONTINUATION = 0,
 
@@ -1131,7 +1132,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     APP_RECOVERY = 1
   }
@@ -1153,7 +1154,7 @@ declare namespace AbilityConstant {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum ContinueState {
     /**
@@ -1170,7 +1171,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACTIVE = 0,
 
@@ -1188,7 +1189,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INACTIVE = 1
   }
@@ -1203,7 +1204,7 @@ declare namespace AbilityConstant {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum CollaborateResult {
     /**
@@ -1212,7 +1213,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACCEPT = 0,
 
@@ -1222,7 +1223,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     REJECT = 1,
   }
@@ -1236,7 +1237,7 @@ declare namespace AbilityConstant {
    * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum PrepareTermination {
     /**
@@ -1246,7 +1247,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TERMINATE_IMMEDIATELY = 0,
 
@@ -1257,7 +1258,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CANCEL = 1
   }

@@ -25,7 +25,7 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  *
  * @interface PolygonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface PolygonOptions {
     /**
@@ -33,7 +33,7 @@ export declare interface PolygonOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     width?: string | double;
     /**
@@ -41,7 +41,7 @@ export declare interface PolygonOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     height?: string | double;
 }
@@ -52,7 +52,7 @@ export declare interface PolygonOptions {
  * @extends CommonShapeMethod
  * @interface PolygonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface PolygonAttribute extends CommonShapeMethod {
     /**
@@ -61,7 +61,7 @@ export declare interface PolygonAttribute extends CommonShapeMethod {
      * @param { Array<ShapePoint> | undefined } value
      * @returns { PolygonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default points(value: Array<ShapePoint> | undefined): this;
     /**
@@ -70,7 +70,7 @@ export declare interface PolygonAttribute extends CommonShapeMethod {
      * @param { AttributeModifier<PolygonAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { PolygonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<PolygonAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -82,7 +82,7 @@ export declare interface PolygonAttribute extends CommonShapeMethod {
  * @param { function } [content_]
  * @returns { PolygonAttribute } The attribute of the Polygon.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @memo
 @ComponentBuilder

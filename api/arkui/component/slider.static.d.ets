@@ -29,28 +29,28 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare enum SliderStyle {
     /**
      * The thumb is on the track.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     OutSet,
     /**
      * The thumb is in the track.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     InSet,
     /**
      * There is no thumb.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     NONE
 }
@@ -59,21 +59,21 @@ export declare enum SliderStyle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare enum SliderChangeMode {
     /**
      * The user touches or clicks the thumb.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     Begin,
     /**
      * The user is dragging the slider.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     Moving,
     /**
@@ -84,14 +84,14 @@ export declare enum SliderChangeMode {
      * </p>
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     End,
     /**
      * The user moves the thumb by touching or clicking the track.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     Click
 }
@@ -100,7 +100,7 @@ export declare enum SliderChangeMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare enum SliderInteraction {
     /**
@@ -108,14 +108,14 @@ export declare enum SliderInteraction {
      * finger is pressed.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     SLIDE_AND_CLICK,
     /**
      * Users are not allowed to move the slider by touching the slider.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     SLIDE_ONLY,
     /**
@@ -123,7 +123,7 @@ export declare enum SliderInteraction {
      * finger is lifted, if the release/lift position coincides with the screen press position.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     SLIDE_AND_CLICK_UP = 2
 }
@@ -142,7 +142,7 @@ export declare enum SliderInteraction {
  *
  * @interface SlideRange
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface SlideRange {
     /**
@@ -150,7 +150,7 @@ export declare interface SlideRange {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     from?: number;
     /**
@@ -158,7 +158,7 @@ export declare interface SlideRange {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     to?: number;
 }
@@ -167,7 +167,7 @@ export declare interface SlideRange {
  *
  * @interface SliderOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface SliderOptions {
     /**
@@ -175,7 +175,7 @@ export declare interface SliderOptions {
      *
      * @type { ?(number| undefined | Bindable<number>) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     value?: number | undefined | Bindable<number>;
     /**
@@ -184,7 +184,7 @@ export declare interface SliderOptions {
      * @type { ?number }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     min?: number;
     /**
@@ -198,7 +198,7 @@ export declare interface SliderOptions {
      * @type { ?number }
      * @default 100
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     max?: number;
     /**
@@ -210,7 +210,7 @@ export declare interface SliderOptions {
      * @type { ?number }
      * @default 1 - Value range: [0.01, max - min]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     step?: number;
     /**
@@ -219,7 +219,7 @@ export declare interface SliderOptions {
      * @type { ?SliderStyle }
      * @default SliderStyle.OutSet
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     style?: SliderStyle;
     /**
@@ -228,7 +228,7 @@ export declare interface SliderOptions {
      * @type { ?Axis }
      * @default Axis.Horizontal
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     direction?: Axis;
     /**
@@ -238,7 +238,7 @@ export declare interface SliderOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     reverse?: boolean;
 }
@@ -247,28 +247,28 @@ export declare interface SliderOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare enum SliderBlockType {
     /**
      * Round slider.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     DEFAULT,
     /**
      * Slider with an image background.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     IMAGE,
     /**
      * Slider in a custom shape.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     SHAPE
 }
@@ -277,7 +277,7 @@ export declare enum SliderBlockType {
  *
  * @interface SliderBlockStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface SliderBlockStyle {
     /**
@@ -286,7 +286,7 @@ export declare interface SliderBlockStyle {
      * @type { SliderBlockType }
      * @default SliderBlockType.DEFAULT - indicating the round slider.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     type: SliderBlockType;
     /**
@@ -295,7 +295,7 @@ export declare interface SliderBlockStyle {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     image?: ResourceStr;
     /**
@@ -303,7 +303,7 @@ export declare interface SliderBlockStyle {
      *
      * @type { ?(CircleShape | EllipseShape | PathShape | RectShape) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     shape?: CircleShape | EllipseShape | PathShape | RectShape;
 }
@@ -314,7 +314,7 @@ export declare interface SliderBlockStyle {
  * @param { number } value - Current progress.
  * @param { SliderChangeMode } mode - State triggered by the event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export type SliderTriggerChangeCallback = (value: number, mode: SliderChangeMode) => void;
 /**
@@ -323,7 +323,7 @@ export type SliderTriggerChangeCallback = (value: number, mode: SliderChangeMode
  * @extends CommonConfiguration<SliderConfiguration>
  * @interface SliderConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface SliderConfiguration extends CommonConfiguration<SliderConfiguration> {
     /**
@@ -331,7 +331,7 @@ export declare interface SliderConfiguration extends CommonConfiguration<SliderC
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     value: number;
     /**
@@ -339,7 +339,7 @@ export declare interface SliderConfiguration extends CommonConfiguration<SliderC
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     min: number;
     /**
@@ -347,7 +347,7 @@ export declare interface SliderConfiguration extends CommonConfiguration<SliderC
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     max: number;
     /**
@@ -355,7 +355,7 @@ export declare interface SliderConfiguration extends CommonConfiguration<SliderC
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     step: number;
     /**
@@ -363,7 +363,7 @@ export declare interface SliderConfiguration extends CommonConfiguration<SliderC
      *
      * @type { SliderTriggerChangeCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     triggerChange: SliderTriggerChangeCallback;
 }
@@ -374,7 +374,7 @@ export declare interface SliderConfiguration extends CommonConfiguration<SliderC
  * @extends CommonMethod
  * @interface SliderAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface SliderAttribute extends CommonMethod {
     /**
@@ -383,7 +383,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default blockColor(value: ResourceColor | undefined): this;
     /**
@@ -392,7 +392,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @param { ResourceColor | LinearGradient | undefined } value
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default trackColor(value: ResourceColor | LinearGradient | undefined): this;
     /**
@@ -401,7 +401,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @param { ResourceColor | LinearGradient | undefined } selectedColor
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default selectedColor(selectedColor: ResourceColor | LinearGradient | undefined): this;
     /**
@@ -410,7 +410,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default showSteps(value: boolean | undefined): this;
     /**
@@ -421,7 +421,7 @@ export declare interface SliderAttribute extends CommonMethod {
      *     the current percentage is displayed by default.
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default showTips(value: boolean | undefined, content?: ResourceStr | undefined): this;
     /**
@@ -430,7 +430,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @param { Length | undefined } value
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default trackThickness(value: Length | undefined): this;
     /**
@@ -444,7 +444,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @param { ((value: number, mode: SliderChangeMode) => void) | undefined } callback
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onChange(callback: ((value: number, mode: SliderChangeMode) => void) | undefined): this;
     /**
@@ -453,7 +453,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value - the border color of block.
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default blockBorderColor(value: ResourceColor | undefined): this;
     /**
@@ -462,7 +462,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @param { Length | undefined } value - the border width of block.
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default blockBorderWidth(value: Length | undefined): this;
     /**
@@ -471,7 +471,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value - the color of step.
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default stepColor(value: ResourceColor | undefined): this;
     /**
@@ -480,7 +480,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @param { Length | undefined } value - the radius of track border.
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default trackBorderRadius(value: Length | undefined): this;
     /**
@@ -489,7 +489,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @param { Dimension | undefined } value - the radius of selected part.
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default selectedBorderRadius(value: Dimension | undefined): this;
     /**
@@ -498,7 +498,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @param { SizeOptions | undefined } value - the size of block.
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default blockSize(value: SizeOptions | undefined): this;
     /**
@@ -508,7 +508,7 @@ export declare interface SliderAttribute extends CommonMethod {
      *     <br>Default value is SliderBlockType.DEFAULT, indicating the round slider.
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default blockStyle(value: SliderBlockStyle | undefined): this;
     /**
@@ -517,7 +517,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @param { Length | undefined } value - the diameter of step.
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default stepSize(value: Length | undefined): this;
     /**
@@ -527,7 +527,7 @@ export declare interface SliderAttribute extends CommonMethod {
      *     <br>Default value is SliderInteraction.SLIDE_AND_CLICK.
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default sliderInteractionMode(value: SliderInteraction | undefined): this;
     /**
@@ -536,7 +536,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @param { number | undefined } value
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default minResponsiveDistance(value: number | undefined): this;
     /**
@@ -546,7 +546,7 @@ export declare interface SliderAttribute extends CommonMethod {
      *     modifier: content modifier. You need a custom class to implement the ContentModifier API.
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default contentModifier(modifier: ContentModifier<SliderConfiguration> | undefined): this;
     /**
@@ -555,7 +555,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @param { SlideRange | undefined } value
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default slideRange(value: SlideRange | undefined): this;
     /**
@@ -565,7 +565,7 @@ export declare interface SliderAttribute extends CommonMethod {
      *     { MEDIUM }.
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
     /**
@@ -574,7 +574,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @param { boolean | undefined } enabled - Default value is true, set false to disable haptic feedback.
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default enableHapticFeedback(enabled: boolean | undefined): this;
     /**
@@ -583,7 +583,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @param { AttributeModifier<SliderAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<SliderAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -595,7 +595,7 @@ export declare interface SliderAttribute extends CommonMethod {
  * @param { function } [content_] - container
  * @returns { SliderAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @memo
 @ComponentBuilder
