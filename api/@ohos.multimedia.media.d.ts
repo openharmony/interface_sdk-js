@@ -611,26 +611,11 @@ declare namespace media {
    *
    * A maximum of 2 **AVTranscoder** instances can be created.
    *
-   * @returns { Promise<AVTranscoder | undefined> } Promise used to return the result. If the operation is successful, an
-   * **AVTranscoder** instance is returned; otherwise, **null** is returned. The instance can be used for video
-   * transcoding.
-   * @throws { BusinessError } 5400101 - No memory. Return by promise.
-   * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-   * @since 20 static
-   */
-  /**
-   * Creates an **AVTranscoder** instance. This API uses a promise to return the result.
-   *
-   * **NOTE**
-   *
-   * A maximum of 2 **AVTranscoder** instances can be created.
-   *
    * @returns {Promise<AVTranscoder | undefined>} Promise used to return the result. If the operation is successful, an
    * **AVTranscoder** instance is returned; otherwise, **null** is returned. The instance can be used for video
    * transcoding.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-   * @atomicservice
    * @since 22 static
    */
   function createAVTranscoder(): Promise<AVTranscoder | undefined>;
@@ -9091,7 +9076,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * A video container format type mp4.
@@ -10585,7 +10569,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * H.264 codec MIME type.
@@ -10689,7 +10672,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * H.265 codec MIME type.
@@ -11276,7 +11258,6 @@ declare namespace media {
    * @typedef AVTranscoderConfig
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
    * @since 12 dynamic
-   * @since 20 static
    */
   /**
    * Describes the video transcoding parameters.
@@ -11292,7 +11273,6 @@ declare namespace media {
      * @type {  ?int  }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Bitrate of the output audio, in bit/s. The value range is [1-500000]. The default value is 48 kbit/s.
@@ -11308,7 +11288,6 @@ declare namespace media {
      * @type { ?CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Encoding format of the output audio. Currently, only AAC is supported. The default value is **AAC**.
@@ -11324,7 +11303,6 @@ declare namespace media {
      * @type { ContainerFormatType }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Container format of the output video file. Currently, only MP4 is supported.
@@ -11342,7 +11320,6 @@ declare namespace media {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Bitrate of the output video, in bit/s. The default bitrate depends on the resolution of the output video.
@@ -11361,7 +11338,6 @@ declare namespace media {
      * @type { ?CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Encoding format of the output video. Currently, only AVC and HEVC are supported.
@@ -11379,7 +11355,6 @@ declare namespace media {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Width of the output video frame, in px. The value range is [240 - 3840].
@@ -11397,7 +11372,6 @@ declare namespace media {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Height of the output video frame, in px. The value range is [240 - 2160].
@@ -11417,7 +11391,6 @@ declare namespace media {
    * @typedef AVTranscoder
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
    * @since 12 dynamic
-   * @since 20 static
    */
   /**
    * A transcoding management class that provides APIs to transcode videos. Before calling any API in **AVTranscoder**,
@@ -11446,7 +11419,6 @@ declare namespace media {
      * @type { AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Source media file descriptor, which specifies the data source.
@@ -11482,7 +11454,6 @@ declare namespace media {
      * @type { int }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Destination media file descriptor, which specifies the data source. After creating an **AVTranscoder** instance,
@@ -11512,7 +11483,6 @@ declare namespace media {
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Sets video transcoding parameters. This API uses a promise to return the result.
@@ -11539,7 +11509,6 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Starts transcoding. This API uses a promise to return the result.
@@ -11566,7 +11535,6 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Pauses transcoding. This API uses a promise to return the result.
@@ -11593,7 +11561,6 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Resumes transcoding. This API uses a promise to return the result.
@@ -11619,7 +11586,6 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Cancels transcoding. This API uses a promise to return the result.
@@ -11644,7 +11610,6 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12 dynamic
-     * @since 20 static
      */
     /**
      * Releases the video transcoding resources. This API uses a promise to return the result.
