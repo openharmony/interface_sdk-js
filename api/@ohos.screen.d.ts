@@ -628,6 +628,16 @@ declare namespace screen {
      * @since 9 dynamic
      */
     surfaceId: string;
+
+    /**
+     * Indicates whether the virtual screen supports focus.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 22 dynamic&static
+     */
+    supportsFocus?: boolean;
   }
 
   /**
