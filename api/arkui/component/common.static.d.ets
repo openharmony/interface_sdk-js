@@ -3984,6 +3984,14 @@ export declare interface BaseEvent {
      * @since 22 static
      */
     targetDisplayId?: number;
+    /**
+     * Indicates the Pinch axis coordinate.
+     *
+     * @type { ?double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    axisPinch?: double;
 }
 /**
  * Border image option
@@ -4764,6 +4772,14 @@ export declare interface AxisEvent extends BaseEvent {
      * @since 22 static
      */
     getVerticalAxisValue(): number;
+    /**
+     * Obtains the value of the pinch axis for this axis event.
+     *
+     * @returns { double }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    getPinchAxisScaleValue(): double;
     /**
      * Checks whether this event contains a specified axis type.
      *
