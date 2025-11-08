@@ -128,9 +128,9 @@ declare namespace fileIo {
  *
  * @param { string } path - Application sandbox path of the file to check.
  * @param { AccessModeType } [mode = fs.AccessModeType.EXIST] - Permission on the file to verify.
- * <br>If this parameter is left blank, the system checks whether the file exists.
+ *     <br>If this parameter is left blank, the system checks whether the file exists.
  * @returns { Promise<boolean> } Promise used to return a Boolean value.
- * <br>Returns true if the file exists; returns false otherwise.
+ *     <br>Returns true if the file exists; returns false otherwise.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -153,7 +153,7 @@ function access(path: string, mode?: AccessModeType): Promise<boolean>;
  *
  * @param { string } path - Application sandbox path of the file to check.
  * @param { AsyncCallback<boolean> } callback - Callback invoked to return the result.
- * <br>The value true means the file exists; the value false means the opposite.
+ *     <br>The value true means the file exists; the value false means the opposite.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -180,10 +180,10 @@ function access(path: string, callback: AsyncCallback<boolean>): void;
  * @param { AccessModeType } mode - Permission on the file to verify.
  * @param { AccessFlagType } flag - Location of the file to verify.
  * @returns { Promise<boolean> } Promise used to return a Boolean value.
- * <br>The value true means the file is a local file and has the related permission.
- * <br>The value false means the file does not exist or is on the cloud or a distributed device.
+ *     <br>The value true means the file is a local file and has the related permission.
+ *     <br>The value false means the file does not exist or is on the cloud or a distributed device.
  * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
- * <br>2.Incorrect parameter types.
+ *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900011 - Out of memory
  * @throws { BusinessError } 13900012 - Permission denied
@@ -206,7 +206,7 @@ function access(path: string, mode: AccessModeType, flag: AccessFlagType): Promi
  *
  * @param { string } path - Application sandbox path of the file to check.
  * @param { AccessModeType } [mode = fs.AccessModeType.EXIST] - Permission on the file to verify.
- * <br>If this parameter is left blank, the system checks whether the file exists.
+ *     <br>If this parameter is left blank, the system checks whether the file exists.
  * @returns { boolean } Returns true if the file exists; returns false otherwise.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -226,7 +226,8 @@ function access(path: string, mode: AccessModeType, flag: AccessFlagType): Promi
 function accessSync(path: string, mode?: AccessModeType): boolean;
 
 /**
- * Checks whether a file or directory is stored locally or has the operation permission. This API returns the result synchronously.
+ * Checks whether a file or directory is stored locally or has the operation permission.
+ * This API returns the result synchronously.
  * If the read, write, or read and write permission verification fails,
  * the error code 13900012 (Permission denied) will be thrown.
  *
@@ -234,9 +235,9 @@ function accessSync(path: string, mode?: AccessModeType): boolean;
  * @param { AccessModeType } mode - Permission on the file to verify.
  * @param { AccessFlagType } flag - Location of the file to verify.
  * @returns { boolean } Returns true if the file is a local file and has the related permission;
- * <br>returns false if the file does not exist or is on the cloud or a distributed device.
+ *     <br>returns false if the file does not exist or is on the cloud or a distributed device.
  * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
- * <br>2.Incorrect parameter types.
+ *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900011 - Out of memory
  * @throws { BusinessError } 13900012 - Permission denied
@@ -255,7 +256,7 @@ function accessSync(path: string, mode: AccessModeType, flag: AccessFlagType): b
  * Closes a file or directory. This API uses a promise to return the result.
  *
  * @param { int | File } file - File object or FD of the file to close.
- * <br>Once closed, the File object or FD cannot be used for read or write operations.
+ *     <br>Once closed, the File object or FD cannot be used for read or write operations.
  * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -272,7 +273,7 @@ function close(file: int | File): Promise<void>;
  * Closes a file or directory. This API uses an asynchronous callback to return the result.
  *
  * @param { int | File } file - File object or FD of the file to close.
- * <br>Once closed, the File object or FD cannot be used for read or write operations.
+ *     <br>Once closed, the File object or FD cannot be used for read or write operations.
  * @param { AsyncCallback<void> } callback - Callback invoked immediately after the file is closed.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -289,7 +290,7 @@ function close(file: int | File, callback: AsyncCallback<void>): void;
  * Closes a file or directory. This API returns the result synchronously.
  *
  * @param { int | File } file - File object or FD of the file to close.
- * <br>Once closed, the File object or FD cannot be used for read or write operations.
+ *     <br>Once closed, the File object or FD cannot be used for read or write operations.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -304,16 +305,16 @@ function closeSync(file: int | File): void;
 /**
  * Copies a file or directory. This API uses a promise to return the result.
  * File copy across devices is supported. This API forcibly overwrites the file or directory.
- * The input parameter can be the URI of the file or directory. A maximum of 10 cross-device copy tasks are allowed at the same time,
- * and the number of files to be copied at a time cannot exceed 500.
+ * The input parameter can be the URI of the file or directory. A maximum of 10 cross-device copy tasks
+ * are allowed at the same time, and the number of files to be copied at a time cannot exceed 500.
  *
  * @param { string } srcUri - URI of the file or directory to copy.
  * @param { string } destUri - URI of the destination file or directory.
  * @param { CopyOptions } [options] - Callback invoked to provide the copy progress.
- * <br>If this parameter is not set, the callback will not be invoked.
+ *     <br>If this parameter is not set, the callback will not be invoked.
  * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
- * <br>2.Incorrect parameter types.
+ *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -346,15 +347,15 @@ function copy(srcUri: string, destUri: string, options?: CopyOptions): Promise<v
 
 /**
  * Copies a file or directory. This API uses an asynchronous callback to return the result.
- * File copy across devices is supported. This API forcibly overwrites the file or directory. The file or directory URI is supported.
- * A maximum of 10 cross-device copy tasks are allowed at the same time,
+ * File copy across devices is supported. This API forcibly overwrites the file or directory.
+ * The file or directory URI is supported. A maximum of 10 cross-device copy tasks are allowed at the same time,
  * and the number of files to be copied at a time cannot exceed 500.
  *
  * @param { string } srcUri - URI of the file or directory to copy.
  * @param { string } destUri - URI of the destination file or directory.
  * @param { AsyncCallback<void> } callback - Callback used to return the result.
  * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
- * <br>2.Incorrect parameter types.
+ *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -386,8 +387,8 @@ function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): v
 
 /**
  * Copies a file or directory. This API uses an asynchronous callback to return the result.
- * File copy across devices is supported. This API forcibly overwrites the file or directory. The file or directory URI is supported.
- * A maximum of 10 cross-device copy tasks are allowed at the same time,
+ * File copy across devices is supported. This API forcibly overwrites the file or directory.
+ * The file or directory URI is supported. A maximum of 10 cross-device copy tasks are allowed at the same time,
  * and the number of files to be copied at a time cannot exceed 500.
  *
  * @param { string } srcUri - URI of the file or directory to copy.
@@ -395,7 +396,7 @@ function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): v
  * @param { CopyOptions } options - Callback used to return the copy progress.
  * @param { AsyncCallback<void> } callback - Callback used to return the result.
  * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
- * <br>2.Incorrect parameter types.
+ *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -431,15 +432,17 @@ function copy(srcUri: string, destUri: string, options: CopyOptions, callback: A
  * @param { string } src - Application sandbox path of the source directory.
  * @param { string } dest - Application sandbox path of the destination folder.
  * @param { int } [mode = 0] - Copy mode. The default value is 0.
- * <br>0: Throw an exception if a file conflict occurs.
- * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
- * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory will be moved
- * <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
- * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
- * <br>1: Forcibly overwrite the files with the same name in the destination directory.
- * <br>When the destination directory contains a directory with the same name as the source directory,
- * <br>the files with the same names in the destination directory are overwritten forcibly;
- * <br>the files without conflicts in the destination directory are retained.
+ *     <br>0: Throw an exception if a file conflict occurs.
+ *     <br>An exception will be thrown if the destination directory contains a directory with
+ *     <br>the same name as the source directory, and a file with the same name exists in the conflict directory.
+ *     <br>All the non-conflicting files in the source directory will be moved
+ *     <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
+ *     <br>The data attribute in the error returned provides information about the
+ *     <br>conflicting files in the Array<ConflictFiles> format.
+ *     <br>1: Forcibly overwrite the files with the same name in the destination directory.
+ *     <br>When the destination directory contains a directory with the same name as the source directory,
+ *     <br>the files with the same names in the destination directory are overwritten forcibly;
+ *     <br>the files without conflicts in the destination directory are retained.
  * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -513,15 +516,17 @@ function copyDirWithConflictFiles(src: string, dest: string, callback: AsyncCall
  * @param { string } src - Application sandbox path of the source directory.
  * @param { string } dest - Application sandbox path of the destination directory.
  * @param { int } mode - Copy mode. The default value is 0.
- * <br>0: Throw an exception if a file conflict occurs.
- * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
- * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory will be moved
- * <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
- * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
- * <br>1: Forcibly overwrite the files with the same name in the destination directory.
- * <br>When the destination directory contains a directory with the same name as the source directory,
- * <br>the files with the same names in the destination directory are overwritten forcibly;
- * <br>the files without conflicts in the destination directory are retained.
+ *     <br>0: Throw an exception if a file conflict occurs.
+ *     <br>An exception will be thrown if the destination directory contains a directory with
+ *     <br>the same name as the source directory, and a file with the same name exists in the conflict directory.
+ *     <br>All the non-conflicting files in the source directory will be moved
+ *     <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
+ *     <br>The data attribute in the error returned provides information about the
+ *     <br>conflicting files in the Array<ConflictFiles> format.
+ *     <br>1: Forcibly overwrite the files with the same name in the destination directory.
+ *     <br>When the destination directory contains a directory with the same name as the source directory,
+ *     <br>the files with the same names in the destination directory are overwritten forcibly;
+ *     <br>the files without conflicts in the destination directory are retained.
  * @param { AsyncCallback<void> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -552,15 +557,17 @@ function copyDir(src: string, dest: string, mode: int, callback: AsyncCallback<v
  * @param { string } src - Application sandbox path of the source directory.
  * @param { string } dest - Application sandbox path of the destination directory.
  * @param { int } mode - Copy mode. The default value is 0.
- * <br>0: Throw an exception if a file conflict occurs.
- * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
- * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory will be moved
- * <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
- * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
- * <br>1: Forcibly overwrite the files with the same name in the destination directory.
- * <br>When the destination directory contains a directory with the same name as the source directory,
- * <br>the files with the same names in the destination directory are overwritten forcibly;
- * <br>the files without conflicts in the destination directory are retained.
+ *     <br>0: Throw an exception if a file conflict occurs.
+ *     <br>An exception will be thrown if the destination directory contains a directory with
+ *     <br>the same name as the source directory, and a file with the same name exists in the conflict directory.
+ *     <br>All the non-conflicting files in the source directory will be moved
+ *     <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
+ *     <br>The data attribute in the error returned provides information about the
+ *     <br>conflicting files in the Array<ConflictFiles> format.
+ *     <br>1: Forcibly overwrite the files with the same name in the destination directory.
+ *     <br>When the destination directory contains a directory with the same name as the source directory,
+ *     <br>the files with the same names in the destination directory are overwritten forcibly;
+ *     <br>the files without conflicts in the destination directory are retained.
  * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -575,15 +582,17 @@ function copyDirWithConflictFiles(src: string, dest: string, mode: int,
  * @param { string } src - Application sandbox path of the source directory.
  * @param { string } dest - Application sandbox path of the source directory.
  * @param { int } [mode = 0] - Copy mode. The default value is 0.
- * <br>0: Throw an exception if a file conflict occurs.
- * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
- * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory will be moved
- * <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
- * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
- * <br>1: Forcibly overwrite the files with the same name in the destination directory.
- * <br>When the destination directory contains a directory with the same name as the source directory,
- * <br>the files with the same names in the destination directory are overwritten forcibly;
- * <br>the files without conflicts in the destination directory are retained.
+ *     <br>0: Throw an exception if a file conflict occurs.
+ *     <br>An exception will be thrown if the destination directory contains a directory with
+ *     <br>the same name as the source directory, and a file with the same name exists in the conflict directory.
+ *     <br>All the non-conflicting files in the source directory will be moved
+ *     <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
+ *     <br>The data attribute in the error returned provides information about the
+ *     <br>conflicting files in the Array<ConflictFiles> format.
+ *     <br>1: Forcibly overwrite the files with the same name in the destination directory.
+ *     <br>When the destination directory contains a directory with the same name as the source directory,
+ *     <br>the files with the same names in the destination directory are overwritten forcibly;
+ *     <br>the files without conflicts in the destination directory are retained.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -614,8 +623,8 @@ function copyDirSync(src: string, dest: string, mode?: int): void;
  * @param { string | int } src - Path or FD of the file to copy.
  * @param { string | int } dest - Destination path of the file or FD of the file created.
  * @param { int } [mode = 0] - Whether to overwrite the file with the same name in the destination directory.
- * <br>The default value is 0, which is the only value supported.
- * <br>0: overwrite the file with the same name and truncate the part that is not overwritten.
+ *     <br>The default value is 0, which is the only value supported.
+ *     <br>0: overwrite the file with the same name and truncate the part that is not overwritten.
  * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -641,8 +650,8 @@ function copyDirSync(src: string, dest: string, mode?: int): void;
 function copyFile(src: string | int, dest: string | int, mode?: int): Promise<void>;
 
 /**
- * Copies a file. This API overwrites the file with the same name in the destination directory and truncates the part that is not overwritten.
- * This API uses an asynchronous callback to return the result.
+ * Copies a file. This API overwrites the file with the same name in the destination directory
+ * and truncates the part that is not overwritten. This API uses an asynchronous callback to return the result.
  *
  * @param { string | int } src - Path or FD of the file to copy.
  * @param { string | int } dest - Destination path of the file or FD of the file created.
@@ -676,8 +685,8 @@ function copyFile(src: string | int, dest: string | int, callback: AsyncCallback
  * @param { string | int } src - Path or FD of the file to copy.
  * @param { string | int } dest - Destination path of the file or FD of the file created.
  * @param { int } [mode = 0] - Whether to overwrite the file with the same name in the destination directory.
- * <br>The default value is 0, which is the only value supported.
- * <br>0: overwrite the file with the same name and truncate the part that is not overwritten.
+ *     <br>The default value is 0, which is the only value supported.
+ *     <br>0: overwrite the file with the same name and truncate the part that is not overwritten.
  * @param { AsyncCallback<void> } callback - Callback invoked immediately after the file is copied.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -712,8 +721,8 @@ function copyFile(
  * @param { string | int } src - Path or FD of the file to copy.
  * @param { string | int } dest - Destination path of the file or FD of the file created.
  * @param { int } [mode = 0] - Whether to overwrite the file with the same name in the destination directory.
- * <br>The default value is 0, which is the only value supported.
- * <br>0: overwrite the file with the same name and truncate the part that is not overwritten.
+ *     <br>The default value is 0, which is the only value supported.
+ *     <br>0: overwrite the file with the same name and truncate the part that is not overwritten.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -743,14 +752,15 @@ function copyFileSync(src: string | int, dest: string | int, mode?: int): void;
  *
  * @param { string } path - Application sandbox path of the file.
  * @param { string } mode - r: Open a file for reading. The file must exist.
- * <br>r+: Open a file for both reading and writing. The file must exist.
- * <br>w: Open a file for writing. If the file exists, clear its content. If the file does not exist, create a file.
- * <br>w+: Open a file for both reading and writing. If the file exists, clear its content. If the file does not exist, create a file.
- * <br>a: Open a file in append mode for writing at the end of the file. If the file does not exist, create a file.
- * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
- * <br>a+: Open a file in append mode for reading or updating at the end of the file.
- * <br>If the file does not exist, create a file.
- * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
+ *     <br>r+: Open a file for both reading and writing. The file must exist.
+ *     <br>w: Open a file for writing. If the file exists, clear its content. If the file does not exist, create a file.
+ *     <br>w+: Open a file for both reading and writing. If the file exists, clear its content.
+ *     <br>If the file does not exist, create a file.
+ *     <br>a: Open a file in append mode for writing at the end of the file. If the file does not exist, create a file.
+ *     <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
+ *     <br>a+: Open a file in append mode for reading or updating at the end of the file.
+ *     <br>If the file does not exist, create a file.
+ *     <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
  * @returns { Promise<Stream> } Promise used to return the stream opened.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -790,14 +800,15 @@ function createStream(path: string, mode: string): Promise<Stream>;
  *
  * @param { string } path - Application sandbox path of the file.
  * @param { string } mode - r: Open a file for reading. The file must exist.
- * <br>r+: Open a file for both reading and writing. The file must exist.
- * <br>w: Open a file for writing. If the file exists, clear its content. If the file does not exist, create a file.
- * <br>w+: Open a file for both reading and writing. If the file exists, clear its content. If the file does not exist, create a file.
- * <br>a: Open a file in append mode for writing at the end of the file. If the file does not exist, create a file.
- * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
- * <br>a+: Open a file in append mode for reading or updating at the end of the file.
- * <br>If the file does not exist, create a file.
- * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
+ *     <br>r+: Open a file for both reading and writing. The file must exist.
+ *     <br>w: Open a file for writing. If the file exists, clear its content. If the file does not exist, create a file.
+ *     <br>w+: Open a file for both reading and writing. If the file exists, clear its content.
+ *     <br>If the file does not exist, create a file.
+ *     <br>a: Open a file in append mode for writing at the end of the file. If the file does not exist, create a file.
+ *     <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
+ *     <br>a+: Open a file in append mode for reading or updating at the end of the file.
+ *     <br>If the file does not exist, create a file.
+ *     <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
  * @param { AsyncCallback<Stream> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -836,14 +847,15 @@ function createStream(path: string, mode: string, callback: AsyncCallback<Stream
  *
  * @param { string } path - Application sandbox path of the file.
  * @param { string } mode - r: Open a file for reading. The file must exist.
- * <br>r+: Open a file for both reading and writing. The file must exist.
- * <br>w: Open a file for writing. If the file exists, clear its content. If the file does not exist, create a file.
- * <br>w+: Open a file for both reading and writing. If the file exists, clear its content. If the file does not exist, create a file.
- * <br>a: Open a file in append mode for writing at the end of the file. If the file does not exist, create a file.
- * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
- * <br>a+: Open a file in append mode for reading or updating at the end of the file.
- * <br>If the file does not exist, create a file.
- * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
+ *     <br>r+: Open a file for both reading and writing. The file must exist.
+ *     <br>w: Open a file for writing. If the file exists, clear its content. If the file does not exist, create a file.
+ *     <br>w+: Open a file for both reading and writing. If the file exists, clear its content.
+ *     <br>If the file does not exist, create a file.
+ *     <br>a: Open a file in append mode for writing at the end of the file. If the file does not exist, create a file.
+ *     <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
+ *     <br>a+: Open a file in append mode for reading or updating at the end of the file.
+ *     <br>If the file does not exist, create a file.
+ *     <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
  * @returns { Stream } Stream opened.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -883,23 +895,24 @@ function createStreamSync(path: string, mode: string): Stream;
  *
  * @param { string | File } file - Application sandbox path of the file or an opened file object.
  * @param { int } [mode = OpenMode.READ_ONLY] - Mode for creating the RandomAccessFile instance.
- * <br>This parameter is valid only when the application sandbox path of the file is passed in.
- * <br>One of the following options must be specified:
- * <br>OpenMode.READ_ONLY(0o0): Create the file in read-only mode. This is the default value.
- * <br>OpenMode.WRITE_ONLY(0o1): Create the file in write-only mode.
- * <br>OpenMode.READ_WRITE(0o2): Create the file in read/write mode.
- * <br>You can also specify the following options, separated by a bitwise OR operator (|). By default,
- * <br>no additional options are given.
- * <br>OpenMode.CREATE(0o100): If the file does not exist, create it.
- * <br>OpenMode.TRUNC(0o1000): If the RandomAccessFile object already exists and is created in write mode,
- * <br>truncate the file length to 0.
- * <br>OpenMode.APPEND(0o2000): Create the file in append mode. New data will be added to the end
- * <br>of the RandomAccessFile object.
- * <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
- * <br>or character special file, perform non-blocking operations on the created file and in subsequent I/Os.
- * <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception. The write permission is not allowed.
- * <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
- * <br>OpenMode.SYNC(0o4010000): Create a RandomAccessFile instance in synchronous I/O mode.
+ *     <br>This parameter is valid only when the application sandbox path of the file is passed in.
+ *     <br>One of the following options must be specified:
+ *     <br>OpenMode.READ_ONLY(0o0): Create the file in read-only mode. This is the default value.
+ *     <br>OpenMode.WRITE_ONLY(0o1): Create the file in write-only mode.
+ *     <br>OpenMode.READ_WRITE(0o2): Create the file in read/write mode.
+ *     <br>You can also specify the following options, separated by a bitwise OR operator (|). By default,
+ *     <br>no additional options are given.
+ *     <br>OpenMode.CREATE(0o100): If the file does not exist, create it.
+ *     <br>OpenMode.TRUNC(0o1000): If the RandomAccessFile object already exists and is created in write mode,
+ *     <br>truncate the file length to 0.
+ *     <br>OpenMode.APPEND(0o2000): Create the file in append mode. New data will be added to the end
+ *     <br>of the RandomAccessFile object.
+ *     <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+ *     <br>or character special file, perform non-blocking operations on the created file and in subsequent I/Os.
+ *     <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
+ *     <br>The write permission is not allowed.
+ *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+ *     <br>OpenMode.SYNC(0o4010000): Create a RandomAccessFile instance in synchronous I/O mode.
  * @param { RandomAccessFileOptions } [options] - Defines the options used in createRandomAccessFile().
  * @returns { Promise<RandomAccessFile> } Promise used to return the RandomAccessFile instance created.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -978,23 +991,24 @@ function createRandomAccessFile(file: string | File, callback: AsyncCallback<Ran
  *
  * @param { string | File } file - Application sandbox path of the file or an opened file object.
  * @param { int } [mode = OpenMode.READ_ONLY] - Mode for creating the RandomAccessFile instance.
- * <br>This parameter is valid only when the application sandbox path of the file is passed in.
- * <br>One of the following options must be specified:
- * <br>OpenMode.READ_ONLY(0o0): Create the file in read-only mode. This is the default value.
- * <br>OpenMode.WRITE_ONLY(0o1): Create the file in write-only mode.
- * <br>OpenMode.READ_WRITE(0o2): Create the file in read/write mode.
- * <br>You can also specify the following options, separated by a bitwise OR operator (|). By default,
- * <br>no additional options are given.
- * <br>OpenMode.CREATE(0o100): If the file does not exist, create it.
- * <br>OpenMode.TRUNC(0o1000): If the RandomAccessFile object already exists and is created in write mode,
- * <br>truncate the file length to 0.
- * <br>OpenMode.APPEND(0o2000): Create the file in append mode. New data will be added to the end
- * <br>of the RandomAccessFile object.
- * <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
- * <br>or character special file, perform non-blocking operations on the created file and in subsequent I/Os.
- * <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception. The write permission is not allowed.
- * <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
- * <br>OpenMode.SYNC(0o4010000): Create a RandomAccessFile instance in synchronous I/O mode.
+ *     <br>This parameter is valid only when the application sandbox path of the file is passed in.
+ *     <br>One of the following options must be specified:
+ *     <br>OpenMode.READ_ONLY(0o0): Create the file in read-only mode. This is the default value.
+ *     <br>OpenMode.WRITE_ONLY(0o1): Create the file in write-only mode.
+ *     <br>OpenMode.READ_WRITE(0o2): Create the file in read/write mode.
+ *     <br>You can also specify the following options, separated by a bitwise OR operator (|). By default,
+ *     <br>no additional options are given.
+ *     <br>OpenMode.CREATE(0o100): If the file does not exist, create it.
+ *     <br>OpenMode.TRUNC(0o1000): If the RandomAccessFile object already exists and is created in write mode,
+ *     <br>truncate the file length to 0.
+ *     <br>OpenMode.APPEND(0o2000): Create the file in append mode. New data will be added to the end
+ *     <br>of the RandomAccessFile object.
+ *     <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+ *     <br>or character special file, perform non-blocking operations on the created file and in subsequent I/Os.
+ *     <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
+ *     <br>The write permission is not allowed.
+ *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+ *     <br>OpenMode.SYNC(0o4010000): Create a RandomAccessFile instance in synchronous I/O mode.
  * @param { AsyncCallback<RandomAccessFile> } callback - Callback used to return the RandomAccessFile instance created.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -1032,23 +1046,24 @@ function createRandomAccessFile(file: string | File, mode: int, callback: AsyncC
  *
  * @param { string | File } file - Application sandbox path of the file or an opened file object.
  * @param { int } [mode = OpenMode.READ_ONLY] - Mode for creating the RandomAccessFile instance.
- * <br>This parameter is valid only when the application sandbox path of the file is passed in.
- * <br>One of the following options must be specified:
- * <br>OpenMode.READ_ONLY(0o0): Create the file in read-only mode. This is the default value.
- * <br>OpenMode.WRITE_ONLY(0o1): Create the file in write-only mode.
- * <br>OpenMode.READ_WRITE(0o2): Create the file in read/write mode.
- * <br>You can also specify the following options, separated by a bitwise OR operator (|). By default,
- * <br>no additional options are given.
- * <br>OpenMode.CREATE(0o100): If the file does not exist, create it.
- * <br>OpenMode.TRUNC(0o1000): If the RandomAccessFile object already exists and is created in write mode,
- * <br>truncate the file length to 0.
- * <br>OpenMode.APPEND(0o2000): Create the file in append mode. New data will be added to the end
- * <br>of the RandomAccessFile object.
- * <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
- * <br>or character special file, perform non-blocking operations on the created file and in subsequent I/Os.
- * <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception. The write permission is not allowed.
- * <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
- * <br>OpenMode.SYNC(0o4010000): Create a RandomAccessFile instance in synchronous I/O mode.
+ *     <br>This parameter is valid only when the application sandbox path of the file is passed in.
+ *     <br>One of the following options must be specified:
+ *     <br>OpenMode.READ_ONLY(0o0): Create the file in read-only mode. This is the default value.
+ *     <br>OpenMode.WRITE_ONLY(0o1): Create the file in write-only mode.
+ *     <br>OpenMode.READ_WRITE(0o2): Create the file in read/write mode.
+ *     <br>You can also specify the following options, separated by a bitwise OR operator (|). By default,
+ *     <br>no additional options are given.
+ *     <br>OpenMode.CREATE(0o100): If the file does not exist, create it.
+ *     <br>OpenMode.TRUNC(0o1000): If the RandomAccessFile object already exists and is created in write mode,
+ *     <br>truncate the file length to 0.
+ *     <br>OpenMode.APPEND(0o2000): Create the file in append mode. New data will be added to the end
+ *     <br>of the RandomAccessFile object.
+ *     <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+ *     <br>or character special file, perform non-blocking operations on the created file and in subsequent I/Os.
+ *     <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
+ *     <br>The write permission is not allowed.
+ *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+ *     <br>OpenMode.SYNC(0o4010000): Create a RandomAccessFile instance in synchronous I/O mode.
  * @param { RandomAccessFileOptions } [options] - Defines the options used in createRandomAccessFile().
  * @returns { RandomAccessFile } RandomAccessFile instance created.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -1089,10 +1104,10 @@ function createRandomAccessFileSync(file: string | File, mode?: int,
  *
  * @param { string } path - Path of the file.
  * @param { ReadStreamOptions } [options] - The options are as follows:
- * <br>start (long): start position of the data to read in the file. This parameter is optional.
- * <br>By default, data is read from the current position.
- * <br>end (long): end position of the data to read in the file. This parameter is optional.
- * <br>The default value is the end of the file.
+ *     <br>start (long): start position of the data to read in the file. This parameter is optional.
+ *     <br>By default, data is read from the current position.
+ *     <br>end (long): end position of the data to read in the file. This parameter is optional.
+ *     <br>The default value is the end of the file.
  * @returns { ReadStream } ReadStream instance obtained.
  * @throws { BusinessError } 401 - Parameter error
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -1120,10 +1135,10 @@ function createReadStream(path: string, options?: ReadStreamOptions): ReadStream
  *
  * @param { string } path - Path of the file.
  * @param { WriteStreamOptions } [options] - The options are as follows:
- * <br>start (long): start position to write the data in the file. This parameter is optional.
- * <br>By default, data is written from the current position.
- * <br>mode (int): mode for creating the writeable stream. This parameter is optional.
- * <br>The default value is the write-only mode.
+ *     <br>start (long): start position to write the data in the file. This parameter is optional.
+ *     <br>By default, data is written from the current position.
+ *     <br>mode (int): mode for creating the writeable stream. This parameter is optional.
+ *     <br>The default value is the write-only mode.
  * @returns { WriteStream } WriteStream instance obtained.
  * @throws { BusinessError } 401 - Parameter error
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -1154,7 +1169,7 @@ function createWriteStream(path: string, options?: WriteStreamOptions): WriteStr
  * @param { string } path - Application sandbox path of the file or directory to observe.
  * @param { int } events - Events to observe. Multiple events can be separated by a bitwise OR operator (|).
  * @param { WatchEventListener } listener - Callback invoked when an observed event occurs.
- * <br>The callback will be invoked each time an observed event occurs.
+ *     <br>The callback will be invoked each time an observed event occurs.
  * @returns { Watcher } Watcher object created.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1248,13 +1263,16 @@ function fdatasyncSync(fd: int): void;
  *
  * @param { int } fd - FD of the file.
  * @param { string } mode - r: Open a file for reading. The file must exist.
- * <br>r+: Open a file for both reading and writing. The file must exist.
- * <br>w: Open a file for writing. If the file exists, clear its content. If the file does not exist, create a file.
- * <br>w+: Open a file for both reading and writing. If the file exists, clear its content. If the file does not exist, create a file.
- * <br>a: Open a file in append mode for writing at the end of the file. If the file does not exist, create a file.
- * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
- * <br>a+: Open a file in append mode for reading or updating at the end of the file. If the file does not exist,
- * <br>create a file. If the file exists, write data to the end of the file (the original content of the file is reserved).
+ *     <br>r+: Open a file for both reading and writing. The file must exist.
+ *     <br>w: Open a file for writing. If the file exists, clear its content.
+ *     <br>If the file does not exist, create a file.
+ *     <br>w+: Open a file for both reading and writing. If the file exists, clear its content.
+ *     <br>If the file does not exist, create a file.
+ *     <br>a: Open a file in append mode for writing at the end of the file. If the file does not exist, create a file.
+ *     <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
+ *     <br>a+: Open a file in append mode for reading or updating at the end of the file. If the file does not exist,
+ *     <br>create a file. If the file exists, write data to the end of the file (the original content
+ *     <br>of the file is reserved).
  * @returns { Promise<Stream> } Returns the Stream object in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -1294,13 +1312,16 @@ function fdopenStream(fd: int, mode: string): Promise<Stream>;
  *
  * @param { int } fd - FD of the file.
  * @param { string } mode - r: Open a file for reading. The file must exist.
- * <br>r+: Open a file for both reading and writing. The file must exist.
- * <br>w: Open a file for writing. If the file exists, clear its content. If the file does not exist, create a file.
- * <br>w+: Open a file for both reading and writing. If the file exists, clear its content. If the file does not exist, create a file.
- * <br>a: Open a file in append mode for writing at the end of the file. If the file does not exist, create a file.
- * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
- * <br>a+: Open a file in append mode for reading or updating at the end of the file. If the file does not exist,
- * <br>create a file. If the file exists, write data to the end of the file (the original content of the file is reserved).
+ *     <br>r+: Open a file for both reading and writing. The file must exist.
+ *     <br>w: Open a file for writing. If the file exists, clear its content.
+ *     <br>If the file does not exist, create a file.
+ *     <br>w+: Open a file for both reading and writing. If the file exists, clear its content.
+ *     <br>If the file does not exist, create a file.
+ *     <br>a: Open a file in append mode for writing at the end of the file. If the file does not exist, create a file.
+ *     <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
+ *     <br>a+: Open a file in append mode for reading or updating at the end of the file. If the file does not exist,
+ *     <br>create a file. If the file exists, write data to the end of the file (the original content
+ *     <br>of the file is reserved).
  * @param { AsyncCallback<Stream> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -1339,13 +1360,16 @@ function fdopenStream(fd: int, mode: string, callback: AsyncCallback<Stream>): v
  *
  * @param { int } fd - FD of the file.
  * @param { string } mode - r: Open a file for reading. The file must exist.
- * <br>r+: Open a file for both reading and writing. The file must exist.
- * <br>w: Open a file for writing. If the file exists, clear its content. If the file does not exist, create a file.
- * <br>w+: Open a file for both reading and writing. If the file exists, clear its content. If the file does not exist, create a file.
- * <br>a: Open a file in append mode for writing at the end of the file. If the file does not exist, create a file.
- * <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
- * <br>a+: Open a file in append mode for reading or updating at the end of the file. If the file does not exist,
- * <br>create a file. If the file exists, write data to the end of the file (the original content of the file is reserved).
+ *     <br>r+: Open a file for both reading and writing. The file must exist.
+ *     <br>w: Open a file for writing. If the file exists, clear its content.
+ *     <br>If the file does not exist, create a file.
+ *     <br>w+: Open a file for both reading and writing. If the file exists, clear its content.
+ *     <br>If the file does not exist, create a file.
+ *     <br>a: Open a file in append mode for writing at the end of the file. If the file does not exist, create a file.
+ *     <br>If the file exists, write data to the end of the file (the original content of the file is reserved).
+ *     <br>a+: Open a file in append mode for reading or updating at the end of the file. If the file does not exist,
+ *     <br>create a file. If the file exists, write data to the end of the file (the original content
+ *     <br>of the file is reserved).
  * @returns { Stream } Returns the Stream object.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -1431,7 +1455,8 @@ function fsyncSync(fd: int): void;
 
 /**
  * Lists all file names in a directory. This API supports recursive listing of all file names and file filtering.
- * The returned result starts with a slash (/) and contains the subdirectory. This API uses a promise to return the result.
+ * The returned result starts with a slash (/) and contains the subdirectory.
+ * This API uses a promise to return the result.
  *
  * @param { string } path - Application sandbox path of the directory.
  * @param { ListFileOptions } [options] - Options for filtering files. The files are not filtered by default.
@@ -1511,7 +1536,7 @@ function listFileSync(
  * @param { int } fd - FD of the file.
  * @param { long } offset - Number of bytes to move the offset.
  * @param { WhenceType } [whence = WhenceType.SEEK_SET] - Where to start the offset.
- * <br>If this parameter is not specified, the file start position is used by default.
+ *     <br>If this parameter is not specified, the file start position is used by default.
  * @returns { long } Returns the file offset relative to starting position of file.
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1523,25 +1548,6 @@ function listFileSync(
  */
 function lseek(fd: int, offset: long, whence?: WhenceType): long;
 
-/**
- * Obtains information about a symbolic link that is used to refer to a file or directory.
- * This API uses a promise to return the result.
- *
- * @param { string } path - Application sandbox path of the file.
- * @returns { Promise<Stat> } Promise used to return the symbolic link information obtained.
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900013 - Bad address
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900033 - Too many symbolic links encountered
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
- */
 /**
  * Obtains information about a symbolic link that is used to refer to a file or directory.
  * This API uses a promise to return the result.
@@ -1568,25 +1574,6 @@ function lstat(path: string): Promise<Stat>;
  * Obtains information about a symbolic link that is used to refer to a file or directory.
  * This API uses an asynchronous callback to return the result.
  *
- * @param { string } path - Application sandbox path of the file.
- * @param { AsyncCallback<Stat> } callback - Callback used to return the symbolic link information obtained.
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900013 - Bad address
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900033 - Too many symbolic links encountered
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
- */
-/**
- * Obtains information about a symbolic link that is used to refer to a file or directory.
- * This API uses an asynchronous callback to return the result.
- *
  * @param { string } path - Application sandbox path or URI of the file.
  *     <br>NOTE: URIs can be passed since API version 22.
  * @param { AsyncCallback<Stat> } callback - Callback used to return the symbolic link information obtained.
@@ -1605,25 +1592,6 @@ function lstat(path: string): Promise<Stat>;
  */
 function lstat(path: string, callback: AsyncCallback<Stat>): void;
 
-/**
- * Obtains information about a symbolic link that is used to refer to a file or directory.
- * This API returns the result synchronously.
- *
- * @param { string } path - Application sandbox path of the file.
- * @returns { Stat } File information obtained.
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900013 - Bad address
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900033 - Too many symbolic links encountered
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
- */
 /**
  * Obtains information about a symbolic link that is used to refer to a file or directory.
  * This API returns the result synchronously.
@@ -1672,11 +1640,13 @@ function lstatSync(path: string): Stat;
 function mkdir(path: string): Promise<void>;
 
 /**
- * Creates a directory. This API uses a promise to return the result. The value true means to create a directory recursively.
+ * Creates a directory. This API uses a promise to return the result.
+ * The value true means to create a directory recursively.
  *
  * @param { string } path - Application sandbox path of the directory.
  * @param { boolean } recursion - Whether to create a directory recursively.
- * <br>The value true means to create a directory recursively. The value false means to create a single-level directory.
+ *     <br>The value true means to create a directory recursively.
+ *     <br>The value false means to create a single-level directory.
  * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -1729,7 +1699,8 @@ function mkdir(path: string, callback: AsyncCallback<void>): void;
  *
  * @param { string } path - Application sandbox path of the directory.
  * @param { boolean } recursion - Whether to create a directory recursively.
- * <br>The value true means to create a directory recursively. The value false means to create a single-level directory.
+ *     <br>The value true means to create a directory recursively.
+ *     <br>The value false means to create a single-level directory.
  * @param { AsyncCallback<void> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -1776,11 +1747,13 @@ function mkdir(path: string, recursion: boolean, callback: AsyncCallback<void>):
 function mkdirSync(path: string): void;
 
 /**
- * Creates a directory. This API returns the result synchronously. The value true means to create a directory recursively.
+ * Creates a directory. This API returns the result synchronously.
+ * The value true means to create a directory recursively.
  *
  * @param { string } path - Application sandbox path of the directory.
  * @param { boolean } recursion - Whether to create a directory recursively.
- * <br>The value true means to create a directory recursively. The value false means to create a single-level directory.
+ *     <br>The value true means to create a directory recursively.
+ *     <br>The value false means to create a single-level directory.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1804,7 +1777,8 @@ function mkdirSync(path: string, recursion: boolean): void;
 /**
  * Creates a temporary directory. This API uses a promise to return the result.
  *
- * @param { string } prefix - String to be replaced with six randomly generated characters to create a unique temporary directory.
+ * @param { string } prefix - String to be replaced with six randomly generated characters to
+ *     <br>create a unique temporary directory.
  * @returns { Promise<string> } Promise used to return the directory created.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -1830,7 +1804,8 @@ function mkdtemp(prefix: string): Promise<string>;
  * Creates a temporary directory. This API uses an asynchronous callback to return the result.
  * The directory name is created by replacing a string (specified by prefix) with six randomly generated characters.
  *
- * @param { string } prefix - String to be replaced with six randomly generated characters to create a unique temporary directory.
+ * @param { string } prefix - String to be replaced with six randomly generated characters to
+ *     <br>create a unique temporary directory.
  * @param { AsyncCallback<string> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -1856,7 +1831,8 @@ function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
  * Creates a temporary directory. This API returns the result synchronously.
  * The directory name is created by replacing a string (specified by prefix) with six randomly generated characters.
  *
- * @param { string } prefix - String to be replaced with six randomly generated characters to create a unique temporary directory.
+ * @param { string } prefix - String to be replaced with six randomly generated characters to
+ *     <br>create a unique temporary directory.
  * @returns { string } Unique path generated.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -1884,21 +1860,24 @@ function mkdtempSync(prefix: string): string;
  * @param { string } src - Application sandbox path of the source directory.
  * @param { string } dest - Application sandbox path of the destination directory.
  * @param { int } [mode = 0] - Move mode. The default value is 0.
- * <br>0: Throw an exception if a directory conflict occurs.
- * <br>An exception will be thrown if the destination directory contains a non-empty directory with the same name as the source directory.
- * <br>1: Throw an exception if a file conflict occurs.
- * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
- * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory
- * <br>will be moved to the destination directory, and the non-conflicting files in the destination directory will be retained.
- * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
- * <br>2: Forcibly overwrite the conflicting files in the destination directory.
- * <br>When the destination directory contains a directory with the same name as the source directory,
- * <br>the files with the same names in the destination directory are overwritten forcibly;
- * <br>the files without conflicts in the destination directory are retained.
- * <br>3: Forcibly overwrite the conflicting directory.
- * <br>The source directory is moved to the destination directory, and the content of the moved directory is the
- * <br>same as that of the source directory. If the destination directory contains a directory with the same name
- * <br>as the source directory, all original files in the directory will be deleted.
+ *     <br>0: Throw an exception if a directory conflict occurs.
+ *     <br>An exception will be thrown if the destination directory contains a non-empty directory with
+ *     <br>the same name as the source directory.
+ *     <br>1: Throw an exception if a file conflict occurs.
+ *     <br>An exception will be thrown if the destination directory contains a directory with
+ *     <br>the same name as the source directory, and a file with the same name exists in the conflict directory.
+ *     <br>All the non-conflicting files in the source directory will be moved to the destination directory,
+ *     <br>and the non-conflicting files in the destination directory will be retained.
+ *     <br>The data attribute in the error returned provides information about the conflicting files in
+ *     <br>the Array<ConflictFiles> format.
+ *     <br>2: Forcibly overwrite the conflicting files in the destination directory.
+ *     <br>When the destination directory contains a directory with the same name as the source directory,
+ *     <br>the files with the same names in the destination directory are overwritten forcibly;
+ *     <br>the files without conflicts in the destination directory are retained.
+ *     <br>3: Forcibly overwrite the conflicting directory.
+ *     <br>The source directory is moved to the destination directory, and the content of the moved directory is the
+ *     <br>same as that of the source directory. If the destination directory contains a directory with the same name
+ *     <br>as the source directory, all original files in the directory will be deleted.
  * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -1972,21 +1951,24 @@ function moveDirWithConflictFiles(src: string, dest: string, callback: AsyncCall
  * @param { string } src - Application sandbox path of the source directory.
  * @param { string } dest - Application sandbox path of the destination directory.
  * @param { int } mode - Move mode. The default value is 0.
- * <br>0: Throw an exception if a directory conflict occurs.
- * <br>An exception will be thrown if the destination directory contains a non-empty directory with the same name as the source directory.
- * <br>1: Throw an exception if a file conflict occurs.
- * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
- * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory
- * <br>will be moved to the destination directory, and the non-conflicting files in the destination directory will be retained.
- * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
- * <br>2: Forcibly overwrite the conflicting files in the destination directory.
- * <br>When the destination directory contains a directory with the same name as the source directory,
- * <br>the files with the same names in the destination directory are overwritten forcibly;
- * <br>the files without conflicts in the destination directory are retained.
- * <br>3: Forcibly overwrite the conflicting directory.
- * <br>The source directory is moved to the destination directory, and the content of the moved directory is the
- * <br>same as that of the source directory. If the destination directory contains a directory with the same name
- * <br>as the source directory, all original files in the directory will be deleted.
+ *     <br>0: Throw an exception if a directory conflict occurs.
+ *     <br>An exception will be thrown if the destination directory contains a non-empty directory with
+ *     <br>the same name as the source directory.
+ *     <br>1: Throw an exception if a file conflict occurs.
+ *     <br>An exception will be thrown if the destination directory contains a directory with
+ *     <br>the same name as the source directory, and a file with the same name exists in the conflict directory.
+ *     <br>All the non-conflicting files in the source directory will be moved to the destination directory,
+ *     <br>and the non-conflicting files in the destination directory will be retained.
+ *     <br>The data attribute in the error returned provides information about the conflicting files in
+ *     <br>the Array<ConflictFiles> format.
+ *     <br>2: Forcibly overwrite the conflicting files in the destination directory.
+ *     <br>When the destination directory contains a directory with the same name as the source directory,
+ *     <br>the files with the same names in the destination directory are overwritten forcibly;
+ *     <br>the files without conflicts in the destination directory are retained.
+ *     <br>3: Forcibly overwrite the conflicting directory.
+ *     <br>The source directory is moved to the destination directory, and the content of the moved directory is the
+ *     <br>same as that of the source directory. If the destination directory contains a directory with the same name
+ *     <br>as the source directory, all original files in the directory will be deleted.
  * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2018,21 +2000,24 @@ function moveDir(src: string, dest: string, mode: int, callback: AsyncCallback<v
  * @param { string } src - Application sandbox path of the source directory.
  * @param { string } dest - Application sandbox path of the destination directory.
  * @param { int } mode - Move mode. The default value is 0.
- * <br>0: Throw an exception if a directory conflict occurs.
- * <br>An exception will be thrown if the destination directory contains a non-empty directory with the same name as the source directory.
- * <br>1: Throw an exception if a file conflict occurs.
- * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
- * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory
- * <br>will be moved to the destination directory, and the non-conflicting files in the destination directory will be retained.
- * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
- * <br>2: Forcibly overwrite the conflicting files in the destination directory.
- * <br>When the destination directory contains a directory with the same name as the source directory,
- * <br>the files with the same names in the destination directory are overwritten forcibly;
- * <br>the files without conflicts in the destination directory are retained.
- * <br>3: Forcibly overwrite the conflicting directory.
- * <br>The source directory is moved to the destination directory, and the content of the moved directory is the
- * <br>same as that of the source directory. If the destination directory contains a directory with the same name
- * <br>as the source directory, all original files in the directory will be deleted.
+ *     <br>0: Throw an exception if a directory conflict occurs.
+ *     <br>An exception will be thrown if the destination directory contains a non-empty directory with
+ *     <br>the same name as the source directory.
+ *     <br>1: Throw an exception if a file conflict occurs.
+ *     <br>An exception will be thrown if the destination directory contains a directory with
+ *     <br>the same name as the source directory, and a file with the same name exists in the conflict directory.
+ *     <br>All the non-conflicting files in the source directory will be moved to the destination directory,
+ *     <br>and the non-conflicting files in the destination directory will be retained.
+ *     <br>The data attribute in the error returned provides information about the conflicting files in
+ *     <br>the Array<ConflictFiles> format.
+ *     <br>2: Forcibly overwrite the conflicting files in the destination directory.
+ *     <br>When the destination directory contains a directory with the same name as the source directory,
+ *     <br>the files with the same names in the destination directory are overwritten forcibly;
+ *     <br>the files without conflicts in the destination directory are retained.
+ *     <br>3: Forcibly overwrite the conflicting directory.
+ *     <br>The source directory is moved to the destination directory, and the content of the moved directory is the
+ *     <br>same as that of the source directory. If the destination directory contains a directory with the same name
+ *     <br>as the source directory, all original files in the directory will be deleted.
  * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -2047,21 +2032,24 @@ function moveDirWithConflictFiles(src: string, dest: string, mode: int,
  * @param { string } src - Application sandbox path of the source directory.
  * @param { string } dest - Application sandbox path of the destination directory.
  * @param { int } [mode = 0] - Move mode. The default value is 0.
- * <br>0: Throw an exception if a directory conflict occurs.
- * <br>An exception will be thrown if the destination directory contains a non-empty directory with the same name as the source directory.
- * <br>1: Throw an exception if a file conflict occurs.
- * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
- * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory
- * <br>will be moved to the destination directory, and the non-conflicting files in the destination directory will be retained.
- * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
- * <br>2: Forcibly overwrite the conflicting files in the destination directory.
- * <br>When the destination directory contains a directory with the same name as the source directory,
- * <br>the files with the same names in the destination directory are overwritten forcibly;
- * <br>the files without conflicts in the destination directory are retained.
- * <br>3: Forcibly overwrite the conflicting directory.
- * <br>The source directory is moved to the destination directory, and the content of the moved directory is the
- * <br>same as that of the source directory. If the destination directory contains a directory with the same name
- * <br>as the source directory, all original files in the directory will be deleted.
+ *     <br>0: Throw an exception if a directory conflict occurs.
+ *     <br>An exception will be thrown if the destination directory contains a non-empty directory with
+ *     <br>the same name as the source directory.
+ *     <br>1: Throw an exception if a file conflict occurs.
+ *     <br>An exception will be thrown if the destination directory contains a directory with
+ *     <br>the same name as the source directory, and a file with the same name exists in the conflict directory.
+ *     <br>All the non-conflicting files in the source directory will be moved to the destination directory,
+ *     <br>and the non-conflicting files in the destination directory will be retained.
+ *     <br>The data attribute in the error returned provides information about the conflicting files in
+ *     <br>the Array<ConflictFiles> format.
+ *     <br>2: Forcibly overwrite the conflicting files in the destination directory.
+ *     <br>When the destination directory contains a directory with the same name as the source directory,
+ *     <br>the files with the same names in the destination directory are overwritten forcibly;
+ *     <br>the files without conflicts in the destination directory are retained.
+ *     <br>3: Forcibly overwrite the conflicting directory.
+ *     <br>The source directory is moved to the destination directory, and the content of the moved directory is the
+ *     <br>same as that of the source directory. If the destination directory contains a directory with the same name
+ *     <br>as the source directory, all original files in the directory will be deleted.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2092,8 +2080,8 @@ function moveDirSync(src: string, dest: string, mode?: int): void;
  * @param { string } src - Application sandbox path of the file to move.
  * @param { string } dest - Application sandbox path of the destination file.
  * @param { int } [mode = 0] - Move mode.
- * <br>The value 0 means to overwrite the file with the same name in the destination directory;
- * <br>the value 1 means to throw an exception. The default value is 0.
+ *     <br>The value 0 means to overwrite the file with the same name in the destination directory;
+ *     <br>the value 1 means to throw an exception. The default value is 0.
  * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2156,8 +2144,8 @@ function moveFile(src: string, dest: string, callback: AsyncCallback<void>): voi
  * @param { string } src - Application sandbox path of the file to move.
  * @param { string } dest - Application sandbox path of the destination to move.
  * @param { int } [mode = 0] - Move mode.
- * <br>The value 0 means to overwrite the file with the same name in the destination directory;
- * <br>the value 1 means to throw an exception. The default value is 0.
+ *     <br>The value 0 means to overwrite the file with the same name in the destination directory;
+ *     <br>the value 1 means to throw an exception. The default value is 0.
  * @param { AsyncCallback<void> } callback - Callback used to return the result.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2189,8 +2177,8 @@ function moveFile(src: string, dest: string, mode: int, callback: AsyncCallback<
  * @param { string } src - Application sandbox path of the file to move.
  * @param { string } dest - Application sandbox path of the destination to move.
  * @param { int } [mode = 0] - Move mode.
- * <br>The value 0 means to overwrite the file with the same name in the destination directory;
- * <br>the value 1 means to throw an exception. The default value is 0.
+ *     <br>The value 0 means to overwrite the file with the same name in the destination directory;
+ *     <br>the value 1 means to throw an exception. The default value is 0.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2220,19 +2208,20 @@ function moveFileSync(src: string, dest: string, mode?: int): void;
  *
  * @param { string } path - Application sandbox path or URI of the file.
  * @param { int } [mode = OpenMode.READ_ONLY] - Mode for opening the file.
- * <br>You must specify one of the following options. By default, the file is opened in read-only mode.
- * <br>OpenMode.READ_ONLY(0o0): Open the file in read-only mode.
- * <br>OpenMode.WRITE_ONLY(0o1): Open the file in write-only mode.
- * <br>OpenMode.READ_WRITE(0o2): Open the file in read/write mode.
- * <br>You can add the following function options in bitwise OR mode. By default, no additional option is added.
- * <br>OpenMode.CREATE(0o100): Create a file if the file does not exist.
- * <br>OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
- * <br>OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
- * <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
- * <br>or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
- * <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception. The write permission is not allowed.
- * <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
- * <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+ *     <br>You must specify one of the following options. By default, the file is opened in read-only mode.
+ *     <br>OpenMode.READ_ONLY(0o0): Open the file in read-only mode.
+ *     <br>OpenMode.WRITE_ONLY(0o1): Open the file in write-only mode.
+ *     <br>OpenMode.READ_WRITE(0o2): Open the file in read/write mode.
+ *     <br>You can add the following function options in bitwise OR mode. By default, no additional option is added.
+ *     <br>OpenMode.CREATE(0o100): Create a file if the file does not exist.
+ *     <br>OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
+ *     <br>OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
+ *     <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+ *     <br>or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
+ *     <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
+ *     <br>The write permission is not allowed.
+ *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+ *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
  * @returns { Promise<File> } Promise used to return the File object.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2267,7 +2256,8 @@ function moveFileSync(src: string, dest: string, mode?: int): void;
 function open(path: string, mode?: int): Promise<File>;
 
 /**
- * Opens a file or directory. This API uses an asynchronous callback to return the result. This API supports the use of a URI.
+ * Opens a file or directory. This API uses an asynchronous callback to return the result.
+ * This API supports the use of a URI.
  *
  * @param { string } path - Application sandbox path or URI of the file.
  * @param { AsyncCallback<File> } callback - Callback used to return the result.
@@ -2308,20 +2298,22 @@ function open(path: string, callback: AsyncCallback<File>): void;
  *
  * @param { string } path - Application sandbox path or URI of the file.
  * @param { int } [mode = OpenMode.READ_ONLY] - Mode for opening the file.
- * <br>You must specify one of the following options. By default, the file is opened in read-only mode.
- * <br>OpenMode.READ_ONLY(0o0): Open the file in read-only mode.
- * <br>OpenMode.WRITE_ONLY(0o1): Open the file in write-only mode.
- * <br>OpenMode.READ_WRITE(0o2): Open the file in read/write mode.
- * <br>You can add the following function options in bitwise OR mode. By default, no additional option is added.
- * <br>OpenMode.CREATE(0o100): Create a file if the file does not exist.
- * <br>OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
- * <br>OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
- * <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
- * <br>or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
- * <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception. The write permission is not allowed.
- * <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
- * <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
- * @param { AsyncCallback<File> } callback - The callback is used to return the File object to record the file descriptor.
+ *     <br>You must specify one of the following options. By default, the file is opened in read-only mode.
+ *     <br>OpenMode.READ_ONLY(0o0): Open the file in read-only mode.
+ *     <br>OpenMode.WRITE_ONLY(0o1): Open the file in write-only mode.
+ *     <br>OpenMode.READ_WRITE(0o2): Open the file in read/write mode.
+ *     <br>You can add the following function options in bitwise OR mode. By default, no additional option is added.
+ *     <br>OpenMode.CREATE(0o100): Create a file if the file does not exist.
+ *     <br>OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
+ *     <br>OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
+ *     <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+ *     <br>or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
+ *     <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
+ *     <br>The write permission is not allowed.
+ *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+ *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+ * @param { AsyncCallback<File> } callback - The callback is used to return the File object to record
+ *     <br>the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2358,19 +2350,20 @@ function open(path: string, mode: int, callback: AsyncCallback<File>): void;
  *
  * @param { string } path - Application sandbox path or file URI of the file to open.
  * @param { int } [mode = OpenMode.READ_ONLY] - Mode for opening the file.
- * <br>You must specify one of the following options. By default, the file is opened in read-only mode.
- * <br>OpenMode.READ_ONLY(0o0): Open the file in read-only mode.
- * <br>OpenMode.WRITE_ONLY(0o1): Open the file in write-only mode.
- * <br>OpenMode.READ_WRITE(0o2): Open the file in read/write mode.
- * <br>You can add the following function options in bitwise OR mode. By default, no additional option is added.
- * <br>OpenMode.CREATE(0o100): Create a file if the file does not exist.
- * <br>OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
- * <br>OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
- * <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
- * <br>or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
- * <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception. The write permission is not allowed.
- * <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
- * <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+ *     <br>You must specify one of the following options. By default, the file is opened in read-only mode.
+ *     <br>OpenMode.READ_ONLY(0o0): Open the file in read-only mode.
+ *     <br>OpenMode.WRITE_ONLY(0o1): Open the file in write-only mode.
+ *     <br>OpenMode.READ_WRITE(0o2): Open the file in read/write mode.
+ *     <br>You can add the following function options in bitwise OR mode. By default, no additional option is added.
+ *     <br>OpenMode.CREATE(0o100): Create a file if the file does not exist.
+ *     <br>OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
+ *     <br>OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
+ *     <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+ *     <br>or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
+ *     <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
+ *     <br>The write permission is not allowed.
+ *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+ *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
  * @returns { File } Returns the File object to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2410,9 +2403,10 @@ function openSync(path: string, mode?: int): File;
  * @param { int } fd - FD of the file.
  * @param { ArrayBuffer } buffer - Buffer used to store the file data read.
  * @param { ReadOptions } [options] - The options are as follows:
- * <br>length (long): length of the data to read. This parameter is optional. The default value is the buffer length.
- * <br>offset (long): start position to read the data (it is determined by filePointer plus offset).
- * <br>This parameter is optional. By default, data is read from the filePointer.
+ *     <br>length (long): length of the data to read. This parameter is optional.
+ *     <br>The default value is the buffer length.
+ *     <br>offset (long): start position to read the data (it is determined by filePointer plus offset).
+ *     <br>This parameter is optional. By default, data is read from the filePointer.
  * @returns { Promise<long> } Promise used to return the length of the data read, in bytes.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2459,9 +2453,10 @@ function read(fd: int, buffer: ArrayBuffer, callback: AsyncCallback<long>): void
  * @param { int } fd - FD of the file.
  * @param { ArrayBuffer } buffer - Buffer used to store the file data read.
  * @param { ReadOptions } [options] - The options are as follows:
- * <br>length (long): length of the data to read. This parameter is optional. The default value is the buffer length.
- * <br>offset (long): start position to read the data (it is determined by filePointer plus offset).
- * <br>This parameter is optional. By default, data is read from the filePointer.
+ *     <br>length (long): length of the data to read. This parameter is optional.
+ *     <br>The default value is the buffer length.
+ *     <br>offset (long): start position to read the data (it is determined by filePointer plus offset).
+ *     <br>This parameter is optional. By default, data is read from the filePointer.
  * @param { AsyncCallback<long> } callback - Callback used to return the length of the data read, in bytes.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2488,9 +2483,10 @@ function read(
  * @param { int } fd - FD of the file.
  * @param { ArrayBuffer } buffer - Buffer used to store the file data read.
  * @param { ReadOptions } [options] - The options are as follows:
- * <br>length (long): length of the data to read. This parameter is optional. The default value is the buffer length.
- * <br>offset (long): start position to read the data (it is determined by filePointer plus offset).
- * <br>This parameter is optional. By default, data is read from the filePointer.
+ *     <br>length (long): length of the data to read. This parameter is optional.
+ *     <br>The default value is the buffer length.
+ *     <br>offset (long): start position to read the data (it is determined by filePointer plus offset).
+ *     <br>This parameter is optional. By default, data is read from the filePointer.
  * @returns { long } Length of the data read, in bytes.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2517,8 +2513,8 @@ function readSync(
  *
  * @param { string } filePath - Application sandbox path of the file.
  * @param { Options } [options] - Options for reading the text. The options are as follows:
- * <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
- * <br>The default value is 'utf-8', which is the only value supported.
+ *     <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
+ *     <br>The default value is 'utf-8', which is the only value supported.
  * @returns { Promise<ReaderIterator> } Promise used to return a ReaderIterator object.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900012 - Permission denied
@@ -2567,8 +2563,8 @@ function readLines(filePath: string, callback: AsyncCallback<ReaderIterator>): v
  *
  * @param { string } filePath - Application sandbox path of the file.
  * @param { Options } options - Options for reading the text. The options are as follows:
- * <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
- * <br>The default value is 'utf-8', which is the only value supported.
+ *     <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
+ *     <br>The default value is 'utf-8', which is the only value supported.
  * @param { AsyncCallback<ReaderIterator> } callback - Callback used to return a ReaderIterator object.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900012 - Permission denied
@@ -2592,8 +2588,8 @@ function readLines(filePath: string, options: Options, callback: AsyncCallback<R
  *
  * @param { string } filePath - Application sandbox path of the file.
  * @param { Options } [options] - Options for reading the text. The options are as follows:
- * <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
- * <br>The default value is 'utf-8', which is the only value supported.
+ *     <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
+ *     <br>The default value is 'utf-8', which is the only value supported.
  * @returns { ReaderIterator } Returns the iterator object.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900012 - Permission denied
@@ -2618,10 +2614,12 @@ function readLinesSync(filePath: string, options?: Options): ReaderIterator;
  *
  * @param { string } filePath - Application sandbox path of the file.
  * @param { ReadTextOptions } [options] - The options are as follows:
- * <br>offset (long): start position to read the data. This parameter is optional. By default, data is read from the current position.
- * <br>length (long): length of the data to read. This parameter is optional. The default value is the file length.
- * <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
- * <br>The default value is 'utf-8', which is the only value supported.
+ *     <br>offset (long): start position to read the data. This parameter is optional.
+ *     <br>By default, data is read from the current position.
+ *     <br>length (long): length of the data to read. This parameter is optional.
+ *     <br>The default value is the file length.
+ *     <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
+ *     <br>The default value is 'utf-8', which is the only value supported.
  * @returns { Promise<string> } Promise used to return the file content read.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2673,10 +2671,12 @@ function readText(filePath: string, callback: AsyncCallback<string>): void;
  *
  * @param { string } filePath - Application sandbox path of the file.
  * @param { ReadTextOptions } [options] - The options are as follows:
- * <br>offset (long): start position to read the data. This parameter is optional. By default, data is read from the current position.
- * <br>length (long): length of the data to read. This parameter is optional. The default value is the file length.
- * <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
- * <br>The default value is 'utf-8', which is the only value supported.
+ *     <br>offset (long): start position to read the data. This parameter is optional.
+ *     <br>By default, data is read from the current position.
+ *     <br>length (long): length of the data to read. This parameter is optional.
+ *     <br>The default value is the file length.
+ *     <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
+ *     <br>The default value is 'utf-8', which is the only value supported.
  * @param { AsyncCallback<string> } callback - Callback used to return the content read.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2705,10 +2705,12 @@ function readText(
  *
  * @param { string } filePath - Application sandbox path of the file.
  * @param { ReadTextOptions } [options] - The options are as follows:
- * <br>offset (long): start position to read the data. This parameter is optional. By default, data is read from the current position.
- * <br>length (long): length of the data to read. This parameter is optional. The default value is the file length.
- * <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
- * <br>The default value is 'utf-8', which is the only value supported.
+ *     <br>offset (long): start position to read the data. This parameter is optional.
+ *     <br>By default, data is read from the current position.
+ *     <br>length (long): length of the data to read. This parameter is optional.
+ *     <br>The default value is the file length.
+ *     <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
+ *     <br>The default value is 'utf-8', which is the only value supported.
  * @returns { string } Returns the contents of the read file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2889,27 +2891,6 @@ function rmdirSync(path: string): void;
 /**
  * Obtains detailed attribute information of a file or directory. This API uses a promise to return the result.
  *
- * @param { string | int } file - Application sandbox path or FD of the file.
- * @returns { Promise<Stat> } Promise used to return detailed file information.
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900004 - Interrupted system call
- * @throws { BusinessError } 13900005 - I/O error
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900013 - Bad address
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900031 - Function not implemented
- * @throws { BusinessError } 13900033 - Too many symbolic links encountered
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
- */
-/**
- * Obtains detailed attribute information of a file or directory. This API uses a promise to return the result.
- *
  * @param { string | int } file - Application sandbox path, URI, or FD of the file or directory.
  *     <br>NOTE: URIs can be passed since API version 22.
  * @returns { Promise<Stat> } Promise used to return detailed file information.
@@ -2935,28 +2916,6 @@ function stat(file: string | int): Promise<Stat>;
  * Obtains detailed attribute information of a file or directory.
  * This API uses an asynchronous callback to return the result.
  *
- * @param { string | int } file - Application sandbox path or FD of the file.
- * @param { AsyncCallback<Stat> } callback - Callback used to return the file information obtained.
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900004 - Interrupted system call
- * @throws { BusinessError } 13900005 - I/O error
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900013 - Bad address
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900031 - Function not implemented
- * @throws { BusinessError } 13900033 - Too many symbolic links encountered
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
- */
-/**
- * Obtains detailed attribute information of a file or directory.
- * This API uses an asynchronous callback to return the result.
- *
  * @param { string | int } file - Application sandbox path, URI, or FD of the file or directory.
  *     <br>NOTE: URIs can be passed since API version 22.
  * @param { AsyncCallback<Stat> } callback - Callback used to return the file information obtained.
@@ -2978,27 +2937,6 @@ function stat(file: string | int): Promise<Stat>;
  */
 function stat(file: string | int, callback: AsyncCallback<Stat>): void;
 
-/**
- * Obtains detailed attribute information of a file or directory. This API returns the result synchronously.
- *
- * @param { string | int } file - Application sandbox path or FD of the file.
- * @returns { Stat } File information obtained.
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900004 - Interrupted system call
- * @throws { BusinessError } 13900005 - I/O error
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900013 - Bad address
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900031 - Function not implemented
- * @throws { BusinessError } 13900033 - Too many symbolic links encountered
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
- */
 /**
  * Obtains detailed attribute information of a file or directory. This API returns the result synchronously.
  *
@@ -3281,8 +3219,8 @@ function unlinkSync(path: string): void;
  * Updates the latest access timestamp of a file.
  *
  * @param { string } path - Application sandbox path of the file.
- * @param { double } mtime - New timestamp. The value is the number of milliseconds elapsed since the Epoch time (00:00:00 UTC on January 1, 1970). 
- * <br>Only the last access time of a file can be modified.
+ * @param { double } mtime - New timestamp. The value is the number of milliseconds elapsed since
+ *     <br>the Epoch time (00:00:00 UTC on January 1, 1970). Only the last access time of a file can be modified.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900012 - Permission denied
@@ -3351,11 +3289,12 @@ function write(fd: int, buffer: ArrayBuffer | string, callback: AsyncCallback<lo
  * @param { int } fd - FD of the file.
  * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
  * @param { WriteOptions } [options] - The options are as follows:
- * <br>length (long): length of the data to write. This parameter is optional. The default value is the buffer length.
- * <br>offset (long): start position to write the data in the file. This parameter is optional.
- * <br>By default, data is written from the current position.
- * <br>encoding (string): format of the data to be encoded when the data is a string.
- * <br>The default value is 'utf-8', which is the only value supported.
+ *     <br>length (long): length of the data to write. This parameter is optional.
+ *     <br>The default value is the buffer length.
+ *     <br>offset (long): start position to write the data in the file. This parameter is optional.
+ *     <br>By default, data is written from the current position.
+ *     <br>encoding (string): format of the data to be encoded when the data is a string.
+ *     <br>The default value is 'utf-8', which is the only value supported.
  * @param { AsyncCallback<long> } callback - The callback is used to return the number of bytes written to the file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3385,11 +3324,12 @@ function write(
  * @param { int } fd - FD of the file.
  * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
  * @param { WriteOptions } [options] - The options are as follows:
- * <br>length (long): length of the data to write. This parameter is optional. The default value is the buffer length.
- * <br>offset (long): start position to write the data in the file. This parameter is optional.
- * <br>By default, data is written from the current position.
- * <br>encoding (string): format of the data to be encoded when the data is a string.
- * <br>The default value is 'utf-8', which is the only value supported.
+ *     <br>length (long): length of the data to write. This parameter is optional.
+ *     <br>The default value is the buffer length.
+ *     <br>offset (long): start position to write the data in the file. This parameter is optional.
+ *     <br>By default, data is written from the current position.
+ *     <br>encoding (string): format of the data to be encoded when the data is a string.
+ *     <br>The default value is 'utf-8', which is the only value supported.
  * @returns { long } Length of the data written, in bytes.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3449,11 +3389,11 @@ function disconnectDfs(networkId: string): Promise<void>;
  *
  * @param { string } path - Application sandbox path of the directory.
  * @param { string } key - Key of the extended attribute to obtain.
- * <br>The value is a string of less than 256 bytes and can contain only the user. prefix.
+ *     <br>The value is a string of less than 256 bytes and can contain only the user. prefix.
  * @param { string } value -Value of the extended attribute to set.
  * @returns { Promise<void> } Promise that returns no value.
  * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
- * <br>2.Incorrect parameter types.
+ *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
  * @throws { BusinessError } 13900012 - Permission denied
@@ -3473,10 +3413,10 @@ function setxattr(path: string, key: string, value: string): Promise<void>;
  *
  * @param { string } path - Application sandbox path of the directory.
  * @param { string } key - Key of the extended attribute to obtain.
- * <br>The value is a string of less than 256 bytes and can contain only the user. prefix.
+ *     <br>The value is a string of less than 256 bytes and can contain only the user. prefix.
  * @param { string } value - Value of the extended attribute to set.
  * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
- * <br>2.Incorrect parameter types.
+ *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
  * @throws { BusinessError } 13900012 - Permission denied
@@ -3499,7 +3439,7 @@ function setxattrSync(path: string, key: string, value: string): void;
  * @param { string } key - Key of the extended attribute to obtain.
  * @returns { Promise<string> } Promise used to return the value of the extended attribute obtained.
  * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
- * <br>2.Incorrect parameter types.
+ *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900007 - Arg list too long
  * @throws { BusinessError } 13900012 - Permission denied
@@ -3519,7 +3459,7 @@ function getxattr(path: string, key: string): Promise<string>;
  * @param { string } key - Key of the extended attribute to obtain.
  * @returns { string } Value of the extended attribute obtained.
  * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
- * <br>2.Incorrect parameter types.
+ *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900007 - Arg list too long
  * @throws { BusinessError } 13900012 - Permission denied
@@ -3689,7 +3629,7 @@ interface File {
    * This API uses a promise to return the result.
    *
    * @param { boolean } exclusive - Lock to apply. The value true means an exclusive lock,
-   * <br>and the value false (default) means a shared lock.
+   *     <br>and the value false (default) means a shared lock.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -3723,7 +3663,7 @@ interface File {
    * This API uses an asynchronous callback to return the result.
    *
    * @param { boolean } exclusive - Lock to apply. The value true means an exclusive lock,
-   * <br>and the value false (default) means a shared lock.
+   *     <br>and the value false (default) means a shared lock.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -3740,7 +3680,7 @@ interface File {
    * Applies an exclusive lock or a shared lock on this file in non-blocking mode.
    *
    * @param { boolean } exclusive - Lock to apply. The value true means an exclusive lock,
-   * <br>and the value false (default) means a shared lock.
+   *     <br>and the value false (default) means a shared lock.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -3830,11 +3770,11 @@ interface RandomAccessFile {
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { WriteOptions } [options] - The options are as follows:
-   * <br>length (long): length of the data to write. The default value is the buffer length.
-   * <br>offset (long): start position to write the data (it is determined by filePointer plus offset).
-   * <br>This parameter is optional. By default, data is written from the filePointer.
-   * <br>encoding (string): format of the data to be encoded when the data is a string.
-   * <br>The default value is 'utf-8', which is the only value supported.
+   *     <br>length (long): length of the data to write. The default value is the buffer length.
+   *     <br>offset (long): start position to write the data (it is determined by filePointer plus offset).
+   *     <br>This parameter is optional. By default, data is written from the filePointer.
+   *     <br>encoding (string): format of the data to be encoded when the data is a string.
+   *     <br>The default value is 'utf-8', which is the only value supported.
    * @returns { Promise<long> } Returns the number of bytes written to the file in promise mode.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3883,11 +3823,11 @@ interface RandomAccessFile {
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { WriteOptions } [options] - The options are as follows:
-   * <br>length (long): length of the data to write. The default value is the buffer length.
-   * <br>offset (long): start position to write the data (it is determined by filePointer plus offset).
-   * <br>This parameter is optional. By default, data is written from the filePointer.
-   * <br>encoding (string): format of the data to be encoded when the data is a string.
-   * <br>The default value is 'utf-8', which is the only value supported.
+   *     <br>length (long): length of the data to write. The default value is the buffer length.
+   *     <br>offset (long): start position to write the data (it is determined by filePointer plus offset).
+   *     <br>This parameter is optional. By default, data is written from the filePointer.
+   *     <br>encoding (string): format of the data to be encoded when the data is a string.
+   *     <br>The default value is 'utf-8', which is the only value supported.
    * @param { AsyncCallback<long> } callback - Callback used to return the result.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3915,11 +3855,11 @@ interface RandomAccessFile {
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { WriteOptions } [options] - The options are as follows:
-   * <br>length (long): length of the data to write. The default value is the buffer length.
-   * <br>offset (long): start position to write the data (it is determined by filePointer plus offset).
-   * <br>This parameter is optional. By default, data is written from the filePointer.
-   * <br>encoding (string): format of the data to be encoded when the data is a string.
-   * <br>The default value is 'utf-8', which is the only value supported.
+   *     <br>length (long): length of the data to write. The default value is the buffer length.
+   *     <br>offset (long): start position to write the data (it is determined by filePointer plus offset).
+   *     <br>This parameter is optional. By default, data is written from the filePointer.
+   *     <br>encoding (string): format of the data to be encoded when the data is a string.
+   *     <br>The default value is 'utf-8', which is the only value supported.
    * @returns { long } Length of the data written in the file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3946,9 +3886,10 @@ interface RandomAccessFile {
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
    * @param { ReadOptions } [options] - The options are as follows:
-   * <br>length (long): length of the data to read. This parameter is optional. The default value is the buffer length.
-   * <br>offset (long): start position to read the data (it is determined by filePointer plus offset).
-   * <br>This parameter is optional. By default, data is read from the filePointer.
+   *     <br>length (long): length of the data to read. This parameter is optional.
+   *     <br>The default value is the buffer length.
+   *     <br>offset (long): start position to read the data (it is determined by filePointer plus offset).
+   *     <br>This parameter is optional. By default, data is read from the filePointer.
    * @returns { Promise<long> } Promise used to return the data read.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -3992,9 +3933,10 @@ interface RandomAccessFile {
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
    * @param { ReadOptions } [options] - The options are as follows:
-   * <br>length (long): length of the data to read. This parameter is optional. The default value is the buffer length.
-   * <br>offset (long): start position to read the data (it is determined by filePointer plus offset).
-   * <br>This parameter is optional. By default, data is read from the filePointer.
+   *     <br>length (long): length of the data to read. This parameter is optional.
+   *     <br>The default value is the buffer length.
+   *     <br>offset (long): start position to read the data (it is determined by filePointer plus offset).
+   *     <br>This parameter is optional. By default, data is read from the filePointer.
    * @param { AsyncCallback<long> } callback - Callback used to return the result.
   * @throws { BusinessError } 13900004 - Interrupted system call
   * @throws { BusinessError } 13900005 - I/O error
@@ -4019,9 +3961,10 @@ interface RandomAccessFile {
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
    * @param { ReadOptions } [options] - The options are as follows:
-   * <br>length (long): length of the data to read. This parameter is optional. The default value is the buffer length.
-   * <br>offset (long): start position to read the data (it is determined by filePointer plus offset).
-   * <br>This parameter is optional. By default, data is read from the filePointer.
+   *     <br>length (long): length of the data to read. This parameter is optional.
+   *     <br>The default value is the buffer length.
+   *     <br>offset (long): start position to read the data (it is determined by filePointer plus offset).
+   *     <br>This parameter is optional. By default, data is read from the filePointer.
    * @returns { long } Returns the number of file bytes read to buffer.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4117,7 +4060,7 @@ class ReadStream extends stream.Readable {
    *
    * @param { long } offset - Number of bytes to move the offset.
    * @param { WhenceType } [whence = WhenceType.SEEK_SET] - Where to start the offset. The default value is SEEK_SET,
-   * <br>which indicates the beginning of the file.
+   *     <br>which indicates the beginning of the file.
    * @returns { long } Returns the offset relative to starting position of stream.
    * @throws { BusinessError } 401 - Parameter error
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -4186,7 +4129,8 @@ class WriteStream extends stream.Writable {
    * Adjusts the position of the writeable stream offset pointer.
    *
    * @param { long } offset - Number of bytes to move the offset.
-   * @param { WhenceType } [whence = WhenceType.SEEK_SET] - Where to start the offset. The default value is SEEK_SET, which indicates the beginning of the file.
+   * @param { WhenceType } [whence = WhenceType.SEEK_SET] - Where to start the offset.
+   *     <br>The default value is SEEK_SET, which indicates the beginning of the file.
    * @returns { long } Position of the current offset pointer (offset relative to the file header, in bytes).
    * @throws { BusinessError } 401 - Parameter error
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -4226,7 +4170,8 @@ export class AtomicFile {
    * The AtomicFile constructor.
    * 
    * @param { string } path - Application sandbox path of the file.
-   * @throws { BusinessError } 401 Parameter error.Possible causes:1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 20 static
    */
@@ -4485,7 +4430,8 @@ interface Stat {
   readonly location: LocationType;
 
   /**
-   * Checks whether this file is a block special file. A block special file supports access by block only, and it is cached when accessed.
+   * Checks whether this file is a block special file. A block special file supports access by block only,
+   * and it is cached when accessed.
    *
    * @returns { boolean } Returns whether the path/fd point to a block device or not.
    * @throws { BusinessError } 13900005 - I/O error
@@ -4496,7 +4442,8 @@ interface Stat {
   isBlockDevice(): boolean;
 
   /**
-   * Checks whether this file is a character special file. A character special device supports random access, and it is not cached when accessed.
+   * Checks whether this file is a character special file. A character special device supports random access,
+   * and it is not cached when accessed.
    *
    * @returns { boolean } Returns whether the path/fd point to a character device or not.
    * @throws { BusinessError } 13900005 - I/O error
@@ -4682,11 +4629,11 @@ interface Stream {
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { WriteOptions } [options] - The options are as follows:
-   * <br>length (long): length of the data to write. The default value is the buffer length.
-   * <br>offset (long): start position to write the data in the file. This parameter is optional.
-   * <br>By default, data is written from the current position.
-   * <br>encoding (string): format of the data to be encoded when the data is a string.
-   * <br>The default value is 'utf-8', which is the only value supported.
+   *     <br>length (long): length of the data to write. The default value is the buffer length.
+   *     <br>offset (long): start position to write the data in the file. This parameter is optional.
+   *     <br>By default, data is written from the current position.
+   *     <br>encoding (string): format of the data to be encoded when the data is a string.
+   *     <br>The default value is 'utf-8', which is the only value supported.
    * @returns { Promise<long> } Promise used to return the length of the data written.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -4712,7 +4659,8 @@ interface Stream {
    * Writes data to this stream. This API uses an asynchronous callback to return the result.
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
-   * @param { AsyncCallback<long> } callback - The callback is used to return the number of file bytes written to file.
+   * @param { AsyncCallback<long> } callback - The callback is used to return the
+   *     <br>number of file bytes written to file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4735,11 +4683,11 @@ interface Stream {
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { WriteOptions } [options] - The options are as follows:
-   * <br>length (long): length of the data to write. The default value is the buffer length.
-   * <br>offset (long): start position to write the data in the file. This parameter is optional.
-   * <br>By default, data is written from the current position.
-   * <br>encoding (string): format of the data to be encoded when the data is a string.
-   * <br>The default value is 'utf-8', which is the only value supported.
+   *     <br>length (long): length of the data to write. The default value is the buffer length.
+   *     <br>offset (long): start position to write the data in the file. This parameter is optional.
+   *     <br>By default, data is written from the current position.
+   *     <br>encoding (string): format of the data to be encoded when the data is a string.
+   *     <br>The default value is 'utf-8', which is the only value supported.
    * @param { AsyncCallback<long> } callback - Callback used to return the result.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -4767,11 +4715,11 @@ interface Stream {
    *
    * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
    * @param { WriteOptions } [options] - The options are as follows:
-   * <br>length (long): length of the data to write. The default value is the buffer length.
-   * <br>offset (long): start position to write the data in the file. This parameter is optional.
-   * <br>By default, data is written from the current position.
-   * <br>encoding (string): format of the data to be encoded when the data is a string.
-   * <br>The default value is 'utf-8', which is the only value supported.
+   *     <br>length (long): length of the data to write. The default value is the buffer length.
+   *     <br>offset (long): start position to write the data in the file. This parameter is optional.
+   *     <br>By default, data is written from the current position.
+   *     <br>encoding (string): format of the data to be encoded when the data is a string.
+   *     <br>The default value is 'utf-8', which is the only value supported.
    * @returns { long } Length of the data written in the file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -4798,9 +4746,10 @@ interface Stream {
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
    * @param { ReadOptions } [options] - The options are as follows:
-   * <br>length (long): length of the data to read. This parameter is optional. The default value is the buffer length.
-   * <br>offset (long): start position to read the data. This parameter is optional. By default,
-   * <br>data is read from the current position.
+   *     <br>length (long): length of the data to read. This parameter is optional.
+   *     <br>The default value is the buffer length.
+   *     <br>offset (long): start position to read the data. This parameter is optional. By default,
+   *     <br>data is read from the current position.
    * @returns { Promise<long> } Promise used to return the data read.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4844,9 +4793,10 @@ interface Stream {
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
    * @param { ReadOptions } [options] - The options are as follows:
-   * <br>length (long): length of the data to read. This parameter is optional. The default value is the buffer length.
-   * <br>offset (long): start position to read the data. This parameter is optional. By default,
-   * <br>data is read from the current position.
+   *     <br>length (long): length of the data to read. This parameter is optional.
+   *     <br>The default value is the buffer length.
+   *     <br>offset (long): start position to read the data. This parameter is optional. By default,
+   *     <br>data is read from the current position.
    * @param { AsyncCallback<long> } callback - Callback used to return the result.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4871,9 +4821,10 @@ interface Stream {
    *
    * @param { ArrayBuffer } buffer - Buffer used to store the file read.
    * @param { ReadOptions } [options] - The options are as follows:
-   * <br>length (long): length of the data to read. This parameter is optional. The default value is the buffer length.
-   * <br>offset (long): start position to read the data. This parameter is optional. By default,
-   * <br>data is read from the current position.
+   *     <br>length (long): length of the data to read. This parameter is optional.
+   *     <br>The default value is the buffer length.
+   *     <br>offset (long): start position to read the data. This parameter is optional. By default,
+   *     <br>data is read from the current position.
    * @returns { long } Length of the data read.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -5127,7 +5078,8 @@ export interface WatchEvent {
    * 0x100: IN_CREATE: A file or directory is created in the observed directory.
    * 0x200: IN_DELETE: A file or directory is deleted from the observed directory.
    * 0x400: IN_DELETE_SELF: The observed directory is deleted. After the directory is deleted, the listening stops.
-   * 0x800: IN_MOVE_SELF: The observed file or directory is moved. After the file or directory is moved, the listening continues.
+   * 0x800: IN_MOVE_SELF: The observed file or directory is moved.
+   *     <br>After the file or directory is moved, the listening continues.
    * 0xfff: IN_ALL_EVENTS: All events.
    *
    * @type { int }
@@ -5357,7 +5309,8 @@ export interface WriteOptions extends Options {
    * OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
    * OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
    * or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
-   * OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception. The write permission is not allowed.
+   * OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
+   *     <br>The write permission is not allowed.
    * OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
    * OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
    * 
@@ -5424,7 +5377,8 @@ export interface ListFileOptions {
  */
 export interface RandomAccessFileOptions {
   /**
-   * Start position to read the data, in bytes. This parameter is optional. By default, data is read from the current position.
+   * Start position to read the data, in bytes. This parameter is optional.
+   * By default, data is read from the current position.
    * 
    * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO
