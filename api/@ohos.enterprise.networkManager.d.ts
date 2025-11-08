@@ -183,6 +183,25 @@ declare namespace networkManager {
   }
 
   /**
+   * Iptables rule logType.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  enum LogType {
+    /**
+     * Netfilter Log
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    NFLOG = 0
+  }
+
+  /**
    * Iptables add filter rule
    *
    * @typedef AddFilterRule
@@ -500,6 +519,16 @@ declare namespace networkManager {
      * @since 22
      */
     family?: number;
+
+    /**
+     * Log type
+     *
+     * @type { ?LogType }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    logType?: LogType;
   }
 
   /**
@@ -560,6 +589,16 @@ declare namespace networkManager {
      * @since 22
      */
     family?: number;
+
+    /**
+     * Log type
+     *
+     * @type { ?LogType }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 23
+     */
+    logType?: LogType;
   }
 
   /**
