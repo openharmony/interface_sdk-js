@@ -35,7 +35,7 @@ import AutoFillRect from './AutoFillRect';
  * @systemapi
  * @stagemodelonly
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export default interface ViewData {
   /**
@@ -46,7 +46,7 @@ export default interface ViewData {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   bundleName: string;
 
@@ -58,7 +58,7 @@ export default interface ViewData {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   moduleName: string;
 
@@ -70,7 +70,7 @@ export default interface ViewData {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   abilityName: string;
 
@@ -82,7 +82,7 @@ export default interface ViewData {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   pageUrl: string;
 
@@ -94,7 +94,7 @@ export default interface ViewData {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   pageNodeInfos: Array<PageNodeInfo>;
 
@@ -106,7 +106,7 @@ export default interface ViewData {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   pageRect: AutoFillRect;
 
@@ -118,7 +118,7 @@ export default interface ViewData {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isUserSelected: boolean;
 
@@ -130,7 +130,7 @@ export default interface ViewData {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isOtherAccount: boolean;
 }

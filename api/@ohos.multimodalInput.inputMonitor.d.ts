@@ -36,7 +36,7 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
  * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
  * @systemapi hide for inner use
  * @since 7 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace inputMonitor {
   /**
@@ -56,7 +56,8 @@ declare namespace inputMonitor {
    * @returns { boolean } Returns true indicates the touch input is consumed, the value false indicates opposite.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   type TouchEventReceiver = (touchEvent: TouchEvent) => boolean;
 
@@ -1023,7 +1024,8 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function queryTouchEvents(count: int) : Promise<Array<TouchEvent>>;
 }

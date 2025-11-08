@@ -27,7 +27,7 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @interface MenuItemGroupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface MenuItemGroupOptions {
     /**
@@ -35,7 +35,7 @@ export declare interface MenuItemGroupOptions {
      *
      * @type { ?(ResourceStr | CustomBuilder) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     header?: ResourceStr | CustomBuilder;
     /**
@@ -43,7 +43,7 @@ export declare interface MenuItemGroupOptions {
      *
      * @type { ?(ResourceStr | CustomBuilder) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     footer?: ResourceStr | CustomBuilder;
 }
@@ -54,7 +54,7 @@ export declare interface MenuItemGroupOptions {
  * @extends CommonMethod
  * @interface MenuItemGroupAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface MenuItemGroupAttribute extends CommonMethod {
     /**
@@ -63,7 +63,7 @@ export declare interface MenuItemGroupAttribute extends CommonMethod {
      * @param { AttributeModifier<MenuItemGroupAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { MenuItemGroupAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     attributeModifier(
         modifier: AttributeModifier<MenuItemGroupAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -76,7 +76,7 @@ export declare interface MenuItemGroupAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { MenuItemGroupAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @ComponentBuilder
 export declare function MenuItemGroup(

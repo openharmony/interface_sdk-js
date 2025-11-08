@@ -25,7 +25,7 @@ import { Permissions } from './permissions';
  * @namespace privacyManager
  * @syscap SystemCapability.Security.AccessToken
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace privacyManager {
   /**
@@ -71,7 +71,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addPermissionUsedRecord(
     tokenID: int,
@@ -101,7 +101,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addPermissionUsedRecord(
     tokenID: int,
@@ -128,7 +128,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getPermissionUsedRecord(request: PermissionUsedRequest): Promise<PermissionUsedResponse>;
 
@@ -149,7 +149,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getPermissionUsedRecord(
     request: PermissionUsedRequest,
@@ -203,7 +203,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function startUsingPermission(
     tokenID: int,
@@ -233,7 +233,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function startUsingPermission(tokenID: int, permissionName: Permissions, callback: AsyncCallback<void>): void;
 
@@ -281,7 +281,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function stopUsingPermission(
     tokenID: int,
@@ -309,7 +309,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function stopUsingPermission(tokenID: int, permissionName: Permissions, callback: AsyncCallback<void>): void;
 
@@ -356,7 +356,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   function onActiveStateChange(
     permissionList: Array<Permissions>,
@@ -404,7 +404,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   function offActiveStateChange(
     permissionList: Array<Permissions>,
@@ -445,7 +445,8 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100003 - The input permissionName does not exist.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getPermissionUsedTypeInfos(tokenId?: int | null, permissionName?: Permissions): Promise<Array<PermissionUsedTypeInfo>>;
 
@@ -463,7 +464,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setPermissionUsedRecordToggleStatus(status: boolean): Promise<void>;
 
@@ -478,7 +479,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getPermissionUsedRecordToggleStatus(): Promise<boolean>;
 
@@ -489,7 +490,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum PermissionActiveStatus {
     /**
@@ -498,7 +499,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PERM_INACTIVE = 0,
 
@@ -508,7 +509,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PERM_ACTIVE_IN_FOREGROUND = 1,
 
@@ -518,7 +519,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PERM_ACTIVE_IN_BACKGROUND = 2
   }
@@ -530,7 +531,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ActiveChangeResponse {
     /**
@@ -540,7 +541,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     callingTokenId?: int;
 
@@ -551,7 +552,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     tokenId: int;
 
@@ -562,7 +563,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     permissionName: Permissions;
 
@@ -573,7 +574,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deviceId: string;
 
@@ -584,7 +585,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     activeStatus: PermissionActiveStatus;
 
@@ -595,7 +596,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     usedType?: PermissionUsedType;
   }
@@ -607,7 +608,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum PermissionUsageFlag {
     /**
@@ -616,7 +617,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FLAG_PERMISSION_USAGE_SUMMARY = 0,
     /**
@@ -625,7 +626,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FLAG_PERMISSION_USAGE_DETAIL = 1
   }
@@ -637,7 +638,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface PermissionUsedRequest {
     /**
@@ -647,7 +648,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     tokenId?: int;
 
@@ -659,7 +660,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isRemote?: boolean;
 
@@ -670,7 +671,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deviceId?: string;
 
@@ -681,7 +682,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bundleName?: string;
 
@@ -692,7 +693,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     permissionNames?: Array<Permissions>;
 
@@ -704,7 +705,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     beginTime?: long;
 
@@ -716,7 +717,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     endTime?: long;
 
@@ -727,7 +728,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     flag: PermissionUsageFlag;
   }
@@ -739,7 +740,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface PermissionUsedResponse {
     /**
@@ -749,7 +750,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     beginTime: long;
 
@@ -760,7 +761,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     endTime: long;
 
@@ -771,7 +772,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bundleRecords: Array<BundleUsedRecord>;
   }
@@ -783,7 +784,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface BundleUsedRecord {
     /**
@@ -793,7 +794,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     tokenId: int;
 
@@ -804,7 +805,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isRemote: boolean;
 
@@ -815,7 +816,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deviceId: string;
 
@@ -826,7 +827,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bundleName: string;
 
@@ -837,7 +838,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     permissionRecords: Array<PermissionUsedRecord>;
   }
@@ -849,7 +850,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface PermissionUsedRecord {
     /**
@@ -859,7 +860,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     permissionName: Permissions;
 
@@ -870,7 +871,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     accessCount: int;
 
@@ -881,7 +882,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rejectCount: int;
 
@@ -892,7 +893,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     lastAccessTime: long;
 
@@ -903,7 +904,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     lastRejectTime: long;
 
@@ -914,7 +915,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     lastAccessDuration: long;
 
@@ -925,7 +926,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     accessRecords: Array<UsedRecordDetail>;
 
@@ -936,7 +937,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rejectRecords: Array<UsedRecordDetail>;
   }
@@ -948,7 +949,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface UsedRecordDetail {
     /**
@@ -958,7 +959,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     status: int;
 
@@ -969,7 +970,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     lockScreenStatus?: int;
 
@@ -980,7 +981,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     timestamp: long;
 
@@ -991,7 +992,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     count?: int;
 
@@ -1002,7 +1003,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     accessDuration: long;
 
@@ -1013,7 +1014,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     usedType?: PermissionUsedType;
   }
@@ -1025,7 +1026,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum PermissionUsedType {
     /**
@@ -1034,7 +1035,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NORMAL_TYPE = 0,
 
@@ -1044,7 +1045,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PICKER_TYPE = 1,
 
@@ -1054,7 +1055,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SECURITY_COMPONENT_TYPE = 2
   }
@@ -1066,7 +1067,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface PermissionUsedTypeInfo {
     /**
@@ -1076,7 +1077,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     tokenId: int;
 
@@ -1087,7 +1088,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     permissionName: Permissions;
 
@@ -1098,7 +1099,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     usedType: PermissionUsedType;
   }
@@ -1110,7 +1111,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AddPermissionUsedRecordOptions {
     /**
@@ -1120,7 +1121,7 @@ declare namespace privacyManager {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     usedType?: PermissionUsedType;
   }

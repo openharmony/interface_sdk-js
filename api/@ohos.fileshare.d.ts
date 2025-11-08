@@ -32,7 +32,7 @@ import type wantConstant from './@ohos.app.ability.wantConstant';
  * @namespace fileShare
  * @syscap SystemCapability.FileManagement.AppFileService
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace fileShare {
   /**
@@ -41,7 +41,7 @@ declare namespace fileShare {
    * @enum { int } OperationMode
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum OperationMode {
     /**
@@ -49,7 +49,7 @@ declare namespace fileShare {
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     READ_MODE = 0b1,
 
@@ -58,7 +58,7 @@ declare namespace fileShare {
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WRITE_MODE = 0b10,
 
@@ -170,7 +170,7 @@ declare namespace fileShare {
    * @interface PolicyInfo
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface PolicyInfo {
     /**
@@ -179,7 +179,7 @@ declare namespace fileShare {
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uri: string;
 
@@ -189,7 +189,7 @@ declare namespace fileShare {
      * @type { int }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     operationMode: int;
   }
@@ -200,7 +200,7 @@ declare namespace fileShare {
    * @interface PathPolicyInfo
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface PathPolicyInfo {
     /**
@@ -209,7 +209,7 @@ declare namespace fileShare {
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     path: string;
  
@@ -219,7 +219,7 @@ declare namespace fileShare {
      * @type { OperationMode }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     operationMode: OperationMode;
   }
@@ -230,7 +230,7 @@ declare namespace fileShare {
    * @enum { number } policyType
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum PolicyType {
     /**
@@ -238,7 +238,7 @@ declare namespace fileShare {
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TEMPORARY_TYPE = 0,
  
@@ -247,7 +247,7 @@ declare namespace fileShare {
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PERSISTENT_TYPE = 1,
   }
@@ -268,7 +268,7 @@ declare namespace fileShare {
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function grantUriPermission(
     uri: string,
@@ -293,7 +293,7 @@ declare namespace fileShare {
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function grantUriPermission(uri: string, bundleName: string, flag: wantConstant.Flags): Promise<void>;
 
@@ -364,7 +364,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function activatePermission(policies: Array<PolicyInfo>): Promise<void>;
 
@@ -382,7 +382,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function deactivatePermission(policies: Array<PolicyInfo>): Promise<void>;
 
@@ -430,7 +430,7 @@ declare namespace fileShare {
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @systemapi
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function checkPathPermission(tokenID: int, policies: Array<PathPolicyInfo>, policyType: PolicyType): Promise<Array<boolean>>;
 }

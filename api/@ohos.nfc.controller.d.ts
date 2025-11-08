@@ -34,7 +34,7 @@ import { Callback } from './@ohos.base';
  * @syscap SystemCapability.Communication.NFC.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace nfcController {
   /**
@@ -51,7 +51,7 @@ declare namespace nfcController {
    * @syscap SystemCapability.Communication.NFC.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum NfcState {
     /** 
@@ -66,7 +66,7 @@ declare namespace nfcController {
      * @syscap SystemCapability.Communication.NFC.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_OFF = 1,
 
@@ -82,7 +82,7 @@ declare namespace nfcController {
      * @syscap SystemCapability.Communication.NFC.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_TURNING_ON = 2,
 
@@ -98,7 +98,7 @@ declare namespace nfcController {
      * @syscap SystemCapability.Communication.NFC.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_ON = 3,
 
@@ -114,7 +114,7 @@ declare namespace nfcController {
      * @syscap SystemCapability.Communication.NFC.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_TURNING_OFF = 4
   }
@@ -208,7 +208,7 @@ declare namespace nfcController {
    * @throws { BusinessError } 3100101 - The NFC state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Core
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enableNfc(): void;
 
@@ -234,7 +234,7 @@ declare namespace nfcController {
    * @throws { BusinessError } 3100101 - The NFC state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Core
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function disableNfc(): void;
 
@@ -252,7 +252,7 @@ declare namespace nfcController {
    * @syscap SystemCapability.Communication.NFC.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isNfcOpen(): boolean;
 
@@ -278,7 +278,7 @@ declare namespace nfcController {
    * @syscap SystemCapability.Communication.NFC.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getNfcState(): NfcState;
 }

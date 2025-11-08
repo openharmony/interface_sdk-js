@@ -24,7 +24,7 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @interface EllipseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export interface EllipseOptions {
     /**
@@ -32,7 +32,7 @@ export interface EllipseOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     width?: string | double;
     /**
@@ -40,7 +40,7 @@ export interface EllipseOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     height?: string | double;
 }
@@ -50,7 +50,7 @@ export interface EllipseOptions {
  * @extends CommonShapeMethod
  * @interface EllipseAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare interface EllipseAttribute extends CommonShapeMethod {
@@ -60,7 +60,7 @@ export declare interface EllipseAttribute extends CommonShapeMethod {
      * @param { AttributeModifier<EllipseAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { EllipseAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<EllipseAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -72,7 +72,7 @@ export declare interface EllipseAttribute extends CommonShapeMethod {
  * @param { CustomBuilder } [content_]
  * @returns { EllipseAttribute } The attribute of the Ellipse.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 @ComponentBuilder

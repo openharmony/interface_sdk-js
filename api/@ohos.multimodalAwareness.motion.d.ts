@@ -35,7 +35,7 @@ declare namespace motion {
    * @enum { int } OperatingHandStatus
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum OperatingHandStatus {
     /**

@@ -40,7 +40,7 @@ import type _PermissionRequestResult from './security/PermissionRequestResult';
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace abilityAccessCtrl {
   /**
@@ -66,7 +66,7 @@ declare namespace abilityAccessCtrl {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createAtManager(): AtManager;
 
@@ -84,7 +84,7 @@ declare namespace abilityAccessCtrl {
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AtManager {
     /**
@@ -95,7 +95,7 @@ declare namespace abilityAccessCtrl {
      * @returns { Promise<GrantStatus> } Returns permission verify result.
      * @syscap SystemCapability.Security.AccessToken
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     verifyAccessToken(tokenID: int, permissionName: Permissions): Promise<GrantStatus>;
 
@@ -122,7 +122,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, or the permissionName exceeds 256 characters.
      * @syscap SystemCapability.Security.AccessToken
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     verifyAccessTokenSync(tokenID: int, permissionName: Permissions): GrantStatus;
 
@@ -163,7 +163,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     checkAccessToken(tokenID: int, permissionName: Permissions): Promise<GrantStatus>;
 
@@ -193,7 +193,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     checkAccessTokenSync(tokenID: int, permissionName: Permissions): GrantStatus;
 
@@ -238,7 +238,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     requestPermissionsFromUser(
       context: Context,
@@ -287,7 +287,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     requestPermissionsFromUser(context: Context, permissionList: Array<Permissions>): Promise<PermissionRequestResult>;
 
@@ -312,7 +312,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     grantUserGrantedPermission(tokenID: int, permissionName: Permissions, permissionFlags: int): Promise<void>;
 
@@ -337,7 +337,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     grantUserGrantedPermission(
       tokenID: int,
@@ -367,7 +367,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     revokeUserGrantedPermission(tokenID: int, permissionName: Permissions, permissionFlags: int): Promise<void>;
 
@@ -392,7 +392,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     revokeUserGrantedPermission(
       tokenID: int,
@@ -419,7 +419,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getPermissionFlags(tokenID: int, permissionName: Permissions): Promise<int>;
 
@@ -440,7 +440,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setPermissionRequestToggleStatus(permissionName: Permissions, status: PermissionRequestToggleStatus): Promise<void>;
 
@@ -459,7 +459,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getPermissionRequestToggleStatus(permissionName: Permissions): Promise<PermissionRequestToggleStatus>;
 
@@ -471,7 +471,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getVersion(): Promise<int>;
 
@@ -491,7 +491,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getPermissionsStatus(tokenID: int, permissionList: Array<Permissions>): Promise<Array<PermissionStatus>>;
 
@@ -555,7 +555,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100008 - Out of memory.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 20 static
+     * @since 22 static
      */
     onPermissionStateChange(
       tokenIDList: Array<int>,
@@ -608,7 +608,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100005 - The registration time has exceeded the limit.
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
-     * @since 20 static
+     * @since 22 static
      */
     onSelfPermissionStateChange(
       permissionList: Array<Permissions>,
@@ -664,7 +664,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 20 static
+     * @since 22 static
      */
     offPermissionStateChange(
       tokenIDList: Array<int>,
@@ -704,7 +704,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100004 - The API is not used in pair with 'on'.
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
-     * @since 20 static
+     * @since 22 static
      */
     offSelfPermissionStateChange(
       permissionList: Array<Permissions>,
@@ -728,7 +728,7 @@ declare namespace abilityAccessCtrl {
      * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     requestPermissionOnSetting(context: Context, permissionList: Array<Permissions>): Promise<Array<GrantStatus>>;
 
@@ -747,7 +747,7 @@ declare namespace abilityAccessCtrl {
      * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     requestGlobalSwitch(context: Context, type: SwitchType): Promise<boolean>;
 
@@ -763,7 +763,7 @@ declare namespace abilityAccessCtrl {
      * @systemapi
      * @stagemodelonly
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     requestPermissionOnApplicationSetting(tokenID: int): Promise<void>;
 
@@ -776,7 +776,8 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     getSelfPermissionStatus(permissionName: Permissions): PermissionStatus;
   }
@@ -804,7 +805,7 @@ declare namespace abilityAccessCtrl {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum GrantStatus {
     /**
@@ -827,7 +828,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PERMISSION_DENIED = -1,
     /**
@@ -850,7 +851,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PERMISSION_GRANTED = 0
   }
@@ -862,7 +863,7 @@ declare namespace abilityAccessCtrl {
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum PermissionStateChangeType {
     /**
@@ -871,7 +872,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PERMISSION_REVOKED_OPER = 0,
     /**
@@ -880,7 +881,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PERMISSION_GRANTED_OPER = 1
   }
@@ -892,7 +893,7 @@ declare namespace abilityAccessCtrl {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum PermissionRequestToggleStatus {
     /**
@@ -901,7 +902,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CLOSED = 0,
     /**
@@ -910,7 +911,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     OPEN = 1,
   }
@@ -922,7 +923,7 @@ declare namespace abilityAccessCtrl {
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    * @name PermissionStateChangeInfo
    */
   interface PermissionStateChangeInfo {
@@ -933,7 +934,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     change: PermissionStateChangeType;
 
@@ -944,7 +945,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     tokenID: int;
 
@@ -955,7 +956,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     permissionName: Permissions;
   }
@@ -966,7 +967,8 @@ declare namespace abilityAccessCtrl {
    * @enum { int }
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   export enum PermissionStatus {
     /**
@@ -974,7 +976,8 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     DENIED = -1,
     /**
@@ -982,7 +985,8 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     GRANTED = 0,
     /**
@@ -990,7 +994,8 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     NOT_DETERMINED = 1,
     /**
@@ -998,7 +1003,8 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     INVALID = 2,
     /**
@@ -1006,7 +1012,8 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     RESTRICTED = 3
   }
@@ -1018,7 +1025,7 @@ declare namespace abilityAccessCtrl {
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
     export enum SwitchType {
       /**
@@ -1027,7 +1034,7 @@ declare namespace abilityAccessCtrl {
        * @syscap SystemCapability.Security.AccessToken
        * @atomicservice
        * @since 12 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       CAMERA = 0,
       /**
@@ -1036,7 +1043,7 @@ declare namespace abilityAccessCtrl {
        * @syscap SystemCapability.Security.AccessToken
        * @atomicservice
        * @since 12 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       MICROPHONE = 1,
       /**
@@ -1045,7 +1052,7 @@ declare namespace abilityAccessCtrl {
        * @syscap SystemCapability.Security.AccessToken
        * @atomicservice
        * @since 12 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       LOCATION = 2,
     }
@@ -1071,7 +1078,7 @@ export { Permissions };
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type PermissionRequestResult = _PermissionRequestResult;
 /**
@@ -1092,6 +1099,6 @@ export type PermissionRequestResult = _PermissionRequestResult;
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type Context = _Context;

@@ -25,7 +25,8 @@ import type { Callback } from './@ohos.base';
  * @namespace roomLocation
  * @syscap SystemCapability.MultimodalAwareness.RoomLocation
  * @systemapi
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 declare namespace roomLocation {
   /**
@@ -33,7 +34,8 @@ declare namespace roomLocation {
    * @interface RoomLocateResponse
    * @syscap SystemCapability.MultimodalAwareness.RoomLocation
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface RoomLocateResponse {
     /**
@@ -41,7 +43,8 @@ declare namespace roomLocation {
      * @type { string }
      * @syscap SystemCapability.MultimodalAwareness.RoomLocation
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     roomId: string;
     /**
@@ -49,7 +52,8 @@ declare namespace roomLocation {
      * @type { int }
      * @syscap SystemCapability.MultimodalAwareness.RoomLocation
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     errorCode: int;
   }
@@ -93,7 +97,8 @@ declare namespace roomLocation {
    * @throws { BusinessError } 33800005 - Failed to obtain room-level location information.
    * @syscap SystemCapability.MultimodalAwareness.RoomLocation
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getRoomLocationResult(): RoomLocateResponse;
 
@@ -107,7 +112,8 @@ declare namespace roomLocation {
    * @throws { BusinessError } 33800004 - Failed to set device information.
    * @syscap SystemCapability.MultimodalAwareness.RoomLocation
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function setDeviceInfos(deviceInfos: string): Promise<boolean>;
 }

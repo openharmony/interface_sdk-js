@@ -30,7 +30,7 @@ import type { MultiAppMode } from './bundleManager/ApplicationInfo';
  * @systemapi
  * @stagemodelonly
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace dialogSession {
 
@@ -42,7 +42,7 @@ declare namespace dialogSession {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface DialogAbilityInfo {
 
@@ -54,7 +54,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bundleName: string;
 
@@ -66,7 +66,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     moduleName: string;
 
@@ -78,7 +78,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     abilityName: string;
 
@@ -90,7 +90,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     abilityIconId: int;
 
@@ -102,7 +102,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     abilityLabelId: int;
 
@@ -114,7 +114,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bundleIconId: int;
 
@@ -126,7 +126,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bundleLabelId: int;
 
@@ -138,7 +138,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     visible: boolean;
 
@@ -150,7 +150,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     appIndex: int;
 
@@ -162,7 +162,7 @@ declare namespace dialogSession {
       * @systemapi
       * @stagemodelonly
       * @since 12 dynamic
-      * @since 20 static
+      * @since 22 static
       */
     multiAppMode: MultiAppMode;
   }
@@ -175,7 +175,7 @@ declare namespace dialogSession {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface DialogSessionInfo {
 
@@ -187,7 +187,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     callerAbilityInfo: DialogAbilityInfo;
 
@@ -199,7 +199,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     targetAbilityInfos: Array<DialogAbilityInfo>;
 
@@ -211,7 +211,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     parameters?: Record<string, Object>;
   }
@@ -247,7 +247,7 @@ declare namespace dialogSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20 static
+   * @since 22 static
    */
   function getDialogSessionInfo(dialogSessionId: string): DialogSessionInfo | null;
 
@@ -268,7 +268,7 @@ declare namespace dialogSession {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function sendDialogResult(dialogSessionId: string, targetWant: Want, isAllowed: boolean): Promise<void>;
 
@@ -289,7 +289,7 @@ declare namespace dialogSession {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function sendDialogResult(dialogSessionId: string, targetWant: Want, isAllowed: boolean, callback: AsyncCallback<void>): void;
 }

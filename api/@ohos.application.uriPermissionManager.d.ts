@@ -27,7 +27,7 @@ import type wantConstant from './@ohos.app.ability.wantConstant';
  * @namespace uriPermissionManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace uriPermissionManager {
   /**
@@ -234,7 +234,7 @@ declare namespace uriPermissionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string, appCloneIndex: int): Promise<void>;
 
@@ -412,7 +412,7 @@ declare namespace uriPermissionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
     function revokeUriPermission(uri: string, targetBundleName: string, appCloneIndex: int): Promise<void>;
 

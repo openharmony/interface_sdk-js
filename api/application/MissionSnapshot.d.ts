@@ -28,7 +28,7 @@ import image from '../@ohos.multimedia.image';
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
  * @since 8 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface MissionSnapshot {
   /**
@@ -46,7 +46,7 @@ export interface MissionSnapshot {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   ability: ElementName;
 
@@ -57,7 +57,7 @@ export interface MissionSnapshot {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   snapshot: image.PixelMap;
 }

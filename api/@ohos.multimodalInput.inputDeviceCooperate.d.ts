@@ -29,7 +29,7 @@ import { Callback } from './@ohos.base';
  * @namespace inputDeviceCooperate
  * @syscap SystemCapability.MultimodalInput.Input.Cooperator
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 
 
@@ -41,7 +41,7 @@ declare namespace inputDeviceCooperate {
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum EventMsg {
     /**
@@ -50,7 +50,7 @@ declare namespace inputDeviceCooperate {
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
     */
     MSG_COOPERATE_INFO_START = 200,
 
@@ -60,7 +60,7 @@ declare namespace inputDeviceCooperate {
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
     */
     MSG_COOPERATE_INFO_SUCCESS = 201,
 
@@ -70,7 +70,7 @@ declare namespace inputDeviceCooperate {
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
     */
     MSG_COOPERATE_INFO_FAIL = 202,
 
@@ -80,7 +80,7 @@ declare namespace inputDeviceCooperate {
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
     */
     MSG_COOPERATE_STATE_ON = 500,
 
@@ -90,7 +90,7 @@ declare namespace inputDeviceCooperate {
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
     */
     MSG_COOPERATE_STATE_OFF = 501,
   }
@@ -101,7 +101,8 @@ declare namespace inputDeviceCooperate {
    * @interface TraversalSwitchStatus
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface TraversalSwitchStatus {
     /**
@@ -110,7 +111,8 @@ declare namespace inputDeviceCooperate {
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     state: boolean;
   }
@@ -121,7 +123,8 @@ declare namespace inputDeviceCooperate {
    * @interface CooperationCallbackData
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface CooperationCallbackData {
     /**
@@ -130,7 +133,8 @@ declare namespace inputDeviceCooperate {
      * @type { string }
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     deviceDescriptor: string;
 
@@ -140,7 +144,8 @@ declare namespace inputDeviceCooperate {
      * @type { EventMsg }
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     eventMsg: EventMsg;
   }
@@ -169,7 +174,7 @@ declare namespace inputDeviceCooperate {
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enable(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -197,7 +202,7 @@ declare namespace inputDeviceCooperate {
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enable(enable: boolean): Promise<void>;
 
@@ -231,7 +236,7 @@ declare namespace inputDeviceCooperate {
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function start(sinkDeviceDescriptor: string, srcInputDeviceId: int, callback: AsyncCallback<void>): void;
 
@@ -265,7 +270,7 @@ declare namespace inputDeviceCooperate {
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use 
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
   */
   function start(sinkDeviceDescriptor: string, srcInputDeviceId: int): Promise<void>;
 
@@ -291,7 +296,7 @@ declare namespace inputDeviceCooperate {
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function stop(callback: AsyncCallback<void>): void;
 
@@ -313,7 +318,7 @@ declare namespace inputDeviceCooperate {
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function stop(): Promise<void>;
 
@@ -352,7 +357,8 @@ declare namespace inputDeviceCooperate {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getState(deviceDescriptor: string, callback: AsyncCallback<TraversalSwitchStatus>): void;
 
@@ -393,7 +399,8 @@ declare namespace inputDeviceCooperate {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function getState(deviceDescriptor: string): Promise<TraversalSwitchStatus>;
 

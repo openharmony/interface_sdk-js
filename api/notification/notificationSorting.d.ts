@@ -27,7 +27,7 @@ import { NotificationSlot } from './notificationSlot';
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 7 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationSorting {
   /**
@@ -38,7 +38,7 @@ export interface NotificationSorting {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly slot: NotificationSlot;
 
@@ -50,7 +50,7 @@ export interface NotificationSorting {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly hashCode: string;
 
@@ -62,7 +62,7 @@ export interface NotificationSorting {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly ranking: long;
 }

@@ -22,7 +22,7 @@
 /**
  * @namespace router
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 declare namespace router {
   /**
@@ -30,7 +30,7 @@ declare namespace router {
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   export enum RouterMode {
     /**
@@ -38,7 +38,7 @@ declare namespace router {
      * The page will be added to the top of the page stack.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     Standard,
 
@@ -49,7 +49,7 @@ declare namespace router {
      * If the target page url does not exist in the page stack, route will use default route mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     Single
   }
@@ -57,7 +57,7 @@ declare namespace router {
   /**
    * @typedef RouterOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 20 static
+   * @since 22 static
    */
   interface RouterOptions {
     /**
@@ -70,7 +70,7 @@ declare namespace router {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @since 20 static
+     * @since 22 static
      */
     url: string;
 
@@ -81,7 +81,7 @@ declare namespace router {
      *
      * @type { ?Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @since 20 static
+     * @since 22 static
      */
     params?: Object;
 
@@ -91,7 +91,7 @@ declare namespace router {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @since 20 static
+     * @since 22 static
      */
     recoverable?: boolean;
   }
@@ -99,7 +99,7 @@ declare namespace router {
   /**
    * @typedef RouterState
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   interface RouterState {
     /**
@@ -108,7 +108,7 @@ declare namespace router {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     index: int;
 
@@ -117,7 +117,7 @@ declare namespace router {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -126,7 +126,7 @@ declare namespace router {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     path: string;
 
@@ -135,7 +135,7 @@ declare namespace router {
      *
      * @type { Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     params: Object;
   }
@@ -144,7 +144,7 @@ declare namespace router {
   /**
    * @typedef EnableAlertOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   interface EnableAlertOptions {
     /**
@@ -152,7 +152,7 @@ declare namespace router {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     message: string;
   }
@@ -160,7 +160,7 @@ declare namespace router {
   /**
    * @typedef NamedRouterOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   interface NamedRouterOptions {
     /**
@@ -168,7 +168,7 @@ declare namespace router {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -177,7 +177,7 @@ declare namespace router {
      *
      * @type { ?Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     params?: Object;
 
@@ -187,7 +187,7 @@ declare namespace router {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @since 20 static
+     * @since 22 static
      */
     recoverable?: boolean;
   }

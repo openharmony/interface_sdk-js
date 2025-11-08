@@ -27,7 +27,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace eSIM
  * @syscap SystemCapability.Telephony.CoreService.Esim
  * @since 18 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace eSIM {
   /**
@@ -43,7 +43,7 @@ declare namespace eSIM {
    * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isSupported(slotId: int): boolean;
 
@@ -64,7 +64,7 @@ declare namespace eSIM {
    * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addProfile(profile: DownloadableProfile): Promise<boolean>;
 
@@ -86,7 +86,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getEid(slotId: int): Promise<string>;
 
@@ -108,7 +108,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getOsuStatus(slotId: int): Promise<OsuStatus>;
 
@@ -130,7 +130,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function startOsu(slotId: int): Promise<OsuStatus>;
 
@@ -157,7 +157,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDownloadableProfileMetadata(slotId: int, portIndex: int,
     profile: DownloadableProfile, forceDisableProfile: boolean): Promise<GetDownloadableProfileMetadataResult>;
@@ -185,7 +185,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDownloadableProfiles(slotId: int, portIndex: int,
     forceDisableProfile: boolean): Promise<GetDownloadableProfilesResult>;
@@ -211,7 +211,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function downloadProfile(slotId: int, portIndex: int, profile: DownloadableProfile,
     configuration: DownloadConfiguration): Promise<DownloadProfileResult>;
@@ -234,7 +234,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getEuiccProfileInfoList(slotId: int): Promise<GetEuiccProfileInfoListResult>;
 
@@ -257,7 +257,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getEuiccInfo(slotId: int): Promise<EuiccInfo>;
 
@@ -280,7 +280,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function deleteProfile(slotId: int, iccid: string): Promise<ResultCode>;
 
@@ -307,7 +307,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function switchToProfile(slotId: int, portIndex: int, iccid: string,
     forceDisableProfile: boolean): Promise<ResultCode>;
@@ -332,7 +332,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setProfileNickname(slotId: int, iccid: string, nickname: string): Promise<ResultCode>;
 
@@ -355,7 +355,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function resetMemory(slotId: int, options?:ResetOption): Promise<ResultCode>;
 
@@ -377,7 +377,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function reserveProfilesForFactoryRestore(slotId: int): Promise<ResultCode>;
 
@@ -400,7 +400,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setDefaultSmdpAddress(slotId: int, address: string): Promise<ResultCode>;
 
@@ -422,7 +422,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDefaultSmdpAddress(slotId: int): Promise<string>;
 
@@ -448,7 +448,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function cancelSession(slotId: int, transactionId: string, cancelReason: CancelReason): Promise<ResultCode>;
 
@@ -467,7 +467,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 20 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getContractInfo(slotId: int, requestData: ContractRequestData) : Promise<string>;
 
@@ -485,7 +485,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 20 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSupportedPkids(slotId: int) : Promise<string>;
 
@@ -496,7 +496,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 20 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface ContractRequestData {
     /**
@@ -506,7 +506,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     publicKey: string;
 
@@ -517,7 +517,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     nonce: string;
 
@@ -528,7 +528,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pkid: string;
   }
@@ -546,7 +546,8 @@ declare namespace eSIM {
    *
    * @interface AccessRule
    * @syscap SystemCapability.Telephony.CoreService.Esim
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   export interface AccessRule {
     /**
@@ -562,7 +563,8 @@ declare namespace eSIM {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     certificateHashHexStr: string;
 
@@ -579,7 +581,8 @@ declare namespace eSIM {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     packageName: string;
 
@@ -596,7 +599,8 @@ declare namespace eSIM {
      * 
      * @type { int }
      * @syscap SystemCapability.Telephony.CoreService.Esim
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     accessType: int;
   }
@@ -607,7 +611,7 @@ declare namespace eSIM {
    * @interface DownloadableProfile
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface DownloadableProfile {
     /**
@@ -616,7 +620,7 @@ declare namespace eSIM {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     activationCode: string;
 
@@ -626,7 +630,7 @@ declare namespace eSIM {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     confirmationCode?: string;
 
@@ -636,7 +640,7 @@ declare namespace eSIM {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     carrierName?: string;
 
@@ -646,7 +650,7 @@ declare namespace eSIM {
      * @type { ?Array<AccessRule> }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     accessRules?: Array<AccessRule>;
   }
@@ -658,7 +662,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface GetDownloadableProfileMetadataResult {
     /**
@@ -668,7 +672,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     downloadableProfile: DownloadableProfile;
 
@@ -679,7 +683,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pprType: int;
 
@@ -690,7 +694,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pprFlag: boolean;
 
@@ -701,7 +705,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
      iccid: string;
 
@@ -712,7 +716,7 @@ declare namespace eSIM {
       * @syscap SystemCapability.Telephony.CoreService.Esim
       * @systemapi Hide this for inner system use.
       * @since 18 dynamic
-      * @since 20 static
+      * @since 22 static
       */
      serviceProviderName: string;
 
@@ -723,7 +727,7 @@ declare namespace eSIM {
       * @syscap SystemCapability.Telephony.CoreService.Esim
       * @systemapi Hide this for inner system use.
       * @since 18 dynamic
-      * @since 20 static
+      * @since 22 static
       */
      profileName: string;
 
@@ -734,7 +738,7 @@ declare namespace eSIM {
       * @syscap SystemCapability.Telephony.CoreService.Esim
       * @systemapi Hide this for inner system use.
       * @since 18 dynamic
-      * @since 20 static
+      * @since 22 static
       */
      profileClass: ProfileClass;
 
@@ -745,7 +749,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     solvableErrors: SolvableErrors;
 
@@ -756,7 +760,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     responseResult: ResultCode;
   }
@@ -768,7 +772,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface GetDownloadableProfilesResult {
     /**
@@ -778,7 +782,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     responseResult: ResultCode;
 
@@ -789,7 +793,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     downloadableProfiles: Array<DownloadableProfile>;
   }
@@ -801,7 +805,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface DownloadProfileResult {
     /**
@@ -811,7 +815,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     responseResult: ResultCode;
 
@@ -822,7 +826,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     solvableErrors: SolvableErrors;
 
@@ -833,7 +837,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     cardId: int;
   }
@@ -845,7 +849,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface GetEuiccProfileInfoListResult {
     /**
@@ -855,7 +859,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     responseResult: ResultCode;
 
@@ -866,7 +870,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     profiles: Array<EuiccProfile>;
 
@@ -877,7 +881,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isRemovable: boolean;
   }
@@ -889,7 +893,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface OperatorId {
     /**
@@ -899,7 +903,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     mcc: string;
 
@@ -910,7 +914,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     mnc: string;
 
@@ -921,7 +925,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gid1: string;
 
@@ -932,7 +936,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gid2: string;
   }
@@ -944,7 +948,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface EuiccProfile {
     /**
@@ -954,7 +958,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     iccid: string;
 
@@ -965,7 +969,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     nickName: string;
 
@@ -976,7 +980,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     serviceProviderName: string;
 
@@ -987,7 +991,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     profileName: string;
 
@@ -998,7 +1002,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     state: ProfileState;
 
@@ -1009,7 +1013,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     profileClass: ProfileClass;
 
@@ -1020,7 +1024,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     operatorId: OperatorId;
 
@@ -1031,7 +1035,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     policyRules: PolicyRules;
 
@@ -1042,7 +1046,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     accessRules: Array<AccessRule>;
   }
@@ -1054,7 +1058,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface EuiccInfo {
     /**
@@ -1064,7 +1068,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     osVersion: string;
   }
@@ -1076,7 +1080,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum ResetOption {
     /**
@@ -1085,7 +1089,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DELETE_OPERATIONAL_PROFILES = 1,
 
@@ -1095,7 +1099,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DELETE_FIELD_LOADED_TEST_PROFILES = 1 << 1,
 
@@ -1105,7 +1109,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESET_DEFAULT_SMDP_ADDRESS = 1 << 2,
   }
@@ -1117,7 +1121,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum OsuStatus {
     /**
@@ -1126,7 +1130,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EUICC_UPGRADE_IN_PROGRESS = 1,
 
@@ -1136,7 +1140,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EUICC_UPGRADE_FAILED = 2,
 
@@ -1146,7 +1150,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EUICC_UPGRADE_SUCCESSFUL = 3,
 
@@ -1156,7 +1160,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EUICC_UPGRADE_ALREADY_LATEST = 4,
 
@@ -1166,7 +1170,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EUICC_UPGRADE_SERVICE_UNAVAILABLE = 5,
   }
@@ -1178,7 +1182,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum ResultCode {
     /**
@@ -1187,7 +1191,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_SOLVABLE_ERRORS = -2,
 
@@ -1197,7 +1201,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_MUST_DISABLE_PROFILE = -1,
 
@@ -1207,7 +1211,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_OK = 0,
 
@@ -1217,7 +1221,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_GET_EID_FAILED = 201,
 
@@ -1227,7 +1231,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_ACTIVATION_CODE_CHANGED = 203,
 
@@ -1237,7 +1241,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_ACTIVATION_CODE_INVALID = 204,
 
@@ -1247,7 +1251,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_SMDP_ADDRESS_INVALID = 205,
 
@@ -1257,7 +1261,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_EUICC_INFO_INVALID = 206,
 
@@ -1267,7 +1271,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_TLS_HANDSHAKE_FAILED = 207,
 
@@ -1277,7 +1281,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_CERTIFICATE_IO_ERROR = 208,
 
@@ -1287,7 +1291,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_CERTIFICATE_RESPONSE_TIMEOUT = 209,
 
@@ -1297,7 +1301,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_AUTHENTICATION_FAILED = 210,
 
@@ -1307,7 +1311,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_RESPONSE_HTTP_FAILED = 211,
 
@@ -1317,7 +1321,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_CONFIRMATION_CODE_INCORRECT = 212,
 
@@ -1327,7 +1331,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_EXCEEDED_CONFIRMATION_CODE_TRY_LIMIT = 213,
 
@@ -1337,7 +1341,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_NO_PROFILE_ON_SERVER = 214,
 
@@ -1347,7 +1351,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_TRANSACTION_ID_INVALID = 215,
 
@@ -1357,7 +1361,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_SERVER_ADDRESS_INVALID = 216,
 
@@ -1367,7 +1371,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_GET_BOUND_PROFILE_PACKAGE_FAILED = 217,
 
@@ -1377,7 +1381,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_USER_CANCEL_DOWNLOAD = 218,
 
@@ -1387,7 +1391,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_SERVER_UNAVAILABLE = 220,
 
@@ -1397,7 +1401,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_PROFILE_NON_DELETE = 223,
 
@@ -1407,7 +1411,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_SMDP_ADDRESS_INCORRECT = 226,
 
@@ -1417,7 +1421,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_ANALYZE_AUTHENTICATION_SERVER_RESPONSE_FAILED = 228,
 
@@ -1427,7 +1431,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_ANALYZE_AUTHENTICATION_CLIENT_RESPONSE_FAILED = 229,
 
@@ -1437,7 +1441,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_ANALYZE_AUTHENTICATION_CLIENT_MATCHING_ID_REFUSED = 231,
 
@@ -1447,7 +1451,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_PROFILE_TYPE_ERROR_AUTHENTICATION_STOPPED = 233,
 
@@ -1457,7 +1461,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_CARRIER_SERVER_REFUSED_ERRORS = 249,
 
@@ -1467,7 +1471,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_CERTIFICATE_INVALID = 251,
 
@@ -1477,7 +1481,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_OUT_OF_MEMORY = 263,
 
@@ -1487,7 +1491,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_PPR_FORBIDDEN = 268,
 
@@ -1497,7 +1501,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_NOTHING_TO_DELETE = 270,
 
@@ -1507,7 +1511,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_PPR_NOT_MATCH = 276,
 
@@ -1517,7 +1521,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_CAT_BUSY = 283,
 
@@ -1527,7 +1531,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_PROFILE_EID_INVALID = 284,
 
@@ -1537,7 +1541,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_DOWNLOAD_TIMEOUT = 287,
 
@@ -1547,7 +1551,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESULT_SGP_22_OTHER = 400,
   }
@@ -1559,7 +1563,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum CancelReason {
     /**
@@ -1568,7 +1572,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CANCEL_REASON_END_USER_REJECTION = 0,
 
@@ -1578,7 +1582,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CANCEL_REASON_POSTPONED = 1,
 
@@ -1588,7 +1592,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CANCEL_REASON_TIMEOUT = 2,
 
@@ -1598,7 +1602,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CANCEL_REASON_PPR_NOT_ALLOWED = 3,
   }
@@ -1610,7 +1614,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum ProfileState {
     /**
@@ -1619,7 +1623,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PROFILE_STATE_UNSPECIFIED = -1,
 
@@ -1629,7 +1633,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PROFILE_STATE_DISABLED = 0,
 
@@ -1639,7 +1643,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PROFILE_STATE_ENABLED = 1,
   }
@@ -1651,7 +1655,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum ProfileClass {
     /**
@@ -1660,7 +1664,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PROFILE_CLASS_UNSPECIFIED = -1,
 
@@ -1670,7 +1674,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PROFILE_CLASS_TEST = 0,
 
@@ -1680,7 +1684,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PROFILE_CLASS_PROVISIONING = 1,
 
@@ -1690,7 +1694,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PROFILE_CLASS_OPERATIONAL = 2,
   }
@@ -1702,7 +1706,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum PolicyRules {
     /**
@@ -1711,7 +1715,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     POLICY_RULE_DISABLE_NOT_ALLOWED = 1,
 
@@ -1721,7 +1725,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     POLICY_RULE_DELETE_NOT_ALLOWED = 1 << 1,
 
@@ -1731,7 +1735,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     POLICY_RULE_DISABLE_AND_DELETE = 1 << 2,
   }
@@ -1743,7 +1747,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum SolvableErrors {
     /**
@@ -1752,7 +1756,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SOLVABLE_ERROR_NEED_CONFIRMATION_CODE = 1 << 0,
 
@@ -1762,7 +1766,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SOLVABLE_ERROR_NEED_POLICY_RULE = 1 << 1,
   }
@@ -1774,7 +1778,7 @@ declare namespace eSIM {
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface DownloadConfiguration {
     /**
@@ -1784,7 +1788,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     switchAfterDownload: boolean;
 
@@ -1797,7 +1801,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     forceDisableProfile: boolean;
 
@@ -1809,7 +1813,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isPprAllowed: boolean;
   }

@@ -30,7 +30,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @systemapi
  * @StageModelOnly
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class ServiceExtensionAbility {
   /**
@@ -41,7 +41,7 @@ declare class ServiceExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   context: ServiceExtensionContext;
 
@@ -53,7 +53,7 @@ declare class ServiceExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onCreate(want: Want): void;
 
@@ -64,7 +64,7 @@ declare class ServiceExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onDestroy(): void;
 
@@ -79,7 +79,7 @@ declare class ServiceExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onRequest(want: Want, startId: int): void;
 
@@ -93,7 +93,7 @@ declare class ServiceExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onConnect(want: Want): rpc.RemoteObject | Promise<rpc.RemoteObject>;
 
@@ -117,7 +117,7 @@ declare class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20 static
+   * @since 22 static
    */
   onDisconnect(want: Want): Promise<void> | undefined;
 
@@ -141,7 +141,7 @@ declare class ServiceExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onConfigurationUpdate(newConfig: Configuration): void;
 
@@ -155,7 +155,7 @@ declare class ServiceExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onDump(params: Array<string>): Array<string>;
 }

@@ -31,7 +31,7 @@ import type { RecordData } from './@ohos.base';
  * @namespace appAccount
  * @syscap SystemCapability.Account.AppAccount
  * @since 7 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace appAccount {
   /**
@@ -40,7 +40,7 @@ declare namespace appAccount {
    * @returns { AppAccountManager } Returns the instance of the AppAccountManager.
    * @syscap SystemCapability.Account.AppAccount
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createAppAccountManager(): AppAccountManager;
 
@@ -50,7 +50,7 @@ declare namespace appAccount {
    * @interface AppAccountManager
    * @syscap SystemCapability.Account.AppAccount
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AppAccountManager {
     /**
@@ -114,7 +114,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     createAccount(name: string, callback: AsyncCallback<void>): void;
 
@@ -135,7 +135,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     createAccount(name: string, options: CreateAccountOptions, callback: AsyncCallback<void>): void;
 
@@ -156,7 +156,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     createAccount(name: string, options?: CreateAccountOptions): Promise<void>;
 
@@ -194,7 +194,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     createAccountImplicitly(owner: string, callback: AuthCallback): void;
 
@@ -214,7 +214,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     createAccountImplicitly(owner: string, options: CreateAccountImplicitlyOptions, callback: AuthCallback): void;
 
@@ -260,7 +260,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     removeAccount(name: string, callback: AsyncCallback<void>): void;
 
@@ -278,7 +278,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     removeAccount(name: string): Promise<void>;
 
@@ -373,7 +373,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setAppAccess(name: string, bundleName: string, isAccessible: boolean, callback: AsyncCallback<void>): void;
 
@@ -410,7 +410,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setAppAccess(name: string, bundleName: string, isAccessible: boolean): Promise<void>;
 
@@ -428,7 +428,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     checkAppAccess(name: string, bundleName: string, callback: AsyncCallback<boolean>): void;
 
@@ -446,7 +446,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     checkAppAccess(name: string, bundleName: string): Promise<boolean>;
 
@@ -505,7 +505,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     checkDataSyncEnabled(name: string, callback: AsyncCallback<boolean>): void;
 
@@ -528,7 +528,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     checkDataSyncEnabled(name: string): Promise<boolean>;
 
@@ -574,7 +574,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setCredential(name: string, credentialType: string, credential: string,
                              callback: AsyncCallback<void>): void;
@@ -593,7 +593,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setCredential(name: string, credentialType: string, credential: string): Promise<void>;
 
@@ -711,7 +711,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setDataSyncEnabled(name: string, isEnabled: boolean, callback: AsyncCallback<void>): void;
 
@@ -743,7 +743,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setDataSyncEnabled(name: string, isEnabled: boolean): Promise<void>;
 
@@ -790,7 +790,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12400003 - The number of custom data reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setCustomData(name: string, key: string, value: string, callback: AsyncCallback<void>): void;
 
@@ -809,7 +809,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12400003 - The number of custom data reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setCustomData(name: string, key: string, value: string): Promise<void>;
 
@@ -859,7 +859,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAllAccounts(callback: AsyncCallback<Array<AppAccountInfo>>): void;
 
@@ -875,7 +875,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAllAccounts(): Promise<Array<AppAccountInfo>>;
 
@@ -947,7 +947,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid owner.
      * @syscap SystemCapability.Account.AppAccount
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAccountsByOwner(owner: string, callback: AsyncCallback<Array<AppAccountInfo>>): void;
 
@@ -985,7 +985,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300002 - Invalid owner.
      * @syscap SystemCapability.Account.AppAccount
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAccountsByOwner(owner: string): Promise<Array<AppAccountInfo>>;
 
@@ -1029,7 +1029,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300102 - Credential not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getCredential(name: string, credentialType: string, callback: AsyncCallback<string>): void;
 
@@ -1047,7 +1047,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300102 - Credential not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getCredential(name: string, credentialType: string): Promise<string>;
 
@@ -1118,7 +1118,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12400002 - Custom data not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getCustomData(name: string, key: string, callback: AsyncCallback<string>): void;
 
@@ -1136,7 +1136,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12400002 - Custom data not found
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getCustomData(name: string, key: string): Promise<string>;
 
@@ -1154,7 +1154,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12400002 - Custom data not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getCustomDataSync(name: string, key: string): string;
 
@@ -1302,7 +1302,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     auth(name: string, owner: string, authType: string, callback: AuthCallback): void;
 
@@ -1348,7 +1348,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300113 - Authenticator service not found.
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 20 static
+     * @since 22 static
      */
     auth(
       name: string,
@@ -1401,7 +1401,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300107 - AuthType not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAuthToken(name: string, owner: string, authType: string, callback: AsyncCallback<string>): void;
 
@@ -1420,7 +1420,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300107 - AuthType not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAuthToken(name: string, owner: string, authType: string): Promise<string>;
 
@@ -1473,7 +1473,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12400004 - The number of tokens reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setAuthToken(name: string, authType: string, token: string, callback: AsyncCallback<void>): void;
 
@@ -1494,7 +1494,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12400004 - The number of tokens reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setAuthToken(name: string, authType: string, token: string): Promise<void>;
 
@@ -1550,7 +1550,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300107 - AuthType not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deleteAuthToken(name: string, owner: string, authType: string, token: string, callback: AsyncCallback<void>): void;
 
@@ -1572,7 +1572,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300107 - AuthType not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deleteAuthToken(name: string, owner: string, authType: string, token: string): Promise<void>;
 
@@ -1656,7 +1656,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setAuthTokenVisibility(
       name: string,
@@ -1706,7 +1706,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean): Promise<void>;
 
@@ -1764,7 +1764,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300107 - AuthType not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     checkAuthTokenVisibility(name: string, authType: string, bundleName: string, callback: AsyncCallback<boolean>): void;
 
@@ -1785,7 +1785,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300107 - AuthType not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     checkAuthTokenVisibility(name: string, authType: string, bundleName: string): Promise<boolean>;
 
@@ -1829,7 +1829,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAllAuthTokens(name: string, owner: string, callback: AsyncCallback<Array<AuthTokenInfo>>): void;
 
@@ -1846,7 +1846,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAllAuthTokens(name: string, owner: string): Promise<Array<AuthTokenInfo>>;
 
@@ -1898,7 +1898,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300107 - AuthType not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAuthList(name: string, authType: string, callback: AsyncCallback<Array<string>>): void;
 
@@ -1918,7 +1918,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300107 - AuthType not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAuthList(name: string, authType: string): Promise<Array<string>>;
 
@@ -1966,7 +1966,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300108 - Session not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAuthCallback(sessionId: string, callback: AsyncCallback<AuthCallback>): void;
 
@@ -1984,7 +1984,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300108 - Session not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAuthCallback(sessionId: string): Promise<AuthCallback>;
 
@@ -2026,7 +2026,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300113 - Authenticator service not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     queryAuthenticatorInfo(owner: string, callback: AsyncCallback<AuthenticatorInfo>): void;
 
@@ -2042,7 +2042,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300113 - Authenticator service not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     queryAuthenticatorInfo(owner: string): Promise<AuthenticatorInfo>;
 
@@ -2063,7 +2063,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     checkAccountLabels(name: string, owner: string, labels: Array<string>, callback: AsyncCallback<boolean>): void;
 
@@ -2084,7 +2084,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     checkAccountLabels(name: string, owner: string, labels: Array<string>): Promise<boolean>;
 
@@ -2102,7 +2102,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300102 - Credential not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deleteCredential(name: string, credentialType: string, callback: AsyncCallback<void>): void;
 
@@ -2120,7 +2120,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300102 - Credential not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deleteCredential(name: string, credentialType: string): Promise<void>;
 
@@ -2137,7 +2137,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     selectAccountsByOptions(options: SelectAccountsOptions, callback: AsyncCallback<Array<AppAccountInfo>>): void;
 
@@ -2154,7 +2154,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     selectAccountsByOptions(options: SelectAccountsOptions): Promise<Array<AppAccountInfo>>;
 
@@ -2174,7 +2174,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     verifyCredential(name: string, owner: string, callback: AuthCallback): void;
     /**
@@ -2194,7 +2194,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     verifyCredential(name: string, owner: string, options: VerifyCredentialOptions, callback: AuthCallback): void;
 
@@ -2215,7 +2215,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setAuthenticatorProperties(owner: string, callback: AuthCallback): void;
     /**
@@ -2236,7 +2236,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setAuthenticatorProperties(owner: string, options: SetPropertiesOptions, callback: AuthCallback): void;
   }
@@ -2247,7 +2247,7 @@ declare namespace appAccount {
    * @interface AppAccountInfo
    * @syscap SystemCapability.Account.AppAccount
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AppAccountInfo {
     /**
@@ -2256,7 +2256,7 @@ declare namespace appAccount {
      * @type { string }
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     owner: string;
 
@@ -2266,7 +2266,7 @@ declare namespace appAccount {
      * @type { string }
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
   }
@@ -2308,7 +2308,7 @@ declare namespace appAccount {
    * @interface AuthTokenInfo
    * @syscap SystemCapability.Account.AppAccount
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AuthTokenInfo {
     /**
@@ -2317,7 +2317,7 @@ declare namespace appAccount {
      * @type { string }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     authType: string;
 
@@ -2327,7 +2327,7 @@ declare namespace appAccount {
      * @type { string }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     token: string;
 
@@ -2337,7 +2337,7 @@ declare namespace appAccount {
      * @type { ?AppAccountInfo }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     account?: AppAccountInfo;
   }
@@ -2348,7 +2348,7 @@ declare namespace appAccount {
    * @interface AuthenticatorInfo
    * @syscap SystemCapability.Account.AppAccount
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AuthenticatorInfo {
     /**
@@ -2357,7 +2357,7 @@ declare namespace appAccount {
      * @type { string }
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     owner: string;
 
@@ -2367,7 +2367,7 @@ declare namespace appAccount {
      * @type { long }
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     iconId: long;
 
@@ -2377,7 +2377,7 @@ declare namespace appAccount {
      * @type { long }
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     labelId: long;
   }
@@ -2388,7 +2388,7 @@ declare namespace appAccount {
    * @interface AuthResult
    * @syscap SystemCapability.Account.AppAccount
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AuthResult {
     /**
@@ -2397,7 +2397,7 @@ declare namespace appAccount {
      * @type { ?AppAccountInfo }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     account?: AppAccountInfo;
 
@@ -2407,7 +2407,7 @@ declare namespace appAccount {
      * @type { ?AuthTokenInfo }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     tokenInfo?: AuthTokenInfo;
   }
@@ -2418,7 +2418,7 @@ declare namespace appAccount {
    * @interface CreateAccountOptions
    * @syscap SystemCapability.Account.AppAccount
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface CreateAccountOptions {
     /**
@@ -2428,7 +2428,7 @@ declare namespace appAccount {
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     customData?: Record<string, string>;
   }
@@ -2439,7 +2439,7 @@ declare namespace appAccount {
    * @interface CreateAccountImplicitlyOptions
    * @syscap SystemCapability.Account.AppAccount
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface CreateAccountImplicitlyOptions {
     /**
@@ -2448,7 +2448,7 @@ declare namespace appAccount {
      * @type { ?Array<string> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     requiredLabels?: Array<string>;
 
@@ -2458,7 +2458,7 @@ declare namespace appAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     authType?: string;
 
@@ -2482,7 +2482,7 @@ declare namespace appAccount {
      *
      * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 20 static
+     * @since 22 static
      */
     parameters?: Record<string, RecordData>;
   }
@@ -2493,7 +2493,7 @@ declare namespace appAccount {
    * @interface SelectAccountsOptions
    * @syscap SystemCapability.Account.AppAccount
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface SelectAccountsOptions {
     /**
@@ -2502,7 +2502,7 @@ declare namespace appAccount {
      * @type { ?Array<AppAccountInfo> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     allowedAccounts?: Array<AppAccountInfo>;
 
@@ -2512,7 +2512,7 @@ declare namespace appAccount {
      * @type { ?Array<string> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     allowedOwners?: Array<string>;
 
@@ -2522,7 +2522,7 @@ declare namespace appAccount {
      * @type { ?Array<string> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     requiredLabels?: Array<string>;
   }
@@ -2533,7 +2533,7 @@ declare namespace appAccount {
    * @interface VerifyCredentialOptions
    * @syscap SystemCapability.Account.AppAccount
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface VerifyCredentialOptions {
     /**
@@ -2542,7 +2542,7 @@ declare namespace appAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     credentialType?: string;
 
@@ -2552,7 +2552,7 @@ declare namespace appAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     credential?: string;
 
@@ -2576,7 +2576,7 @@ declare namespace appAccount {
      *
      * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 20 static
+     * @since 22 static
      */
     parameters?: Record<string, RecordData>;
   }
@@ -2587,7 +2587,7 @@ declare namespace appAccount {
    * @interface SetPropertiesOptions
    * @syscap SystemCapability.Account.AppAccount
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface SetPropertiesOptions {
     /**
@@ -2604,7 +2604,7 @@ declare namespace appAccount {
      *
      * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 20 static
+     * @since 22 static
      */
     properties?: Record<string, RecordData>;
 
@@ -2628,7 +2628,7 @@ declare namespace appAccount {
      *
      * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Account.AppAccount
-     * @since 20 static
+     * @since 22 static
      */
     parameters?: Record<string, RecordData>;
   }
@@ -2639,7 +2639,7 @@ declare namespace appAccount {
    * @enum { string } Constants
    * @syscap SystemCapability.Account.AppAccount
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum Constants {
     /**
@@ -2667,7 +2667,7 @@ declare namespace appAccount {
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACTION_CREATE_ACCOUNT_IMPLICITLY = 'createAccountImplicitly',
 
@@ -2676,7 +2676,7 @@ declare namespace appAccount {
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACTION_AUTH = 'auth',
 
@@ -2685,7 +2685,7 @@ declare namespace appAccount {
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACTION_VERIFY_CREDENTIAL = 'verifyCredential',
 
@@ -2694,7 +2694,7 @@ declare namespace appAccount {
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACTION_SET_AUTHENTICATOR_PROPERTIES = 'setAuthenticatorProperties',
 
@@ -2703,7 +2703,7 @@ declare namespace appAccount {
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     KEY_NAME = 'name',
 
@@ -2712,7 +2712,7 @@ declare namespace appAccount {
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     KEY_OWNER = 'owner',
 
@@ -2721,7 +2721,7 @@ declare namespace appAccount {
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     KEY_TOKEN = 'token',
 
@@ -2730,7 +2730,7 @@ declare namespace appAccount {
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     KEY_ACTION = 'action',
 
@@ -2739,7 +2739,7 @@ declare namespace appAccount {
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     KEY_AUTH_TYPE = 'authType',
 
@@ -2748,7 +2748,7 @@ declare namespace appAccount {
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     KEY_SESSION_ID = 'sessionId',
 
@@ -2757,7 +2757,7 @@ declare namespace appAccount {
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     KEY_CALLER_PID = 'callerPid',
 
@@ -2766,7 +2766,7 @@ declare namespace appAccount {
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     KEY_CALLER_UID = 'callerUid',
 
@@ -2775,7 +2775,7 @@ declare namespace appAccount {
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     KEY_CALLER_BUNDLE_NAME = 'callerBundleName',
 
@@ -2784,7 +2784,7 @@ declare namespace appAccount {
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     KEY_REQUIRED_LABELS = 'requiredLabels',
 
@@ -2793,7 +2793,7 @@ declare namespace appAccount {
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     KEY_BOOLEAN_RESULT = 'booleanResult'
   }
@@ -3016,7 +3016,7 @@ declare namespace appAccount {
    * @interface AuthCallback
    * @syscap SystemCapability.Account.AppAccount
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AuthCallback {
     /**
@@ -3025,7 +3025,7 @@ declare namespace appAccount {
      * @type { function }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     onResult: (code: int, result?: AuthResult) => void;
 
@@ -3035,7 +3035,7 @@ declare namespace appAccount {
      * @type { function }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     onRequestRedirected: (request: Want) => void;
 
@@ -3045,7 +3045,7 @@ declare namespace appAccount {
      * @type { ?function }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     onRequestContinued?: () => void;
   }
@@ -3055,7 +3055,7 @@ declare namespace appAccount {
    *
    * @syscap SystemCapability.Account.AppAccount
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    * @name Authenticator
    */
   class Authenticator {
@@ -3085,7 +3085,7 @@ declare namespace appAccount {
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     createAccountImplicitly(options: CreateAccountImplicitlyOptions, callback: AuthCallback): void;
 
@@ -3130,7 +3130,7 @@ declare namespace appAccount {
      * @param { Record<string, RecordData> } options - Indicates the authenticator-specific options for the request.
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 20 static
+     * @since 22 static
      */
     auth(name: string, authType: string, options: Record<string, RecordData>, callback: AuthCallback): void;
 
@@ -3145,7 +3145,7 @@ declare namespace appAccount {
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     verifyCredential(name: string, options: VerifyCredentialOptions, callback: AuthCallback): void;
 
@@ -3156,7 +3156,7 @@ declare namespace appAccount {
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setProperties(options: SetPropertiesOptions, callback: AuthCallback): void;
 
@@ -3168,7 +3168,7 @@ declare namespace appAccount {
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     checkAccountLabels(name: string, labels: Array<string>, callback: AuthCallback): void;
 
@@ -3179,7 +3179,7 @@ declare namespace appAccount {
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     checkAccountRemovable(name: string, callback: AuthCallback): void;
 
@@ -3189,7 +3189,7 @@ declare namespace appAccount {
      * @returns { rpc.RemoteObject } Returns a remote object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getRemoteObject(): rpc.RemoteObject;
   }

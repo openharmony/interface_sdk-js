@@ -44,7 +44,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class Queue<T> {
   /**
@@ -70,7 +70,7 @@ declare class Queue<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   constructor();
   /**
@@ -106,7 +106,7 @@ declare class Queue<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   get length(): int;
 
@@ -142,7 +142,7 @@ declare class Queue<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   add(element: T): boolean;
   /**
@@ -172,7 +172,7 @@ declare class Queue<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getFirst(): T;
 
@@ -203,7 +203,7 @@ declare class Queue<T> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   pop(): T;
 
@@ -267,7 +267,7 @@ declare class Queue<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   forEach(callbackfn: QueueForEachCb<T>): void;
 
@@ -307,7 +307,7 @@ declare class Queue<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   $_iterator(): IterableIterator<T>;
 
@@ -323,7 +323,7 @@ declare class Queue<T> {
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 20 static
+ * @since 22 static
  */
 export type QueueForEachCb<T> = (value: T, index: int, queue: Queue<T>) => void
 

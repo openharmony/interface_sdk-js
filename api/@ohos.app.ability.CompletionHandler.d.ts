@@ -28,7 +28,7 @@ import { ElementName } from './bundleManager/ElementName';
  * @param { string } message - Indicates the message of the request result.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 20 static
+ * @since 22 static
  */
 type OnRequestSuccessFn = (elementName: ElementName, message: string) => void;
 /**
@@ -39,7 +39,7 @@ type OnRequestSuccessFn = (elementName: ElementName, message: string) => void;
  * @param { string } message - Indicates the message of the request result.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 20 static
+ * @since 22 static
  */
 type OnRequestFailureFn = (elementName: ElementName, message: string) => void;
 
@@ -49,7 +49,8 @@ type OnRequestFailureFn = (elementName: ElementName, message: string) => void;
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 declare class CompletionHandler {
   /**
@@ -82,7 +83,7 @@ declare class CompletionHandler {
    * @type { OnRequestSuccessFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 static
+   * @since 22 static
    */
   onRequestSuccess: OnRequestSuccessFn;
 
@@ -92,7 +93,7 @@ declare class CompletionHandler {
    * @type { OnRequestFailureFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 static
+   * @since 22 static
    */
   onRequestFailure: OnRequestFailureFn;
 }

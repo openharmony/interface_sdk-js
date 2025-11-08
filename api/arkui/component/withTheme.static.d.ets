@@ -27,7 +27,7 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @interface WithThemeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface WithThemeOptions {
   /**
@@ -35,7 +35,7 @@ export declare interface WithThemeOptions {
    *
    * @type { ?CustomTheme }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   theme?: CustomTheme;
 
@@ -44,7 +44,7 @@ export declare interface WithThemeOptions {
    *
    * @type { ?ThemeColorMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   colorMode?: ThemeColorMode;
 }
@@ -53,7 +53,7 @@ export declare interface WithThemeOptions {
  * Defines the WithTheme attribute functions..
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare interface WithThemeAttribute {}

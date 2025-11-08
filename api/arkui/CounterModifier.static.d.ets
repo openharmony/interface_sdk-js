@@ -26,7 +26,7 @@ import { CounterAttribute } from '@ohos.arkui.component';
  *
  * @implements { CounterAttribute, AttributeModifier<CounterAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare class CounterModifier implements CounterAttribute, AttributeModifier<CounterAttribute> {}

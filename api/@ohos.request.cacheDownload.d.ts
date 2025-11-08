@@ -51,7 +51,8 @@ declare namespace cacheDownload {
      *
      * @typedef ResourceInfo
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     interface ResourceInfo {
         /**
@@ -60,7 +61,8 @@ declare namespace cacheDownload {
          * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         readonly size: long;
     }
@@ -70,7 +72,8 @@ declare namespace cacheDownload {
      *
      * @typedef NetworkInfo
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     interface NetworkInfo {
         /**
@@ -80,7 +83,8 @@ declare namespace cacheDownload {
          * @type { string }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         readonly ip: string;
         /**
@@ -89,7 +93,8 @@ declare namespace cacheDownload {
          * @type { string[] }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         readonly dnsServers: string[];
     }
@@ -99,7 +104,8 @@ declare namespace cacheDownload {
      *
      * @typedef PerformanceInfo
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     interface PerformanceInfo {
         /**
@@ -108,7 +114,8 @@ declare namespace cacheDownload {
          * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         readonly dnsTime: long;
         /**
@@ -117,7 +124,8 @@ declare namespace cacheDownload {
          * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         readonly connectTime: long;
         /**
@@ -126,7 +134,8 @@ declare namespace cacheDownload {
          * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         readonly tlsTime: long;
         /**
@@ -135,7 +144,8 @@ declare namespace cacheDownload {
          * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         readonly firstSendTime: long;
         /**
@@ -144,7 +154,8 @@ declare namespace cacheDownload {
          * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         readonly firstReceiveTime: long;
         /**
@@ -153,7 +164,8 @@ declare namespace cacheDownload {
          * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         readonly totalTime: long;
         /**
@@ -162,7 +174,8 @@ declare namespace cacheDownload {
          * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         readonly redirectTime: long;
     }
@@ -172,7 +185,8 @@ declare namespace cacheDownload {
      *
      * @typedef DownloadInfo
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     interface DownloadInfo {
         /**
@@ -181,7 +195,8 @@ declare namespace cacheDownload {
          * @type { ResourceInfo }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         readonly resource: ResourceInfo;
         /**
@@ -190,7 +205,8 @@ declare namespace cacheDownload {
          * @type { NetworkInfo }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         readonly network: NetworkInfo;
         /**
@@ -199,7 +215,8 @@ declare namespace cacheDownload {
          * @type { PerformanceInfo }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20 dynamic&static
+         * @since 20 dynamic
+         * @since 22 static
          */
         readonly performance: PerformanceInfo;
     }
@@ -272,7 +289,8 @@ declare namespace cacheDownload {
      * @returns { DownloadInfo | undefined } the information of the specified cache download or none.
      * @throws { BusinessError } 201 - permission denied.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     function getDownloadInfo(url: string): DownloadInfo | undefined;
 
@@ -287,7 +305,8 @@ declare namespace cacheDownload {
      *
      * @param { long } size - the size of the download information list.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     function setDownloadInfoListSize(size: long): void;
 }

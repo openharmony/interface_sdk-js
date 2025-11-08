@@ -26,7 +26,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace rpc
  * @syscap SystemCapability.Communication.IPC.Core
  * @since 7 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace rpc {
   /**
@@ -35,7 +35,7 @@ declare namespace rpc {
    * @enum { number }
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum ErrorCode {
     /**
@@ -43,7 +43,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CHECK_PARAM_ERROR = 401,
 
@@ -52,7 +52,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     OS_MMAP_ERROR = 1900001,
 
@@ -61,7 +61,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     OS_IOCTL_ERROR = 1900002,
 
@@ -70,7 +70,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WRITE_TO_ASHMEM_ERROR = 1900003,
 
@@ -79,7 +79,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     READ_FROM_ASHMEM_ERROR = 1900004,
 
@@ -88,7 +88,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ONLY_PROXY_OBJECT_PERMITTED_ERROR = 1900005,
 
@@ -97,7 +97,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ONLY_REMOTE_OBJECT_PERMITTED_ERROR = 1900006,
 
@@ -106,7 +106,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMMUNICATION_ERROR = 1900007,
 
@@ -115,7 +115,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PROXY_OR_REMOTE_OBJECT_INVALID_ERROR = 1900008,
 
@@ -124,7 +124,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WRITE_DATA_TO_MESSAGE_SEQUENCE_ERROR = 1900009,
 
@@ -133,7 +133,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     READ_DATA_FROM_MESSAGE_SEQUENCE_ERROR = 1900010,
 
@@ -142,7 +142,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PARCEL_MEMORY_ALLOC_ERROR = 1900011,
 
@@ -151,7 +151,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_JS_METHOD_ERROR = 1900012,
 
@@ -160,7 +160,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     OS_DUP_ERROR = 1900013
   }
@@ -171,7 +171,7 @@ declare namespace rpc {
    * @enum { number }
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum TypeCode {
     /**
@@ -179,7 +179,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INT8_ARRAY = 0,
 
@@ -188,7 +188,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UINT8_ARRAY = 1,
 
@@ -197,7 +197,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INT16_ARRAY = 2,
 
@@ -206,7 +206,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UINT16_ARRAY = 3,
 
@@ -215,7 +215,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INT32_ARRAY = 4,
 
@@ -224,7 +224,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UINT32_ARRAY = 5,
 
@@ -233,7 +233,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FLOAT32_ARRAY = 6,
 
@@ -242,7 +242,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FLOAT64_ARRAY = 7,
 
@@ -251,7 +251,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     BIGINT64_ARRAY = 8,
 
@@ -260,7 +260,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     BIGUINT64_ARRAY = 9
   }
@@ -1197,7 +1197,7 @@ declare namespace rpc {
    *
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   class MessageSequence {
     /**
@@ -1206,7 +1206,7 @@ declare namespace rpc {
      * @returns { MessageSequence } Return the object created.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static create(): MessageSequence;
 
@@ -1215,7 +1215,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     reclaim(): void;
 
@@ -1230,7 +1230,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeRemoteObject(obj: IRemoteObject): void;
 
@@ -1242,7 +1242,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readRemoteObject(): IRemoteObject;
 
@@ -1258,7 +1258,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeInterfaceToken(token: string): void;
 
@@ -1269,7 +1269,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readInterfaceToken(): string;
 
@@ -1279,7 +1279,7 @@ declare namespace rpc {
      * @returns { int } Return the size of data contained in the {@link MessageSequence} object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getSize(): int;
 
@@ -1289,7 +1289,7 @@ declare namespace rpc {
      * @returns { int } Return the storage capacity of the {@link MessageSequence} object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getCapacity(): int;
 
@@ -1305,7 +1305,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setSize(size: int): void;
 
@@ -1322,7 +1322,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900011 - Memory allocation failed.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setCapacity(size: int): void;
 
@@ -1334,7 +1334,7 @@ declare namespace rpc {
      * @returns { int } Return the writable data space of the {@link MessageSequence} object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getWritableBytes(): int;
 
@@ -1345,7 +1345,7 @@ declare namespace rpc {
      * @returns { int } Return the readable data space of the {@link MessageSequence} object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getReadableBytes(): int;
 
@@ -1355,7 +1355,7 @@ declare namespace rpc {
      * @returns { int } Return the current read position in the {@link MessageSequence} object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getReadPosition(): int;
 
@@ -1365,7 +1365,7 @@ declare namespace rpc {
      * @returns { int } Return the current write position in the {@link MessageSequence} object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getWritePosition(): int;
 
@@ -1381,7 +1381,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rewindRead(pos: int): void;
 
@@ -1397,7 +1397,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rewindWrite(pos: int): void;
 
@@ -1409,7 +1409,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeNoException(): void;
 
@@ -1422,7 +1422,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readException(): void;
 
@@ -1436,7 +1436,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeByte(val: int): void;
 
@@ -1450,7 +1450,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeShort(val: int): void;
 
@@ -1464,7 +1464,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeInt(val: int): void;
 
@@ -1478,7 +1478,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeLong(val: long): void;
 
@@ -1492,7 +1492,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeFloat(val: double): void;
 
@@ -1506,7 +1506,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeDouble(val: double): void;
 
@@ -1520,7 +1520,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeBoolean(val: boolean): void;
 
@@ -1534,7 +1534,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeChar(val: int): void;
 
@@ -1550,7 +1550,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeString(val: string): void;
 
@@ -1564,7 +1564,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeParcelable(val: Parcelable): void;
 
@@ -1581,7 +1581,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeByteArray(byteArray: int[]): void;
 
@@ -1600,7 +1600,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeShortArray(shortArray: int[]): void;
 
@@ -1619,7 +1619,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeIntArray(intArray: int[]): void;
 
@@ -1638,7 +1638,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeLongArray(longArray: long[]): void;
 
@@ -1657,7 +1657,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeFloatArray(floatArray: double[]): void;
 
@@ -1676,7 +1676,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeDoubleArray(doubleArray: double[]): void;
 
@@ -1694,7 +1694,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeBooleanArray(booleanArray: boolean[]): void;
 
@@ -1712,7 +1712,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeCharArray(charArray: int[]): void;
 
@@ -1731,7 +1731,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeStringArray(stringArray: string[]): void;
 
@@ -1747,7 +1747,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeParcelableArray(parcelableArray: Parcelable[]): void;
 
@@ -1764,7 +1764,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeRemoteObjectArray(objectArray: IRemoteObject[]): void;
 
@@ -1775,7 +1775,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readByte(): int;
 
@@ -1786,7 +1786,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readShort(): int;
 
@@ -1797,7 +1797,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readInt(): int;
 
@@ -1808,7 +1808,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readLong(): long;
 
@@ -1819,7 +1819,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readFloat(): double;
 
@@ -1830,7 +1830,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readDouble(): double;
 
@@ -1841,7 +1841,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readBoolean(): boolean;
 
@@ -1852,7 +1852,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readChar(): int;
 
@@ -1863,7 +1863,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readString(): string;
 
@@ -1878,7 +1878,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900012 - Failed to call the JS callback function.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readParcelable(dataIn: Parcelable): void;
 
@@ -1893,7 +1893,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readByteArray(dataIn: int[]): void;
 
@@ -1904,7 +1904,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readByteArray(): int[];
 
@@ -1919,7 +1919,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readShortArray(dataIn: int[]): void;
 
@@ -1930,7 +1930,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readShortArray(): int[];
 
@@ -1945,7 +1945,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readIntArray(dataIn: int[]): void;
 
@@ -1956,7 +1956,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readIntArray(): int[];
 
@@ -1971,7 +1971,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readLongArray(dataIn: long[]): void;
 
@@ -1982,7 +1982,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readLongArray(): long[];
 
@@ -1997,7 +1997,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readFloatArray(dataIn: double[]): void;
 
@@ -2008,7 +2008,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readFloatArray(): double[];
 
@@ -2023,7 +2023,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readDoubleArray(dataIn: double[]): void;
 
@@ -2034,7 +2034,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readDoubleArray(): double[];
 
@@ -2049,7 +2049,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readBooleanArray(dataIn: boolean[]): void;
 
@@ -2060,7 +2060,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readBooleanArray(): boolean[];
 
@@ -2075,7 +2075,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readCharArray(dataIn: int[]): void;
 
@@ -2086,7 +2086,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readCharArray(): int[];
 
@@ -2101,7 +2101,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readStringArray(dataIn: string[]): void;
 
@@ -2112,7 +2112,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readStringArray(): string[];
 
@@ -2130,7 +2130,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900012 - Failed to call the JS callback function.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readParcelableArray(parcelableArray: Parcelable[]): void;
 
@@ -2147,7 +2147,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readRemoteObjectArray(objects: IRemoteObject[]): void;
 
@@ -2158,7 +2158,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readRemoteObjectArray(): IRemoteObject[];
 
@@ -2172,7 +2172,7 @@ declare namespace rpc {
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static closeFileDescriptor(fd: int): void;
 
@@ -2188,7 +2188,7 @@ declare namespace rpc {
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static dupFileDescriptor(fd: int): int;
 
@@ -2199,7 +2199,7 @@ declare namespace rpc {
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     containFileDescriptors(): boolean;
 
@@ -2213,7 +2213,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeFileDescriptor(fd: int): void;
 
@@ -2224,7 +2224,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readFileDescriptor(): int;
 
@@ -2238,7 +2238,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeAshmem(ashmem: Ashmem): void;
 
@@ -2249,7 +2249,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readAshmem(): Ashmem;
 
@@ -2259,7 +2259,7 @@ declare namespace rpc {
      * @returns { int } 128 MB.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getRawDataCapacity(): int;
 
@@ -2301,7 +2301,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeRawDataBuffer(rawData: ArrayBuffer, size: int): void;
 
@@ -2332,7 +2332,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readRawDataBuffer(size: int): ArrayBuffer;
 
@@ -2350,7 +2350,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeArrayBuffer(buf: ArrayBuffer, typeCode: TypeCode): void;
 
@@ -2366,7 +2366,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core 
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readArrayBuffer(typeCode: TypeCode): ArrayBuffer;
   }
@@ -2416,7 +2416,7 @@ declare namespace rpc {
    * @typedef Parcelable
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Parcelable {
     /**
@@ -2427,7 +2427,7 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the marshalling is successful; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     marshalling(dataOut: MessageSequence): boolean;
 
@@ -2439,7 +2439,7 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the unmarshalling is successful; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     unmarshalling(dataIn: MessageSequence): boolean;
   }
@@ -2507,7 +2507,7 @@ declare namespace rpc {
    * @typedef RequestResult
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface RequestResult {
     /**
@@ -2516,7 +2516,7 @@ declare namespace rpc {
      * @type { int }
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     errCode: int;
 
@@ -2526,7 +2526,7 @@ declare namespace rpc {
      * @type { int }
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     code: int;
 
@@ -2537,7 +2537,7 @@ declare namespace rpc {
      * @type { MessageSequence }
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     data: MessageSequence;
 
@@ -2548,7 +2548,7 @@ declare namespace rpc {
      * @type { MessageSequence }
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     reply: MessageSequence;
   }
@@ -2563,7 +2563,7 @@ declare namespace rpc {
    * 
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   abstract class IRemoteObject {
     /**
@@ -2596,7 +2596,7 @@ declare namespace rpc {
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getLocalInterface(descriptor: string): IRemoteBroker;
 
@@ -2663,7 +2663,7 @@ declare namespace rpc {
      *     3.Failed to obtain the passed object instance.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     sendMessageRequest(
       code: int,
@@ -2717,7 +2717,7 @@ declare namespace rpc {
      *     3.Failed to obtain the passed object instance.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     sendMessageRequest(
       code: int,
@@ -2754,7 +2754,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     registerDeathRecipient(recipient: DeathRecipient, flags: int): void;
 
@@ -2785,7 +2785,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     unregisterDeathRecipient(recipient: DeathRecipient, flags: int): void;
 
@@ -2809,7 +2809,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getDescriptor(): string;
 
@@ -2819,7 +2819,7 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the object is dead; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isObjectDead(): boolean;
   }
@@ -2835,7 +2835,7 @@ declare namespace rpc {
    * @typedef IRemoteBroker
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface IRemoteBroker {
     /**
@@ -2845,7 +2845,7 @@ declare namespace rpc {
      * that is, the holder of this RemoteProxy object, if the caller is a RemoteProxy object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     asObject(): IRemoteObject;
   }
@@ -2855,7 +2855,7 @@ declare namespace rpc {
    *
    * @typedef { function } OnRemoteDiedFunc
    * @syscap SystemCapability.Communication.IPC.Core
-   * @since 20 static
+   * @since 22 static
    */
   type OnRemoteDiedFunc = () => void;
 
@@ -2877,7 +2877,7 @@ declare namespace rpc {
    * @typedef DeathRecipient
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface DeathRecipient {
     /**
@@ -2893,7 +2893,7 @@ declare namespace rpc {
      *
      * @type { OnRemoteDiedFunc }
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 20 static
+     * @since 22 static
      */
     onRemoteDied: OnRemoteDiedFunc;
   }
@@ -2907,7 +2907,7 @@ declare namespace rpc {
    * 
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   class MessageOption {
     /**
@@ -2928,7 +2928,7 @@ declare namespace rpc {
      * @returns { int } Return vaule indicating synchronous call.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 20 static
+     * @since 22 static
      */
     static get TF_SYNC(): int;
 
@@ -2950,7 +2950,7 @@ declare namespace rpc {
      * @returns { int } Return vaule indicating asynchronous call.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 20 static
+     * @since 22 static
      */
     static get TF_ASYNC(): int;
 
@@ -2972,7 +2972,7 @@ declare namespace rpc {
      * @returns { int } Return vaule indicating the sendRequest API for returning the file descriptor.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 20 static
+     * @since 22 static
      */
     static get TF_ACCEPT_FDS(): int;
 
@@ -3003,7 +3003,7 @@ declare namespace rpc {
      * @returns { int } Return vaule indicating the wait time for RPC, in seconds. It is NOT used in IPC case.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 20 static
+     * @since 22 static
      */
     static get TF_WAIT_TIME(): int;
 
@@ -3068,7 +3068,7 @@ declare namespace rpc {
      * @returns { int } Return whether the SendRequest is called synchronously or asynchronously.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getFlags(): int;
 
@@ -3078,7 +3078,7 @@ declare namespace rpc {
      * @param { int } flags - Indicates the call flag, which can be synchronous or asynchronous.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setFlags(flags: int): void;
 
@@ -3089,7 +3089,7 @@ declare namespace rpc {
      *                      return {@code false} if the synchronous call succeeds.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isAsync(): boolean;
 
@@ -3099,7 +3099,7 @@ declare namespace rpc {
      * @param { boolean } isAsync - Indicates the call flag, which can be synchronous or asynchronous.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setAsync(isAsync: boolean): void;
 
@@ -3109,7 +3109,7 @@ declare namespace rpc {
      * @returns { int } Return maximum wait time obtained.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getWaitTime(): int;
 
@@ -3119,7 +3119,7 @@ declare namespace rpc {
      * @param { int } waitTime - Indicates maximum wait time to set.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWaitTime(waitTime: int): void;
   }
@@ -3135,7 +3135,7 @@ declare namespace rpc {
    * @extends IRemoteObject
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   class RemoteObject extends IRemoteObject {
     /**
@@ -3144,7 +3144,7 @@ declare namespace rpc {
      * @param { string } descriptor - Specifies interface descriptor.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     constructor(descriptor: string);
 
@@ -3174,7 +3174,7 @@ declare namespace rpc {
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getLocalInterface(descriptor: string): IRemoteBroker;
 
@@ -3196,7 +3196,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getDescriptor(): string;
 
@@ -3216,7 +3216,7 @@ declare namespace rpc {
      * Return a promise object with a boolean when the function call is asynchronous.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     onRemoteMessageRequest(
       code: int,
@@ -3303,7 +3303,7 @@ declare namespace rpc {
      *     3.Failed to obtain the passed object instance.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     sendMessageRequest(
       code: int,
@@ -3357,7 +3357,7 @@ declare namespace rpc {
      *     3.Failed to obtain the passed object instance.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     sendMessageRequest(
       code: int,
@@ -3373,7 +3373,7 @@ declare namespace rpc {
      * @returns { int } Return the PID of the {@link RemoteProxy} object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getCallingPid(): int;
 
@@ -3383,7 +3383,7 @@ declare namespace rpc {
      * @returns { int } Return the UID of the {@link RemoteProxy} object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getCallingUid(): int;
 
@@ -3413,7 +3413,7 @@ declare namespace rpc {
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     modifyLocalInterface(localInterface: IRemoteBroker, descriptor: string): void;
   }
@@ -3428,7 +3428,7 @@ declare namespace rpc {
    * @extends IRemoteObject
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   class RemoteProxy extends IRemoteObject {
     /**
@@ -3449,7 +3449,7 @@ declare namespace rpc {
      * @returns { int } Return vaule indicating the message code for a Ping operation.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 20 static
+     * @since 22 static
      */
     static get PING_TRANSACTION(): int;
 
@@ -3471,7 +3471,7 @@ declare namespace rpc {
      * @returns { int } Return vaule indicating the message code for a dump operation.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 20 static
+     * @since 22 static
      */
     static get DUMP_TRANSACTION(): int;
 
@@ -3493,7 +3493,7 @@ declare namespace rpc {
      * @returns { int } Return vaule indicating the message code for a transmission.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 20 static
+     * @since 22 static
      */
     static get INTERFACE_TRANSACTION(): int;
 
@@ -3517,7 +3517,7 @@ declare namespace rpc {
      * @returns { int } Return vaule indicating the minimum value of a valid message code.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 20 static
+     * @since 22 static
      */
     static get MIN_TRANSACTION_ID(): int;
 
@@ -3541,7 +3541,7 @@ declare namespace rpc {
      * @returns { int } Return vaule indicating the maximum value of a valid message code.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 20 static
+     * @since 22 static
      */
     static get MAX_TRANSACTION_ID(): int;
 
@@ -3597,7 +3597,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     registerDeathRecipient(recipient: DeathRecipient, flags: int): void;
 
@@ -3629,7 +3629,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     unregisterDeathRecipient(recipient: DeathRecipient, flags: int): void;
 
@@ -3652,7 +3652,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getDescriptor(): string;
 
@@ -3716,7 +3716,7 @@ declare namespace rpc {
      *     3.Failed to obtain the passed object instance.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     sendMessageRequest(
       code: int,
@@ -3770,7 +3770,7 @@ declare namespace rpc {
      *     3.Failed to obtain the passed object instance.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     sendMessageRequest(
       code: int,
@@ -3786,7 +3786,7 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the {@code RemoteObject} is dead; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isObjectDead(): boolean;
   }
@@ -3801,7 +3801,7 @@ declare namespace rpc {
    * 
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   class IPCSkeleton {
     /**
@@ -3811,7 +3811,7 @@ declare namespace rpc {
      * @returns { IRemoteObject } Return an {@link IRemoteObject} reference of the registered service.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static getContextObject(): IRemoteObject;
 
@@ -3827,7 +3827,7 @@ declare namespace rpc {
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static getCallingPid(): int;
 
@@ -3843,7 +3843,7 @@ declare namespace rpc {
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static getCallingUid(): int;
 
@@ -3855,7 +3855,7 @@ declare namespace rpc {
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static getCallingTokenId(): long;
 
@@ -3866,7 +3866,7 @@ declare namespace rpc {
      * @returns { string } Return the ID of the device where the peer process resides.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static getCallingDeviceID(): string;
 
@@ -3877,7 +3877,7 @@ declare namespace rpc {
      * @returns { string } Return the ID of the local device.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static getLocalDeviceID(): string;
 
@@ -3888,7 +3888,7 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the call is made on the same device; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static isLocalCalling(): boolean;
 
@@ -3916,7 +3916,7 @@ declare namespace rpc {
      *     2.The parameter type does not match.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static flushCmdBuffer(object: IRemoteObject): void;
 
@@ -3927,7 +3927,7 @@ declare namespace rpc {
      * @returns { string } Return a string containing the UID and PID of the remote user.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static resetCallingIdentity(): string;
 
@@ -3960,7 +3960,7 @@ declare namespace rpc {
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static restoreCallingIdentity(identity: string): void;
   }
@@ -3973,7 +3973,7 @@ declare namespace rpc {
    *
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   class Ashmem {
     /**
@@ -3994,7 +3994,7 @@ declare namespace rpc {
      * @returns { int } Return vaule indicating the mapped memory is executable.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 20 static
+     * @since 22 static
      */
     static get PROT_EXEC(): int;
 
@@ -4016,7 +4016,7 @@ declare namespace rpc {
      * @returns { int } Return vaule indicating the mapped memory is inaccessible.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 20 static
+     * @since 22 static
      */
     static get PROT_NONE(): int;
 
@@ -4038,7 +4038,7 @@ declare namespace rpc {
      * @returns { int } Return vaule indicating the mapped memory is readable.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 20 static
+     * @since 22 static
      */
     static get PROT_READ(): int;
 
@@ -4060,7 +4060,7 @@ declare namespace rpc {
      * @returns { int } Return vaule indicating the mapped memory is writable.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 20 static
+     * @since 22 static
      */
     static get PROT_WRITE(): int;
 
@@ -4091,7 +4091,7 @@ declare namespace rpc {
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static create(name: string, size: int): Ashmem;
 
@@ -4120,7 +4120,7 @@ declare namespace rpc {
      *     3.The ashmem instance for obtaining packaging is empty.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     static create(ashmem: Ashmem): Ashmem;
 
@@ -4129,7 +4129,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     closeAshmem(): void;
 
@@ -4138,7 +4138,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     unmapAshmem(): void;
 
@@ -4148,7 +4148,7 @@ declare namespace rpc {
      * @returns { int } Memory size mapped.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAshmemSize(): int;
 
@@ -4177,7 +4177,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900001 - Failed to call mmap.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     mapTypedAshmem(mapType: int): void;
 
@@ -4198,7 +4198,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900001 - Failed to call mmap.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     mapReadWriteAshmem(): void;
 
@@ -4219,7 +4219,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900001 - Failed to call mmap.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     mapReadonlyAshmem(): void;
 
@@ -4245,7 +4245,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900002 - Failed to call ioctl.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setProtectionType(protectionType: int): void;
 
@@ -4297,7 +4297,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900003 - Failed to write data to the shared memory.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     writeDataToAshmem(buf: ArrayBuffer, size: int, offset: int): void;
 
@@ -4346,7 +4346,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900004 - Failed to read data from the shared memory.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readDataFromAshmem(size: int, offset: int): ArrayBuffer;
   }

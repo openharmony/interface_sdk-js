@@ -49,7 +49,7 @@ import { AccessibilityEventType } from './@ohos.accessibility';
  * @typedef {_AccessibilityElement}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type AccessibilityElement = _AccessibilityElement;
 
@@ -68,7 +68,7 @@ export type ElementAttributeValues = _ElementAttributeValues;
  * @typedef {_FocusDirection}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type FocusDirection = _FocusDirection;
 
@@ -96,7 +96,7 @@ export type FocusType = _FocusType;
  * @typedef {_WindowType}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type WindowType = _WindowType;
 
@@ -106,7 +106,7 @@ export type WindowType = _WindowType;
  * @typedef {_Rect}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type Rect = _Rect;
 
@@ -132,7 +132,7 @@ export type AccessibilityExtensionContext = _AccessibilityExtensionContext.defau
  * The accessibility extension context. Used to configure, query information, and inject gestures.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 20 static
+ * @since 22 static
  */
 export { AccessibilityExtensionContext };
 
@@ -141,7 +141,7 @@ export { AccessibilityExtensionContext };
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class AccessibilityExtensionAbility {
   /**
@@ -150,7 +150,7 @@ declare class AccessibilityExtensionAbility {
    * @type {AccessibilityExtensionContext}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   context: AccessibilityExtensionContext;
 
@@ -201,7 +201,8 @@ declare class AccessibilityExtensionAbility {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   onAccessibilityConnect(): void;
 
@@ -213,7 +214,8 @@ declare class AccessibilityExtensionAbility {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   onAccessibilityDisconnect(): void;
 
@@ -226,7 +228,8 @@ declare class AccessibilityExtensionAbility {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   onAccessibilityEventInfo(event: AccessibilityEventInfo): void;
 
@@ -254,7 +257,8 @@ export default AccessibilityExtensionAbility;
  * @typedef AccessibilityEventInfo
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 export declare interface AccessibilityEventInfo {
   /**
@@ -263,7 +267,8 @@ export declare interface AccessibilityEventInfo {
    * @type { AccessibilityEventType }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   eventType: AccessibilityEventType;
 
@@ -273,7 +278,8 @@ export declare interface AccessibilityEventInfo {
    * @type { ?AccessibilityElement }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   target?: AccessibilityElement;
 
@@ -283,7 +289,8 @@ export declare interface AccessibilityEventInfo {
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   timestamp?: long;
 
@@ -293,7 +300,8 @@ export declare interface AccessibilityEventInfo {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   extraInfo?: string;
 }

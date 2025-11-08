@@ -28,7 +28,7 @@ import { RecordData } from '../@ohos.base';
  * @typedef NotificationTemplate
  * @syscap SystemCapability.Notification.Notification
  * @since 8 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationTemplate {
   /**
@@ -37,7 +37,7 @@ export interface NotificationTemplate {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   name: string;
 
@@ -61,7 +61,7 @@ export interface NotificationTemplate {
    *
    * @type { Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
-   * @since 20 static
+   * @since 22 static
    */
   data: Record<string, RecordData>;
 }

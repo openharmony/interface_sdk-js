@@ -33,7 +33,7 @@ import { TouchEvent } from '@ohos.arkui.component';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20 static
+ * @since 22 static
  */
 export declare abstract class NodeController {
   /**
@@ -46,7 +46,7 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   abstract makeNode(uiContext: UIContext): FrameNode | null;
 
@@ -57,7 +57,7 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   aboutToResize(size: Size): void;
 
@@ -67,7 +67,7 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   aboutToAppear(): void;
   
@@ -77,7 +77,7 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   aboutToDisappear(): void;
 
@@ -87,7 +87,7 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   rebuild(): void;
   
@@ -98,7 +98,7 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   onTouchEvent(event: TouchEvent): void;
 
@@ -108,7 +108,7 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   onAttach(): void;
 
@@ -118,7 +118,7 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   onDetach(): void;
 
@@ -129,7 +129,7 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   onWillBind(containerId: long): void;
 
@@ -140,7 +140,7 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   onWillUnbind(containerId: long): void;
 
@@ -151,7 +151,7 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   onBind(containerId: long): void;
 
@@ -162,7 +162,7 @@ export declare abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   onUnbind(containerId: long): void;
 }

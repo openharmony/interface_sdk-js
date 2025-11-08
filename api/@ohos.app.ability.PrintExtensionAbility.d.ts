@@ -35,7 +35,7 @@ import type print from './@ohos.print';
  * @syscap SystemCapability.Print.PrintFramework
  * @stagemodelonly
  * @since 14 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class PrintExtensionAbility {
 
@@ -45,7 +45,7 @@ declare class PrintExtensionAbility {
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onCreate(want: Want): void;
 
@@ -54,7 +54,7 @@ declare class PrintExtensionAbility {
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onStartDiscoverPrinter(): void;
 
@@ -63,7 +63,7 @@ declare class PrintExtensionAbility {
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onStopDiscoverPrinter(): void;
 
@@ -73,7 +73,7 @@ declare class PrintExtensionAbility {
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onConnectPrinter(printerId: int): void;
 
@@ -83,7 +83,7 @@ declare class PrintExtensionAbility {
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onDisconnectPrinter(printerId: int): void;
 
@@ -95,7 +95,7 @@ declare class PrintExtensionAbility {
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onStartPrintJob(jobInfo: print.PrintJob): void;
 
@@ -107,7 +107,7 @@ declare class PrintExtensionAbility {
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onCancelPrintJob(jobInfo: print.PrintJob): void;
 
@@ -120,7 +120,7 @@ declare class PrintExtensionAbility {
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onRequestPrinterCapability(printerId: int): print.PrinterCapability;
 
@@ -133,7 +133,7 @@ declare class PrintExtensionAbility {
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onRequestPreview(jobInfo: print.PrintJob): string;
 
@@ -142,7 +142,7 @@ declare class PrintExtensionAbility {
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onDestroy(): void;
 }

@@ -23,7 +23,7 @@ import { Callback } from '../../@ohos.base';
  * Defines Builder Annotation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 @Retention({policy: "SOURCE"})
@@ -33,7 +33,7 @@ export declare @interface Builder {}
  * Defines BuilderParam Annotation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface BuilderParam {}
@@ -43,7 +43,7 @@ export declare @interface BuilderParam {}
  *
  * @typedef { @Builder (() => void) } CustomBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export type CustomBuilder = @Builder (() => void);
@@ -53,7 +53,7 @@ export type CustomBuilder = @Builder (() => void);
  *
  * @typedef { @Builder ((t:T) => void) } CustomBuilderT
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export type CustomBuilderT<T> = @Builder ((t: T) => void);
@@ -63,7 +63,7 @@ export type CustomBuilderT<T> = @Builder ((t: T) => void);
  *
  * @typedef { function }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export type PageMapBuilder = @Builder ((name: string, param: Object | null | undefined) => void);
@@ -73,7 +73,7 @@ export type PageMapBuilder = @Builder ((name: string, param: Object | null | und
  * @param { T } builder
  * @returns { WrappedBuilder<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare function wrapBuilder<T>(builder: T): WrappedBuilder<T>;
@@ -81,7 +81,7 @@ export declare function wrapBuilder<T>(builder: T): WrappedBuilder<T>;
 /**
  * Defines the WrappedBuilder class.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare class WrappedBuilder<T> {
@@ -90,7 +90,7 @@ export declare class WrappedBuilder<T> {
    * Builder function.
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   @Builder public builder: T;
 
@@ -98,7 +98,7 @@ export declare class WrappedBuilder<T> {
    * Initialize builder.
    * @param { T } builder
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
   public constructor(builder: T);
 }
@@ -109,7 +109,7 @@ export declare class WrappedBuilder<T> {
  * @typedef { function } BuilderParameterCallback
  * @returns { Any } parameter value
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export type BuilderParameterCallback = () => Any;
 
@@ -121,7 +121,7 @@ export type BuilderParameterCallback = () => Any;
  * @param { Map<string, BuilderParameterCallback> } propertyGetters override property getters
  * @param { Callback<T> } initializer update proxied instance with literal's initial values
  * @returns { T } proxied literal instance
- * @since 20 static
+ * @since 22 static
  */
 export declare function makeBuilderParameterProxy<T extends Object>(instance: T, propertyGetters: Map<string, BuilderParameterCallback>, initializer?: Callback<T>): T;
 
@@ -129,7 +129,7 @@ export declare function makeBuilderParameterProxy<T extends Object>(instance: T,
  * Defines ComponentBuilder Annotation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 @Retention({policy: "SOURCE"})
 export @interface ComponentBuilder {}

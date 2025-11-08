@@ -26,7 +26,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @namespace cloudSync
  * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace cloudSync {
   /**
@@ -35,7 +35,7 @@ declare namespace cloudSync {
    * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum SyncState {
     /**
@@ -43,7 +43,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UPLOADING = 0,
     /**
@@ -51,7 +51,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UPLOAD_FAILED = 1,
     /**
@@ -59,7 +59,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DOWNLOADING = 2,
     /**
@@ -67,7 +67,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DOWNLOAD_FAILED = 3,
     /**
@@ -75,7 +75,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPLETED = 4,
     /**
@@ -83,7 +83,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STOPPED = 5,
   }
@@ -94,7 +94,7 @@ declare namespace cloudSync {
    * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum ErrorType {
     /**
@@ -102,7 +102,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NO_ERROR = 0,
     /**
@@ -110,7 +110,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NETWORK_UNAVAILABLE = 1,
     /**
@@ -118,7 +118,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_UNAVAILABLE = 2,
     /**
@@ -126,7 +126,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     BATTERY_LEVEL_LOW = 3,
     /**
@@ -134,7 +134,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     BATTERY_LEVEL_WARNING = 4,
     /**
@@ -142,7 +142,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CLOUD_STORAGE_FULL = 5,
     /**
@@ -150,7 +150,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     LOCAL_STORAGE_FULL = 6,
     /**
@@ -158,7 +158,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DEVICE_TEMPERATURE_TOO_HIGH = 7,
     
@@ -170,7 +170,7 @@ declare namespace cloudSync {
    * @interface SyncProgress
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface SyncProgress {
     /**
@@ -179,7 +179,7 @@ declare namespace cloudSync {
      * @type { SyncState }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     state: SyncState;
     /**
@@ -188,7 +188,7 @@ declare namespace cloudSync {
      * @type { ErrorType }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     error: ErrorType;
   }
@@ -199,7 +199,7 @@ declare namespace cloudSync {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   class GallerySync {
     /**
@@ -208,7 +208,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     constructor();
     /**
@@ -314,7 +314,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     start(): Promise<void>;
     /**
@@ -332,7 +332,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     start(callback: AsyncCallback<void>): void;
     /**
@@ -346,7 +346,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     stop(): Promise<void>;
     /**
@@ -361,7 +361,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     stop(callback: AsyncCallback<void>): void;
   }
@@ -372,7 +372,7 @@ declare namespace cloudSync {
    * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum State {
     /**
@@ -380,7 +380,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RUNNING = 0,
     /**
@@ -388,7 +388,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPLETED = 1,
     /**
@@ -396,7 +396,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FAILED = 2,
     /**
@@ -404,7 +404,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STOPPED = 3,
   }
@@ -415,7 +415,7 @@ declare namespace cloudSync {
    * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum DownloadErrorType {
     /**
@@ -423,7 +423,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NO_ERROR = 0,
     /**
@@ -431,7 +431,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UNKNOWN_ERROR = 1,
     /**
@@ -439,7 +439,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NETWORK_UNAVAILABLE = 2,
     /**
@@ -447,7 +447,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     LOCAL_STORAGE_FULL = 3,
     /**
@@ -455,7 +455,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CONTENT_NOT_FOUND = 4,
     /**
@@ -463,7 +463,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FREQUENT_USER_REQUESTS = 5,
   }
@@ -474,7 +474,7 @@ declare namespace cloudSync {
    * @interface DownloadProgress
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface DownloadProgress {
     /**
@@ -483,7 +483,7 @@ declare namespace cloudSync {
      * @type { State }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     state: State;
     /**
@@ -492,7 +492,7 @@ declare namespace cloudSync {
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     processed: long;
     /**
@@ -501,7 +501,7 @@ declare namespace cloudSync {
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     size: long;
     /**
@@ -510,7 +510,7 @@ declare namespace cloudSync {
      * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uri: string;
     /**
@@ -519,7 +519,7 @@ declare namespace cloudSync {
      * @type { DownloadErrorType }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     error: DownloadErrorType;
   }
@@ -530,7 +530,7 @@ declare namespace cloudSync {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   class Download {
     /**
@@ -539,7 +539,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     constructor();
     /**
@@ -646,7 +646,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     start(uri: string): Promise<void>;
     /**
@@ -664,7 +664,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     start(uri: string, callback: AsyncCallback<void>): void;
     /**
@@ -680,7 +680,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     stop(uri: string): Promise<void>;
     /**
@@ -696,7 +696,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     stop(uri: string, callback: AsyncCallback<void>): void;
   }
@@ -706,7 +706,7 @@ declare namespace cloudSync {
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   class FileSync {
     /**
@@ -715,7 +715,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     constructor();
     /**
@@ -728,7 +728,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     constructor(bundleName: string);
     /**
@@ -786,7 +786,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 22400003 - Low battery level.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     start(): Promise<void>;
     /**
@@ -800,7 +800,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 22400003 - Low battery level.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     start(callback: AsyncCallback<void>): void;
     /**
@@ -811,7 +811,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13600001 - IPC error.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     stop(): Promise<void>;
     /**
@@ -823,7 +823,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13600001 - IPC error.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     stop(callback: AsyncCallback<void>): void;
     /**
@@ -834,7 +834,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13600001 - IPC error.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getLastSyncTime(): Promise<long>;
     /**
@@ -846,7 +846,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13600001 - IPC error.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getLastSyncTime(callback: AsyncCallback<long>): void;
   }
@@ -855,7 +855,7 @@ declare namespace cloudSync {
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   class CloudFileCache {
     /**
@@ -864,7 +864,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     constructor();
     /**
@@ -926,7 +926,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 14000002 - Invalid URI.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     start(uri: string): Promise<void>;
     /**
@@ -942,7 +942,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 14000002 - Invalid URI.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     start(uri: string, callback: AsyncCallback<void>): void;
     /**
@@ -971,7 +971,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 14000002 - Invalid URI.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     stop(uri: string, needClean?: boolean): Promise<void>;
     /**
@@ -986,7 +986,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 14000002 - Invalid URI.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     stop(uri: string, callback: AsyncCallback<void>): void;
     /**
@@ -1004,7 +1004,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     cleanCache(uri: string): void;
   }
@@ -1016,7 +1016,7 @@ declare namespace cloudSync {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum FileSyncState {
     /**
@@ -1025,7 +1025,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UPLOADING = 0,
     /**
@@ -1034,7 +1034,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DOWNLOADING = 1,
     /**
@@ -1043,7 +1043,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPLETED = 2,
     /**
@@ -1052,7 +1052,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STOPPED = 3,
     /**
@@ -1061,7 +1061,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TO_BE_UPLOADED = 4,
     /**
@@ -1070,7 +1070,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UPLOAD_SUCCESS = 5,
     /**
@@ -1079,7 +1079,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UPLOAD_FAILURE = 6,
   }
@@ -1100,7 +1100,7 @@ declare namespace cloudSync {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getFileSyncState(uri: Array<string>): Promise<Array<FileSyncState>>;
   /**
@@ -1119,7 +1119,7 @@ declare namespace cloudSync {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getFileSyncState(uri: Array<string>, callback: AsyncCallback<Array<FileSyncState>>): void;
   /**
@@ -1140,7 +1140,7 @@ declare namespace cloudSync {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getFileSyncState(uri: string): FileSyncState;
   /**
@@ -1157,7 +1157,7 @@ declare namespace cloudSync {
    * @throws { BusinessError } 14000002 - Invalid URI.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function registerChange(uri: string, recursion: boolean, callback: Callback<ChangeData>): void;
   /**
@@ -1172,7 +1172,7 @@ declare namespace cloudSync {
    * @throws { BusinessError } 14000002 - Invalid URI.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function unregisterChange(uri: string): void;
 
@@ -1182,7 +1182,7 @@ declare namespace cloudSync {
    * @enum { int } NotifyType
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum NotifyType {
     /**
@@ -1190,7 +1190,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOTIFY_ADDED = 0,
     /**
@@ -1198,7 +1198,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOTIFY_MODIFIED = 1,
     /**
@@ -1206,7 +1206,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOTIFY_DELETED = 2,
     /**
@@ -1214,7 +1214,7 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOTIFY_RENAMED = 3,
   }
@@ -1225,7 +1225,7 @@ declare namespace cloudSync {
    * @interface ChangeData
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ChangeData {
     /**
@@ -1234,7 +1234,7 @@ declare namespace cloudSync {
      * @type {NotifyType}
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     type: NotifyType;
     /**
@@ -1243,7 +1243,7 @@ declare namespace cloudSync {
      * @type {Array<boolean>}
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isDirectory: Array<boolean>;
     /**
@@ -1252,7 +1252,7 @@ declare namespace cloudSync {
      * @type {Array<string>}
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uris: Array<string>;
   }
@@ -1270,7 +1270,7 @@ declare namespace cloudSync {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since 17 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function optimizeStorage(): Promise<void>;
 
@@ -1290,7 +1290,7 @@ declare namespace cloudSync {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since 17 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function startOptimizeSpace(optimizePara: OptimizeSpaceParam, callback?: Callback<OptimizeSpaceProgress>): Promise<void>;
 
@@ -1305,7 +1305,7 @@ declare namespace cloudSync {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since 17 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function stopOptimizeSpace(): void;
 
@@ -1315,7 +1315,7 @@ declare namespace cloudSync {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since 17 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum OptimizeState {
 
@@ -1324,7 +1324,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 17 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RUNNING = 0,
 
@@ -1333,7 +1333,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 17 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPLETED = 1,
 
@@ -1342,7 +1342,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 17 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FAILED = 2,
 
@@ -1351,7 +1351,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 17 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STOPPED = 3
   }
@@ -1362,7 +1362,7 @@ declare namespace cloudSync {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since 17 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface OptimizeSpaceProgress {
 
@@ -1373,7 +1373,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 17 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     state: OptimizeState;
 
@@ -1384,7 +1384,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 17 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     progress: int;
   }
@@ -1395,7 +1395,7 @@ declare namespace cloudSync {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since 17 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface OptimizeSpaceParam {
 
@@ -1406,7 +1406,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 17 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     totalSize: long;
 
@@ -1417,7 +1417,7 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 17 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     agingDays: int;
   }
