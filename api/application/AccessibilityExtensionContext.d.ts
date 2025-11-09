@@ -26,7 +26,10 @@ import type { GesturePath } from '../@ohos.accessibility.GesturePath';
 /*** endif */
 import type Want from '../@ohos.app.ability.Want';
 /*** if arkts dynamic */
-import { AccessibilityAction } from '../@ohos.accessibility';
+import { AccessibilityAction, FocusMoveResultCode } from '../@ohos.accessibility';
+/*** endif */
+/*** if arkts static */
+import { FocusMoveResultCode } from '../@ohos.accessibility';
 /*** endif */
 
 /**
@@ -1500,6 +1503,22 @@ export declare interface AccessibilityElement {
    * @since 20 dynamic
    */
   findElementById(condition: long): Promise<AccessibilityElement>;
+
+  /**
+   * Find elements to be focused that match the condition.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @param { FocusRule } rule Indicates the rule to check accessibility node.
+   * @param { FocusCondition } condition Indicates the condition to execute accessibility focus.
+   * @returns { Promise<FocusMoveResult> }
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  findElementsByCondition(rule: FocusRule, condition: FocusCondition): Promise<FocusMoveResult>;
 }
 
 /**
@@ -2133,6 +2152,18 @@ export interface ElementAttributeValues {
 export type FocusDirection = 'up' | 'down' | 'left' | 'right' | 'forward' | 'backward';
 
 /**
+ * Indicates the condition of the search focus.
+ *
+ * @typedef {'forward' | 'backward' | 'findLast' | 'getForwardScrollAncestor' |
+*     'getBackwardScrollAncestor' | 'getScrollableAncestor'}
+* @syscap SystemCapability.BarrierFree.Accessibility.Core
+* @systemapi
+* @since 23 dynamic&static
+*/
+export type FocusCondition = 'forward' | 'backward' |
+'findLast' | 'getForwardScrollAncestor' | 'getBackwardScrollAncestor' | 'getScrollableAncestor';
+
+/**
  * Indicates the type of the focus.
  *
  * @typedef {'accessibility' | 'normal'}
@@ -2150,6 +2181,18 @@ export type FocusType = 'accessibility' | 'normal';
  * @since 22 static
  */
 export type WindowType = 'application' | 'system';
+
+/**
+ * Indicates the rule of the search focus.
+ *
+ * @typedef {'bypassSelf' | 'bypassSelfDescendants' |
+*     'checkSelf' | 'checkSelfBypassDescendants'}
+* @syscap SystemCapability.BarrierFree.Accessibility.Core
+* @systemapi
+* @since 23 dynamic&static
+*/
+export type FocusRule = 'bypassSelf' | 'bypassSelfDescendants' |
+'checkSelf' | 'checkSelfBypassDescendants';
 
 /**
  * Indicates rectangle.
@@ -2196,4 +2239,34 @@ export interface Rect {
    * @since 22 static
    */
   height: int;
+}
+
+/**
+ * Indicates focus move result.
+ *
+ * @typedef FocusMoveResult
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+export declare interface FocusMoveResult {
+  /**
+   * The accessibility elementInfos result.
+   *
+   * @type { Array<AccessibilityElement> }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  target: Array<AccessibilityElement>;
+
+  /**
+   * The focus move result code.
+   *
+   * @type { FocusMoveResultCode }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  result: FocusMoveResultCode;
 }

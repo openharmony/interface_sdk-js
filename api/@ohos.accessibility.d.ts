@@ -2378,3 +2378,94 @@ declare namespace accessibility {
   }
 }
 export default accessibility;
+
+/**
+ * The focus move result code.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+export enum FocusMoveResultCode {
+  /**
+   * The code of not supported.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  NOT_SUPPORTED = -1,
+  /**
+   * The code of success.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  SEARCH_SUCCESS = 0,
+  /**
+   * The code of success next bypass descendants.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  SEARCH_SUCCESS_NEXT_BYPASS_DESCENDANTS = 1,
+  /**
+   * The code of failure.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  SEARCH_FAILURE = 2,
+  /**
+   * The code of failure in child tree.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  SEARCH_FAILURE_IN_CHILD_TREE = 3,
+  /**
+   * The code of failure lost node.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  SEARCH_FAILURE_LOST_NODE = 4,
+  /**
+   * The code of search next.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  SEARCH_NEXT = 5,
+  /**
+   * The code of check child property.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  DOUBLE_CHECK_CHILD_PROPERTY = 6,
+  /**
+   * The code of check child property and get last.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  DOUBLE_CHECK_CHILD_PROPERTY_AND_GET_LAST = 7,
+  /**
+   * The code of failure in scroll component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  SEARCH_FAILURE_IN_SCROLL = 8
+}
