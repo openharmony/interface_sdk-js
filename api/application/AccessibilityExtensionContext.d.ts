@@ -1511,7 +1511,7 @@ export declare interface AccessibilityElement {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 23 dynamic&static
+   * @since 23 dynamic
    */
   findElementsByCondition(rule: FocusRule, condition: FocusCondition): Promise<FocusMoveResult>;
 }
@@ -2153,7 +2153,7 @@ export type FocusDirection = 'up' | 'down' | 'left' | 'right' | 'forward' | 'bac
 *     'getBackwardScrollAncestor' | 'getScrollableAncestor'}
 * @syscap SystemCapability.BarrierFree.Accessibility.Core
 * @systemapi
-* @since 23 dynamic&static
+* @since 23 dynamic
 */
 export type FocusCondition = 'forward' | 'backward' |
 'findLast' | 'getForwardScrollAncestor' | 'getBackwardScrollAncestor' | 'getScrollableAncestor';
@@ -2184,7 +2184,7 @@ export type WindowType = 'application' | 'system';
 *     'checkSelf' | 'checkSelfBypassDescendants'}
 * @syscap SystemCapability.BarrierFree.Accessibility.Core
 * @systemapi
-* @since 23 dynamic&static
+* @since 23 dynamic
 */
 export type FocusRule = 'bypassSelf' | 'bypassSelfDescendants' |
 'checkSelf' | 'checkSelfBypassDescendants';
@@ -2242,7 +2242,7 @@ export interface Rect {
  * @typedef FocusMoveResult
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 23 dynamic&static
+ * @since 23 dynamic
  */
 export declare interface FocusMoveResult {
   /**
@@ -2251,7 +2251,7 @@ export declare interface FocusMoveResult {
    * @type { Array<AccessibilityElement> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 23 dynamic&static
+   * @since 23 dynamic
    */
   target: Array<AccessibilityElement>;
 
@@ -2261,7 +2261,7 @@ export declare interface FocusMoveResult {
    * @type { FocusMoveResultCode }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 23 dynamic&static
+   * @since 23 dynamic
    */
   result: FocusMoveResultCode;
 }

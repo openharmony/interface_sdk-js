@@ -142,7 +142,7 @@ export type AccessibilityExtensionContext = _AccessibilityExtensionContext.defau
  * @typedef {_FocusRule}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 23 dynamic&static
+ * @since 23 dynamic
  */
 export type FocusRule = _FocusRule;
 
@@ -152,7 +152,7 @@ export type FocusRule = _FocusRule;
  * @typedef {_FocusCondition}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 23 dynamic&static
+ * @since 23 dynamic
  */
 export type FocusCondition = _FocusCondition;
 
@@ -162,7 +162,7 @@ export type FocusCondition = _FocusCondition;
  * @typedef {_FocusMoveResult}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 23 dynamic&static
+ * @since 23 dynamic
  */
 export type FocusMoveResult = _FocusMoveResult;
 
