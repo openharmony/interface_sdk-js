@@ -2313,7 +2313,7 @@ export default accessibility;
  * @enum { int }
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 23 dynamic
+ * @since 23 dynamic&static
  */
 export enum FocusMoveResultCode {
   /**
@@ -2321,7 +2321,7 @@ export enum FocusMoveResultCode {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 23 dynamic
+   * @since 23 dynamic&static
    */
   NOT_SUPPORTED = -1,
   /**
@@ -2329,7 +2329,7 @@ export enum FocusMoveResultCode {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 23 dynamic
+   * @since 23 dynamic&static
    */
   SEARCH_SUCCESS = 0,
   /**
@@ -2337,7 +2337,7 @@ export enum FocusMoveResultCode {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 23 dynamic
+   * @since 23 dynamic&static
    */
   SEARCH_SUCCESS_NEXT_BYPASS_DESCENDANTS = 1,
   /**
@@ -2345,7 +2345,7 @@ export enum FocusMoveResultCode {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 23 dynamic
+   * @since 23 dynamic&static
    */
   SEARCH_FAILURE = 2,
   /**
@@ -2353,7 +2353,7 @@ export enum FocusMoveResultCode {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 23 dynamic
+   * @since 23 dynamic&static
    */
   SEARCH_FAILURE_IN_CHILD_TREE = 3,
   /**
@@ -2361,7 +2361,7 @@ export enum FocusMoveResultCode {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 23 dynamic
+   * @since 23 dynamic&static
    */
   SEARCH_FAILURE_LOST_NODE = 4,
   /**
@@ -2369,7 +2369,7 @@ export enum FocusMoveResultCode {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 23 dynamic
+   * @since 23 dynamic&static
    */
   SEARCH_NEXT = 5,
   /**
@@ -2377,7 +2377,7 @@ export enum FocusMoveResultCode {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 23 dynamic
+   * @since 23 dynamic&static
    */
   DOUBLE_CHECK_CHILD_PROPERTY = 6,
   /**
@@ -2385,7 +2385,7 @@ export enum FocusMoveResultCode {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 23 dynamic
+   * @since 23 dynamic&static
    */
   DOUBLE_CHECK_CHILD_PROPERTY_AND_GET_LAST = 7,
   /**
@@ -2393,7 +2393,7 @@ export enum FocusMoveResultCode {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 23 dynamic
+   * @since 23 dynamic&static
    */
   SEARCH_FAILURE_IN_SCROLL = 8
 }
