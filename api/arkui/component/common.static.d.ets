@@ -10971,6 +10971,15 @@ export declare interface CommonMethod {
      */
     default onAccessibilityFocus(callback: AccessibilityFocusCallback | undefined): this;
     /**
+     * Register accessibility action intercept callback,
+     * when accessibility action is to be executed,the callback will be executed
+     * @param { AccessibilityActionInterceptCallback | undefined } callback - accessibility action intercept callback function
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    default onAccessibilityActionIntercept(callback: AccessibilityActionInterceptCallback | undefined): this;
+    /**
      * Sets accessibilityTextHint
      *
      * @param { string | undefined } value - set accessibility text hint
