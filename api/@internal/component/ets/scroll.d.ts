@@ -1358,7 +1358,6 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
 
   /**
    * Enable bounces zoom scale.
-   * This parameter supports !! for two-way binding of variables.
    *
    * @param { boolean } enable - Enable bounces zoom scale.
    * <br>Default value: true.
