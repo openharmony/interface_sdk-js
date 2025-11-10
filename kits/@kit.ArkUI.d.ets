@@ -16,7 +16,7 @@
 /**
  * @file
  * @kit ArkUI
-*/
+ */
 
 import promptAction from '@ohos.promptAction';
 import window from '@ohos.window';
@@ -25,10 +25,17 @@ import screen from '@ohos.screen';
 import screenshot from '@ohos.screenshot';
 import uiExtensionHost from '@ohos.uiExtensionHost';
 import { ComponentContent } from '@ohos.arkui.node';
+import componentSnapshot from '@ohos.arkui.componentSnapshot';
+import componentUtils from '@ohos.arkui.componentUtils';
+import dragController from '@ohos.arkui.dragController';
+import { sendTouchEvent, sendKeyEvent, sendMouseEvent } from '@ohos.arkui.Test';
 export { promptAction, ComponentContent };
+
 export * from '@ohos.arkui.component';
 export * from '@ohos.arkui.stateManagement';
 export * from '@ohos.arkui.advanced.SegmentButton';
 export { GETINSPECTORBYKEY as getInspectorByKey, GETINSPECTORTREE as getInspectorTree , SENDEVENTBYKEY as sendEventByKey } from '@ohos.arkui.inspector';
 
 export { window, display, screen, screenshot, uiExtensionHost };
+
+export { componentSnapshot, componentUtils, dragController, sendTouchEvent, sendKeyEvent, sendMouseEvent };
