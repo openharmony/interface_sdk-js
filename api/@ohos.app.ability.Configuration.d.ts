@@ -197,6 +197,7 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 14 dynamic
+   * @since 22 static
    */
   fontId?: string;
 
@@ -260,6 +261,7 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    */
     locale?: Intl.Locale;
 }

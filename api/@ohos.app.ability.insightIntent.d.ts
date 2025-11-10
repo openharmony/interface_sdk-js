@@ -20,6 +20,9 @@
 
 import Want from './@ohos.app.ability.Want';
 import type wantConstant from './@ohos.app.ability.wantConstant';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * interface of insightIntent.
@@ -118,9 +121,18 @@ declare namespace insightIntent {
      * @StageModelOnly
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
      */
     result?: Record<string, Object>;
+
+    /**
+     * Indicates execute result.
+     *
+     * @type { ?Record<string, RecordData> }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 22 static
+     */
+    result?: Record<string, RecordData>;
 
     /**
      * Indicates the URIs will be authorized to the insight intent driver.

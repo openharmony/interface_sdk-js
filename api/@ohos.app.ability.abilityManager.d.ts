@@ -22,10 +22,10 @@ import { AsyncCallback } from './@ohos.base';
 import { ElementName } from './bundleManager/ElementName';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
+import { Configuration } from './@ohos.app.ability.Configuration';
 import Context from './application/Context';
 /*** if arkts dynamic */
 import { AbilityResult } from './ability/abilityResult';
-import { Configuration } from './@ohos.app.ability.Configuration';
 import * as _AbilityForegroundStateObserver from './application/AbilityForegroundStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
 /*** endif */
@@ -168,6 +168,7 @@ declare namespace abilityManager {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
+   * @since 22 static
    */
   export interface AtomicServiceStartupRule {
     /**
@@ -177,6 +178,7 @@ declare namespace abilityManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 18 dynamic
+     * @since 22 static
      */
     isOpenAllowed: boolean;
 
@@ -187,6 +189,7 @@ declare namespace abilityManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 18 dynamic
+     * @since 22 static
      */
     isEmbeddedAllowed: boolean;
   }
@@ -205,9 +208,22 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
    */
   function on(type: 'abilityForegroundState', observer: AbilityForegroundStateObserver): void;
+
+  /**
+   * Register Ability foreground or background state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { AbilityForegroundStateObserver } observer - The ability foreground state observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Connect to system server failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function onAbilityForegroundState(observer: AbilityForegroundStateObserver): void;
 
   /**
    * Unregister Ability foreground or background state observer.
@@ -223,9 +239,22 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
    */
   function off(type: 'abilityForegroundState', observer?: AbilityForegroundStateObserver): void;
+
+  /**
+   * Unregister Ability foreground or background state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { AbilityForegroundStateObserver } [observer] - The ability foreground state observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Connect to system server failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function offAbilityForegroundState(observer?: AbilityForegroundStateObserver): void;
 
   /**
    * Updates the configuration by modifying the configuration.
@@ -241,6 +270,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
+   * @since 22 static
    */
   function updateConfiguration(config: Configuration, callback: AsyncCallback<void>): void;
 
@@ -258,6 +288,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
+   * @since 22 static
    */
   function updateConfiguration(config: Configuration): Promise<void>;
 
@@ -374,7 +405,7 @@ declare namespace abilityManager {
   /**
    * Acquire the shared data from target ability.
    *
-   * @param { number } missionId - The missionId of target ability.
+   * @param { int } missionId - The missionId of target ability.
    * @param { AsyncCallback<Record<string, Object>> } callback - The callback is used to return the params of sharing
    *                                                             data and result code.
    * @throws { BusinessError } 202 - Not system application.
@@ -384,8 +415,9 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 22 static
    */
-  function acquireShareData(missionId: number, callback: AsyncCallback<Record<string, Object>>): void;
+  function acquireShareData(missionId: int, callback: AsyncCallback<Record<string, Object>>): void;
 
   /**
    * Acquire the shared data from target ability.
@@ -403,7 +435,7 @@ declare namespace abilityManager {
   /**
    * Acquire the shared data from target ability.
    *
-   * @param { number } missionId - The missionId of target ability.
+   * @param { int } missionId - The missionId of target ability.
    * @returns { Promise<Record<string, Object>> } The promise returned by the function.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -412,8 +444,9 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 22 static
    */
-  function acquireShareData(missionId: number): Promise<Record<string, Object>>;
+  function acquireShareData(missionId: int): Promise<Record<string, Object>>;
 
   /**
    * Notify the result of save as to target ability.
@@ -514,6 +547,7 @@ declare namespace abilityManager {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
   function notifyDebugAssertResult(sessionId: string, status: UserStatus): Promise<void>;
 
@@ -531,6 +565,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
+   * @since 22 static
    */
   function setResidentProcessEnabled(bundleName: string, enable: boolean): Promise<void>;
 
@@ -548,6 +583,7 @@ declare namespace abilityManager {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
+   * @since 22 static
    */
   function queryAtomicServiceStartupRule(context: Context, appId: string): Promise<AtomicServiceStartupRule>;
 

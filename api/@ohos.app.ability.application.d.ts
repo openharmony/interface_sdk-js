@@ -122,6 +122,7 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 19 dynamic
+   * @since 22 static
    */
   export function createPluginModuleContext(context: Context, pluginBundleName: string, pluginModuleName: string): Promise<Context>;
 

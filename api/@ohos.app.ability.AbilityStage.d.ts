@@ -138,6 +138,7 @@ declare class AbilityStage {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
+   * @since 22 static
    */
   onAcceptWant(want: Want): string;
 
@@ -152,6 +153,7 @@ declare class AbilityStage {
   * @stagemodelonly
   * @atomicservice
   * @since 20 dynamic
+  * @since 22 static
   */
   onAcceptWantAsync(want: Want): Promise<string>;
 
@@ -182,6 +184,7 @@ declare class AbilityStage {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 22 static
    */
   onNewProcessRequest(want: Want): string;
 
@@ -195,6 +198,7 @@ declare class AbilityStage {
   * @stagemodelonly
   * @atomicservice
   * @since 20 dynamic
+  * @since 22 static
   */
   onNewProcessRequestAsync(want: Want): Promise<string>;
 
@@ -260,6 +264,7 @@ declare class AbilityStage {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
+   * @since 22 static
    */
   onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 
@@ -297,6 +302,7 @@ declare class AbilityStage {
    * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
+   * @since 22 static
    */
   onPrepareTermination(): AbilityConstant.PrepareTermination;
 
@@ -319,6 +325,7 @@ declare class AbilityStage {
    * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
+   * @since 22 static
    */
   onPrepareTerminationAsync(): Promise<AbilityConstant.PrepareTermination>;
 }

@@ -20,8 +20,8 @@
 import contextConstant from "./@ohos.app.ability.contextConstant";
 import image from "./@ohos.multimedia.image";
 import bundleManager from './@ohos.bundle.bundleManager';
-/*** if arkts dynamic */
 import CompletionHandler from './@ohos.app.ability.CompletionHandler';
+/*** if arkts dynamic */
 import window from './@ohos.window';
 /*** endif */
 
@@ -254,6 +254,7 @@ declare class StartOptions {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    */
   completionHandler?: CompletionHandler;
 
@@ -264,6 +265,7 @@ declare class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic
+   * @since 22 static
    */
   hideStartWindow?: boolean;
 

@@ -25,6 +25,32 @@ import Want from './@ohos.app.ability.Want';
 import { Configuration } from './@ohos.app.ability.Configuration';
 
 /**
+ * Called when the system shares the form.
+ *
+ * @typedef { function }
+ * @param { string } formId - Indicates the ID of the form.
+ * @returns { Record<string, Object> } Returns the wantParams object.
+ * @syscap SystemCapability.Ability.Form
+ * @systemapi
+ * @stagemodelonly
+ * @since 22 static
+ */
+type OnShareFormFn = (formId: string) => Record<string, Object>;
+
+/**
+ * Called when the system acquire the form data.
+ *
+ * @typedef { function }
+ * @param { string } formId - Indicates the ID of the form.
+ * @returns { Record<string, Object> } Returns the wantParams object.
+ * @syscap SystemCapability.Ability.Form
+ * @systemapi
+ * @stagemodelonly
+ * @since 22 static
+ */
+type OnAcquireFormDataFn = (formId: string) => Record<string, Object>;
+
+/**
  * Called to return a {@link FormState} object.
  * <p>You must override this callback if you want this ability to return the actual form state. Otherwise,
  * this method returns {@link FormState#DEFAULT} by default.</p>
@@ -323,6 +349,17 @@ declare class FormExtensionAbility {
   onShareForm?(formId: string): Record<string, Object>;
 
   /**
+   * Called when the system shares the form.
+   *
+   * @type { ?OnShareFormFn }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onShareForm?: OnShareFormFn;
+
+  /**
    * Called when the system acquire the form data.
    *
    * @param { string } formId - Indicates the ID of the form.
@@ -343,6 +380,17 @@ declare class FormExtensionAbility {
    * @since 11 dynamic
    */
   onAcquireFormData?(formId: string): Record<string, Object>;
+
+  /**
+   * Called when the system acquire the form data.
+   *
+   * @type { ?OnAcquireFormDataFn }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onAcquireFormData?: OnAcquireFormDataFn;
 
   /**
    * Called to return a {@link FormState} object.
@@ -388,6 +436,7 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    */
   onFormLocationChanged(formId: string, newFormLocation: formInfo.FormLocation): void;
 
