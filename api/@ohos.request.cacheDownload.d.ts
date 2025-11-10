@@ -53,6 +53,30 @@ declare namespace cacheDownload {
     }
 
     /**
+     * Cache strategy for resources.
+     *
+     * @enum { int } CacheStrategy
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 23 dynamic&static
+     */
+    enum CacheStrategy {
+        /**
+         * Force update of cache regardless of whether it already exists.
+         *
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 23 dynamic&static
+         */
+        FORCE = 0,
+        /**
+         * Updates the cache only if the cached resource does not exist.
+         *
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 23 dynamic&static
+         */
+        LAZY = 1,
+    }
+
+    /**
      * Options of the cache download task.
      *
      * @typedef CacheDownloadOptions
@@ -86,6 +110,15 @@ declare namespace cacheDownload {
          * @since 21 dynamic
          */
         caPath?: string;
+        /**
+         * Cache update strategy for resources.
+         * The default value is `CacheStrategy.FORCE`.
+         *
+         * @type { ?CacheStrategy }
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 23 dynamic&static
+         */
+        cacheStrategy?: CacheStrategy;
     }
 
     /**
