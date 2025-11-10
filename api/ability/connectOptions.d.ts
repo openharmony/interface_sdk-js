@@ -35,7 +35,7 @@ type OnConnectFn = (elementName: ElementName, remote: rpc.IRemoteObject) => void
 /**
  * The callback interface was disconnect successfully.
  *
- * typedef { Function }
+ * @typedef { Function }
  * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 22 dynamic&static
