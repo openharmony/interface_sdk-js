@@ -30,7 +30,6 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
  * @since 21 dynamic
- * @since 22 static
  */
 export default class WebNativeMessagingExtensionContext extends ExtensionContext {
   /**
@@ -65,7 +64,6 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
-   * @since 22 static
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -80,14 +78,13 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
-   * @since 22 static
    */
   terminateSelf(): Promise<void>;
 
   /**
    * Stop the specified native connection.
    * 
-   * @param { int } connectionId - Indicates the id of the specified connection.
+   * @param { number } connectionId - Indicates the id of the specified connection.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -96,7 +93,6 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
-   * @since 22 static
    */
-  stopNativeConnection(connectionId: int): Promise<void>;
+  stopNativeConnection(connectionId: number): Promise<void>;
 }
