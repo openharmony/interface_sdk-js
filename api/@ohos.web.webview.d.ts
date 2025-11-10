@@ -4450,7 +4450,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11
      */
     /**
      * Gets the default user agent.
@@ -5857,7 +5857,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18 dynamic
+     * @since 18
      */
     /**
      * Start a download.
@@ -6157,7 +6157,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12 dynamic
+     * @since 12
      */
     /**
      * Clear all web scheme handlers for related web component.
@@ -6370,7 +6370,7 @@ declare namespace webview {
      *                           length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12 dynamic
+     * @since 12
      */
     /**
      * Prefetches resource requests based on specified request information and additional HTTP request headers,
@@ -6532,7 +6532,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
      *                           length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 12 dynamic
+     * @since 12
      */
     /**
      * Inject offline resources into cache.
@@ -8285,7 +8285,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12
    */
   /**
    * Defines the Web resource response used for scheme handler.
@@ -8301,7 +8301,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12 dynamic
+     * @since 12
      */
     /**
      * Constructor.
@@ -8319,7 +8319,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12 dynamic
+     * @since 12
      */
     /**
      * Set the resolved URL after redirects or changed as a result of HSTS.
@@ -8338,7 +8338,7 @@ declare namespace webview {
      * @returns { string } Return response url for redirects.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12 dynamic
+     * @since 12
      */
     /**
      * Get the resolved URL after redirects or changed as a result of HSTS.
