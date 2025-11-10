@@ -85,8 +85,9 @@ declare namespace userAuth {
      * Indicates that the device does not support authentication.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
+     * @useinstead ohos.userIAM.userAuth.ResultCode.TYPE_NOT_SUPPORT
      */
     NO_SUPPORT = -1,
 
@@ -94,8 +95,9 @@ declare namespace userAuth {
      * Indicates that authentication is success.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
+     * @useinstead ohos.userIAM.userAuth.ResultCode.SUCCESS
      */
     SUCCESS = 0,
 
@@ -103,8 +105,9 @@ declare namespace userAuth {
      * Indicates the authenticator fails to identify user.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
+     * @useinstead ohos.userIAM.userAuth.ResultCode.FAIL
      */
     COMPARE_FAILURE = 1,
 
@@ -112,8 +115,9 @@ declare namespace userAuth {
      * Indicates that authentication has been canceled.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
+     * @useinstead ohos.userIAM.userAuth.ResultCode.CANCELED
      */
     CANCELED = 2,
 
@@ -121,8 +125,9 @@ declare namespace userAuth {
      * Indicates that authentication has timed out.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
+     * @useinstead ohos.userIAM.userAuth.ResultCode.TIMEOUT
      */
     TIMEOUT = 3,
 
@@ -130,7 +135,7 @@ declare namespace userAuth {
      * Indicates a failure to open the camera.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
      */
     CAMERA_FAIL = 4,
@@ -139,8 +144,9 @@ declare namespace userAuth {
      * Indicates that the authentication task is busy. Wait for a few seconds and try again.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
+     * @useinstead ohos.userIAM.userAuth.ResultCode.BUSY
      */
     BUSY = 5,
 
@@ -148,8 +154,9 @@ declare namespace userAuth {
      * Indicates incorrect parameters.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
+     * @useinstead ohos.userIAM.userAuth.ResultCode.INVALID_PARAMETERS
      */
     INVALID_PARAMETERS = 6,
 
@@ -157,8 +164,9 @@ declare namespace userAuth {
      * Indicates that the authenticator is locked.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
+     * @useinstead ohos.userIAM.userAuth.ResultCode.LOCKED
      */
     LOCKED = 7,
 
@@ -166,8 +174,9 @@ declare namespace userAuth {
      * Indicates that the user has not enrolled the authenticator.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
+     * @useinstead ohos.userIAM.userAuth.ResultCode.NOT_ENROLLED
      */
     NOT_ENROLLED = 8,
 
@@ -175,8 +184,9 @@ declare namespace userAuth {
      * Indicates other errors.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
+     * @useinstead ohos.userIAM.userAuth.ResultCode.GENERAL_ERROR
      */
     GENERAL_ERROR = 100
   }
@@ -186,8 +196,9 @@ declare namespace userAuth {
    *
    * @typedef { 'ALL' | 'FACE_ONLY' }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.userIAM.userAuth.UserAuthType
    */
   type AuthType = 'ALL' | 'FACE_ONLY';
 
@@ -196,8 +207,9 @@ declare namespace userAuth {
    *
    * @typedef { 'S1' | 'S2' | 'S3' | 'S4' }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.userIAM.userAuth.AuthTrustLevel
    */
   type SecureLevel = 'S1' | 'S2' | 'S3' | 'S4';
 
@@ -206,8 +218,9 @@ declare namespace userAuth {
    *
    * @interface Authenticator
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.userIAM.userAuth.AuthInstance
    */
   interface Authenticator {
     /**
@@ -218,8 +231,9 @@ declare namespace userAuth {
      * @param { SecureLevel } level - Indicates the security level.
      * @param { AsyncCallback<number> } callback - Async callback of execute.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
+     * @useinstead ohos.userIAM.userAuth.AuthInstance.start
      */
     execute(type: AuthType, level: SecureLevel, callback: AsyncCallback<number>): void;
 
@@ -231,8 +245,9 @@ declare namespace userAuth {
      * @param { SecureLevel } level - Indicates the security level.
      * @returns { Promise<number> }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 6 dynamic
+     * @since 6 dynamiconly
      * @deprecated since 8
+     * @useinstead ohos.userIAM.userAuth.AuthInstance.start
      */
     execute(type: AuthType, level: SecureLevel): Promise<number>;
   }
@@ -242,8 +257,9 @@ declare namespace userAuth {
    *
    * @returns { Authenticator } Returns an Authenticator.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.userIAM.userAuth.getAuthInstance
    */
   function getAuthenticator(): Authenticator;
 
@@ -381,8 +397,9 @@ declare namespace userAuth {
      *
      * @type { ?Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.AuthResultInfo.token
      */
     token?: Uint8Array;
 
@@ -391,8 +408,9 @@ declare namespace userAuth {
      *
      * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.AuthResultInfo.remainAttempts
      */
     remainTimes?: number;
 
@@ -401,8 +419,9 @@ declare namespace userAuth {
      *
      * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.AuthResultInfo.lockoutDuration
      */
     freezingTime?: number;
   }
@@ -421,8 +440,9 @@ declare namespace userAuth {
      * Indicates that the result is success or ability is supported.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.UserAuthResultCode.SUCCESS
      */
     SUCCESS = 0,
 
@@ -430,8 +450,9 @@ declare namespace userAuth {
      * Indicates that authentication failed.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.UserAuthResultCode.FAIL
      */
     FAIL = 1,
 
@@ -439,8 +460,9 @@ declare namespace userAuth {
      * Indicates other errors.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.UserAuthResultCode.GENERAL_ERROR
      */
     GENERAL_ERROR = 2,
 
@@ -448,8 +470,9 @@ declare namespace userAuth {
      * Indicates that this operation has been canceled.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.UserAuthResultCode.CANCELED
      */
     CANCELED = 3,
 
@@ -457,8 +480,9 @@ declare namespace userAuth {
      * Indicates that this operation has timed out.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.UserAuthResultCode.TIMEOUT
      */
     TIMEOUT = 4,
 
@@ -466,8 +490,9 @@ declare namespace userAuth {
      * Indicates that this authentication type is not supported.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.UserAuthResultCode.TYPE_NOT_SUPPORT
      */
     TYPE_NOT_SUPPORT = 5,
 
@@ -475,8 +500,9 @@ declare namespace userAuth {
      * Indicates that the authentication trust level is not supported.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.UserAuthResultCode.TRUST_LEVEL_NOT_SUPPORT
      */
     TRUST_LEVEL_NOT_SUPPORT = 6,
 
@@ -484,8 +510,9 @@ declare namespace userAuth {
      * Indicates that the authentication task is busy. Wait for a few seconds and try again.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.UserAuthResultCode.BUSY
      */
     BUSY = 7,
 
@@ -493,8 +520,9 @@ declare namespace userAuth {
      * Indicates incorrect parameters.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.UserAuthResultCode.INVALID_PARAMETERS
      */
     INVALID_PARAMETERS = 8,
 
@@ -502,8 +530,9 @@ declare namespace userAuth {
      * Indicates that the authenticator is locked.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.UserAuthResultCode.LOCKED
      */
     LOCKED = 9,
 
@@ -511,8 +540,9 @@ declare namespace userAuth {
      * Indicates that the user has not enrolled the authenticator.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.UserAuthResultCode.NOT_ENROLLED
      */
     NOT_ENROLLED = 10
   }
@@ -522,7 +552,7 @@ declare namespace userAuth {
    *
    * @enum { number }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 11
    */
   enum FaceTips {
@@ -530,7 +560,7 @@ declare namespace userAuth {
      * Indicates that the obtained facial image is too bright due to high illumination.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_BRIGHT = 1,
@@ -539,7 +569,7 @@ declare namespace userAuth {
      * Indicates that the obtained facial image is too dark due to low illumination.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_DARK = 2,
@@ -548,7 +578,7 @@ declare namespace userAuth {
      * Indicates that the face is too close to the device.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_CLOSE = 3,
@@ -557,7 +587,7 @@ declare namespace userAuth {
      * Indicates that the face is too far away from the device.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_FAR = 4,
@@ -566,7 +596,7 @@ declare namespace userAuth {
      * Indicates that the device is too high, and that only the upper part of the face is captured.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_HIGH = 5,
@@ -575,7 +605,7 @@ declare namespace userAuth {
      * Indicates that the device is too low, and that only the lower part of the face is captured.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_LOW = 6,
@@ -584,7 +614,7 @@ declare namespace userAuth {
      * Indicates that the device is deviated to the right, and that only the right part of the face is captured.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_RIGHT = 7,
@@ -593,7 +623,7 @@ declare namespace userAuth {
      * Indicates that the device is deviated to the left, and that only the left part of the face is captured.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_LEFT = 8,
@@ -602,7 +632,7 @@ declare namespace userAuth {
      * Indicates that the face moves too fast during facial information collection.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 11
      */
     FACE_AUTH_TIP_TOO_MUCH_MOTION = 9,
@@ -611,7 +641,7 @@ declare namespace userAuth {
      * Indicates that the face is not facing the device.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 11
      */
     FACE_AUTH_TIP_POOR_GAZE = 10,
@@ -620,7 +650,7 @@ declare namespace userAuth {
      * Indicates that no face is detected.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 11
      */
     FACE_AUTH_TIP_NOT_DETECTED = 11
@@ -631,7 +661,7 @@ declare namespace userAuth {
    *
    * @enum { number }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 11
    */
   enum FingerprintTips {
@@ -639,7 +669,7 @@ declare namespace userAuth {
      * Indicates that the image acquired is good.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 11
      */
     FINGERPRINT_AUTH_TIP_GOOD = 0,
@@ -648,7 +678,7 @@ declare namespace userAuth {
      * Indicates that the fingerprint image is too noisy due to suspected or detected dirt on sensor.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 11
      */
     FINGERPRINT_AUTH_TIP_DIRTY = 1,
@@ -657,7 +687,7 @@ declare namespace userAuth {
      * Indicates that the fingerprint image is too noisy to process due to a detected condition.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 11
      */
     FINGERPRINT_AUTH_TIP_INSUFFICIENT = 2,
@@ -666,7 +696,7 @@ declare namespace userAuth {
      * Indicates that only a partial fingerprint image is detected.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 11
      */
     FINGERPRINT_AUTH_TIP_PARTIAL = 3,
@@ -675,7 +705,7 @@ declare namespace userAuth {
      * Indicates that the fingerprint image is incomplete due to quick motion.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 11
      */
     FINGERPRINT_AUTH_TIP_TOO_FAST = 4,
@@ -684,7 +714,7 @@ declare namespace userAuth {
      * Indicates that the fingerprint image is unreadable due to lack of motion.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 11
      */
     FINGERPRINT_AUTH_TIP_TOO_SLOW = 5
@@ -861,7 +891,7 @@ declare namespace userAuth {
    *
    * @typedef { 'result' | 'tip' }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 11
    */
   type AuthEventKey = 'result' | 'tip';
@@ -904,8 +934,9 @@ declare namespace userAuth {
    *
    * @typedef AuthResultInfo
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.userIAM.userAuth.UserAuthResult
    */
   interface AuthResultInfo {
     /**
@@ -913,8 +944,9 @@ declare namespace userAuth {
      *
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
+     * @useinstead ohos.userIAM.userAuth.UserAuthResult.result
      */
     result: number;
 
@@ -923,8 +955,9 @@ declare namespace userAuth {
      *
      * @type { ?Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
+     * @useinstead ohos.userIAM.userAuth.UserAuthResult.token
      */
     token?: Uint8Array;
 
@@ -933,8 +966,9 @@ declare namespace userAuth {
      *
      * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
+     * @useinstead ohos.userIAM.userAuth.AuthLockState.remainingAuthAttempts
      */
     remainAttempts?: number;
 
@@ -943,8 +977,9 @@ declare namespace userAuth {
      *
      * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
+     * @useinstead ohos.userIAM.userAuth.AuthLockState.lockoutDuration
      */
     lockoutDuration?: number;
   }
@@ -954,8 +989,9 @@ declare namespace userAuth {
    *
    * @typedef TipInfo
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 11
+   * @useinstead ohos.userIAM.userAuth.AuthTipInfo
    */
   interface TipInfo {
     /**
@@ -963,8 +999,9 @@ declare namespace userAuth {
      *
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
+     * @useinstead ohos.userIAM.userAuth.AuthTipInfo.tipType
      */
     module: number;
 
@@ -973,8 +1010,9 @@ declare namespace userAuth {
      *
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 11
+     * @useinstead ohos.userIAM.userAuth.AuthTipInfo.tipCode
      */
     tip: number;
   }
@@ -995,8 +1033,9 @@ declare namespace userAuth {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 10
+     * @useinstead ohos.userIAM.userAuth.UserAuthInstance.on
      */
     on: (name: AuthEventKey, callback: AuthEvent) => void;
 
@@ -1006,8 +1045,9 @@ declare namespace userAuth {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 10
+     * @useinstead ohos.userIAM.userAuth.UserAuthInstance.off
      */
     off: (name: AuthEventKey) => void;
 
@@ -1028,8 +1068,9 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500009 - The authenticator is locked.
      * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 10
+     * @useinstead ohos.userIAM.userAuth.UserAuthInstance.start
      */
     start: () => void;
 
@@ -1042,8 +1083,9 @@ declare namespace userAuth {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9 dynamic
+     * @since 9 dynamiconly
      * @deprecated since 10
+     * @useinstead ohos.userIAM.userAuth.UserAuthInstance.cancel  
      */
     cancel: () => void;
   }
