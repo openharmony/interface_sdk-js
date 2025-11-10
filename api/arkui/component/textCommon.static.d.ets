@@ -758,20 +758,22 @@ export type OnMenuItemClickCallback = (menuItem: TextMenuItem, range: TextRange)
 export declare interface EditMenuOptions {
     /**
      * Passes the default menu, invokes before every display to generate a menu for triggering click events.
+     * If `undefined` is passed, the existing registered event will be removed.
      *
-     * @type { OnCreateMenuCallback }
+     * @type { OnCreateMenuCallback | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    onCreateMenu: OnCreateMenuCallback;
+    onCreateMenu: OnCreateMenuCallback | undefined;
     /**
      * Invoke upon clicking an item, capable of intercepting the default system menu execution behavior.
+     * If `undefined` is passed, the existing registered event will be removed.
      *
-     * @type { OnMenuItemClickCallback }
+     * @type { OnMenuItemClickCallback | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    onMenuItemClick: OnMenuItemClickCallback;
+    onMenuItemClick: OnMenuItemClickCallback | undefined;
 }
 /**
  * Defines the font decoration result.

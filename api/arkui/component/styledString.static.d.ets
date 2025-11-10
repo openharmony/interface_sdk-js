@@ -466,11 +466,11 @@ export declare interface DecorationStyleInterface {
     /**
      * The type value of the decoration property object.
      *
-     * @type { TextDecorationType }
+     * @type { TextDecorationType | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    type: TextDecorationType;
+    type: TextDecorationType | undefined ;
     /**
      * The color value of the decoration property object.
      *

@@ -110,7 +110,7 @@ export declare interface TextDecorationOptions {
     /**
      * The decoration type.
      *
-     * @type { TextDecorationType }
+     * @type { TextDecorationType | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
