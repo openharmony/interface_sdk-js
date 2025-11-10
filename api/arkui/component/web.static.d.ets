@@ -1308,7 +1308,7 @@ export declare class ClientAuthenticationHandler {
  * @syscap SystemCapability.Web.Webview.Core
  * @since 22 static
  */
-declare class VerifyPinHandler {
+export declare class VerifyPinHandler {
     /**
      * Constructor.
      *
@@ -5094,7 +5094,7 @@ export declare interface WebAttribute extends CommonMethod {
      * @syscap SystemCapability.Web.Webview.Core
      * @@since 22 static
      */
-    default onVerifyPin(callback: OnVerifyPinCallback | undefined): WebAttribute;
+    default onVerifyPin(callback: OnVerifyPinCallback | undefined): this;
     /**
      * Triggered when web page requires the user to create a window.
      * If the {@link setWebController} interface is not called, the render process will be blocked.
