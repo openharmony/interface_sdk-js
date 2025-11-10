@@ -20,6 +20,7 @@
  */
 
 import image from './@ohos.multimedia.image';
+import drawing from './@ohos.graphics.drawing';
 
 /**
  * Use the DrawableDescriptor class to get drawable image.
@@ -106,6 +107,15 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @since 22 static
    */
   static getMaskClipPath(): string;
+
+  /**
+   * Set the composition mode.
+   *
+   * @param { drawing.BlendMode | undefined } mode - Indicates the composition mode to set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 23 static
+   */
+  setBlendMode(mode: drawing.BlendMode | undefined): void;
 }
 
 /**
