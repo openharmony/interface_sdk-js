@@ -87,11 +87,11 @@ export declare interface CustomDialogControllerOptions {
     /**
      * Grid count of dialog.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    gridCount?: number;
+    gridCount?: int;
     /**
      * Mask color of dialog.
      *
@@ -317,11 +317,11 @@ export declare interface CustomDialogControllerOptions {
     /**
      * The uniqueId of any node in the router or navigation page.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    levelUniqueId?: number;
+    levelUniqueId?: int;
     /**
      * Determine the immersive mode of the dialog.
      *
