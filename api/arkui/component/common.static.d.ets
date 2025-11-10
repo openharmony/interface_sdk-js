@@ -1621,7 +1621,7 @@ export declare interface LinearGradientOptions {
  * @systemapi
  * @since 22 static
  */
-declare enum TransitionHierarchyStrategy {
+export declare enum TransitionHierarchyStrategy {
 
   /**
    * None mode.
@@ -2665,34 +2665,6 @@ export declare interface DragItemInfo {
      */
     extraInfo?: string;
 }
-/**
- * Defining animation function.
- *
- * @param { AnimateParam } value
- * @param { function } event
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 22 static
- * @deprecated since 18
- * @useinstead ohos.arkui.UIContext.UIContext#animateTo
- */
-export declare function animateTo(value: AnimateParam, event: () => void): void;
-/**
- * Implements immediate delivery of an explicit animation through a **UIContext** object.
- * When multiple property animations are loaded at once, you can call this API to immediately
- * execute the transition animation for state changes caused by the specified closure function.
- *
- * @param { AnimateParam } value - Set animation effect parameters.
- * @param { function } event - Specify the closure function that displays dynamic effects,
- *     and the system will automatically insert transition animations for state changes caused by the closure function.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
- * @deprecated since 22
- * @useinstead ohos.arkui.UIContext.UIContext#animateToImmediately
- */
-export declare function animateToImmediately(value: AnimateParam, event: () => void): void;
 /**
  * Converts a value in vp units to a value in px.
  * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.

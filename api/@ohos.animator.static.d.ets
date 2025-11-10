@@ -324,28 +324,3 @@ export interface AnimatorResult {
      */
     setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange): void;
 }
-
-
-
-/**
- * Defines the Animator class.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
- */
-declare class Animator {
-    /**
-     * Create an animator object for custom animation.
-     * @param { AnimatorOptions | SimpleAnimatorOptions } options - Options.
-     * @returns { AnimatorResult } animator result
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     * @deprecated since 22
-     * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
-     */
-    static create(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
-}
-export default Animator;
