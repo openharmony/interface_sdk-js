@@ -397,6 +397,32 @@ declare namespace defaultAppManager {
    * @since 22 static
    */
   function resetDefaultApplicationSync(type: string, userId?: int): void;
+
+  /**
+   * Set default application for app clone.
+   * If you need to set default application under the current user, ohos.permission.SET_DEFAULT_APPLICATION
+   * needs to be applied for.
+   * If you need to set default application under other users, ohos.permission.SET_DEFAULT_APPLICATION and
+   * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
+   *
+   * @permission ohos.permission.SET_DEFAULT_APPLICATION or
+   *     (ohos.permission.SET_DEFAULT_APPLICATION and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { string } type - Application type or a file type that conforms to media type format.
+   * @param { ElementName } elementName - Uniquely identifies an ability or extensionAbility.
+   * @param { int } appIndex - Indicates the index of clone app.
+   * @param { int } [userId] - Indicates the id for the user.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700025 - The specified type is invalid.
+   * @throws { BusinessError } 17700028 - The specified ability does not match the type.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function setDefaultApplicationForAppClone(type: string, elementName: ElementName, appIndex: int, userId?: int): void
 }
 
 export default defaultAppManager;
