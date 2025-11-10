@@ -6407,6 +6407,58 @@ declare namespace audio {
     offSystemVolumeChange(callback?: Callback<VolumeEvent>): void;
 
     /**
+     * Listens for system volume change events for target application.
+     * This method uses a callback to get volume change events.
+     * @param { 'systemVolumeChangeForUid' } type - Type of the event to listen for.
+     * Only the systemVolumeChangeForUid event is supported.
+     * @param { int } uid - The target application's uid.
+     * @param { Callback<VolumeEvent> } callback - Callback used to get the system volume change event.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 23 dynamic
+     */
+    on(type: 'systemVolumeChangeForUid', uid: int, callback: Callback<VolumeEvent>): void;
+
+    /**
+     * Listens for system volume change events for target application.
+     * This method uses a callback to get volume change events.
+     * @param { int } uid - The target application's uid.
+     * @param { Callback<VolumeEvent> } callback - Callback used to get the system volume change event.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 23 static
+     */
+    onSystemVolumeChangeForUid(uid: int, callback: Callback<VolumeEvent>): void;
+
+    /**
+     * Unsubscribes to the system volume change events for target application.
+     * @param { 'systemVolumeChangeForUid' } type - Type of the event to be unregistered.
+     * Only the systemVolumeChange event is supported.
+     * @param { Callback<VolumeEvent> } [callback] - Callback used to obtain the invoking volume change event.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 23 dynamic
+     */
+    off(type: 'systemVolumeChangeForUid', callback?: Callback<VolumeEvent>): void;
+
+    /**
+     * Unsubscribes to the system volume change events for target application.
+     * @param { Callback<VolumeEvent> } [callback] Callback used to obtain the invoking volume change event.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 23 static
+     */
+    offSystemVolumeChangeForUid(callback?: Callback<VolumeEvent>): void;
+
+    /**
      * Obtains the volume of a stream.
      * @param { StreamUsage } streamUsage - Audio stream type.
      * @returns { int } Current system volume level.
@@ -8534,6 +8586,17 @@ declare namespace audio {
     readonly sampleRates: Array<int>;
 
     /**
+     * Supported sampling formats.
+     * @type { Array<AudioSampleFormat> }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    readonly sampleFormats: Array<AudioSampleFormat>;
+
+    /**
      * Supported channel counts.
      * @type { Array<int> }
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -8665,6 +8728,24 @@ declare namespace audio {
      * @since 21 dynamic
      */
     readonly highQualityRecordingSupported?: boolean;
+
+    /**
+     * whether Hiplay device.
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 23 dynamic&static
+     */
+    readonly isHiplayDevice: boolean;
+
+    /**
+     * whether distributed device.
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 23 dynamic&static
+     */
+    readonly isDistributedDevice: boolean;
   }
 
   /**
