@@ -313,7 +313,7 @@ declare namespace systemSoundManager {
    * @since 21 dynamic
    * @since 22 static
    */
-  const TONE_CATEGORY_NOTIFICATION_APP:32;
+  const TONE_CATEGORY_NOTIFICATION_APP: int;
 
   /**
    * Tone attributes.
