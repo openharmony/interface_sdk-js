@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { ResourceColor, Length } from "./units";
-import { CommonMethod, AttributeModifier } from "./common";
+import { CommonMethod, AttributeModifier, Callback } from "./common";
 import { FontWeight, MarqueeUpdateStrategy } from "./enums";
 import { Resource } from './../../../api/global/resource';
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
@@ -223,6 +223,19 @@ export declare interface MarqueeAttribute extends CommonMethod {
      * @since 20 static
      */
     default onFinish(event: (() => void) | undefined): this;
+    /**
+     * Called when scrolling is stoped.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>If event is set to undefined, the current event will be unbound.
+     * </p>
+     * 
+     * @param { Callback<void> | undefined } event
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default onStop(event: Callback<void> | undefined): this;
     /**
      * Sets the attribute modifier.
      *
