@@ -63,7 +63,7 @@ export { DrawContext, Size, NodeOffset, NodePosition, Pivot, Scale, Translation,
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export { LengthUnit, SizeT, LengthMetrics, ColorMetrics } from 'arkui.Graphics';
+export { LengthUnit, SizeT, PositionT, LengthMetrics, ColorMetrics } from 'arkui.Graphics';
 
 /**
  * Export RenderNode. RenderNode contains node tree operations and render property operations on node.
