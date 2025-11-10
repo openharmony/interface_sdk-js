@@ -80,7 +80,7 @@ type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
  * @typedef { function } OnVerifyPinCallback
  * @param { VerifyPinEvent } verifyPinEvent - The event of verify PIN.
  * @syscap SystemCapability.Web.Webview.Core
- * @since 22 1.1&1.2
+ * @since 22 dynamic
  */
 type OnVerifyPinCallback = (verifyPinEvent: VerifyPinEvent) => void;
 
@@ -2427,7 +2427,7 @@ declare class ClientAuthenticationHandler {
    *     client certificate chain.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 1.1&1.2
+   * @since 22 dynamic
    */
   confirm(identity: string, credentialTypeOrCertChainFile: CredentialType | string): void;
 
@@ -2466,14 +2466,14 @@ declare class ClientAuthenticationHandler {
  * Passes the PIN code verify result through VerifyPinHandler#confirm
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 22 1.1&1.2
+ * @since 22 dynamic
  */
 declare class VerifyPinHandler {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 1.1&1.2
+   * @since 22 dynamic
    */
   constructor();
   /**
@@ -2481,7 +2481,7 @@ declare class VerifyPinHandler {
    *
    * @param { PinVerifyResult } result The PIN code verify result.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 1.1&1.2
+   * @since 22 dynamic
    */
   confirm(result: PinVerifyResult): void;
 }
@@ -9790,7 +9790,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { OnVerifyPinCallback } callback The triggered callback when needs verify pin from the user.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @@since 22 1.1&1.2
+   * @since 22 dynamic
    */
   onVerifyPin(callback: OnVerifyPinCallback): WebAttribute;
 
@@ -11506,21 +11506,21 @@ declare interface SslErrorEvent {
  * Defines the event for PIN verification.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 22 1.1&1.2
+ * @since 22 dynamic
  */
 declare interface VerifyPinEvent {
   /**
    * Handle the result of PIN verification.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 1.1&1.2
+   * @since 22 dynamic
    */
   handler: VerifyPinHandler;
   /**
    * The identity of the Credential.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 1.1&1.2
+   * @since 22 dynamic
    */
   identity: string;
 }
@@ -11721,21 +11721,21 @@ declare enum GestureFocusMode {
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 22 1.1&1.2
+ * @since 22 dynamic
  */
 declare enum PinVerifyResult {
   /**
    * SUCCESS.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 1.1&1.2
+   * @since 22 dynamic
    */
   PIN_VERIFICATION_SUCCESS = 0,
   /**
    * FAILED.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 1.1&1.2
+   * @since 22 dynamic
    */
   PIN_VERIFICATION_FAILED = 1
 }
@@ -11745,28 +11745,28 @@ declare enum PinVerifyResult {
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 22 1.1&1.2
+ * @since 22 dynamic
  */
 declare enum CredentialType {
   /**
    * User credential.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 1.1&1.2
+   * @since 22 dynamic
    */
   CREDENTIAL_USER = 2,
   /**
    * Application-specific credential.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 1.1&1.2
+   * @since 22 dynamic
    */
   CREDENTIAL_APP = 3,
   /**
    * Hardware security key credential.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 22 1.1&1.2
+   * @since 22 dynamic
    */
   CREDENTIAL_UKEY = 4,
 }
