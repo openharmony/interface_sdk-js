@@ -130,7 +130,6 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
    */
   function getBundleResourceInfo(bundleName: string, resourceFlags?: int): BundleResourceInfo;
 
@@ -168,7 +167,6 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
    */
   function getLauncherAbilityResourceInfo(bundleName: string, resourceFlags?: int): Array<LauncherAbilityResourceInfo>;
 
