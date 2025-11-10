@@ -55,6 +55,15 @@ export type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadComm
  */
 export type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
 /**
+ * The callback of verify pin.
+ *
+ * @typedef { function } OnVerifyPinCallback
+ * @param { VerifyPinEvent } verifyPinEvent - The event of verify PIN.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export type OnVerifyPinCallback = (verifyPinEvent: VerifyPinEvent) => void;
+/**
  * The callback of onOverrideErrorPage.
  *
  * @typedef { function } OnOverrideErrorPageCallback
@@ -1268,6 +1277,17 @@ export declare class ClientAuthenticationHandler {
      */
     confirm(authUri: string): void;
     /**
+     * Confirm to use the identify of the certificate. The identify can be obtained from certificate management.
+     *
+     * @param { string } identity - The identify of the credential.
+     * @param { CredentialType | string } credentialTypeOrCertChainFile - The type of the credential or the file that store
+     *     client certificate chain.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    confirm(identity: string, credentialTypeOrCertChainFile: CredentialType | string): void;
+    /**
      * Cancel this certificate request.
      *
      * @syscap SystemCapability.Web.Webview.Core
@@ -1282,6 +1302,29 @@ export declare class ClientAuthenticationHandler {
      */
     ignore(): void;
 }
+/**
+ * Passes the PIN code verify result through VerifyPinHandler#confirm
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+declare class VerifyPinHandler {
+    /**
+     * Constructor.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    constructor();
+    /**
+     * Passes the PIN code verify result.
+     *
+     * @param { PinVerifyResult } result The PIN code verify result.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    confirm(result: PinVerifyResult): void;
+  }
 /**
  * Defines the accessible resource type, related to {@link onPermissionRequest} method.
  *
@@ -5044,6 +5087,15 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default onClientAuthenticationRequest(callback: Callback<OnClientAuthenticationEvent> | undefined): this;
     /**
+     * Triggered when the Web page needs verify pin from the user.
+     *
+     * @param { OnVerifyPinCallback } callback The triggered callback when needs verify pin from the user.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @@since 22 static
+     */
+    default onVerifyPin(callback: OnVerifyPinCallback): WebAttribute;
+    /**
      * Triggered when web page requires the user to create a window.
      * If the {@link setWebController} interface is not called, the render process will be blocked.
      * If no new window is created, it is set to null when calling the {@link setWebController} interface,
@@ -6084,6 +6136,28 @@ export declare interface SslErrorEvent {
     certChainData?: Array<Uint8Array>;
 }
 /**
+ * Defines the event for PIN verification.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare interface VerifyPinEvent {
+    /**
+     * Handle the result of PIN verification.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    handler: VerifyPinHandler;
+    /**
+     * The identity of the Credential.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    identity: string;
+  }
+/**
  * Define nested scroll options
  *
  * @interface NestedScrollOptionsExt
@@ -6196,3 +6270,56 @@ export declare function Web(
     value: WebOptions,
     content_?: CustomBuilder,
 ): WebAttribute
+/**
+ * Enum type supplied to {@link PinVerifyResult} when VerifyPinHandler#confirm being called.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare enum PinVerifyResult {
+    /**
+     * SUCCESS.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    PIN_VERIFICATION_SUCCESS = 0,
+    /**
+     * FAILED.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    PIN_VERIFICATION_FAILED = 1
+}
+/**
+ * Enum type supplied to {@link CredentialType} when ClientAuthenticationHandler#confirm being called.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare enum CredentialType {
+    /**
+     * User credential.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    CREDENTIAL_USER = 2,
+    /**
+     * Application-specific credential.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    CREDENTIAL_APP = 3,
+    /**
+     * Hardware security key credential.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    CREDENTIAL_UKEY = 4,
+  }
