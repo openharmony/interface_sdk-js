@@ -1708,6 +1708,18 @@ export declare interface SweepGradientOptions {
         number
     ]>;
     /**
+     * Defines color description in ColorMetrics format for gradients.
+     * This parameter takes precedence over colors parameter.
+     *
+     * @type { ?Array<[ColorMetrics, double]> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    metricsColors?: Array<[
+        ColorMetrics,
+        double
+    ]>;
+    /**
      * Defines gradient colors with repeated coloring.
      *
      * Anonymous Object Rectification.
@@ -2209,6 +2221,83 @@ export declare interface RotateOptions {
      * @since 22 static
      */
     angle: number | string;
+}
+/**
+ * The rotation parameters containing multi-axis angle information.
+ *
+ * @interface RotateAngleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+declare interface RotateAngleOptions {
+  /**
+   * the angle of the x-axis direction.
+   *
+   * @type { ?(double | string) }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  angleX?: double | string;
+
+  /**
+   * the angle of the y-axis direction.
+   *
+   * @type { ?(double | string) }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  angleY?: double | string;
+
+  /**
+   * the angle of the z-axis direction.
+   *
+   * @type { ?(double | string) }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  angleZ?: double | string;
+
+  /**
+   * The param of center point of x.
+   *
+   * @type { ?(double | string) }
+   * @default '50%'
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  centerX?: double | string;
+
+  /**
+   * The param of center point of y.
+   *
+   * @type { ?(double | string) }
+   * @default '50%'
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  centerY?: double | string;
+
+  /**
+   * The param of center point of z.
+   *
+   * @type { ?double }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  centerZ?: double;
+
+  /**
+   * The param of camera distance, value range (-∞, ∞).
+   * @type { ?double }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  perspective?: double;
 }
 /**
  * Defines the Edge object.
@@ -5731,6 +5820,15 @@ export declare interface ContentCoverOptions extends BindOptions {
      * @since 22 static
      */
     transition?: TransitionEffect;
+    /**
+     * Set contentCover content adapts to safeArea.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    enableSafeArea?: boolean;
 }
 /**
  * Component sheet title options
@@ -5785,7 +5883,21 @@ export declare enum SheetType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    POPUP = 2
+    POPUP = 2,
+    /**
+     * Defines side sheet type.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    SIDE = 3,
+    /**
+     * Defines content cover type.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    CONTENT_COVER = 4
 }
 /**
  * Define the display mode of the sheet.
@@ -5880,7 +5992,14 @@ export declare enum SheetKeyboardAvoidMode {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    TRANSLATE_AND_SCROLL = 3
+    TRANSLATE_AND_SCROLL = 3,
+    /**
+     * Popup sheet will avoid keyboard by default.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    POPUP_SHEET = 4
 }
 /**
  * Component sheet dismiss
@@ -6003,6 +6122,24 @@ export declare interface SheetOptions extends BindOptions {
      * @since 22 static
      */
     dragBar?: boolean;
+    /**
+     * Defines whether the sheet dragbar is floating, when it's displayed.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    enableFloatingDragBar?: boolean;
+    /**
+     * Defines transition type when preferType is SheetType.CONTENT_COVER.
+     *
+     * @type { ?ModalTransition }
+     * @default ModalTransition.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    modalTransition?: ModalTransition;
     /**
      * Mask color of the sheet.
      *
@@ -6465,7 +6602,16 @@ export declare enum DismissReason {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 22 static
     */
-    SLIDE_DOWN = 3
+    SLIDE_DOWN = 3,
+    /**
+     * Slide, not slide down.
+     * Default means slide right, after mirroring it means slide left.
+     * Choosing to slide left or slide right is not supported.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    SLIDE = 4
 }
 /**
  * Component popup dismiss
@@ -9924,12 +10070,22 @@ export declare interface CommonMethod {
     /**
      * Set component rotation.
      *
-     * @param { RotateOptions | undefined } value default:{x:0,y:0,z:0,centerX:'50%',centerY:'50%',centerZ:0,perspective:0}
+     * @param { RotateOptions | undefined } value
+     *     default:{x:0,y:0,z:0,centerX:'50%',centerY:'50%',centerZ:0,perspective:0}
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    /**
+     * Set component rotation.
+     *
+     * @param { RotateOptions | RotateAngleOptions |undefined } value
+     *     default:{x:0,y:0,z:0,centerX:'50%',centerY:'50%',centerZ:0,perspective:0}
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default rotate(value: RotateOptions | undefined): this;
+    default rotate(value: RotateOptions | RotateAngleOptions | undefined): this;
     /**
      * Sets the transformation matrix of the component. Set undefined value to reset the transform matrix.
      *
@@ -9939,6 +10095,16 @@ export declare interface CommonMethod {
      * @since 22 static
      */
     default transform(value: Matrix4Transit | undefined): this;
+    /**
+     * Sets the transformation matrix for the current component.
+     * The interface can display the effect of three-dimensional natrix transformation.
+     *
+     * @param { Matrix4Transit | undefined } transform - transform3D natrix
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    default transform3D(transform: Matrix4Transit | undefined): this;
     /**
      * This callback is triggered when a component mounts a display.
      *

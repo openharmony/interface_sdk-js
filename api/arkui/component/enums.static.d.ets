@@ -3937,7 +3937,7 @@ declare enum FocusWrapMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-declare enum AnimationPropertyType {
+export declare enum AnimationPropertyType {
   /**
    * Rotation angle in the x, y, z direction.
    *
@@ -3978,7 +3978,7 @@ declare enum AnimationPropertyType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-declare enum ColorSpace {
+export declare enum ColorSpace {
   /**
    * SRGB ColorSpace.
    *

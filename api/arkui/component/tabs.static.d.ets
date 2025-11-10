@@ -20,10 +20,10 @@
  */
 
 import { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, Optional, TranslateOptions, DividerStyle, Bindable } from './common';
-import { EdgeEffect, PageFlipMode } from "./enums";
+import { EdgeEffect, PageFlipMode, Curve } from "./enums";
 import { Dimension, Length, ResourceColor } from "./units";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { AttributeModifier, CommonMethod, ICurve } from "./common";
 /**
  * Declare the graphic format of the bar chart.
  *
@@ -503,16 +503,74 @@ export declare interface TabsAttribute extends CommonMethod {
     default barWidth(value: Length | undefined): this;
     /**
      * Sets the height of the tab bar.
-     * Notice: barHeight only supports Number type on 7, supports Length type since 8.
+     * Default value:
+     * When the vertical attribute of tabs is set to false,
+     * and no tabBar style is set for the tabs or a custom style is set using CustomBuilder,
+     * the default value is 56vp.
+     * When the vertical attribute of tabs is set to true,
+     * and no tabBar style is set for the tabs or a custom style is set using CustomBuilder,
+     * the default value is the height of the tabs.
+     * When the vertical attribute of tabs is set to false, and tabBar style is SubTabBarStyle,
+     * the default value is 56vp.
+     * When the vertical attribute of tabs is set to true, and tabBar style is SubTabBarStyle,
+     * the default value is the height of the tabs.
+     * When the vertical attribute of tabs is set to false, and tabBar style is BottomTabBarStyle,
+     * the default value is 48vp.
+     * When the vertical attribute of tabs is set to true, and tabBar style is BottomTabBarStyle,
+     * the default value is the height of the tabs.
      *
-     * @param { Length } value - Height of the tab bar. If the set value is less than 0 or
-     * greater than the height of the Tabs component, the default value is used.
+     * @param { Length | undefined } value - Height of the tab bar. If the set value is less than 0 or
+     *     greater than the height of the Tabs component, the default value is used.
+     *     undefined means setting default value.
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      * @noninterop
      */
     default barHeight(value: Length | undefined): this;
+    /**
+     * Sets the height of the tab bar.
+     * Default value:
+     * When the vertical attribute of tabs is set to false,
+     * and no tabBar style is set for the tabs or a custom style is set using CustomBuilder,
+     * the default value is 56vp.
+     * When the vertical attribute of tabs is set to true,
+     * and no tabBar style is set for the tabs or a custom style is set using CustomBuilder,
+     * the default value is the height of the tabs.
+     * When the vertical attribute of tabs is set to false, and tabBar style is SubTabBarStyle,
+     * the default value is 56vp.
+     * When the vertical attribute of tabs is set to true, and tabBar style is SubTabBarStyle,
+     * the default value is the height of the tabs.
+     * When the vertical attribute of tabs is set to false, and tabBar style is BottomTabBarStyle,
+     * the default value is 48vp.
+     * When the vertical attribute of tabs is set to true, and tabBar style is BottomTabBarStyle,
+     * the default value is the height of the tabs.
+     *
+     * @param { Length | undefined } value - Height of the tab bar. If the set value is less than 0 or
+     *     greater than the height of the Tabs component, the default value is used.
+     *     undefined means setting default value.
+     * @param { boolean | undefined } noMinHeightLimit - Whether remove the minimum height restriction of the Bar,
+     *     When the height is set to 'auto'. Default value is true.
+     * @returns { TabsAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    default barHeight(value: Length | undefined, noMinHeightLimit: boolean | undefined): this;
+    /**
+     * Sets the animation curve
+     *
+     * @param { Curve | ICurve } curve - animation curve for tabs switch animation,
+     *     Curve is an enumeration type for common curves, ICurve is a curve object.
+     *     Default value:
+     *     When pages are turned by swiping in TabContent, the default value is
+     *     interpolatingSpring(-1, 1, 228, 30).
+     *     When pages are turned by tapping tabs or calling the changeIndex API of TabsController,
+     *     the default value is cubicBezierCurve(0.2, 0.0, 0.1, 1.0).
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    default animationCurve(curve: Curve | ICurve | undefined): this;
     /**
      * Sets the length of time required to complete the tab switching animation,
      * which is initiated by clicking a specific tab or by calling the changeIndex API of TabsController.
