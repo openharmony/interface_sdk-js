@@ -216,7 +216,6 @@
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask",
-    "SystemCapability.FileManagement.File.DistributedFile",
     "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.ArkUI.ArkUI.Full",
