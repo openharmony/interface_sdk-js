@@ -3675,7 +3675,7 @@ declare type ResponsiveFillType = PresetFillType;
 /**
  * Define a responsive item layout suitable for WaterFlow, Grid, List,and Swiper components.
  *
- * @typedef { PresetFillType } ResponsiveFillType
+ * @interface ItemFillPolicy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
