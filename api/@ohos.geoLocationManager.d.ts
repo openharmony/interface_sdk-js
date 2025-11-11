@@ -1846,13 +1846,17 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { number } geofenceId - Indicates the ID of geofence.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.removeGnssGeofence} due to limited device capabilities.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have
+   *     the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are 
+   *     left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call 
+   *     ${geoLocationManager.removeGnssGeofence} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301602 - Failed to delete a geofence due to an incorrect ID.
    * @syscap SystemCapability.Location.Location.Geofence
    * @since 12 dynamic
+   * @since 20 static
    */
   /**
    * Remove a geofence.
