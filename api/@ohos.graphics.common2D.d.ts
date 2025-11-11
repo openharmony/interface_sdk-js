@@ -23,7 +23,7 @@
  * @namespace common2D
  * @syscap SystemCapability.Graphics.Drawing
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace common2D {
   /**
@@ -31,7 +31,7 @@ declare namespace common2D {
    * @typedef Color
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Color {
     /**
@@ -45,7 +45,8 @@ declare namespace common2D {
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     alpha: int;
     /**
@@ -59,7 +60,8 @@ declare namespace common2D {
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     red: int;
     /**
@@ -73,7 +75,8 @@ declare namespace common2D {
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     green: int;
     /**
@@ -87,7 +90,8 @@ declare namespace common2D {
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     blue: int;
   }
@@ -97,7 +101,7 @@ declare namespace common2D {
    * @typedef Rect
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Rect {
     /**
@@ -111,7 +115,8 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     left: double;
     /**
@@ -125,7 +130,8 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     top: double;
     /**
@@ -139,7 +145,8 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     right: double;
     /**
@@ -153,7 +160,8 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     bottom: double;
   }
@@ -163,7 +171,7 @@ declare namespace common2D {
    * @typedef Point
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Point {
     /**
@@ -177,7 +185,8 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     x: double;
 
@@ -192,7 +201,8 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     y: double;
   }
@@ -212,7 +222,8 @@ declare namespace common2D {
    * @extends Point
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface Point3d extends Point {
     /**
@@ -226,7 +237,8 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     z: double;
   }

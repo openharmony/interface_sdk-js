@@ -32,7 +32,7 @@ import { Position3, Color, GeometryDefinition, Vec2, Vec3, Vec4 } from './SceneT
  *
  * @typedef { string | Resource } ResourceStr
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 20 static
+ * @since 22 static
  */
 declare type ResourceStr = string | Resource;
 
@@ -42,7 +42,7 @@ declare type ResourceStr = string | Resource;
  * @typedef SceneResourceParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface SceneResourceParameters {
   /**
@@ -51,7 +51,7 @@ export interface SceneResourceParameters {
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   name: string;
 
@@ -61,7 +61,7 @@ export interface SceneResourceParameters {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   uri?: ResourceStr;
 }
@@ -72,7 +72,7 @@ export interface SceneResourceParameters {
  * @typedef SceneNodeParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface SceneNodeParameters {
   /**
@@ -81,7 +81,7 @@ export interface SceneNodeParameters {
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   name: string;
 
@@ -91,7 +91,7 @@ export interface SceneNodeParameters {
    * @type { ?string }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   path?: string;
 }
@@ -101,7 +101,8 @@ export interface SceneNodeParameters {
  *
  * @typedef RaycastResult
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 export interface RaycastResult {
   /**
@@ -109,7 +110,8 @@ export interface RaycastResult {
    *
    * @type { Node }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   node: Node;
 
@@ -118,7 +120,8 @@ export interface RaycastResult {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   centerDistance: double;
 
@@ -127,7 +130,8 @@ export interface RaycastResult {
    *
    * @type { Position3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   hitPosition: Position3;
 }
@@ -137,7 +141,8 @@ export interface RaycastResult {
  *
  * @interface RaycastParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 export interface RaycastParameters {
   /**
@@ -145,7 +150,8 @@ export interface RaycastParameters {
    *
    * @type { ?Node }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   rootNode?: Node;
 }
@@ -156,7 +162,8 @@ export interface RaycastParameters {
  *
  * @interface RenderResourceFactory
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 export interface RenderResourceFactory {
   /**
@@ -165,7 +172,8 @@ export interface RenderResourceFactory {
    * @param { SceneResourceParameters } params - the param of creating a shader
    * @returns { Promise<Shader> } promise a shader
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   createShader(params: SceneResourceParameters): Promise<Shader>;
 
@@ -175,7 +183,8 @@ export interface RenderResourceFactory {
    * @param { SceneResourceParameters } params - the param of creating a image
    * @returns { Promise<Image> } promise a image
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   createImage(params: SceneResourceParameters): Promise<Image>;
 
@@ -186,7 +195,8 @@ export interface RenderResourceFactory {
    * @param { GeometryDefinition } geometry - what sort of a geometric shape to create
    * @returns { Promise<MeshResource> } promise a Mesh
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   createMesh(params: SceneResourceParameters, geometry: GeometryDefinition): Promise<MeshResource>;
 
@@ -196,7 +206,8 @@ export interface RenderResourceFactory {
    * @param { SceneResourceParameters } params - the param of create a sampler
    * @returns { Promise<Sampler> } - promise a scene
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   createSampler(params:SceneResourceParameters): Promise<Sampler>
 
@@ -206,7 +217,8 @@ export interface RenderResourceFactory {
    * @param { ResourceStr } uri - the resource of creating a scene
    * @returns { Promise<Scene> } promise a scene
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   createScene(uri?: ResourceStr): Promise<Scene>;
 }
@@ -218,7 +230,7 @@ export interface RenderResourceFactory {
  * @interface SceneResourceFactory
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface SceneResourceFactory extends RenderResourceFactory {
   /**
@@ -228,7 +240,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    * @returns { Promise<Camera> } promise a camera
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   createCamera(params: SceneNodeParameters): Promise<Camera>;
 
@@ -240,7 +252,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    * @returns { Promise<Light> } promise a light
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   createLight(params: SceneNodeParameters, lightType: LightType): Promise<Light>;
 
@@ -251,7 +263,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    * @returns { Promise<Node> } promise a node
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   createNode(params: SceneNodeParameters): Promise<Node>;
 
@@ -263,7 +275,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    * @returns { Promise<Material> } promise a material
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   createMaterial(params: SceneResourceParameters, materialType: MaterialType): Promise<Material>;
 
@@ -274,7 +286,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    * @returns { Promise<Environment> } promise a Environment
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   createEnvironment(params: SceneResourceParameters): Promise<Environment>;
 
@@ -286,7 +298,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    * @returns { Promise<Geometry> } promise a geometry
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   createGeometry(params: SceneNodeParameters, mesh:MeshResource): Promise<Geometry>;
 }
@@ -296,7 +308,8 @@ export interface SceneResourceFactory extends RenderResourceFactory {
  *
  * @interface SceneComponent
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 export interface SceneComponent {
   /**
@@ -304,7 +317,8 @@ export interface SceneComponent {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   name: string;
 
@@ -315,7 +329,8 @@ export interface SceneComponent {
    * SceneResource[] | Vec2[] | Vec3[] | Vec4[] | null | undefined> }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly property: Record<string, string | double | Vec2 | Vec3 | Vec4 | SceneResource | boolean | double[] |
   string[] | SceneResource[] | Vec2[] | Vec3[] | Vec4[] | null | undefined>;
@@ -327,7 +342,8 @@ export interface SceneComponent {
  *
  * @interface RenderContext
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 export interface RenderContext {
   /**
@@ -335,7 +351,8 @@ export interface RenderContext {
    *
    * @returns { RenderResourceFactory } -- RenderResourceFactory instance
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   getRenderResourceFactory() : RenderResourceFactory;
 
@@ -345,7 +362,8 @@ export interface RenderContext {
    * @param {string} name - Name of the plugin
    * @returns { Promise<boolean> } - Promise a boolean to show if the plugin load is successful
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   loadPlugin(name: string): Promise<boolean>;
 }
@@ -356,7 +374,7 @@ export interface RenderContext {
  * @interface RenderParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 15 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface RenderParameters {
   /**
@@ -366,7 +384,7 @@ export interface RenderParameters {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   alwaysRender?: boolean;
 }
@@ -376,7 +394,7 @@ export interface RenderParameters {
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export declare class Scene {
   /**
@@ -385,7 +403,8 @@ export declare class Scene {
    * @returns { RenderContext | null } -- The default RenderContext instance
    * @static
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   static getDefaultRenderContext(): RenderContext | null;
 
@@ -397,7 +416,7 @@ export declare class Scene {
    * @static
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   static load(uri? : ResourceStr): Promise<Scene>;
 
@@ -407,7 +426,7 @@ export declare class Scene {
    * @return { Environment }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   get environment(): Environment;
 
@@ -417,7 +436,7 @@ export declare class Scene {
    * @param { Environment } value
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   set environment(value: Environment);
 
@@ -428,7 +447,7 @@ export declare class Scene {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   get animations(): Animation[];
 
@@ -439,7 +458,7 @@ export declare class Scene {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   get root(): Node | null;
 
@@ -451,7 +470,7 @@ export declare class Scene {
    * @returns { Node | null } if the node is found by it's path
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getNodeByPath(path: string, type?: NodeType): Node | null;
 
@@ -461,7 +480,7 @@ export declare class Scene {
    * @returns { SceneResourceFactory } if the node is found by it's path
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getResourceFactory(): SceneResourceFactory;
 
@@ -470,7 +489,7 @@ export declare class Scene {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   destroy(): void;
 
@@ -484,7 +503,7 @@ export declare class Scene {
    * @returns { Node } The newly created node.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   importNode(name: string, node: Node, parent: Node | null): Node;
 
@@ -498,7 +517,7 @@ export declare class Scene {
    * @returns { Node } The newly created node.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   importScene(name: string, scene: Scene, parent: Node | null): Node;
 
@@ -509,7 +528,7 @@ export declare class Scene {
    * @returns { boolean } True if rendering was scheduled, false otherwise
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   renderFrame(params?: RenderParameters): boolean;
 
@@ -520,7 +539,8 @@ export declare class Scene {
    * @param { string } name - The name of the component to load. Valid names are defined by each plugin.
    * @returns { Promise<SceneComponent> } - The newly added component.
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   createComponent(node: Node, name: string): Promise<SceneComponent>;
 
@@ -531,7 +551,8 @@ export declare class Scene {
    * @param { string } name - name of the component
    * @returns { SceneComponent | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   getComponent(node: Node, name: string): SceneComponent | null;
 }

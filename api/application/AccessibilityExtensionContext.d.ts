@@ -36,7 +36,7 @@ import { AccessibilityAction } from '../@ohos.accessibility';
  * @extends ExtensionContext
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class AccessibilityExtensionContext extends ExtensionContext {
   /**
@@ -269,7 +269,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   startAbility(want: Want): Promise<void>;
 
@@ -287,7 +287,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getElements(windowId: int, elementId?: long): Promise<Array<AccessibilityElement>>;
 
@@ -304,7 +304,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getDefaultFocusedElementIds(windowId: int): Promise<Array<long>>;
 
@@ -399,7 +399,8 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300006 - The target application failed to connect to accessibility service.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   getRootInActiveWindow(windowId?: int): Promise<AccessibilityElement>;
 
@@ -427,7 +428,7 @@ export default AccessibilityExtensionContext;
  * @typedef AccessibilityElement
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export declare interface AccessibilityElement {
   /**
@@ -561,7 +562,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getCursorPosition(callback: AsyncCallback<int>): void;
 
@@ -572,7 +573,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getCursorPosition(): Promise<int>;
 
@@ -589,7 +590,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enableScreenCurtain(isEnable: boolean): void;
 
@@ -1351,7 +1352,8 @@ export declare interface AccessibilityElement {
    * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   mainWindowId?: int;
 
@@ -2127,7 +2129,7 @@ export interface ElementAttributeValues {
  * @typedef {'up' | 'down' | 'left' | 'right' | 'forward' | 'backward'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type FocusDirection = 'up' | 'down' | 'left' | 'right' | 'forward' | 'backward';
 
@@ -2146,7 +2148,7 @@ export type FocusType = 'accessibility' | 'normal';
  * @typedef {'application' | 'system'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type WindowType = 'application' | 'system';
 
@@ -2156,7 +2158,7 @@ export type WindowType = 'application' | 'system';
  * @typedef Rect
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface Rect {
   /**
@@ -2165,7 +2167,7 @@ export interface Rect {
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   left: int;
   /**
@@ -2174,7 +2176,7 @@ export interface Rect {
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   top: int;
   /**
@@ -2183,7 +2185,7 @@ export interface Rect {
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   width: int;
   /**
@@ -2192,7 +2194,7 @@ export interface Rect {
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   height: int;
 }

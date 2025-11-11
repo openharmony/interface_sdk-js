@@ -40,7 +40,7 @@ import { AsyncCallback, Callback } from '../@ohos.base';
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NfcATag extends TagSession {
   /**
@@ -57,7 +57,7 @@ export interface NfcATag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getSak(): int;
 
@@ -75,7 +75,7 @@ export interface NfcATag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getAtqa(): int[];
 }
@@ -98,7 +98,7 @@ export interface NfcATag extends TagSession {
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NfcBTag extends TagSession {
   /**
@@ -115,7 +115,7 @@ export interface NfcBTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getRespAppData(): int[];
 
@@ -133,7 +133,7 @@ export interface NfcBTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getRespProtocol(): int[];
 }
@@ -156,7 +156,7 @@ export interface NfcBTag extends TagSession {
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NfcFTag extends TagSession {
   /**
@@ -173,7 +173,7 @@ export interface NfcFTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getSystemCode(): int[];
 
@@ -191,7 +191,7 @@ export interface NfcFTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getPmm(): int[];
 }
@@ -214,7 +214,7 @@ export interface NfcFTag extends TagSession {
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NfcVTag extends TagSession {
   /**
@@ -231,7 +231,7 @@ export interface NfcVTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getResponseFlags(): int;
 
@@ -249,7 +249,7 @@ export interface NfcVTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getDsfId(): int;
 }
@@ -268,7 +268,7 @@ export interface NfcVTag extends TagSession {
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface IsoDepTag extends TagSession {
   /**
@@ -287,7 +287,7 @@ export interface IsoDepTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getHistoricalBytes(): int[];
 
@@ -307,7 +307,7 @@ export interface IsoDepTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getHiLayerResponse(): int[];
 
@@ -340,7 +340,7 @@ export interface IsoDepTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isExtendedApduSupported(): Promise<boolean>;
 
@@ -373,7 +373,7 @@ export interface IsoDepTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isExtendedApduSupported(callback: AsyncCallback<boolean>): void;
 }
@@ -392,7 +392,7 @@ export interface IsoDepTag extends TagSession {
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NdefMessage {
   /**
@@ -409,7 +409,7 @@ export interface NdefMessage {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getNdefRecords(): tag.NdefRecord[];
 }
@@ -428,7 +428,7 @@ export interface NdefMessage {
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NdefTag extends TagSession {
   /**
@@ -445,7 +445,7 @@ export interface NdefTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getNdefTagType(): tag.NfcForumType;
 
@@ -463,7 +463,7 @@ export interface NdefTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getNdefMessage(): NdefMessage;
 
@@ -481,7 +481,7 @@ export interface NdefTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isNdefWritable(): boolean;
 
@@ -514,7 +514,7 @@ export interface NdefTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readNdef(): Promise<NdefMessage>;
 
@@ -547,7 +547,7 @@ export interface NdefTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readNdef(callback: AsyncCallback<NdefMessage>): void;
 
@@ -582,7 +582,7 @@ export interface NdefTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   writeNdef(msg: NdefMessage): Promise<void>;
 
@@ -617,7 +617,7 @@ export interface NdefTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   writeNdef(msg: NdefMessage, callback: AsyncCallback<void>): void;
 
@@ -641,7 +641,7 @@ export interface NdefTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   canSetReadOnly(): boolean;
 
@@ -674,7 +674,7 @@ export interface NdefTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   setReadOnly(): Promise<void>;
 
@@ -707,7 +707,7 @@ export interface NdefTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   setReadOnly(callback: AsyncCallback<void>): void;
 
@@ -735,7 +735,7 @@ export interface NdefTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getNdefTagTypeString(type: tag.NfcForumType): string;
 }
@@ -754,7 +754,7 @@ export interface NdefTag extends TagSession {
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface MifareClassicTag extends TagSession {
   /**
@@ -792,7 +792,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   authenticateSector(sectorIndex: int, key: int[], isKeyA: boolean): Promise<void>;
 
@@ -831,7 +831,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   authenticateSector(sectorIndex: int, key: int[], isKeyA: boolean, callback: AsyncCallback<void>): void;
 
@@ -866,7 +866,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readSingleBlock(blockIndex: int): Promise<int[]>;
 
@@ -901,7 +901,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readSingleBlock(blockIndex: int, callback: AsyncCallback<int[]>): void;
 
@@ -938,7 +938,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   writeSingleBlock(blockIndex: int, data: int[]): Promise<void>;
 
@@ -975,7 +975,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   writeSingleBlock(blockIndex: int, data: int[], callback: AsyncCallback<void>): void;
 
@@ -1012,7 +1012,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   incrementBlock(blockIndex: int, value: int): Promise<void>;
 
@@ -1049,7 +1049,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   incrementBlock(blockIndex: int, value: int, callback: AsyncCallback<void>): void;
 
@@ -1086,7 +1086,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   decrementBlock(blockIndex: int, value: int): Promise<void>;
 
@@ -1123,7 +1123,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   decrementBlock(blockIndex: int, value: int, callback: AsyncCallback<void>): void;
 
@@ -1158,7 +1158,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   transferToBlock(blockIndex: int): Promise<void>;
 
@@ -1193,7 +1193,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   transferToBlock(blockIndex: int, callback: AsyncCallback<void>): void;
 
@@ -1228,7 +1228,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   restoreFromBlock(blockIndex: int): Promise<void>;
 
@@ -1263,7 +1263,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   restoreFromBlock(blockIndex: int, callback: AsyncCallback<void>): void;
 
@@ -1281,7 +1281,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getSectorCount(): int;
 
@@ -1309,7 +1309,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getBlockCountInSector(sectorIndex: int): int;
 
@@ -1327,7 +1327,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getType(): tag.MifareClassicType;
 
@@ -1345,7 +1345,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getTagSize(): int;
 
@@ -1363,7 +1363,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isEmulatedTag(): boolean;
 
@@ -1391,7 +1391,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getBlockIndex(sectorIndex: int): int;
 
@@ -1419,7 +1419,7 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getSectorIndex(blockIndex: int): int;
 }
@@ -1438,7 +1438,7 @@ export interface MifareClassicTag extends TagSession {
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface MifareUltralightTag extends TagSession {
   /**
@@ -1472,7 +1472,7 @@ export interface MifareUltralightTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readMultiplePages(pageIndex: int): Promise<int[]>;
 
@@ -1507,7 +1507,7 @@ export interface MifareUltralightTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readMultiplePages(pageIndex: int, callback: AsyncCallback<int[]>): void;
 
@@ -1544,7 +1544,7 @@ export interface MifareUltralightTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   writeSinglePage(pageIndex: int, data: int[]): Promise<void>;
 
@@ -1581,7 +1581,7 @@ export interface MifareUltralightTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   writeSinglePage(pageIndex: int, data: int[], callback: AsyncCallback<void>): void;
 
@@ -1599,7 +1599,7 @@ export interface MifareUltralightTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getType(): tag.MifareUltralightType;
 }
@@ -1618,7 +1618,7 @@ export interface MifareUltralightTag extends TagSession {
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NdefFormatableTag extends TagSession {
   /**
@@ -1652,7 +1652,7 @@ export interface NdefFormatableTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   format(message: NdefMessage): Promise<void>;
 
@@ -1687,7 +1687,7 @@ export interface NdefFormatableTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   format(message: NdefMessage, callback: AsyncCallback<void>): void;
 
@@ -1722,7 +1722,7 @@ export interface NdefFormatableTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   formatReadOnly(message: NdefMessage): Promise<void>;
 
@@ -1757,7 +1757,7 @@ export interface NdefFormatableTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   formatReadOnly(message: NdefMessage, callback: AsyncCallback<void>): void;
 }
@@ -1770,7 +1770,7 @@ export interface NdefFormatableTag extends TagSession {
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
  * @since 18 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface BarcodeTag extends TagSession {
   /**
@@ -1784,7 +1784,7 @@ export interface BarcodeTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getBarcode(): Promise<ArrayBuffer>;
 }

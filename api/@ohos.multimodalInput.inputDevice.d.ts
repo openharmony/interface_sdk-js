@@ -29,7 +29,7 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
  * @namespace inputDevice
  * @syscap SystemCapability.MultimodalInput.Input.InputDevice
  * @since 8 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace inputDevice {
   /**
@@ -38,7 +38,7 @@ declare namespace inputDevice {
    * @typedef { 'add' | 'remove' }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type ChangedType = 'add' | 'remove';
 
@@ -48,7 +48,7 @@ declare namespace inputDevice {
    * @typedef { 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball' }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
 
@@ -58,7 +58,7 @@ declare namespace inputDevice {
    * @typedef { 'touchmajor'| 'touchminor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolminor' | 'toolmajor' | 'null' }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type AxisType =
     'touchmajor'
@@ -77,7 +77,7 @@ declare namespace inputDevice {
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum KeyboardType {
     /**
@@ -85,7 +85,7 @@ declare namespace inputDevice {
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NONE = 0,
 
@@ -94,7 +94,7 @@ declare namespace inputDevice {
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UNKNOWN = 1,
 
@@ -103,7 +103,7 @@ declare namespace inputDevice {
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ALPHABETIC_KEYBOARD = 2,
 
@@ -112,7 +112,7 @@ declare namespace inputDevice {
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DIGITAL_KEYBOARD = 3,
 
@@ -121,7 +121,7 @@ declare namespace inputDevice {
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     HANDWRITING_PEN = 4,
 
@@ -130,7 +130,7 @@ declare namespace inputDevice {
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     REMOTE_CONTROL = 5
   }
@@ -141,7 +141,7 @@ declare namespace inputDevice {
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum FunctionKey {
     /**
@@ -149,7 +149,7 @@ declare namespace inputDevice {
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CAPS_LOCK = 1
   }
@@ -160,7 +160,7 @@ declare namespace inputDevice {
    * @interface DeviceListener
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface DeviceListener {
     /**
@@ -169,7 +169,7 @@ declare namespace inputDevice {
      * @type { ChangedType }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     type: ChangedType;
 
@@ -180,7 +180,7 @@ declare namespace inputDevice {
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deviceId: int;
   }
@@ -240,7 +240,7 @@ declare namespace inputDevice {
    * @interface AxisRange
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AxisRange {
     /**
@@ -249,7 +249,7 @@ declare namespace inputDevice {
      * @type { SourceType }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     source: SourceType;
 
@@ -259,7 +259,7 @@ declare namespace inputDevice {
      * @type { AxisType }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     axis: AxisType;
 
@@ -269,7 +269,7 @@ declare namespace inputDevice {
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     max: int;
 
@@ -279,7 +279,7 @@ declare namespace inputDevice {
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     min: int;
 
@@ -289,7 +289,7 @@ declare namespace inputDevice {
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     fuzz: int;
 
@@ -299,7 +299,7 @@ declare namespace inputDevice {
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     flat: int;
 
@@ -309,7 +309,7 @@ declare namespace inputDevice {
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     resolution: int;
   }
@@ -320,7 +320,7 @@ declare namespace inputDevice {
    * @interface InputDeviceData
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface InputDeviceData {
     /**
@@ -330,7 +330,7 @@ declare namespace inputDevice {
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     id: int;
 
@@ -340,7 +340,7 @@ declare namespace inputDevice {
      * @type { string }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -352,7 +352,7 @@ declare namespace inputDevice {
      * @type { Array<SourceType> }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     sources: Array<SourceType>;
 
@@ -362,7 +362,7 @@ declare namespace inputDevice {
      * @type { Array<AxisRange> }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     axisRanges: Array<AxisRange>;
 
@@ -372,7 +372,7 @@ declare namespace inputDevice {
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bus: int;
 
@@ -382,7 +382,7 @@ declare namespace inputDevice {
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     product: int;
 
@@ -392,7 +392,7 @@ declare namespace inputDevice {
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     vendor: int;
 
@@ -402,7 +402,7 @@ declare namespace inputDevice {
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     version: int;
 
@@ -412,7 +412,7 @@ declare namespace inputDevice {
      * @type { string }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     phys: string;
 
@@ -422,7 +422,7 @@ declare namespace inputDevice {
      * @type { string }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uniq: string;
   }
@@ -486,7 +486,7 @@ declare namespace inputDevice {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDeviceList(callback: AsyncCallback<Array<int>>): void;
 
@@ -497,7 +497,7 @@ declare namespace inputDevice {
    * @returns { Promise<Array<int>> } - Promise used to return the IDs of all input devices.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDeviceList(): Promise<Array<int>>;
 
@@ -512,7 +512,7 @@ declare namespace inputDevice {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDeviceInfo(deviceId: int, callback: AsyncCallback<InputDeviceData>): void;
 
@@ -526,7 +526,7 @@ declare namespace inputDevice {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDeviceInfo(deviceId: int): Promise<InputDeviceData>;
 
@@ -540,7 +540,7 @@ declare namespace inputDevice {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDeviceInfoSync(deviceId: int): InputDeviceData;
 
@@ -555,7 +555,7 @@ declare namespace inputDevice {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function supportKeys(deviceId: int, keys: Array<KeyCode>, callback: AsyncCallback<Array<boolean>>): void;
 
@@ -569,7 +569,7 @@ declare namespace inputDevice {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function supportKeys(deviceId: int, keys: Array<KeyCode>): Promise<Array<boolean>>;
 
@@ -584,7 +584,7 @@ declare namespace inputDevice {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function supportKeysSync(deviceId: int, keys: Array<KeyCode>): Array<boolean>;
 
@@ -599,7 +599,7 @@ declare namespace inputDevice {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getKeyboardType(deviceId: int, callback: AsyncCallback<KeyboardType>): void;
 
@@ -613,7 +613,7 @@ declare namespace inputDevice {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getKeyboardType(deviceId: int): Promise<KeyboardType>;
 
@@ -626,7 +626,7 @@ declare namespace inputDevice {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getKeyboardTypeSync(deviceId: int): KeyboardType;
 
@@ -642,7 +642,7 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setKeyboardRepeatDelay(delay: int, callback: AsyncCallback<void>): void;
 
@@ -658,7 +658,7 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setKeyboardRepeatDelay(delay: int): Promise<void>;
 
@@ -673,7 +673,7 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getKeyboardRepeatDelay(callback: AsyncCallback<int>): void;
 
@@ -688,7 +688,7 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getKeyboardRepeatDelay(): Promise<int>;
 
@@ -704,7 +704,7 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setKeyboardRepeatRate(rate: int, callback: AsyncCallback<void>): void;
 
@@ -720,7 +720,7 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setKeyboardRepeatRate(rate: int): Promise<void>;
 
@@ -735,7 +735,7 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getKeyboardRepeatRate(callback: AsyncCallback<int>): void;
 
@@ -750,7 +750,7 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi hide for inner use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getKeyboardRepeatRate(): Promise<int>;
 
@@ -761,7 +761,7 @@ declare namespace inputDevice {
    * @returns { Promise<long> } Promise used to return the interval since the last input.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getIntervalSinceLastInput(): Promise<long>;
 
@@ -787,7 +787,7 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setInputDeviceEnabled(deviceId: int, enabled: boolean): Promise<void>;
 
@@ -807,7 +807,7 @@ declare namespace inputDevice {
    * @throws { BusinessError } 3900003 - It is prohibited for non-input applications.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setFunctionKeyEnabled(functionKey: FunctionKey, enabled: boolean): Promise<void>;
 
@@ -823,7 +823,7 @@ declare namespace inputDevice {
    * @throws { BusinessError } 3900002 - There is currently no keyboard device connected.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isFunctionKeyEnabled(functionKey: FunctionKey): Promise<boolean>;
 }

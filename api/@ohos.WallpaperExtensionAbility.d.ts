@@ -25,7 +25,7 @@
  * @systemapi Hide this for inner system use.
  * @StageModelOnly
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class WallpaperExtensionAbility {
   /**
@@ -36,7 +36,7 @@ declare class WallpaperExtensionAbility {
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onCreate(want: object): void;
 
@@ -48,7 +48,7 @@ declare class WallpaperExtensionAbility {
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onWallpaperChange(wallpaperType: int): void;
 
@@ -59,7 +59,7 @@ declare class WallpaperExtensionAbility {
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onDestroy(): void;
 }

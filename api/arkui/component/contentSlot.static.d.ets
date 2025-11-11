@@ -17,7 +17,7 @@
  * @kit ArkUI
  */
 import { Content } from '../../@ohos.arkui.node';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -25,7 +25,7 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @interface ContentSlotAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare interface ContentSlotAttribute {
@@ -35,16 +35,14 @@ export declare interface ContentSlotAttribute {
  * ContentSlot is returned when the parameter is transferred.
  *
  * @param { Content } content - Indicates the class object of NodeContent.
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { ContentSlotAttribute } The attribute of the ContentSlot.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function ContentSlot(
     content: Content, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ContentSlotAttribute

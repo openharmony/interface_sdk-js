@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,8 +19,8 @@
  * @kit ArkUI
  */
 
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Defines the session of RootScene.
@@ -35,7 +36,8 @@ export declare interface RootSceneSession {
 /**
  * Defines the attribute functions of RootScene.
  *
- * @extends CommonMethod<RootSceneAttribute>
+ * @extends CommonMethod
+ * @typedef { RootSceneAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 22 static
@@ -57,16 +59,15 @@ export declare interface RootSceneAttribute extends CommonMethod {
 /**
  * Defines the RootScene Component.
  *
- * @param { function } [content_] - container
+ * @param { RootSceneSession } session
+ * @param { CustomBuilder } [content_] - container
  * @returns { RootSceneAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function RootScene(
     session: RootSceneSession,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): RootSceneAttribute;

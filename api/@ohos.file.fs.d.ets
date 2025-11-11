@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -26,97 +26,97 @@ import stream from './@ohos.util.stream';
  *
  * @namespace fileIo
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 declare namespace fileIo {
 
-   /**
+  /**
    * Mode Indicates the open flags.
    *
    * @namespace OpenMode
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   namespace OpenMode {
-  /**
-   * Read only Permission.
-   *
-   * @constant
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
-   */
+    /**
+     * Read only Permission.
+     *
+     * @constant
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 22 static
+     */
     const READ_ONLY = 0o0;
-  /**
-   * Write only Permission.
-   *
-   * @constant
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
-   */
+    /**
+     * Write only Permission.
+     *
+     * @constant
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 22 static
+     */
     const WRITE_ONLY = 0o1;
-  /**
-   * Write and Read Permission.
-   *
-   * @constant
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
-   */
+    /**
+     * Write and Read Permission.
+     *
+     * @constant
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 22 static
+     */
     const READ_WRITE = 0o2;
-  /**
-   * If not exist, create file.
-   *
-   * @constant
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
-   */
+    /**
+     * If not exist, create file.
+     *
+     * @constant
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 22 static
+     */
     const CREATE = 0o100;
-  /**
-   * File truncate len 0.
-   *
-   * @constant
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
-   */
+    /**
+     * File truncate len 0.
+     *
+     * @constant
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 22 static
+     */
     const TRUNC = 0o1000;
-  /**
-   * File append write.
-   *
-   * @constant
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
-   */
+    /**
+     * File append write.
+     *
+     * @constant
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 22 static
+     */
     const APPEND = 0o2000;
-  /**
-   * File open in nonblocking mode.
-   *
-   * @constant
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
-   */
+    /**
+     * File open in nonblocking mode.
+     *
+     * @constant
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 22 static
+     */
     const NONBLOCK = 0o4000;
-  /**
-   * File is Dir.
-   *
-   * @constant
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
-   */
+    /**
+     * File is Dir.
+     *
+     * @constant
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 22 static
+     */
     const DIR = 0o200000;
-  /**
-   * File is not symbolic link.
-   *
-   * @constant
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
-   */
+    /**
+     * File is not symbolic link.
+     *
+     * @constant
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 22 static
+     */
     const NOFOLLOW = 0o400000;
-  /**
-   * SYNC IO.
-   *
-   * @constant
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
-   */
+    /**
+     * SYNC IO.
+     *
+     * @constant
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 22 static
+     */
     const SYNC = 0o4010000;
   }
 
@@ -144,7 +144,7 @@ declare namespace fileIo {
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function access(path: string, mode?: AccessModeType): Promise<boolean>;
 
@@ -167,13 +167,13 @@ function access(path: string, mode?: AccessModeType): Promise<boolean>;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function access(path: string, callback: AsyncCallback<boolean>): void;
 
 /**
  * Checks whether the file or directory is stored locally or has the operation permission.
- * This API uses a promise to return the result.If the read, write, or read and write permission verification fails,
+ * This API uses a promise to return the result. If the read, write, or read and write permission verification fails,
  * the error code 13900012 (Permission denied) will be thrown.
  *
  * @param { string } path - Application sandbox path of the file to check.
@@ -182,7 +182,7 @@ function access(path: string, callback: AsyncCallback<boolean>): void;
  * @returns { Promise<boolean> } Promise used to return a Boolean value.
  *     <br>The value true means the file is a local file and has the related permission.
  *     <br>The value false means the file does not exist or is on the cloud or a distributed device.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900011 - Out of memory
@@ -194,14 +194,14 @@ function access(path: string, callback: AsyncCallback<boolean>): void;
  * @throws { BusinessError } 13900030 - File name too long
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function access(path: string, mode: AccessModeType, flag: AccessFlagType): Promise<boolean>;
 
 /**
- *  
+ *
  * Checks whether a file or directory exists or has the operation permission.
- * This API returns the result synchronously.If the read, write, or read and write permission verification fails,
+ * This API returns the result synchronously. If the read, write, or read and write permission verification fails,
  * the error code 13900012 (Permission denied) will be thrown.
  *
  * @param { string } path - Application sandbox path of the file to check.
@@ -221,7 +221,7 @@ function access(path: string, mode: AccessModeType, flag: AccessFlagType): Promi
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function accessSync(path: string, mode?: AccessModeType): boolean;
 
@@ -236,7 +236,7 @@ function accessSync(path: string, mode?: AccessModeType): boolean;
  * @param { AccessFlagType } flag - Location of the file to verify.
  * @returns { boolean } Returns true if the file is a local file and has the related permission;
  *     <br>returns false if the file does not exist or is on the cloud or a distributed device.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900011 - Out of memory
@@ -248,7 +248,7 @@ function accessSync(path: string, mode?: AccessModeType): boolean;
  * @throws { BusinessError } 13900030 - File name too long
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function accessSync(path: string, mode: AccessModeType, flag: AccessFlagType): boolean;
 
@@ -265,7 +265,7 @@ function accessSync(path: string, mode: AccessModeType, flag: AccessFlagType): b
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function close(file: int | File): Promise<void>;
 
@@ -282,7 +282,7 @@ function close(file: int | File): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function close(file: int | File, callback: AsyncCallback<void>): void;
 
@@ -298,7 +298,7 @@ function close(file: int | File, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function closeSync(file: int | File): void;
 
@@ -313,7 +313,7 @@ function closeSync(file: int | File): void;
  * @param { CopyOptions } [options] - Callback invoked to provide the copy progress.
  *     <br>If this parameter is not set, the callback will not be invoked.
  * @returns { Promise<void> } Promise that returns no value.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -341,7 +341,7 @@ function closeSync(file: int | File): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function copy(srcUri: string, destUri: string, options?: CopyOptions): Promise<void>;
 
@@ -354,7 +354,7 @@ function copy(srcUri: string, destUri: string, options?: CopyOptions): Promise<v
  * @param { string } srcUri - URI of the file or directory to copy.
  * @param { string } destUri - URI of the destination file or directory.
  * @param { AsyncCallback<void> } callback - Callback used to return the result.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -381,7 +381,7 @@ function copy(srcUri: string, destUri: string, options?: CopyOptions): Promise<v
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): void;
 
@@ -395,7 +395,7 @@ function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): v
  * @param { string } destUri - URI of the destination file or directory.
  * @param { CopyOptions } options - Callback used to return the copy progress.
  * @param { AsyncCallback<void> } callback - Callback used to return the result.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -422,7 +422,7 @@ function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): v
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function copy(srcUri: string, destUri: string, options: CopyOptions, callback: AsyncCallback<void>): void;
 
@@ -463,7 +463,7 @@ function copy(srcUri: string, destUri: string, options: CopyOptions, callback: A
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function copyDir(src: string, dest: string, mode?: int): Promise<void>;
 
@@ -492,7 +492,7 @@ function copyDir(src: string, dest: string, mode?: int): Promise<void>;
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void;
 
@@ -546,7 +546,7 @@ function copyDirWithConflictFiles(src: string, dest: string, callback: AsyncCall
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function copyDir(src: string, dest: string, mode: int, callback: AsyncCallback<void>): void;
 
@@ -613,7 +613,7 @@ function copyDirWithConflictFiles(src: string, dest: string, mode: int,
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function copyDirSync(src: string, dest: string, mode?: int): void;
 
@@ -645,7 +645,7 @@ function copyDirSync(src: string, dest: string, mode?: int): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function copyFile(src: string | int, dest: string | int, mode?: int): Promise<void>;
 
@@ -674,7 +674,7 @@ function copyFile(src: string | int, dest: string | int, mode?: int): Promise<vo
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function copyFile(src: string | int, dest: string | int, callback: AsyncCallback<void>): void;
 
@@ -706,7 +706,7 @@ function copyFile(src: string | int, dest: string | int, callback: AsyncCallback
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function copyFile(
   src: string | int,
@@ -742,7 +742,7 @@ function copyFile(
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function copyFileSync(src: string | int, dest: string | int, mode?: int): void;
 
@@ -790,7 +790,7 @@ function copyFileSync(src: string | int, dest: string | int, mode?: int): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function createStream(path: string, mode: string): Promise<Stream>;
 
@@ -837,7 +837,7 @@ function createStream(path: string, mode: string): Promise<Stream>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function createStream(path: string, mode: string, callback: AsyncCallback<Stream>): void;
 
@@ -885,7 +885,7 @@ function createStream(path: string, mode: string, callback: AsyncCallback<Stream
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function createStreamSync(path: string, mode: string): Stream;
 
@@ -943,7 +943,7 @@ function createStreamSync(path: string, mode: string): Stream;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function createRandomAccessFile(file: string | File, mode?: int,
   options?: RandomAccessFileOptions): Promise<RandomAccessFile>;
@@ -981,7 +981,7 @@ function createRandomAccessFile(file: string | File, mode?: int,
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function createRandomAccessFile(file: string | File, callback: AsyncCallback<RandomAccessFile>): void;
 
@@ -1037,7 +1037,7 @@ function createRandomAccessFile(file: string | File, callback: AsyncCallback<Ran
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function createRandomAccessFile(file: string | File, mode: int, callback: AsyncCallback<RandomAccessFile>): void;
 
@@ -1094,7 +1094,7 @@ function createRandomAccessFile(file: string | File, mode: int, callback: AsyncC
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function createRandomAccessFileSync(file: string | File, mode?: int,
   options?: RandomAccessFileOptions): RandomAccessFile;
@@ -1126,7 +1126,7 @@ function createRandomAccessFileSync(file: string | File, mode?: int,
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function createReadStream(path: string, options?: ReadStreamOptions): ReadStream;
 
@@ -1159,7 +1159,7 @@ function createReadStream(path: string, options?: ReadStreamOptions): ReadStream
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function createWriteStream(path: string, options?: WriteStreamOptions): WriteStream;
 
@@ -1185,7 +1185,7 @@ function createWriteStream(path: string, options?: WriteStreamOptions): WriteStr
  * @throws { BusinessError } 13900030 - File name too long
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function createWatcher(path: string, events: int, listener: WatchEventListener): Watcher;
 
@@ -1202,7 +1202,7 @@ function createWatcher(path: string, events: int, listener: WatchEventListener):
  * @throws { BusinessError } 13900022 - Too many open files
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function dup(fd: int): File;
 
@@ -1219,7 +1219,7 @@ function dup(fd: int): File;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function fdatasync(fd: int): Promise<void>;
 
@@ -1237,7 +1237,7 @@ function fdatasync(fd: int): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function fdatasync(fd: int, callback: AsyncCallback<void>): void;
 
@@ -1253,7 +1253,7 @@ function fdatasync(fd: int, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function fdatasyncSync(fd: int): void;
 
@@ -1302,7 +1302,7 @@ function fdatasyncSync(fd: int): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function fdopenStream(fd: int, mode: string): Promise<Stream>;
 
@@ -1351,7 +1351,7 @@ function fdopenStream(fd: int, mode: string): Promise<Stream>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function fdopenStream(fd: int, mode: string, callback: AsyncCallback<Stream>): void;
 
@@ -1399,7 +1399,7 @@ function fdopenStream(fd: int, mode: string, callback: AsyncCallback<Stream>): v
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function fdopenStreamSync(fd: int, mode: string): Stream;
 
@@ -1416,7 +1416,7 @@ function fdopenStreamSync(fd: int, mode: string): Stream;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function fsync(fd: int): Promise<void>;
 
@@ -1433,7 +1433,7 @@ function fsync(fd: int): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function fsync(fd: int, callback: AsyncCallback<void>): void;
 
@@ -1449,7 +1449,7 @@ function fsync(fd: int, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function fsyncSync(fd: int): void;
 
@@ -1467,7 +1467,7 @@ function fsyncSync(fd: int): void;
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function listFile(
   path: string,
@@ -1485,7 +1485,7 @@ function listFile(
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function listFile(path: string, callback: AsyncCallback<string[]>): void;
 
@@ -1502,7 +1502,7 @@ function listFile(path: string, callback: AsyncCallback<string[]>): void;
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function listFile(
   path: string,
@@ -1523,7 +1523,7 @@ function listFile(
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function listFileSync(
   path: string,
@@ -1544,7 +1544,7 @@ function listFileSync(
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function lseek(fd: int, offset: long, whence?: WhenceType): long;
 
@@ -1635,7 +1635,7 @@ function lstatSync(path: string): Stat;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function mkdir(path: string): Promise<void>;
 
@@ -1664,7 +1664,7 @@ function mkdir(path: string): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function mkdir(path: string, recursion: boolean): Promise<void>;
 
@@ -1689,7 +1689,7 @@ function mkdir(path: string, recursion: boolean): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function mkdir(path: string, callback: AsyncCallback<void>): void;
 
@@ -1718,7 +1718,7 @@ function mkdir(path: string, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function mkdir(path: string, recursion: boolean, callback: AsyncCallback<void>): void;
 
@@ -1742,7 +1742,7 @@ function mkdir(path: string, recursion: boolean, callback: AsyncCallback<void>):
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function mkdirSync(path: string): void;
 
@@ -1770,7 +1770,7 @@ function mkdirSync(path: string): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function mkdirSync(path: string, recursion: boolean): void;
 
@@ -1796,7 +1796,7 @@ function mkdirSync(path: string, recursion: boolean): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function mkdtemp(prefix: string): Promise<string>;
 
@@ -1823,7 +1823,7 @@ function mkdtemp(prefix: string): Promise<string>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
 
@@ -1850,7 +1850,7 @@ function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function mkdtempSync(prefix: string): string;
 
@@ -1899,7 +1899,7 @@ function mkdtempSync(prefix: string): string;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function moveDir(src: string, dest: string, mode?: int): Promise<void>;
 
@@ -1928,7 +1928,7 @@ function moveDir(src: string, dest: string, mode?: int): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function moveDir(src: string, dest: string, callback: AsyncCallback<void>): void;
 
@@ -1989,7 +1989,7 @@ function moveDirWithConflictFiles(src: string, dest: string, callback: AsyncCall
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function moveDir(src: string, dest: string, mode: int, callback: AsyncCallback<void>): void;
 
@@ -2070,7 +2070,7 @@ function moveDirWithConflictFiles(src: string, dest: string, mode: int,
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function moveDirSync(src: string, dest: string, mode?: int): void;
 
@@ -2103,7 +2103,7 @@ function moveDirSync(src: string, dest: string, mode?: int): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function moveFile(src: string, dest: string, mode?: int): Promise<void>;
 
@@ -2134,7 +2134,7 @@ function moveFile(src: string, dest: string, mode?: int): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function moveFile(src: string, dest: string, callback: AsyncCallback<void>): void;
 
@@ -2167,7 +2167,7 @@ function moveFile(src: string, dest: string, callback: AsyncCallback<void>): voi
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function moveFile(src: string, dest: string, mode: int, callback: AsyncCallback<void>): void;
 
@@ -2199,7 +2199,7 @@ function moveFile(src: string, dest: string, mode: int, callback: AsyncCallback<
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function moveFileSync(src: string, dest: string, mode?: int): void;
 
@@ -2251,7 +2251,7 @@ function moveFileSync(src: string, dest: string, mode?: int): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function open(path: string, mode?: int): Promise<File>;
 
@@ -2288,7 +2288,7 @@ function open(path: string, mode?: int): Promise<File>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function open(path: string, callback: AsyncCallback<File>): void;
 
@@ -2341,7 +2341,7 @@ function open(path: string, callback: AsyncCallback<File>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function open(path: string, mode: int, callback: AsyncCallback<File>): void;
 
@@ -2393,7 +2393,7 @@ function open(path: string, mode: int, callback: AsyncCallback<File>): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function openSync(path: string, mode?: int): File;
 
@@ -2419,7 +2419,7 @@ function openSync(path: string, mode?: int): File;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function read(
   fd: int,
@@ -2443,7 +2443,7 @@ function read(
  * @throws { BusinessError } 13900034 - Operation would block
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function read(fd: int, buffer: ArrayBuffer, callback: AsyncCallback<long>): void;
 
@@ -2468,7 +2468,7 @@ function read(fd: int, buffer: ArrayBuffer, callback: AsyncCallback<long>): void
  * @throws { BusinessError } 13900034 - Operation would block
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function read(
   fd: int,
@@ -2499,7 +2499,7 @@ function read(
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function readSync(
   fd: int,
@@ -2530,7 +2530,7 @@ function readSync(
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function readLines(filePath: string, options?: Options): Promise<ReaderIterator>;
 
@@ -2553,7 +2553,7 @@ function readLines(filePath: string, options?: Options): Promise<ReaderIterator>
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function readLines(filePath: string, callback: AsyncCallback<ReaderIterator>): void;
 
@@ -2579,7 +2579,7 @@ function readLines(filePath: string, callback: AsyncCallback<ReaderIterator>): v
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function readLines(filePath: string, options: Options, callback: AsyncCallback<ReaderIterator>): void;
 
@@ -2605,7 +2605,7 @@ function readLines(filePath: string, options: Options, callback: AsyncCallback<R
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function readLinesSync(filePath: string, options?: Options): ReaderIterator;
 
@@ -2636,7 +2636,7 @@ function readLinesSync(filePath: string, options?: Options): ReaderIterator;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function readText(
   filePath: string,
@@ -2662,7 +2662,7 @@ function readText(
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function readText(filePath: string, callback: AsyncCallback<string>): void;
 
@@ -2692,7 +2692,7 @@ function readText(filePath: string, callback: AsyncCallback<string>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function readText(
   filePath: string,
@@ -2727,7 +2727,7 @@ function readText(
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function readTextSync(
   filePath: string,
@@ -2760,7 +2760,7 @@ function readTextSync(
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function rename(oldPath: string, newPath: string): Promise<void>;
 
@@ -2790,7 +2790,7 @@ function rename(oldPath: string, newPath: string): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function rename(oldPath: string, newPath: string, callback: AsyncCallback<void>): void;
 
@@ -2819,7 +2819,7 @@ function rename(oldPath: string, newPath: string, callback: AsyncCallback<void>)
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function renameSync(oldPath: string, newPath: string): void;
 
@@ -2841,7 +2841,7 @@ function renameSync(oldPath: string, newPath: string): void;
  * @throws { BusinessError } 13900032 - Directory not empty
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function rmdir(path: string): Promise<void>;
 
@@ -2863,7 +2863,7 @@ function rmdir(path: string): Promise<void>;
  * @throws { BusinessError } 13900032 - Directory not empty
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function rmdir(path: string, callback: AsyncCallback<void>): void;
 
@@ -2884,7 +2884,7 @@ function rmdir(path: string, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900032 - Directory not empty
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function rmdirSync(path: string): void;
 
@@ -2982,7 +2982,7 @@ function statSync(file: string | int): Stat;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function symlink(target: string, srcPath: string): Promise<void>;
 
@@ -3007,7 +3007,7 @@ function symlink(target: string, srcPath: string): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function symlink(target: string, srcPath: string, callback: AsyncCallback<void>): void;
 
@@ -3031,7 +3031,7 @@ function symlink(target: string, srcPath: string, callback: AsyncCallback<void>)
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function symlinkSync(target: string, srcPath: string): void;
 
@@ -3058,7 +3058,7 @@ function symlinkSync(target: string, srcPath: string): void;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function truncate(file: string | int, len?: long): Promise<void>;
 
@@ -3084,7 +3084,7 @@ function truncate(file: string | int, len?: long): Promise<void>;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function truncate(file: string | int, callback: AsyncCallback<void>): void;
 
@@ -3111,7 +3111,7 @@ function truncate(file: string | int, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function truncate(file: string | int, len: long, callback: AsyncCallback<void>): void;
 
@@ -3137,7 +3137,7 @@ function truncate(file: string | int, len: long, callback: AsyncCallback<void>):
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function truncateSync(file: string | int, len?: long): void;
 
@@ -3162,7 +3162,7 @@ function truncateSync(file: string | int, len?: long): void;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function unlink(path: string): Promise<void>;
 
@@ -3187,7 +3187,7 @@ function unlink(path: string): Promise<void>;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function unlink(path: string, callback: AsyncCallback<void>): void;
 
@@ -3211,7 +3211,7 @@ function unlink(path: string, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function unlinkSync(path: string): void;
 
@@ -3228,7 +3228,7 @@ function unlinkSync(path: string): void;
  * @throws { BusinessError } 13900027 - Read-only file system
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function utimes(path: string, mtime: double): void;
 
@@ -3252,7 +3252,7 @@ function utimes(path: string, mtime: double): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function write(
   fd: int,
@@ -3279,7 +3279,7 @@ function write(
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function write(fd: int, buffer: ArrayBuffer | string, callback: AsyncCallback<long>): void;
 
@@ -3309,7 +3309,7 @@ function write(fd: int, buffer: ArrayBuffer | string, callback: AsyncCallback<lo
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function write(
   fd: int,
@@ -3344,45 +3344,13 @@ function write(
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function writeSync(
   fd: int,
   buffer: ArrayBuffer | string,
   options?: WriteOptions
 ): long;
-
-/**
- * Connect Distributed File System.
- *
- * @permission ohos.permission.DISTRIBUTED_DATASYNC
- * @param { string } networkId - The networkId of device.
- * @param { DfsListeners } listeners - The listeners of Distributed File System.
- * @returns { Promise<void> } The promise returned by the function.
- * @throws { BusinessError } 201 - Permission denied.
- * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left unspecified;
- * <br>2.Incorrect parameter types.
- * @throws { BusinessError } 13900045 - Connection failed.
- * @throws { BusinessError } 13900046 - Software caused connection abort.
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
- */
-function connectDfs(networkId: string, listeners: DfsListeners): Promise<void>;
-
-/**
- * Disconnect Distributed File System.
- *
- * @permission ohos.permission.DISTRIBUTED_DATASYNC
- * @param { string } networkId - The networkId of device.
- * @returns { Promise<void> } The promise returned by the function.
- * @throws { BusinessError } 201 - Permission denied.
- * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left unspecified;
- * <br>2.Incorrect parameter types.
- * @throws { BusinessError } 13600004 - Unmount failed.
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
- */
-function disconnectDfs(networkId: string): Promise<void>;
 
 /**
  * Sets an extended attribute of a file or directory.
@@ -3392,7 +3360,7 @@ function disconnectDfs(networkId: string): Promise<void>;
  *     <br>The value is a string of less than 256 bytes and can contain only the user. prefix.
  * @param { string } value -Value of the extended attribute to set.
  * @returns { Promise<void> } Promise that returns no value.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3404,7 +3372,7 @@ function disconnectDfs(networkId: string): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function setxattr(path: string, key: string, value: string): Promise<void>;
 
@@ -3415,7 +3383,7 @@ function setxattr(path: string, key: string, value: string): Promise<void>;
  * @param { string } key - Key of the extended attribute to obtain.
  *     <br>The value is a string of less than 256 bytes and can contain only the user. prefix.
  * @param { string } value - Value of the extended attribute to set.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3427,9 +3395,8 @@ function setxattr(path: string, key: string, value: string): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
-
 function setxattrSync(path: string, key: string, value: string): void;
 
 /**
@@ -3438,7 +3405,7 @@ function setxattrSync(path: string, key: string, value: string): void;
  * @param { string } path - Application sandbox path of the directory.
  * @param { string } key - Key of the extended attribute to obtain.
  * @returns { Promise<string> } Promise used to return the value of the extended attribute obtained.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900007 - Arg list too long
@@ -3448,7 +3415,7 @@ function setxattrSync(path: string, key: string, value: string): void;
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function getxattr(path: string, key: string): Promise<string>;
 
@@ -3458,7 +3425,7 @@ function getxattr(path: string, key: string): Promise<string>;
  * @param { string } path - Application sandbox path of the directory.
  * @param { string } key - Key of the extended attribute to obtain.
  * @returns { string } Value of the extended attribute obtained.
- * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900007 - Arg list too long
@@ -3468,7 +3435,7 @@ function getxattr(path: string, key: string): Promise<string>;
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 function getxattrSync(path: string, key: string): string;
 
@@ -3477,7 +3444,7 @@ function getxattrSync(path: string, key: string): string;
  *
  * @typedef Progress
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 interface Progress {
   /**
@@ -3486,7 +3453,7 @@ interface Progress {
    * @type { long }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly processedSize: long;
 
@@ -3496,7 +3463,7 @@ interface Progress {
    * @type { long }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly totalSize: long;
 }
@@ -3505,7 +3472,7 @@ interface Progress {
  * Provides APIs for interrupting a copy task.
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 class TaskSignal {
   /**
@@ -3515,7 +3482,7 @@ class TaskSignal {
    * @throws { BusinessError } 13900012 - Permission denied by the file system
    * @throws { BusinessError } 13900043 - No task can be canceled.
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   cancel(): void;
 
@@ -3527,7 +3494,7 @@ class TaskSignal {
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   onCancel(): Promise<string>;
 }
@@ -3537,7 +3504,7 @@ class TaskSignal {
  *
  * @typedef CopyOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 interface CopyOptions {
   /**
@@ -3545,7 +3512,7 @@ interface CopyOptions {
    *
    * @type { ?ProgressListener }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   progressListener?: ProgressListener;
   /**
@@ -3553,7 +3520,7 @@ interface CopyOptions {
    *
    * @type { ?TaskSignal }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   copySignal?: TaskSignal;
 }
@@ -3564,7 +3531,7 @@ interface CopyOptions {
  * @typedef { function } ProgressListener
  * @param { Progress } progress - indicates the progress data of copyFile
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 type ProgressListener = (progress: Progress) => void;
 
@@ -3573,42 +3540,42 @@ type ProgressListener = (progress: Progress) => void;
  *
  * @interface File
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 interface File {
 
   /**
    * FD of the file.
-   * 
+   *
    * @type { int }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly fd: int;
 
   /**
    * Path of the file.
-   * 
+   *
    * @type { string }
    * @readonly
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 14300002 - Invalid URI
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly path: string;
 
   /**
    * Name of the file.
-   * 
+   *
    * @type { string }
    * @readonly
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly name: string;
 
@@ -3620,7 +3587,7 @@ interface File {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 14300002 - Invalid URI
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   getParent(): string;
 
@@ -3638,7 +3605,7 @@ interface File {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 13900043 - No record locks available
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   lock(exclusive?: boolean): Promise<void>;
 
@@ -3654,7 +3621,7 @@ interface File {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 13900043 - No record locks available
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   lock(callback: AsyncCallback<void>): void;
 
@@ -3672,7 +3639,7 @@ interface File {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 13900043 - No record locks available
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   lock(exclusive: boolean, callback: AsyncCallback<void>): void;
 
@@ -3688,7 +3655,7 @@ interface File {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 13900043 - No record locks available
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   tryLock(exclusive?: boolean): void;
 
@@ -3702,7 +3669,7 @@ interface File {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 13900043 - No record locks available
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   unlock(): void;
 }
@@ -3713,7 +3680,7 @@ interface File {
  *
  * @interface RandomAccessFile
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 interface RandomAccessFile {
 
@@ -3723,7 +3690,7 @@ interface RandomAccessFile {
    * @type { int }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly fd: int;
 
@@ -3733,7 +3700,7 @@ interface RandomAccessFile {
    * @type { long }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly filePointer: long;
 
@@ -3747,7 +3714,7 @@ interface RandomAccessFile {
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   setFilePointer(filePointer: long): void;
 
@@ -3761,7 +3728,7 @@ interface RandomAccessFile {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   close(): void;
 
@@ -3789,7 +3756,7 @@ interface RandomAccessFile {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   write(
     buffer: ArrayBuffer | string,
@@ -3814,7 +3781,7 @@ interface RandomAccessFile {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   write(buffer: ArrayBuffer | string, callback: AsyncCallback<long>): void;
 
@@ -3842,7 +3809,7 @@ interface RandomAccessFile {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   write(
     buffer: ArrayBuffer | string,
@@ -3874,7 +3841,7 @@ interface RandomAccessFile {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   writeSync(
     buffer: ArrayBuffer | string,
@@ -3902,7 +3869,7 @@ interface RandomAccessFile {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 13900044 - Network is unreachable
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   read(
     buffer: ArrayBuffer,
@@ -3924,7 +3891,7 @@ interface RandomAccessFile {
    * @throws { BusinessError } 13900034 - Operation would block
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   read(buffer: ArrayBuffer, callback: AsyncCallback<long>): void;
 
@@ -3938,18 +3905,18 @@ interface RandomAccessFile {
    *     <br>offset (long): start position to read the data (it is determined by filePointer plus offset).
    *     <br>This parameter is optional. By default, data is read from the filePointer.
    * @param { AsyncCallback<long> } callback - Callback used to return the result.
-  * @throws { BusinessError } 13900004 - Interrupted system call
-  * @throws { BusinessError } 13900005 - I/O error
-  * @throws { BusinessError } 13900008 - Bad file descriptor
-  * @throws { BusinessError } 13900010 - Try again
-  * @throws { BusinessError } 13900013 - Bad address
-  * @throws { BusinessError } 13900019 - Is a directory
-  * @throws { BusinessError } 13900020 - Invalid argument
-  * @throws { BusinessError } 13900034 - Operation would block
-  * @throws { BusinessError } 13900042 - Unknown error
-  * @syscap SystemCapability.FileManagement.File.FileIO
-  * @since 20 static
-  */
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 22 static
+   */
   read(
     buffer: ArrayBuffer,
     options: ReadOptions,
@@ -3977,7 +3944,7 @@ interface RandomAccessFile {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 13900044 - Network is unreachable
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readSync(
     buffer: ArrayBuffer,
@@ -3993,9 +3960,9 @@ interface RandomAccessFile {
    * @throws { BusinessError } 13900011 - Out of memory
    * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 13900020 - Invalid argument
-   * @throws { BusinessError } 13900042 - Unknown error 
+   * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   getReadStream(): ReadStream;
 
@@ -4008,9 +3975,9 @@ interface RandomAccessFile {
    * @throws { BusinessError } 13900011 - Out of memory
    * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 13900020 - Invalid argument
-   * @throws { BusinessError } 13900042 - Unknown error 
+   * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   getWriteStream(): WriteStream;
 }
@@ -4019,18 +3986,18 @@ interface RandomAccessFile {
  * Defines a readable stream. You need to use fs.createReadStream to create a ReadStream instance,
  * which is inherited from the stream base class.
  * The data obtained by ReadStream is a decoded string. Currently, only the UTF-8 format is supported.
- * 
+ *
  * @extends stream.Readable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 class ReadStream extends stream.Readable {
   /**
-    * The ReadStream constructor.
-    *
-    * @syscap SystemCapability.FileManagement.File.FileIO
-    * @since 20 static
-    */
+   * The ReadStream constructor.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 22 static
+   */
   constructor();
 
   /**
@@ -4040,7 +4007,7 @@ class ReadStream extends stream.Readable {
    * @readonly
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly bytesRead: long;
 
@@ -4051,7 +4018,7 @@ class ReadStream extends stream.Readable {
    * @readonly
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly path: string;
 
@@ -4067,7 +4034,7 @@ class ReadStream extends stream.Readable {
    * @throws { BusinessError } 13900026 - Illegal seek
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   seek(offset: long, whence?: WhenceType): long;
 
@@ -4081,7 +4048,7 @@ class ReadStream extends stream.Readable {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   close(): void;
 }
@@ -4089,18 +4056,18 @@ class ReadStream extends stream.Readable {
 /**
  * Defines a writeable stream. You need to use fs.createWriteStream to create a WriteStream instance,
  * which is inherited from the stream base class.
- * 
+ *
  * @extends stream.Writable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 class WriteStream extends stream.Writable {
   /**
-    * The WriteStream constructor.
-    *
-    * @syscap SystemCapability.FileManagement.File.FileIO
-    * @since 20 static
-    */
+   * The WriteStream constructor.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 22 static
+   */
   constructor();
 
   /**
@@ -4110,7 +4077,7 @@ class WriteStream extends stream.Writable {
    * @readonly
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly bytesWritten: long;
 
@@ -4121,7 +4088,7 @@ class WriteStream extends stream.Writable {
    * @readonly
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly path: string;
 
@@ -4137,7 +4104,7 @@ class WriteStream extends stream.Writable {
    * @throws { BusinessError } 13900026 - Illegal seek
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   seek(offset: long, whence?: WhenceType): long;
 
@@ -4151,7 +4118,7 @@ class WriteStream extends stream.Writable {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   close(): void;
 }
@@ -4163,17 +4130,17 @@ class WriteStream extends stream.Writable {
  * You can call finishWrite() or failWrite() to write or roll back file content.
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 export class AtomicFile {
   /**
    * The AtomicFile constructor.
-   * 
+   *
    * @param { string } path - Application sandbox path of the file.
-   * @throws { BusinessError } 401 Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   constructor(path: string);
 
@@ -4186,7 +4153,7 @@ export class AtomicFile {
    * @throws { BusinessError } 13900012 Permission denied
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   getBaseFile(): File;
 
@@ -4199,7 +4166,7 @@ export class AtomicFile {
    * @throws { BusinessError } 13900012 Permission denied
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   openRead(): ReadStream;
 
@@ -4210,14 +4177,14 @@ export class AtomicFile {
    * @throws { BusinessError } 13900005 I/O error
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readFully(): ArrayBuffer;
 
   /**
    * Starts to write new file data in the WriteStream object returned. If the file does not exist, create a file.
    * Call finishWrite() if the write operation is successful; call failWrite() if the write operation fails.
-   * 
+   *
    * @returns { WriteStream } Returns the file write stream.
    * @throws { BusinessError } 13900001 Operation not permitted
    * @throws { BusinessError } 13900002 No such file or directory
@@ -4225,7 +4192,7 @@ export class AtomicFile {
    * @throws { BusinessError } 13900027 Read-only file system
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   startWrite(): WriteStream;
 
@@ -4234,7 +4201,7 @@ export class AtomicFile {
    *
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   finishWrite(): void;
 
@@ -4243,7 +4210,7 @@ export class AtomicFile {
    *
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   failWrite(): void;
 
@@ -4256,7 +4223,7 @@ export class AtomicFile {
    * @throws { BusinessError } 13900027 Read-only file system
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   delete(): void;
 }
@@ -4267,7 +4234,7 @@ export class AtomicFile {
  *
  * @interface Stat
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 interface Stat {
   /**
@@ -4278,7 +4245,7 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly ino: bigint;
 
@@ -4300,7 +4267,7 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly mode: long;
 
@@ -4314,7 +4281,7 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly uid: long;
 
@@ -4326,7 +4293,7 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly gid: long;
 
@@ -4338,7 +4305,7 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly size: long;
 
@@ -4351,7 +4318,7 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly atime: long;
 
@@ -4364,7 +4331,7 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly mtime: long;
 
@@ -4377,7 +4344,7 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly ctime: long;
 
@@ -4390,7 +4357,7 @@ interface Stat {
    * @readonly
    * @throws { BusinessError } 13900042 - Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly atimeNs?:bigint;
 
@@ -4402,7 +4369,7 @@ interface Stat {
    * @readonly
    * @throws { BusinessError } 13900042 - Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly mtimeNs?:bigint;
 
@@ -4414,7 +4381,7 @@ interface Stat {
    * @readonly
    * @throws { BusinessError } 13900042 - Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly ctimeNs?:bigint;
 
@@ -4425,7 +4392,7 @@ interface Stat {
    * @readonly
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly location: LocationType;
 
@@ -4437,7 +4404,7 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   isBlockDevice(): boolean;
 
@@ -4449,7 +4416,7 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   isCharacterDevice(): boolean;
 
@@ -4460,7 +4427,7 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   isDirectory(): boolean;
 
@@ -4471,7 +4438,7 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   isFIFO(): boolean;
 
@@ -4482,7 +4449,7 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   isFile(): boolean;
 
@@ -4493,7 +4460,7 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   isSocket(): boolean;
 
@@ -4504,7 +4471,7 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   isSymbolicLink(): boolean;
 }
@@ -4515,7 +4482,7 @@ interface Stat {
  *
  * @interface Stream
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 interface Stream {
   /**
@@ -4529,7 +4496,7 @@ interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   close(): Promise<void>;
 
@@ -4544,7 +4511,7 @@ interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   close(callback: AsyncCallback<void>): void;
 
@@ -4558,7 +4525,7 @@ interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   closeSync(): void;
 
@@ -4579,7 +4546,7 @@ interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   flush(): Promise<void>;
 
@@ -4600,7 +4567,7 @@ interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   flush(callback: AsyncCallback<void>): void;
 
@@ -4620,7 +4587,7 @@ interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   flushSync(): void;
 
@@ -4648,7 +4615,7 @@ interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   write(
     buffer: ArrayBuffer | string,
@@ -4674,7 +4641,7 @@ interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   write(buffer: ArrayBuffer | string, callback: AsyncCallback<long>): void;
 
@@ -4702,7 +4669,7 @@ interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   write(
     buffer: ArrayBuffer | string,
@@ -4734,7 +4701,7 @@ interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   writeSync(
     buffer: ArrayBuffer | string,
@@ -4762,7 +4729,7 @@ interface Stream {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 13900044 - Network is unreachable
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   read(
     buffer: ArrayBuffer,
@@ -4784,7 +4751,7 @@ interface Stream {
    * @throws { BusinessError } 13900034 - Operation would block
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   read(buffer: ArrayBuffer, callback: AsyncCallback<long>): void;
 
@@ -4808,7 +4775,7 @@ interface Stream {
    * @throws { BusinessError } 13900034 - Operation would block
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   read(
     buffer: ArrayBuffer,
@@ -4837,7 +4804,7 @@ interface Stream {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 13900044 - Network is unreachable
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readSync(
     buffer: ArrayBuffer,
@@ -4851,7 +4818,7 @@ interface Stream {
  *
  * @interface Watcher
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 interface Watcher {
   /**
@@ -4871,7 +4838,7 @@ interface Watcher {
    * @throws { BusinessError } 13900030 - File name too long
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   start(): void;
 
@@ -4892,7 +4859,7 @@ interface Watcher {
    * @throws { BusinessError } 13900030 - File name too long
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   stop(): void;
 }
@@ -4902,14 +4869,14 @@ interface Watcher {
  *
  * @enum { int } whence type
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 enum WhenceType {
   /**
    * Starting position of the file offset.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   SEEK_SET = 0,
 
@@ -4917,7 +4884,7 @@ enum WhenceType {
    * Current position of the file offset.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   SEEK_CUR = 1,
 
@@ -4925,7 +4892,7 @@ enum WhenceType {
    * Ending position of the file offset.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   SEEK_END = 2,
 }
@@ -4935,14 +4902,14 @@ enum WhenceType {
  *
  * @enum { int } location type
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 enum LocationType {
   /**
    * The file is stored in a local device.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   LOCAL = 1 << 0,
 
@@ -4950,7 +4917,7 @@ enum LocationType {
    * The file is stored in the cloud.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   CLOUD = 1 << 1,
 }
@@ -4960,14 +4927,14 @@ enum LocationType {
  *
  * @enum { int } access mode type
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 enum AccessModeType {
   /**
    * Whether the file exists.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   EXIST = 0,
 
@@ -4975,7 +4942,7 @@ enum AccessModeType {
    * Verify the write permission on the file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   WRITE = 2,
 
@@ -4983,7 +4950,7 @@ enum AccessModeType {
    * Verify the read permission on the file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   READ = 4,
 
@@ -4991,7 +4958,7 @@ enum AccessModeType {
    * Verify the read/write permission on the file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   READ_WRITE = 6,
 }
@@ -5001,14 +4968,14 @@ enum AccessModeType {
  *
  * @enum { int } access flag type
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 enum AccessFlagType {
   /**
    * The file is stored locally.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   LOCAL = 0,
 }
@@ -5019,7 +4986,7 @@ enum AccessFlagType {
  *
  * @interface ReaderIterator
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 interface ReaderIterator {
   /**
@@ -5030,7 +4997,7 @@ interface ReaderIterator {
    * @throws { BusinessError } 13900037 - No data available
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   next(): ReaderIteratorResult;
 }
@@ -5038,12 +5005,12 @@ interface ReaderIterator {
 }
 
 /**
- * Provides APIs for observing events.
+ * Specifies the callback function to be invoked.
  *
  * @typedef { function } WatchEventListener
- * @param { WatchEvent } event - Event type for the callback to invoke.
+ * @param { WatchEvent } event - Event for the callback to invoke.
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 export type WatchEventListener = (event: WatchEvent) => void;
 
@@ -5052,7 +5019,7 @@ export type WatchEventListener = (event: WatchEvent) => void;
  *
  * @interface WatchEvent
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 export interface WatchEvent {
   /**
@@ -5061,7 +5028,7 @@ export interface WatchEvent {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly fileName: string;
 
@@ -5085,7 +5052,7 @@ export interface WatchEvent {
    * @type { int }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly event: int;
 
@@ -5096,7 +5063,7 @@ export interface WatchEvent {
    * @type { int }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   readonly cookie: int;
 }
@@ -5106,25 +5073,25 @@ export interface WatchEvent {
  *
  * @interface ReaderIteratorResult
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 export interface ReaderIteratorResult {
   /**
    * Whether the iteration is complete.
    * The value true means the iteration is complete; the value false means the iteration is not complete.
-   * 
+   *
    * @type { boolean }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   done: boolean;
 
   /**
    * File text content read line by line.
-   * 
+   *
    * @type { string }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   value: string;
 }
@@ -5134,63 +5101,62 @@ export interface ReaderIteratorResult {
  *
  * @interface Filter
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 export interface Filter {
-
   /**
    * Locate files that fully match the specified file name extensions, which are of the OR relationship.
-   * 
+   *
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   suffix?: Array<string>;
 
   /**
    * Locate files that fuzzy match the specified file names, which are of the OR relationship.
    * Currently, only the wildcard * is supported.
-   * 
+   *
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   displayName?: Array<string>;
 
   /**
    * Locate files that fully match the specified MIME types, which are of the OR relationship.
-   * 
+   *
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   mimeType?: Array<string>;
 
   /**
    * Locate files that are greater than or equal to the specified size.
-   * 
+   *
    * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   fileSizeOver?: long;
 
   /**
    * Locate files whose last modification time is the same or later than the specified time.
-   * 
+   *
    * @type { ?double }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   lastModifiedAfter?: double;
 
   /**
    * Whether to exclude the files already in Media. The value true means to exclude the files already in Media;
    * the value false means not to exclude the files already in Media.
-   * 
+   *
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   excludeMedia?: boolean;
 }
@@ -5203,10 +5169,9 @@ export interface Filter {
  * @since 22 static
  */
 export interface ConflictFiles {
-
   /**
    * The path of the source file.
-   * 
+   *
    * @type { string }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 22 static
@@ -5215,7 +5180,7 @@ export interface ConflictFiles {
 
   /**
    * The path of the destination file.
-   * 
+   *
    * @type { string }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 22 static
@@ -5228,15 +5193,15 @@ export interface ConflictFiles {
  *
  * @interface Options
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 export interface Options {
   /**
    * File encoding format. It is optional.
-   * 
+   *
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   encoding?: string;
 }
@@ -5246,24 +5211,25 @@ export interface Options {
  *
  * @interface ReadOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 export interface ReadOptions {
   /**
-   * Length of the data to read, in bytes. This parameter is optional. The default value is the buffer length.
-   * 
-   * @type { ?long }
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
-   */
-  offset?: long;
-  /**
    * Start position of the file to read (current filePointer plus offset), in bytes. This parameter is optional.
    * By default, data is read from the filePointer.
-   * 
+   *
    * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
+   */
+  offset?: long;
+
+  /**
+   * Length of the data to read, in bytes. This parameter is optional. The default value is the buffer length.
+   *
+   * @type { ?long }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 22 static
    */
   length?: long;
 }
@@ -5274,16 +5240,16 @@ export interface ReadOptions {
  * @extends ReadOptions
  * @interface ReadTextOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 export interface ReadTextOptions extends ReadOptions {
   /**
    * Format of the data to be encoded. This parameter is valid only when the data type is string.
    * The default value is 'utf-8', which is the only value supported.
-   * 
+   *
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   encoding?: string;
 }
@@ -5294,12 +5260,12 @@ export interface ReadTextOptions extends ReadOptions {
  * @extends Options
  * @interface WriteOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 export interface WriteOptions extends Options {
   /**
-   * Option for creating the writeable stream. You must specify one of the following options.
-   * OpenMode.READ_ONLY(0o0): read-only, which is the default value.
+   * Start position of the file to write (current filePointer plus offset), in bytes. This parameter is optional.
+   * By default, data is written from the filePointer.
    * OpenMode.WRITE_ONLY(0o1): write-only.
    * OpenMode.READ_WRITE(0o2): read/write.
    * You can also specify the following options, separated by a bitwise OR operator (|).
@@ -5310,21 +5276,21 @@ export interface WriteOptions extends Options {
    * OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
    * or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
    * OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception.
-   *     <br>The write permission is not allowed.
+   * The write permission is not allowed.
    * OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
    * OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
-   * 
+   *
    * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   offset?: long;
   /**
    * Length of the data to write, in bytes. This parameter is optional. The default value is the buffer length.
-   * 
+   *
    * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   length?: long;
 }
@@ -5334,7 +5300,7 @@ export interface WriteOptions extends Options {
  *
  * @interface ListFileOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 export interface ListFileOptions {
   /**
@@ -5342,28 +5308,28 @@ export interface ListFileOptions {
    * The default value is false. If recursion is false, the names of files and directories that meet the filtering
    * requirements in the current directory are returned. If recursion is true, relative paths (starting with /)
    * of all files that meet the specified conditions in the current directory are returned.
-   * 
+   *
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   recursion?: boolean;
 
   /**
    * Number of file names to list. This parameter is optional. The default value is 0, which means to list all files.
-   * 
+   *
    * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   listNum?: long;
 
   /**
    * File filtering configuration. This parameter is optional. It specifies the file filtering conditions.
-   * 
+   *
    * @type { ?Filter }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   filter?: Filter;
 }
@@ -5373,25 +5339,25 @@ export interface ListFileOptions {
  *
  * @interface RandomAccessFileOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 export interface RandomAccessFileOptions {
   /**
    * Start position to read the data, in bytes. This parameter is optional.
    * By default, data is read from the current position.
-   * 
+   *
    * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   start?: long;
 
   /**
    * End position to read the data, in bytes. This parameter is optional. The default value is the end of the file.
-   * 
+   *
    * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   end?: long;
 }
@@ -5401,26 +5367,26 @@ export interface RandomAccessFileOptions {
  *
  * @interface ReadStreamOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 export interface ReadStreamOptions {
   /**
    * Start position to read the data, in bytes. This parameter is optional. By default,
    * data is read from the current position.
-   * 
+   *
    * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   start?: long;
 
   /**
    * End position to read the data, in bytes. This parameter is optional.
    * The default value is the end of the file.
-   * 
+   *
    * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   end?: long;
 }
@@ -5430,52 +5396,33 @@ export interface ReadStreamOptions {
  *
  * @interface WriteStreamOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 export interface WriteStreamOptions {
   /**
    * Option for creating the writeable stream.
-   * 
+   *
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   mode?: int;
   /**
    * Start position to write the data, in bytes. This parameter is optional.
    * By default, data is written from the beginning of the file.
-   * 
+   *
    * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   start?: long;
-}
-
-/**
- * The listeners of Distributed File System.
- *
- * @typedef DfsListeners
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
- */
-export interface DfsListeners {
-  /**
-   * The Listener of Distributed File System status
-   *
-   * @param { string } networkId - The networkId of device.
-   * @param { number } status - The status code of Distributed File System.
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
-   */
-  onStatus(networkId: string, status: number): void;
 }
 
 /**
  * Task signal.
  * @typedef { fileIo.TaskSignal }
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 type TaskSignal = fileIo.TaskSignal;
 
@@ -5483,15 +5430,15 @@ type TaskSignal = fileIo.TaskSignal;
  * Watcher object
  * @typedef { fileIo.Watcher }
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 type Watcher = fileIo.Watcher;
 
 /**
- * Watcher object
+ * AtomicFile object
  * @typedef { fileIo.AtomicFile }
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 type AtomicFile = fileIo.AtomicFile;
 

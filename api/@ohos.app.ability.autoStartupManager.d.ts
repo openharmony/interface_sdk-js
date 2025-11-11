@@ -36,7 +36,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace autoStartupManager {
   /**
@@ -127,7 +127,7 @@ declare namespace autoStartupManager {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setApplicationAutoStartup(info: AutoStartupInfo, callback: AsyncCallback<void>): void;
 
@@ -149,7 +149,7 @@ declare namespace autoStartupManager {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setApplicationAutoStartup(info: AutoStartupInfo): Promise<void>;
 
@@ -171,7 +171,7 @@ declare namespace autoStartupManager {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function cancelApplicationAutoStartup(info: AutoStartupInfo, callback: AsyncCallback<void>): void;
 
@@ -193,7 +193,7 @@ declare namespace autoStartupManager {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function cancelApplicationAutoStartup(info: AutoStartupInfo): Promise<void>;
 
@@ -213,7 +213,7 @@ declare namespace autoStartupManager {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function queryAllAutoStartupApplications(callback: AsyncCallback<Array<AutoStartupInfo>>): void;
 
@@ -232,7 +232,7 @@ declare namespace autoStartupManager {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function queryAllAutoStartupApplications(): Promise<Array<AutoStartupInfo>>;
 }

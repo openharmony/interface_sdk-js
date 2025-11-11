@@ -27,7 +27,7 @@ import type notificationManager from '../@ohos.notificationManager';
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 7 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationSubscribeInfo {
   /**
@@ -37,7 +37,7 @@ export interface NotificationSubscribeInfo {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   bundleNames?: Array<string>;
 
@@ -48,7 +48,7 @@ export interface NotificationSubscribeInfo {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   userId?: int;
 
@@ -59,7 +59,7 @@ export interface NotificationSubscribeInfo {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   deviceType?: string;
 
@@ -70,7 +70,7 @@ export interface NotificationSubscribeInfo {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   slotTypes?: Array<notificationManager.SlotType>;
 
@@ -81,7 +81,7 @@ export interface NotificationSubscribeInfo {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   filterLimit?: long;
 }

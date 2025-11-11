@@ -39,7 +39,8 @@ import { ValuesBucket, ValueType } from './@ohos.data.ValuesBucket';
  * @namespace dataShare
  * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
  * @stagemodelonly
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 declare namespace dataShare {
   /**
@@ -50,7 +51,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface DataShareHelperOptions {
     /**
@@ -63,7 +64,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isProxy?: boolean;
     /**
@@ -75,7 +76,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     waitTime?: int;
   }
@@ -108,7 +109,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createDataShareHelper(context: Context, uri: string, callback: AsyncCallback<DataShareHelper>): void;
   /**
@@ -141,7 +142,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createDataShareHelper(
     context: Context,
@@ -194,7 +195,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createDataShareHelper(
     context: Context,
@@ -230,7 +231,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enableSilentProxy(context: Context, uri?: string): Promise<void>;
 
@@ -262,7 +263,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function disableSilentProxy(context: Context, uri?: string): Promise<void>;
 
@@ -276,7 +277,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface TemplateId {
     /**
@@ -288,7 +289,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     subscriberId: string;
     /**
@@ -300,7 +301,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bundleNameOfOwner: string;
   }
@@ -313,7 +314,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface PublishedItem {
     /**
@@ -324,7 +325,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     key: string;
     /**
@@ -336,7 +337,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     data: string | ArrayBuffer;
     /**
@@ -347,7 +348,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     subscriberId: string;
   }
@@ -360,7 +361,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface RdbDataChangeNode {
     /**
@@ -371,7 +372,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uri: string;
     /**
@@ -382,7 +383,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     templateId: TemplateId;
     /**
@@ -395,7 +396,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     data: Array<string>;
   }
@@ -408,7 +409,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface PublishedDataChangeNode {
     /**
@@ -419,7 +420,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bundleName: string;
     /**
@@ -430,7 +431,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     data: Array<PublishedItem>;
   }
@@ -443,7 +444,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Template {
     /**
@@ -467,7 +468,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     predicates: Record<string, string>;
 
@@ -480,7 +481,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     scheduler: string;
 
@@ -493,7 +494,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     update?: string;
   }
@@ -505,7 +506,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface OperationResult {
     /**
@@ -516,7 +517,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     key: string;
 
@@ -528,7 +529,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     result: int;
   }
@@ -581,7 +582,8 @@ declare namespace dataShare {
   * @enum { int }
   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
   * @stagemodelonly
-  * @since 20 dynamic&static
+  * @since 20 dynamic
+  * @since 22 static
   */
   enum ChangeType {
     /**
@@ -597,7 +599,7 @@ declare namespace dataShare {
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
-     * @since 20 dynamic&static
+     * @since 20 dynamic
      */
     INSERT = 0,
 
@@ -614,7 +616,7 @@ declare namespace dataShare {
     *
     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
     * @stagemodelonly
-    * @since 20 dynamic&static
+    * @since 20 dynamic
     */
     DELETE,
     /**
@@ -630,7 +632,7 @@ declare namespace dataShare {
     *
     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
     * @stagemodelonly
-    * @since 20 dynamic&static
+    * @since 20 dynamic
     */
     UPDATE
   }
@@ -642,7 +644,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum SubscriptionType {
       /**
@@ -652,7 +654,7 @@ declare namespace dataShare {
        * @systemapi
        * @stagemodelonly
        * @since 12 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       SUBSCRIPTION_TYPE_EXACT_URI = 0,
   }
@@ -665,7 +667,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ChangeInfo {
       /**
@@ -676,7 +678,7 @@ declare namespace dataShare {
        * @systemapi
        * @stagemodelonly
        * @since 12 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       type: ChangeType;
 
@@ -688,7 +690,7 @@ declare namespace dataShare {
        * @systemapi
        * @stagemodelonly
        * @since 12 dynamic
-       * @since 20 static
+       * @since 22 static
        */
       uri: string;
       /**
@@ -699,7 +701,7 @@ declare namespace dataShare {
         * @systemapi
         * @stagemodelonly
         * @since 12 dynamic
-        * @since 20 static
+        * @since 22 static
         */
       values: Array<ValuesBucket>;
   }
@@ -712,7 +714,7 @@ declare namespace dataShare {
    * @systemapi
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface DataShareHelper {
     /**
@@ -740,7 +742,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'dataChange', uri: string, callback: AsyncCallback<void>): void;
 
@@ -769,7 +771,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
     /**
@@ -787,7 +789,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(event: 'dataChange', type:SubscriptionType, uri: string, callback: AsyncCallback<ChangeInfo>): void;
 
@@ -806,7 +808,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(event: 'dataChange', type:SubscriptionType, uri: string, callback?: AsyncCallback<ChangeInfo>): void;
 
@@ -839,7 +841,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     addTemplate(uri: string, subscriberId: string, template: Template): void;
 
@@ -870,7 +872,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     delTemplate(uri: string, subscriberId: string): void;
 
@@ -905,7 +907,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(
       type: 'rdbDataChange',
@@ -945,7 +947,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(
       type: 'rdbDataChange',
@@ -985,7 +987,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(
       type: 'publishedDataChange',
@@ -1025,7 +1027,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(
       type: 'publishedDataChange',
@@ -1065,7 +1067,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     publish(
       data: Array<PublishedItem>,
@@ -1103,7 +1105,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     publish(
       data: Array<PublishedItem>,
@@ -1142,7 +1144,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     publish(data: Array<PublishedItem>, bundleName: string, version?: int): Promise<Array<OperationResult>>;
 
@@ -1235,7 +1237,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     insert(uri: string, value: ValuesBucket, callback: AsyncCallback<int>): void;
 
@@ -1268,7 +1270,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     insert(uri: string, value: ValuesBucket): Promise<int>;
 
@@ -1301,7 +1303,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     delete(uri: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<int>): void;
 
@@ -1334,7 +1336,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     delete(uri: string, predicates: dataSharePredicates.DataSharePredicates): Promise<int>;
 
@@ -1371,7 +1373,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     query(
       uri: string,
@@ -1413,7 +1415,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     query(
       uri: string,
@@ -1452,7 +1454,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     update(
       uri: string,
@@ -1492,7 +1494,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     update(uri: string, predicates: dataSharePredicates.DataSharePredicates, value: ValuesBucket): Promise<int>;
 
@@ -1541,7 +1543,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     batchInsert(uri: string, values: Array<ValuesBucket>, callback: AsyncCallback<int>): void;
 
@@ -1572,7 +1574,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     batchInsert(uri: string, values: Array<ValuesBucket>): Promise<int>;
 
@@ -1798,7 +1800,7 @@ declare namespace dataShare {
      * @systemapi
      * @stagemodelonly
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     close(): Promise<void>;
   }

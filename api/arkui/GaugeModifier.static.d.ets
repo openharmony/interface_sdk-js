@@ -26,7 +26,7 @@ import { GaugeAttribute } from '@ohos.arkui.component';
  *
  * @implements { GaugeAttribute, AttributeModifier<GaugeAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare class GaugeModifier implements GaugeAttribute, AttributeModifier<GaugeAttribute> {}

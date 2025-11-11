@@ -28,7 +28,7 @@ import image from './@ohos.multimedia.image';
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace screenshot {
   /**
@@ -58,7 +58,7 @@ declare namespace screenshot {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>): void;
 
@@ -72,7 +72,7 @@ declare namespace screenshot {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function save(callback: AsyncCallback<image.PixelMap>): void;
 
@@ -89,7 +89,7 @@ declare namespace screenshot {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function save(options?: ScreenshotOptions): Promise<image.PixelMap>;
 
@@ -107,7 +107,7 @@ declare namespace screenshot {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function capture(options?: CaptureOption): Promise<image.PixelMap>;
 
@@ -120,7 +120,7 @@ declare namespace screenshot {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function pick(): Promise<PickInfo>;
 
@@ -131,7 +131,7 @@ declare namespace screenshot {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface PickInfo {
     /**
@@ -141,7 +141,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pickRect: Rect;
 
@@ -152,7 +152,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pixelMap: image.PixelMap;
   }
@@ -164,7 +164,7 @@ declare namespace screenshot {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Rect {
     /**
@@ -174,7 +174,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     left: long;
 
@@ -185,7 +185,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     top: long;
 
@@ -196,7 +196,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     width: long;
 
@@ -207,7 +207,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     height: long;
   }
@@ -219,7 +219,7 @@ declare namespace screenshot {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Size {
     /**
@@ -229,7 +229,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     width: long;
 
@@ -240,7 +240,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     height: long;
   }
@@ -252,7 +252,7 @@ declare namespace screenshot {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface CaptureOption {
     /**
@@ -262,7 +262,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     displayId?: long;
   }
@@ -274,7 +274,7 @@ declare namespace screenshot {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ScreenshotOptions {
     /**
@@ -284,7 +284,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     screenRect?: Rect;
     /**
@@ -294,7 +294,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     imageSize?: Size;
     /**
@@ -304,7 +304,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rotation?: int;
     /**
@@ -314,7 +314,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     displayId?: long;
     /**
@@ -324,7 +324,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isNotificationNeeded?: boolean;
     /**

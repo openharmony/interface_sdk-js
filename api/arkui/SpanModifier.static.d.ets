@@ -29,7 +29,7 @@ import { SpanAttribute } from '@ohos.arkui.component';
  *
  * @implements { SpanAttribute, AttributeModifier<SpanAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare class SpanModifier implements SpanAttribute, AttributeModifier<SpanAttribute> {}

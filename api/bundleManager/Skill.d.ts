@@ -25,7 +25,7 @@
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface Skill {
   /**
@@ -36,7 +36,7 @@ export interface Skill {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly actions: Array<string>;
 
@@ -48,7 +48,7 @@ export interface Skill {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly entities: Array<string>;
 
@@ -60,7 +60,7 @@ export interface Skill {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly uris: Array<SkillUri>;
 
@@ -72,7 +72,7 @@ export interface Skill {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly domainVerify: boolean;
 }
@@ -84,7 +84,7 @@ export interface Skill {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface SkillUri {
   /**
@@ -95,7 +95,7 @@ export interface SkillUri {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly scheme: string;
 
@@ -107,7 +107,7 @@ export interface SkillUri {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly host: string;
 
@@ -119,7 +119,7 @@ export interface SkillUri {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly port: int;
 
@@ -131,7 +131,7 @@ export interface SkillUri {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly path: string;
 
@@ -143,7 +143,7 @@ export interface SkillUri {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly pathStartWith: string;
 
@@ -155,7 +155,7 @@ export interface SkillUri {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly pathRegex: string;
 
@@ -167,7 +167,7 @@ export interface SkillUri {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly type: string;
 
@@ -179,7 +179,7 @@ export interface SkillUri {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly utd: string;
 
@@ -191,7 +191,7 @@ export interface SkillUri {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly maxFileSupported: int;
 
@@ -203,7 +203,7 @@ export interface SkillUri {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly linkFeature: string;
 }

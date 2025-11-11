@@ -17,14 +17,12 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { Dimension, Position, Edges, LocalizedEdges, ResourceColor, Padding, Length, SizeOptions, ConstraintSizeOptions, BorderRadiuses } from './units';
 import { FontStyle, FontWeight, BorderStyle, TextHeightAdaptivePolicy, Axis, Alignment } from './enums';
 import { ChainStyle, LocalizedAlignRuleOptions, AlignRuleOption, AttributeModifier, CommonMethod } from './common';
 import { Resource } from '../../global/resource';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
 
 /**
  * Enumerates the layout direction of the icon and text.

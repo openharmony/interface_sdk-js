@@ -20,21 +20,21 @@
 
 import { Scene } from './../../@ohos.graphics.scene';
 import { ResourceStr, Dimension } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
  * The enum of model type
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 20 static
+ * @since 22 static
  */
 export declare enum ModelType {
   /**
    * Render to texture, gpu would compose this texture to screen.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 22 static
    */
   TEXTURE = 0,
 
@@ -42,7 +42,7 @@ export declare enum ModelType {
    * Render to surface, special hardware would compose this surface to screen.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 22 static
    */
   SURFACE = 1
 }
@@ -52,7 +52,7 @@ export declare enum ModelType {
  *
  * @interface SceneOptions
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 20 static
+ * @since 22 static
  */
 export declare interface SceneOptions {
   /**
@@ -60,7 +60,7 @@ export declare interface SceneOptions {
    *
    * @type { ?(ResourceStr | Scene) }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 22 static
    */
   scene?: ResourceStr | Scene;
 
@@ -70,7 +70,7 @@ export declare interface SceneOptions {
    * @type { ?ModelType }
    * @default ModelType.SURFACE
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 22 static
    */
   modelType?: ModelType;
 }
@@ -81,7 +81,7 @@ export declare interface SceneOptions {
  * @extends CommonMethod
  * @interface Component3DAttribute
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare interface Component3DAttribute extends CommonMethod {
@@ -91,7 +91,7 @@ export declare interface Component3DAttribute extends CommonMethod {
    * @param { ResourceStr | undefined } uri - The path of 3D environment resource
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 22 static
    */
   default environment(uri: ResourceStr | undefined): this;
 
@@ -102,7 +102,7 @@ export declare interface Component3DAttribute extends CommonMethod {
    * @param { boolean | undefined } selfRenderUpdate - Trigger rendering every frame
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 22 static
    */
   default customRender(uri: ResourceStr | undefined, selfRenderUpdate: boolean | undefined): this;
 
@@ -112,7 +112,7 @@ export declare interface Component3DAttribute extends CommonMethod {
    * @param { ResourceStr | undefined } uri - The path of custom shader
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 22 static
    */
   default shader(uri: ResourceStr | undefined): this;
 
@@ -122,7 +122,7 @@ export declare interface Component3DAttribute extends CommonMethod {
    * @param { ResourceStr | undefined } uri - The path of texture used by shader
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 22 static
    */
   default shaderImageTexture(uri: ResourceStr | undefined): this;
 
@@ -132,7 +132,7 @@ export declare interface Component3DAttribute extends CommonMethod {
    * @param { Array<double> | undefined } buffer - The uniform buffer of shader input
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 22 static
    */
   default shaderInputBuffer(buffer: Array<double> | undefined): this;
 
@@ -143,7 +143,7 @@ export declare interface Component3DAttribute extends CommonMethod {
    *     target would upscale or downscale to view's width.
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 22 static
    */
   default renderWidth(value: Dimension | undefined): this;
 
@@ -154,7 +154,7 @@ export declare interface Component3DAttribute extends CommonMethod {
    *     target would upscale or downscale to view's height.
    * @returns { Component3DAttribute } The attribute of the component3D
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 22 static
    */
   default renderHeight(value: Dimension | undefined): this;
 
@@ -164,7 +164,7 @@ export declare interface Component3DAttribute extends CommonMethod {
    * @param { AttributeModifier<Component3DAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
    * @returns { Component3DAttribute }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 static
+   * @since 22 static
    */
   default attributeModifier(modifier: AttributeModifier<Component3DAttribute>
       | AttributeModifier<CommonMethod> | undefined): this;
@@ -174,16 +174,14 @@ export declare interface Component3DAttribute extends CommonMethod {
  * Defines Component3D.
  *
  * @param { SceneOptions } [sceneOptions] - The 3D scene controller
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { Component3DAttribute }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Component3D(
     sceneOptions?: SceneOptions,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): Component3DAttribute

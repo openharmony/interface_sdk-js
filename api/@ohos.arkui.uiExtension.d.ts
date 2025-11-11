@@ -29,7 +29,7 @@ import window from './@ohos.window';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace uiExtension {
   /**
@@ -39,7 +39,7 @@ declare namespace uiExtension {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface WindowProxy {
     /**
@@ -54,7 +54,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getWindowAvoidArea(type: window.AvoidAreaType): window.AvoidArea;
 
@@ -71,7 +71,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'avoidAreaChange', callback: Callback<AvoidAreaInfo>): void;
 
@@ -88,7 +88,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'avoidAreaChange', callback?: Callback<AvoidAreaInfo>): void;
 
@@ -104,7 +104,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'windowSizeChange', callback: Callback<window.Size>): void;
 
@@ -120,7 +120,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
 
@@ -179,7 +179,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     hideNonSecureWindows(shouldHide: boolean): Promise<void>;
 
@@ -200,7 +200,7 @@ declare namespace uiExtension {
      * @StageModelOnly
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
 
@@ -216,7 +216,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWaterMarkFlag(enable: boolean): Promise<void>;
 
@@ -323,7 +323,7 @@ declare namespace uiExtension {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface AvoidAreaInfo {
     /**
@@ -333,7 +333,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     type: window.AvoidAreaType;
 
@@ -344,7 +344,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     area: window.AvoidArea;
   }
@@ -356,7 +356,7 @@ declare namespace uiExtension {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    * 
    */
   export interface WindowProxyProperties {
@@ -367,7 +367,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uiExtensionHostWindowProxyRect: window.Rect;
   }

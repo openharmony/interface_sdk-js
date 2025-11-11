@@ -65,7 +65,7 @@ declare interface Callback<T, V = void> {
  * @typedef {function}
  * @syscap SystemCapability.Window.SessionManager
  * @atomicservice
- * @since 20 static
+ * @since 22 static
  */
 type Callback<T, V = void> = (data: T) => V; 
 
@@ -113,7 +113,7 @@ declare type TransitionControllerCallback = (context: window.TransitionContext) 
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace window {
   /**
@@ -130,7 +130,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum WindowType {
     /**
@@ -166,7 +166,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_STATUS_BAR = 3,
     /**
@@ -176,7 +176,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_PANEL = 4,
     /**
@@ -186,7 +186,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_KEYGUARD = 5,
     /**
@@ -196,7 +196,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_VOLUME_OVERLAY = 6,
     /**
@@ -206,7 +206,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_NAVIGATION_BAR = 7,
     /**
@@ -225,7 +225,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_FLOAT = 8,
     /**
@@ -235,7 +235,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_WALLPAPER = 9,
     /**
@@ -245,7 +245,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_DESKTOP = 10,
     /**
@@ -255,7 +255,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_LAUNCHER_RECENT = 11,
     /**
@@ -265,7 +265,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_LAUNCHER_DOCK = 12,
     /**
@@ -275,7 +275,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_VOICE_INTERACTION = 13,
     /**
@@ -285,7 +285,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_POINTER = 14,
     /**
@@ -295,7 +295,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_FLOAT_CAMERA = 15,
     /**
@@ -312,7 +312,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_DIALOG= 16,
     /**
@@ -322,7 +322,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_SCREENSHOT = 17,
     /**
@@ -332,7 +332,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_SYSTEM_TOAST = 18,
     /**
@@ -342,7 +342,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_DIVIDER= 19,
     /**
@@ -352,7 +352,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_GLOBAL_SEARCH= 20,
     /**
@@ -362,7 +362,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_HANDWRITE = 21,
     /**
@@ -372,7 +372,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_WALLET_SWIPE_CARD = 22,
     /**
@@ -382,7 +382,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_SCREEN_CONTROL = 23,
     /**
@@ -392,7 +392,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
      * @since 17 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_FLOAT_NAVIGATION = 24,
     /**
@@ -445,7 +445,7 @@ declare namespace window {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum AvoidAreaType {
     /**
@@ -468,7 +468,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_SYSTEM = 0,
 
@@ -492,7 +492,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_CUTOUT = 1,
 
@@ -516,7 +516,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_SYSTEM_GESTURE = 2,
 
@@ -540,7 +540,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_KEYBOARD = 3,
 
@@ -558,7 +558,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_NAVIGATION_INDICATOR = 4
   }
@@ -569,7 +569,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum WindowMode {
     /**
@@ -610,7 +610,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FLOATING = 5
   }
@@ -664,7 +664,8 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum WindowStatusType {
     /**
@@ -686,7 +687,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     UNDEFINED = 0,
     /**
@@ -708,7 +710,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     FULL_SCREEN = 1,
     /**
@@ -723,7 +726,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MAXIMIZE = 2,
     /**
@@ -745,7 +748,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     MINIMIZE = 3,
     /**
@@ -767,7 +771,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     FLOATING = 4,
     /**
@@ -789,7 +794,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     SPLIT_SCREEN = 5
   }
@@ -816,7 +822,8 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface SystemBarProperties {
     /**
@@ -840,7 +847,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     statusBarColor?: string;
 
@@ -865,7 +873,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     isStatusBarLightIcon?: boolean;
 
@@ -882,7 +891,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     statusBarContentColor?: string;
 
@@ -907,7 +916,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
   
     navigationBarColor?: string;
@@ -933,7 +943,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     isNavigationBarLightIcon?: boolean;
 
@@ -950,7 +961,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     navigationBarContentColor?: string;
 
@@ -969,7 +980,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     enableStatusBarAnimation?: boolean;
 
@@ -980,7 +992,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     enableNavigationBarAnimation?: boolean;
   }
@@ -992,7 +1004,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface StatusBarProperty {
     /**
@@ -1002,7 +1014,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     contentColor: string;
   }
@@ -1014,7 +1026,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface SystemBarStyle {
     /**
@@ -1024,7 +1036,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     statusBarContentColor?: string;
   }
@@ -1036,7 +1048,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface SystemBarRegionTint {
     /**
@@ -1046,7 +1058,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     type: WindowType;
 
@@ -1057,7 +1069,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isEnable?: boolean;
 
@@ -1068,7 +1080,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     region?: Rect;
 
@@ -1079,7 +1091,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     backgroundColor?: string;
 
@@ -1090,7 +1102,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     contentColor?: string;
   }
@@ -1102,7 +1114,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface SystemBarTintState {
     /**
@@ -1112,7 +1124,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     displayId: long;
     /**
@@ -1122,7 +1134,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     regionTint: Array<SystemBarRegionTint>;
   }
@@ -1150,7 +1162,7 @@ declare namespace window {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Rect {
 
@@ -1175,7 +1187,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     left: int;
 
@@ -1200,7 +1212,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     top: int;
 
@@ -1225,7 +1237,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     width: int;
 
@@ -1250,7 +1262,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     height: int;
   }
@@ -1389,7 +1401,7 @@ declare namespace window {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AvoidArea {
     /**
@@ -1406,7 +1418,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     visible: boolean;
 
@@ -1433,7 +1445,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     leftRect: Rect;
 
@@ -1460,7 +1472,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     topRect: Rect;
 
@@ -1487,7 +1499,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rightRect: Rect;
 
@@ -1514,7 +1526,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bottomRect: Rect;
   }
@@ -1542,7 +1554,7 @@ declare namespace window {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Size {
     /**
@@ -1568,7 +1580,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     width: int;
 
@@ -1594,7 +1606,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     height: int;
   }
@@ -1613,7 +1625,7 @@ declare namespace window {
    * @interface WindowInfo
    * @syscap SystemCapability.Window.SessionManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface WindowInfo {
     /**
@@ -1630,7 +1642,7 @@ declare namespace window {
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rect: Rect;
 
@@ -1639,7 +1651,8 @@ declare namespace window {
      *
      * @type { ?Rect } 
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     globalDisplayRect?: Rect;
 
@@ -1657,7 +1670,7 @@ declare namespace window {
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bundleName: string;
 
@@ -1675,7 +1688,7 @@ declare namespace window {
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     abilityName: string;
 
@@ -1693,7 +1706,7 @@ declare namespace window {
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     windowId: int;
 
@@ -1718,7 +1731,8 @@ declare namespace window {
      * @type { WindowStatusType }
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     windowStatusType: WindowStatusType;
 
@@ -1736,7 +1750,7 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isFocused?: boolean;
   }
@@ -1748,7 +1762,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface WindowDensityInfo {
     /**
@@ -1758,7 +1772,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     systemDensity: double;
 
@@ -1769,7 +1783,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     defaultDensity: double;
 
@@ -1780,7 +1794,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     customDensity: double;
   }
@@ -1808,7 +1822,7 @@ declare namespace window {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface WindowProperties {
     /**
@@ -1834,7 +1848,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     windowRect: Rect;
 
@@ -1852,7 +1866,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     drawableRect: Rect;
 
@@ -1879,7 +1893,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     type: WindowType;
 
@@ -1897,7 +1911,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isFullScreen: boolean;
 
@@ -1915,7 +1929,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isLayoutFullScreen: boolean;
 
@@ -1933,7 +1947,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     focusable: boolean;
 
@@ -1951,7 +1965,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     touchable: boolean;
 
@@ -1977,7 +1991,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     brightness: double;
 
@@ -2013,7 +2027,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isKeepScreenOn: boolean;
 
@@ -2031,7 +2045,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isPrivacyMode: boolean;
 
@@ -2059,7 +2073,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isTransparent: boolean;
 
@@ -2077,7 +2091,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     id: int;
 
@@ -2088,7 +2102,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     displayId?: long;
 
@@ -2099,7 +2113,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name?: string;
   }
@@ -2111,7 +2125,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface DecorButtonStyle {
     /**
@@ -2121,7 +2135,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     colorMode?: ConfigurationConstant.ColorMode;
 
@@ -2132,7 +2146,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     buttonBackgroundSize? : int;
 
@@ -2143,7 +2157,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     spacingBetweenButtons? : int;
 
@@ -2154,7 +2168,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     closeButtonRightMargin? : int;
 
@@ -2164,7 +2178,8 @@ declare namespace window {
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     buttonIconSize? : int;
 
@@ -2174,7 +2189,8 @@ declare namespace window {
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     buttonBackgroundCornerRadius? : int;
   }
@@ -2202,7 +2218,7 @@ declare namespace window {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum ColorSpace {
     /**
@@ -2225,7 +2241,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DEFAULT = 0,
     /**
@@ -2248,7 +2264,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIDE_GAMUT = 1
   }
@@ -2259,7 +2275,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ScaleOptions {
     /**
@@ -2269,7 +2285,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     x?: double;
 
@@ -2280,7 +2296,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     y?: double;
 
@@ -2291,7 +2307,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pivotX?: double;
 
@@ -2302,7 +2318,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pivotY?: double;
   }
@@ -2314,7 +2330,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface RotateOptions {
     /**
@@ -2324,7 +2340,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     x?: double;
 
@@ -2335,7 +2351,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     y?: double;
 
@@ -2346,7 +2362,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     z?: double;
 
@@ -2357,7 +2373,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pivotX?: double;
 
@@ -2368,7 +2384,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pivotY?: double;
   }
@@ -2380,7 +2396,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface TranslateOptions {
     /**
@@ -2390,7 +2406,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     x?: double;
 
@@ -2401,7 +2417,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     y?: double;
 
@@ -2412,7 +2428,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     z?: double;
   }
@@ -2424,7 +2440,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface TransitionContext {
     /**
@@ -2434,7 +2450,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     toWindow: Window;
 
@@ -2458,7 +2474,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     completeTransition(isCompleted: boolean): void;
   }
@@ -2556,7 +2572,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Configuration {
     /**
@@ -2572,7 +2588,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -2590,7 +2606,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     windowType: WindowType;
 
@@ -2608,7 +2624,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ctx?: BaseContext;
 
@@ -2626,7 +2642,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     displayId?: long;
 
@@ -2644,7 +2660,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     parentId?: int;
 
@@ -2655,7 +2671,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     decorEnabled?: boolean;
 
@@ -2666,7 +2682,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     title?: string;
 
@@ -2677,6 +2693,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
+     * @since 22 static
      */
     zIndex?: int;
 
@@ -2687,6 +2704,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
+     * @since 22 static
      */
     defaultDensityEnabled?: boolean;
   }
@@ -2705,7 +2723,6 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   interface WindowLimits {
     
@@ -2723,7 +2740,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     maxWidth?: int;
 
@@ -2741,7 +2757,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     maxHeight?: int;
 
@@ -2759,7 +2774,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     minWidth?: int;
 
@@ -2777,7 +2791,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     minHeight?: int;
   }
@@ -2796,7 +2809,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface TitleButtonRect {
 
@@ -2805,8 +2818,7 @@ declare namespace window {
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     /**
      * The right of the Rect.
@@ -2815,7 +2827,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     right: int;
     /**
@@ -2823,8 +2835,7 @@ declare namespace window {
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     /**
      * The top of the Rect.
@@ -2833,7 +2844,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     top: int;
     /**
@@ -2841,8 +2852,7 @@ declare namespace window {
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     /**
      * The width of the Rect.
@@ -2851,7 +2861,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     width: int;
     /**
@@ -2859,8 +2869,7 @@ declare namespace window {
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     /**
      * The height of the Rect.
@@ -2869,7 +2878,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     height: int;
   }
@@ -2881,7 +2890,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface RectChangeOptions {
     /**
@@ -2891,7 +2900,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rect: Rect,
 
@@ -2902,7 +2911,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     reason: RectChangeReason
   }
@@ -2922,7 +2931,8 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface AvoidAreaOptions {
     /**
@@ -2940,7 +2950,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     type: AvoidAreaType,
 
@@ -2959,7 +2970,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     area: AvoidArea
   }
@@ -2971,7 +2983,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum RectChangeReason {
     /**
@@ -2980,7 +2992,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UNDEFINED = 0,
 
@@ -2990,7 +3002,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MAXIMIZE = 1,
 
@@ -3000,7 +3012,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RECOVER = 2,
 
@@ -3010,7 +3022,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MOVE = 3,
 
@@ -3020,7 +3032,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DRAG = 4,
 
@@ -3030,7 +3042,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DRAG_START = 5,
 
@@ -3040,7 +3052,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DRAG_END = 6,
   }
@@ -3100,7 +3112,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 17 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
 
@@ -3159,7 +3171,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 17 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createWindow(config: Configuration): Promise<Window>;
 
@@ -3278,7 +3290,7 @@ declare namespace window {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function findWindow(name: string): Window;
 
@@ -3369,7 +3381,7 @@ declare namespace window {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getLastWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
 
@@ -3412,7 +3424,7 @@ declare namespace window {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getLastWindow(ctx: BaseContext): Promise<Window>;
 
@@ -3443,7 +3455,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function minimizeAll(id: long, callback: AsyncCallback<void>): void;
 
@@ -3474,7 +3486,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function minimizeAll(id: long): Promise<void>;
 
@@ -3497,6 +3509,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
+   * @since 22 static
    */
   function toggleShownStateForAllAppWindows(callback: AsyncCallback<void>): void;
 
@@ -3519,6 +3532,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
+   * @since 22 static
    */
   function toggleShownStateForAllAppWindows(): Promise<void>;
 
@@ -3593,7 +3607,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setGestureNavigationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -3610,7 +3624,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setGestureNavigationEnabled(enable: boolean): Promise<void>;
 
@@ -3627,7 +3641,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean): Promise<void>;
 
@@ -3644,7 +3658,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -3679,7 +3693,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function shiftAppWindowFocus(sourceWindowId: int, targetWindowId: int): Promise<void>;
 
@@ -3699,7 +3713,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function shiftAppWindowPointerEvent(sourceWindowId: int, targetWindowId: int): Promise<void>;
 
@@ -3741,7 +3755,7 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getVisibleWindowInfo(): Promise<Array<WindowInfo>>;
 
@@ -3759,7 +3773,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSnapshot(windowId: int): Promise<image.PixelMap>;
 
@@ -3781,7 +3795,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getWindowsByCoordinate(displayId: long, windowNumber?: int, x?: int, y?: int):
       Promise<Array<Window>>;
@@ -3814,7 +3828,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllWindowLayoutInfo(displayId: long): Promise<Array<WindowLayoutInfo>>;
 
@@ -3948,7 +3962,6 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
    */
   function off(type: 'gestureNavigationEnabledChange', callback?: Callback<boolean>): void;
 
@@ -4080,7 +4093,7 @@ declare namespace window {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum Orientation {
     /**
@@ -4103,7 +4116,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UNSPECIFIED = 0,
 
@@ -4127,7 +4140,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PORTRAIT = 1,
 
@@ -4151,7 +4164,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     LANDSCAPE = 2,
 
@@ -4175,7 +4188,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PORTRAIT_INVERTED = 3,
 
@@ -4199,7 +4212,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     LANDSCAPE_INVERTED = 4,
 
@@ -4215,7 +4228,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUTO_ROTATION = 5,
 
@@ -4231,7 +4244,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUTO_ROTATION_PORTRAIT = 6,
 
@@ -4247,7 +4260,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUTO_ROTATION_LANDSCAPE = 7,
 
@@ -4263,7 +4276,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUTO_ROTATION_RESTRICTED = 8,
 
@@ -4279,7 +4292,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUTO_ROTATION_PORTRAIT_RESTRICTED = 9,
 
@@ -4295,7 +4308,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUTO_ROTATION_LANDSCAPE_RESTRICTED = 10,
 
@@ -4311,7 +4324,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     LOCKED = 11,
 
@@ -4321,7 +4334,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUTO_ROTATION_UNSPECIFIED = 12,
 
@@ -4331,7 +4344,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USER_ROTATION_PORTRAIT = 13,
 
@@ -4341,7 +4354,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USER_ROTATION_LANDSCAPE = 14,
 
@@ -4351,7 +4364,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USER_ROTATION_PORTRAIT_INVERTED = 15,
 
@@ -4361,7 +4374,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USER_ROTATION_LANDSCAPE_INVERTED = 16,
 
@@ -4371,7 +4384,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FOLLOW_DESKTOP = 17
   }
@@ -4383,7 +4396,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum BlurStyle {
     /**
@@ -4392,7 +4405,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     OFF = 0,
     /**
@@ -4401,7 +4414,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     THIN = 1,
     /**
@@ -4410,7 +4423,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     REGULAR = 2,
     /**
@@ -4419,7 +4432,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     THICK = 3
   }
@@ -4439,7 +4452,7 @@ declare namespace window {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum WindowEventType {
     /**
@@ -4455,7 +4468,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WINDOW_SHOWN = 1,
     /**
@@ -4471,7 +4484,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WINDOW_ACTIVE = 2,
     /**
@@ -4487,7 +4500,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WINDOW_INACTIVE = 3,
     /**
@@ -4503,7 +4516,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WINDOW_HIDDEN = 4,
     /**
@@ -4512,7 +4525,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WINDOW_DESTROYED = 7
   }
@@ -4524,7 +4537,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum MaximizePresentation {
     /**
@@ -4533,7 +4546,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FOLLOW_APP_IMMERSIVE_SETTING = 0,
     /**
@@ -4542,7 +4555,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EXIT_IMMERSIVE = 1,
     /**
@@ -4551,7 +4564,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ENTER_IMMERSIVE = 2,
     /**
@@ -4560,6 +4573,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     ENTER_IMMERSIVE_DISABLE_TITLE_AND_DOCK_HOVER = 3,
   }
@@ -4571,7 +4585,6 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 15 dynamic
-   * @since 20 static
    */
   interface MoveConfiguration {
     /**
@@ -4581,7 +4594,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
      */
     displayId?: long;
   }
@@ -4601,7 +4613,7 @@ declare namespace window {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
 
@@ -4656,7 +4668,6 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
    */
   enum WindowAnimationCurve {
     /**
@@ -4665,7 +4676,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     LINEAR = 0,
 
@@ -4675,7 +4685,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     INTERPOLATION_SPRING = 1,
   }
@@ -4687,7 +4696,6 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
    */
   interface WindowAnimationConfig {
     /**
@@ -4697,7 +4705,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     curve: WindowAnimationCurve;
 
@@ -4708,7 +4715,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     duration?: long;
 
@@ -4719,7 +4725,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     param?: WindowAnimationCurveParam;
   }
@@ -4731,7 +4736,6 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
    */
   interface TransitionAnimation {
     /**
@@ -4741,7 +4745,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     config: WindowAnimationConfig;
     /**
@@ -4751,7 +4754,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
      */
     opacity?: double;
   }
@@ -4810,7 +4812,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface KeyboardInfo {
     /**
@@ -4820,7 +4822,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     beginRect: Rect;
 
@@ -4831,7 +4833,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     endRect: Rect;
 
@@ -4925,7 +4927,7 @@ declare namespace window {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Window {
     /**
@@ -4946,6 +4948,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     hide(callback: AsyncCallback<void>): void;
 
@@ -4967,6 +4970,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
+     * @since 22 static
      */
     hide(): Promise<void>;
 
@@ -4992,7 +4996,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     hideWithAnimation(callback: AsyncCallback<void>): void;
 
@@ -5018,7 +5022,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     hideWithAnimation(): Promise<void>;
 
@@ -5072,7 +5076,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     showWindow(callback: AsyncCallback<void>): void;
 
@@ -5104,7 +5108,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     showWindow(): Promise<void>;
 
@@ -5147,7 +5151,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     showWithAnimation(callback: AsyncCallback<void>): void;
 
@@ -5173,7 +5177,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     showWithAnimation(): Promise<void>;
 
@@ -5227,7 +5231,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     destroyWindow(callback: AsyncCallback<void>): void;
 
@@ -5259,7 +5263,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     destroyWindow(): Promise<void>;
 
@@ -5330,7 +5334,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     moveWindowTo(x: int, y: int): Promise<void>;
 
@@ -5375,7 +5379,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     moveWindowTo(x: int, y: int, callback: AsyncCallback<void>): void;
 
@@ -5543,7 +5547,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     resize(width: int, height: int): Promise<void>;
 
@@ -5591,7 +5595,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     resize(width: int, height: int, callback: AsyncCallback<void>): void;
 
@@ -5765,7 +5769,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getGlobalRect(): Rect;
 
@@ -5806,7 +5810,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getWindowProperties(): WindowProperties;
 
@@ -5819,7 +5823,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getWindowDensityInfo(): WindowDensityInfo;
 
@@ -5901,7 +5905,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getWindowAvoidArea(type: AvoidAreaType): AvoidArea;
 
@@ -5917,7 +5921,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setSystemAvoidAreaEnabled(enabled: boolean): Promise<void>;
 
@@ -5932,7 +5936,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isSystemAvoidAreaEnabled(): boolean;
 
@@ -6039,7 +6043,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowLayoutFullScreen(isLayoutFullScreen: boolean): Promise<void>;
 
@@ -6148,7 +6152,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowSystemBarEnable(names: Array<'status' | 'navigation'>): Promise<void>;
 
@@ -6181,7 +6185,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setSpecificSystemBarEnabled(name: SpecificSystemBar, enable: boolean, enableAnimation?: boolean): Promise<void>;
 
@@ -6280,7 +6284,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     setWindowSystemBarProperties(systemBarProperties: SystemBarProperties): Promise<void>;
 
@@ -6294,7 +6299,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getWindowSystemBarProperties(): SystemBarProperties;
 
@@ -6312,7 +6317,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setStatusBarColor(color: ColorMetrics): Promise<void>;
 
@@ -6325,7 +6330,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getStatusBarProperty(): StatusBarProperty;
 
@@ -6343,7 +6348,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setGestureBackEnabled(enabled: boolean): Promise<void>;
 
@@ -6358,7 +6363,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isGestureBackEnabled(): boolean;
 
@@ -6402,7 +6407,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setPreferredOrientation(orientation: Orientation): Promise<void>;
 
@@ -6446,7 +6451,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setPreferredOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
 
@@ -6459,7 +6464,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getPreferredOrientation(): Orientation;
 
@@ -6513,7 +6518,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
@@ -6567,7 +6572,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     loadContent(path: string, storage: LocalStorage): Promise<void>;
 
@@ -6620,7 +6625,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getUIContext() : UIContext;
 
@@ -6663,7 +6668,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setUIContent(path: string, callback: AsyncCallback<void>): void;
 
@@ -6706,7 +6711,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setUIContent(path: string): Promise<void>;
 
@@ -6820,7 +6825,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isWindowShowing(): boolean;
 
@@ -7705,7 +7710,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'noInteractionDetected', callback?: Callback<void>): void;
 
@@ -8108,9 +8112,29 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     on(type: 'subWindowClose', callback: Callback<void>): void;
+
+    /**
+     * Subscribes to the event indicating that the child window is closed.
+     * This event is triggered only when the user clicks the system-provided
+     * close button in the upper right corner to close the child window.
+     * It is not triggered when the child window is closed in other ways.
+     *
+     * @param { Callback<void> } callback - Callback invoked when the close
+     *     button in the upper right corner of the child window is clicked.
+     *     The internal logic of the callback function requires a return value of the Boolean type.
+     *     The return value determines whether to continue to close the child window.
+     *     The value true means not to close the child window, and false means to continue to close the child window.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onSubWindowClose(callback: Callback<void>): void;
 
     /**
      * Unsubscribes from the event indicating that the child window is closed.
@@ -8130,9 +8154,23 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     off(type: 'subWindowClose', callback?: Callback<void>): void;
+
+    /**
+     * Unsubscribes from the event indicating that the child window is closed.
+     *
+     * @param { Callback<void> } [callback ] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offSubWindowClose(callback?: Callback<void>): void;
 
     /**
      * Subscribes to the event indicating that the main window or child window will be closed.
@@ -8404,7 +8442,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setDialogBackGestureEnabled(enabled: boolean): Promise<void>;
 
@@ -8448,7 +8486,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isWindowSupportWideGamut(): Promise<boolean>;
 
@@ -8468,7 +8506,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isWindowSupportWideGamut(callback: AsyncCallback<boolean>): void;
 
@@ -8534,7 +8572,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowColorSpace(colorSpace: ColorSpace): Promise<void>;
 
@@ -8576,7 +8614,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowColorSpace(colorSpace: ColorSpace, callback: AsyncCallback<void>): void;
 
@@ -8628,7 +8666,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getWindowColorSpace(): ColorSpace;
 
@@ -8700,7 +8738,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowBackgroundColor(color: string | ColorMetrics): void;
 
@@ -8757,7 +8795,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setTopmost(isTopmost: boolean): Promise<void>;
 
@@ -8777,7 +8815,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowTopmost(isWindowTopmost: boolean): Promise<void>;
 
@@ -8819,7 +8857,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowBrightness(brightness: double): Promise<void>;
 
@@ -8861,7 +8899,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowBrightness(brightness: double, callback: AsyncCallback<void>): void;
 
@@ -8935,7 +8973,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowFocusable(isFocusable: boolean): Promise<void>;
 
@@ -8963,7 +9001,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowFocusable(isFocusable: boolean, callback: AsyncCallback<void>): void;
 
@@ -8981,7 +9019,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     requestFocus(isFocused: boolean): Promise<void>;
 
@@ -9002,7 +9040,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setExclusivelyHighlighted(exclusivelyHighlighted: boolean): Promise<void>;
 
@@ -9015,7 +9053,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isWindowHighlighted(): boolean;
 
@@ -9081,7 +9119,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowKeepScreenOn(isKeepScreenOn: boolean): Promise<void>;
 
@@ -9123,7 +9161,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowKeepScreenOn(isKeepScreenOn: boolean, callback: AsyncCallback<void>): void;
 
@@ -9151,7 +9189,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWakeUpScreen(wakeUp: boolean): void;
 
@@ -9241,7 +9279,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     setWindowPrivacyMode(isPrivacyMode: boolean): Promise<void>;
 
@@ -9285,7 +9324,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
 
@@ -9311,7 +9351,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setSnapshotSkip(isSkip: boolean): void;
 
@@ -9363,7 +9403,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowTouchable(isTouchable: boolean): Promise<void>;
 
@@ -9391,7 +9431,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowTouchable(isTouchable: boolean, callback: AsyncCallback<void>): void;
 
@@ -9409,7 +9449,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setHandwritingFlag(enable: boolean): Promise<void>;
 
@@ -9461,7 +9501,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     snapshot(callback: AsyncCallback<image.PixelMap>): void;
 
@@ -9481,7 +9521,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     snapshot(): Promise<image.PixelMap>;
 
@@ -9506,7 +9546,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     snapshotIgnorePrivacy(): Promise<image.PixelMap>;
 
@@ -9537,7 +9577,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     opacity(opacity: double): void;
 
@@ -9568,7 +9608,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     scale(scaleOptions: ScaleOptions): void;
 
@@ -9599,7 +9639,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rotate(rotateOptions: RotateOptions): void;
 
@@ -9630,7 +9670,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     translate(translateOptions: TranslateOptions): void;
 
@@ -9684,7 +9724,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setBlur(radius: double): void;
 
@@ -9716,7 +9756,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setBackdropBlur(radius: double): void;
 
@@ -9746,7 +9786,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setBackdropBlurStyle(blurStyle: BlurStyle): void;
 
@@ -9782,7 +9822,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setShadow(radius: double, color?: string, offsetX?: double, offsetY?: double): void;
 
@@ -9801,7 +9841,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 17 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowShadowRadius(radius: double): void;
 
@@ -9831,7 +9871,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setCornerRadius(cornerRadius: double): void;
 
@@ -9852,7 +9892,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 17 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowCornerRadius(cornerRadius: double): Promise<void>;
 
@@ -9866,7 +9906,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 17 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getWindowCornerRadius(): double;
 
@@ -9882,7 +9922,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     raiseToAppTop(callback: AsyncCallback<void>): void;
 
@@ -9896,7 +9936,7 @@ declare namespace window {
      * @throws { BusinessError } 1300009 - The parent window is invalid.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     raiseToAppTop(): Promise<void>;
 
@@ -10028,7 +10068,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWaterMarkFlag(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -10060,7 +10100,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWaterMarkFlag(enable: boolean): Promise<void>;
 
@@ -10079,7 +10119,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     raiseAboveTarget(windowId: int, callback: AsyncCallback<void>): void;
 
@@ -10098,7 +10138,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     raiseAboveTarget(windowId: int): Promise<void>;
 
@@ -10118,7 +10158,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setRaiseByClickEnabled(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -10136,7 +10176,7 @@ declare namespace window {
      * @throws { BusinessError } 1300009 - The parent window is invalid.
      * @syscap SystemCapability.Window.SessionManager
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setRaiseByClickEnabled(enable: boolean): Promise<void>;
 
@@ -10162,7 +10202,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     minimize(callback: AsyncCallback<void>): void;
 
@@ -10187,7 +10227,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     minimize(): Promise<void>;
 
@@ -10217,7 +10257,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     maximize(presentation?: MaximizePresentation): Promise<void>;
 
@@ -10268,7 +10309,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     hideNonSystemFloatingWindows(shouldHide: boolean, callback: AsyncCallback<void>): void;
 
@@ -10287,7 +10328,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     hideNonSystemFloatingWindows(shouldHide: boolean): Promise<void>;
 
@@ -10377,7 +10418,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setSingleFrameComposerEnabled(enable: boolean): Promise<void>;
 
@@ -10406,7 +10447,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     keepKeyboardOnFocus(keepKeyboardFlag: boolean): void;
 
@@ -10431,7 +10472,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     recover(): Promise<void>;
 
@@ -10446,6 +10487,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     restore(): Promise<void>;
 
@@ -10484,7 +10526,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     setWindowDecorVisible(isVisible: boolean): void;
 
@@ -10497,7 +10540,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getWindowDecorVisible(): boolean;
 
@@ -10514,7 +10557,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowTitleMoveEnabled(enabled: boolean): void;
 
@@ -10530,7 +10573,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowTitle(titleName: string): Promise<void>;
 
@@ -10563,7 +10606,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     setSubWindowModal(isModal: boolean): Promise<void>;
 
@@ -10598,7 +10642,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     setSubWindowModal(isModal: boolean, modalityType: ModalityType): Promise<void>;
 
@@ -10629,7 +10674,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowDecorHeight(height: int): void;
 	
@@ -10652,7 +10697,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getWindowDecorHeight(): int;
 
@@ -10668,7 +10713,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setDecorButtonStyle(dectorStyle: DecorButtonStyle): void;
 
@@ -10684,7 +10729,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getDecorButtonStyle(): DecorButtonStyle;
     
@@ -10703,7 +10748,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setTouchableAreas(rects: Array<Rect>): void;
 	
@@ -10725,7 +10770,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getTitleButtonRect(): TitleButtonRect;
 
@@ -10744,7 +10789,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setTitleButtonVisible(isMaximizeVisible: boolean, isMinimizeVisible: boolean, isSplitVisible: boolean): void;
     
@@ -10763,7 +10808,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowTitleButtonVisible(isMaximizeButtonVisible: boolean, isMinimizeButtonVisible: boolean, isCloseButtonVisible?: boolean): void;
 
@@ -10792,7 +10837,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     startMoving(): Promise<void>;
 
@@ -10817,7 +10862,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     startMoving(offsetX: int, offsetY: int): Promise<void>;
 
@@ -11011,7 +11056,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
      setWindowMask(windowMask: Array<Array<long>>): Promise<void>;
 
@@ -11240,7 +11285,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowGrayScale(grayScale: double): Promise<void>;
 
@@ -11256,7 +11301,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setImmersiveModeEnabledState(enabled: boolean): void;
 
@@ -11270,7 +11315,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getImmersiveModeEnabledState(): boolean;
 
@@ -11295,7 +11340,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getWindowStatus(): WindowStatusType;
 
@@ -11307,7 +11352,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isFocused(): boolean;
 
@@ -11326,6 +11371,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise<Window>;
 
@@ -11342,7 +11388,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
      */
     setParentWindow(windowId: int): Promise<void>;
 
@@ -11406,7 +11451,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     setTitleAndDockHoverShown(isTitleHoverShown?: boolean, isDockHoverShown?: boolean): Promise<void>;
 
@@ -11437,7 +11483,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowDelayRaiseOnDrag(isEnabled: boolean): void;
 
@@ -11457,7 +11503,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setSubWindowZLevel(zLevel: int): Promise<void>;
 
@@ -11471,7 +11517,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getSubWindowZLevel(): int;
 
@@ -11517,7 +11563,7 @@ declare namespace window {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum WindowStageEventType {
     /**
@@ -11543,7 +11589,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SHOWN = 1,
     /**
@@ -11569,7 +11615,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACTIVE = 2,
     /**
@@ -11595,7 +11641,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INACTIVE = 3,
     /**
@@ -11621,7 +11667,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     HIDDEN = 4,
     /**
@@ -11632,7 +11678,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESUMED = 5,
     /**
@@ -11643,7 +11689,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PAUSED = 6
   }
@@ -11698,7 +11744,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum ModalityType {
     /**
@@ -11707,7 +11753,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WINDOW_MODALITY = 0,
     /**
@@ -11716,7 +11762,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     APPLICATION_MODALITY = 1,
   }
@@ -11757,7 +11803,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface SubWindowOptions {
     /**
@@ -11774,7 +11820,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     title: string;
     /**
@@ -11791,7 +11837,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     decorEnabled: boolean;
     /**
@@ -11801,7 +11847,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isModal?: boolean;
     /**
@@ -11811,7 +11857,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isTopmost?: boolean;
     /**
@@ -11821,7 +11867,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     modalityType?: ModalityType;
     /**
@@ -11831,7 +11877,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     windowRect?: Rect;
     /**
@@ -11841,7 +11887,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     maximizeSupported?: boolean;
     /**
@@ -11851,7 +11897,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     zLevel?: int;
     /**
@@ -11860,7 +11906,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     outlineEnabled?: boolean;
 
@@ -11888,7 +11935,7 @@ declare namespace window {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface WindowStage {
     /**
@@ -11923,7 +11970,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getMainWindow(): Promise<Window>;
     /**
@@ -11958,7 +12005,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getMainWindow(callback: AsyncCallback<Window>): void;
     /**
@@ -11993,7 +12040,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getMainWindowSync(): Window;
     /**
@@ -12032,7 +12079,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     createSubWindow(name: string): Promise<Window>;
     /**
@@ -12071,7 +12118,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     createSubWindow(name: string, callback: AsyncCallback<Window>): void;
     /**
@@ -12102,6 +12149,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise<Window>;
     /**
@@ -12133,6 +12181,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     getSubWindow(): Promise<Array<Window>>;
     /**
@@ -12164,6 +12213,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     getSubWindow(callback: AsyncCallback<Array<Window>>): void;
     /**
@@ -12217,7 +12267,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
     /**
@@ -12271,7 +12321,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     loadContent(path: string, storage?: LocalStorage): Promise<void>;
     /**
@@ -12319,7 +12369,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     loadContent(path: string, callback: AsyncCallback<void>): void;
 
@@ -12340,7 +12390,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
@@ -12360,7 +12410,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     loadContentByName(name: string, callback: AsyncCallback<void>): void;
 
@@ -12381,7 +12431,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     loadContentByName(name: string, storage?: LocalStorage): Promise<void>;
 
@@ -12624,7 +12674,7 @@ declare namespace window {
      * @systemapi
      * @StageModelOnly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     disableWindowDecor(): void;
 
@@ -12654,7 +12704,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setShowOnLockScreen(showOnLockScreen: boolean): void;
 
@@ -12671,7 +12721,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setDefaultDensityEnabled(enabled: boolean): void;
 
@@ -12688,7 +12738,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setCustomDensity(density: double): void;
 
@@ -12704,7 +12754,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     removeStartingWindow(): Promise<void>;
 
@@ -12738,7 +12788,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     setWindowModal(isModal: boolean): Promise<void>;
 
@@ -12757,7 +12808,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowRectAutoSave(enabled: boolean): Promise<void>;
 
@@ -12777,7 +12828,7 @@ declare namespace window {
      * @stagemodelonly
      * @atomicservice
      * @since 17 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise<void>;
 
@@ -12803,7 +12854,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     isWindowRectAutoSave(): Promise<boolean>;
 
@@ -12855,7 +12907,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setImageForRecent(imgResourceId: long, value: ImageFit): Promise<void>;
   }
@@ -12868,7 +12920,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum ExtensionWindowAttribute {
     /**
@@ -12878,7 +12930,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SYSTEM_WINDOW = 0,
 
@@ -12889,7 +12941,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SUB_WINDOW = 1
   }
@@ -12902,7 +12954,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface SystemWindowOptions {
     /**
@@ -12913,7 +12965,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     windowType: WindowType;
   }
@@ -12926,7 +12978,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ExtensionWindowConfig {
     /**
@@ -12937,7 +12989,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     windowName: string;
 
@@ -12993,7 +13045,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface WindowLayoutInfo {
     /**
@@ -13003,7 +13055,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     windowRect: Rect;
   }
@@ -13061,7 +13113,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum RotationChangeType {
     /**
@@ -13070,7 +13122,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WINDOW_WILL_ROTATE = 0,
 
@@ -13080,7 +13132,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WINDOW_DID_ROTATE = 1
   }
@@ -13092,7 +13144,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum RectType {
     /**
@@ -13101,7 +13153,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RELATIVE_TO_SCREEN = 0,
     /**
@@ -13110,7 +13162,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RELATIVE_TO_PARENT_WINDOW = 1
   }
@@ -13167,7 +13219,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface RotationChangeInfo {
     /**
@@ -13177,7 +13229,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     type: RotationChangeType;
     /**
@@ -13187,7 +13239,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     orientation: int;
     /**
@@ -13197,7 +13249,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     displayId: long;
     /**
@@ -13207,7 +13259,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     displayRect: Rect;
   }
@@ -13219,7 +13271,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface RotationChangeResult {
     /**
@@ -13229,7 +13281,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rectType: RectType;
     /**
@@ -13239,7 +13291,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     windowRect: Rect;
   }
@@ -13253,7 +13305,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type RotationChangeCallback<T, U> = (info: T) => U;
 }

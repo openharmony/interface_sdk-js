@@ -40,7 +40,7 @@ import { RecordData } from './@ohos.base';
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace zlib {
   /**
@@ -81,7 +81,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum CompressLevel {
     /**
@@ -97,7 +97,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPRESS_LEVEL_NO_COMPRESSION = 0,
     /**
@@ -113,7 +113,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPRESS_LEVEL_BEST_SPEED = 1,
     /**
@@ -129,7 +129,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPRESS_LEVEL_BEST_COMPRESSION = 9,
     /**
@@ -145,7 +145,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPRESS_LEVEL_DEFAULT_COMPRESSION = -1
   }
@@ -165,7 +165,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum CompressStrategy {
     /**
@@ -181,7 +181,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPRESS_STRATEGY_DEFAULT_STRATEGY = 0,
     /**
@@ -197,7 +197,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPRESS_STRATEGY_FILTERED = 1,
     /**
@@ -213,7 +213,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPRESS_STRATEGY_HUFFMAN_ONLY = 2,
     /**
@@ -229,7 +229,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPRESS_STRATEGY_RLE = 3,
     /**
@@ -245,7 +245,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPRESS_STRATEGY_FIXED = 4
   }
@@ -258,7 +258,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum ParallelStrategy {
     /**
@@ -268,7 +268,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PARALLEL_STRATEGY_SEQUENTIAL = 0,
     /**
@@ -278,7 +278,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PARALLEL_STRATEGY_PARALLEL_DECOMPRESSION = 1
   }
@@ -298,7 +298,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum MemLevel {
     /**
@@ -314,7 +314,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MEM_LEVEL_MIN = 1,
     /**
@@ -330,7 +330,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MEM_LEVEL_MAX = 9,
     /**
@@ -346,7 +346,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MEM_LEVEL_DEFAULT = 8
   }
@@ -358,7 +358,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum CompressFlushMode {
     /**
@@ -367,7 +367,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NO_FLUSH = 0,
     /**
@@ -376,7 +376,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PARTIAL_FLUSH = 1,
     /**
@@ -385,7 +385,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SYNC_FLUSH = 2,
     /**
@@ -394,7 +394,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FULL_FLUSH = 3,
     /**
@@ -403,7 +403,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FINISH = 4,
     /**
@@ -412,7 +412,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     BLOCK = 5,
     /**
@@ -421,7 +421,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TREES = 6
   }
@@ -433,7 +433,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum ReturnStatus {
     /**
@@ -442,7 +442,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     OK = 0,
     /**
@@ -451,7 +451,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STREAM_END = 1,
     /**
@@ -460,7 +460,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NEED_DICT = 2,
     /**
@@ -520,7 +520,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum CompressMethod {
     /**
@@ -529,7 +529,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DEFLATED = 8,
   }
@@ -541,7 +541,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum OffsetReferencePoint {
     /**
@@ -550,7 +550,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SEEK_SET = 0,
 
@@ -560,7 +560,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SEEK_CUR = 1,
   }
@@ -580,7 +580,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Options {
     /**
@@ -597,7 +597,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     level?: CompressLevel;
     /**
@@ -614,7 +614,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     memLevel?: MemLevel;
     /**
@@ -631,7 +631,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     strategy?: CompressStrategy;
     /**
@@ -642,7 +642,7 @@ declare namespace zlib {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     parallel?: ParallelStrategy;
   }
@@ -654,7 +654,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ZStream {
     /**
@@ -664,7 +664,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     nextIn?: ArrayBuffer;
 
@@ -675,7 +675,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     availableIn?: int;
 
@@ -686,7 +686,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     totalIn?: long;
 
@@ -697,7 +697,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     nextOut?: ArrayBuffer;
 
@@ -708,7 +708,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     availableOut?: int;
 
@@ -719,7 +719,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     totalOut?: long;
 
@@ -730,7 +730,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     dataType?: int;
 
@@ -741,7 +741,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     adler?: long;
   }
@@ -753,7 +753,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface GzHeader {
     /**
@@ -763,7 +763,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isText?: boolean;
 
@@ -774,7 +774,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     os?: int;
 
@@ -785,7 +785,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     time?: long;
 
@@ -796,7 +796,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     xflags?: int;
 
@@ -807,7 +807,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     extra?: ArrayBuffer;
 
@@ -818,7 +818,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     extraLen?: int;
 
@@ -829,7 +829,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name?: ArrayBuffer;
 
@@ -840,7 +840,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     comment?: ArrayBuffer;
 
@@ -851,7 +851,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     hcrc?: boolean;
 
@@ -862,7 +862,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     done?: boolean;
   }
@@ -874,7 +874,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ZipOutputInfo {
     /**
@@ -884,7 +884,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     status: ReturnStatus
 
@@ -895,7 +895,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     destLen: long
   }
@@ -907,7 +907,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface DictionaryOutputInfo {
     /**
@@ -917,7 +917,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     status: ReturnStatus
 
@@ -928,7 +928,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     dictionaryLength: int
   }
@@ -940,7 +940,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface DecompressionOutputInfo {
     /**
@@ -950,7 +950,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     status: ReturnStatus
 
@@ -961,7 +961,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     destLength: long
 
@@ -972,7 +972,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     sourceLength: long
   }
@@ -984,7 +984,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface DeflatePendingOutputInfo {
     /**
@@ -994,7 +994,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     status: ReturnStatus
 
@@ -1005,7 +1005,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pending: int
 
@@ -1016,7 +1016,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bits: int
   }
@@ -1028,7 +1028,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface GzErrorOutputInfo {
     /**
@@ -1038,7 +1038,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     status: ReturnStatus
 
@@ -1049,7 +1049,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     statusMsg: string
   }
@@ -1167,7 +1167,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function compressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>): void;
 
@@ -1198,7 +1198,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function compressFile(inFile: string, outFile: string, options: Options): Promise<void>;
 
@@ -1215,7 +1215,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function compressFiles(inFiles: Array<string>, outFile: string, options: Options): Promise<void>;
 
@@ -1261,7 +1261,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function decompressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>): void;
 
@@ -1292,7 +1292,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function decompressFile(inFile: string, outFile: string, callback: AsyncCallback<void>): void;
 
@@ -1338,7 +1338,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function decompressFile(inFile: string, outFile: string, options?: Options): Promise<void>;
 
@@ -1354,7 +1354,7 @@ declare namespace zlib {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getOriginalSize(compressedFile: string): Promise<long>;
 
@@ -1365,7 +1365,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createChecksum(): Promise<Checksum>;
 
@@ -1376,7 +1376,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createChecksumSync(): Checksum;
 
@@ -1387,7 +1387,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createZip(): Promise<Zip>;
 
@@ -1398,7 +1398,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createZipSync(): Zip;
 
@@ -1409,7 +1409,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createGZip(): Promise<GZip>;
 
@@ -1420,7 +1420,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createGZipSync(): GZip;
 
@@ -1431,7 +1431,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Checksum {
     /**
@@ -1445,7 +1445,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     adler32(adler: long, buf: ArrayBuffer): Promise<long>;
 
@@ -1461,7 +1461,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     adler32Combine(adler1: long, adler2: long, len2: long): Promise<long>;
 
@@ -1476,7 +1476,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     crc32(crc: long, buf: ArrayBuffer): Promise<long>;
 
@@ -1492,7 +1492,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     crc32Combine(crc1: long, crc2: long, len2: long): Promise<long>;
 
@@ -1507,7 +1507,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     crc64(crc: long, buf: ArrayBuffer): Promise<long>;
 
@@ -1518,7 +1518,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getCrcTable(): Promise<Array<long>>;
 
@@ -1529,7 +1529,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getCrc64Table(): Promise<Array<long>>;
   }
@@ -1541,7 +1541,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Zip {
     /**
@@ -1571,7 +1571,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     zlibVersion(): Promise<string>;
 
@@ -1610,7 +1610,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     zlibCompileFlags(): Promise<int>;
 
@@ -1627,7 +1627,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     compress(dest: ArrayBuffer, source: ArrayBuffer, sourceLen?: long): Promise<ZipOutputInfo>;
 
@@ -1646,7 +1646,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     compress2(dest: ArrayBuffer, source: ArrayBuffer, level: CompressLevel, sourceLen?: long,): Promise<ZipOutputInfo>;
 
@@ -1660,7 +1660,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     compressBound(sourceLen: int): Promise<int>;
 
@@ -1678,7 +1678,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uncompress(dest:ArrayBuffer, source: ArrayBuffer, sourceLen?: long): Promise<ZipOutputInfo>;
 
@@ -1696,7 +1696,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uncompress2(dest: ArrayBuffer, source: ArrayBuffer, sourceLen?: long): Promise<DecompressionOutputInfo>;
 
@@ -1712,7 +1712,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflateValidate(strm: ZStream, check: int): Promise<ReturnStatus>;
 
@@ -1727,7 +1727,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflateSyncPoint(strm: ZStream): Promise<ReturnStatus>;
 
@@ -1744,7 +1744,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflateSync(strm: ZStream): Promise<ReturnStatus>;
 
@@ -1761,7 +1761,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflateSetDictionary(strm: ZStream, dictionary: ArrayBuffer): Promise<ReturnStatus>;
 
@@ -1776,7 +1776,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflateResetKeep(strm: ZStream): Promise<ReturnStatus>;
 
@@ -1792,7 +1792,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflateReset2(strm: ZStream, windowBits: int): Promise<ReturnStatus>;
 
@@ -1807,7 +1807,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflateReset(strm: ZStream): Promise<ReturnStatus>;
 
@@ -1824,7 +1824,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflatePrime(strm: ZStream, bits: int, value: int): Promise<ReturnStatus>;
 
@@ -1838,7 +1838,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflateMark(strm: ZStream): Promise<int>;
 
@@ -1871,7 +1871,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflateInit2(strm: ZStream, windowBits: int): Promise<ReturnStatus>;
 
@@ -1885,7 +1885,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflateInit(strm: ZStream): Promise<ReturnStatus>;
 
@@ -1901,7 +1901,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflateGetHeader(strm: ZStream, header: GzHeader): Promise<ReturnStatus>;
 
@@ -1917,7 +1917,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflateGetDictionary(strm: ZStream, dictionary: ArrayBuffer): Promise<DictionaryOutputInfo>;
 
@@ -1932,7 +1932,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflateEnd(strm: ZStream): Promise<ReturnStatus>;
 
@@ -1947,7 +1947,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflateCopy(source: Zip): Promise<ReturnStatus>;
 
@@ -1961,7 +1961,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflateCodesUsed(strm: ZStream): Promise<long>;
 
@@ -1978,7 +1978,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflateBackInit(strm: ZStream, windowBits: long, window: ArrayBuffer): Promise<ReturnStatus>;
 
@@ -1993,7 +1993,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflateBackEnd(strm: ZStream): Promise<ReturnStatus>;
 
@@ -2046,7 +2046,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     inflate(strm: ZStream, flush: CompressFlushMode): Promise<ReturnStatus>;
 
@@ -2062,7 +2062,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deflateInit(strm: ZStream, level: CompressLevel): Promise<ReturnStatus>;
 
@@ -2082,7 +2082,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deflateInit2(strm: ZStream, level: CompressLevel, method: CompressMethod, windowBits: int,
         memLevel: MemLevel, strategy: CompressStrategy): Promise<ReturnStatus>;
@@ -2100,7 +2100,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deflate(strm: ZStream, flush: CompressFlushMode): Promise<ReturnStatus>;
 
@@ -2115,7 +2115,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deflateEnd(strm: ZStream): Promise<ReturnStatus>;
 
@@ -2130,7 +2130,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deflateBound(strm: ZStream, sourceLength: long): Promise<int>;
 
@@ -2146,7 +2146,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deflateSetHeader(strm: ZStream, head: GzHeader): Promise<ReturnStatus>;
 
@@ -2161,7 +2161,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deflateCopy(source: Zip): Promise<ReturnStatus>;
 
@@ -2177,7 +2177,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deflateSetDictionary(strm: ZStream, dictionary: ArrayBuffer): Promise<ReturnStatus>;
 
@@ -2193,7 +2193,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deflateGetDictionary(strm: ZStream, dictionary: ArrayBuffer): Promise<DictionaryOutputInfo>;
 
@@ -2212,7 +2212,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deflateTune(strm: ZStream, goodLength: int, maxLazy: int, niceLength: int, maxChain: int): Promise<ReturnStatus>;
 
@@ -2227,7 +2227,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deflateReset(strm: ZStream): Promise<ReturnStatus>;
 
@@ -2242,7 +2242,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deflateResetKeep(strm: ZStream): Promise<ReturnStatus>;
 
@@ -2257,7 +2257,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deflatePending(strm: ZStream): Promise<DeflatePendingOutputInfo>;
 
@@ -2274,7 +2274,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deflateParams(strm: ZStream, level: CompressLevel, strategy: CompressStrategy): Promise<ReturnStatus>;
 
@@ -2291,7 +2291,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deflatePrime(strm: ZStream, bits: int, value: int): Promise<ReturnStatus>;
   }
@@ -2303,7 +2303,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface GZip {
 
@@ -2319,7 +2319,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzdopen(fd: int, mode: string): Promise<void>;
 
@@ -2334,7 +2334,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzbuffer(size: long): Promise<int>;
 
@@ -2350,7 +2350,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzopen(path: string, mode: string): Promise<void>;
 
@@ -2361,7 +2361,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzeof(): Promise<int>;
 
@@ -2372,7 +2372,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzdirect(): Promise<int>;
 
@@ -2385,7 +2385,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzclose(): Promise<ReturnStatus>;
 
@@ -2396,7 +2396,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzclearerr(): Promise<void>;
 
@@ -2408,7 +2408,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzerror(): Promise<GzErrorOutputInfo>;
 
@@ -2420,7 +2420,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzgetc(): Promise<int>;
 
@@ -2435,7 +2435,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzflush(flush: CompressFlushMode): Promise<ReturnStatus>;
 
@@ -2452,7 +2452,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzfwrite(buf: ArrayBuffer, size: long, nitems: long): Promise<long>;
 
@@ -2469,7 +2469,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzfread(buf: ArrayBuffer, size: long, nitems: long): Promise<long>;
 
@@ -2482,7 +2482,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzclosew(): Promise<ReturnStatus>;
 
@@ -2494,7 +2494,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzcloser(): Promise<ReturnStatus>;
 
@@ -2510,7 +2510,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzwrite(buf: ArrayBuffer, len: long): Promise<long>;
 
@@ -2525,7 +2525,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzungetc(c: int): Promise<int>;
 
@@ -2537,7 +2537,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gztell(): Promise<long>;
 
@@ -2553,7 +2553,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzsetparams(level: CompressLevel, strategy: CompressStrategy): Promise<ReturnStatus>;
 
@@ -2569,7 +2569,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzseek(offset: long, whence: OffsetReferencePoint): Promise<long>;
 
@@ -2581,7 +2581,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzrewind(): Promise<ReturnStatus>;
 
@@ -2596,7 +2596,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzread(buf: ArrayBuffer): Promise<long>;
 
@@ -2611,7 +2611,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzputs(str: string): Promise<int>;
 
@@ -2626,7 +2626,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzputc(ch: int): Promise<int>;
 
@@ -2643,7 +2643,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzprintf(format: string, ...args: Array<string | number>): Promise<int>;
 
@@ -2655,7 +2655,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzoffset(): Promise<long>;
 
@@ -2671,7 +2671,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gzgets(buf: ArrayBuffer): Promise<string>;
   }

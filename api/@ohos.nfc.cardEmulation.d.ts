@@ -36,7 +36,7 @@ import type { AbilityInfo } from './bundleManager/AbilityInfo';
  * @syscap SystemCapability.Communication.NFC.CardEmulation
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace cardEmulation {
   /**
@@ -91,7 +91,7 @@ declare namespace cardEmulation {
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum CardType {
     /**
@@ -106,7 +106,7 @@ declare namespace cardEmulation {
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PAYMENT = 'payment',
 
@@ -122,7 +122,7 @@ declare namespace cardEmulation {
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     OTHER = 'other'
   }
@@ -160,7 +160,7 @@ declare namespace cardEmulation {
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function hasHceCapability(): boolean;
 
@@ -196,7 +196,7 @@ declare namespace cardEmulation {
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isDefaultService(elementName: ElementName, type: CardType): boolean;
 
@@ -211,7 +211,7 @@ declare namespace cardEmulation {
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getPaymentServices(): AbilityInfo[];
 
@@ -231,7 +231,7 @@ declare namespace cardEmulation {
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export class HceService {
     /**
@@ -279,7 +279,7 @@ declare namespace cardEmulation {
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     start(elementName: ElementName, aidList: string[]): void;
 
@@ -325,7 +325,7 @@ declare namespace cardEmulation {
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     stop(elementName: ElementName): void;
 
@@ -350,7 +350,6 @@ declare namespace cardEmulation {
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'hceCmd', callback: AsyncCallback<int[]>): void;
 
@@ -358,13 +357,12 @@ declare namespace cardEmulation {
      * register HCE event to receive the APDU data.
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { 'hceCmd' } type The type to register.
      * @param { AsyncCallback<int[]> } callback Callback used to listen to HCE data that local device received.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @since 22 static
@@ -382,7 +380,6 @@ declare namespace cardEmulation {
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
      */
     off(type: 'hceCmd', callback?: AsyncCallback<int[]>): void;
 
@@ -390,8 +387,7 @@ declare namespace cardEmulation {
      * Unsubscribe the event to receive the APDU data.
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { 'hceCmd' } type - The type to unregister event.
-     * @param { AsyncCallback<int[]> } callback - The callback used to listen for the event.
+     * @param { AsyncCallback<int[]> } [callback] - The callback used to listen for the event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
@@ -444,7 +440,7 @@ declare namespace cardEmulation {
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     transmit(response: int[]): Promise<void>;
 
@@ -480,7 +476,7 @@ declare namespace cardEmulation {
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     transmit(response: int[], callback: AsyncCallback<void>): void;
   }

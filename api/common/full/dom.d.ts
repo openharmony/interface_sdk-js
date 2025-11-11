@@ -31,7 +31,7 @@ import { Element } from './viewmodel';
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
  */
 export declare class dom {
   /**
@@ -49,7 +49,7 @@ export declare class dom {
    * @returns { Element }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11 dynamic
+   * @since 11 dynamiconly
    */
-  static createElement(tag: string): Element
+  static createElement(tag: string): Element;
 }

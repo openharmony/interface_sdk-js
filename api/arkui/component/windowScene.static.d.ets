@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +20,7 @@
  */
 
 import { Position } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -35,9 +36,11 @@ export declare interface WindowSceneAttribute extends CommonMethod {
   /**
    * Set the attraction deformation effect of WindowScene.
    * 
-   * @param { Position | undefined } destination - The position of the attraction target point in the component coordinate system.
+   * @param { Position | undefined } destination - The position of the
+   *     attraction target point in the component coordinate system.
    * @param { double | undefined } fraction - indicates the fraction of WindowScene.
    * @returns { WindowSceneAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 22 static
    */
@@ -59,16 +62,15 @@ export declare interface WindowSceneAttribute extends CommonMethod {
 /**
  * Defines the WindowScene Component.
  *
- * @param { function } [content_] - container
+ * @param { int } persistentId
+ * @param { CustomBuilder } [content_] - container
  * @returns { WindowSceneAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function WindowScene(
     persistentId: int,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): WindowSceneAttribute;

@@ -45,7 +45,7 @@ import { RecordData } from '@ohos.base';
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace hilog {
 
@@ -97,7 +97,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   function debug(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
@@ -149,7 +149,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   function info(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
@@ -201,7 +201,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   function warn(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
@@ -253,7 +253,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   function error(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
@@ -305,7 +305,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   function fatal(domain: int, tag: string, format: string, ...args: RecordData[]): void;
 
@@ -331,7 +331,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isLoggable(domain: int, tag: string, level: LogLevel): boolean;
 
@@ -342,7 +342,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @atomicservice
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
    function setMinLogLevel(level: LogLevel): void;
 
@@ -368,7 +368,7 @@ declare namespace hilog {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum LogLevel {
     /**
@@ -391,7 +391,7 @@ declare namespace hilog {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DEBUG = 3,
     /**
@@ -414,7 +414,7 @@ declare namespace hilog {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INFO = 4,
     /**
@@ -437,7 +437,7 @@ declare namespace hilog {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WARN = 5,
     /**
@@ -460,7 +460,7 @@ declare namespace hilog {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ERROR = 6,
     /**
@@ -483,7 +483,7 @@ declare namespace hilog {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FATAL = 7
   }

@@ -29,7 +29,7 @@ import { TextInputAttribute } from '@ohos.arkui.component';
  *
  * @implements { TextInputAttribute, AttributeModifier<TextInputAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare class TextInputModifier implements TextInputAttribute, AttributeModifier<TextInputAttribute> {}

@@ -18,11 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts static */
-import { CommonMethod} from './common';
-import { Resource } from '../../global/resource'
-/*** endif */
-
 /**
  * Provides an interface for RichText component.
  *
@@ -46,7 +41,6 @@ import { Resource } from '../../global/resource'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12 dynamic
- * @since 20 static
  * @noninterop
  */
 interface RichTextInterface {
@@ -80,11 +74,11 @@ interface RichTextInterface {
   /**
    * Set value.
    *
-   * @param { string | Resource} content
+   * @param { string | Resource } content
    * @returns { RichTextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   (content: string | Resource): RichTextAttribute;
 }
@@ -112,7 +106,6 @@ interface RichTextInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12 dynamic
- * @since 20 static
  * @noninterop
  */
 declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
@@ -142,7 +135,6 @@ declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
    */
   onStart(callback: () => void): RichTextAttribute;
 
@@ -172,7 +164,6 @@ declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
    */
   onComplete(callback: () => void): RichTextAttribute;
 }

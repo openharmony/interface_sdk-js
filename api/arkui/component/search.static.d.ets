@@ -26,14 +26,14 @@ import { CopyOptions, TextAlign } from "./enums";
 import { KeyboardOptions } from "./richEditor";
 import { Resource } from '../../global/resource';
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder } from './builder';
 
 /**
  * Provides the method of switching the cursor position.
  *
  * @extends TextContentControllerBase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare class SearchController extends TextContentControllerBase {
     /**
@@ -41,7 +41,7 @@ export declare class SearchController extends TextContentControllerBase {
      * A constructor used to create a SearchController object.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     constructor();
     /**
@@ -49,14 +49,14 @@ export declare class SearchController extends TextContentControllerBase {
      *
      * @param { int } value - Length from the start of the character string to the position where the caret is located.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     caretPosition(value: int): void;
     /**
      * Exit edit state.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     stopEditing(): void;
     /**
@@ -80,7 +80,7 @@ export declare class SearchController extends TextContentControllerBase {
      * A value greater than the maximum text length is handled as the maximum text length.
      * @param { SelectionOptions } [options] - Indicates the options of the text selection.Default value is MenuPolicy.DEFAULT.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     setTextSelection(selectionStart: int, selectionEnd: int, options?: SelectionOptions): void;
 }
@@ -89,28 +89,28 @@ export declare class SearchController extends TextContentControllerBase {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare enum CancelButtonStyle {
     /**
      * The value of button style constant
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     CONSTANT,
     /**
      * The value of button style invisible
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     INVISIBLE,
     /**
      * The value of button style input
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     INPUT
 }
@@ -119,21 +119,21 @@ export declare enum CancelButtonStyle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare enum SearchType {
     /**
      * Basic input mode.
      * The value can contain digits, letters, underscores (_), spaces, and special characters.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     NORMAL = 0,
     /**
      * Pure digital input mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     NUMBER = 2,
     /**
@@ -141,7 +141,7 @@ export declare enum SearchType {
      * In this mode, the following are allowed: digits, spaces, plus signs (+), hyphens (-), asterisks (*), and number signs (#);
      * the length is not limited.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     PHONE_NUMBER = 3,
     /**
@@ -149,21 +149,21 @@ export declare enum SearchType {
      * This mode accepts only digits, letters, underscores (_), dots (.),
      * and the following special characters: ! # $ % & ' * + - / = ? ^ ` { | } ~ @ (which can only appear once)
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     EMAIL = 5,
     /**
      * Number decimal entry mode.
      * The value can contain digits and one decimal point.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     NUMBER_DECIMAL = 12,
     /**
      * URL entry mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     URL = 13
 }
@@ -173,7 +173,7 @@ export declare enum SearchType {
  * Anonymous Object Rectification.
  * @typedef SearchOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface SearchOptions {
     /**
@@ -181,7 +181,7 @@ export declare interface SearchOptions {
      *
      * @type { ?(string | Bindable<string>)}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     value?: string | Bindable<string>;
     /**
@@ -190,7 +190,7 @@ export declare interface SearchOptions {
      * Anonymous Object Rectification.
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     placeholder?: ResourceStr;
     /**
@@ -210,7 +210,7 @@ export declare interface SearchOptions {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     icon?: string;
     /**
@@ -219,7 +219,7 @@ export declare interface SearchOptions {
      * Anonymous Object Rectification.
      * @type { ?SearchController }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     controller?: SearchController;
 }
@@ -228,7 +228,7 @@ export declare interface SearchOptions {
  *
  * @interface IconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export interface IconOptions {
     /**
@@ -240,7 +240,7 @@ export interface IconOptions {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     size?: Length;
     /**
@@ -248,7 +248,7 @@ export interface IconOptions {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     color?: ResourceColor;
     /**
@@ -256,7 +256,7 @@ export interface IconOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     src?: ResourceStr;
 }
@@ -265,7 +265,7 @@ export interface IconOptions {
  *
  * @interface SearchButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export interface SearchButtonOptions {
     /**
@@ -277,7 +277,7 @@ export interface SearchButtonOptions {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     fontSize?: Length;
     /**
@@ -285,7 +285,7 @@ export interface SearchButtonOptions {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     fontColor?: ResourceColor;
     /**
@@ -299,7 +299,7 @@ export interface SearchButtonOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     autoDisable?: boolean;
 }
@@ -308,7 +308,7 @@ export interface SearchButtonOptions {
  *
  * @interface CancelButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export interface CancelButtonOptions {
     /**
@@ -317,7 +317,7 @@ export interface CancelButtonOptions {
      *
      * @type { ?CancelButtonStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     style?: CancelButtonStyle;
     /**
@@ -326,7 +326,7 @@ export interface CancelButtonOptions {
      *
      * @type { ?IconOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     icon?: IconOptions;
 }
@@ -335,7 +335,7 @@ export interface CancelButtonOptions {
  *
  * @interface CancelButtonSymbolOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export interface CancelButtonSymbolOptions {
@@ -345,7 +345,7 @@ export interface CancelButtonSymbolOptions {
      *
      * @type { ?CancelButtonStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     style?: CancelButtonStyle;
     /**
@@ -354,7 +354,7 @@ export interface CancelButtonSymbolOptions {
      *
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     icon?: SymbolGlyphModifier;
 }
@@ -365,7 +365,7 @@ export interface CancelButtonSymbolOptions {
  * @param { string } searchContent - The submitted content of search.
  * @param { SubmitEvent } [event] - Provides the method of keeping Search editable state when submitted.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export type SearchSubmitCallback = (searchContent: string, event?: SubmitEvent) => void;
 /**
@@ -373,7 +373,7 @@ export type SearchSubmitCallback = (searchContent: string, event?: SubmitEvent) 
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare interface SearchAttribute extends CommonMethod {
@@ -384,7 +384,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { SearchButtonOptions | undefined } option - indicates the fontSize and fontColor of the search button.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default searchButton(value: string | undefined, option?: SearchButtonOptions | undefined): this;
     /**
@@ -397,7 +397,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value - indicates the color of the text.Default value is '#FF182431'.The default value on wearable devices is '#dbffffff'.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default fontColor(value: ResourceColor | undefined): this;
     /**
@@ -426,7 +426,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { IconOptions | SymbolGlyphModifier | undefined } value - indicates the style of the search icon.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default searchIcon(value: IconOptions | SymbolGlyphModifier | undefined): this;
     /**
@@ -451,7 +451,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { CancelButtonOptions | CancelButtonSymbolOptions | undefined } value - indicates the style of the cancel button.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default cancelButton(value: CancelButtonOptions | CancelButtonSymbolOptions | undefined): this;
     /**
@@ -460,7 +460,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { Dimension | undefined } value - The length of text indent.Default value is 0.
      * @returns { SearchAttribute } The attribute of the text.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default textIndent(value: Dimension | undefined): this;
     /**
@@ -478,7 +478,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { Callback<string> | undefined } error - Filtered-out content to return when regular expression matching fails.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default inputFilter(value: ResourceStr | undefined, error?: Callback<string> | undefined): this;
     /**
@@ -488,7 +488,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { Callback<boolean> | undefined } callback - Returns true if the component is in an editing state.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onEditChange(callback: Callback<boolean> | undefined): this;
     /**
@@ -501,7 +501,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default selectedBackgroundColor(value: ResourceColor | undefined): this;
     /**
@@ -521,7 +521,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { CaretStyle | undefined } value - indicates the style of the cursor.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default caretStyle(value: CaretStyle | undefined): this;
     /**
@@ -530,7 +530,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value - Default value is '#99182431'.The default value on wearable devices is '#99ffffff'.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default placeholderColor(value: ResourceColor | undefined): this;
     /**
@@ -544,7 +544,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { Font | undefined } value
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default placeholderFont(value?: Font | undefined): this;
     /**
@@ -558,7 +558,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { Font | undefined } value
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default textFont(value?: Font | undefined): this;
     /**
@@ -567,7 +567,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { EnterKeyType | undefined } value - Default value is EnterKeyType.Search.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default enterKeyType(value: EnterKeyType | undefined): this;
     /**
@@ -576,7 +576,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { SearchSubmitCallback | undefined } callback - callback of the listened event.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onSubmit(callback: SearchSubmitCallback | undefined): this;
     /**
@@ -590,7 +590,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { EditableTextOnChangeCallback | undefined } callback
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onChange(callback: EditableTextOnChangeCallback | undefined): this;
     /**
@@ -600,7 +600,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { OnTextSelectionChangeCallback | undefined } callback - Callback of the listened event.
      * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onTextSelectionChange(callback: OnTextSelectionChangeCallback | undefined): this;
     /**
@@ -610,7 +610,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { OnContentScrollCallback | undefined } callback - Callback of the listened event.
      * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onContentScroll(callback: OnContentScrollCallback | undefined): this;
     /**
@@ -620,7 +620,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { Callback<string> | undefined } callback - Callback used to return the copied text content.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onCopy(callback: Callback<string> | undefined): this;
     /**
@@ -630,7 +630,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { Callback<string> | undefined } callback - Callback used to return the cut text content.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onCut(callback: Callback<string> | undefined): this;
     /**
@@ -640,7 +640,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { OnPasteCallback | undefined } callback - Executed when a paste operation is performed.Callback used to return the pasted text content.
      * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onPaste(callback: OnPasteCallback | undefined): this;
     /**
@@ -655,7 +655,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { CopyOptions | undefined } value - Default value is CopyOptions.LocalDevice.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default copyOption(value: CopyOptions | undefined): this;
     /**
@@ -669,7 +669,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { int | undefined } value
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default maxLength(value: int | undefined): this;
     /**
@@ -682,7 +682,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { TextAlign | undefined } value - Default value is TextAlign.Start.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default textAlign(value: TextAlign | undefined): this;
     /**
@@ -695,7 +695,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { boolean | undefined } value - Default value is true.
      * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default enableKeyboardOnFocus(value: boolean | undefined): this;
     /**
@@ -711,7 +711,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { boolean | undefined } value - Default value is false.
      * @returns { SearchAttribute } returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default selectionMenuHidden(value: boolean | undefined): this;
     /**
@@ -726,7 +726,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { double | string | Resource | undefined } value - The unit is fp.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default minFontSize(value: double | string | Resource | undefined): this;
     /**
@@ -741,7 +741,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { double | string | Resource | undefined } value - The unit is fp.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default maxFontSize(value: double | string | Resource | undefined): this;
     /**
@@ -758,7 +758,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { double | Resource | undefined } scale
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default minFontScale(scale: double | Resource | undefined): this;
     /**
@@ -774,7 +774,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { double | Resource | undefined } scale
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default maxFontScale(scale: double | Resource | undefined): this;
     /**
@@ -798,7 +798,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { KeyboardOptions | undefined } [options] - Indicates the custom keyboard options of Search
      * @returns { SearchAttribute } returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default customKeyboard(value: CustomBuilder | undefined, options?: KeyboardOptions | undefined): this;
     /**
@@ -807,7 +807,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { TextDecorationOptions | undefined } value - Default value is { type: TextDecorationType.None, color: Color.Black, style: TextDecorationStyle.SOLID }.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default decoration(value: TextDecorationOptions | undefined): this;
     /**
@@ -823,7 +823,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { double | string | Resource | undefined } value - The unit is fp.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default letterSpacing(value: double | string | Resource | undefined): this;
     /**
@@ -837,7 +837,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { double | string | Resource | undefined } value
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default lineHeight(value: double | string | Resource | undefined): this;
     /**
@@ -846,7 +846,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { SearchType | undefined } value - Default value is SearchType.Normal.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default type(value: SearchType | undefined): this;
     /**
@@ -859,7 +859,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default fontFeature(value: string | undefined): this;
     /**
@@ -874,7 +874,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { Callback<InsertValue, boolean> | undefined } callback - The triggered function when text content is about to insert.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onWillInsert(callback: Callback<InsertValue, boolean> | undefined): this;
     /**
@@ -887,7 +887,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { Callback<InsertValue> | undefined } callback - The triggered function when text content has been inserted.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onDidInsert(callback: Callback<InsertValue> | undefined): this;
     /**
@@ -902,7 +902,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { Callback<DeleteValue, boolean> | undefined } callback - The triggered function when text content is about to delete.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onWillDelete(callback: Callback<DeleteValue, boolean> | undefined): this;
     /**
@@ -915,7 +915,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { Callback<DeleteValue> | undefined } callback - The triggered function when text content has been deleted.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onDidDelete(callback: Callback<DeleteValue> | undefined): this;
     /**
@@ -926,7 +926,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { EditMenuOptions | undefined } editMenu - Customize text menu options.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default editMenuOptions(editMenu: EditMenuOptions | undefined): this;
     /**
@@ -940,7 +940,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { boolean | undefined } enable - Indicates the preview text mode.Default value is true.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default enablePreviewText(enable: boolean | undefined): this;
     /**
@@ -961,7 +961,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { boolean | undefined } isEnabled - Default value is true, set false to disable haptic feedback.
      * @returns { SearchAttribute } returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default enableHapticFeedback(isEnabled: boolean | undefined): this;
     /**
@@ -970,7 +970,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { AutoCapitalizationMode | undefined } mode - Automatic case mode switching.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default autoCapitalizationMode(mode: AutoCapitalizationMode | undefined): this;
     /**
@@ -979,7 +979,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { Optional<boolean> | undefined } halfLeading - Default value is false.The value true means that half leading is enabled, and false means the opposite.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default halfLeading(halfLeading: boolean | undefined): this;
     /**
@@ -988,7 +988,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { Optional<boolean> | undefined } isStopped - Default value is true, set false to trigger the latest callback event.
      * @returns { SearchAttribute } returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default stopBackPress(isStopped: boolean | undefined): this;
     /**
@@ -1002,7 +1002,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * Returning true allows the change to proceed, while returning false cancels the change.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default onWillChange(callback: Callback<EditableTextChangeValue, boolean> | undefined): this;
     /**
@@ -1011,7 +1011,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { Optional<KeyboardAppearance> | undefined } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
      * @returns { SearchAttribute } returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default keyboardAppearance(appearance: KeyboardAppearance | undefined): this;
     /**
@@ -1020,7 +1020,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @param { AttributeModifier<SearchAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
      * @returns { SearchAttribute } the attribute of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<SearchAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -1029,16 +1029,14 @@ export declare interface SearchAttribute extends CommonMethod {
  * Defines Search Component.
  *
  * @param { SearchOptions } [options]
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { SearchAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Search(
     options?: SearchOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): SearchAttribute

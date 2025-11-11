@@ -60,7 +60,7 @@ import ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStat
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class ApplicationContext extends Context {
   /**
@@ -516,7 +516,7 @@ declare class ApplicationContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
 
@@ -558,7 +558,7 @@ declare class ApplicationContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 
@@ -591,7 +591,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   killAllProcesses(): Promise<void>;
 
@@ -615,7 +615,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   killAllProcesses(clearPageStack: boolean): Promise<void>;
 
@@ -661,7 +661,7 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   killAllProcesses(callback: AsyncCallback<void>): void;
 
@@ -693,7 +693,7 @@ declare class ApplicationContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 
@@ -713,7 +713,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   setLanguage(language: string): void;
 
@@ -733,7 +733,7 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   clearUpApplicationData(): Promise<void>;
 
@@ -756,7 +756,7 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   clearUpApplicationData(callback: AsyncCallback<void>): void;
 
@@ -780,7 +780,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   restartApp(want: Want): void;
 
@@ -807,7 +807,7 @@ declare class ApplicationContext extends Context {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   preloadUIExtensionAbility(want: Want): Promise<void>;
 
@@ -835,7 +835,7 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   setSupportedProcessCache(isSupported : boolean): void;
 
@@ -854,7 +854,7 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   setFont(font: string): void;
 
@@ -868,7 +868,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getCurrentAppCloneIndex(): int;
 
@@ -880,7 +880,7 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   setFontSizeScale(fontSizeScale: double): void;
 
@@ -898,7 +898,7 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getCurrentInstanceKey(): string;
 
@@ -919,7 +919,7 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
     getAllRunningInstanceKeys(): Promise<Array<string>>;
 }

@@ -27,7 +27,7 @@ import { TouchObject, KeyEvent, MouseEvent } from '@ohos.arkui.component';
  * @param { TouchObject } event - TouchObject to be sent.
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @test
  */
 export declare function sendTouchEvent(event: TouchObject): boolean;
@@ -39,7 +39,7 @@ export declare function sendTouchEvent(event: TouchObject): boolean;
  * @param { KeyEvent } event - KeyEvent to be sent.
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @test
  */
 export declare function sendKeyEvent(event: KeyEvent): boolean;
@@ -51,7 +51,7 @@ export declare function sendKeyEvent(event: KeyEvent): boolean;
  * @param { MouseEvent } event - MouseEvent to be sent.
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @test
  */
 export declare function sendMouseEvent(event: MouseEvent): boolean;

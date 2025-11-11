@@ -28,7 +28,7 @@ import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
  * @systemapi Hide this for inner system use.
  * @StageModelOnly
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export default class UserAuthExtensionAbility extends UIExtensionAbility {
 }

@@ -22,7 +22,7 @@
  * Export post processing settings
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings } from './graphics3d/ScenePostProcessSettings';
 
@@ -30,7 +30,7 @@ export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
  * Export scene types
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3, GeometryType, GeometryDefinition,
   PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry } from './graphics3d/SceneTypes';
@@ -39,7 +39,7 @@ export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, 
  * Export scene resources
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export { SceneResourceType, SceneResource, Shader, MaterialType, Material, ShaderMaterial,
   SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, CullMode, Blend,
@@ -50,7 +50,7 @@ export { SceneResourceType, SceneResource, Shader, MaterialType, Material, Shade
  * Export scene nodes
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export { LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight,
   Camera } from './graphics3d/SceneNodes';
@@ -59,7 +59,7 @@ export { LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotL
  * Export scene
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RaycastResult, RaycastParameters,
   RenderParameters, RenderResourceFactory, SceneComponent, RenderContext } from './graphics3d/Scene';

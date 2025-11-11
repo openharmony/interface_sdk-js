@@ -27,7 +27,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface RecoverableApplicationInfo {
   /**
@@ -38,7 +38,7 @@ export interface RecoverableApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly bundleName: string;
 
@@ -50,7 +50,7 @@ export interface RecoverableApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly moduleName: string;
 
@@ -62,7 +62,7 @@ export interface RecoverableApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly labelId: long;
 
@@ -74,7 +74,7 @@ export interface RecoverableApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly iconId: long;
 
@@ -86,7 +86,7 @@ export interface RecoverableApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly systemApp: boolean;
 
@@ -98,7 +98,7 @@ export interface RecoverableApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly bundleType: bundleManager.BundleType;
 
@@ -110,7 +110,7 @@ export interface RecoverableApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly codePaths: Array<string>;
 }

@@ -29,9 +29,7 @@ import {
 } from './tag/nfctech';
 import { NdefMessage as _NdefMessage } from './tag/nfctech';
 import { TagSession as _TagSession } from './tag/tagSession';
-/*** if arkts dynamic */
 import type { PacMap } from './ability/dataAbilityHelper';
-/*** endif */
 import type rpc from './@ohos.rpc';
 import type { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
@@ -51,7 +49,7 @@ import type { ElementName } from './bundleManager/ElementName';
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace tag {
   /**
@@ -68,7 +66,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   const NFC_A = 1;
 
@@ -86,7 +84,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   const NFC_B = 2;
 
@@ -104,7 +102,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   const ISO_DEP = 3;
 
@@ -122,7 +120,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   const NFC_F = 4;
 
@@ -140,7 +138,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   const NFC_V = 5;
 
@@ -158,7 +156,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   const NDEF = 6;
 
@@ -176,7 +174,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   const NDEF_FORMATABLE = 7;
 
@@ -194,7 +192,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   const MIFARE_CLASSIC = 8;
 
@@ -212,7 +210,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   const MIFARE_ULTRALIGHT = 9;
 
@@ -223,7 +221,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   const NFC_BARCODE = 10;
 
@@ -241,7 +239,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum TnfType {
     /**
@@ -256,7 +254,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TNF_EMPTY = 0x0,
 
@@ -272,7 +270,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TNF_WELL_KNOWN = 0x1,
 
@@ -288,7 +286,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TNF_MEDIA = 0x2,
 
@@ -304,7 +302,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TNF_ABSOLUTE_URI = 0x3,
 
@@ -320,7 +318,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TNF_EXT_APP = 0x4,
 
@@ -336,7 +334,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TNF_UNKNOWN = 0x5,
 
@@ -352,7 +350,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TNF_UNCHANGED = 0x6
   }
@@ -371,7 +369,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum NfcForumType {
     /**
@@ -386,7 +384,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NFC_FORUM_TYPE_1 = 1,
 
@@ -402,7 +400,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NFC_FORUM_TYPE_2 = 2,
 
@@ -418,7 +416,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NFC_FORUM_TYPE_3 = 3,
 
@@ -434,7 +432,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NFC_FORUM_TYPE_4 = 4,
 
@@ -450,7 +448,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MIFARE_CLASSIC = 101
   }
@@ -469,7 +467,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   const RTD_TEXT: int[];
 
@@ -487,7 +485,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   const RTD_URI: int[];
 
@@ -505,7 +503,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum MifareClassicType {
     /**
@@ -520,7 +518,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_UNKNOWN = 0,
 
@@ -536,7 +534,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_CLASSIC = 1,
 
@@ -552,7 +550,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_PLUS = 2,
 
@@ -568,7 +566,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_PRO = 3
   }
@@ -587,7 +585,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum MifareClassicSize {
     /**
@@ -602,7 +600,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MC_SIZE_MINI = 320,
 
@@ -618,7 +616,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MC_SIZE_1K = 1024,
 
@@ -634,7 +632,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MC_SIZE_2K = 2048,
 
@@ -650,7 +648,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MC_SIZE_4K = 4096
   }
@@ -669,7 +667,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum MifareUltralightType {
     /**
@@ -684,7 +682,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_UNKNOWN = 0,
 
@@ -700,7 +698,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_ULTRALIGHT = 1,
 
@@ -716,7 +714,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_ULTRALIGHT_C = 2
   }
@@ -767,7 +765,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getNfcA(tagInfo: TagInfo): NfcATag;
 
@@ -817,7 +815,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getNfcB(tagInfo: TagInfo): NfcBTag;
 
@@ -867,7 +865,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getNfcF(tagInfo: TagInfo): NfcFTag;
 
@@ -917,7 +915,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getNfcV(tagInfo: TagInfo): NfcVTag;
 
@@ -953,7 +951,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getIsoDep(tagInfo: TagInfo): IsoDepTag;
 
@@ -989,7 +987,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getNdef(tagInfo: TagInfo): NdefTag;
 
@@ -1025,7 +1023,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getMifareClassic(tagInfo: TagInfo): MifareClassicTag;
 
@@ -1061,7 +1059,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getMifareUltralight(tagInfo: TagInfo): MifareUltralightTag;
 
@@ -1097,7 +1095,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getNdefFormatable(tagInfo: TagInfo): NdefFormatableTag;
 
@@ -1117,7 +1115,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getBarcodeTag(tagInfo: TagInfo): BarcodeTag;
 
@@ -1147,7 +1145,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getTagInfo(want: Want): TagInfo;
 
@@ -1185,7 +1183,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function registerForegroundDispatch(
     elementName: ElementName,
@@ -1222,7 +1220,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function unregisterForegroundDispatch(elementName: ElementName): void;
 
@@ -1263,7 +1261,6 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   function on(type: 'readerMode', elementName: ElementName, discTech: int[], callback: AsyncCallback<TagInfo>): void;
 
@@ -1273,13 +1270,14 @@ declare namespace tag {
    *
    * @permission ohos.permission.NFC_TAG
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
-   * @param { int[] } discTech - The technologies list to set for discovering. From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
+   * @param { int[] } discTech - The technologies list to set for discovering.
+   *     From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
    * @param { AsyncCallback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @throws { BusinessError } 3100202 - The element state is invalid.
@@ -1313,7 +1311,7 @@ declare namespace tag {
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
    * @param { AsyncCallback<TagInfo> } [callback] - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1323,7 +1321,6 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   function off(type: 'readerMode', elementName: ElementName, callback?: AsyncCallback<TagInfo>): void;
 
@@ -1334,10 +1331,10 @@ declare namespace tag {
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
    * @param { AsyncCallback<TagInfo> } [callback] - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @throws { BusinessError } 3100203 - The off() API can be called only when the on() has been called.
@@ -1364,7 +1361,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface TagInfo {
     /**
@@ -1382,7 +1379,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uid: int[];
 
@@ -1401,7 +1398,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     technology: int[];
 
@@ -1413,6 +1410,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @systemapi hide for inner use.
      * @since 9 dynamic
+     * @since 22 static
      */
     extrasData: PacMap[];
 
@@ -1424,7 +1422,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @systemapi hide for inner use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     tagRfDiscId: int;
 
@@ -1436,7 +1434,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @systemapi hide for inner use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     remoteTagService: rpc.RemoteObject;
 
@@ -1466,7 +1464,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface NdefRecord {
     /**
@@ -1482,7 +1480,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     tnf: int;
 
@@ -1500,7 +1498,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rtdType: int[];
 
@@ -1517,7 +1515,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     id: int[];
 
@@ -1534,7 +1532,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     payload: int[];
   }
@@ -1553,7 +1551,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   namespace ndef {
     /**
@@ -1580,7 +1578,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     function makeUriRecord(uri: string): NdefRecord;
 
@@ -1610,7 +1608,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     function makeTextRecord(text: string, locale: string): NdefRecord;
 
@@ -1626,7 +1624,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     function makeApplicationRecord(bundleName: string): NdefRecord;
 
@@ -1656,7 +1654,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     function makeMimeRecord(mimeType: string, mimeData: int[]): NdefRecord;
 
@@ -1688,7 +1686,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     function makeExternalRecord(domainName: string, type: string, externalData: int[]): NdefRecord;
     /**
@@ -1715,7 +1713,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     function createNdefMessage(data: int[]): NdefMessage;
 
@@ -1743,7 +1741,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     function createNdefMessage(ndefRecords: NdefRecord[]): NdefMessage;
 
@@ -1768,7 +1766,7 @@ declare namespace tag {
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     function messageToBytes(ndefMessage: NdefMessage): int[];
   }
@@ -1786,7 +1784,7 @@ declare namespace tag {
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12 dynamic
-  * @since 20 static
+  * @since 22 static
   */
   export type NfcATag = _NfcATag;
 
@@ -1803,7 +1801,7 @@ declare namespace tag {
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12 dynamic
-  * @since 20 static
+  * @since 22 static
   */
   export type NfcBTag = _NfcBTag;
 
@@ -1820,7 +1818,7 @@ declare namespace tag {
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12 dynamic
-  * @since 20 static
+  * @since 22 static
   */
   export type NfcFTag = _NfcFTag;
 
@@ -1837,7 +1835,7 @@ declare namespace tag {
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12 dynamic
-  * @since 20 static
+  * @since 22 static
   */
   export type NfcVTag = _NfcVTag;
 
@@ -1854,7 +1852,7 @@ declare namespace tag {
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12 dynamic
-  * @since 20 static
+  * @since 22 static
   */
   export type IsoDepTag = _IsoDepTag;
 
@@ -1871,7 +1869,7 @@ declare namespace tag {
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12 dynamic
-  * @since 20 static
+  * @since 22 static
   */
   export type NdefTag = _NdefTag;
 
@@ -1888,7 +1886,7 @@ declare namespace tag {
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12 dynamic
-  * @since 20 static
+  * @since 22 static
   */
   export type MifareClassicTag = _MifareClassicTag;
 
@@ -1905,7 +1903,7 @@ declare namespace tag {
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12 dynamic
-  * @since 20 static
+  * @since 22 static
   */
   export type MifareUltralightTag = _MifareUltralightTag;
 
@@ -1922,7 +1920,7 @@ declare namespace tag {
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12 dynamic
-  * @since 20 static
+  * @since 22 static
   */
   export type NdefFormatableTag = _NdefFormatableTag;
 
@@ -1933,7 +1931,7 @@ declare namespace tag {
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 18 dynamic
-  * @since 20 static
+  * @since 22 static
   */
   export type BarcodeTag = _BarcodeTag;
 
@@ -1950,7 +1948,7 @@ declare namespace tag {
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12 dynamic
-  * @since 20 static
+  * @since 22 static
   */
   export type NdefMessage = _NdefMessage;
 
@@ -1967,7 +1965,7 @@ declare namespace tag {
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
   * @since 12 dynamic
-  * @since 20 static
+  * @since 22 static
   */
   export type TagSession = _TagSession;
 }

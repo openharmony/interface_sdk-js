@@ -28,7 +28,7 @@ import UIExtensionContext from './UIExtensionContext';
  * @systemapi
  * @StageModelOnly
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export default class MediaControlExtensionContext extends UIExtensionContext {
 }

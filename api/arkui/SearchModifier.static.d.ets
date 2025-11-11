@@ -29,7 +29,7 @@ import { SearchAttribute } from '@ohos.arkui.component';
  *
  * @implements { SearchAttribute, AttributeModifier<SearchAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare class SearchModifier implements SearchAttribute, AttributeModifier<SearchAttribute> {}

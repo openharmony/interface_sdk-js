@@ -20,13 +20,13 @@
  */
 
 /**
- * Define the State interface to observed data changes.
+ * Define the ReadableState interface to observed data changes.
  *
- * @interface State<T>
+ * @interface ReadableState<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-export declare interface State<T> {
+export declare interface ReadableState<T> {
     /**
      * Get state variable value.
      *
@@ -46,7 +46,7 @@ export declare interface State<T> {
  * @returns { boolean } - Returns the comparison result between old value and new value,
  * if they are equal, ther true; otherwise, return false.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export type Equivalent<T> = (oldV: T, newV: T) => boolean;
 
@@ -89,14 +89,11 @@ export declare interface IncrementalScope<Value> {
      *
      * @param {int} index - index
      * @param {T} value - then value to be updated
-     * @param {Equivalent<T>} [equivalent] - determine whether two values are equal
-     * @param {string} [name] - state variable name
-     * @param {boolean} [contextLocal] - whether can get local context
-     * @returns {State<T>} return state variable Value
+     * @returns {ReadableState<T>} return state variable Value
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    param<T>(index: int, value: T, equivalent?: Equivalent<T>, name?: string, contextLocal?: boolean): State<T>;
+    param<T>(index: int, value: T): ReadableState<T>;
 }
 
 /**
@@ -124,7 +121,7 @@ export declare interface StateContext {
  *
  * @typedef { StateContext } __memo_context_type
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export type __memo_context_type = StateContext;
 
@@ -133,6 +130,6 @@ export type __memo_context_type = StateContext;
  *
  * @typedef { int } __memo_id_type
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export type __memo_id_type = int;

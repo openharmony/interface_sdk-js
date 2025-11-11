@@ -18,14 +18,14 @@
  * @kit ArkUI
  */
 
-import { memo } from '@ohos.arkui.stateManagement'
+import { Builder, CustomBuilder, CustomBuilderT } from './arkui/component/builder';
 
 /**
 * Describe the options for the ParallelizeUI.
 *
 * @interface ParallelOption
 * @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 20 static
+* @since 22 static
 */
 export interface ParallelOption {
 	/**
@@ -33,7 +33,7 @@ export interface ParallelOption {
 	*
 	* @type { ?boolean }
 	* @syscap SystemCapability.ArkUI.ArkUI.Full
-	* @since 20 static
+	* @since 22 static
 	*/
 	enable?: boolean,
 }
@@ -41,32 +41,30 @@ export interface ParallelOption {
 /**
  * Define the constructor of ParallelizeUI.
  * 
- * @param { ParallelOption | undefined } [options] - ParallelizeUI Option
- * @param { () => void } [content_] - Parallel creation of content
+ * @param { ParallelOption | undefined } options - ParallelizeUI Option
+ * @param { CustomBuilder } content_ - Parallel creation of content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
-@memo
+@Builder
 export declare function ParallelizeUI(
   options: ParallelOption | undefined,
-  @memo
-  content_: () => void,
+  content_: CustomBuilder,
 ): void
 
 
 /**
  * Define the constructor of ParallelizeUI.
  *
- * @param { ParallelOption | undefined } [options] - ParallelizeUI Option
- * @param { () => T } [param] - ParallelizeUI parameter
- * @param { (param: T) => void } [content_] - Parallel creation of content
+ * @param { ParallelOption | undefined } options - ParallelizeUI Option
+ * @param { () => T } param - ParallelizeUI parameter
+ * @param { (param: T) => void } content_ - Parallel creation of content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
-@memo
+@Builder
 export declare function ParallelizeUI<T>(
   options: ParallelOption | undefined,
   param: () => T,
-  @memo
-  content_: (param: T) => void,
+  content_: CustomBuilderT<T>,
 ): void

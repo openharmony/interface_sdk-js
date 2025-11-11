@@ -38,7 +38,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace wifiManager {
   /**
@@ -51,7 +51,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501003 - Operation failed because the service is being closed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enableWifi(): void;
 
@@ -64,7 +64,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501004 - Operation failed because the service is being opened.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function disableWifi(): void;
 
@@ -79,7 +80,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enableSemiWifi(): void;
 
@@ -125,7 +126,7 @@ declare namespace wifiManager {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isWifiActive(): boolean;
 
@@ -152,7 +153,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function startScan(): void;
 
@@ -182,7 +183,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getWifiDetailState(): WifiDetailState;
 
@@ -237,7 +238,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getScanInfoList(): Array<WifiScanInfo>;
 
@@ -253,7 +254,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setScanAlwaysAllowed(isScanAlwaysAllowed: boolean): void;
 
@@ -268,7 +269,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getScanAlwaysAllowed(): boolean;
 
@@ -285,7 +286,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addDeviceConfig(config: WifiDeviceConfig): Promise<int>;
 
@@ -302,7 +303,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addDeviceConfig(config: WifiDeviceConfig, callback: AsyncCallback<int>): void;
 
@@ -338,7 +339,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addCandidateConfig(config: WifiDeviceConfig): Promise<int>;
 
@@ -374,7 +375,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addCandidateConfig(config: WifiDeviceConfig, callback: AsyncCallback<int>): void;
 
@@ -410,7 +411,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeCandidateConfig(networkId: int): Promise<void>;
 
@@ -446,7 +447,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeCandidateConfig(networkId: int, callback: AsyncCallback<void>): void;
 
@@ -484,7 +485,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getCandidateConfigs(): Array<WifiDeviceConfig>;
 
@@ -519,7 +520,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function connectToCandidateConfig(networkId: int): void;
 
@@ -557,7 +558,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function connectToNetwork(networkId: int): void;
 
@@ -576,7 +577,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function connectToDevice(config: WifiDeviceConfig): void;
 
@@ -590,7 +591,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function disconnect(): void;
 
@@ -607,7 +608,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSignalLevel(rssi: int, band: int): int;
 
@@ -635,7 +636,7 @@ declare namespace wifiManager {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    * 
    */
   function getLinkedInfo(): Promise<WifiLinkedInfo>;
@@ -652,7 +653,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getMultiLinkedInfo(): Array<WifiLinkedInfo>;
   
@@ -682,7 +683,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getLinkedInfo(callback: AsyncCallback<WifiLinkedInfo>): void;
 
@@ -698,7 +699,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
    function getLinkedInfoSync(): WifiLinkedInfo;
 
@@ -724,7 +725,7 @@ declare namespace wifiManager {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isConnected(): boolean;
 
@@ -740,7 +741,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSupportedFeatures(): long;
 
@@ -756,7 +757,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2401000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.Core
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isFeatureSupported(featureId: long): boolean;
 
@@ -771,7 +772,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDeviceMacAddress(): string[];
 
@@ -785,7 +786,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getIpInfo(): IpInfo;
 
@@ -799,7 +800,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getIpv6Info(): Ipv6Info;
 
@@ -812,7 +813,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2401000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.Core
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getCountryCode(): string;
 
@@ -827,7 +828,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function reassociate(): void;
 
@@ -842,7 +843,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function reconnect(): void;
 
@@ -855,7 +856,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDeviceConfigs(): Array<WifiDeviceConfig>;
 
@@ -875,7 +876,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function updateNetwork(config: WifiDeviceConfig): int;
 
@@ -895,7 +896,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 17 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function allowAutoConnect(netId: int, isAllowed: boolean): void;
 
@@ -914,7 +915,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function disableNetwork(netId: int): void;
 
@@ -929,7 +930,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeAllNetwork(): void;
 
@@ -949,7 +950,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeDevice(id: int): void;
 
@@ -963,7 +964,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isBandTypeSupported(bandType: WifiBandType): boolean;
 
@@ -978,7 +979,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function get5GChannelList(): Array<int>;
 
@@ -992,7 +993,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDisconnectedReason(): DisconnectedReason;
 
@@ -1007,7 +1008,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function startPortalCertification(): void;
 
@@ -1021,7 +1022,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isMeteredHotspot(): boolean;
 
@@ -1041,7 +1042,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enableHiLinkHandshake(isHiLinkEnable: boolean, bssid: string, config: WifiDeviceConfig): void;
 
@@ -1055,7 +1056,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function factoryReset(): void;
 
@@ -1070,7 +1071,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enableHotspot(): void;
 
@@ -1085,7 +1086,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function disableHotspot(): void;
 
@@ -1100,7 +1101,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isHotspotDualBandSupported(): boolean;
 
@@ -1117,7 +1118,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isOpenSoftApAllowed(): boolean;
 
@@ -1142,7 +1143,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isHotspotActive(): boolean;
 
@@ -1161,7 +1162,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setHotspotConfig(config: HotspotConfig): void;
 
@@ -1176,7 +1177,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getHotspotConfig(): HotspotConfig;
 
@@ -1205,7 +1206,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getStations(): Array<StationInfo>;
 
@@ -1222,7 +1223,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addHotspotBlockList(stationInfo: StationInfo): void;
 
@@ -1239,7 +1240,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function delHotspotBlockList(stationInfo: StationInfo): void;
 
@@ -1256,7 +1257,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getHotspotBlockList(): Array<StationInfo>;
 
@@ -1269,7 +1270,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getP2pLinkedInfo(): Promise<WifiP2pLinkedInfo>;
 
@@ -1283,7 +1284,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getP2pLinkedInfo(callback: AsyncCallback<WifiP2pLinkedInfo>): void;
 
@@ -1306,7 +1307,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getCurrentGroup(): Promise<WifiP2pGroupInfo>;
 
@@ -1329,7 +1330,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getCurrentGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
 
@@ -1352,7 +1353,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getP2pPeerDevices(): Promise<WifiP2pDevice[]>;
 
@@ -1377,7 +1378,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getP2pPeerDevices(callback: AsyncCallback<WifiP2pDevice[]>): void;
 
@@ -1404,7 +1405,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getP2pLocalDevice(): Promise<WifiP2pDevice>;
 
@@ -1433,7 +1434,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getP2pLocalDevice(callback: AsyncCallback<WifiP2pDevice>): void;
 
@@ -1449,7 +1450,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createGroup(config: WifiP2PConfig): void;
 
@@ -1462,7 +1463,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeGroup(): void;
 
@@ -1490,7 +1491,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function p2pConnect(config: WifiP2PConfig): void;
 
@@ -1503,7 +1504,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function p2pCancelConnect(): void;
 
@@ -1526,7 +1527,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function startDiscoverDevices(): void;
 
@@ -1539,7 +1540,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function stopDiscoverDevices(): void;
 
@@ -1556,7 +1557,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function deletePersistentGroup(netId: int): void;
 
@@ -1583,7 +1584,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getP2pGroups(): Promise<Array<WifiP2pGroupInfo>>;
 
@@ -1612,7 +1613,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getP2pGroups(callback: AsyncCallback<Array<WifiP2pGroupInfo>>): void;
 
@@ -1630,7 +1631,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setDeviceName(devName: string): void;
 
@@ -2681,7 +2682,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum DeviceAddressType {
     /**
@@ -2695,7 +2696,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RANDOM_DEVICE_ADDRESS,
 
@@ -2710,7 +2711,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     REAL_DEVICE_ADDRESS,
   }
@@ -2720,70 +2721,70 @@ declare namespace wifiManager {
    * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum EapMethod {
     /**
      * EAP NONE
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EAP_NONE,
     /**
      * EAP PEAP
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EAP_PEAP,
     /**
      * EAP TLS
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EAP_TLS,
     /**
      * EAP TTLS
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EAP_TTLS,
     /**
      * EAP PWD
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EAP_PWD,
     /**
      * EAP SIM
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EAP_SIM,
     /**
      * EAP AKA
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EAP_AKA,
     /**
      * EAP AKA PRIME
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EAP_AKA_PRIME,
     /**
      * EAP UNAUTH TLS
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EAP_UNAUTH_TLS
   }
@@ -2793,63 +2794,63 @@ declare namespace wifiManager {
    * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum Phase2Method {
     /**
      * Phase2 NONE
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PHASE2_NONE,
     /**
      * Phase2 PAP
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PHASE2_PAP,
     /**
      * Phase2 MSCHAP
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PHASE2_MSCHAP,
     /**
      * Phase2 MSCHAPV2
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PHASE2_MSCHAPV2,
     /**
      * Phase2 GTC
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PHASE2_GTC,
     /**
      * Phase2 SIM
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PHASE2_SIM,
     /**
      * Phase2 AKA
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PHASE2_AKA,
     /**
      * Phase2 AKA+
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PHASE2_AKA_PRIME
   }
@@ -2860,7 +2861,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum DisconnectedReason {
     /**
@@ -2868,7 +2869,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DISC_REASON_DEFAULT = 0,
 
@@ -2877,7 +2878,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DISC_REASON_WRONG_PWD = 1,
 
@@ -2886,7 +2887,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DISC_REASON_CONNECTION_FULL = 2
   }
@@ -2897,7 +2898,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum WifiDetailState {
     /**
@@ -2905,7 +2906,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UNKNOWN = -1,
 
@@ -2914,7 +2915,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INACTIVE = 0,
 
@@ -2923,7 +2924,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACTIVATED = 1,
 
@@ -2932,7 +2933,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACTIVATING = 2,
 
@@ -2941,7 +2942,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DEACTIVATING = 3,
 
@@ -2950,7 +2951,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SEMI_ACTIVATING = 4,
 
@@ -2959,7 +2960,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SEMI_ACTIVE = 5,
   }
@@ -2970,7 +2971,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum ProxyMethod {
     /**
@@ -2978,7 +2979,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     METHOD_NONE = 0,
 
@@ -2987,7 +2988,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     METHOD_AUTO = 1,
 
@@ -2996,7 +2997,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     METHOD_MANUAL = 2
   }
@@ -3006,14 +3007,14 @@ declare namespace wifiManager {
    * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum WifiCategory {
     /**
      * Default.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DEFAULT = 1,
 
@@ -3021,7 +3022,7 @@ declare namespace wifiManager {
      * Wifi6.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI6 = 2,
 
@@ -3029,7 +3030,7 @@ declare namespace wifiManager {
      * Wifi6+.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI6_PLUS = 3,
 
@@ -3037,7 +3038,7 @@ declare namespace wifiManager {
      * Wifi7.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI7 = 4,
 
@@ -3045,7 +3046,7 @@ declare namespace wifiManager {
      * Wifi7+.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 15 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI7_PLUS = 5
   }
@@ -3055,14 +3056,14 @@ declare namespace wifiManager {
    * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum WifiLinkType {
     /**
      * Default link.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DEFAULT_LINK = 0,
 
@@ -3070,7 +3071,7 @@ declare namespace wifiManager {
      * Wi-Fi7 single link.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI7_SINGLE_LINK = 1,
 
@@ -3078,7 +3079,7 @@ declare namespace wifiManager {
      * Wi-Fi7 MLSR.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI7_MLSR = 2,
 
@@ -3086,7 +3087,7 @@ declare namespace wifiManager {
      * Wi-Fi7 EMLSR.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI7_EMLSR = 3,
 
@@ -3094,7 +3095,7 @@ declare namespace wifiManager {
      * Wi-Fi7 STR.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI7_STR = 4
   }
@@ -3105,7 +3106,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface WifiProxyConfig {
     /** 
@@ -3114,7 +3115,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     proxyMethod?: ProxyMethod;
 
@@ -3124,7 +3125,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pacWebAddress?: string;
 
@@ -3134,7 +3135,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     serverHostName?: string;
 
@@ -3144,7 +3145,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     serverPort?: int;
 
@@ -3154,7 +3155,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     exclusionObjects?: string;
   }
@@ -3164,7 +3165,7 @@ declare namespace wifiManager {
    * @typedef WifiEapConfig
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface WifiEapConfig {
     /** 
@@ -3172,7 +3173,7 @@ declare namespace wifiManager {
      * @type { EapMethod }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     eapMethod: EapMethod;
 
@@ -3181,7 +3182,7 @@ declare namespace wifiManager {
      * @type { Phase2Method }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     phase2Method: Phase2Method;
 
@@ -3190,7 +3191,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     identity: string;
 
@@ -3199,7 +3200,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     anonymousIdentity: string;
 
@@ -3208,7 +3209,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     password: string;
 
@@ -3217,7 +3218,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     caCertAlias: string;
 
@@ -3226,7 +3227,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     caPath: string;
 
@@ -3235,7 +3236,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     clientCertAlias: string;
 
@@ -3244,7 +3245,7 @@ declare namespace wifiManager {
      * @type { Uint8Array }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     certEntry: Uint8Array;
 
@@ -3253,7 +3254,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     certPassword: string;
 
@@ -3262,7 +3263,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     altSubjectMatch: string;
 
@@ -3271,7 +3272,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     domainSuffixMatch: string;
 
@@ -3280,7 +3281,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     realm: string;
 
@@ -3289,7 +3290,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     plmn: string;
 
@@ -3298,7 +3299,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     eapSubId: int;
   }
@@ -3316,7 +3317,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface WifiDeviceConfig {
     /** 
@@ -3331,7 +3332,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ssid: string;
 
@@ -3347,7 +3348,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bssid?: string;
 
@@ -3363,7 +3364,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bssidType?: DeviceAddressType;
 
@@ -3379,7 +3380,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     preSharedKey: string;
 
@@ -3388,7 +3389,7 @@ declare namespace wifiManager {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isHiddenSsid?: boolean;
 
@@ -3405,7 +3406,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     securityType: WifiSecurityType;
 
@@ -3415,7 +3416,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     creatorUid?: int;
 
@@ -3425,7 +3426,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     disableReason?: int;
 
@@ -3444,7 +3445,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     randomMacType?: int;
 
@@ -3454,7 +3455,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     randomMacAddr?: string;
 
@@ -3464,7 +3465,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ipType?: IpType;
 
@@ -3474,7 +3475,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     staticIp?: IpConfig;
 
@@ -3483,7 +3484,7 @@ declare namespace wifiManager {
      * @type { ?WifiEapConfig }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     eapConfig?: WifiEapConfig;
 
@@ -3493,7 +3494,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     proxyConfig?: WifiProxyConfig;
 
@@ -3502,7 +3503,7 @@ declare namespace wifiManager {
      * @type { ?WifiWapiConfig }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     wapiConfig?: WifiWapiConfig;
 
@@ -3512,7 +3513,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     configStatus?: int;
 
@@ -3522,7 +3523,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 17 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isAutoConnectAllowed?: boolean;
 
@@ -3541,7 +3542,7 @@ declare namespace wifiManager {
    * @typedef WifiWapiConfig
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface WifiWapiConfig {
     /**
@@ -3549,7 +3550,7 @@ declare namespace wifiManager {
      * @type { WapiPskType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     wapiPskType: WapiPskType;
 
@@ -3558,7 +3559,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     wapiAsCert: string;
 
@@ -3567,7 +3568,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     wapiUserCert: string;
   }
@@ -3578,7 +3579,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface IpConfig {
     /**
@@ -3587,7 +3588,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ipAddress: int;
 
@@ -3597,7 +3598,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gateway: int;
 
@@ -3607,7 +3608,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     prefixLength: int;
 
@@ -3617,7 +3618,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     dnsServers: int[];
 
@@ -3627,7 +3628,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     domains: Array<string>;
   }
@@ -3637,7 +3638,7 @@ declare namespace wifiManager {
    * @typedef WifiInfoElem
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface WifiInfoElem {
     /**
@@ -3645,7 +3646,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     eid: int;
 
@@ -3654,7 +3655,7 @@ declare namespace wifiManager {
      * @type { Uint8Array }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     content: Uint8Array;
   }
@@ -3664,7 +3665,7 @@ declare namespace wifiManager {
    * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum WifiChannelWidth {
     /**
@@ -3672,7 +3673,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIDTH_20MHZ = 0,
 
@@ -3681,7 +3682,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIDTH_40MHZ = 1,
 
@@ -3690,7 +3691,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIDTH_80MHZ = 2,
 
@@ -3699,7 +3700,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIDTH_160MHZ = 3,
 
@@ -3708,7 +3709,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIDTH_80MHZ_PLUS = 4,
 
@@ -3717,7 +3718,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIDTH_INVALID
   }
@@ -3734,7 +3735,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface WifiScanInfo {
     /**
@@ -3749,7 +3750,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ssid: string;
 
@@ -3765,7 +3766,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bssid: string;
 
@@ -3781,7 +3782,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bssidType: DeviceAddressType;
 
@@ -3790,7 +3791,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     capabilities: string;
 
@@ -3806,7 +3807,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     securityType: WifiSecurityType;
 
@@ -3822,7 +3823,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rssi: int;
 
@@ -3831,7 +3832,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     band: int;
 
@@ -3847,7 +3848,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     frequency: int;
 
@@ -3856,7 +3857,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     channelWidth: int;
 
@@ -3865,7 +3866,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     centerFrequency0: int;
 
@@ -3874,7 +3875,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     centerFrequency1: int;
 
@@ -3883,7 +3884,7 @@ declare namespace wifiManager {
      * @type { Array<WifiInfoElem> }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     infoElems: Array<WifiInfoElem>;
 
@@ -3892,7 +3893,7 @@ declare namespace wifiManager {
      * @type { long }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     timestamp: long;
 
@@ -3901,7 +3902,7 @@ declare namespace wifiManager {
      * @type { WifiCategory }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     supportedWifiCategory: WifiCategory;
 
@@ -3910,7 +3911,7 @@ declare namespace wifiManager {
      * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isHiLinkNetwork: boolean;
   }
@@ -3927,7 +3928,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum WifiSecurityType {
     /**
@@ -3935,7 +3936,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_SEC_TYPE_INVALID = 0,
 
@@ -3951,7 +3952,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_SEC_TYPE_OPEN = 1,
 
@@ -3960,7 +3961,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_SEC_TYPE_WEP = 2,
 
@@ -3969,7 +3970,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_SEC_TYPE_PSK = 3,
 
@@ -3978,7 +3979,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_SEC_TYPE_SAE = 4,
 
@@ -3987,7 +3988,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_SEC_TYPE_EAP = 5,
 
@@ -3996,7 +3997,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_SEC_TYPE_EAP_SUITE_B = 6,
 
@@ -4005,7 +4006,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_SEC_TYPE_OWE = 7,
 
@@ -4014,7 +4015,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_SEC_TYPE_WAPI_CERT = 8,
 
@@ -4023,7 +4024,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_SEC_TYPE_WAPI_PSK = 9
   }
@@ -4033,7 +4034,7 @@ declare namespace wifiManager {
    * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.Core
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum WapiPskType {
     /**
@@ -4041,7 +4042,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WAPI_PSK_ASCII = 0,
 
@@ -4050,7 +4051,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WAPI_PSK_HEX = 1
   }
@@ -4060,7 +4061,7 @@ declare namespace wifiManager {
    * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum WifiBandType {
     /**
@@ -4068,7 +4069,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_BAND_NONE,
 
@@ -4077,7 +4078,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_BAND_2G,
 
@@ -4086,7 +4087,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_BAND_5G,
 
@@ -4095,7 +4096,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_BAND_6G,
 
@@ -4104,7 +4105,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_BAND_60G
   }
@@ -4114,14 +4115,14 @@ declare namespace wifiManager {
    * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum WifiStandard {
     /**
      * Undefined
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_STANDARD_UNDEFINED,
 
@@ -4129,7 +4130,7 @@ declare namespace wifiManager {
      * Wifi 802.11a
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_STANDARD_11A,
 
@@ -4137,7 +4138,7 @@ declare namespace wifiManager {
      * Wifi 802.11b
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_STANDARD_11B,
 
@@ -4145,7 +4146,7 @@ declare namespace wifiManager {
      * Wifi 802.11g
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_STANDARD_11G,
 
@@ -4153,7 +4154,7 @@ declare namespace wifiManager {
      * Wifi 802.11n
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_STANDARD_11N,
 
@@ -4161,7 +4162,7 @@ declare namespace wifiManager {
      * Wifi 802.11ac
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_STANDARD_11AC,
 
@@ -4169,7 +4170,7 @@ declare namespace wifiManager {
      * Wifi 802.11ax
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_STANDARD_11AX,
 
@@ -4177,7 +4178,7 @@ declare namespace wifiManager {
      * Wifi 802.11ad
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI_STANDARD_11AD
   }
@@ -4195,7 +4196,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
    
   interface WifiLinkedInfo {
@@ -4211,7 +4212,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ssid: string;
 
@@ -4227,7 +4228,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bssid: string;
 
@@ -4237,7 +4238,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     networkId: int;
 
@@ -4253,7 +4254,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rssi: int;
 
@@ -4262,7 +4263,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     band: int;
 
@@ -4271,7 +4272,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     linkSpeed: int;
 
@@ -4280,7 +4281,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rxLinkSpeed: int;
 
@@ -4289,7 +4290,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     maxSupportedTxLinkSpeed: int;
 
@@ -4298,7 +4299,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     maxSupportedRxLinkSpeed: int;
 
@@ -4314,7 +4315,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     frequency: int;
 
@@ -4323,7 +4324,7 @@ declare namespace wifiManager {
      * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isHidden: boolean;
 
@@ -4332,7 +4333,7 @@ declare namespace wifiManager {
      * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isRestricted: boolean;
 
@@ -4342,7 +4343,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     chload: int;
 
@@ -4352,7 +4353,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     snr: int;
 
@@ -4361,7 +4362,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     macType: int;
 
@@ -4370,7 +4371,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     macAddress: string;
 
@@ -4379,7 +4380,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ipAddress: int;
 
@@ -4389,7 +4390,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     suppState: SuppState;
 
@@ -4398,7 +4399,7 @@ declare namespace wifiManager {
      * @type { ConnState }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     connState: ConnState;
 
@@ -4407,7 +4408,7 @@ declare namespace wifiManager {
      * @type { WifiChannelWidth }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     channelWidth: WifiChannelWidth;
 
@@ -4416,7 +4417,7 @@ declare namespace wifiManager {
      * @type { WifiStandard }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     wifiStandard: WifiStandard;
 
@@ -4425,7 +4426,7 @@ declare namespace wifiManager {
      * @type { WifiCategory }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     supportedWifiCategory: WifiCategory;
 
@@ -4434,7 +4435,7 @@ declare namespace wifiManager {
      * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isHiLinkNetwork: boolean;
 
@@ -4443,7 +4444,7 @@ declare namespace wifiManager {
      * @type { ?WifiLinkType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     wifiLinkType?: WifiLinkType;
   }
@@ -4453,7 +4454,7 @@ declare namespace wifiManager {
    * @typedef IpInfo
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface IpInfo {
     /**
@@ -4461,7 +4462,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ipAddress: int;
 
@@ -4470,7 +4471,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gateway: int;
 
@@ -4479,7 +4480,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     netmask: int;
 
@@ -4488,7 +4489,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     primaryDns: int;
 
@@ -4497,7 +4498,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     secondDns: int;
 
@@ -4506,7 +4507,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     serverIp: int;
 
@@ -4515,7 +4516,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     leaseDuration: int;
   }
@@ -4525,7 +4526,7 @@ declare namespace wifiManager {
    * @typedef Ipv6Info
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Ipv6Info {
     /**
@@ -4533,7 +4534,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     linkIpv6Address: string;
 
@@ -4542,7 +4543,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     globalIpv6Address: string;
 
@@ -4551,7 +4552,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     randomGlobalIpv6Address: string;
 
@@ -4560,7 +4561,7 @@ declare namespace wifiManager {
      * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uniqueIpv6Address?: string;
 
@@ -4569,7 +4570,7 @@ declare namespace wifiManager {
      * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     randomUniqueIpv6Address?: string;
 
@@ -4578,7 +4579,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     gateway: string;
 
@@ -4587,7 +4588,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     netmask: string;
 
@@ -4596,7 +4597,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     primaryDNS: string;
 
@@ -4605,7 +4606,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     secondDNS: string;
   }
@@ -4616,7 +4617,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface HotspotConfig {
     /**
@@ -4625,7 +4626,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ssid: string;
 
@@ -4635,7 +4636,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     securityType: WifiSecurityType;
 
@@ -4645,7 +4646,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     band: int;
 
@@ -4655,7 +4656,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     channel?: int;
 
@@ -4665,7 +4666,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     preSharedKey: string;
 
@@ -4675,7 +4676,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     maxConn: int;
 
@@ -4685,7 +4686,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ipAddress?: string;
   }
@@ -4696,7 +4697,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface StationInfo {
     /**
@@ -4705,7 +4706,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -4715,7 +4716,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     macAddress: string;
 
@@ -4725,7 +4726,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     macAddressType?: DeviceAddressType;
 
@@ -4735,7 +4736,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ipAddress: string;
   }
@@ -4747,7 +4748,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum IpType {
     /**
@@ -4755,7 +4756,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATIC,
 
@@ -4764,7 +4765,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DHCP,
 
@@ -4773,7 +4774,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UNKNOWN
   }
@@ -4785,7 +4786,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum SuppState {
     /**
@@ -4793,7 +4794,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DISCONNECTED,
 
@@ -4802,7 +4803,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INTERFACE_DISABLED,
 
@@ -4811,7 +4812,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INACTIVE,
 
@@ -4820,7 +4821,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SCANNING,
 
@@ -4829,7 +4830,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUTHENTICATING,
 
@@ -4838,7 +4839,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ASSOCIATING,
 
@@ -4847,7 +4848,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ASSOCIATED,
 
@@ -4856,7 +4857,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FOUR_WAY_HANDSHAKE,
 
@@ -4865,7 +4866,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     GROUP_HANDSHAKE,
 
@@ -4874,7 +4875,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     COMPLETED,
 
@@ -4883,7 +4884,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UNINITIALIZED,
 
@@ -4892,7 +4893,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INVALID
   }
@@ -4903,7 +4904,7 @@ declare namespace wifiManager {
    * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum ConnState {
     /**
@@ -4911,7 +4912,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SCANNING,
 
@@ -4920,7 +4921,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CONNECTING,
 
@@ -4929,7 +4930,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUTHENTICATING,
 
@@ -4938,7 +4939,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     OBTAINING_IPADDR,
 
@@ -4947,7 +4948,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CONNECTED,
 
@@ -4956,7 +4957,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DISCONNECTING,
 
@@ -4965,7 +4966,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DISCONNECTED,
 
@@ -4974,7 +4975,7 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UNKNOWN
   }
@@ -4985,7 +4986,7 @@ declare namespace wifiManager {
    * @typedef WifiP2pDevice
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface WifiP2pDevice {
     /**
@@ -4993,7 +4994,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deviceName: string;
 
@@ -5002,7 +5003,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deviceAddress: string;
 
@@ -5011,7 +5012,7 @@ declare namespace wifiManager {
      * @type { ?DeviceAddressType }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deviceAddressType?: DeviceAddressType;
 
@@ -5020,7 +5021,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     primaryDeviceType: string;
 
@@ -5029,7 +5030,7 @@ declare namespace wifiManager {
      * @type { P2pDeviceStatus }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deviceStatus: P2pDeviceStatus;
 
@@ -5038,7 +5039,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     groupCapabilities: int;
   }
@@ -5049,7 +5050,7 @@ declare namespace wifiManager {
    * @typedef WifiP2PConfig
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface WifiP2PConfig {
     /** 
@@ -5057,7 +5058,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deviceAddress: string;
 
@@ -5066,7 +5067,7 @@ declare namespace wifiManager {
      * @type { ?DeviceAddressType }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deviceAddressType?: DeviceAddressType;
 
@@ -5076,7 +5077,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     netId: int;
 
@@ -5085,7 +5086,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     passphrase: string;
 
@@ -5094,7 +5095,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     groupName: string;
 
@@ -5103,7 +5104,7 @@ declare namespace wifiManager {
      * @type { GroupOwnerBand }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     goBand: GroupOwnerBand;
   }
@@ -5114,7 +5115,7 @@ declare namespace wifiManager {
    * @typedef WifiP2pGroupInfo
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface WifiP2pGroupInfo {
     /**
@@ -5122,7 +5123,7 @@ declare namespace wifiManager {
      * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isP2pGo: boolean;
 
@@ -5131,7 +5132,7 @@ declare namespace wifiManager {
      * @type { WifiP2pDevice }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ownerInfo: WifiP2pDevice;
 
@@ -5140,7 +5141,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     passphrase: string;
 
@@ -5156,7 +5157,7 @@ declare namespace wifiManager {
      * Interface name
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 20 static
+     * @since 22 static
      */
     interfaceName: string;
 
@@ -5165,7 +5166,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     groupName: string;
 
@@ -5174,7 +5175,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     networkId: int;
 
@@ -5183,7 +5184,7 @@ declare namespace wifiManager {
      * @type { int }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     frequency: int;
 
@@ -5192,7 +5193,7 @@ declare namespace wifiManager {
      * @type { WifiP2pDevice[] }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     clientDevices: WifiP2pDevice[];
 
@@ -5201,7 +5202,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     goIpAddress: string;
   }
@@ -5212,14 +5213,14 @@ declare namespace wifiManager {
    * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum P2pConnectState {
     /**
      * p2p is disconnected 
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DISCONNECTED = 0,
 
@@ -5227,7 +5228,7 @@ declare namespace wifiManager {
      * p2p is connected 
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CONNECTED = 1
   }
@@ -5238,7 +5239,7 @@ declare namespace wifiManager {
    * @typedef WifiP2pLinkedInfo
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface WifiP2pLinkedInfo {
     /**
@@ -5246,7 +5247,7 @@ declare namespace wifiManager {
      * @type { P2pConnectState }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     connectState: P2pConnectState;
 
@@ -5255,7 +5256,7 @@ declare namespace wifiManager {
      * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isGroupOwner: boolean;
 
@@ -5264,7 +5265,7 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     groupOwnerAddr: string;
   }
@@ -5275,14 +5276,14 @@ declare namespace wifiManager {
    * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum P2pDeviceStatus {
     /** 
      * Indicate p2p device is connected.  
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CONNECTED = 0,
 
@@ -5290,7 +5291,7 @@ declare namespace wifiManager {
      * Indicate p2p device is invited.   
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INVITED = 1,
 
@@ -5298,7 +5299,7 @@ declare namespace wifiManager {
      * Indicate p2p device is failed.   
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FAILED = 2,
 
@@ -5306,7 +5307,7 @@ declare namespace wifiManager {
      * Indicate p2p device is available.   
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AVAILABLE = 3,
 
@@ -5314,7 +5315,7 @@ declare namespace wifiManager {
      * Indicate p2p device is unavailable.   
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UNAVAILABLE = 4
   }
@@ -5325,14 +5326,14 @@ declare namespace wifiManager {
    * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum GroupOwnerBand {
   /**
    * default band.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
     GO_BAND_AUTO = 0,
 
@@ -5340,7 +5341,7 @@ declare namespace wifiManager {
    * 2.4G band.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
     GO_BAND_2GHZ = 1,
 
@@ -5348,7 +5349,7 @@ declare namespace wifiManager {
    * 5G band.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
     GO_BAND_5GHZ = 2
   }

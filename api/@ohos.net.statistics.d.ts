@@ -33,14 +33,14 @@ import type connection from './@ohos.net.connection';
  * @syscap SystemCapability.Communication.NetManager.Core
  * @atomicservice
  * @since 15 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace statistics {
   /**
    * @typedef {connection.NetBearType}
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type NetBearType = connection.NetBearType;
 
@@ -56,7 +56,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getIfaceRxBytes(nic: string, callback: AsyncCallback<long>): void;
 
@@ -72,7 +72,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getIfaceRxBytes(nic: string): Promise<long>;
 
@@ -88,7 +88,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getIfaceTxBytes(nic: string, callback: AsyncCallback<long>): void;
 
@@ -104,7 +104,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getIfaceTxBytes(nic: string): Promise<long>;
 
@@ -118,7 +118,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getCellularRxBytes(callback: AsyncCallback<long>): void;
 
@@ -132,7 +132,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getCellularRxBytes(): Promise<long>;
 
@@ -146,7 +146,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getCellularTxBytes(callback: AsyncCallback<long>): void;
 
@@ -160,7 +160,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getCellularTxBytes(): Promise<long>;
 
@@ -184,7 +184,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllRxBytes(callback: AsyncCallback<long>): void;
 
@@ -208,7 +208,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllRxBytes(): Promise<long>;
 
@@ -232,7 +232,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllTxBytes(callback: AsyncCallback<long>): void;
 
@@ -256,7 +256,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getAllTxBytes(): Promise<long>;
 
@@ -271,7 +271,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getUidRxBytes(uid: int, callback: AsyncCallback<long>): void;
 
@@ -286,7 +286,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getUidRxBytes(uid: int): Promise<long>;
 
@@ -301,7 +301,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getUidTxBytes(uid: int, callback: AsyncCallback<long>): void;
   
@@ -316,7 +316,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getUidTxBytes(uid: int): Promise<long>;
 
@@ -423,7 +423,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getTrafficStatsByIface(ifaceInfo: IfaceInfo, callback: AsyncCallback<NetStatsInfo>): void;
   
@@ -442,7 +442,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getTrafficStatsByIface(ifaceInfo: IfaceInfo): Promise<NetStatsInfo>;
 
@@ -461,7 +461,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getTrafficStatsByUid(uidInfo: UidInfo, callback: AsyncCallback<NetStatsInfo>): void;
   
@@ -480,7 +480,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getTrafficStatsByUid(uidInfo: UidInfo): Promise<NetStatsInfo>;
 
@@ -494,7 +494,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSockfdRxBytes(sockfd: int, callback: AsyncCallback<long>): void;
 
@@ -508,7 +508,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSockfdRxBytes(sockfd: int): Promise<long>;
 
@@ -522,7 +522,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSockfdTxBytes(sockfd: int, callback: AsyncCallback<long>): void;
 
@@ -536,7 +536,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getSockfdTxBytes(sockfd: int): Promise<long>;
 
@@ -546,7 +546,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface IfaceInfo {
     /**
@@ -555,7 +555,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     iface: string;
 
@@ -565,7 +565,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     startTime: int;
 
@@ -575,7 +575,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     endTime: int;
   }
@@ -586,7 +586,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface UidInfo {
     /**
@@ -595,7 +595,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ifaceInfo: IfaceInfo;
 
@@ -605,7 +605,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uid: int;
   }
@@ -616,7 +616,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface NetStatsInfo {
     /**
@@ -625,7 +625,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rxBytes: long;
 
@@ -635,7 +635,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     txBytes: long;
 
@@ -645,7 +645,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rxPackets: long;
 
@@ -655,7 +655,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     txPackets: long;
   }
@@ -666,7 +666,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface NetStatsChangeInfo {
     /**
@@ -675,7 +675,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     iface: string;
     /**
@@ -684,7 +684,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uid?: int;
   }
@@ -702,7 +702,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     startTime: int;
     /**
@@ -711,7 +711,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     endTime: int;
     /**
@@ -720,7 +720,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     info: NetStatsInfo;
   }[];
@@ -729,7 +729,7 @@ declare namespace statistics {
    * Array of {@link NetStatsInfoSequenceItem}.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 20 static
+   * @since 22 static
    */
   export type NetStatsInfoSequence = Array<NetStatsInfoSequenceItem>;
 
@@ -738,7 +738,7 @@ declare namespace statistics {
    * @interface NetStatsInfoSequenceItem
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 20 static
+   * @since 22 static
    */
   export interface NetStatsInfoSequenceItem {
     /**
@@ -746,7 +746,7 @@ declare namespace statistics {
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 20 static
+     * @since 22 static
      */
     startTime: int;
     /**
@@ -754,7 +754,7 @@ declare namespace statistics {
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 20 static
+     * @since 22 static
      */
     endTime: int;
     /**
@@ -762,7 +762,7 @@ declare namespace statistics {
      * @type { NetStatsInfo }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 20 static
+     * @since 22 static
      */
     info: NetStatsInfo;
   }
@@ -781,7 +781,7 @@ declare namespace statistics {
    * {@link NetStatsInfo} for every UID. Key is UID.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 20 static
+   * @since 22 static
    */
   export type UidNetStatsInfo = Record<int, NetStatsInfo>;
 
@@ -791,7 +791,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface NetworkInfo {
     /**
@@ -800,7 +800,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     type: NetBearType;
     /**
@@ -809,7 +809,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     startTime: int;
     /**
@@ -818,7 +818,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     endTime: int;
     /**
@@ -827,7 +827,7 @@ declare namespace statistics {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     simId?: int;
   }
@@ -847,7 +847,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getTrafficStatsByNetwork(networkInfo: NetworkInfo): Promise<UidNetStatsInfo>;
   /**
@@ -866,7 +866,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getTrafficStatsByUidNetwork(uid: int, networkInfo: NetworkInfo): Promise<NetStatsInfoSequence>;
 }

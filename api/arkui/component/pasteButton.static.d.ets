@@ -17,14 +17,13 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { ButtonType } from './button';
 import { ClickEvent, AttributeModifier, CommonMethod } from './common';
 import { SecurityComponentMethod } from './securityComponent';
 import { BusinessError } from '../../@ohos.base';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
 
 /**
  * Enumerates the icon styles.
@@ -176,7 +175,6 @@ export declare interface PasteButtonAttribute extends SecurityComponentMethod {
  * @atomicservice
  * @since 20
  */
-@memo
 @ComponentBuilder
 export declare function PasteButton(
     options?: PasteButtonOptions

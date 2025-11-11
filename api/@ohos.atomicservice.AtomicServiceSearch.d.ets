@@ -25,7 +25,7 @@ import { OperationOption } from '@ohos.arkui.advanced.SubHeader';
  * @param { string } [selectValue] - Indicates the value of the selected item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18 dynamic
+ * @since 18 dynamiconly
  * @noninterop
  */
 declare type OnSelectCallback = (index: number, selectValue: string) => void;
@@ -37,7 +37,7 @@ declare type OnSelectCallback = (index: number, selectValue: string) => void;
  * @param { PasteEvent } event - Indicates a user-defined paste event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18 dynamic
+ * @since 18 dynamiconly
  * @noninterop
  */
 declare type OnPasteCallback = (pasteValue: string, event: PasteEvent) => void;
@@ -49,7 +49,7 @@ declare type OnPasteCallback = (pasteValue: string, event: PasteEvent) => void;
  * @param { number } selectionEnd - Indicates end position of the text selection area.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18 dynamic
+ * @since 18 dynamiconly
  * @noninterop
  */
 declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionEnd: number) => void;
@@ -61,7 +61,7 @@ declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionE
  * @param { number } totalOffsetY - Indicates the vertical coordinate offset of the text in the content area, in px. 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18 dynamic
+ * @since 18 dynamiconly
  * @noninterop
  */
 declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: number) => void;
@@ -71,7 +71,7 @@ declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: numb
  * @typedef InputFilterParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18 dynamic
+ * @since 18 dynamiconly
  * @noninterop
  */
 export interface InputFilterParams {
@@ -81,7 +81,7 @@ export interface InputFilterParams {
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   inputFilterValue: ResourceStr;
   /**
@@ -90,7 +90,7 @@ export interface InputFilterParams {
    * @type { ?Callback<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   error?: Callback<string>;
 }
@@ -100,7 +100,7 @@ export interface InputFilterParams {
  * @typedef SearchButtonParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18 dynamic
+ * @since 18 dynamiconly
  * @noninterop
  */
 export interface SearchButtonParams {
@@ -110,7 +110,7 @@ export interface SearchButtonParams {
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   searchButtonValue: ResourceStr;
   /**
@@ -119,7 +119,7 @@ export interface SearchButtonParams {
    * @type { ?SearchButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   options?: SearchButtonOptions;
 }
@@ -129,7 +129,7 @@ export interface SearchButtonParams {
  * @typedef MenuAlignParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18 dynamic
+ * @since 18 dynamiconly
  * @noninterop
  */
 export interface MenuAlignParams {
@@ -139,7 +139,7 @@ export interface MenuAlignParams {
    * @type { MenuAlignType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   alignType: MenuAlignType;
   /**
@@ -149,7 +149,7 @@ export interface MenuAlignParams {
    * @type { ?Offset }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   offset?: Offset;
 }
@@ -159,7 +159,7 @@ export interface MenuAlignParams {
  * @typedef SearchParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18 dynamic
+ * @since 18 dynamiconly
  * @noninterop
  */
 export interface SearchParams {
@@ -169,7 +169,7 @@ export interface SearchParams {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   searchKey?: ResourceStr;
   /**
@@ -178,7 +178,7 @@ export interface SearchParams {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   componentBackgroundColor?: ResourceColor;
   /**
@@ -187,7 +187,7 @@ export interface SearchParams {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   pressedBackgroundColor?: ResourceColor;
   /**
@@ -196,7 +196,7 @@ export interface SearchParams {
    * @type { ?SearchButtonParams }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   searchButton?: SearchButtonParams;
   /**
@@ -205,7 +205,7 @@ export interface SearchParams {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   placeholderColor?: ResourceColor;
   /**
@@ -214,7 +214,7 @@ export interface SearchParams {
    * @type { ?Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   placeholderFont?: Font;
   /**
@@ -223,7 +223,7 @@ export interface SearchParams {
    * @type { ?Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   textFont?: Font;
   /**
@@ -232,7 +232,7 @@ export interface SearchParams {
    * @type { ?TextAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   textAlign?: TextAlign;
   /**
@@ -241,7 +241,7 @@ export interface SearchParams {
    * @type { ?CopyOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   copyOptions?: CopyOptions;
   /**
@@ -250,7 +250,7 @@ export interface SearchParams {
    * @type { ?(IconOptions | SymbolGlyphModifier) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   searchIcon?: IconOptions | SymbolGlyphModifier;
   /**
@@ -259,7 +259,7 @@ export interface SearchParams {
    * @type { ?IconOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   cancelIcon?: IconOptions;
   /**
@@ -268,7 +268,7 @@ export interface SearchParams {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   fontColor?: ResourceColor;
   /**
@@ -277,7 +277,7 @@ export interface SearchParams {
    * @type { ?CaretStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   caretStyle?: CaretStyle;
   /**
@@ -286,7 +286,7 @@ export interface SearchParams {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   enableKeyboardOnFocus?: boolean;
   /**
@@ -295,7 +295,7 @@ export interface SearchParams {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   hideSelectionMenu?: boolean;
   /**
@@ -304,7 +304,7 @@ export interface SearchParams {
    * @type { ?SearchType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   type?: SearchType;
   /**
@@ -313,7 +313,7 @@ export interface SearchParams {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   maxLength?: number;
   /**
@@ -322,7 +322,7 @@ export interface SearchParams {
    * @type { ?EnterKeyType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   enterKeyType?: EnterKeyType;
   /**
@@ -331,7 +331,7 @@ export interface SearchParams {
    * @type { ?TextDecorationOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   decoration?: TextDecorationOptions;
   /**
@@ -340,7 +340,7 @@ export interface SearchParams {
    * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   letterSpacing?: number | string | Resource;
   /**
@@ -353,7 +353,7 @@ export interface SearchParams {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   fontFeature?: ResourceStr;
   /**
@@ -362,7 +362,7 @@ export interface SearchParams {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   selectedBackgroundColor?: ResourceColor;
   /**
@@ -371,7 +371,7 @@ export interface SearchParams {
    * @type { ?InputFilterParams }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   inputFilter?: InputFilterParams;
   /**
@@ -380,7 +380,7 @@ export interface SearchParams {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   textIndent?: Dimension;
   /**
@@ -389,7 +389,7 @@ export interface SearchParams {
    * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   minFontSize?: number | string | Resource;
   /**
@@ -398,7 +398,7 @@ export interface SearchParams {
    * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   maxFontSize?: number | string | Resource;
   /**
@@ -407,7 +407,7 @@ export interface SearchParams {
    * @type { ?EditMenuOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   editMenuOptions?: EditMenuOptions;
   /**
@@ -416,7 +416,7 @@ export interface SearchParams {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   enablePreviewText?: boolean;
   /**
@@ -425,7 +425,7 @@ export interface SearchParams {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   enableHapticFeedback?: boolean;
   /**
@@ -434,7 +434,7 @@ export interface SearchParams {
    * @type { ?(Callback<string> | SearchSubmitCallback) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   onSubmit?: Callback<string> | SearchSubmitCallback;
   /**
@@ -443,7 +443,7 @@ export interface SearchParams {
    * @type { ?EditableTextOnChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   onChange?: EditableTextOnChangeCallback;
   /**
@@ -452,7 +452,7 @@ export interface SearchParams {
    * @type { ?Callback<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   onCopy?: Callback<string>;
   /**
@@ -461,7 +461,7 @@ export interface SearchParams {
    * @type { ?Callback<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   onCut?: Callback<string>;
   /**
@@ -470,7 +470,7 @@ export interface SearchParams {
    * @type { ?OnPasteCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   onPaste?: OnPasteCallback;
   /**
@@ -479,7 +479,7 @@ export interface SearchParams {
    * @type { ?OnTextSelectionChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   onTextSelectionChange?: OnTextSelectionChangeCallback;
   /**
@@ -488,7 +488,7 @@ export interface SearchParams {
    * @type { ?OnContentScrollCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   onContentScroll?: OnContentScrollCallback;
   /**
@@ -497,7 +497,7 @@ export interface SearchParams {
    * @type { ?Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   onEditChange?: Callback<boolean>;
   /**
@@ -506,7 +506,7 @@ export interface SearchParams {
    * @type { ?Callback<InsertValue, boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   onWillInsert?: Callback<InsertValue, boolean>;
   /**
@@ -515,7 +515,7 @@ export interface SearchParams {
    * @type { ?Callback<InsertValue> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   onDidInsert?: Callback<InsertValue>;
   /**
@@ -524,7 +524,7 @@ export interface SearchParams {
    * @type { ?Callback<DeleteValue, boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   onWillDelete?: Callback<DeleteValue, boolean>;
   /**
@@ -533,7 +533,7 @@ export interface SearchParams {
    * @type { ?Callback<DeleteValue> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   onDidDelete?: Callback<DeleteValue>;
 }
@@ -543,7 +543,7 @@ export interface SearchParams {
  * @typedef SelectParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18 dynamic
+ * @since 18 dynamiconly
  * @noninterop
  */
 export interface SelectParams {
@@ -553,7 +553,7 @@ export interface SelectParams {
    * @type { ?Array<SelectOption> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   options?: Array<SelectOption>;
   /**
@@ -562,7 +562,7 @@ export interface SelectParams {
    * @type { ?number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   selected?: number;
   /**
@@ -571,7 +571,7 @@ export interface SelectParams {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   selectValue?: ResourceStr;
   /**
@@ -580,7 +580,7 @@ export interface SelectParams {
    * @type { ?OnSelectCallback }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   onSelect?: OnSelectCallback;
   /**
@@ -589,7 +589,7 @@ export interface SelectParams {
    * @type { ?ContentModifier<MenuItemConfiguration> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   menuItemContentModifier?: ContentModifier<MenuItemConfiguration>;
   /**
@@ -598,7 +598,7 @@ export interface SelectParams {
    * @type { ?(Optional<DividerOptions> | null) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   divider?: Optional<DividerOptions> | null;
   /**
@@ -607,7 +607,7 @@ export interface SelectParams {
    * @type { ?Font }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   font?: Font;
   /**
@@ -616,7 +616,7 @@ export interface SelectParams {
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   fontColor?: ResourceColor;
   /**
@@ -625,7 +625,7 @@ export interface SelectParams {
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   selectedOptionBgColor?: ResourceColor;
   /**
@@ -634,7 +634,7 @@ export interface SelectParams {
    * @type { ?Font }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   selectedOptionFont?: Font;
   /**
@@ -643,7 +643,7 @@ export interface SelectParams {
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   selectedOptionFontColor?: ResourceColor;
   /**
@@ -652,7 +652,7 @@ export interface SelectParams {
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   optionBgColor?: ResourceColor;
   /**
@@ -661,7 +661,7 @@ export interface SelectParams {
    * @type { ?Font }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   optionFont?: Font;
   /**
@@ -670,7 +670,7 @@ export interface SelectParams {
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   optionFontColor?: ResourceColor;
   /**
@@ -679,7 +679,7 @@ export interface SelectParams {
    * @type { ?(Dimension | OptionWidthMode) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   optionWidth?: Dimension | OptionWidthMode;
   /**
@@ -688,7 +688,7 @@ export interface SelectParams {
    * @type { ?Dimension }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   optionHeight?: Dimension;
   /**
@@ -697,7 +697,7 @@ export interface SelectParams {
    * @type { ?Length }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   space?: Length;
   /**
@@ -706,7 +706,7 @@ export interface SelectParams {
    * @type { ?ArrowPosition }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   arrowPosition?: ArrowPosition;
   /**
@@ -715,7 +715,7 @@ export interface SelectParams {
    * @type { ?MenuAlignParams }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   menuAlign?: MenuAlignParams;
   /**
@@ -724,7 +724,7 @@ export interface SelectParams {
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   menuBackgroundColor?: ResourceColor;
   /**
@@ -733,7 +733,7 @@ export interface SelectParams {
    * @type { ?BlurStyle }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   menuBackgroundBlurStyle?: BlurStyle;
 }
@@ -743,7 +743,7 @@ export interface SelectParams {
  * @typedef OperationParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18 dynamic
+ * @since 18 dynamiconly
  * @noninterop
  */
 export interface OperationParams {
@@ -753,7 +753,7 @@ export interface OperationParams {
    * @type { ?OperationOption }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   auxiliaryItem?: OperationOption;
   /**
@@ -762,7 +762,7 @@ export interface OperationParams {
    * @type { ?OperationOption }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   independentItem?: OperationOption;
 }
@@ -772,7 +772,7 @@ export interface OperationParams {
  * @struct {AtomicServiceSearch}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18 dynamic
+ * @since 18 dynamiconly
  * @noninterop
  */
 @Component
@@ -783,7 +783,7 @@ export declare struct AtomicServiceSearch {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   @Prop
   value?: ResourceStr;
@@ -794,7 +794,7 @@ export declare struct AtomicServiceSearch {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   @Prop
   placeholder?: ResourceStr;
@@ -804,7 +804,7 @@ export declare struct AtomicServiceSearch {
    * @type { ?SearchParams }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   @Prop
   search?: SearchParams;
@@ -814,7 +814,7 @@ export declare struct AtomicServiceSearch {
    * @type { ?SelectParams }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   @Prop
   select?: SelectParams;
@@ -824,7 +824,7 @@ export declare struct AtomicServiceSearch {
    * @type { ?OperationParams }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   operation?: OperationParams;
   /**
@@ -833,7 +833,7 @@ export declare struct AtomicServiceSearch {
    * @type { ?SearchController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    */
   controller?: SearchController;
 }
