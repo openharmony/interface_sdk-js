@@ -20,13 +20,12 @@
 import webview from '../../@ohos.web.webview';
 import image from '../../@ohos.multimedia.image';
 import { CommonMethod, Callback, TouchEvent, MouseEvent, NestedScrollOptions, KeyEvent, HapticFeedbackMode } from './common';
-import { CustomBuilder } from './builder';
+import { CustomBuilder, ComponentBuilder } from './builder';
 import { Resource } from '../../global/resource';
 import { Position, ResourceStr, VoidCallback } from './units';
 import { MenuType, EditMenuOptions, TextDataDetectorConfig } from './textCommon';
 import { CopyOptions, NestedScrollMode } from './enums';
 import { PreviewMenuOptions } from './richEditor';
-import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Provides methods for controlling the web controller.
@@ -1235,6 +1234,18 @@ export declare class SslErrorHandler {
      * @since 22 static
      */
     handleCancel(): void;
+    /**
+     * ArkWeb has encountered an SSL certificate error, and this interface indicates whether to terminate or
+     * continue displaying the error to users.
+     *
+     * @param { boolean } abortLoading If abortLoading is true, the current request will be canceled and the
+     *     user will remain on the current page. If it is false, the SSL error will not be ignored, and a
+     *     blank page will be displayed. If a default error page is enabled, the default error page will be
+     *     shown instead. The default value is false.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    handleCancel(abortLoading: boolean): void;
 }
 /**
  * Defines the client certificate request result, related to {@link onClientAuthenticationRequest} method.
@@ -4666,6 +4677,17 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default metaViewport(enabled: boolean | undefined): this;
     /**
+     * Called when the web page starts to be loaded.
+     * This API is called only for the main frame, and not for the iframe or frameset content.
+     *
+     * @param { Callback<OnPageBeginEvent> | undefined } callback The triggered function at the begin of web page
+     *     loading.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    default onPageBegin(callback: Callback<OnPageBeginEvent> | undefined): this;
+    /**
      * Triggered at the end of web page loading.
      * This callback is only invoked for the main frame and not for subframes.
      *
@@ -4675,16 +4697,6 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 22 static
      */
     default onPageEnd(callback: Callback<OnPageEndEvent> | undefined): this;
-    /**
-     * Called when the web page starts to be loaded.
-     * This API is called only for the main frame, and not for the iframe or frameset content.
-     *
-     * @param { Callback<OnPageBeginEvent> | undefined } callback The triggered function at the begin of web page loading.
-     * @returns { WebAttribute }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 22 static
-     */
-    default onPageBegin(callback: Callback<OnPageBeginEvent> | undefined): this;
     /**
      * Triggered at the begin of web page loading. This method is called once for each main frame load.  Embedded frame
      * changes, i.e. clicking a link whose target is an iframe and fragment navigations (navigations to #fragment_id)
