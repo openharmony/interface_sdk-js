@@ -77,7 +77,7 @@ export interface ConnectionInfo {
  * @stagemodelonly
  * @since 22 static
  */
-export default class WebNativeMessagingExtensionAbility extends ExtensionAbility {
+declare class WebNativeMessagingExtensionAbility extends ExtensionAbility {
     /**
      * Indicates web native messaging extension ability context.
      *
@@ -114,3 +114,5 @@ export default class WebNativeMessagingExtensionAbility extends ExtensionAbility
      */
     onDestroy(): void;
 }
+
+export default WebNativeMessagingExtensionAbility;
