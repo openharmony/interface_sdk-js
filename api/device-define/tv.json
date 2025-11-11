@@ -173,7 +173,6 @@
     "SystemCapability.Communication.IPC.Core",
     "SystemCapability.Security.Cert",
     "SystemCapability.Security.CertificateManager",
-    "SystemCapability.Security.DataTransitManager",
     "SystemCapability.Update.UpdateService",
     "SystemCapability.Test.UiTest",
     "SystemCapability.Base",

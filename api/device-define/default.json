@@ -122,7 +122,6 @@
     "SystemCapability.HiviewDFX.HiCollie",
     "SystemCapability.Update.UpdateService",
     "SystemCapability.DistributedHardware.DeviceManager",
-    "SystemCapability.Security.DataTransitManager",
     "SystemCapability.Security.Huks.Core",
     "SystemCapability.Security.Huks.Extension",
     "SystemCapability.Security.Asset",
