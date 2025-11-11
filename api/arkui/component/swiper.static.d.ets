@@ -24,6 +24,7 @@ import { CommonMethod, Callback, ICurve, Bindable, AttributeModifier } from './c
 import { EdgeEffect, Curve, PageFlipMode } from './enums';
 import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font } from './units';
 import { ComponentBuilder, CustomBuilder } from './builder';
+import { ScrollState } from "./list";
 
 /**
  * Provides methods for switching components.
@@ -894,6 +895,16 @@ export declare interface SwiperAttribute extends CommonMethod {
   default onUnselected(event: Callback<int> | undefined): this;
 
   /**
+   * Called when the scroll state of the swiper changed.
+   *
+   * @param { Callback<ScrollState> } event - callback to notify the change of the scroll state.
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  default onScrollStateChanged(event: Callback<ScrollState>): this;
+
+  /**
    * Called when the swiper animation start.
    *
    * @param { OnSwiperAnimationStartCallback | undefined } event
@@ -986,6 +997,17 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @since 22 static
    */
   default onContentWillScroll(handler: ContentWillScrollCallback | undefined): this;
+
+  /**
+   * Set maintain visible content position.
+   *
+   * @param { boolean } enabled - maintain visible content position.
+   * Default value is false.
+   * @returns { SwiperAttribute } the attribute of swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  default maintainVisibleContentPosition(enabled: boolean): this;
 
   /**
    * Set the attribute modifier of swiper.

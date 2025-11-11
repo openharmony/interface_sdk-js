@@ -241,6 +241,39 @@ export declare enum NavDestinationActiveReason {
 }
 
 /**
+ * The reason of navDestination be shown or hidden.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export declare enum VisibilityChangeReason {
+  /**
+   * The visibility lifecycle changes through page navigation.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  TRANSITION = 0,
+
+  /**
+   * The visibility lifecycle changes through bindContentCover.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  CONTENT_COVER = 1,
+
+  /**
+   * The visibility lifecycle changes through the states of application (foreground or background).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  APP_STATE = 2,
+}
+
+/**
  * Indicates configuration info of destination.
  *
  * @interface RouteMapConfig
@@ -310,6 +343,15 @@ export declare interface NavDestinationContext {
      * @since 22 static
      */
     navDestinationId?: string;
+
+    /**
+     * The mode of NavDestination.
+     *
+     * @type { ?NavDestinationMode }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    mode?: NavDestinationMode;
 
     /**
      * Get configuration of current Destination in module.json
@@ -456,22 +498,22 @@ export declare interface NavDestinationAttribute extends CommonMethod {
     /**
      * Invoked when the navDestination page is displayed.
      *
-     * @param { function | undefined } callback - Indicates callback when the navDestination page is displayed.
+     * @param { Callback<VisibilityChangeReason> | undefined } callback - Indicates callback when the navDestination page is displayed.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default onShown(callback: (() => void) | undefined): this;
+    default onShown(callback: Callback<VisibilityChangeReason> | undefined): this;
 
     /**
      * Invoked when the navDestination is hidden.
      *
-     * @param { function | undefined } callback - Indicates callback when the navDestination is hidden.
+     * @param { Callback<VisibilityChangeReason> | undefined } callback - Indicates callback when the navDestination is hidden.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    default onHidden(callback: (() => void) | undefined): this;
+    default onHidden(callback: Callback<VisibilityChangeReason> | undefined): this;
 
     /**
      * Invoked when the backButton is pressed.
