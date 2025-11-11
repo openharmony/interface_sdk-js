@@ -26,7 +26,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace data
  * @syscap SystemCapability.Telephony.CellularData
  * @since 7 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace data {
   /**
@@ -53,7 +53,7 @@ declare namespace data {
    * @returns { int } Returns default cellular data slot id.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getDefaultCellularDataSlotIdSync(): int;
 
@@ -137,7 +137,7 @@ declare namespace data {
    * </ul>
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getCellularDataState(callback: AsyncCallback<DataConnectState>): void;
 
@@ -154,7 +154,7 @@ declare namespace data {
    * </ul>
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getCellularDataState(): Promise<DataConnectState>;
 
@@ -173,7 +173,7 @@ declare namespace data {
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isCellularDataEnabled(callback: AsyncCallback<boolean>): void;
 
@@ -189,7 +189,7 @@ declare namespace data {
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isCellularDataEnabled(): Promise<boolean>;
 
@@ -224,7 +224,7 @@ declare namespace data {
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enableCellularData(callback: AsyncCallback<void>): void;
 
@@ -241,7 +241,7 @@ declare namespace data {
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enableCellularData(): Promise<void>;
 
@@ -261,7 +261,7 @@ declare namespace data {
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function disableCellularData(callback: AsyncCallback<void>): void;
 
@@ -278,7 +278,7 @@ declare namespace data {
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function disableCellularData(): Promise<void>;
 
@@ -562,7 +562,7 @@ declare namespace data {
    * @enum { int }
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum DataFlowType {
     /**
@@ -570,7 +570,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DATA_FLOW_TYPE_NONE = 0,
 
@@ -579,7 +579,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DATA_FLOW_TYPE_DOWN = 1,
 
@@ -588,7 +588,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DATA_FLOW_TYPE_UP = 2,
 
@@ -597,7 +597,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DATA_FLOW_TYPE_UP_DOWN = 3,
 
@@ -606,7 +606,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DATA_FLOW_TYPE_DORMANT = 4
   }
@@ -617,7 +617,7 @@ declare namespace data {
    * @enum { int }
    * @syscap SystemCapability.Telephony.CellularData
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum DataConnectState {
     /**
@@ -625,7 +625,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DATA_STATE_UNKNOWN = -1,
 
@@ -634,7 +634,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DATA_STATE_DISCONNECTED = 0,
 
@@ -643,7 +643,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DATA_STATE_CONNECTING = 1,
 
@@ -652,7 +652,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DATA_STATE_CONNECTED = 2,
 
@@ -661,7 +661,7 @@ declare namespace data {
      *
      * @syscap SystemCapability.Telephony.CellularData
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DATA_STATE_SUSPENDED = 3
   }

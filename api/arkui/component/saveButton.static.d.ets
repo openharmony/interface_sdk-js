@@ -23,7 +23,7 @@ import { ButtonType } from './button';
 import { ClickEvent, AttributeModifier, CommonMethod } from './common';
 import { SecurityComponentMethod } from './securityComponent';
 import { BusinessError } from '../../@ohos.base';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
 /**
  * Enumerates the icon styles.
  *
@@ -264,7 +264,6 @@ export declare interface SaveButtonAttribute extends SecurityComponentMethod {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function SaveButton(
     options?: SaveButtonOptions 

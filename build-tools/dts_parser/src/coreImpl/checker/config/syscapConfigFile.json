@@ -158,7 +158,6 @@
     "SystemCapability.DistributedHardware.DeviceManager",
     "SystemCapability.DistributedHardware.DistributedHardwareFWK",
     "SystemCapability.Security.DeviceAuth",
-    "SystemCapability.Security.DataTransitManager",
     "SystemCapability.Security.DeviceSecurityLevel",
     "SystemCapability.Security.Huks.Core",
     "SystemCapability.Security.Huks.Extension",

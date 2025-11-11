@@ -32,7 +32,7 @@ import { RecordData } from '../@ohos.base';
  * @systemapi
  * @stagemodelonly
  * @since 13 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export default interface CustomData {
     /**
@@ -55,7 +55,7 @@ export default interface CustomData {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi
      * @stagemodelonly
-     * @since 20 static
+     * @since 22 static
      */
     data: Record<string, RecordData>;
   }

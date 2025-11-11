@@ -90,7 +90,8 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly userId?: number;
 
@@ -102,7 +103,8 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly setterUserId?: number;
 
@@ -114,7 +116,8 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly canUserModify?: boolean;
 }

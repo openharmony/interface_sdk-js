@@ -25,7 +25,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 14 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface RunningMultiInstanceInfo {
     /**
@@ -35,7 +35,7 @@ export interface RunningMultiInstanceInfo {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
      instanceKey: string;
   
@@ -46,7 +46,7 @@ export interface RunningMultiInstanceInfo {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     uid: int;
   
@@ -57,7 +57,7 @@ export interface RunningMultiInstanceInfo {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pids: Array<int>;
   }

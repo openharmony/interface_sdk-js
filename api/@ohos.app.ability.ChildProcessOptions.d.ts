@@ -57,7 +57,8 @@ export interface ChildProcessOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 21 dynamic&static
+   * @since 21 dynamic
+   * @since 22 static
    */
   isolationUid?: boolean;
 }

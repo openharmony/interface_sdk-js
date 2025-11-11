@@ -29,7 +29,8 @@ import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
  * @extends ExtensionAbility
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 declare class AppServiceExtensionAbility extends ExtensionAbility {
   /**
@@ -38,7 +39,8 @@ declare class AppServiceExtensionAbility extends ExtensionAbility {
    * @type { AppServiceExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   context: AppServiceExtensionContext;
 
@@ -48,7 +50,8 @@ declare class AppServiceExtensionAbility extends ExtensionAbility {
    * @param { Want } want - Indicates the want of created app service extension.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   onCreate(want: Want): void;
 
@@ -57,7 +60,8 @@ declare class AppServiceExtensionAbility extends ExtensionAbility {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   onDestroy(): void;
 
@@ -69,7 +73,8 @@ declare class AppServiceExtensionAbility extends ExtensionAbility {
    *                             The {@code startId} is incremented by 1 every time the app service extension is started.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   onRequest(want: Want, startId: int): void;
 
@@ -80,7 +85,8 @@ declare class AppServiceExtensionAbility extends ExtensionAbility {
    * @returns { rpc.RemoteObject } A RemoteObject for communication between the client and server.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   onConnect(want: Want): rpc.RemoteObject;
 
@@ -90,7 +96,8 @@ declare class AppServiceExtensionAbility extends ExtensionAbility {
    * @param { Want } want - Indicates disconnection information about the app service extension.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   onDisconnect(want: Want): void;
 }

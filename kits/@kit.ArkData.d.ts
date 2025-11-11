@@ -45,3 +45,11 @@ export {
   relationalStore, unifiedDataChannel, uniformTypeDescriptor, uniformDataStruct, sendablePreferences, dataAbility,
   sendableRelationalStore, intelligence, ContentFormCard, FormType
 };
+
+/*** if arkts static */
+import unifiedDataChannel from '@ohos.data.unifiedDataChannel';
+import uniformTypeDescriptor from '@ohos.data.uniformTypeDescriptor';
+export {
+  unifiedDataChannel, uniformTypeDescriptor
+};
+/*** endif */

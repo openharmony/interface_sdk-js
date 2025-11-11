@@ -35,7 +35,7 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface TriggerInfo {
   /**
@@ -52,7 +52,7 @@ export interface TriggerInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   code: int;
 
@@ -80,7 +80,7 @@ export interface TriggerInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   want?: Want;
 
@@ -102,7 +102,7 @@ export interface TriggerInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   permission?: string;
 
@@ -128,7 +128,7 @@ export interface TriggerInfo {
    *
    * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 20 static
+   * @since 22 static
    */
   extraInfo?: Record<string, Object>;
 
@@ -148,7 +148,7 @@ export interface TriggerInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   extraInfos?: Record<string, Object>;
 
@@ -160,7 +160,7 @@ export interface TriggerInfo {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
    startOptions?: StartOptions;
 }

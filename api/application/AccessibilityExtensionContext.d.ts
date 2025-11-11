@@ -26,7 +26,10 @@ import type { GesturePath } from '../@ohos.accessibility.GesturePath';
 /*** endif */
 import type Want from '../@ohos.app.ability.Want';
 /*** if arkts dynamic */
-import { AccessibilityAction } from '../@ohos.accessibility';
+import { AccessibilityAction, FocusMoveResultCode } from '../@ohos.accessibility';
+/*** endif */
+/*** if arkts static */
+import { FocusMoveResultCode } from '../@ohos.accessibility';
 /*** endif */
 
 /**
@@ -35,7 +38,7 @@ import { AccessibilityAction } from '../@ohos.accessibility';
  * @extends ExtensionContext
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class AccessibilityExtensionContext extends ExtensionContext {
   /**
@@ -268,7 +271,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   startAbility(want: Want): Promise<void>;
 
@@ -286,7 +289,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getElements(windowId: int, elementId?: long): Promise<Array<AccessibilityElement>>;
 
@@ -303,7 +306,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getDefaultFocusedElementIds(windowId: int): Promise<Array<long>>;
 
@@ -398,7 +401,8 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300006 - The target application failed to connect to accessibility service.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   getRootInActiveWindow(windowId?: int): Promise<AccessibilityElement>;
 
@@ -426,7 +430,7 @@ export default AccessibilityExtensionContext;
  * @typedef AccessibilityElement
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export declare interface AccessibilityElement {
   /**
@@ -560,7 +564,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getCursorPosition(callback: AsyncCallback<int>): void;
 
@@ -571,7 +575,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   getCursorPosition(): Promise<int>;
 
@@ -588,7 +592,7 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enableScreenCurtain(isEnable: boolean): void;
 
@@ -1350,7 +1354,8 @@ export declare interface AccessibilityElement {
    * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   mainWindowId?: int;
 
@@ -1498,6 +1503,22 @@ export declare interface AccessibilityElement {
    * @since 20 dynamic
    */
   findElementById(condition: long): Promise<AccessibilityElement>;
+
+  /**
+   * Find elements to be focused that match the condition.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @param { FocusRule } rule Indicates the rule to check accessibility node.
+   * @param { FocusCondition } condition Indicates the condition to execute accessibility focus.
+   * @returns { Promise<FocusMoveResult> }
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  findElementsByCondition(rule: FocusRule, condition: FocusCondition): Promise<FocusMoveResult>;
 }
 
 /**
@@ -2126,9 +2147,21 @@ export interface ElementAttributeValues {
  * @typedef {'up' | 'down' | 'left' | 'right' | 'forward' | 'backward'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type FocusDirection = 'up' | 'down' | 'left' | 'right' | 'forward' | 'backward';
+
+/**
+ * Indicates the condition of the search focus.
+ *
+ * @typedef {'forward' | 'backward' | 'findLast' | 'getForwardScrollAncestor' |
+*     'getBackwardScrollAncestor' | 'getScrollableAncestor'}
+* @syscap SystemCapability.BarrierFree.Accessibility.Core
+* @systemapi
+* @since 23 dynamic&static
+*/
+export type FocusCondition = 'forward' | 'backward' |
+'findLast' | 'getForwardScrollAncestor' | 'getBackwardScrollAncestor' | 'getScrollableAncestor';
 
 /**
  * Indicates the type of the focus.
@@ -2145,9 +2178,21 @@ export type FocusType = 'accessibility' | 'normal';
  * @typedef {'application' | 'system'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type WindowType = 'application' | 'system';
+
+/**
+ * Indicates the rule of the search focus.
+ *
+ * @typedef {'bypassSelf' | 'bypassSelfDescendants' |
+*     'checkSelf' | 'checkSelfBypassDescendants'}
+* @syscap SystemCapability.BarrierFree.Accessibility.Core
+* @systemapi
+* @since 23 dynamic&static
+*/
+export type FocusRule = 'bypassSelf' | 'bypassSelfDescendants' |
+'checkSelf' | 'checkSelfBypassDescendants';
 
 /**
  * Indicates rectangle.
@@ -2155,7 +2200,7 @@ export type WindowType = 'application' | 'system';
  * @typedef Rect
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface Rect {
   /**
@@ -2164,7 +2209,7 @@ export interface Rect {
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   left: int;
   /**
@@ -2173,7 +2218,7 @@ export interface Rect {
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   top: int;
   /**
@@ -2182,7 +2227,7 @@ export interface Rect {
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   width: int;
   /**
@@ -2191,7 +2236,37 @@ export interface Rect {
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   height: int;
+}
+
+/**
+ * Indicates focus move result.
+ *
+ * @typedef FocusMoveResult
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+export declare interface FocusMoveResult {
+  /**
+   * The accessibility elementInfos result.
+   *
+   * @type { Array<AccessibilityElement> }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  target: Array<AccessibilityElement>;
+
+  /**
+   * The focus move result code.
+   *
+   * @type { FocusMoveResultCode }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  result: FocusMoveResultCode;
 }

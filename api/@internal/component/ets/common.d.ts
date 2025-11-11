@@ -6419,8 +6419,9 @@ declare interface TransitionOptions {
    *
    * @type { ?TransitionType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
+   * @useinstead TransitionEffect
    */
   type?: TransitionType;
   /**
@@ -6432,8 +6433,9 @@ declare interface TransitionOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
+   * @useinstead TransitionEffect#opacity
    */
   opacity?: number;
   /**
@@ -6445,8 +6447,9 @@ declare interface TransitionOptions {
    *
    * @type { ?TranslateOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
+   * @useinstead TransitionEffect#translate
    */
   translate?: TranslateOptions;
   /**
@@ -6462,21 +6465,23 @@ declare interface TransitionOptions {
    *
    * @type { ?ScaleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
+   * @useinstead TransitionEffect#scale
    */
   scale?: ScaleOptions;
   /**
    * Rotation of the component during transition, which is the value of the start point of insertion and the end point
    * of deletion. **x**: X-component of the rotation vector. **y**: Y-component of the rotation vector. **z**:
-   * Z-component of the rotation vector. **centerX** and **centerY**: rotation center point. The default values are 
+   * Z-component of the rotation vector. **centerX** and **centerY**: rotation center point. The default values are
    * both **"50%"**, indicating the center point of the page.If the center point is (0, 0), it refers to the upper left
    * corner of the component.
    *
    * @type { ?RotateOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
+   * @useinstead TransitionEffect#rotate
    */
   rotate?: RotateOptions;
 }
@@ -7639,7 +7644,7 @@ declare function animateTo(value: AnimateParam, event: () => void): void;
  *
  * @param { AnimateParam } value - Set animation effect parameters.
  * @param { function } event - Specify the closure function that displays dynamic effects,
- * and the system will automatically insert transition animations for state changes caused by the closure function.
+ *     and the system will automatically insert transition animations for state changes caused by the closure function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
@@ -12909,7 +12914,7 @@ declare enum DragResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic
+   * @since 22 dynamic
    */
   UNKNOWN = -1,
   /**
@@ -31423,6 +31428,16 @@ declare abstract class TextContentControllerBase {
    * @since 19 dynamic
    */
   getText(range?: TextRange): string;
+
+  /**
+   * Delete the last character of the input field component.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  deleteBackward(): void;
 }
 
 /**

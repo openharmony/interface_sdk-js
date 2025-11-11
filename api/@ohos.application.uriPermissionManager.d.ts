@@ -27,7 +27,7 @@ import type wantConstant from './@ohos.app.ability.wantConstant';
  * @namespace uriPermissionManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace uriPermissionManager {
   /**
@@ -76,7 +76,7 @@ declare namespace uriPermissionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function grantUriPermission(
     uri: string,
@@ -131,7 +131,7 @@ declare namespace uriPermissionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string): Promise<number>;
 
@@ -185,7 +185,7 @@ declare namespace uriPermissionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string, appCloneIndex: int): Promise<void>;
 
@@ -239,7 +239,7 @@ declare namespace uriPermissionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function revokeUriPermission(uri: string, targetBundleName: string, callback: AsyncCallback<number>): void;
 
@@ -293,7 +293,7 @@ declare namespace uriPermissionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function revokeUriPermission(uri: string, targetBundleName: string): Promise<number>;
 
@@ -333,7 +333,7 @@ declare namespace uriPermissionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
     function revokeUriPermission(uri: string, targetBundleName: string, appCloneIndex: int): Promise<void>;
 
@@ -355,7 +355,8 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000094 - The target token ID is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi Hide this for inner system use.
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function grantUriPermissionByKey(key: string, flag: wantConstant.Flags, targetTokenId: int): Promise<void>;
 
@@ -381,7 +382,8 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000094 - The target token ID is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi Hide this for inner system use.
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function grantUriPermissionByKeyAsCaller(key: string, flag: wantConstant.Flags, callerTokenId: int, targetTokenId: int): Promise<void>;
 }

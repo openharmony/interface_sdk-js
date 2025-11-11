@@ -18,14 +18,14 @@
  */
 import { VerticalAlign, FlexAlign } from './enums';
 import { SpaceType } from './column';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Define options used to construct a row.
  *
  * @interface RowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare interface RowOptions {
     /**
@@ -34,7 +34,7 @@ export declare interface RowOptions {
      * Anonymous Object Rectification
      * @type { ?(string | number) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     space?: string | number;
 }
@@ -43,7 +43,7 @@ export declare interface RowOptions {
  *
  * @interface RowOptionsV2
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export interface RowOptionsV2 {
     /**
@@ -51,7 +51,7 @@ export interface RowOptionsV2 {
      *
      * @type { ?SpaceType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     space?: SpaceType;
 }
@@ -62,7 +62,7 @@ export interface RowOptionsV2 {
  * @extends CommonMethod
  * @interface RowAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare interface RowAttribute extends CommonMethod {
@@ -72,7 +72,7 @@ export declare interface RowAttribute extends CommonMethod {
      * @param { VerticalAlign } value
      * @returns { RowAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default alignItems(value: VerticalAlign | undefined): this;
     /**
@@ -81,7 +81,7 @@ export declare interface RowAttribute extends CommonMethod {
      * @param { FlexAlign } value
      * @returns { RowAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default justifyContent(value: FlexAlign | undefined): this;
     /**
@@ -91,7 +91,7 @@ export declare interface RowAttribute extends CommonMethod {
     * @returns { RowAttribute } The attribute of the row.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @systemapi
-    * @since 20 static
+    * @since 22 static
     */
     default pointLight(value: PointLightStyle): RowAttribute;
     /**
@@ -100,7 +100,7 @@ export declare interface RowAttribute extends CommonMethod {
      * @param { boolean | undefined } isReversed - If the main axis is reversed.
      * @returns { RowAttribute } The attribute of the row.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default reverse(isReversed: boolean | undefined): this;
     /**
@@ -109,7 +109,7 @@ export declare interface RowAttribute extends CommonMethod {
      * @param { AttributeModifier<RowAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { RowAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<RowAttribute> | AttributeModifier<CommonMethod>
         | undefined): this;
@@ -119,16 +119,14 @@ export declare interface RowAttribute extends CommonMethod {
  * Defines Row Component.
  *
  * @param { RowOptions | RowOptions | RowOptionsV2 } [options] - Row options.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { RowAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Row(
     options?: RowOptions | RowOptions | RowOptionsV2,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): RowAttribute

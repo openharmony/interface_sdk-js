@@ -228,7 +228,8 @@ export enum AccessibilityAction {
  * @enum { int }
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 export enum AccessibilityEventType {
   //EventType
@@ -237,7 +238,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_ACCESSIBILITY_FOCUS = 0,
 
@@ -246,7 +248,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_ACCESSIBILITY_FOCUS_CLEAR = 1,
 
@@ -255,7 +258,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_CLICK = 2,
 
@@ -264,7 +268,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_LONG_CLICK = 3,
 
@@ -273,7 +278,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_SELECT = 4,
 
@@ -282,7 +288,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_HOVER_ENTER = 5,
 
@@ -291,7 +298,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_HOVER_EXIT = 6,
 
@@ -300,7 +308,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_FOCUS = 7,
 
@@ -309,7 +318,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_TEXT_UPDATE = 8,
 
@@ -318,7 +328,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_TEXT_SELECTION_UPDATE = 9,
 
@@ -327,7 +338,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_SCROLL = 10,
 
@@ -336,7 +348,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_REQUEST_FOCUS_FOR_ACCESSIBILITY = 11,
 
@@ -345,7 +358,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_ANNOUNCE_FOR_ACCESSIBILITY = 12,
 
@@ -354,7 +368,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_REQUEST_FOCUS_FOR_ACCESSIBILITY_NOT_INTERRUPT = 13,
 
@@ -363,7 +378,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_ANNOUNCE_FOR_ACCESSIBILITY_NOT_INTERRUPT = 14,
 
@@ -372,7 +388,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_ELEMENT_INFO_CHANGE = 15,
 
@@ -381,7 +398,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_SCROLLING = 16,
 
@@ -391,7 +409,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_WINDOW_ADD = 17,
 
@@ -400,7 +419,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_WINDOW_REMOVE = 18,
 
@@ -409,7 +429,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_WINDOW_BOUNDS = 19,
 
@@ -418,7 +439,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_WINDOW_ACTIVE = 20,
 
@@ -427,7 +449,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_WINDOW_FOCUS = 21,
 
@@ -436,7 +459,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_WINDOW_PROPERTY = 22,
 
@@ -445,7 +469,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_WINDOW_LAYER = 23,
 
@@ -455,7 +480,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_TOUCH_BEGIN = 24,
 
@@ -464,7 +490,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_TOUCH_END = 25,
 
@@ -474,7 +501,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_PAGE_CONTENT_UPDATE = 26,
 
@@ -483,7 +511,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_PAGE_STATE_UPDATE = 27,
 
@@ -492,7 +521,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_PAGE_OPEN = 28,
 
@@ -501,7 +531,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_PAGE_CLOSE = 29,
 
@@ -511,7 +542,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_SWIPE_LEFT = 30,
 
@@ -520,7 +552,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_SWIPE_LEFT_THEN_RIGHT = 31,
 
@@ -529,7 +562,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_SWIPE_LEFT_THEN_UP = 32,
 
@@ -538,7 +572,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_SWIPE_LEFT_THEN_DOWN = 33,
 
@@ -547,7 +582,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_SWIPE_RIGHT = 34,
 
@@ -556,7 +592,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_SWIPE_RIGHT_THEN_LEFT = 35,
 
@@ -565,7 +602,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_SWIPE_RIGHT_THEN_UP = 36,
 
@@ -574,7 +612,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_SWIPE_RIGHT_THEN_DOWN = 37,
 
@@ -583,7 +622,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_SWIPE_UP = 38,
 
@@ -592,7 +632,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_SWIPE_UP_THEN_LEFT = 39,
 
@@ -601,7 +642,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_SWIPE_UP_THEN_RIGHT = 40,
 
@@ -610,7 +652,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_SWIPE_UP_THEN_DOWN = 41,
 
@@ -619,7 +662,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_SWIPE_DOWN = 42,
 
@@ -628,7 +672,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_SWIPE_DOWN_THEN_LEFT = 43,
 
@@ -637,7 +682,8 @@ export enum AccessibilityEventType {
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
   TYPE_SWIPE_DOWN_THEN_RIGHT = 44,
 
@@ -646,7 +692,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_SWIPE_DOWN_THEN_UP = 45,
 
@@ -655,7 +702,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_TWO_FINGER_SINGLE_TAP = 46,
 
@@ -664,7 +712,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_TWO_FINGER_DOUBLE_TAP = 47,
 
@@ -673,7 +722,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_TWO_FINGER_DOUBLE_TAP_AND_HOLD = 48,
 
@@ -682,7 +732,8 @@ export enum AccessibilityEventType {
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
   TYPE_TWO_FINGER_TRIPLE_TAP = 49,
 
@@ -691,7 +742,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_TWO_FINGER_TRIPLE_TAP_AND_HOLD = 50,
 
@@ -700,7 +752,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_THREE_FINGER_SINGLE_TAP = 51,
 
@@ -709,7 +762,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_THREE_FINGER_DOUBLE_TAP = 52,
 
@@ -718,7 +772,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_THREE_FINGER_DOUBLE_TAP_AND_HOLD = 53,
 
@@ -727,7 +782,8 @@ export enum AccessibilityEventType {
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
   TYPE_THREE_FINGER_TRIPLE_TAP = 54,
 
@@ -736,7 +792,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_THREE_FINGER_TRIPLE_TAP_AND_HOLD = 55,
 
@@ -745,7 +802,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_FOUR_FINGER_SINGLE_TAP = 56,
 
@@ -754,7 +812,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_FOUR_FINGER_DOUBLE_TAP = 57,
 
@@ -763,7 +822,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_FOUR_FINGER_DOUBLE_TAP_AND_HOLD = 58,
 
@@ -772,7 +832,8 @@ export enum AccessibilityEventType {
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
   TYPE_FOUR_FINGER_TRIPLE_TAP = 59,
 
@@ -781,7 +842,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_FOUR_FINGER_TRIPLE_TAP_AND_HOLD = 60,
 
@@ -790,7 +852,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_THREE_FINGER_SWIPE_UP = 61,
 
@@ -799,7 +862,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_THREE_FINGER_SWIPE_DOWN = 62,
 
@@ -808,7 +872,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_THREE_FINGER_SWIPE_LEFT = 63,
 
@@ -817,7 +882,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_THREE_FINGER_SWIPE_RIGHT = 64,
 
@@ -826,7 +892,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_FOUR_FINGER_SWIPE_UP = 65,
 
@@ -835,7 +902,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_FOUR_FINGER_SWIPE_DOWN = 66,
 
@@ -844,7 +912,8 @@ export enum AccessibilityEventType {
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
   TYPE_FOUR_FINGER_SWIPE_LEFT = 67,
 
@@ -853,7 +922,8 @@ export enum AccessibilityEventType {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   TYPE_FOUR_FINGER_SWIPE_RIGHT = 68
 }
@@ -880,7 +950,8 @@ export enum AccessibilityEventType {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @crossplatform
  * @atomicservice
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 declare namespace accessibility {
   /**
@@ -1010,7 +1081,7 @@ declare namespace accessibility {
    * @typedef {'add' | 'remove' | 'bounds' | 'active' | 'focus'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type WindowUpdateType = 'add' | 'remove' | 'bounds' | 'active' | 'focus';
 
@@ -1066,7 +1137,7 @@ declare namespace accessibility {
    * @typedef {'char' | 'word' | 'line' | 'page' | 'paragraph'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type TextMoveUnit = 'char' | 'word' | 'line' | 'page' | 'paragraph';
 
@@ -1114,7 +1185,8 @@ declare namespace accessibility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function isOpenAccessibilitySync(): boolean;
 
@@ -1803,7 +1875,7 @@ declare namespace accessibility {
    * @typedef {'none' | 'raised' | 'depressed' | 'uniform' | 'dropShadow'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type CaptionsFontEdgeType = 'none' | 'raised' | 'depressed' | 'uniform' | 'dropShadow';
   /**
@@ -1812,7 +1884,7 @@ declare namespace accessibility {
    * @typedef {'default' | 'monospacedSerif' | 'serif' | 'monospacedSansSerif' | 'sansSerif' | 'casual' | 'cursive' | 'smallCapitals'}     
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' |
   'monospacedSansSerif' | 'sansSerif' | 'casual' | 'cursive' | 'smallCapitals';
@@ -1822,7 +1894,7 @@ declare namespace accessibility {
    * @typedef CaptionsStyle
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface CaptionsStyle {
     /**
@@ -1831,7 +1903,7 @@ declare namespace accessibility {
      * @type {CaptionsFontFamily}
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     fontFamily: CaptionsFontFamily;
     /**
@@ -1839,7 +1911,7 @@ declare namespace accessibility {
      * @type { int }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     fontScale: int;
     /**
@@ -1847,7 +1919,7 @@ declare namespace accessibility {
      * @type { int | string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     fontColor: int | string;
     /**
@@ -1855,7 +1927,7 @@ declare namespace accessibility {
      * @type { CaptionsFontEdgeType }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     fontEdgeType: CaptionsFontEdgeType;
     /**
@@ -1863,7 +1935,7 @@ declare namespace accessibility {
      * @type { int | string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     backgroundColor: int | string;
     /**
@@ -1871,7 +1943,7 @@ declare namespace accessibility {
      * @type { int | string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     windowColor: int | string;
   }
@@ -2033,7 +2105,7 @@ declare namespace accessibility {
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readonly needHide: boolean;
 
@@ -2043,7 +2115,7 @@ declare namespace accessibility {
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readonly label: string;
   }
@@ -2128,7 +2200,7 @@ declare namespace accessibility {
      * @type { ?WindowUpdateType }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     windowUpdateType?: WindowUpdateType;
 
@@ -2153,7 +2225,7 @@ declare namespace accessibility {
      * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     componentType?: string;
 
@@ -2162,7 +2234,7 @@ declare namespace accessibility {
      * @type { ?int }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     pageId?: int;
 
@@ -2171,7 +2243,7 @@ declare namespace accessibility {
      * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     description?: string;
 
@@ -2196,7 +2268,7 @@ declare namespace accessibility {
      * @type { ?TextMoveUnit }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     textMoveUnit?: TextMoveUnit;
 
@@ -2205,7 +2277,7 @@ declare namespace accessibility {
      * @type { ?Array<string> }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     contents?: Array<string>;
 
@@ -2214,7 +2286,7 @@ declare namespace accessibility {
      * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     lastContent?: string;
 
@@ -2223,7 +2295,7 @@ declare namespace accessibility {
      * @type { ?int }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     beginIndex?: int;
 
@@ -2232,7 +2304,7 @@ declare namespace accessibility {
      * @type { ?int }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     currentIndex?: int;
 
@@ -2241,7 +2313,7 @@ declare namespace accessibility {
      * @type { ?int }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     endIndex?: int;
 
@@ -2250,7 +2322,7 @@ declare namespace accessibility {
      * @type { ?int }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     itemCount?: int;
 
@@ -2259,7 +2331,7 @@ declare namespace accessibility {
      * @type { ?int }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     elementId?: int;
 
@@ -2284,7 +2356,7 @@ declare namespace accessibility {
      * @type { ?Resource }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     textResourceAnnouncedForAccessibility?: Resource;
 
@@ -2306,3 +2378,94 @@ declare namespace accessibility {
   }
 }
 export default accessibility;
+
+/**
+ * The focus move result code.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @since 23 dynamic&static
+ */
+export enum FocusMoveResultCode {
+  /**
+   * The code of not supported.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  NOT_SUPPORTED = -1,
+  /**
+   * The code of success.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  SEARCH_SUCCESS = 0,
+  /**
+   * The code of success next bypass descendants.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  SEARCH_SUCCESS_NEXT_BYPASS_DESCENDANTS = 1,
+  /**
+   * The code of failure.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  SEARCH_FAILURE = 2,
+  /**
+   * The code of failure in child tree.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  SEARCH_FAILURE_IN_CHILD_TREE = 3,
+  /**
+   * The code of failure lost node.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  SEARCH_FAILURE_LOST_NODE = 4,
+  /**
+   * The code of search next.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  SEARCH_NEXT = 5,
+  /**
+   * The code of check child property.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  DOUBLE_CHECK_CHILD_PROPERTY = 6,
+  /**
+   * The code of check child property and get last.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  DOUBLE_CHECK_CHILD_PROPERTY_AND_GET_LAST = 7,
+  /**
+   * The code of failure in scroll component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  SEARCH_FAILURE_IN_SCROLL = 8
+}

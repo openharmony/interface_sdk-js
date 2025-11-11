@@ -26,6 +26,6 @@ import { RadioAttribute } from './component/radio';
  *
  * @implements { RadioAttribute, AttributeModifier<RadioAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare class RadioModifier implements RadioAttribute, AttributeModifier<RadioAttribute> {}
