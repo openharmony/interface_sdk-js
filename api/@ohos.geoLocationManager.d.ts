@@ -2329,6 +2329,7 @@ declare namespace geoLocationManager {
    * @typedef GnssGeofenceRequest
    * @syscap SystemCapability.Location.Location.Geofence
    * @since 12 dynamic
+   * @since 20 static
    */
   /**
    * Configuring parameters in GNSS geofence requests.
@@ -2345,6 +2346,7 @@ declare namespace geoLocationManager {
      * @type { Geofence }
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Circular fence information.
@@ -2362,6 +2364,7 @@ declare namespace geoLocationManager {
      * @type { Array<GeofenceTransitionEvent> }
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Indicates geofence transition status monitored.
@@ -2379,6 +2382,7 @@ declare namespace geoLocationManager {
      * @type { ?Array<NotificationRequest> }
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Indicates the geofence notifications to publish.
@@ -2396,6 +2400,7 @@ declare namespace geoLocationManager {
      * @type { AsyncCallback<GeofenceTransition> }
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Indicates the callback for reporting the geofence transition status.
@@ -2441,6 +2446,7 @@ declare namespace geoLocationManager {
    * @typedef Geofence
    * @syscap SystemCapability.Location.Location.Geofence
    * @since 9 dynamic
+   * @since 20 static
    */
   /**
    * Circular fence information.
@@ -2454,36 +2460,38 @@ declare namespace geoLocationManager {
     /**
      * Latitude of the center point of the circular fence.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 9 dynamic
+     * @since 20 static
      */
     /**
      * Latitude of the center point of the circular fence.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
      * @since 22 dynamic&static
      */
-    latitude: number;
+    latitude: double;
 
     /**
      * Longitude of the center point of the circular fence.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 9 dynamic
+     * @since 20 static
      */
     /**
      * Longitude of the center point of the circular fence.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
      * @since 22 dynamic&static
      */
-    longitude: number;
+    longitude: double;
 
     /**
      * Coordinate system type.
@@ -2491,6 +2499,7 @@ declare namespace geoLocationManager {
      * @type { ?CoordinateSystemType }
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Coordinate system type.
@@ -2508,6 +2517,7 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 9 dynamic
+     * @since 20 static
      */
     /**
      * Radius of the circular fence.
@@ -2525,6 +2535,7 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 9 dynamic
+     * @since 20 static
      */
     /**
      * Expiration of the circular fence.
@@ -3473,6 +3484,7 @@ declare namespace geoLocationManager {
    * @typedef GeofenceTransition
    * @syscap SystemCapability.Location.Location.Geofence
    * @since 12 dynamic
+   * @since 20 static
    */
   /**
    * Geofence transition status.
@@ -3486,19 +3498,20 @@ declare namespace geoLocationManager {
     /**
      * ID of the geofence.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * ID of the geofence.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Location.Location.Geofence
      * @crossplatform
      * @since 22 dynamic&static
      */
-    geofenceId: number;
+    geofenceId: int;
 
     /**
      * Indicates the geofence transition status.
@@ -3506,6 +3519,7 @@ declare namespace geoLocationManager {
      * @type { GeofenceTransitionEvent }
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * Indicates the geofence transition status.
@@ -3522,7 +3536,7 @@ declare namespace geoLocationManager {
      *
      * @type { ?BeaconFence }
      * @syscap SystemCapability.Location.Location.Geofence
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     /**
      * Indicate the beaconFence which transitionEvent occurs.
@@ -4171,7 +4185,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface LocatingRequiredDataConfig {
     /**
@@ -4181,7 +4195,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     type: LocatingRequiredDataType;
 
@@ -4192,7 +4206,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     needStartScan: boolean;
 
@@ -4204,7 +4218,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     scanInterval?: int;
 
@@ -4216,7 +4230,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     scanTimeout?: int;
   }
@@ -4259,7 +4273,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface WifiScanInfo {
     /**
@@ -4269,7 +4283,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ssid: string;
 
@@ -4280,7 +4294,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bssid: string;
 
@@ -4291,7 +4305,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rssi: int;
 
@@ -4302,7 +4316,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     frequency: int;
 
@@ -4313,7 +4327,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     timestamp: long;
   }
@@ -4325,7 +4339,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface BluetoothScanInfo {
     /**
@@ -4335,7 +4349,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deviceName: string;
 
@@ -4346,7 +4360,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     macAddress: string;
 
@@ -4357,7 +4371,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     rssi: int;
 
@@ -4368,7 +4382,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     timestamp: long;
   }
@@ -4891,7 +4905,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum LocationIconStatus {
     /**
@@ -4900,7 +4914,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     LOCATING_NOT_STARTED = 0,
 
@@ -4910,7 +4924,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     LOCATING_STARTED = 1,
 
@@ -4920,7 +4934,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     HD_LOCATING_STARTED = 2
   }
@@ -5041,6 +5055,7 @@ declare namespace geoLocationManager {
    * @enum { int }
    * @syscap SystemCapability.Location.Location.Geofence
    * @since 12 dynamic
+   * @since 20 static
    */
   /**
    * Enum for geofence transition status.
@@ -5056,6 +5071,7 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * The device is within the geofence.
@@ -5071,6 +5087,7 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * The device is out of the geofence.
@@ -5086,6 +5103,7 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * The device is in the geographical fence for a period of time.
@@ -5864,7 +5882,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum LocationPrivacyType {
     /**
@@ -5873,7 +5891,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     OTHERS = 0,
 
@@ -5883,7 +5901,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STARTUP,
 
@@ -5893,7 +5911,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CORE_LOCATION
   }
@@ -6142,7 +6160,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum LocatingRequiredDataType {
     /**
@@ -6151,7 +6169,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     WIFI = 1,
 
@@ -6161,7 +6179,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     BLUETOOTH
   }
