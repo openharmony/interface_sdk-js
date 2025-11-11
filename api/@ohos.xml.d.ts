@@ -1416,6 +1416,7 @@ declare namespace xml {
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    */
   /**
    * The type of ParseOptions attributeWithTagCallbackFunction.
