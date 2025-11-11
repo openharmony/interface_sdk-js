@@ -2162,7 +2162,14 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since 12 dynamic
+     * @since 12
+     */
+    /**
+     * Form is on the form center of negative screen.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 20 dynamic
      * @since 22 static
      */
     FORM_CENTER_NEGATIVE_SCREEN = 4,
@@ -2172,7 +2179,14 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since 12 dynamic
+     * @since 12
+     */
+    /**
+     * Form is on the form manager of negative screen.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 20 dynamic
      * @since 22 static
      */
     FORM_MANAGER_NEGATIVE_SCREEN = 5,
