@@ -120,7 +120,6 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   /**
    * Subscribe location changed.
@@ -189,7 +188,6 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   /**
    * Unsubscribe location changed.
@@ -224,7 +222,6 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   /**
    * Subscribe continuous location error changed.
@@ -260,7 +257,6 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
   /**
    * Unsubscribe continuous location error changed.
@@ -293,7 +289,6 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9 dynamic
-   * @since 20 static
    */
   /**
    * Subscribe location switch changed.
@@ -321,7 +316,6 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9 dynamic
-   * @since 20 static
    */
   /**
    * Unsubscribe location switch changed.
@@ -369,7 +363,6 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 18 dynamic
-   * @since 20 static
    */
   /**
    * Subscribe to cache GNSS locations update messages.
@@ -420,7 +413,6 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 18 dynamic
-   * @since 20 static
    */
   /**
    * Unsubscribe to cache GNSS locations update messages.
@@ -455,7 +447,6 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9 dynamic
-   * @since 20 static
    */
   /**
    * Subscribe satellite status changed.
@@ -490,7 +481,6 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9 dynamic
-   * @since 20 static
    */
   /**
    * Unsubscribe satellite status changed.
@@ -525,7 +515,6 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9 dynamic
-   * @since 20 static
    */
   /**
    * Subscribe nmea message changed.
@@ -560,7 +549,6 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9 dynamic
-   * @since 20 static
    */
   /**
    * Unsubscribe nmea message changed.
@@ -629,7 +617,6 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9 dynamic
-   * @since 20 static
    */
   /**
    * Registering the callback function for listening to country code changes.
@@ -659,7 +646,6 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9 dynamic
-   * @since 20 static
    */
   /**
    * Unregistering the callback function for listening to country code changes.
@@ -694,7 +680,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'locatingRequiredDataChange', config: LocatingRequiredDataConfig, callback: Callback<Array<LocatingRequiredData>>): void;
 
@@ -711,7 +697,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'locatingRequiredDataChange', callback?: Callback<Array<LocatingRequiredData>>): void;
 
@@ -727,7 +713,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'locationIconStatusChange', callback: Callback<LocationIconStatus>): void;
 
@@ -743,7 +729,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'locationIconStatusChange', callback?: Callback<LocationIconStatus>): void;
 
@@ -760,7 +746,6 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Core
    * @since 16 dynamic
-   * @since 20 static
    */
   /**
    * Registers and listens to bluetooth scanning results for location services.
@@ -794,7 +779,6 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 16 dynamic
-   * @since 20 static
    */
   /**
    * Stop bluetooth scanning and unregister to listen to bluetooth scanning result changes.
@@ -1130,7 +1114,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enableLocation(callback: AsyncCallback<void>): void;
 
@@ -1159,7 +1143,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enableLocation(): Promise<void>;
 
@@ -1202,7 +1186,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function disableLocation(): void;
 
@@ -1308,6 +1292,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301400 - Geocoding query failed.
    * @syscap SystemCapability.Location.Location.Geocoder
    * @since 9 dynamic
+   * @since 20 static
    */
   /**
    * Obtain latitude and longitude info from location address.
@@ -1338,6 +1323,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301400 - Geocoding query failed.
    * @syscap SystemCapability.Location.Location.Geocoder
    * @since 9 dynamic
+   * @since 20 static
    */
   /**
    * Obtain latitude and longitude info from location address.
@@ -1364,6 +1350,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Geocoder
    * @since 9 dynamic
+   * @since 20 static
    */
   /**
    * Obtain geocoding service status.
@@ -1391,6 +1378,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9 dynamic
+   * @since 20 static
    */
   /**
    * Obtain the number of cached GNSS locations reported at a time.
@@ -1422,6 +1410,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9 dynamic
+   * @since 20 static
    */
   /**
    * Obtain the number of cached GNSS locations.
@@ -1456,6 +1445,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9 dynamic
+   * @since 20 static
    */
   /**
    * All prepared GNSS locations are returned to the application through the callback function,
@@ -1494,6 +1484,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9 dynamic
+   * @since 20 static
    */
   /**
    * All prepared GNSS locations are returned to the application,
@@ -1552,6 +1543,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9 dynamic
+   * @since 20 static
    */
   /**
    * Obtain the current country code.
@@ -1579,6 +1571,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9 dynamic
+   * @since 20 static
    */
   /**
    * Obtain the current country code.
@@ -1766,7 +1759,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isLocationPrivacyConfirmed(type: LocationPrivacyType): boolean;
 
@@ -1818,6 +1811,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301601 - The number of geofences exceeds the maximum.
    * @syscap SystemCapability.Location.Location.Geofence
    * @since 12 dynamic
+   * @since 20 static
    */
   /**
    * Add a geofence.
@@ -1886,6 +1880,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Geofence
    * @since 12 dynamic
+   * @since 20 static
    */
   /**
    * Obtains the coordinate system types supported by geofence.
@@ -1936,7 +1931,7 @@ declare namespace geoLocationManager {
    * @returns { number } Returns the distance between two locations.
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   /**
    * Obtains the distance between two locations.
@@ -2042,7 +2037,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 21 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isWlanBssidMatched(
     wlanBssidArray: Array<string>, rssiThreshold: int, needStartScan: boolean): Promise<boolean>;
@@ -3176,7 +3171,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geocoder
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isFromMock?: Boolean;
   }
@@ -3617,7 +3612,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @atomicservice
      * @since 18 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     sportsType?: SportsType;
 
@@ -3628,6 +3623,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
+     * @since 20 static
      */
     /**
      * Indicates whether to obtain POI information near the current location.
@@ -3707,6 +3703,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
+     * @since 20 static
      */
     /**
      * Indicates whether to obtain POI information near the current location.
@@ -4055,7 +4052,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isFromMock?: Boolean;
 
@@ -4166,6 +4163,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 19 dynamic
+     * @since 20 static
      */
     /**
      * Indicates the poi information.
@@ -4241,7 +4239,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface LocatingRequiredData {
     /**
@@ -4251,7 +4249,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     wifiData?: WifiScanInfo;
 
@@ -4262,7 +4260,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     bluetoothData?: BluetoothScanInfo;
   }
