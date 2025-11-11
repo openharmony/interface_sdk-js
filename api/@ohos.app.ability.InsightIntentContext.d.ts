@@ -28,7 +28,7 @@ import type Want from './@ohos.app.ability.Want';
  * @StageModelOnly
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class InsightIntentContext {
   /**
@@ -58,7 +58,7 @@ declare class InsightIntentContext {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -89,7 +89,7 @@ declare class InsightIntentContext {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   startAbility(want: Want): Promise<void>;
 }

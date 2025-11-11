@@ -27,7 +27,7 @@ import type Context from './application/BaseContext';
  * @namespace sms
  * @syscap SystemCapability.Telephony.SmsMms
  * @since 6 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace sms {
   /**
@@ -344,7 +344,7 @@ declare namespace sms {
    * Returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function hasSmsCapability(): boolean;
 

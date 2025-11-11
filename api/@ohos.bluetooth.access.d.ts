@@ -43,7 +43,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @crossplatform
  * @atomicservice
  * @since 13 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace access {
   /**
@@ -81,7 +81,7 @@ declare namespace access {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function enableBluetooth(): void;
 
@@ -120,7 +120,7 @@ declare namespace access {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function disableBluetooth(): void;
 
@@ -190,7 +190,7 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function restrictBluetooth(): Promise<void>;
 
@@ -230,7 +230,7 @@ declare namespace access {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getState(): BluetoothState;
 
@@ -342,7 +342,7 @@ declare namespace access {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'stateChange', callback: Callback<BluetoothState>): void;
 
@@ -404,7 +404,7 @@ declare namespace access {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'stateChange', callback?: Callback<BluetoothState>): void;
 
@@ -512,7 +512,7 @@ declare namespace access {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum BluetoothState {
     /**
@@ -535,7 +535,7 @@ declare namespace access {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_OFF = 0,
     /**
@@ -558,7 +558,7 @@ declare namespace access {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_TURNING_ON = 1,
     /**
@@ -581,7 +581,7 @@ declare namespace access {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_ON = 2,
     /**
@@ -604,7 +604,7 @@ declare namespace access {
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_TURNING_OFF = 3,
     /**
@@ -619,7 +619,7 @@ declare namespace access {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_BLE_TURNING_ON = 4,
     /**
@@ -634,7 +634,7 @@ declare namespace access {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_BLE_ON = 5,
     /**
@@ -649,7 +649,7 @@ declare namespace access {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATE_BLE_TURNING_OFF = 6
   }

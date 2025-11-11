@@ -21,13 +21,24 @@
 import { BusinessError } from './@ohos.base';
 
 /**
+ * Defines a onCompleted function.
+ *
+ * @typedef {function} OnCompletedFn
+ * @param { BusinessError<void> } error - Indicates the error during execution.
+ * @syscap SystemCapability.Ability.AppStartup
+ * @since 22 staticonly
+ */
+type OnCompletedFn = (error: BusinessError<void>) => void;
+
+/**
  * The listener for running startup tasks, which will be called when all tasks complete.
  *
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
  * @since 12 dynamic
+ * @since 22 static
  */
-export default class StartupListener {
+declare class StartupListener {
   /**
    * Called when all startup tasks complete.
    *
@@ -37,4 +48,16 @@ export default class StartupListener {
    * @since 12 dynamic
    */
   onCompleted?(error: BusinessError<void>): void;
+
+  /**
+   * Called when all startup tasks complete.
+   *
+   * @type { ?OnCompletedFn }
+   * @syscap SystemCapability.Ability.AppStartup
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onCompleted?: OnCompletedFn;
 }
+
+export default StartupListener;

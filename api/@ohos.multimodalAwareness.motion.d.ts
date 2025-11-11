@@ -121,7 +121,7 @@ declare namespace motion {
    * <br>2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'operatingHandChanged', callback: Callback<OperatingHandStatus>): void;
 
@@ -141,7 +141,7 @@ declare namespace motion {
    * <br>2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'operatingHandChanged', callback?: Callback<OperatingHandStatus>): void;
 
@@ -157,7 +157,7 @@ declare namespace motion {
    * <br>2. N-API invocation exception, invalid N-API status.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getRecentOperatingHandStatus(): OperatingHandStatus;
 
@@ -175,7 +175,8 @@ declare namespace motion {
    * @throws { BusinessError } 31500002 - Subscription failed. Possible causes: 1. Callback registration failure;
    * <br>2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function on(type: 'holdingHandChanged', callback: Callback<HoldingHandStatus>): void;
 
@@ -193,7 +194,8 @@ declare namespace motion {
    * @throws { BusinessError } 31500003 - Unsubscription failed. Possible causes: 1. Callback failure;
    * <br>2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function off(type: 'holdingHandChanged', callback?: Callback<HoldingHandStatus>): void;
 }

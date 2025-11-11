@@ -37,7 +37,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since 20 static
+ * @since 22 static
  */
 type OnAcquireFormStateFn = (want: Want) => formInfo.FormState;
 
@@ -48,7 +48,7 @@ type OnAcquireFormStateFn = (want: Want) => formInfo.FormState;
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since 20 static
+ * @since 22 static
  */
 type OnStopFn = () => void;
 
@@ -66,7 +66,7 @@ type OnStopFn = () => void;
  * @stagemodelonly
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class FormExtensionAbility {
   /**
@@ -85,7 +85,7 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   context: FormExtensionContext;
 
@@ -113,7 +113,7 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onAddForm(want: Want): formBindingData.FormBindingData;
 
@@ -133,7 +133,7 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onCastToNormalForm(formId: string): void;
 
@@ -163,7 +163,7 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onUpdateForm(formId: string, wantParams?: Record<string, Object>): void;
 
@@ -197,7 +197,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onChangeFormVisibility(newStatus: Record<string, int>): void;
 
@@ -225,7 +225,7 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onFormEvent(formId: string, message: string): void;
 
@@ -247,7 +247,7 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onRemoveForm(formId: string): void;
 
@@ -267,7 +267,7 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onConfigurationUpdate(newConfig: Configuration): void;
 
@@ -353,7 +353,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   onAcquireFormState?: OnAcquireFormStateFn;
 
@@ -374,7 +374,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20 static
+   * @since 22 static
    */
   onStop?: OnStopFn;
 

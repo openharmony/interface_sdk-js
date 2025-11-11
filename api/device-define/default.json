@@ -145,7 +145,6 @@
     "SystemCapability.FileManagement.StorageService.Encryption",
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.FileManagement.File.Environment",
-    "SystemCapability.FileManagement.File.DistributedFile",
     "SystemCapability.FileManagement.AppFileService",
     "SystemCapability.FileManagement.UserFileService",
     "SystemCapability.FileManagement.UserFileManager.Core",
@@ -232,7 +231,6 @@
     "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
     "SystemCapability.Test.PerfTest",
-    "SystemCapability.ResourceSchedule.SystemLoad",
-    "SystemCapability.Tee.TeeClient"
+    "SystemCapability.ResourceSchedule.SystemLoad"
   ]
 }

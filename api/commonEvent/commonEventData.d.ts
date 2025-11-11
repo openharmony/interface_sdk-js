@@ -33,7 +33,7 @@
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface CommonEventData {
   /**
@@ -51,7 +51,7 @@ export interface CommonEventData {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   event: string;
 
@@ -69,7 +69,7 @@ export interface CommonEventData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   bundleName?: string;
 
@@ -91,7 +91,7 @@ export interface CommonEventData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   code?: int;
 
@@ -121,7 +121,7 @@ export interface CommonEventData {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   data?: string;
 
@@ -149,7 +149,7 @@ export interface CommonEventData {
    *
    * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 20 static
+   * @since 22 static
    */
   parameters?: Record<string, Object>;
 }

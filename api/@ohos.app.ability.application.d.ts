@@ -29,7 +29,7 @@ import Context from './application/Context';
  * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace application {
   /**
@@ -89,7 +89,7 @@ declare namespace application {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export function createModuleContext(context: Context, moduleName: string): Promise<Context>;
 
@@ -108,7 +108,7 @@ declare namespace application {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export function createModuleContext(context: Context, bundleName: string, moduleName: string): Promise<Context>;
 
@@ -157,7 +157,7 @@ declare namespace application {
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export function createBundleContext(context: Context, bundleName: string): Promise<Context>;
 
@@ -170,9 +170,21 @@ declare namespace application {
    * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export function getApplicationContext(): ApplicationContext;
+
+  /**
+   * Get application context instance.
+   *
+   * @returns { ApplicationContext } Returns the application context.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Memory operation error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+    export function getApplicationContextInstance(): ApplicationContext;
 
   /**
    * Elevate the current process to be a candidate master process.

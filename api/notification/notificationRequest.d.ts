@@ -49,7 +49,7 @@ import { BundleOption } from './NotificationCommonDef';
  * @syscap SystemCapability.Notification.Notification
  * @crossplatform
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationRequest {
   /**
@@ -66,7 +66,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   content: NotificationContent;
 
@@ -84,9 +84,20 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   id?: int;
+
+  /**
+   * Priority notification type, used to determine whether to highlight notifications.
+   * The specific highlighting behavior (such as display position, style, sound, vibration, etc.)
+   * depends on the system implementation and user settings.
+   *
+   * @type { ?notificationManager.PriorityNotificationType }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 23 dynamic&static
+   */
+  priorityNotificationType?: notificationManager.PriorityNotificationType;
 
   /**
    * Unique ID carried in a notification sent by an app, which is used for notification deduplication.
@@ -98,7 +109,7 @@ export interface NotificationRequest {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   appMessageId?: string;
 
@@ -119,7 +130,7 @@ export interface NotificationRequest {
    * @type { ?notificationManager.SlotType }
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   notificationSlotType?: notificationManager.SlotType;
 
@@ -137,7 +148,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isOngoing?: boolean;
 
@@ -147,7 +158,7 @@ export interface NotificationRequest {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isUnremovable?: boolean;
 
@@ -159,7 +170,7 @@ export interface NotificationRequest {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   updateOnly?: boolean;
 
@@ -177,7 +188,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   deliveryTime?: long;
 
@@ -199,7 +210,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   tapDismissed?: boolean;
 
@@ -221,7 +232,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   autoDeletedTime?: long;
 
@@ -231,7 +242,7 @@ export interface NotificationRequest {
    * @type { ?WantAgent }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   wantAgent?: WantAgent;
 
@@ -249,7 +260,7 @@ export interface NotificationRequest {
    *
    * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Notification.Notification
-   * @since 20 static
+   * @since 22 static
    */
   extraInfo?: Record<string, Object>;
 
@@ -259,7 +270,8 @@ export interface NotificationRequest {
    * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   extendInfo?: Record<string, Object>;
 
@@ -269,7 +281,7 @@ export interface NotificationRequest {
    * @type { ?long }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   color?: long;
 
@@ -279,7 +291,7 @@ export interface NotificationRequest {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   colorEnabled?: boolean;
 
@@ -303,7 +315,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isAlertOnce?: boolean;
 
@@ -313,7 +325,7 @@ export interface NotificationRequest {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isStopwatch?: boolean;
 
@@ -323,7 +335,7 @@ export interface NotificationRequest {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isCountDown?: boolean;
 
@@ -333,7 +345,7 @@ export interface NotificationRequest {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isFloatingIcon?: boolean;
 
@@ -344,7 +356,7 @@ export interface NotificationRequest {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   label?: string;
 
@@ -354,7 +366,7 @@ export interface NotificationRequest {
    * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   badgeIconStyle?: int;
 
@@ -372,7 +384,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   showDeliveryTime?: boolean;
 
@@ -382,7 +394,7 @@ export interface NotificationRequest {
    * @type { ?Array<NotificationActionButton> }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   actionButtons?: Array<NotificationActionButton>;
 
@@ -393,7 +405,7 @@ export interface NotificationRequest {
    * @type { ?image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   smallIcon?: image.PixelMap;
 
@@ -404,7 +416,7 @@ export interface NotificationRequest {
    * @type { ?image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   largeIcon?: image.PixelMap;
 
@@ -415,7 +427,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   overlayIcon?: image.PixelMap;
 
@@ -433,7 +445,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   groupName?: string;
 
@@ -444,7 +456,7 @@ export interface NotificationRequest {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly creatorBundleName?: string;
 
@@ -455,7 +467,7 @@ export interface NotificationRequest {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly creatorUid?: int;
 
@@ -466,7 +478,7 @@ export interface NotificationRequest {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly creatorPid?: int;
 
@@ -477,7 +489,7 @@ export interface NotificationRequest {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly creatorUserId?: int;
 
@@ -500,7 +512,7 @@ export interface NotificationRequest {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   sound?: string;
 
@@ -511,7 +523,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   classification?: string;
 
@@ -522,7 +534,7 @@ export interface NotificationRequest {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly hashCode?: string;
 
@@ -544,7 +556,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isRemoveAllowed?: boolean;
 
@@ -556,7 +568,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly source?: int;
 
@@ -566,7 +578,7 @@ export interface NotificationRequest {
    * @type { ?NotificationTemplate }
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   template?: NotificationTemplate;
 
@@ -576,7 +588,7 @@ export interface NotificationRequest {
    * @type { ?DistributedOptions }
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   distributedOption?: DistributedOptions;
 
@@ -588,7 +600,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly deviceId?: string;
 
@@ -599,7 +611,7 @@ export interface NotificationRequest {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly notificationFlags?: NotificationFlags;
 
@@ -610,7 +622,7 @@ export interface NotificationRequest {
    * @type { ?WantAgent }
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   removalWantAgent?: WantAgent;
 
@@ -630,7 +642,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   badgeNumber?: long;
 
@@ -641,7 +653,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   representativeBundle?: BundleOption;
   
@@ -653,7 +665,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly agentBundle?: BundleOption;
 
@@ -664,7 +676,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   unifiedGroupInfo?: UnifiedGroupInfo;
 
@@ -675,7 +687,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   notificationControlFlags?: long;
 
@@ -687,7 +699,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly appInstanceKey?: string;
 
@@ -699,7 +711,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   forceDistributed?: boolean;
 
@@ -711,7 +723,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   notDistributed?: boolean;
 }
@@ -722,7 +734,7 @@ export interface NotificationRequest {
  * @typedef DistributedOptions
  * @syscap SystemCapability.Notification.Notification
  * @since 8 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface DistributedOptions {
   /**
@@ -732,7 +744,7 @@ export interface DistributedOptions {
    * @default true
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   isDistributed?: boolean;
 
@@ -742,7 +754,7 @@ export interface DistributedOptions {
    * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   supportDisplayDevices?: Array<string>;
 
@@ -752,7 +764,7 @@ export interface DistributedOptions {
    * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   supportOperateDevices?: Array<string>;
 
@@ -764,7 +776,7 @@ export interface DistributedOptions {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   readonly remindType?: int;
 }
@@ -776,7 +788,7 @@ export interface DistributedOptions {
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationFilter {
   /**
@@ -786,7 +798,7 @@ export interface NotificationFilter {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   bundle: BundleOption;
 
@@ -797,7 +809,7 @@ export interface NotificationFilter {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   notificationKey: notificationSubscribe.NotificationKey;
 
@@ -808,7 +820,7 @@ export interface NotificationFilter {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   extraInfoKeys?: Array<string>;
 }
@@ -820,7 +832,7 @@ export interface NotificationFilter {
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationCheckRequest {
   /**
@@ -830,7 +842,7 @@ export interface NotificationCheckRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   contentType: notificationManager.ContentType;
 
@@ -841,7 +853,7 @@ export interface NotificationCheckRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   slotType: notificationManager.SlotType;
 
@@ -852,7 +864,7 @@ export interface NotificationCheckRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   extraInfoKeys: Array<string>;
 }
@@ -864,7 +876,7 @@ export interface NotificationCheckRequest {
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface UnifiedGroupInfo {
   /**
@@ -874,7 +886,7 @@ export interface UnifiedGroupInfo {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   key?: string;
 
@@ -885,7 +897,7 @@ export interface UnifiedGroupInfo {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   title?: string;
 
@@ -896,7 +908,7 @@ export interface UnifiedGroupInfo {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   content?: string;
 
@@ -907,7 +919,7 @@ export interface UnifiedGroupInfo {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   sceneName?: string;
 
@@ -927,7 +939,7 @@ export interface UnifiedGroupInfo {
    * @type { ?object }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   extraInfo?: Record<string, Object>;
 }

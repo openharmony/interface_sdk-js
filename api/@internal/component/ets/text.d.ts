@@ -1580,16 +1580,6 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 22 dynamic
    */
   enableSelectedDataDetector(enable: boolean | undefined): TextAttribute
-  /**
-   * Config selected data detector.
-   *
-   * @param { SelectDataDetectorConfig | undefined } config - Set the config of selected data detector.
-   * @returns { TextAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  selectedDataDetectorConfig(config: SelectDataDetectorConfig | undefined): TextAttribute
 
   /**
    * Bind to the selection menu.
@@ -2086,6 +2076,16 @@ declare enum MarqueeState {
    * @since 18 dynamic
    */
   FINISH = 2,
+
+  /**
+   * The marquee is stoped.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  STOP = 3,
 }
 
 /**
@@ -2303,4 +2303,27 @@ declare class TextController {
    * @since 12 dynamic
    */
   getLayoutManager(): LayoutManager;
+
+  /**
+   * Text selection is achieved by specifying the start and end positions of the text.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>If selectionStart or selectionEnd is set to undefined, the value 0 will be used.
+   * <br>If a 2-in-1 device is used,
+   *     calling setTextSelection does not display the context menu even when options is set to MenuPolicy.SHOW.
+   * <br>If the selected text contains an emoji,
+   * the emoji is selected when its start position is within the text selection range.
+   * </p>
+   *
+   * @param { number | undefined } selectionStart - The start position of the selected text.
+   * @param { number | undefined } selectionEnd - The end position of the selected text.
+   * @param { SelectionOptions } [options] - Indicates the options of the text selection.
+   *     Default value is MenuPolicy.DEFAULT.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  setTextSelection(selectionStart: number | undefined, selectionEnd: number | undefined,
+    options?: SelectionOptions): void;
 }

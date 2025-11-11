@@ -27,8 +27,8 @@ import type image from './@ohos.multimedia.image';
  *
  * @namespace call
  * @syscap SystemCapability.Telephony.CallManager
- * @since arkts {'1.1':'6','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 6 dynamic
+ * @since 20 static
  */
 /**
  * Provides methods related to call management.
@@ -37,7 +37,7 @@ import type image from './@ohos.multimedia.image';
  * @syscap SystemCapability.Telephony.CallManager
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace call {
   /**
@@ -170,8 +170,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Applications.Contacts
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   /**
    * Go to the dial screen and the called number is displayed.
@@ -187,7 +187,7 @@ declare namespace call {
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function makeCall(phoneNumber: string, callback: AsyncCallback<void>): void;
 
@@ -203,8 +203,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Applications.Contacts
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   /**
    * Go to the dial screen and the called number is displayed.
@@ -220,7 +220,7 @@ declare namespace call {
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function makeCall(phoneNumber: string): Promise<void>;
 
@@ -237,7 +237,7 @@ declare namespace call {
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function makeCall(context: Context, phoneNumber: string): Promise<void>;
 
@@ -268,7 +268,7 @@ declare namespace call {
    * state; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CallManager
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function hasCallSync(): boolean;
 
@@ -310,7 +310,7 @@ declare namespace call {
    * @returns { CallState } Returns the call state.
    * @syscap SystemCapability.Telephony.CallManager
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getCallStateSync(): CallState;
 
@@ -363,7 +363,7 @@ declare namespace call {
    * @returns { boolean } Returns {@code true} if the device supports voice calls; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CallManager
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function hasVoiceCapability(): boolean;
 
@@ -438,7 +438,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function formatPhoneNumber(phoneNumber: string, options: NumberFormatOptions, callback: AsyncCallback<string>): void;
 
@@ -459,7 +459,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function formatPhoneNumber(phoneNumber: string, options?: NumberFormatOptions): Promise<string>;
 
@@ -480,7 +480,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function formatPhoneNumber(phoneNumber: string, callback: AsyncCallback<string>): void;
 
@@ -1282,7 +1282,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'callDetailsChange', callback: Callback<CallAttributeOptions>): void;
 
@@ -1304,7 +1304,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'callDetailsChange', callback?: Callback<CallAttributeOptions>): void;
 
@@ -1325,7 +1325,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'callEventChange', callback: Callback<CallEventOptions>): void;
 
@@ -1346,7 +1346,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'callEventChange', callback?: Callback<CallEventOptions>): void;
 
@@ -1367,7 +1367,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'callDisconnectedCause', callback: Callback<DisconnectedDetails>): void;
 
@@ -1389,7 +1389,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'callDisconnectedCause', callback?: Callback<DisconnectedDetails>): void;
 
@@ -1410,7 +1410,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'mmiCodeResult', callback: Callback<MmiCodeResults>): void;
 
@@ -1431,7 +1431,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'mmiCodeResult', callback?: Callback<MmiCodeResults>): void;
 
@@ -1452,7 +1452,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'audioDeviceChange', callback: Callback<AudioDeviceCallbackInfo>): void;
 
@@ -1473,7 +1473,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'audioDeviceChange', callback?: Callback<AudioDeviceCallbackInfo>): void;
 
@@ -1494,7 +1494,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'postDialDelay', callback: Callback<string>): void;
 
@@ -1515,7 +1515,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'postDialDelay', callback?: Callback<string>): void;
 
@@ -2188,7 +2188,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'imsCallModeChange', callback: Callback<ImsCallModeInfo>): void;
 
@@ -2210,7 +2210,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'imsCallModeChange', callback?: Callback<ImsCallModeInfo>): void;
 
@@ -2233,7 +2233,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'callSessionEvent', callback: Callback<CallSessionEvent>): void;
 
@@ -2256,7 +2256,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'callSessionEvent', callback?: Callback<CallSessionEvent>): void;
 
@@ -2279,7 +2279,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'peerDimensionsChange', callback: Callback<PeerDimensionsDetail>): void;
 
@@ -2302,7 +2302,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'peerDimensionsChange', callback?: Callback<PeerDimensionsDetail>): void;
 
@@ -2325,7 +2325,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(type: 'cameraCapabilitiesChange', callback: Callback<CameraCapabilities>): void;
 
@@ -2348,7 +2348,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(type: 'cameraCapabilitiesChange', callback?: Callback<CameraCapabilities>): void;
 
@@ -2855,7 +2855,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum AudioDeviceType {
     /**
@@ -2864,7 +2864,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DEVICE_EARPIECE,
 
@@ -2874,7 +2874,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DEVICE_SPEAKER,
 
@@ -2884,7 +2884,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DEVICE_WIRED_HEADSET,
 
@@ -2894,7 +2894,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DEVICE_BLUETOOTH_SCO,
 
@@ -2904,7 +2904,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DEVICE_DISTRIBUTED_AUTOMOTIVE,
   }
@@ -2916,7 +2916,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface AudioDevice {
     /**
@@ -2926,7 +2926,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deviceType: AudioDeviceType;
 
@@ -2937,7 +2937,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     address?: string;
 
@@ -2948,7 +2948,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     deviceName?: string;
   }
@@ -2960,7 +2960,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface AudioDeviceCallbackInfo {
     /**
@@ -2970,7 +2970,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     audioDeviceList: Array<AudioDevice>;
 
@@ -2981,7 +2981,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     currentAudioDevice: AudioDevice;
 
@@ -2992,7 +2992,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isMuted: boolean;
   }
@@ -3258,7 +3258,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface CallAttributeOptions {
     /**
@@ -3328,7 +3328,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     callType: CallType;
 
@@ -3339,7 +3339,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     callId: number;
 
@@ -3350,7 +3350,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     callState: DetailedCallState;
 
@@ -3578,7 +3578,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum CallType {
     /**
@@ -3587,7 +3587,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_CS = 0,
 
@@ -3597,7 +3597,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_IMS = 1,
 
@@ -3607,7 +3607,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_OTT = 2,
 
@@ -3617,7 +3617,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_ERR_CALL = 3,
 
@@ -3627,7 +3627,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TYPE_VOIP = 4,
   }
@@ -3853,7 +3853,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum DetailedCallState {
     /**
@@ -3862,7 +3862,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_STATUS_ACTIVE = 0,
 
@@ -3872,7 +3872,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_STATUS_HOLDING,
 
@@ -3882,7 +3882,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_STATUS_DIALING,
 
@@ -3892,7 +3892,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_STATUS_ALERTING,
 
@@ -3902,7 +3902,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_STATUS_INCOMING,
 
@@ -3912,7 +3912,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_STATUS_WAITING,
 
@@ -3922,7 +3922,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_STATUS_DISCONNECTED,
 
@@ -3932,7 +3932,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_STATUS_DISCONNECTING,
 
@@ -3942,7 +3942,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_STATUS_IDLE,
   }
@@ -4022,7 +4022,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface CallEventOptions {
     /**
@@ -4032,7 +4032,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     eventId: CallAbilityEventId,
   }
@@ -4044,7 +4044,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum CallAbilityEventId {
     /**
@@ -4053,7 +4053,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EVENT_DIAL_NO_CARRIER = 1,
 
@@ -4063,7 +4063,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EVENT_INVALID_FDN_NUMBER,
 
@@ -4073,7 +4073,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EVENT_HOLD_CALL_FAILED,
 
@@ -4083,7 +4083,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EVENT_SWAP_CALL_FAILED,
 
@@ -4093,7 +4093,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EVENT_COMBINE_CALL_FAILED,
   
@@ -4103,7 +4103,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EVENT_SPLIT_CALL_FAILED,
 
@@ -4113,7 +4113,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EVENT_SHOW_FULL_SCREEN,
 
@@ -4123,7 +4123,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     EVENT_SHOW_FLOAT_WINDOW,
   }
@@ -4134,7 +4134,7 @@ declare namespace call {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum CallState {
     /**
@@ -4142,7 +4142,7 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 6 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_STATE_UNKNOWN = -1,
 
@@ -4151,7 +4151,7 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 6 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_STATE_IDLE = 0,
 
@@ -4160,7 +4160,7 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 6 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_STATE_RINGING = 1,
 
@@ -4170,7 +4170,7 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 6 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_STATE_OFFHOOK = 2,
 
@@ -4179,7 +4179,7 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_STATE_ANSWERED = 3
   }
@@ -4189,14 +4189,16 @@ declare namespace call {
    *
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
-   * @since 21 dynamic&static
+   * @since 21 dynamic
+   * @since 22 static
    */
   export enum TelCallState {
     /**
      * Indicates an invalid state, which is used when the call state fails to be obtained.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     TEL_CALL_STATE_UNKNOWN = -1,
 
@@ -4204,7 +4206,8 @@ declare namespace call {
      * Indicates that there is no ongoing call.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     TEL_CALL_STATE_IDLE = 0,
 
@@ -4212,7 +4215,8 @@ declare namespace call {
      * Indicates that an incoming call is ringing or waiting.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     TEL_CALL_STATE_RINGING = 1,
 
@@ -4221,7 +4225,8 @@ declare namespace call {
      * incoming call ringing or waiting.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     TEL_CALL_STATE_OFFHOOK = 2,
 
@@ -4229,7 +4234,8 @@ declare namespace call {
      * Indicates that call is answered
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     TEL_CALL_STATE_ANSWERED = 3,
 
@@ -4237,7 +4243,8 @@ declare namespace call {
      * Indicates that call is connected
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @since 21 dynamic&static
+     * @since 21 dynamic
+     * @since 22 static
      */
     TEL_CALL_STATE_CONNECTED = 4
   }
@@ -4642,7 +4649,7 @@ declare namespace call {
    * @interface NumberFormatOptions
    * @syscap SystemCapability.Telephony.CallManager
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface NumberFormatOptions {
     /**
@@ -4651,7 +4658,7 @@ declare namespace call {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CallManager
      * @since 7 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     countryCode?: string;
   }
@@ -4663,7 +4670,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface MmiCodeResults {
     /**
@@ -4673,7 +4680,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     result: MmiCodeResult;
 
@@ -4684,7 +4691,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     message: string;
   }
@@ -4696,7 +4703,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum MmiCodeResult {
     /**
@@ -4705,7 +4712,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MMI_CODE_SUCCESS = 0,
 
@@ -4715,7 +4722,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MMI_CODE_FAILED = 1
   }
@@ -4727,7 +4734,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum DisconnectedReason {
     /**
@@ -4736,7 +4743,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UNASSIGNED_NUMBER = 1,
 
@@ -4746,7 +4753,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NO_ROUTE_TO_DESTINATION = 3,
 
@@ -4756,7 +4763,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CHANNEL_UNACCEPTABLE = 6,
 
@@ -4766,7 +4773,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     OPERATOR_DETERMINED_BARRING = 8,
 
@@ -4776,7 +4783,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_COMPLETED_ELSEWHERE = 13,
 
@@ -4786,7 +4793,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NORMAL_CALL_CLEARING = 16,
 
@@ -4796,7 +4803,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USER_BUSY = 17,
 
@@ -4806,7 +4813,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NO_USER_RESPONDING = 18,
 
@@ -4816,7 +4823,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USER_ALERTING_NO_ANSWER = 19,
 
@@ -4826,7 +4833,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_REJECTED = 21,
 
@@ -4836,7 +4843,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NUMBER_CHANGED = 22,
 
@@ -4846,7 +4853,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_REJECTED_DUE_TO_FEATURE_AT_THE_DESTINATION = 24,
 
@@ -4856,7 +4863,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FAILED_PRE_EMPTION = 25,
 
@@ -4866,7 +4873,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NON_SELECTED_USER_CLEARING = 26,
 
@@ -4876,7 +4883,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DESTINATION_OUT_OF_ORDER = 27,
 
@@ -4886,7 +4893,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INVALID_NUMBER_FORMAT = 28,
 
@@ -4896,7 +4903,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FACILITY_REJECTED = 29,
 
@@ -4906,7 +4913,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESPONSE_TO_STATUS_ENQUIRY = 30,
 
@@ -4916,7 +4923,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NORMAL_UNSPECIFIED = 31,
 
@@ -4926,7 +4933,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NO_CIRCUIT_CHANNEL_AVAILABLE = 34,
 
@@ -4936,7 +4943,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NETWORK_OUT_OF_ORDER = 38,
 
@@ -4946,7 +4953,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     TEMPORARY_FAILURE = 41,
 
@@ -4956,7 +4963,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SWITCHING_EQUIPMENT_CONGESTION = 42,
 
@@ -4966,7 +4973,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACCESS_INFORMATION_DISCARDED = 43,
 
@@ -4976,7 +4983,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     REQUEST_CIRCUIT_CHANNEL_NOT_AVAILABLE = 44,
 
@@ -4986,7 +4993,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RESOURCES_UNAVAILABLE_UNSPECIFIED = 47,
 
@@ -4996,7 +5003,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     QUALITY_OF_SERVICE_UNAVAILABLE = 49,
 
@@ -5006,7 +5013,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     REQUESTED_FACILITY_NOT_SUBSCRIBED = 50,
 
@@ -5016,7 +5023,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INCOMING_CALLS_BARRED_WITHIN_THE_CUG = 55,
 
@@ -5026,7 +5033,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     BEARER_CAPABILITY_NOT_AUTHORIZED = 57,
 
@@ -5036,7 +5043,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     BEARER_CAPABILITY_NOT_PRESENTLY_AVAILABLE = 58,
 
@@ -5046,7 +5053,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SERVICE_OR_OPTION_NOT_AVAILABLE_UNSPECIFIED = 63,
 
@@ -5056,7 +5063,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     BEARER_SERVICE_NOT_IMPLEMENTED = 65,
 
@@ -5066,7 +5073,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACM_EQUALTO_OR_GREATER_THAN_THE_MAXIMUM_VALUE = 68,
 
@@ -5076,7 +5083,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     REQUESTED_FACILITY_NOT_IMPLEMENTED = 69,
 
@@ -5086,7 +5093,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ONLY_RESTRICTED_DIGITAL_INFO_BEARER_CAPABILITY_IS_AVAILABLE = 70,
 
@@ -5096,7 +5103,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SERVICE_OR_OPTION_NOT_IMPLEMENTED_UNSPECIFIED = 79,
 
@@ -5106,7 +5113,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INVALID_TRANSACTION_IDENTIFIER_VALUE = 81,
 
@@ -5116,7 +5123,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     USER_NOT_MEMBER_OF_CUG = 87,
 
@@ -5126,7 +5133,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INCOMPATIBLE_DESTINATION = 88,
 
@@ -5136,7 +5143,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INVALID_TRANSIT_NETWORK_SELECTION = 91,
 
@@ -5146,7 +5153,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SEMANTICALLY_INCORRECT_MESSAGE = 95,
 
@@ -5156,7 +5163,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INVALID_MANDATORY_INFORMATION = 96,
 
@@ -5166,7 +5173,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MESSAGE_TYPE_NON_EXISTENT_OR_NOT_IMPLEMENTED = 97,
 
@@ -5176,7 +5183,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MESSAGE_TYPE_NOT_COMPATIBLE_WITH_PROTOCOL_STATE = 98,
 
@@ -5186,7 +5193,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INFORMATION_ELEMENT_NON_EXISTENT_OR_NOT_IMPLEMENTED = 99,
 
@@ -5196,7 +5203,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CONDITIONAL_IE_ERROR = 100,
 
@@ -5206,7 +5213,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MESSAGE_NOT_COMPATIBLE_WITH_PROTOCOL_STATE = 101,
 
@@ -5216,7 +5223,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RECOVERY_ON_TIMER_EXPIRED = 102,
 
@@ -5226,7 +5233,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PROTOCOL_ERROR_UNSPECIFIED = 111,
 
@@ -5236,7 +5243,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INTERWORKING_UNSPECIFIED = 127,
 
@@ -5246,7 +5253,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_BARRED = 240,
 
@@ -5256,7 +5263,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FDN_BLOCKED = 241,
 
@@ -5266,7 +5273,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     IMSI_UNKNOWN_IN_VLR = 242,
 
@@ -5276,7 +5283,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     IMEI_NOT_ACCEPTED = 243,
 
@@ -5286,7 +5293,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DIAL_MODIFIED_TO_USSD = 244,
 
@@ -5296,7 +5303,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DIAL_MODIFIED_TO_SS = 245,
 
@@ -5306,7 +5313,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DIAL_MODIFIED_TO_DIAL = 246,
 
@@ -5316,7 +5323,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RADIO_OFF = 247,
 
@@ -5326,7 +5333,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     OUT_OF_SERVICE = 248,
 
@@ -5336,7 +5343,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NO_VALID_SIM = 249,
 
@@ -5346,7 +5353,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RADIO_INTERNAL_ERROR = 250,
 
@@ -5356,7 +5363,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NETWORK_RESP_TIMEOUT = 251,
 
@@ -5366,7 +5373,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NETWORK_REJECT = 252,
 
@@ -5376,7 +5383,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RADIO_ACCESS_FAILURE = 253,
 
@@ -5386,7 +5393,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RADIO_LINK_FAILURE = 254,
 
@@ -5396,7 +5403,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RADIO_LINK_LOST = 255,
 
@@ -5406,7 +5413,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RADIO_UPLINK_FAILURE = 256,
 
@@ -5416,7 +5423,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RADIO_SETUP_FAILURE = 257,
 
@@ -5426,7 +5433,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RADIO_RELEASE_NORMAL = 258,
 
@@ -5436,7 +5443,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     RADIO_RELEASE_ABNORMAL = 259,
 
@@ -5446,7 +5453,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACCESS_CLASS_BLOCKED = 260,
 
@@ -5456,7 +5463,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NETWORK_DETACH = 261,
 
@@ -5466,7 +5473,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     INVALID_PARAMETER = 1025,
 
@@ -5476,7 +5483,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SIM_NOT_EXIT = 1026,
 
@@ -5486,7 +5493,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SIM_PIN_NEED = 1027,
 
@@ -5496,7 +5503,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CALL_NOT_ALLOW = 1029,
 
@@ -5506,7 +5513,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SIM_INVALID = 1045,
 
@@ -5516,7 +5523,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     UNKNOWN = 1279,
   }
@@ -5528,7 +5535,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface DisconnectedDetails {
     /**
@@ -5538,7 +5545,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     reason: DisconnectedReason;
     /**
@@ -5548,7 +5555,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     message: string;
   }
@@ -5560,7 +5567,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface ImsCallModeInfo {
     /**
@@ -5570,7 +5577,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     callId: number;
     /**
@@ -5609,7 +5616,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface CallSessionEvent {
     /**
@@ -5619,7 +5626,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     callId: number;
     /**
@@ -5640,7 +5647,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface PeerDimensionsDetail {
     /**
@@ -5650,7 +5657,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     callId: number;
     /**
@@ -5680,7 +5687,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface CameraCapabilities {
     /**
@@ -5690,7 +5697,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     callId: number;
     /**

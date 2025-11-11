@@ -1,8 +1,8 @@
 %COMPONENT_COMMENT%
-@memo
+@Memo
 @ComponentBuilder
 export declare function %COMPONENT_NAME%(
     %FUNCTION_PARAMETERS%
-    @memo
+    @Memo
     content_?: () => void,
 ): %COMPONENT_NAME%Attribute

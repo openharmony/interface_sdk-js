@@ -6419,8 +6419,9 @@ declare interface TransitionOptions {
    *
    * @type { ?TransitionType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
+   * @useinstead TransitionEffect
    */
   type?: TransitionType;
   /**
@@ -6432,8 +6433,9 @@ declare interface TransitionOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
+   * @useinstead TransitionEffect#opacity
    */
   opacity?: number;
   /**
@@ -6445,8 +6447,9 @@ declare interface TransitionOptions {
    *
    * @type { ?TranslateOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
+   * @useinstead TransitionEffect#translate
    */
   translate?: TranslateOptions;
   /**
@@ -6462,21 +6465,23 @@ declare interface TransitionOptions {
    *
    * @type { ?ScaleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
+   * @useinstead TransitionEffect#scale
    */
   scale?: ScaleOptions;
   /**
    * Rotation of the component during transition, which is the value of the start point of insertion and the end point
    * of deletion. **x**: X-component of the rotation vector. **y**: Y-component of the rotation vector. **z**:
-   * Z-component of the rotation vector. **centerX** and **centerY**: rotation center point. The default values are 
+   * Z-component of the rotation vector. **centerX** and **centerY**: rotation center point. The default values are
    * both **"50%"**, indicating the center point of the page.If the center point is (0, 0), it refers to the upper left
    * corner of the component.
    *
    * @type { ?RotateOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 10
+   * @useinstead TransitionEffect#rotate
    */
   rotate?: RotateOptions;
 }
@@ -7639,7 +7644,7 @@ declare function animateTo(value: AnimateParam, event: () => void): void;
  *
  * @param { AnimateParam } value - Set animation effect parameters.
  * @param { function } event - Specify the closure function that displays dynamic effects,
- * and the system will automatically insert transition animations for state changes caused by the closure function.
+ *     and the system will automatically insert transition animations for state changes caused by the closure function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12 dynamiconly
@@ -11736,8 +11741,10 @@ declare interface MouseEvent extends BaseEvent {
   stopPropagation: () => void;
 
   /**
-   * X axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at
-   * the edge of the screen, the value may be less than the difference of the X coordinate reported twice.
+   * The movement increment of the mouse device along the X-axis in a two-dimensional plane.
+   * Its value represents the raw movement data from the mouse device, expressed in units of physical
+   * distance in the real world. The reported value is determined by the hardware itself and does not
+   * correspond to the physical or logical pixels on the screen.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11747,8 +11754,10 @@ declare interface MouseEvent extends BaseEvent {
   rawDeltaX?: number;
 
   /**
-   * Y axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at
-   * the edge of the screen, the value may be less than the difference of the Y coordinate reported twice.
+   * The movement increment of the mouse device along the Y-axis in a two-dimensional plane.
+   * Its value represents the raw movement data from the mouse device, expressed in units of physical
+   * distance in the real world. The reported value is determined by the hardware itself and does not
+   * correspond to the physical or logical pixels on the screen.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -12905,7 +12914,7 @@ declare enum DragResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic
+   * @since 22 dynamic
    */
   UNKNOWN = -1,
   /**
@@ -22210,13 +22219,13 @@ declare class CommonMethod<T> {
    * Sets the radius of the border rounded corners.
    *     The radius is restricted by the component size. The maximum value is half of the component width or height.
    * NOTE
-   *    1. **CornerApplyType.FAST**: The current component and its child components will be drawn directly
+   *    1. **RenderStrategy.FAST**: The current component and its child components will be drawn directly
    *        onto the canvas with rounded corners applied.
-   *    2. **CornerApplyType.OFFSCREEN**: The current component and its child components will first be rendered onto
+   *    2. **RenderStrategy.OFFSCREEN**: The current component and its child components will first be rendered onto
    *        an off-screen canvas, then undergo a rounded corner clipping, and finally be drawn onto the main canvas.
    * @param { Length | BorderRadiuses | LocalizedBorderRadiuses } value
-   * @param { CornerApplyType } [type] - Application types for drawing rounded corners.
-   *                                         Default value: **CornerApplyType.FAST**.
+   * @param { RenderStrategy } [type] - Application types for drawing rounded corners.
+   *                                         Default value: **RenderStrategy.FAST**.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -22224,7 +22233,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 22 dynamic
    */
-  borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses, type?: CornerApplyType): T;
+  borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses, type?: RenderStrategy): T;
 
   /**
    * Border image
@@ -31419,6 +31428,16 @@ declare abstract class TextContentControllerBase {
    * @since 19 dynamic
    */
   getText(range?: TextRange): string;
+
+  /**
+   * Delete the last character of the input field component.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  deleteBackward(): void;
 }
 
 /**

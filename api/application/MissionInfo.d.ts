@@ -27,7 +27,7 @@ import Want from '../@ohos.app.ability.Want';
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
  * @since 8 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface MissionInfo {
   /**
@@ -37,7 +37,7 @@ export interface MissionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   missionId: int;
 
@@ -48,7 +48,7 @@ export interface MissionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   runningState: int;
 
@@ -59,7 +59,7 @@ export interface MissionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   lockedState: boolean;
 
@@ -70,7 +70,7 @@ export interface MissionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   timestamp: string;
 
@@ -81,7 +81,7 @@ export interface MissionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   want: Want;
 
@@ -92,7 +92,7 @@ export interface MissionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   label: string;
 
@@ -103,7 +103,7 @@ export interface MissionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   iconPath: string;
 
@@ -114,7 +114,7 @@ export interface MissionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   continuable: boolean;
 
@@ -125,7 +125,7 @@ export interface MissionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   abilityState: int;
 
@@ -136,7 +136,7 @@ export interface MissionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   unclearable: boolean;
 }

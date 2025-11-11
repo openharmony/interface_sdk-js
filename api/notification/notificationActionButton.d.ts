@@ -32,7 +32,7 @@ import { WantAgent } from '../@ohos.app.ability.wantAgent';
  * @typedef NotificationActionButton
  * @syscap SystemCapability.Notification.Notification
  * @since 7 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface NotificationActionButton {
   /**
@@ -41,7 +41,7 @@ export interface NotificationActionButton {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   title: string;
 
@@ -51,7 +51,7 @@ export interface NotificationActionButton {
    * @type { WantAgent }
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   wantAgent: WantAgent;
 
@@ -69,7 +69,7 @@ export interface NotificationActionButton {
    *
    * @type { ?object }
    * @syscap SystemCapability.Notification.Notification
-   * @since 20 static
+   * @since 22 static
    */
   extras?: Record<string, Object>;
 
@@ -79,7 +79,7 @@ export interface NotificationActionButton {
    * @type { ?NotificationUserInput }
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   userInput?: NotificationUserInput;
 }

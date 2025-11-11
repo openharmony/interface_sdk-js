@@ -26,7 +26,7 @@
  * @systemapi
  * @stagemodelonly
  * @since 14 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export default interface UIServiceHostProxy {
   /**
@@ -41,7 +41,7 @@ export default interface UIServiceHostProxy {
    * @systemapi
    * @stagemodelonly
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   sendData(data: Record<string, Object>): void;
 }

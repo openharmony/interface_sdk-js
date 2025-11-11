@@ -20,6 +20,7 @@
  * @kit ArkUI
  */
 
+import { Callback } from './@ohos.base';
 import {
   PropRef,
   ObjectLink,
@@ -503,23 +504,16 @@ declare type ItemRestriction<T> = Array<T>;
 /**
  * Defines the SegmentButtonItemTuple type.
  *
- * @typedef { ItemRestriction<SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem> }
+ * @typedef { ItemRestriction<SegmentButtonTextItem> | ItemRestriction<SegmentButtonIconItem> | ItemRestriction<SegmentButtonIconTextItem> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-declare type SegmentButtonItemTuple = ItemRestriction<SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem>;
 
-
-/**
- * Defines the SegmentButtonItemArray type.
- *
- * @typedef { Array<SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem> }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
- * @noninterop
- */
-declare type SegmentButtonItemArray = Array<SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem>;
+declare type SegmentButtonItemTuple =
+  ItemRestriction<SegmentButtonTextItem> |
+  ItemRestriction<SegmentButtonIconItem> |
+  ItemRestriction<SegmentButtonIconTextItem>;
 
 /**
  * Defines SegmentButton tab options.
@@ -1255,6 +1249,13 @@ declare struct SegmentButton {
    * @noninterop
    */
   onItemClicked?: Callback<int>;
+  
+  /**
+   * The method to build component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 staticonly
+   */
+  @Builder build(): void;
 }
 
 export {
@@ -1272,7 +1273,6 @@ export {
   CommonSegmentButtonOptions,
   ItemRestriction,
   SegmentButtonItemTuple,
-  SegmentButtonItemArray,
   SegmentButtonItemOptionsConstructorOptions,
   SegmentButtonItemOptions,
   BorderRadiusMode

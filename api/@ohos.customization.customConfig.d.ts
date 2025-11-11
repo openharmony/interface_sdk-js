@@ -32,7 +32,7 @@
  * @syscap SystemCapability.Customization.CustomConfig
  * @atomicservice
  * @since 13 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace customConfig {
   
@@ -50,7 +50,7 @@ declare namespace customConfig {
    * @syscap SystemCapability.Customization.CustomConfig
    * @atomicservice
    * @since 13 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getChannelId(): string;
 

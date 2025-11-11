@@ -29,7 +29,7 @@ import { CommonMethod} from './common';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 interface ScreenInterface {
   /**
@@ -40,7 +40,7 @@ interface ScreenInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   (screenId: number): ScreenAttribute;
 }
@@ -52,7 +52,7 @@ interface ScreenInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class ScreenAttribute extends CommonMethod<ScreenAttribute> {
 }

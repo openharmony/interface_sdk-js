@@ -32,7 +32,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface ShellCmdResult {
   /**
@@ -49,7 +49,7 @@ export interface ShellCmdResult {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   stdResult: string;
 
@@ -67,7 +67,7 @@ export interface ShellCmdResult {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   exitCode: int;
 }

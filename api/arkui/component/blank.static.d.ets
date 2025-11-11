@@ -17,7 +17,7 @@
  * @kit ArkUI
  */
 import { ResourceColor } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -26,7 +26,7 @@ import { AttributeModifier, CommonMethod } from './common';
  * @extends CommonMethod
  * @interface BlankAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare interface BlankAttribute extends CommonMethod {
@@ -37,7 +37,7 @@ export declare interface BlankAttribute extends CommonMethod {
      * @param { ResourceColor } value
      * @returns { BlankAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default color(value: ResourceColor | undefined): this;
     /**
@@ -46,7 +46,7 @@ export declare interface BlankAttribute extends CommonMethod {
      * @param { AttributeModifier<BlankAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { BlankAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<BlankAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -55,16 +55,14 @@ export declare interface BlankAttribute extends CommonMethod {
  * Defines Blank Component.
  *
  * @param { number | string } [min] - Blank options.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { BlankAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Blank(
     min?: number | string, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): BlankAttribute

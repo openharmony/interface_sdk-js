@@ -27,18 +27,20 @@ import StartupListener from './@ohos.app.appstartup.StartupListener';
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
  * @since 12 dynamic
+ * @since 22 static
  */
 export default interface StartupConfig {
   /**
    * Indicates timeout for executing all startup tasks. Default value is 10000 milliseconds.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @default 10000
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
-  timeoutMs?: number;
+  timeoutMs?: int;
 
   /**
    * Indicates a listener for startup, which will be called when all tasks complete.
@@ -47,6 +49,7 @@ export default interface StartupConfig {
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12 dynamic
+   * @since 22 static
    */
   startupListener?: StartupListener;
 }

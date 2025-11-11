@@ -26,7 +26,7 @@ import { Position, ResourceStr, VoidCallback } from './units';
 import { MenuType, EditMenuOptions, TextDataDetectorConfig } from './textCommon';
 import { CopyOptions, NestedScrollMode } from './enums';
 import { PreviewMenuOptions } from './richEditor';
-import { ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Provides methods for controlling the web controller.
@@ -112,6 +112,119 @@ export type OnIntelligentTrackingPreventionCallback = (details: IntelligentTrack
  * @since 22 static
  */
 export type OnNativeEmbedVisibilityChangeCallback = (nativeEmbedVisibilityInfo: NativeEmbedVisibilityInfo) => void;
+/**
+ * The callback when the param element which is a child item of the object element has changed.
+ *
+ * @typedef { function } OnNativeEmbedObjectParamChangeCallback
+ * @param { NativeEmbedParamDataInfo } event - callback information of param element.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export type OnNativeEmbedObjectParamChangeCallback = (event: NativeEmbedParamDataInfo) => void;
+/**
+ * Enum type supplied to {@link NativeEmbedParamItem} when onNativeEmbedObjectParamChange being called.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare enum NativeEmbedParamStatus {
+    /**
+     * The param element is created.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    ADD = 0,
+    /**
+     * The param element is updated.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    UPDATE = 1,
+    /**
+     *The param element is deleted.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    DELETE = 2
+}
+/**
+ * Defines the information of param element.
+ *
+ * @typedef NativeEmbedParamItem
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare interface NativeEmbedParamItem {
+    /**
+     * The status of the param.
+     *
+     * @type { NativeEmbedParamStatus }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    status: NativeEmbedParamStatus;
+    /**
+     * The id attribute of the param element.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    id: string;
+    /**
+     * The name attribute of the param element.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    name?: string;
+    /**
+     * The value attribute of the param element.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    value?: string;
+}
+/**
+ * Defines the param data info.
+ *
+ * @typedef NativeEmbedParamDataInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare interface NativeEmbedParamDataInfo {
+    /**
+     * The native embed id.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    embedId: string;
+    /**
+     * The id attribute of the object element.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    objectAttributeId?: string;
+    /**
+     * The param element array
+     *
+     * @type { ?Array<NativeEmbedParamItem> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    paramItems?: Array<NativeEmbedParamItem>;
+}
 /**
  * Enum type supplied to {@link rotateRenderEffect} for setting the effect of rotation.
  *
@@ -958,6 +1071,41 @@ export declare class FileSelectorParam {
      * @since 22 static
      */
     getMimeTypes(): Array<string>;
+    /**
+    * Gets suggested file names.
+    *
+    * @returns { string } Return the suggested file names.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    getSuggestedName(): string;
+
+    /**
+    * Get the default path opened when pulling up the selector.
+    *
+    * @returns { string } Return to the default path opened when pulling up the selector.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    getDefaultPath(): string;
+
+    /**
+    * Gets a description array of file types.
+    *
+    * @returns { Array<string> } Return an array of description of the file type.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    getDescriptions(): Array<string>;
+
+    /**
+    * Gets whether to filter fully matching file types.
+    *
+    * @returns { boolean } Return whether to filter all matching file types.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 23 static
+    */
+    isAcceptAllOptionExcluded(): boolean;
 }
 /**
  * Defines the js result.
@@ -3765,6 +3913,48 @@ export declare interface OnOverScrollEvent {
     yOffset: double;
 }
 /**
+ * Defines the function Triggered when the PDF page scrolling.
+ *
+ * @typedef OnPdfScrollEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare interface OnPdfScrollEvent {
+    /**
+     * PDF page url.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    url:string;
+}
+/**
+ * Defines the function Triggered when the PDF load.
+ *
+ * @typedef OnPdfLoadEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare interface OnPdfLoadEvent {
+    /**
+     * The PDF page load result.
+     *
+     * @type { PdfLoadResult }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    result: PdfLoadResult;
+    /**
+     * The PDF page url.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    url: string;
+}
+/**
  * Defines the JavaScript object to be injected.
  *
  * @typedef JavaScriptProxy
@@ -3932,6 +4122,50 @@ export declare enum AudioSessionType {
      * @since 22 static
      */
     AMBIENT = 3
+}
+/**
+ * PDF page load result
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 static
+ */
+export declare enum PdfLoadResult {
+    /**
+     * The PDF page load success.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    LOAD_SUCCESS = 0,
+    /**
+     * The error code for web load PDF file failed.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    PARSE_ERROR_FILE = 1,
+    /**
+     * The error code for the PDF format is not support.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    PARSE_ERROR_FORMAT = 2,
+    /**
+     * The error code for the PDF password is wrong.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    PARSE_ERROR_PASSWORD = 3,
+    /**
+     * The error code for the  PDF handler process failed.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    PARSE_ERROR_HANDLER = 4
 }
 /**
  * Enum type supplied to {@link bypassVsyncCondition} for setting the bypass vsync condition.
@@ -4337,7 +4571,7 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 22 static
      */
     default mediaOptions(options: WebMediaOptions | undefined): this;
-    
+
     /**
      * Sets whether to load web pages by using the overview mode, which means reducing the content to fit the screen width.
      * Currently, only mobile devices are supported.
@@ -5170,6 +5404,22 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default onOverScroll(callback: Callback<OnOverScrollEvent> | undefined): this;
     /**
+     * Triggered when the PDF in web page scrolling at bottom with pdf scroll event.
+     * @param { Callback<OnPdfScrollEvent> | undefined } callback Function Triggered when the scrolling to bottom.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    default onPdfScrollAtBottom(callback: Callback<OnPdfScrollEvent> | undefined): this;
+    /**
+     * Triggered when the PDF page load finish.
+     * @param { Callback<OnPdfLoadEvent> | undefined } callback
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    default onPdfLoadEvent(callback: Callback<OnPdfLoadEvent> | undefined): this;
+    /**
      * Called when received website security risk check result.
      *
      * @param { OnSafeBrowsingCheckResultCallback | undefined } callback - Function triggered when received website security risk check result.
@@ -5691,6 +5941,15 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 22 static
      */
     default forceEnableZoom(enable: boolean | undefined): this;
+    /**
+     * Triggered when the param element which is a child item of the object element has changed.
+     *
+     * @param { OnNativeEmbedObjectParamChangeCallback | undefined } callback - callback Triggered when the param element has changed.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    default onNativeEmbedObjectParamChange(callback: OnNativeEmbedObjectParamChangeCallback | undefined): this;
     /**
      * Set up the effect of web roation
      *

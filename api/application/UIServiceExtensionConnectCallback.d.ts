@@ -26,7 +26,7 @@
  * @stagemodelonly
  * @atomicservice
  * @since 14 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export default interface UIServiceExtensionConnectCallback {
   /**
@@ -37,7 +37,7 @@ export default interface UIServiceExtensionConnectCallback {
    * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onData(data: Record<string, Object>): void;
 
@@ -48,7 +48,7 @@ export default interface UIServiceExtensionConnectCallback {
    * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onDisconnect(): void;
 }
