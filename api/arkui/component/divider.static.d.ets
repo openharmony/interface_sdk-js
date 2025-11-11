@@ -18,7 +18,7 @@
  */
 import { ResourceColor } from './units';
 import { LineCapStyle } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -83,16 +83,14 @@ export declare interface DividerAttribute extends CommonMethod {
 /**
  * Defines Divider Component.
  *
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { DividerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Divider(
     
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): DividerAttribute

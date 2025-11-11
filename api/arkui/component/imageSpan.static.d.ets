@@ -23,7 +23,7 @@ import { ImageSpanAlignment, ImageFit } from "./enums";
 import { ImageErrorCallback, DrawingColorFilter } from "./image";
 import { PixelMap, AttributeModifier, CommonMethod } from "./common";
 import image from '../../@ohos.multimedia.image';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Define the ImageSpan attribute functions.
@@ -197,16 +197,14 @@ export declare interface ImageLoadResult {
  * Defines ImageSpan Component.
  *
  * @param { ResourceStr | PixelMap } value
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { ImageSpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function ImageSpan(
     value: ResourceStr | PixelMap, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ImageSpanAttribute

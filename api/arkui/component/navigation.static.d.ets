@@ -30,7 +30,7 @@ import { Length, ResourceStr, ResourceColor, Dimension, VoidCallback } from './u
 import { TitleHeight } from './enums';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
 import { NavDestinationContext, NavDestinationMode } from './navDestination';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
 
 /**
  * Import the SystemBarStyle type for Navigation.
@@ -1796,16 +1796,14 @@ export declare interface NavContentInfo {
  * Defines Navigation Component
  *
  * @param { NavPathStack } [pathInfos] - Navigation constructor options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { NavigationAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Navigation(
     pathInfos?: NavPathStack, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder
 ): NavigationAttribute

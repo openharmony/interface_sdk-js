@@ -18,7 +18,7 @@
  */
 import { TextBackgroundStyle } from "./span";
 import { AttributeModifier, CommonMethod } from "./common";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Define the ContainerSpan attribute functions.
@@ -50,14 +50,12 @@ export declare interface ContainerSpanAttribute {
 /**
  * Defines ContainerSpan Component.
  *
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { ContainerSpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function ContainerSpan(
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ContainerSpanAttribute

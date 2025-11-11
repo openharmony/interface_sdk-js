@@ -24,7 +24,7 @@ import { ResourceStr, Dimension, EdgeOutlineWidths, ResourceColor, EdgeColors, R
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
 import { TextModifier } from '../TextModifier';
 import { OptionWidthMode } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder,  CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * The declare of selectOption.
@@ -511,15 +511,13 @@ export declare interface MenuItemConfiguration extends CommonConfiguration<MenuI
  * Defines Select Component.
  *
  * @param { Array<SelectOptions> } options - the options of Select.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { SelectAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Select(
     options: Array<SelectOption>,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): SelectAttribute

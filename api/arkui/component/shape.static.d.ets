@@ -20,7 +20,7 @@ import { CommonMethod, PixelMap, AttributeModifier } from "./common";
 import { ResourceColor, Length } from "./units";
 import { Resource } from '../../global/resource';
 import { LineCapStyle, LineJoinStyle } from "./enums";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Viewport bounding box.
@@ -207,15 +207,13 @@ export declare interface ShapeAttribute extends CommonMethod {
  * Shape is returned when the parameter is transferred.
  *
  * @param { PixelMap } [value] - A pixelMap can be drawn in the area of shape.
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { ShapeAttribute } The attribute of the Shape.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Shape(
     value?: PixelMap, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ShapeAttribute

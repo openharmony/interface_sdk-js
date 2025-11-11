@@ -18,7 +18,7 @@
  */
 import { HorizontalAlign, FlexAlign } from './enums';
 import { Resource } from './../../global/resource';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Defines the space property with string, number and resource unit.
@@ -125,16 +125,14 @@ export declare interface ColumnAttribute extends CommonMethod {
  * Defines Column Component.
  *
  * @param { ColumnOptions | ColumnOptions | ColumnOptionsV2 } [options] - Column options.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ColumnAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Column(
     options?: ColumnOptions | ColumnOptions | ColumnOptionsV2,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ColumnAttribute

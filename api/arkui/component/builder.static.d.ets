@@ -18,7 +18,6 @@
  * @kit ArkUI
  */
 
-import { memo, ComponentBuilder } from "../stateManagement/runtime";
 import { Callback } from '@ohos.base';
 
 /**
@@ -126,3 +125,12 @@ export type BuilderParameterCallback = () => Any;
  * @since 22 static
  */
 export declare function makeBuilderParameterProxy<T extends Object>(instance: T, propertyGetters: Map<string, BuilderParameterCallback>, initializer?: Callback<T>): T;
+
+/**
+ * Defines ComponentBuilder Annotation.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+@Retention({policy: "SOURCE"})
+export @interface ComponentBuilder {}

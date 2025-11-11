@@ -24,7 +24,7 @@ import { BarState, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBrea
 import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length } from "./units";
 import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance } from "./textCommon";
 import { KeyboardOptions, PasteEvent } from "./richEditor";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder } from './builder';
 /**
  * Declare the type of input box
  *
@@ -1763,15 +1763,13 @@ export declare interface TextInputAttribute extends CommonMethod {
  * Defines TextInput Component.
  *
  * @param { TextInputOptions } [value]
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { TextInputAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function TextInput(
     value?: TextInputOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): TextInputAttribute

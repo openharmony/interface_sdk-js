@@ -21,7 +21,7 @@
 import { ResourceColor, Length } from "./units";
 import { LengthMetrics } from '../Graphics';
 import { CommonMethod, Callback, Optional } from './common';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -274,16 +274,14 @@ export declare interface PatternLockAttribute extends CommonMethod {
  * Defines the PatternLock component.
  *
  * @param { PatternLockController } [controller] - pattern lock controller.
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { PatternLockAttribute } The attribute of the PatternLock.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function PatternLock(
     controller?: PatternLockController, 
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): PatternLockAttribute;

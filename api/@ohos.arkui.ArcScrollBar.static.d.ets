@@ -21,7 +21,7 @@
 import { Scroller } from '@ohos.arkui.component';
 import { BarState } from '@ohos.arkui.component';
 import { CommonMethod } from '@ohos.arkui.component';
-import { memo, ComponentBuilder } from '@ohos.arkui.stateManagement';
+import { ComponentBuilder, CustomBuilder } from '@ohos.arkui.component';
 import { AttributeModifier, CommonMethod } from '@ohos.arkui.component';
 /**
  * Defines the arc scroll bar options.
@@ -72,16 +72,14 @@ export declare interface ArcScrollBarAttribute extends CommonMethod {
  * Defines ArcScrollBar Component.
  *
  * @param { ArcScrollBarOptions } options
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { ArcScrollBarAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function ArcScrollBar(
     options: ArcScrollBarOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ArcScrollBarAttribute

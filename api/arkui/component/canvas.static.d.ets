@@ -22,7 +22,7 @@ import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
 import { Matrix2D } from './matrix2d';
 import { DrawingCanvas, VoidCallback, LengthMetricsUnit, LengthMetrics } from './units';
 import { Size } from '../Graphics';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { Color } from './enums'
 
@@ -1811,16 +1811,14 @@ export declare interface CanvasAttribute extends CommonMethod {
  *
  * @param { CanvasRenderingContext2D | DrawingRenderingContext } [context] - Canvas context object.
  * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { CanvasAttribute } The attribute of the Canvas.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Canvas(
   context?: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptions?: ImageAIOptions,
-  @memo
-  content_?: () => void,
+  content_?: CustomBuilder,
 ): CanvasAttribute

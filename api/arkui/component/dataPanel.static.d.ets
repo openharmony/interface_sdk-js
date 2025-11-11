@@ -20,7 +20,7 @@
  */
 import { ResourceColor, Length } from "./units";
 import { CommonMethod, ContentModifier, CommonConfiguration, MultiShadowOptions } from './common';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -240,16 +240,14 @@ export declare interface DataPanelAttribute extends CommonMethod {
  * Defines the DataPanel component.
  *
  * @param { DataPanelOptions } options - data panel options.
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { DataPanelAttribute } The attribute of the DataPanel.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function DataPanel(
     options: DataPanelOptions, 
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): DataPanelAttribute;

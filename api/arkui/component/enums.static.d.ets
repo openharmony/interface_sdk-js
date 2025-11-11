@@ -20,7 +20,6 @@
  */
 
 import curves from '../../@ohos.curves';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**

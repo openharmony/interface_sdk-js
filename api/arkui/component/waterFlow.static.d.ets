@@ -24,7 +24,7 @@ import { Scroller, OnScrollFrameBeginCallback } from "./scroll";
 import { ScrollState } from "./list";
 import { FlexDirection } from './enums';
 import { ComponentContentBase } from '../../arkui/ComponentContent';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * function that returns item main size by index.
@@ -429,15 +429,13 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
  * Defines WaterFlow Component.
  *
  * @param { WaterFlowOptions } [options] - options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { WaterFlowAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function WaterFlow(
     options?: WaterFlowOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): WaterFlowAttribute

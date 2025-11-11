@@ -18,7 +18,7 @@
  */
 import { CommonShapeMethod, CommonMethod, AttributeModifier } from "./common";
 import { Length } from "./units";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Defines the Shape Point, the first element is the x-axis offset and the second is the y-axis.
@@ -100,15 +100,13 @@ export declare interface LineAttribute extends CommonShapeMethod {
  * Line is returned when the parameter is transferred.
  *
  * @param { LineOptions } [options] - The options to create a Line
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { LineAttribute } The attribute of the Line.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Line(
     options?: LineOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): LineAttribute

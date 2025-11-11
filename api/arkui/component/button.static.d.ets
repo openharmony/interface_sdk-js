@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { CustomBuilder } from './builder';
-import { ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
 import { Resource } from '../../global/resource';
 import { ResourceStr, ResourceColor, Length, Font } from './units';
 import { TextOverflow, FontWeight, FontStyle, TextHeightAdaptivePolicy } from './enums';

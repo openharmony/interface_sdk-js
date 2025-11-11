@@ -18,7 +18,7 @@
  */
 
 import { Builder } from './builder';
-import { ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
 import { DynamicNode } from './common';
 
 /**

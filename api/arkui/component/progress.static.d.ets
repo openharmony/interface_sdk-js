@@ -23,7 +23,7 @@ import { Resource } from '../../global/resource';
 import { CommonMethod, Optional, ContentModifier, CommonConfiguration } from './common';
 import { LinearGradient } from "./dataPanel";
 import { LengthMetrics } from '../Graphics';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -518,16 +518,14 @@ export declare interface ProgressConfiguration extends CommonConfiguration<Progr
  * Defines the Progress component.
  *
  * @param { ProgressOptions } options - progress options.
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { ProgressAttribute } The attribute of the Progress.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Progress(
     options: ProgressOptions, 
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): ProgressAttribute;

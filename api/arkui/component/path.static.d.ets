@@ -17,7 +17,7 @@
  * @kit ArkUI
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Define options used to construct a path.
@@ -83,15 +83,13 @@ export declare interface PathAttribute extends CommonShapeMethod {
  * Path is returned when the parameter is transferred.
  *
  * @param { PathOptions } [options] - The options to create a Path
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { PathAttribute } The attribute of the Path.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Path(
     options?: PathOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): PathAttribute

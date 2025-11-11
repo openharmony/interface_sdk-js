@@ -20,7 +20,7 @@
 import { CommonMethod, Optional, Bindable } from './common';
 import { ResourceColor, MarkStyle } from './units';
 import { CheckBoxShape } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * CheckboxGroup SelectStatus
@@ -185,15 +185,13 @@ export declare interface CheckboxGroupAttribute extends CommonMethod {
  * Defines CheckboxGroup Component.
  *
  * @param { CheckboxGroupOptions } [options] - the options of CheckboxGroup.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { CheckboxGroupAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function CheckboxGroup(
-    options?: CheckboxGroupOptions,
-    @memo
-    content_?: () => void,
+    options?: CheckboxGroupOptions, 
+    content_?: CustomBuilder,
 ): CheckboxGroupAttribute

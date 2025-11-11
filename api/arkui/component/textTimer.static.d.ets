@@ -21,7 +21,7 @@
 import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier } from './common';
 import { ResourceColor, Length, ResourceStr } from "./units";
 import { FontStyle, FontWeight } from "./enums";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -277,15 +277,13 @@ export declare interface TextTimerAttribute extends CommonMethod {
  * Defines the TextTimer component.
  *
  * @param { TextTimerOptions } [options] - text timer options.
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { TextTimerAttribute } The attribute of the TextTimer.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function TextTimer(
     options?: TextTimerOptions, 
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): TextTimerAttribute;

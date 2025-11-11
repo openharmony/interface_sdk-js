@@ -20,7 +20,8 @@
 
 import { CustomTheme } from '../../@ohos.arkui.theme';
 import { ThemeColorMode, AttributeModifier, CommonMethod } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { memo } from './../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
 
 /**
  * Defines the struct of WithThemeOptions.

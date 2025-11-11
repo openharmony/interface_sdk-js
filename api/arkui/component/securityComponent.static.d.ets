@@ -23,7 +23,6 @@ import { Dimension, Position, Edges, LocalizedEdges, ResourceColor, Padding, Len
 import { FontStyle, FontWeight, BorderStyle, TextHeightAdaptivePolicy, Axis, Alignment } from './enums';
 import { ChainStyle, LocalizedAlignRuleOptions, AlignRuleOption, AttributeModifier, CommonMethod } from './common';
 import { Resource } from '../../global/resource';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
 
 /**
  * Enumerates the layout direction of the icon and text.
