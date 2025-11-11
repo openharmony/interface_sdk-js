@@ -106,8 +106,6 @@ declare namespace dragController {
      * @since 22 static
      */
     interface DragAction {
-        
-        
         /**
          * trigger drag action
          *
@@ -123,24 +121,22 @@ declare namespace dragController {
          * Registers a callback for listening on drag status changes.
          * This callback is triggered when the drag status change.
          *
-         * @param { 'statusChange' } type for status changing
          * @param { Callback<DragAndDropInfo> } callback with drag event and status information
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        on(type: 'statusChange', callback: Callback<DragAndDropInfo>): void;
+        onStatusChange(callback: Callback<DragAndDropInfo>): void;
         
         
         /**
          * Deregisters a callback for listening on drag status changes.
          * This callback is not triggered when the drag status change.
          *
-         * @param { 'statusChange' } type for status changing
-         * @param { Callback<DragAndDropInfo> } callback with drag event and status information
+         * @param { Callback<DragAndDropInfo> } [callback] with drag event and status information
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        off(type: 'statusChange', callback?: Callback<DragAndDropInfo>): void;
+        offStatusChange(callback?: Callback<DragAndDropInfo>): void;
     }
     
     
