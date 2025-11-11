@@ -32,6 +32,7 @@ declare interface PickerOptions {
    * Current selected subscript.
    *
    * @type { ?number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -131,6 +132,7 @@ declare interface PickerIndicatorStyle {
    * The width of divider stroke.
    *
    * @type { ?LengthMetrics } strokeWidth
+   * @default $r('sys.float.border_medium')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -142,6 +144,7 @@ declare interface PickerIndicatorStyle {
    * The color of Divider.
    *
    * @type { ?ResourceColor } dividerColor
+   * @default $r('sys.color.comp_divider')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -153,6 +156,7 @@ declare interface PickerIndicatorStyle {
    * The startMargin of Divider.
    *
    * @type { ?LengthMetrics } startMargin
+   * @default 0vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -164,6 +168,7 @@ declare interface PickerIndicatorStyle {
    * The endMargin of Divider.
    *
    * @type { ?LengthMetrics } endMargin
+   * @default 0vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -175,6 +180,7 @@ declare interface PickerIndicatorStyle {
    * Define the background color of selected item.
    *
    * @type { ?ResourceColor } backgroundColor
+   * @default $r('sys.color.comp_background_tertiary')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -186,6 +192,7 @@ declare interface PickerIndicatorStyle {
    * Defines the border radius of selected items.
    *
    * @type { ?(LengthMetrics | BorderRadiuses | LocalizedBorderRadiuses) } borderRadius
+   * @default $r('sys.float.corner_radius_level6')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
