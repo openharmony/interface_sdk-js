@@ -96,8 +96,7 @@ export interface NotificationRequest {
    *
    * @type { ?notificationManager.PriorityNotificationType }
    * @syscap SystemCapability.Notification.Notification
-   * @since 23 dynamic
-   * @since 22 static
+   * @since 23 dynamic&static
    */
   priorityNotificationType?: notificationManager.PriorityNotificationType;
 
