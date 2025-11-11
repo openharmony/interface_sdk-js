@@ -18,9 +18,6 @@
  * @kit ArkGraphics3D
  */
 
-/*** if arkts static */
-import { SceneResource, Morpher } from './SceneResources';
-/*** endif */
 /*** if arkts dynamic */
 import { Effect } from './SceneResources';
 /*** endif */
