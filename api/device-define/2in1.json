@@ -76,7 +76,6 @@
     "SystemCapability.FileManagement.StorageService.Volume",
     "SystemCapability.FileManagement.StorageService.SpatialStatistics",
     "SystemCapability.ArkUI.ArkUI.Napi",
-    "SystemCapability.Security.DataTransitManager",
     "SystemCapability.PowerManager.DisplayPowerManager",
     "SystemCapability.HiviewDFX.HiChecker",
     "SystemCapability.PowerManager.ThermalManager",
