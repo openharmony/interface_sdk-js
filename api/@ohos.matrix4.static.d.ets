@@ -40,29 +40,29 @@ declare namespace matrix4 {
         /**
          * Indicates the translation distance of the x-axis, in px.
          *
-         * @type { ?number }
+         * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        x?: number;
+        x?: double;
 
         /**
          * Indicates the translation distance of the y-axis, in px.
          *
-         * @type { ?number }
+         * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        y?: number;
+        y?: double;
 
         /**
          * Indicates the translation distance of the z-axis, in px.
          *
-         * @type { ?number }
+         * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        z?: number;
+        z?: double;
     }
 
     /**
@@ -77,49 +77,49 @@ declare namespace matrix4 {
         /**
          * Zoom factor of the x-axis.
          *
-         * @type { ?number }
+         * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        x?: number;
+        x?: double;
         
         
         /**
          * Zoom factor of the y-axis.
          *
-         * @type { ?number }
+         * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        y?: number;
+        y?: double;
 
         /**
          * Zoom factor of the z-axis.
          *
-         * @type { ?number }
+         * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        z?: number;
+        z?: double;
         
         
         /**
          * Transform the x-axis coordinate of the center point.
          *
-         * @type { ?number }
+         * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        centerX?: number;
+        centerX?: double;
 
         /**
          * Transform the y-axis coordinate of the center point.
          *
-         * @type { ?number }
+         * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        centerY?: number;
+        centerY?: double;
     }
 
     /**
@@ -134,56 +134,56 @@ declare namespace matrix4 {
         /**
          * Axis of rotation vector x coordinate.
          *
-         * @type { ?number }
+         * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        x?: number;
+        x?: double;
 
         /**
          * Axis of rotation vector y coordinate.
          *
-         * @type { ?number }
+         * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        y?: number;
+        y?: double;
 
         /**
          * Axis of rotation vector z coordinate.
          *
-         * @type { ?number }
+         * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        z?: number;
+        z?: double;
 
         /**
          * Transform the x-axis coordinate of the center point.
          *
-         * @type { ?number }
+         * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        centerX?: number;
+        centerX?: double;
 
         /**
          * Transform the y-axis coordinate of the center point.
          *
-         * @type { ?number }
+         * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        centerY?: number;
+        centerY?: double;
 
         /**
          * Rotation angle.
          *
-         * @type { ?number }
+         * @type { ?double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        angle?: number;
+        angle?: double;
     }
     /**
      * Set poly to poly point.
@@ -196,19 +196,19 @@ declare namespace matrix4 {
         /**
          * Point x.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        x: number;
+        x: double;
         /**
          * Point y.
          *
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        y: number;
+        y: double;
     }
     /**
      * Set poly to poly point options.
@@ -228,12 +228,12 @@ declare namespace matrix4 {
         src: Array<Point>;
         /**
          * Start point index of the source polygon, which defaults to 0.
-         * @type { ?number }
+         * @type { ?int }
          * @default 0
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        srcIndex?: number;
+        srcIndex?: int;
         /**
          * Array of point coordinates for the target polygon.
          *
@@ -245,23 +245,23 @@ declare namespace matrix4 {
         /**
          * Start index of the target polygon, which defaults to 0.
          *
-         * @type { ?number }
+         * @type { ?int }
          * @default src.Length/2
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        dstIndex?: number;
+        dstIndex?: int;
         /**
          * The number of points to be used.
          * If it is 0, it returns the identity matrix.
          * If it is 1, it returns a translation matrix that changed before two points.
          * If it is 2-4, it returns a transformation matrix.
-         * @type { ?number }
+         * @type { ?int }
          * @default 0
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        pointCount?: number;
+        pointCount?: int;
     }
     
     
@@ -335,13 +335,13 @@ declare namespace matrix4 {
          * Skew function takes a generic point with coordinates (x0, y0, z0) to the point (x0 + x*y0, y0 + y*x0, z0),
          * where x, y are fixed parameters, called the shear factors.
          *
-         * @param { number } x - the shear factor of x-axis.
-         * @param { number } y - the shear factor of y-axis.
+         * @param { double } x - the shear factor of x-axis.
+         * @param { double } y - the shear factor of y-axis.
          * @returns { Matrix4Transit } Return to Matrix4Transit
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
-        skew(x: number, y: number): Matrix4Transit;
+        skew(x: double, y: double): Matrix4Transit;
         
         
         /**
@@ -360,17 +360,17 @@ declare namespace matrix4 {
          * Matrix coordinate point conversion function
          * Which can apply the current transformation effect to a coordinate point.
          *
-         * @param { [number, number] } options
-         * @returns { [number, number] } Return to Matrix4Transit
+         * @param { [double, double] } options
+         * @returns { [double, double] } Return to Matrix4Transit
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 22 static
          */
         transformPoint(options: [
-            number,
-            number
+            double,
+            double
         ]): [
-            number,
-            number
+            double,
+            double
         ];
         /**
          * Sets matrix to map src to dst.
@@ -397,43 +397,43 @@ declare namespace matrix4 {
      * 0, 0, 1, 0,
      * 0, 0, 0, 1]
      * Fourth-order matrix notes:
-     * m00 { number } -The x-axis scale value, the identity matrix defaults to 1.
-     * m01 { number } -The second value, the rotation and skew of the xyz axis affects this value.
-     * m02 { number } -The third value, the rotation of the xyz axis affects this value.
-     * m03 { number } -The fourth value, the perspective projection affects this value.
-     * m10 { number } -The fifth value, the rotation and skew of the xyz axis affects this value.
-     * m11 { number } -The y-axis scales the value, and the identity matrix defaults to 1.
-     * m12 { number } -The 7th value, the rotation of the xyz axis affects this value.
-     * m13 { number } -The 8th value, the perspective projection affects this value.
-     * m20 { number } -The 9th value, the rotation of the xyz axis affects this value.
-     * m21 { number } -The 10th value, xyz axis rotation affects this value.
-     * m22 { number } -The z-axis scale value, the identity matrix defaults to 1.
-     * m23 { number } -The 12th value, the perspective projection affects this value.
-     * m30 { number } -The x-axis translation value in px, the identity matrix defaults to 0.
-     * m31 { number } -Y-axis translation value, in px, the identity matrix defaults to 0.
-     * m32 { number } -The z-axis translation value in px, the identity matrix defaults to 0.
-     * m33 { number } -It takes effect in homogeneous coordinates to produce a perspective projection effect.
+     * m00 { double } -The x-axis scale value, the identity matrix defaults to 1.
+     * m01 { double } -The second value, the rotation and skew of the xyz axis affects this value.
+     * m02 { double } -The third value, the rotation of the xyz axis affects this value.
+     * m03 { double } -The fourth value, the perspective projection affects this value.
+     * m10 { double } -The fifth value, the rotation and skew of the xyz axis affects this value.
+     * m11 { double } -The y-axis scales the value, and the identity matrix defaults to 1.
+     * m12 { double } -The 7th value, the rotation of the xyz axis affects this value.
+     * m13 { double } -The 8th value, the perspective projection affects this value.
+     * m20 { double } -The 9th value, the rotation of the xyz axis affects this value.
+     * m21 { double } -The 10th value, xyz axis rotation affects this value.
+     * m22 { double } -The z-axis scale value, the identity matrix defaults to 1.
+     * m23 { double } -The 12th value, the perspective projection affects this value.
+     * m30 { double } -The x-axis translation value in px, the identity matrix defaults to 0.
+     * m31 { double } -Y-axis translation value, in px, the identity matrix defaults to 0.
+     * m32 { double } -The z-axis translation value in px, the identity matrix defaults to 0.
+     * m33 { double } -It takes effect in homogeneous coordinates to produce a perspective projection effect.
      * @returns { Matrix4Transit } Return to Matrix4Transit
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
     function init(options: [
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number,
-        number
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double,
+        double
     ]): Matrix4Transit;
     
     

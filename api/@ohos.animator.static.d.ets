@@ -35,11 +35,11 @@ export interface AnimatorOptions {
     /**
      * Duration of the animation, in milliseconds.
      * The default value is 0.
-     * @type {number}
+     * @type {int}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    duration: number;
+    duration: int;
     
     
     /**
@@ -73,11 +73,11 @@ export interface AnimatorOptions {
     /**
      * Delay for the animation start. The default value indicates no delay.
      * The default value is 0.
-     * @type {number}
+     * @type {int}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    delay: number;
+    delay: int;
     
     
     /**
@@ -106,31 +106,31 @@ export interface AnimatorOptions {
      * Number of times the animation will be played.
      * Number indicates a fixed number of playback operations, and -1 an unlimited number of playback operations.
      * The default value is 1.
-     * @type {number}
+     * @type {int}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    iterations: number;
+    iterations: int;
     
     
     /**
      * Starting point of animator interpolation.
      * The default value is 0.
-     * @type {number}
+     * @type {double}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    begin: number;
+    begin: double;
     
     
     /**
      * Ending point of Dynamic Interpolation
      * The default value is 1.
-     * @type {number}
+     * @type {double}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    end: number;
+    end: double;
 }
 /**
  * Defines the SimpleAnimatorOptions class.
@@ -142,21 +142,21 @@ export declare class SimpleAnimatorOptions {
     /**
      * constructor.
      *
-     * @param { number } begin - Starting point of animator interpolation.
-     * @param { number } end - Ending point of animator interpolation.
+     * @param { double } begin - Starting point of animator interpolation.
+     * @param { double } end - Ending point of animator interpolation.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    constructor(begin: number, end: number);
+    constructor(begin: double, end: double);
     /**
      * Set duration of the animation, in milliseconds.
      *
-     * @param { number } duration - if not set, default is 1000.
+     * @param { int } duration - if not set, default is 1000.
      * @returns { SimpleAnimatorOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    duration(duration: number): SimpleAnimatorOptions;
+    duration(duration: int): SimpleAnimatorOptions;
     /**
      * Set time curve of the animation. For details about the supported types.
      * linear The animation speed keeps unchanged.
@@ -185,12 +185,12 @@ export declare class SimpleAnimatorOptions {
     /**
      * Set delay for the animation start. The default value indicates no delay.
      *
-     * @param { number } delay - if not set, default is 0.
+     * @param { int } delay - if not set, default is 0.
      * @returns { SimpleAnimatorOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    delay(delay: number): SimpleAnimatorOptions;
+    delay(delay: int): SimpleAnimatorOptions;
     /**
      * Set FillMode of animation.
      * FillMode indicates whether to resume to the initial state after the animation is executed.
@@ -214,12 +214,12 @@ export declare class SimpleAnimatorOptions {
      * Set number of times the animation will be played.
      * Number indicates a fixed number of playback operations, and -1 an unlimited number of playback operations.
      *
-     * @param { number } iterations - if not set, default is 1.
+     * @param { int } iterations - if not set, default is 1.
      * @returns { SimpleAnimatorOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    iterations(iterations: number): SimpleAnimatorOptions;
+    iterations(iterations: int): SimpleAnimatorOptions;
 }
 
 
@@ -291,7 +291,7 @@ export interface AnimatorResult {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    onFrame: (progress: number) => void;
+    onFrame: (progress: double) => void;
     /**
      * The animation is finished.
      *
