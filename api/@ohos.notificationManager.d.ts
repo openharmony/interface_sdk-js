@@ -846,7 +846,6 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 22 static
    */
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot>): void;
 
@@ -862,7 +861,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 20 static
+   * @since 22 static
    */
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot|null>): void;
 
@@ -878,7 +877,6 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
-   * @since 22 static
    */
   function getSlot(slotType: SlotType): Promise<NotificationSlot>;
 
@@ -893,7 +891,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 20 static
+   * @since 22 static
    */
   function getSlot(slotType: SlotType): Promise<NotificationSlot|null>;
 
@@ -1570,7 +1568,6 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
    */
   function getSlotByBundle(bundle: BundleOption, slotType: SlotType): Promise<NotificationSlot>;
 
@@ -1593,7 +1590,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   function getSlotByBundle(bundle: BundleOption, slotType: SlotType): Promise<NotificationSlot|null>;
 
@@ -1828,7 +1825,6 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
    */
   function getActiveNotificationByFilter(filter: NotificationFilter, callback: AsyncCallback<NotificationRequest>): void;
 
@@ -1845,7 +1841,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   function getActiveNotificationByFilter(filter: NotificationFilter, callback: AsyncCallback<NotificationRequest|null>): void;
 
@@ -1863,7 +1859,6 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
    */
   function getActiveNotificationByFilter(filter: NotificationFilter): Promise<NotificationRequest>;
 
@@ -1880,7 +1875,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   function getActiveNotificationByFilter(filter: NotificationFilter): Promise<NotificationRequest|null>;
 
@@ -3696,7 +3691,6 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
    */
   function on(type: 'checkNotification', callback: (checkInfo: NotificationCheckInfo) => NotificationCheckResult): void;
 
@@ -3750,7 +3744,6 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
    */
   function on(type: 'checkNotification', checkRequest: NotificationCheckRequest,
     callback: (checkInfo: NotificationCheckInfo) => Promise<NotificationCheckResult>): void;
@@ -3802,7 +3795,6 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
-   * @since 22 static
    */
   function off(
     type: 'checkNotification',
@@ -4349,7 +4341,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 22 static
    */
   function setPriorityEnabledByBundle(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -4367,7 +4360,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 22 static
    */
   function isPriorityEnabledByBundle(bundle: BundleOption): Promise<boolean>;
 
@@ -4382,7 +4376,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 22 static
    */
   function isPriorityEnabled(): Promise<boolean>;
 
@@ -4398,7 +4393,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 22 static
    */
   function setPriorityEnabled(enable: boolean): Promise<void>;
 
@@ -4748,7 +4744,6 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 11 dynamic
-     * @since 22 static
      */
     extraInfos?: Record<string, Object>;
 
@@ -4759,7 +4754,7 @@ declare namespace notificationManager {
      * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 20 static
+     * @since 22 static
      */
     extraInfos?: Record<string, RecordData>;
   }
@@ -5605,118 +5600,135 @@ declare namespace notificationManager {
    * Priority notification type
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 22 static
    */
   export enum PriorityNotificationType {
     /**
      * Other, non-priority
      * @syscap SystemCapability.Notification.Notification
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 22 static
      */
     OTHER = 'OTHER',
 
     /**
      * Priority contact
      * @syscap SystemCapability.Notification.Notification
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 22 static
      */
     PRIMARY_CONTACT = 'PRIMARY_CONTACT',
 
     /**
      * Someone @me
      * @syscap SystemCapability.Notification.Notification
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 22 static
      */
     AT_ME = 'AT_ME',
 
     /**
      * Urgent message
      * @syscap SystemCapability.Notification.Notification
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 22 static
      */
     URGENT_MESSAGE = 'URGENT_MESSAGE',
 
     /**
      * Schedule reminder
      * @syscap SystemCapability.Notification.Notification
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 22 static
      */
     SCHEDULE_REMINDER = 'SCHEDULE_REMINDER',
 
     /**
      * Payment due
      * @syscap SystemCapability.Notification.Notification
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 22 static
      */
     PAYMENT_DUE = 'PAYMENT_DUE',
 
     /**
      * Transaction alert
      * @syscap SystemCapability.Notification.Notification
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 22 static
      */
     TRANSACTION_ALERT = 'TRANSACTION_ALERT',
 
     /**
      * Express progress
      * @syscap SystemCapability.Notification.Notification
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 22 static
      */
     EXPRESS_PROGRESS = 'EXPRESS_PROGRESS',
 
     /**
      * Miss call
      * @syscap SystemCapability.Notification.Notification
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 22 static
      */
     MISS_CALL = 'MISS_CALL',
 
     /**
      * Travel alert
      * @syscap SystemCapability.Notification.Notification
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 22 static
      */
     TRAVEL_ALERT = 'TRAVEL_ALERT',
 
     /**
      * Account alert
      * @syscap SystemCapability.Notification.Notification
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 22 static
      */
     ACCOUNT_ALERT = 'ACCOUNT_ALERT',
 
     /**
      * Appointment reminder
      * @syscap SystemCapability.Notification.Notification
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 22 static
      */
     APPOINTMENT_REMINDER = 'APPOINTMENT_REMINDER',
 
     /**
      * Traffic notice
      * @syscap SystemCapability.Notification.Notification
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 22 static
      */
     TRAFFIC_NOTICE = 'TRAFFIC_NOTICE',
 
     /**
      * Key progress
      * @syscap SystemCapability.Notification.Notification
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 22 static
      */
     KEY_PROGRESS = 'KEY_PROGRESS',
 
     /**
      * Public event
      * @syscap SystemCapability.Notification.Notification
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 22 static
      */
     PUBLIC_EVENT = 'PUBLIC_EVENT',
 
     /**
      * Iot warning
      * @syscap SystemCapability.Notification.Notification
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 22 static
      */
     IOT_WARNING = 'IOT_WARNING'
   }

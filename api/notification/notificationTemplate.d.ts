@@ -50,7 +50,6 @@ export interface NotificationTemplate {
    * @type { Record<string, Object> }
    * @syscap SystemCapability.Notification.Notification
    * @since 8 dynamic
-   * @since 22 static
    */
   data: Record<string, Object>;
 
@@ -62,7 +61,7 @@ export interface NotificationTemplate {
    *
    * @type { Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
-   * @since 20 static
+   * @since 22 static
    */
   data: Record<string, RecordData>;
 }

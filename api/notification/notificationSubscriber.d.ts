@@ -142,7 +142,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 22 static
    */
   onEnabledPriorityChanged?: (enable: boolean) => void;
 
@@ -152,7 +153,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 22 static
    */
   onEnabledPriorityByBundleChanged?: (callbackData: EnabledNotificationCallbackData) => void;
 

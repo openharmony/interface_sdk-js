@@ -96,7 +96,8 @@ export interface NotificationRequest {
    *
    * @type { ?notificationManager.PriorityNotificationType }
    * @syscap SystemCapability.Notification.Notification
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 22 static
    */
   priorityNotificationType?: notificationManager.PriorityNotificationType;
 
@@ -272,7 +273,6 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
    */
   extendInfo?: Record<string, Object>;
   /**
@@ -281,7 +281,7 @@ export interface NotificationRequest {
    * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   extendInfo?: Record<string, RecordData>;
 

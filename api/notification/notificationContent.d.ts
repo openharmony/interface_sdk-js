@@ -330,7 +330,6 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
    */
   extraInfo?: Record<string, Object>;
 
@@ -340,7 +339,7 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * @type { ?Record<string, RecordData>}
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   extraInfo?: Record<string, RecordData>;
 

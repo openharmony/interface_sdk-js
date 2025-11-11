@@ -77,16 +77,6 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  function on(event: InnerEvent, callback: Callback<EventData>): void;
-
-  /**
-   * Subscribes to an event in persistent manner and executes a callback after the event is received.
-   *
-   * @param { InnerEvent } event - Event to subscribe to in persistent manner. The EventPriority parameter is not required and does not take effect.
-   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
    * @since 22 static
    */
   function on(event: InnerEvent, callback: Callback<EventData>): void;
@@ -144,12 +134,7 @@ declare namespace emitter {
    * @crossplatform
    * @since 22 static
    */
-  function onWithEventIdTypeStringCallbackTypeGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
-
-  /**
-   * @since 22 static
-   */
-  overload on { onWithEventTypeInnerEventCallback, onWithEventIdTypeStringCallback, onWithEventIdTypeStringCallbackTypeGenericEventData };
+  function onGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
   /**
    * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
@@ -177,16 +162,6 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  function once(event: InnerEvent, callback: Callback<EventData>): void;
-
-  /**
-   * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
-   *
-   * @param { InnerEvent } event - Event to subscribe to in one-shot manner. The EventPriority parameter is not required and does not take effect.
-   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
    * @since 22 static
    */
   function once(event: InnerEvent, callback: Callback<EventData>): void;
@@ -244,12 +219,7 @@ declare namespace emitter {
    * @crossplatform
    * @since 22 static
    */
-  function onceWithEventIdTypeStringCallbackTypeGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
-
-  /**
-   * @since 22 static
-   */
-  overload once { onceWithEventTypeInnerEventCallback, onceWithEventIdTypeStringCallback, onceWithEventIdTypeStringCallbackTypeGenericEventData };
+  function onceGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
   /**
    * Unsubscribes from all events with the specified event ID.
@@ -274,15 +244,6 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  function off(eventId: number): void;
-
-  /**
-   * Unsubscribes from all events with the specified event ID.
-   *
-   * @param { long } eventId - Event ID.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
    * @since 22 static
    */
   function off(eventId: long): void;
@@ -303,15 +264,6 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  function off(eventId: string): void;
-
-  /**
-   * Unsubscribes from all events with the specified event ID.
-   *
-   * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
    * @since 22 static
    */
   function off(eventId: string): void;
@@ -348,18 +300,6 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  function off(eventId: number, callback: Callback<EventData>): void;
-
-  /**
-   * Unsubscribes from an event with the specified event ID and processed by the specified callback.
-   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
-   * Otherwise, no processing is performed.
-   *
-   * @param { long } eventId - Event ID.
-   * @param { Callback<EventData> } callback - Callback to unregister.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
    * @since 22 static
    */
   function off(eventId: long, callback: Callback<EventData>): void;
@@ -427,12 +367,7 @@ declare namespace emitter {
    * @crossplatform
    * @since 22 static
    */
-  function offWithEventIdTypeStringCallbackTypeGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
-
-  /**
-   * @since 22 static
-   */
-  overload off { offWithEventIdTypeLong, offWithEventIdTypeString, offWithEventIdTypeLongCallback, offWithEventIdTypeStringCallback, offWithEventIdTypeStringCallbackTypeGenericEventData };
+  function offGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
   /**
    * Emits the specified event.
@@ -460,16 +395,6 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  function emit(event: InnerEvent, data?: EventData): void;
-
-  /**
-   * Emits the specified event.
-   *
-   * @param { InnerEvent } event - Event to emit, where EventPriority specifies the emit priority of the event.
-   * @param { EventData } [data] - Data passed in the event.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
    * @since 22 static
    */
   function emit(event: InnerEvent, data?: EventData): void;
@@ -608,12 +533,7 @@ declare namespace emitter {
    * @crossplatform
    * @since 22 static
    */
-  function emitWithEventIdTypeStringOptionsDataTypeGenericEventData<T>(eventId: string, options: Options, data?: GenericEventData<T>): void;
-
-  /**
-   * @since 22 static
-   */
-  overload emit { emitWithEventTypeInnerEventDataTypeEventData, emitWithEventIdTypeStringDataTypeEventData, emitWithEventIdTypeStringDataTypeGenericEventData, emitWithEventIdTypeStringOptionsDataTypeEventData, emitWithEventIdTypeStringOptionsDataTypeGenericEventData };
+  function emit<T>(eventId: string, options: Options, data: GenericEventData<T>): void;
 
   /**
    * Obtains the number of subscriptions to a specified event.
@@ -633,35 +553,9 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  function getListenerCount(eventId: number | string): number;
-
-  /**
-   * Obtains the number of subscriptions to a specified event.
-   *
-   * @param { long } eventId - Event ID. The value of the string type cannot be an empty string.
-   * @returns { long } Returns the number of listener count.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
    * @since 22 static
    */
-  function getListenerCountWithEventIdTypeLong(eventId: long): long;
-
-  /**
-   * Obtains the number of subscriptions to a specified event.
-   *
-   * @param { string } eventId - Event ID. The value of the string type cannot be an empty string.
-   * @returns { long } Returns the number of listener count.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @since 22 static
-   */
-  function getListenerCountWithEventIdTypeString(eventId: string): long;
-
-  /**
-   * @since 22 static
-   */
-  overload getListenerCount { getListenerCountWithEventIdTypeLong, getListenerCountWithEventIdTypeString };
+  function getListenerCount(eventId: long | string): long;
 
   /**
    * Describes data passed in the event.

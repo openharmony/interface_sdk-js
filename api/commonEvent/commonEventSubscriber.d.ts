@@ -553,7 +553,6 @@ export interface CommonEventSubscriber {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
    */
   getSubscribeInfo(callback: AsyncCallback<CommonEventSubscribeInfo>): void;
 
@@ -565,7 +564,7 @@ export interface CommonEventSubscriber {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
-   * @since 20 static
+   * @since 22 static
    */
   getSubscribeInfo(callback: AsyncCallback<CommonEventSubscribeInfo|null>): void;
 
@@ -584,7 +583,6 @@ export interface CommonEventSubscriber {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
    */
   getSubscribeInfo(): Promise<CommonEventSubscribeInfo>;
 
@@ -594,7 +592,7 @@ export interface CommonEventSubscriber {
    * @returns { Promise<CommonEventSubscribeInfo|null> } Promise used to return the result.
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
-   * @since 20 static
+   * @since 22 static
    */
   getSubscribeInfo(): Promise<CommonEventSubscribeInfo|null>;
 
@@ -612,7 +610,6 @@ export interface CommonEventSubscriber {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
    */
   getSubscribeInfoSync(): CommonEventSubscribeInfo;
 
@@ -621,7 +618,7 @@ export interface CommonEventSubscriber {
    *
    * @returns { CommonEventSubscribeInfo|null } Subscriber information.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 20 static
+   * @since 22 static
    */
   getSubscribeInfoSync(): CommonEventSubscribeInfo|null;
 
