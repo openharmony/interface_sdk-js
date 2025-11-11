@@ -2011,6 +2011,41 @@ declare namespace bundleManager {
   }
 
   /**
+   * Bundle install status.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  export enum BundleInstallStatus {
+    /**
+     * Indicates the bundle does not exist.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    BUNDLE_NOT_EXIST = 1,
+    /**
+     * Indicates the bundle is is being installed.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    BUNDLE_INSTALLING = 2,
+    /**
+     * Indicates the bundle has been installed.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    BUNDLE_INSTALLED = 3,
+  }
+
+  /**
    * This enumeration value is used to identify various flags of application
    *
    * @enum { int }
@@ -4475,6 +4510,20 @@ declare namespace bundleManager {
    * @since 22 static
    */
   function removeBackupBundleData(bundleName: string, userId: int, appIndex: int): Promise<void>;
+
+  /**
+   * Get the bundle install status.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the bundle name.
+   * @returns { BundleInstallStatus } Returns the bundle install status.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function getBundleInstallStatus(bundleName: string): BundleInstallStatus;
 
   /**
    * Obtains configuration information about an application.
