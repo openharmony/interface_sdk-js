@@ -1017,6 +1017,13 @@ declare namespace bundleManager {
     NOTIFICATION_SUBSCRIBER = 34,
 
     /**
+     * Indicates extension info with type of the crypto
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 22 dynamic&static
+     */
+    CRYPTO = 35,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
