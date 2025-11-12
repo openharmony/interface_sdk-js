@@ -62,7 +62,7 @@ export declare struct InnerFullScreenLaunchComponent {
    * @type { ?ErrorCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 dynamiconly
+   * @since 23 dynamiconly
    */
   onError?: ErrorCallback;
   /**
@@ -72,7 +72,7 @@ export declare struct InnerFullScreenLaunchComponent {
    * @type { ?Callback<TerminationInfo> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 dynamiconly
+   * @since 23 dynamiconly
    */
   onTerminated?: Callback<TerminationInfo>;
 }
