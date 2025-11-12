@@ -813,7 +813,7 @@ declare namespace usb {
     DFP = 2,
 
     /**
-     * dynamiconly reconfiguration port (DRP), which can function as the DFP (host) or UFP (device). It is not supported currently.
+     * Dynamic reconfiguration port (DRP), which can function as the DFP (host) or UFP (device). It is not supported currently.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
