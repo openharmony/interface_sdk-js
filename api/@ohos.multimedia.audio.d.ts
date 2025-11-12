@@ -6005,6 +6005,52 @@ declare namespace audio {
     setAppVolumePercentageForUid(uid: int, volume: int): Promise<void>;
 
     /**
+     * Gets the current system volume percentage for specified volume type.
+     * @param { AudioVolumeType } volumeType - Audio volume type to get.
+     * @returns { int } Returns the volume percentage, which is an interger with the range [0, 100].
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 23 dynamic
+     */
+    getSystemVolumePercentage(volumeType: AudioVolumeType): int;
+
+    /**
+     * Sets the system volume percentage, using an integer ranging from minimum system volume percentage to 100.
+     * The volume percentage corresponds to volume levels, with each level tied to a specific percentage.
+     * When the volume level changes, the volume percentage adjusts accordingly and is mapped within the range of volume levels.
+     * Zero volume is mapped to 0, and the maximum volume is mapped to 100%. Intermediate volume levels are evenly
+     * distributed beween 1 and 99. When the volume percentage changes, the volume level changes accordingly.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { AudioVolumeType } volumeType - Audio volume type to set.
+     * @param { int } percentage - Percentage to set. It must be an integer with the range
+     *     from minimum value getted by {@link #getMinSystemVolumePercentage} to 100.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed, including
+     *     volumeType or percentage param begin out of range.
+     * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 23 dynamic
+     */
+    setSystemVolumePercentage(volumeType: AudioVolumeType, percentage: int): Promise<void>;
+
+    /**
+     * Gets the minimum system volume percentage application can set for specified volume type.
+     * @param { AudioVolumeType } volumeType - Audio volume type to get.
+     * @returns { int } Returns the volume percentage, which is an interger with the range [0, 100].
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 23 dynamic
+     */
+    getMinSystemVolumePercentage(volumeType: AudioVolumeType): int;
+
+    /**
      * Checks whether the app volume is muted. If there are multiple callers setting muted states,
      * only when all callers cancel muted state the volume of this app will be truly unmuted.
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
@@ -6289,6 +6335,30 @@ declare namespace audio {
      * @since 22 static
      */
     offActiveVolumeTypeChange(callback?: Callback<AudioVolumeType>): void;
+
+    /**
+     * Subscribes to system volume percentage change events.
+     * @param { 'volumePercentageChange' } type - Type of event to subscribe to.
+     * @param { Callback<VolumeEvent> } callback - Callback used to return the system volume percentage change event.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 23 dynamic
+     */
+    on(type: 'volumePercentageChange', callback: Callback<VolumeEvent>): void;
+
+    /**
+     * Unsubscribes from system volume percentage change events.
+     * @param { 'volumePercentageChange' } type - Type of event to unsubscribe from.
+     * @param { Callback<VolumeEvent> } callback - Callback used to return the system volume percentage change event.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 23 dynamic
+     */
+    off(type: 'volumePercentageChange', callback?: Callback<VolumeEvent>): void;
 
    /**
      * Obtains the volume of a volume type.
@@ -8780,6 +8850,14 @@ declare namespace audio {
      * @since 22 static
      */
     volumeMode?: AudioVolumeMode;
+    /**
+     * Volume percentage, which is an integer ranging from [0, 100].
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @crossplatform
+     * @since 23 dynamic
+     */
+    percentage?: int;
   }
 
   /**
