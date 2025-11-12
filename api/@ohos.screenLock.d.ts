@@ -27,7 +27,7 @@ import { Callback } from './@ohos.base';
  * @namespace screenLock
  * @syscap SystemCapability.MiscServices.ScreenLock
  * @since 7 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace screenLock {
   /**
@@ -58,7 +58,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isLocked(): boolean;
 
@@ -126,7 +126,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function unlock(callback: AsyncCallback<boolean>): void;
 
@@ -150,7 +150,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function unlock(): Promise<boolean>;
 
@@ -167,7 +167,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function lock(callback: AsyncCallback<boolean>): void;
 
@@ -182,7 +182,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function lock(): Promise<boolean>;
 
@@ -202,7 +202,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type EventType =
     'beginWakeUp'
@@ -229,7 +229,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum StrongAuthReasonFlags {
     /**
@@ -238,7 +238,7 @@ declare namespace screenLock {
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NONE = 0x00000000,
 
@@ -248,7 +248,7 @@ declare namespace screenLock {
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AFTER_BOOT = 0x00000001,
 
@@ -258,7 +258,7 @@ declare namespace screenLock {
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AFTER_TIMEOUT = 0x00000002,
  
@@ -268,7 +268,7 @@ declare namespace screenLock {
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     ACTIVE_REQUEST = 0x00000004,
 
@@ -278,7 +278,7 @@ declare namespace screenLock {
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     POLICY_RESTRICTION = 0x00000008
   }
@@ -290,7 +290,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum AuthState {
     /**
@@ -299,7 +299,7 @@ declare namespace screenLock {
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     NOT_AUTHED = 0,
 
@@ -309,7 +309,7 @@ declare namespace screenLock {
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PRE_AUTHED_BY_CREDENTIAL = 1,
 
@@ -319,7 +319,7 @@ declare namespace screenLock {
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PRE_AUTHED_BY_FINGERPRINT = 2,
 
@@ -329,7 +329,7 @@ declare namespace screenLock {
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     PRE_AUTHED_BY_FACE = 3,
 
@@ -339,7 +339,7 @@ declare namespace screenLock {
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUTHED_BY_CREDENTIAL = 4,
 
@@ -349,7 +349,7 @@ declare namespace screenLock {
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUTHED_BY_FINGERPRINT = 5,
 
@@ -359,7 +359,7 @@ declare namespace screenLock {
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     AUTHED_BY_FACE = 6,
   }
@@ -371,7 +371,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface SystemEvent {
     /**
@@ -381,7 +381,7 @@ declare namespace screenLock {
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     eventType: EventType;
     /**
@@ -391,7 +391,7 @@ declare namespace screenLock {
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     params: string;
   }
@@ -410,7 +410,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function onSystemEvent(callback: Callback<SystemEvent>): boolean;
 
@@ -429,7 +429,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function sendScreenLockEvent(event: String, parameter: int, callback: AsyncCallback<boolean>): void;
 
@@ -448,7 +448,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function sendScreenLockEvent(event: String, parameter: int): Promise<boolean>;
 
@@ -467,7 +467,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function requestStrongAuth(reasonFlag: StrongAuthReasonFlags, userId: int): Promise<void>;
 
@@ -485,7 +485,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getStrongAuth(userId: int): int;
 
@@ -504,7 +504,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setScreenLockDisabled(disable: boolean, userId: int): Promise<boolean>;
 
@@ -522,7 +522,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function isScreenLockDisabled(userId: int): boolean;
 
@@ -542,7 +542,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setScreenLockAuthState(state: AuthState, userId: int, authToken: Uint8Array): Promise<boolean>;
 
@@ -560,7 +560,7 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getScreenLockAuthState(userId: int): AuthState;
 
@@ -574,7 +574,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200004 - The userId is not same as the caller, and is not allowed for the caller.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function isDeviceLocked(userId: int): boolean;
 }

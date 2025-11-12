@@ -25,7 +25,7 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @interface ContentSlotAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 export declare interface ContentSlotAttribute {
@@ -38,7 +38,7 @@ export declare interface ContentSlotAttribute {
  * @param { CustomBuilder } [content_]
  * @returns { ContentSlotAttribute } The attribute of the ContentSlot.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 @ComponentBuilder

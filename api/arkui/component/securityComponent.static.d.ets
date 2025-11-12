@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { Dimension, Position, Edges, LocalizedEdges, ResourceColor, Padding, Length, SizeOptions, ConstraintSizeOptions, BorderRadiuses } from './units';

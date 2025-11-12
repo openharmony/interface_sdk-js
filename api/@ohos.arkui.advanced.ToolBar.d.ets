@@ -397,7 +397,7 @@ export declare class ToolBarOption {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18 dynamic
+ * @since 18 dynamiconly
  * @noninterop
  */
 @Observed

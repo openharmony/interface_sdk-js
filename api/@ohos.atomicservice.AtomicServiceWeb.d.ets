@@ -26,7 +26,7 @@ import { Callback } from '@ohos.base';
  * @struct { AtomicServiceWeb }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  * @noninterop
  */
 @Component
@@ -37,7 +37,7 @@ export declare struct AtomicServiceWeb {
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   src: ResourceStr;
   /**
@@ -46,7 +46,7 @@ export declare struct AtomicServiceWeb {
    * @type { AtomicServiceWebController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   @ObjectLink
   controller: AtomicServiceWebController;
@@ -56,7 +56,7 @@ export declare struct AtomicServiceWeb {
    * @type { ?MixedMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   @Prop
   mixedMode?: MixedMode;
@@ -66,7 +66,7 @@ export declare struct AtomicServiceWeb {
    * @type { ?WebDarkMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   @Prop
   darkMode?: WebDarkMode;
@@ -76,7 +76,7 @@ export declare struct AtomicServiceWeb {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   @Prop
   forceDarkAccess?: boolean;
@@ -86,7 +86,7 @@ export declare struct AtomicServiceWeb {
    * @type { ?(NestedScrollOptions | NestedScrollOptionsExt) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 15 dynamic
+   * @since 15 dynamiconly
    */
   @Prop
   nestedScroll?: NestedScrollOptions | NestedScrollOptionsExt;
@@ -96,7 +96,7 @@ export declare struct AtomicServiceWeb {
    * @type { ?NavPathStack }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   navPathStack?: NavPathStack;
   /**
@@ -105,7 +105,7 @@ export declare struct AtomicServiceWeb {
    * @type { ?Callback<OnMessageEvent> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   onMessage?: Callback<OnMessageEvent>;
   /**
@@ -114,7 +114,7 @@ export declare struct AtomicServiceWeb {
    * @type { ?Callback<OnErrorReceiveEvent> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   onErrorReceive?: Callback<OnErrorReceiveEvent>;
   /**
@@ -123,7 +123,7 @@ export declare struct AtomicServiceWeb {
    * @type { ?Callback<OnHttpErrorReceiveEvent> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   onHttpErrorReceive?: Callback<OnHttpErrorReceiveEvent>;
   /**
@@ -132,7 +132,7 @@ export declare struct AtomicServiceWeb {
    * @type { ?Callback<OnPageBeginEvent> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   onPageBegin?: Callback<OnPageBeginEvent>;
   /**
@@ -141,7 +141,7 @@ export declare struct AtomicServiceWeb {
    * @type { ?Callback<OnPageEndEvent> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   onPageEnd?: Callback<OnPageEndEvent>;
   /**
@@ -151,7 +151,7 @@ export declare struct AtomicServiceWeb {
    * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   onControllerAttached?: Callback<void>;
   /**
@@ -160,7 +160,7 @@ export declare struct AtomicServiceWeb {
    * @type { ?OnLoadInterceptCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   onLoadIntercept?: OnLoadInterceptCallback;
   /**
@@ -169,7 +169,7 @@ export declare struct AtomicServiceWeb {
    * @type { ?Callback<OnProgressChangeEvent> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   onProgressChange?: Callback<OnProgressChangeEvent>;
 }
@@ -180,7 +180,7 @@ export declare struct AtomicServiceWeb {
  * @typedef OnMessageEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  * @noninterop
  */
 export declare interface OnMessageEvent {
@@ -190,7 +190,7 @@ export declare interface OnMessageEvent {
    * @type { object[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   data: object[];
 }
@@ -201,7 +201,7 @@ export declare interface OnMessageEvent {
  * @typedef OnErrorReceiveEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  * @noninterop
  */
 export declare interface OnErrorReceiveEvent {
@@ -211,7 +211,7 @@ export declare interface OnErrorReceiveEvent {
    * @type { WebResourceRequest }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   request: WebResourceRequest;
 
@@ -221,7 +221,7 @@ export declare interface OnErrorReceiveEvent {
    * @type { WebResourceError }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   error: WebResourceError;
 }
@@ -232,7 +232,7 @@ export declare interface OnErrorReceiveEvent {
  * @typedef OnHttpErrorReceiveEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  * @noninterop
  */
 export declare interface OnHttpErrorReceiveEvent {
@@ -242,7 +242,7 @@ export declare interface OnHttpErrorReceiveEvent {
    * @type { WebResourceRequest }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   request: WebResourceRequest;
 
@@ -252,7 +252,7 @@ export declare interface OnHttpErrorReceiveEvent {
    * @type { WebResourceResponse }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   response: WebResourceResponse;
 }
@@ -263,7 +263,7 @@ export declare interface OnHttpErrorReceiveEvent {
  * @typedef OnPageBeginEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  * @noninterop
  */
 export declare interface OnPageBeginEvent {
@@ -273,7 +273,7 @@ export declare interface OnPageBeginEvent {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   url: string;
 }
@@ -284,7 +284,7 @@ export declare interface OnPageBeginEvent {
  * @typedef OnPageEndEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  * @noninterop
  */
 export declare interface OnPageEndEvent {
@@ -294,7 +294,7 @@ export declare interface OnPageEndEvent {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   url: string;
 }
@@ -305,7 +305,7 @@ export declare interface OnPageEndEvent {
  * @typedef OnLoadInterceptEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  * @noninterop
  */
 export declare interface OnLoadInterceptEvent {
@@ -315,7 +315,7 @@ export declare interface OnLoadInterceptEvent {
    * @type { WebResourceRequest }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   data: WebResourceRequest;
 }
@@ -326,7 +326,7 @@ export declare interface OnLoadInterceptEvent {
  * @typedef OnProgressChangeEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  * @noninterop
  */
 export declare interface OnProgressChangeEvent {
@@ -336,7 +336,7 @@ export declare interface OnProgressChangeEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   newProgress: number;
 }
@@ -346,7 +346,7 @@ export declare interface OnProgressChangeEvent {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  * @noninterop
  */
 @Observed
@@ -359,7 +359,7 @@ export declare class AtomicServiceWebController {
    *    AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   getUserAgent(): string;
 
@@ -371,7 +371,7 @@ export declare class AtomicServiceWebController {
    *    AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   getCustomUserAgent(): string;
 
@@ -385,7 +385,7 @@ export declare class AtomicServiceWebController {
    *    AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   setCustomUserAgent(userAgent: string): void;
 
@@ -396,7 +396,7 @@ export declare class AtomicServiceWebController {
    *    AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   refresh(): void;
 
@@ -407,7 +407,7 @@ export declare class AtomicServiceWebController {
    *    AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   forward(): void;
 
@@ -418,7 +418,7 @@ export declare class AtomicServiceWebController {
    *    AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   backward(): void;
 
@@ -430,7 +430,7 @@ export declare class AtomicServiceWebController {
    *    AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   accessForward(): boolean;
 
@@ -442,7 +442,7 @@ export declare class AtomicServiceWebController {
    *    AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   accessBackward(): boolean;
 
@@ -457,7 +457,7 @@ export declare class AtomicServiceWebController {
    *    AtomicServiceWeb component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   accessStep(step: number): boolean;
 
@@ -474,7 +474,7 @@ export declare class AtomicServiceWebController {
    * @throws { BusinessError } 17100003 - Invalid resource path or file type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   loadUrl(url: string | Resource, headers?: Array<WebHeader>): void;
 }
@@ -485,7 +485,7 @@ export declare class AtomicServiceWebController {
  * @typedef WebHeader
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  * @noninterop
  */
 export declare interface WebHeader {
@@ -495,7 +495,7 @@ export declare interface WebHeader {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   headerKey: string;
 
@@ -505,7 +505,7 @@ export declare interface WebHeader {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12 dynamic
+   * @since 12 dynamiconly
    */
   headerValue: string;
 }
@@ -518,7 +518,7 @@ export declare interface WebHeader {
  * @returns { boolean } True if the load is intercepted else false.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12 dynamic
+ * @since 12 dynamiconly
  * @noninterop
  */
 export type OnLoadInterceptCallback = (event: OnLoadInterceptEvent) => boolean;

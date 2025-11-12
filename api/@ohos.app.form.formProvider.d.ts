@@ -39,7 +39,7 @@ import Want from './@ohos.app.ability.Want';
  * @syscap SystemCapability.Ability.Form
  * @atomicservice
  * @since 11 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace formProvider {
   /**
@@ -136,7 +136,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed.
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
-   * @since 20 static
+   * @since 22 static
    */
   function setFormNextRefreshTimeWithCallback(formId: string, minute: int, callback: AsyncCallback<void>): void;
 
@@ -156,12 +156,12 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed.
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
-   * @since 20 static
+   * @since 22 static
    */
   function setFormNextRefreshTimeReturnsPromise(formId: string, minute: int): Promise<void>;
 
   /**
-   * @since 20 static
+   * @since 22 static
    */
   overload setFormNextRefreshTime { setFormNextRefreshTimeWithCallback, setFormNextRefreshTimeReturnsPromise };
 

@@ -654,7 +654,8 @@ declare namespace cloudData {
      * @static
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     static cloudSync(
       bundleName: string,

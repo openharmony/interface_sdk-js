@@ -149,7 +149,8 @@ export declare class RecentPhotoOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   isAutoRefreshSupported?: boolean;
 
@@ -159,7 +160,8 @@ export declare class RecentPhotoOptions {
    * @type { ?PickerColorMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   colorMode?: PickerColorMode;
 }

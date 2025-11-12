@@ -28,7 +28,7 @@ import StaticSubscriberExtensionContext from './@ohos.application.StaticSubscrib
  * @systemapi
  * @StageModelOnly
  * @since 9 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare class StaticSubscriberExtensionAbility {
   /**
@@ -39,7 +39,7 @@ declare class StaticSubscriberExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 10 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   context: StaticSubscriberExtensionContext;
 
@@ -51,7 +51,7 @@ declare class StaticSubscriberExtensionAbility {
    * @systemapi
    * @StageModelOnly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onReceiveEvent(event: CommonEventData): void;
 }

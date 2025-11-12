@@ -46,6 +46,11 @@ def traverse_function(source_root_dir: str, input_path: str, out_interop_path: s
     if os.path.exists(package_path):
         try:
             result = subprocess.run([nodejs, package_path, "--input", input_dir, "--output", output_dir], cwd=source_root_dir, shell=False)
+            path_interop_api = os.path.join(os.path.join(out_path,'api')) 
+            path_interop_arkts = os.path.join(os.path.join(out_path,'arkts'))
+            path_interop_kits = os.path.join(os.path.join(out_path,'kits'))
+            if not os.path.exists(path_interop_api) or not os.path.exists(path_interop_arkts) or not os.path.exists(path_interop_kits):
+                raise FileNotFoundError(f"Missing interop directories in output")
             print('run_compile_declgen success:', result)
         except subprocess.CalledProcessError as e:
             print(f"run_compile_declgen node failed: {str(e.stderr)}")

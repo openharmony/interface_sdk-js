@@ -48,7 +48,7 @@ import { Callback, RecordData } from './@ohos.base';
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace emitter {
   /**
@@ -77,7 +77,7 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function on(event: InnerEvent, callback: Callback<EventData>): void;
 
@@ -162,7 +162,7 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function once(event: InnerEvent, callback: Callback<EventData>): void;
 
@@ -244,7 +244,7 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(eventId: long): void;
 
@@ -264,7 +264,7 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(eventId: string): void;
 
@@ -294,7 +294,7 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function off(eventId: long, callback: Callback<EventData>): void;
 
@@ -379,7 +379,7 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function emit(event: InnerEvent, data?: EventData): void;
 
@@ -537,7 +537,7 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getListenerCount(eventId: long | string): long;
 
@@ -564,7 +564,7 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface EventData {
     /**
@@ -599,7 +599,7 @@ declare namespace emitter {
      * @type { ?(Record<string, RecordData> | ESValue) }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
-     * @since 20 static
+     * @since 22 static
      */
     data?: Record<string, RecordData> | ESValue;
   }
@@ -627,7 +627,7 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface InnerEvent {
     /**
@@ -653,7 +653,7 @@ declare namespace emitter {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     eventId: long;
 
@@ -680,7 +680,7 @@ declare namespace emitter {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     priority?: EventPriority;
   }
@@ -708,7 +708,7 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export enum EventPriority {
     /**
@@ -731,7 +731,7 @@ declare namespace emitter {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     IMMEDIATE = 0,
 
@@ -755,7 +755,7 @@ declare namespace emitter {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     HIGH,
 
@@ -779,7 +779,7 @@ declare namespace emitter {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     LOW,
 
@@ -803,7 +803,7 @@ declare namespace emitter {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     IDLE,
   }
@@ -823,7 +823,7 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface Options {
     /**
@@ -841,7 +841,7 @@ declare namespace emitter {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     priority?: EventPriority;
   }
@@ -854,7 +854,7 @@ declare namespace emitter {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface GenericEventData<T> {
     /**
@@ -874,7 +874,7 @@ declare namespace emitter {
      * @type { ?(T | ESValue) }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
-     * @since 20 static
+     * @since 22 static
      */
     data?: T | ESValue;
   }

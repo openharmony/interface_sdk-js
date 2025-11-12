@@ -42,7 +42,8 @@
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 export type ValueType = number | string | boolean;
 
@@ -53,6 +54,6 @@ export type ValueType = number | string | boolean;
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @stagemodelonly
  * @since 10 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export type ValuesBucket = Record<string, ValueType | Uint8Array | null>;

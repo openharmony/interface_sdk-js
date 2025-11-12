@@ -30,7 +30,7 @@ import { RecordData } from './@ohos.base';
  * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export default interface OpenLinkOptions {
   /**
@@ -42,7 +42,7 @@ export default interface OpenLinkOptions {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   appLinkingOnly?: boolean;
 
@@ -63,7 +63,7 @@ export default interface OpenLinkOptions {
    * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20 static
+   * @since 22 static
    */
   parameters?: Record<string, RecordData>;
 }

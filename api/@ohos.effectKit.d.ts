@@ -39,7 +39,7 @@ import image from './@ohos.multimedia.image';
  * @form
  * @atomicservice
  * @since 14 dynamic
- * @since 20 static
+ * @since 22 static
  */
 
 declare namespace effectKit {
@@ -66,7 +66,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Filter {
 
@@ -95,7 +95,7 @@ declare namespace effectKit {
     * @form
     * @atomicservice
     * @since 14 dynamic
-    * @since 20 static
+    * @since 22 static
     */
     blur(radius: double): Filter;
 
@@ -106,7 +106,7 @@ declare namespace effectKit {
     * @returns { Filter } Filters for the current effect have been added.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @since 14 dynamic
-    * @since 20 static
+    * @since 22 static
     */
     blur(radius: double, tileMode: TileMode): Filter;
 
@@ -135,7 +135,7 @@ declare namespace effectKit {
     * @form
     * @atomicservice
     * @since 14 dynamic
-    * @since 20 static
+    * @since 22 static
     */
     brightness(bright: double): Filter;
 
@@ -161,7 +161,7 @@ declare namespace effectKit {
     * @form
     * @atomicservice
     * @since 14 dynamic
-    * @since 20 static
+    * @since 22 static
     */
     grayscale(): Filter;
 
@@ -177,7 +177,7 @@ declare namespace effectKit {
     * @syscap SystemCapability.Multimedia.Image.Core
     * @crossplatform
     * @since 14 dynamic
-    * @since 20 static
+    * @since 22 static
     */
     invert(): Filter;
 
@@ -199,7 +199,7 @@ declare namespace effectKit {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setColorMatrix(colorMatrix: Array<double>): Filter;
 
@@ -235,7 +235,7 @@ declare namespace effectKit {
     * @form
     * @atomicservice
     * @since 14 dynamic
-    * @since 20 static
+    * @since 22 static
     */
     getEffectPixelMap(): Promise<image.PixelMap>;
   }
@@ -262,7 +262,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ColorPicker {
 
@@ -288,7 +288,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getMainColor(): Promise<Color>;
 
@@ -314,7 +314,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getMainColorSync(): Color;
 
@@ -340,7 +340,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getLargestProportionColor(): Color;
 
@@ -364,7 +364,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getTopProportionColors(colorCount: int): Array<Color | null>;
 
@@ -390,7 +390,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getHighestSaturationColor(): Color;
 
@@ -416,7 +416,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getAverageColor(): Color;
 
@@ -445,7 +445,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isBlackOrWhiteOrGrayColor(color: int): boolean;
   }
@@ -472,7 +472,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Color {
 
@@ -498,7 +498,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     red: int;
 
@@ -524,7 +524,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     green: int;
 
@@ -550,7 +550,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     blue: int;
 
@@ -576,7 +576,7 @@ declare namespace effectKit {
      * @form
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     alpha: int;
   }
@@ -606,7 +606,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createEffect(source: image.PixelMap): Filter;
 
@@ -638,7 +638,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createColorPicker(source: image.PixelMap): Promise<ColorPicker>;
 
@@ -676,7 +676,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createColorPicker(source: image.PixelMap, region: Array<double>): Promise<ColorPicker>;
 
@@ -708,7 +708,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>): void;
   
@@ -746,7 +746,7 @@ declare namespace effectKit {
    * @form
    * @atomicservice
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function createColorPicker(source: image.PixelMap, region: Array<double>, callback: AsyncCallback<ColorPicker>): void;
 
@@ -756,7 +756,7 @@ declare namespace effectKit {
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 14 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum TileMode {
     /**
@@ -764,7 +764,7 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     CLAMP = 0,
 
@@ -773,7 +773,7 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     REPEAT = 1,
 
@@ -782,7 +782,7 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     MIRROR = 2,
 
@@ -791,7 +791,7 @@ declare namespace effectKit {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 14 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     DECAL = 3,
   }

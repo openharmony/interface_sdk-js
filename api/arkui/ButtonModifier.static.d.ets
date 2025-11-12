@@ -13,20 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { AttributeModifier } from './component/common';
-import { ButtonAttribute } from './component/button';
-
 /**
  * @file
  * @kit ArkUI
  */
+
+import { AttributeModifier } from './component/common';
+import { ButtonAttribute } from './component/button';
 
 /**
  * Defines Button Modifier
  *
  * @implements { ButtonAttribute, AttributeModifier<ButtonAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
 export declare class ButtonModifier implements ButtonAttribute, AttributeModifier<ButtonAttribute> {}

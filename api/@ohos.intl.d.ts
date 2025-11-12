@@ -3006,7 +3006,7 @@ declare namespace intl {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export interface CollatorOptions {
     /**
@@ -3297,7 +3297,7 @@ declare namespace intl {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   export class Collator {
     /**
