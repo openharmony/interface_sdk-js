@@ -87,6 +87,14 @@ declare namespace appControl {
      * @since 22 static
      */
     EXTENSION = 1,
+    /**
+     * Indicates the UI extension ability type.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    UI_EXTENSION = 2
   }
 
   /**
