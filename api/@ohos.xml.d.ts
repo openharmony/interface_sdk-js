@@ -1416,6 +1416,7 @@ declare namespace xml {
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    */
   /**
    * The type of ParseOptions attributeWithTagCallbackFunction.
@@ -1428,8 +1429,7 @@ declare namespace xml {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
-   * @since 22 static
+   * @since 22 dynamic&static
    */
   type AttributeWithTagCb = (tagName: string, key: string, value: string) => boolean;
 
