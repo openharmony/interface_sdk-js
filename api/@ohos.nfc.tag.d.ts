@@ -1718,15 +1718,13 @@ declare namespace tag {
 
     /**
      * Creates an NDEF message with raw bytes.
-     *
      * @param { int[] } data - The raw bytes to parse NDEF message.
      * @returns { NdefMessage } The instance of NdefMessage.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified.
-     *     2. Incorrect parameters types.
+     *     2. Incorrect parameter types.
      *     3. Parameter verification failed.
      * @syscap SystemCapability.Communication.NFC.Tag
-     * @atomicservice
      * @since 22 static
      */
     function createNdefMessageByData(data: int[]): NdefMessage;
@@ -1760,15 +1758,13 @@ declare namespace tag {
 
     /**
      * Creates an NDEF message with record list.
-     *
      * @param { NdefRecord[] } ndefRecords - The NDEF records to parse NDEF message.
      * @returns { NdefMessage } The instance of NdefMessage.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified.
-     *     2. Incorrect parameters types.
+     *     2. Incorrect parameter types.
      *     3. Parameter verification failed.
      * @syscap SystemCapability.Communication.NFC.Tag
-     * @atomicservice
      * @since 22 static
      */
     function createNdefMessageByRecords(ndefRecords: NdefRecord[]): NdefMessage;
