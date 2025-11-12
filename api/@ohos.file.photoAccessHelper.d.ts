@@ -943,7 +943,16 @@ declare namespace photoAccessHelper {
      * @since 12 dynamic
      * @since 22 static
      */
-    NO_HIDE_SENSITIVE_TYPE = 3
+    NO_HIDE_SENSITIVE_TYPE = 3,
+
+    /**
+     * Refer MEDIA_LOCATION permission to hide location and shooting parameters.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    DEFAULT = 4,
   }
 
   /**
