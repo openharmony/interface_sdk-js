@@ -20,7 +20,6 @@
 
 import { CustomTheme } from '../../@ohos.arkui.theme';
 import { ThemeColorMode, AttributeModifier, CommonMethod } from './common';
-import { memo } from './../stateManagement/runtime';
 import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
