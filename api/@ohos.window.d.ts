@@ -8906,6 +8906,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi
      * @since 12 dynamic
+     * @since 22 static
      */
     setTopmost(isTopmost: boolean): Promise<void>;
 
@@ -8925,6 +8926,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
+     * @since 22 static
      */
     setWindowTopmost(isWindowTopmost: boolean): Promise<void>;
 
@@ -9126,6 +9128,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi
      * @since 13 dynamic
+     * @since 22 static
      */
     requestFocus(isFocused: boolean): Promise<void>;
 
@@ -9146,6 +9149,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
+     * @since 22 static
      */
     setExclusivelyHighlighted(exclusivelyHighlighted: boolean): Promise<void>;
 
@@ -9158,6 +9162,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     isWindowHighlighted(): boolean;
 
@@ -10018,6 +10023,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 22 static
      */
     raiseToAppTop(callback: AsyncCallback<void>): void;
 
@@ -10031,6 +10037,7 @@ declare namespace window {
      * @throws { BusinessError } 1300009 - The parent window is invalid.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 14 dynamic
+     * @since 22 static
      */
     raiseToAppTop(): Promise<void>;
 
@@ -10263,6 +10270,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 22 static
      */
     raiseAboveTarget(windowId: int, callback: AsyncCallback<void>): void;
 
@@ -10281,6 +10289,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 22 static
      */
     raiseAboveTarget(windowId: int): Promise<void>;
 
@@ -10320,6 +10329,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 22 static
      */
     setRaiseByClickEnabled(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -10337,6 +10347,7 @@ declare namespace window {
      * @throws { BusinessError } 1300009 - The parent window is invalid.
      * @syscap SystemCapability.Window.SessionManager
      * @since 14 dynamic
+     * @since 22 static
      */
     setRaiseByClickEnabled(enable: boolean): Promise<void>;
 
@@ -10797,6 +10808,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     setSubWindowModal(isModal: boolean): Promise<void>;
 
@@ -10832,6 +10844,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     setSubWindowModal(isModal: boolean, modalityType: ModalityType): Promise<void>;
 
@@ -11578,6 +11591,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     isFocused(): boolean;
 
@@ -11729,6 +11743,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     setSubWindowZLevel(zLevel: int): Promise<void>;
 
@@ -11742,6 +11757,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
+     * @since 22 static
      */
     getSubWindowZLevel(): int;
 
@@ -13155,6 +13171,7 @@ declare namespace window {
      * @StageModelOnly
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     setWindowModal(isModal: boolean): Promise<void>;
 
