@@ -255,8 +255,9 @@ interface RefreshOptions {
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10 dynamic
+   * @since 10 dynamiconly
    * @deprecated since 11
+   * @useinstead RefreshAttribute#pullDownRatio
    */
   friction?: number | string;
 

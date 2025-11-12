@@ -28,7 +28,7 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  * @stagemodelonly
  * @since 22 static
  */
-export default class WebNativeMessagingExtensionContext extends ExtensionContext {
+declare class WebNativeMessagingExtensionContext extends ExtensionContext {
     /**
      * Starts a new ability.
      *
@@ -91,3 +91,5 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
      */
     stopNativeConnection(connectionId: int): Promise<void>;
 }
+
+export default WebNativeMessagingExtensionContext;

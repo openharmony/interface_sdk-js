@@ -9267,7 +9267,7 @@ declare namespace audio {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
-   * @since 22 dynamic
+   * @since 22 dynamic&static
    */
   enum RenderTarget {
     /**
@@ -9275,7 +9275,7 @@ declare namespace audio {
      * target of audio renderer.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     PLAYBACK = 0,
 
@@ -9285,7 +9285,7 @@ declare namespace audio {
      * audio scene is {@link AudioScene#AUDIO_SCENE_VOICE_CHAT}.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     INJECT_TO_VOICE_COMMUNICATION_CAPTURE = 1,
   }
@@ -10370,9 +10370,10 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800103 - Operation not permit at running and release state.
      * @throws { BusinessError } 6800104 - Current renderer is not supported to set target.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     setTarget(target: RenderTarget): Promise<void>;
 
@@ -10385,7 +10386,7 @@ declare namespace audio {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     getTarget(): RenderTarget;
 
