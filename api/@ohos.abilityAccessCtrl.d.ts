@@ -202,10 +202,16 @@ declare namespace abilityAccessCtrl {
      *
      * @param { Context } context - The context that initiates the permission request.
      * <br> The context must belong to the Stage model and only supports UIAbilityContext and UIExtensionContext.
-     * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
-     * @param { AsyncCallback<PermissionRequestResult> } requestCallback Callback for the result from requesting permissions.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - Invalid parameter. The context is invalid when it does not belong to the application itself.
+     * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This
+     *     parameter cannot be null or empty.
+     * @param { AsyncCallback<PermissionRequestResult> } requestCallback Callback for the result from
+     *     requesting permissions.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The context is invalid when it does not belong to
+     *     the application itself.
+     * @throws { BusinessError } 12100009 - Common inner error. An error occurs when creating the pop-up window
+     *     or obtaining user operation results.
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
      * @since 9
@@ -215,10 +221,16 @@ declare namespace abilityAccessCtrl {
      *
      * @param { Context } context - The context that initiates the permission request.
      * <br> The context must belong to the Stage model and only supports UIAbilityContext and UIExtensionContext.
-     * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
-     * @param { AsyncCallback<PermissionRequestResult> } requestCallback Callback for the result from requesting permissions.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - Invalid parameter. The context is invalid when it does not belong to the application itself.
+     * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested.
+     *     This parameter cannot be null or empty.
+     * @param { AsyncCallback<PermissionRequestResult> } requestCallback Callback for the result from
+     *     requesting permissions.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The context is invalid when it does not belong to the
+     *     application itself.
+     * @throws { BusinessError } 12100009 - Common inner error. An error occurs when creating the pop-up window
+     *     or obtaining user operation results.
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
      * @crossplatform
@@ -229,10 +241,16 @@ declare namespace abilityAccessCtrl {
      *
      * @param { Context } context - The context that initiates the permission request.
      * <br> The context must belong to the Stage model and only supports UIAbilityContext and UIExtensionContext.
-     * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
-     * @param { AsyncCallback<PermissionRequestResult> } requestCallback Callback for the result from requesting permissions.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - Invalid parameter. The context is invalid when it does not belong to the application itself.
+     * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested.
+     *     This parameter cannot be null or empty.
+     * @param { AsyncCallback<PermissionRequestResult> } requestCallback Callback for the result from
+     *     requesting permissions.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
+     *     unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12100001 - (Deprecated in 12) Invalid parameter. The context is invalid when it
+     *     does not belong to the application itself.
+     * @throws { BusinessError } 12100009 - Common inner error. An error occurs when creating the pop-up window
+     *     or obtaining user operation results.
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
      * @crossplatform
@@ -278,10 +296,15 @@ declare namespace abilityAccessCtrl {
      *
      * @param { Context } context - The context that initiates the permission request.
      * <br> The context must belong to the Stage model and only supports UIAbilityContext and UIExtensionContext.
-     * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
+     * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested.
+     *     This parameter cannot be null or empty.
      * @returns { Promise<PermissionRequestResult> } Returns result of requesting permissions.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - Invalid parameter. The context is invalid when it does not belong to the application itself.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
+     *     unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12100001 - (Deprecated in 12) Invalid parameter. The context is invalid when it
+     *     does not belong to the application itself.
+     * @throws { BusinessError } 12100009 - Common inner error. An error occurs when creating the pop-up window
+     *     or obtaining user operation results.
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
      * @crossplatform
@@ -437,6 +460,7 @@ declare namespace abilityAccessCtrl {
      *  or the status value is invalid.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
      * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 12 dynamic
@@ -512,7 +536,6 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
      * @throws { BusinessError } 12100001 - Invalid parameter. Possible causes: 1. The tokenIDList or permissionList exceeds the size limit;
      *  2. The tokenIDs or permissionNames in the list are all invalid.
-     * @throws { BusinessError } 12100004 - The API is used repeatedly with the same input.
      * @throws { BusinessError } 12100005 - The registration time has exceeded the limit.
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @throws { BusinessError } 12100008 - Out of memory.
@@ -591,7 +614,7 @@ declare namespace abilityAccessCtrl {
       callback: Callback<PermissionStateChangeInfo>
     ): void;
 
-     /**
+    /**
      * Subscribes to the permission changes of this application.
      *
      * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be
@@ -624,14 +647,12 @@ declare namespace abilityAccessCtrl {
      *  It should correspond to the value registered by function of "on", whose type is "permissionStateChange".
      * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be listened on.
      *  It should correspond to the value registered by function of "on", whose type is "permissionStateChange".
-     * @param { Callback<PermissionStateChangeInfo> } callback - Callback for the result from unregistering permissions.
+     * @param { Callback<PermissionStateChangeInfo> } [callback] - Callback for the result from unregistering permissions.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
      * @throws { BusinessError } 12100001 - Invalid parameter. The tokenIDList or permissionList is not in the listening list.
-     * @throws { BusinessError } 12100004 - The API is not used in pair with 'on'.
      * @throws { BusinessError } 12100007 - The service is abnormal.
-     * @throws { BusinessError } 12100008 - Out of memory.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9 dynamic
@@ -673,14 +694,17 @@ declare namespace abilityAccessCtrl {
     ): void;
 
     /**
-     * Unregisters a permission state callback so that the application cannot be notified upon specified permissions state changes anymore.
+     * Unsubscribes from the permission changes of this application.
      *
-     * @param { 'selfPermissionStateChange' } type - Event type.
-     * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be listened on.
-     *  It should correspond to the value registered by function of "on", whose type is "selfPermissionStateChange".
-     * @param { Callback<PermissionStateChangeInfo> } callback - Callback for the result from unregistering permissions.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - Invalid parameter. The permissionNames in the list are all invalid.
+     * @param { 'selfPermissionStateChange' } type Event type.
+     * @param { Array<Permissions> } permissionList A list of permissions that specify the permissions to be
+     * listened on.
+     *  It should correspond to the value registered by function of "on", whose type is
+     * "selfPermissionStateChange".
+     * @param { Callback<PermissionStateChangeInfo> } [callback] - Callback for the result from unregistering
+     * permissions.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left
+     * unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12100004 - The API is not used in pair with 'on'.
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
@@ -737,11 +761,15 @@ declare namespace abilityAccessCtrl {
      *
      * @param { Context } context - The context that initiates the permission request.
      * <br> The context must belong to the Stage model and only supports UIAbilityContext and UIExtensionContext.
-     * @param { SwitchType } type - Indicates the type of global switch to be requested. This parameter cannot be null or empty.
+     * @param { SwitchType } type - Indicates the type of global switch to be requested. This parameter cannot be
+     *     null or empty.
      * @returns { Promise<boolean> } Returns the status of the specified global switch.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-     * @throws { BusinessError } 12100001 - Invalid parameter. Possible causes: 1. The context is invalid because it does not belong to the application itself; 2. The type of global switch is not support.
-     * @throws { BusinessError } 12100010 - The request already exists.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types.
+     * @throws { BusinessError } 12100001 - Invalid parameter. Possible causes: 1. The context is invalid because
+     *     it does not belong to the application itself; 2. The type of global switch is not support.
+     * @throws { BusinessError } 12100009 - Common inner error. An error occurs when creating the pop-up window
+     *     or obtaining user operation result.
      * @throws { BusinessError } 12100013 - The specific global switch is already open.
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
