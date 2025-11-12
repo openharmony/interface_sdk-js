@@ -14813,7 +14813,17 @@ declare namespace camera {
      * @since 13 dynamic
      * @since 22 static
      */
-    BAR_CODE_DETECTION = 7
+    BAR_CODE_DETECTION = 7,
+
+    /**
+     * Basic face detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    BASIC_FACE_DETECTION = 8
+
   }
 
   /**
@@ -15197,6 +15207,72 @@ declare namespace camera {
      * @since 22 static
      */
     readonly rollAngle: int;
+  }
+
+  /**
+   * Metadata object for basic face.
+   *
+   * @extends MetadataObject
+   * @typedef MetadataBasicFaceObject
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  interface MetadataBasicFaceObject extends MetadataObject {
+    /**
+     * Bounding box for left eye.
+     *
+     * @type { ?Rect }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    readonly leftEyeBoundingBox?: Rect;
+
+    /**
+     * Bounding box for right eye.
+     *
+     * @type { ?Rect }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    readonly rightEyeBoundingBox?: Rect;
+
+    /**
+     * Pitch angle for face.
+     *
+     * @type { ?int }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    readonly pitchAngle?: int;
+
+    /**
+     * Yaw angle for face.
+     *
+     * @type { ?int }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    readonly yawAngle?: int;
+
+    /**
+     * Roll angle for face.
+     *
+     * @type { ?int }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    readonly rollAngle?: int;
   }
 
   /**
