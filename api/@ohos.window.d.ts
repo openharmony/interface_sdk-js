@@ -10341,6 +10341,22 @@ declare namespace window {
     setRaiseByClickEnabled(enable: boolean): Promise<void>;
 
     /**
+     * Set whether to enable an app main window to raise itself by click.
+     *
+     * @param { boolean } enable - Disable app main window to raise itself by click if false.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 23 dynamic&static
+     */
+    setMainWindowRaiseByClickEnabled(enable: boolean): Promise<void>;
+
+    /**
      * Minimize app main window and hide app subWindow.
      *
      * @param { AsyncCallback<void> } callback - The callback of Minimize.
