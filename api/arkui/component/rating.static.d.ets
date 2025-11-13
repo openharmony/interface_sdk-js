@@ -58,20 +58,20 @@ export declare interface StarStyleOptions {
      * Background URI option.
      * Anonymous Object Rectification.
      *
-     * @type { ResourceStr }
+     * @type { ResourceStr | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    backgroundUri: ResourceStr;
+    backgroundUri: ResourceStr | undefined;
     /**
      * Foreground URI option.
      * Anonymous Object Rectification.
      *
-     * @type { ResourceStr }
+     * @type { ResourceStr | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 22 static
      */
-    foregroundUri: ResourceStr;
+    foregroundUri: ResourceStr | undefined;
     /**
      * Secondary URI option.
      * Anonymous Object Rectification.
