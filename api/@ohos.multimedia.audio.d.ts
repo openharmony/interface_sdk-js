@@ -8854,7 +8854,7 @@ declare namespace audio {
      * Volume percentage, which is an integer ranging from [0, 100].
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @crossplatform
+     * @systemapi
      * @since 23 dynamic&static
      */
     percentage?: int;
