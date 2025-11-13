@@ -19,7 +19,12 @@
  */
 
 import ExtensionContext from './ExtensionContext';
+/*** if arkts dynamic */
 import type CustomData from './CustomData';
+/*** endif */
+/*** if arkts static */
+import CustomData from './CustomData';
+/*** endif */
 
 /**
  * The context of auto fill extension. It allows access to AutoFillExtension-specific resources.
@@ -28,9 +33,10 @@ import type CustomData from './CustomData';
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 11
+ * @since 11 dynamic
+ * @since 22 static
  */
-export default class AutoFillExtensionContext extends ExtensionContext {
+declare class AutoFillExtensionContext extends ExtensionContext {
   /**
    * Reload autoFillExtension in modal window.
    *
@@ -44,7 +50,10 @@ export default class AutoFillExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 13
+   * @since 13 dynamic
+   * @since 22 static
    */
   reloadInModal(customData: CustomData): Promise<void>;
 }
+
+export default AutoFillExtensionContext;

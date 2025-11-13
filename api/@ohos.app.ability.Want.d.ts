@@ -42,8 +42,8 @@
  * @syscap SystemCapability.Ability.AbilityBase
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 export default class Want {
   /**
@@ -67,8 +67,8 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   bundleName?: string;
 
@@ -98,8 +98,8 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   abilityName?: string;
 
@@ -120,8 +120,8 @@ export default class Want {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   deviceId?: string;
 
@@ -141,8 +141,8 @@ export default class Want {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   uri?: string;
 
@@ -173,8 +173,8 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   type?: string;
 
@@ -193,7 +193,7 @@ export default class Want {
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   flags?: number;
 
@@ -212,8 +212,8 @@ export default class Want {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   action?: string;
 
@@ -298,8 +298,8 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   parameters?: Record<string, Object>;
 
@@ -317,8 +317,8 @@ export default class Want {
    * @type { ?Array<string> }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   entities?: Array<string>;
 
@@ -348,8 +348,8 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   moduleName?: string;
 
@@ -362,8 +362,8 @@ export default class Want {
    * @readonly
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 22 static
    */
   readonly fds?: Record<string, int>;
 }

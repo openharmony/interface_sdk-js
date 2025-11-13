@@ -49,7 +49,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum SliderStyle {
     /**
@@ -80,7 +80,7 @@ declare enum SliderStyle {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     OutSet,
     /**
@@ -111,7 +111,7 @@ declare enum SliderStyle {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     InSet,
     /**
@@ -121,7 +121,7 @@ declare enum SliderStyle {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     NONE
 }
@@ -158,7 +158,7 @@ declare enum SliderStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum SliderChangeMode {
     /**
@@ -189,7 +189,7 @@ declare enum SliderChangeMode {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     Begin,
     /**
@@ -220,7 +220,7 @@ declare enum SliderChangeMode {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     Moving,
     /**
@@ -255,7 +255,7 @@ declare enum SliderChangeMode {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     End,
     /**
@@ -286,7 +286,7 @@ declare enum SliderChangeMode {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     Click
 }
@@ -298,7 +298,7 @@ declare enum SliderChangeMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum SliderInteraction {
     /**
@@ -308,7 +308,7 @@ declare enum SliderInteraction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     SLIDE_AND_CLICK = 0,
     /**
@@ -317,7 +317,7 @@ declare enum SliderInteraction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     SLIDE_ONLY = 1,
     /**
@@ -327,7 +327,7 @@ declare enum SliderInteraction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     SLIDE_AND_CLICK_UP = 2
 }
@@ -349,7 +349,7 @@ declare enum SliderInteraction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface SlideRange {
     /**
@@ -359,7 +359,7 @@ declare interface SlideRange {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     from?: number;
     /**
@@ -369,7 +369,7 @@ declare interface SlideRange {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     to?: number;
 }
@@ -406,7 +406,7 @@ declare interface SlideRange {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface SliderOptions {
     /**
@@ -442,7 +442,7 @@ declare interface SliderOptions {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     value?: number;
     /**
@@ -478,7 +478,7 @@ declare interface SliderOptions {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     min?: number;
     /**
@@ -519,7 +519,7 @@ declare interface SliderOptions {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     max?: number;
     /**
@@ -558,7 +558,7 @@ declare interface SliderOptions {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     step?: number;
     /**
@@ -594,7 +594,7 @@ declare interface SliderOptions {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     style?: SliderStyle;
     /**
@@ -630,7 +630,7 @@ declare interface SliderOptions {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     direction?: Axis;
     /**
@@ -667,7 +667,7 @@ declare interface SliderOptions {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     reverse?: boolean;
 }
@@ -687,7 +687,7 @@ declare interface SliderOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum SliderBlockType {
     /**
@@ -703,7 +703,7 @@ declare enum SliderBlockType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     DEFAULT = 0,
     /**
@@ -719,7 +719,7 @@ declare enum SliderBlockType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     IMAGE = 1,
     /**
@@ -735,7 +735,7 @@ declare enum SliderBlockType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     SHAPE = 2
 }
@@ -755,7 +755,7 @@ declare enum SliderBlockType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface SliderBlockStyle {
     /**
@@ -774,7 +774,7 @@ declare interface SliderBlockStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     type: SliderBlockType;
     /**
@@ -793,7 +793,7 @@ declare interface SliderBlockStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     image?: ResourceStr;
     /**
@@ -811,7 +811,7 @@ declare interface SliderBlockStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     shape?: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute;
 }
@@ -825,7 +825,7 @@ declare interface SliderBlockStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare type SliderTriggerChangeCallback = (value: number, mode: SliderChangeMode) => void;
 
@@ -837,7 +837,7 @@ declare type SliderTriggerChangeCallback = (value: number, mode: SliderChangeMod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface SliderConfiguration extends CommonConfiguration<SliderConfiguration> {
     /**
@@ -847,7 +847,7 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     value: number;
     /**
@@ -857,7 +857,7 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     min: number;
     /**
@@ -867,7 +867,7 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     max: number;
     /**
@@ -877,7 +877,7 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     step: number;
     /**
@@ -887,7 +887,7 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     triggerChange: SliderTriggerChangeCallback;
 }
@@ -924,8 +924,7 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
- * @noninterop
+ * @since 11 dynamic
  */
 interface SliderInterface {
     /**
@@ -964,7 +963,7 @@ interface SliderInterface {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     (options?: SliderOptions): SliderAttribute;
 }
@@ -976,7 +975,7 @@ interface SliderInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare interface SliderStepItemAccessibility {
   /**
@@ -986,7 +985,7 @@ declare interface SliderStepItemAccessibility {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   text?: ResourceStr;
 }
@@ -998,7 +997,7 @@ declare interface SliderStepItemAccessibility {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare interface SliderShowStepOptions {
   /**
@@ -1008,7 +1007,7 @@ declare interface SliderShowStepOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   stepsAccessibility?: Map<number, SliderStepItemAccessibility>;
 }
@@ -1021,7 +1020,7 @@ declare interface SliderShowStepOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 interface SliderCustomContentOptions {
   /**
@@ -1032,7 +1031,7 @@ interface SliderCustomContentOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityText?: ResourceStr;
 
@@ -1044,7 +1043,7 @@ interface SliderCustomContentOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityDescription?: ResourceStr;
    
@@ -1056,7 +1055,7 @@ interface SliderCustomContentOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityLevel?: string;
   
@@ -1067,7 +1066,7 @@ interface SliderCustomContentOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityGroup?: boolean;
 }
@@ -1081,7 +1080,7 @@ interface SliderCustomContentOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 interface SliderPrefixOptions extends SliderCustomContentOptions {
 }
@@ -1095,7 +1094,7 @@ interface SliderPrefixOptions extends SliderCustomContentOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 interface SliderSuffixOptions extends SliderCustomContentOptions {
 }
@@ -1132,7 +1131,7 @@ interface SliderSuffixOptions extends SliderCustomContentOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   /**
@@ -1171,7 +1170,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   blockColor(value: ResourceColor): SliderAttribute;
   /**
@@ -1183,7 +1182,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   blockColor(value: ResourceColor | LinearGradient): SliderAttribute;
 
@@ -1234,7 +1233,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   trackColor(value: ResourceColor | LinearGradient): SliderAttribute;
 
@@ -1274,7 +1273,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   selectedColor(value: ResourceColor): SliderAttribute;
   /**
@@ -1286,7 +1285,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   selectedColor(selectedColor: ResourceColor | LinearGradient): SliderAttribute;
 
@@ -1296,7 +1295,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @param { string } value
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead min
    */
@@ -1308,7 +1307,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @param { string } value
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead max
    */
@@ -1350,7 +1349,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   showSteps(value: boolean): SliderAttribute;
 
@@ -1364,7 +1363,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   showSteps(value: boolean, options?: SliderShowStepOptions): SliderAttribute;
 
@@ -1408,7 +1407,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   showTips(value: boolean, content?: ResourceStr): SliderAttribute;
 
@@ -1448,7 +1447,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   trackThickness(value: Length): SliderAttribute;
 
@@ -1493,7 +1492,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onChange(callback: (value: number, mode: SliderChangeMode) => void): SliderAttribute;
 
@@ -1514,7 +1513,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   blockBorderColor(value: ResourceColor): SliderAttribute;
 
@@ -1535,7 +1534,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   blockBorderWidth(value: Length): SliderAttribute;
 
@@ -1556,7 +1555,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   stepColor(value: ResourceColor): SliderAttribute;
 
@@ -1577,7 +1576,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   trackBorderRadius(value: Length): SliderAttribute;
 
@@ -1589,7 +1588,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
     selectedBorderRadius(value: Dimension): SliderAttribute;
     /**
@@ -1609,7 +1608,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     blockSize(value: SizeOptions): SliderAttribute;
     /**
@@ -1630,7 +1629,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     blockStyle(value: SliderBlockStyle): SliderAttribute;
     /**
@@ -1650,7 +1649,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     stepSize(value: Length): SliderAttribute;
     /**
@@ -1662,7 +1661,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     sliderInteractionMode(value: SliderInteraction): SliderAttribute;
     /**
@@ -1673,7 +1672,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     minResponsiveDistance(value: number): SliderAttribute;
     /**
@@ -1685,7 +1684,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     contentModifier(modifier: ContentModifier<SliderConfiguration>): SliderAttribute;
     /**
@@ -1696,7 +1695,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     slideRange(value: SlideRange): SliderAttribute;
     /**
@@ -1707,7 +1706,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): SliderAttribute;
     /**
@@ -1717,7 +1716,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     enableHapticFeedback(enabled: boolean): SliderAttribute;
     /**
@@ -1732,7 +1731,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     prefix(content: ComponentContent, options?: SliderPrefixOptions): SliderAttribute;
     /**
@@ -1747,7 +1746,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     suffix(content: ComponentContent, options?: SliderSuffixOptions): SliderAttribute;
 }
@@ -1780,7 +1779,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Slider: SliderInterface;
 
@@ -1812,6 +1811,6 @@ declare const Slider: SliderInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const SliderInstance: SliderAttribute;

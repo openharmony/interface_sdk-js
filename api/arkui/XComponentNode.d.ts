@@ -29,7 +29,7 @@ import { FrameNode } from './FrameNode';
  *
  * @extends FrameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 11
+ * @since 11 dynamic
  * @deprecated since 12
  */
 export declare class XComponentNode extends FrameNode {
@@ -42,7 +42,7 @@ export declare class XComponentNode extends FrameNode {
    * @param { XComponentType } type - XComponent type
    * @param { string } libraryName - The name of the library to be loaded by XComponent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   constructor(uiContext: UIContext, options: RenderOptions,
@@ -53,7 +53,7 @@ export declare class XComponentNode extends FrameNode {
    *
    * @param { Object } event - event from native when the library loaded
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   onCreate(event?: Object): void;
@@ -62,7 +62,7 @@ export declare class XComponentNode extends FrameNode {
    * Called when the XComponent surface has been destroyed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   onDestroy(): void;
@@ -73,7 +73,7 @@ export declare class XComponentNode extends FrameNode {
    * @param { NodeRenderType } type - render type
    * @returns { boolean } - Returns if change the render type successfully.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 12
    */
   changeRenderType(type: NodeRenderType): boolean;

@@ -23,7 +23,7 @@
  *
  * @typedef { Callback<T> }
  * @syscap SystemCapability.Base
- * @since 20 static
+ * @since 22 static
  */
  export type Callback<T> = (data: T) => void;
 
@@ -32,7 +32,7 @@
   *
   * @typedef { ErrorCallback<T extends Error = BusinessError> }
   * @syscap SystemCapability.Base
-  * @since 20 static
+  * @since 22 static
   */
  export type ErrorCallback<T extends Error = BusinessError> = (err: T)=> void;
  
@@ -41,20 +41,20 @@
   *
   * @typedef { AsyncCallback<T, E = void> }
   * @syscap SystemCapability.Base
-  * @since 20 static
+  * @since 22 static
   */
  export type AsyncCallback<T, E = void> = (err: BusinessError<E> | null, data: T | undefined)=> void;
  
  /**
   * Defines the error interface.
   * @syscap SystemCapability.Base
-  * @since 20 static
+  * @since 22 static
   */
  export declare class BusinessError<T = void> extends Error {
    /**
    * A constructor used to create a BusinessError object
    * @syscap SystemCapability.Base
-   * @since 20 static
+   * @since 22 static
    */
    constructor();
    /**
@@ -62,7 +62,7 @@
    * @param { int } code
    * @param { Error } error
    * @syscap SystemCapability.Base
-   * @since 20 static
+   * @since 22 static
    */
    constructor(code: int, error: Error);
    /**
@@ -71,24 +71,26 @@
    * @param { T } data
    * @param { Error } error
    * @syscap SystemCapability.Base
-   * @since 20 static
+   * @since 22 static
    */
    constructor(code: int, data: T, error: Error);
+   /**
+   * A constructor used to create a BusinessError object
+   * @param { int } code
+   * @param { string } message
+   * @param { T } [data]
+   * @syscap SystemCapability.Base
+   * @since 22 static
+   */
+   constructor(code: int, message: string, data?: T);
  
-    /**
-    * Defines the basic error code.
-    * @type { int } code
-    * @syscap SystemCapability.Base
-    * @since 20 static
-    */
-   code: int;
     /**
     * Defines the additional information for business
     * @type { ?T } data
     * @syscap SystemCapability.Base
-    * @since 20 static
+    * @since 22 static
     */
-   data?: T;
+   public data?: T;
  }
  
  /**
@@ -96,7 +98,7 @@
   * of attributes per level are uncertain, you can use RecordData for initialization.
   * @typedef RecordData
   * @syscap SystemCapability.Base
-  * @since 20 static
+  * @since 20 staticonly
   * @example
   * import { RecordData } from '@kit.BasicServiceKit';
   * const param: RecordData = {

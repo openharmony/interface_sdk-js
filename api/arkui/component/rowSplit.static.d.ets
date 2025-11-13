@@ -15,10 +15,19 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
+
+/**
+ * The RowSplitAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface RowSplitAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ * @noninterop
+ */
 export declare interface RowSplitAttribute extends CommonMethod {
     /**
      * Called when judging whether the split line can be dragged.
@@ -26,7 +35,7 @@ export declare interface RowSplitAttribute extends CommonMethod {
      * @param { boolean } value
      * @returns { RowSplitAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default resizeable(value: boolean | undefined): this;
     /**
@@ -35,16 +44,23 @@ export declare interface RowSplitAttribute extends CommonMethod {
      * @param { AttributeModifier<RowSplitAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { RowSplitAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<RowSplitAttribute> | AttributeModifier<CommonMethod>
         | undefined): this;
 }
 
-@memo
+/**
+ * Defines RowSplit Component.
+ *
+ * @param { CustomBuilder } [content_] - container
+ * @returns { RowSplitAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ * @noninterop
+ */
 @ComponentBuilder
 export declare function RowSplit(
-
-    @memo
-    content_?: () => void,
+    
+    content_?: CustomBuilder,
 ): RowSplitAttribute

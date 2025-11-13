@@ -27,7 +27,7 @@ import type { ChildProcessOptions } from './@ohos.app.ability.ChildProcessOption
  *
  * @namespace childProcessManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 11
+ * @since 11 dynamic
  */
 declare namespace childProcessManager {
 
@@ -37,7 +37,7 @@ declare namespace childProcessManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   export const enum StartMode {
 
@@ -47,7 +47,7 @@ declare namespace childProcessManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 11
+     * @since 11 dynamic
      */
     SELF_FORK = 0,
 
@@ -56,7 +56,7 @@ declare namespace childProcessManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 11
+     * @since 11 dynamic
      */
     APP_SPAWN_FORK = 1,
   }
@@ -74,7 +74,7 @@ declare namespace childProcessManager {
    * @throws { BusinessError } 16000062 - The number of child processes exceeds the upper limit.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   function startChildProcess(srcEntry: string, startMode: StartMode): Promise<number>;
 
@@ -91,7 +91,7 @@ declare namespace childProcessManager {
    * @throws { BusinessError } 16000062 - The number of child processes exceeds the upper limit.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   function startChildProcess(srcEntry: string, startMode: StartMode, callback: AsyncCallback<number>): void;
 
@@ -126,7 +126,7 @@ declare namespace childProcessManager {
    * @throws { BusinessError } 16000062 - The number of child processes exceeds the upper limit.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 13
+   * @since 13 dynamic
    */
   function startArkChildProcess(srcEntry: string, args: ChildProcessArgs, options?: ChildProcessOptions): Promise<number>;
 
@@ -145,7 +145,7 @@ declare namespace childProcessManager {
    * @throws { BusinessError } 16000062 - The number of child processes exceeds the upper limit.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 13
+   * @since 13 dynamic
    */
   function startNativeChildProcess(entryPoint: string, args: ChildProcessArgs, options?: ChildProcessOptions): Promise<number>;
 

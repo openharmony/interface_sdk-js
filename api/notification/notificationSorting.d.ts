@@ -26,8 +26,8 @@ import { NotificationSlot } from './notificationSlot';
  * @typedef NotificationSorting
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since arkts {'1.1':'7', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 22 static
  */
 export interface NotificationSorting {
   /**
@@ -37,8 +37,8 @@ export interface NotificationSorting {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 22 static
    */
   readonly slot: NotificationSlot;
 
@@ -49,8 +49,8 @@ export interface NotificationSorting {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 22 static
    */
   readonly hashCode: string;
 
@@ -61,8 +61,8 @@ export interface NotificationSorting {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 22 static
    */
   readonly ranking: long;
 }

@@ -24,7 +24,7 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare enum ToolBarItemPlacement {
   /**
@@ -32,7 +32,7 @@ declare enum ToolBarItemPlacement {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   TOP_BAR_LEADING = 0,
 
@@ -41,7 +41,7 @@ declare enum ToolBarItemPlacement {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   TOP_BAR_TRAILING = 1,
 }
@@ -52,7 +52,7 @@ declare enum ToolBarItemPlacement {
  * @interface ToolBarItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 interface ToolBarItemOptions {
   /**
@@ -61,7 +61,7 @@ interface ToolBarItemOptions {
    * @type { ?ToolBarItemPlacement }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   placement?: ToolBarItemPlacement;
 }
@@ -72,7 +72,7 @@ interface ToolBarItemOptions {
  * @interface ToolBarItemInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 interface ToolBarItemInterface {
   /**
@@ -82,7 +82,7 @@ interface ToolBarItemInterface {
    * @returns { ToolBarItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   (options?: ToolBarItemOptions): ToolBarItemAttribute;
 }
@@ -92,7 +92,7 @@ interface ToolBarItemInterface {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare class ToolBarItemAttribute { }
 
@@ -102,7 +102,7 @@ declare class ToolBarItemAttribute { }
  * @type { ToolBarItemInterface }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare const ToolBarItem: ToolBarItemInterface;
 
@@ -112,6 +112,6 @@ declare const ToolBarItem: ToolBarItemInterface;
  * @type { ToolBarItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare const ToolBarItemInstance: ToolBarItemAttribute;

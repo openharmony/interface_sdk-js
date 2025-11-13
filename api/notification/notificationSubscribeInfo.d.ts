@@ -26,8 +26,8 @@ import type notificationManager from '../@ohos.notificationManager';
  * @typedef NotificationSubscribeInfo
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since arkts {'1.1':'7', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 22 static
  */
 export interface NotificationSubscribeInfo {
   /**
@@ -36,8 +36,8 @@ export interface NotificationSubscribeInfo {
    * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 22 static
    */
   bundleNames?: Array<string>;
 
@@ -47,8 +47,8 @@ export interface NotificationSubscribeInfo {
    * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 22 static
    */
   userId?: int;
 
@@ -58,8 +58,8 @@ export interface NotificationSubscribeInfo {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   deviceType?: string;
 
@@ -69,8 +69,8 @@ export interface NotificationSubscribeInfo {
    * @type { ?Array<notificationManager.SlotType> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   slotTypes?: Array<notificationManager.SlotType>;
 
@@ -80,8 +80,8 @@ export interface NotificationSubscribeInfo {
    * @type { ?long }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   filterLimit?: long;
 }

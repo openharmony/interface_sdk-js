@@ -24,7 +24,7 @@
  * @namespace commonType
  * @syscap SystemCapability.DistributedDataManager.CommonType
  * @crossplatform
- * @since 11
+ * @since 11 dynamic
  */
 declare namespace commonType {
   /**
@@ -33,7 +33,7 @@ declare namespace commonType {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
-   * @since 11
+   * @since 11 dynamic
    */
   enum AssetStatus {
     /**
@@ -41,7 +41,7 @@ declare namespace commonType {
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     ASSET_NORMAL,
 
@@ -50,7 +50,7 @@ declare namespace commonType {
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     ASSET_INSERT,
 
@@ -59,7 +59,7 @@ declare namespace commonType {
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     ASSET_UPDATE,
 
@@ -68,7 +68,7 @@ declare namespace commonType {
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     ASSET_DELETE,
 
@@ -77,7 +77,7 @@ declare namespace commonType {
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     ASSET_ABNORMAL,
 
@@ -86,7 +86,7 @@ declare namespace commonType {
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     ASSET_DOWNLOADING
   }
@@ -97,7 +97,7 @@ declare namespace commonType {
    * @interface Asset
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
-   * @since 11
+   * @since 11 dynamic
    */
   interface Asset {
     /**
@@ -105,7 +105,7 @@ declare namespace commonType {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     name: string;
 
@@ -115,7 +115,7 @@ declare namespace commonType {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     uri: string;
 
@@ -125,7 +125,7 @@ declare namespace commonType {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     path: string;
 
@@ -135,7 +135,7 @@ declare namespace commonType {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     createTime: string;
 
@@ -145,7 +145,7 @@ declare namespace commonType {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     modifyTime: string;
 
@@ -155,7 +155,7 @@ declare namespace commonType {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     size: string;
 
@@ -165,7 +165,7 @@ declare namespace commonType {
      * @type { ?AssetStatus }
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
-     * @since 11
+     * @since 11 dynamic
      */
     status?: AssetStatus;
   }
@@ -176,7 +176,7 @@ declare namespace commonType {
    * @typedef { Array<Asset> }
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
-   * @since 11
+   * @since 11 dynamic
    */
   type Assets = Array<Asset>;
 
@@ -186,7 +186,7 @@ declare namespace commonType {
    * @typedef { null | number | string | boolean | Uint8Array | Asset | Assets }
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
-   * @since 11
+   * @since 11 dynamic
    */
   type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets;
 
@@ -196,7 +196,7 @@ declare namespace commonType {
    * @typedef { Record<string, ValueType> }
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
-   * @since 11
+   * @since 11 dynamic
    */
   type ValuesBucket = Record<string, ValueType>;
 }

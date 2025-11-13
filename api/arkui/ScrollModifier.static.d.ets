@@ -17,7 +17,6 @@
 /**
  * @file Scroll modifier file，defines modifier and function.
  * @kit ArkUI
- * @arkts 1.2
  */
 
 
@@ -31,6 +30,6 @@ import { ScrollAttribute } from '@ohos.arkui.component';
  *
  * @implements { ScrollAttribute,AttributeModifier<ScrollAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class ScrollModifier implements ScrollAttribute, AttributeModifier<ScrollAttribute> {}

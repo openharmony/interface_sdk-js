@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { CommonMethod} from './common';
 /*** endif */
 
@@ -28,8 +28,8 @@ import { CommonMethod} from './common';
  * @interface ScreenInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 22 static
  */
 interface ScreenInterface {
   /**
@@ -39,8 +39,8 @@ interface ScreenInterface {
    * @returns { ScreenAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   (screenId: number): ScreenAttribute;
 }
@@ -51,8 +51,8 @@ interface ScreenInterface {
  * @extends CommonMethod<ScreenAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 22 static
  */
 declare class ScreenAttribute extends CommonMethod<ScreenAttribute> {
 }
@@ -62,7 +62,7 @@ declare class ScreenAttribute extends CommonMethod<ScreenAttribute> {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 10
+ * @since 10 dynamic
  */
 declare const Screen: ScreenInterface;
 
@@ -71,6 +71,6 @@ declare const Screen: ScreenInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 10
+ * @since 10 dynamic
  */
 declare const ScreenInstance: ScreenAttribute;

@@ -26,8 +26,8 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  * @typedef RecoverableApplicationInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 export interface RecoverableApplicationInfo {
   /**
@@ -37,8 +37,8 @@ export interface RecoverableApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly bundleName: string;
 
@@ -49,8 +49,8 @@ export interface RecoverableApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly moduleName: string;
 
@@ -61,8 +61,8 @@ export interface RecoverableApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly labelId: long;
 
@@ -73,8 +73,8 @@ export interface RecoverableApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly iconId: long;
 
@@ -85,8 +85,8 @@ export interface RecoverableApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly systemApp: boolean;
 
@@ -97,8 +97,8 @@ export interface RecoverableApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly bundleType: bundleManager.BundleType;
 
@@ -109,8 +109,8 @@ export interface RecoverableApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly codePaths: Array<string>;
 }

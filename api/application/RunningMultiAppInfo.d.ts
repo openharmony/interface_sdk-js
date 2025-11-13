@@ -28,8 +28,8 @@ import { RunningMultiInstanceInfo } from './RunningMultiInstanceInfo';
  * @typedef RunningMultiAppInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 22 static
  */
 export interface RunningMultiAppInfo {
 
@@ -40,8 +40,8 @@ export interface RunningMultiAppInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   bundleName: string;
 
@@ -51,8 +51,8 @@ export interface RunningMultiAppInfo {
    * @type { MultiAppMode }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   mode: MultiAppMode;
 
@@ -62,8 +62,8 @@ export interface RunningMultiAppInfo {
    * @type { ?Array<RunningMultiInstanceInfo> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   runningMultiInstances?: Array<RunningMultiInstanceInfo>;
 
@@ -73,8 +73,8 @@ export interface RunningMultiAppInfo {
    * @type { ?Array<RunningAppClone> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   runningAppClones?: Array<RunningAppClone>;
 }

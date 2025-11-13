@@ -27,8 +27,8 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 21
- * @arkts 1.1&1.2
+ * @since 21 dynamic
+ * @since 22 static
  */
 export type OnRequestSuccessFn = (name: string) => void;
 
@@ -44,8 +44,8 @@ export type OnRequestSuccessFn = (name: string) => void;
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 21
- * @arkts 1.1&1.2
+ * @since 21 dynamic
+ * @since 22 static
  */
 export type OnRequestFailureFn = (name: string, failureCode: AbilityStartFailureCode, failureMessage: string) => void;
 
@@ -55,8 +55,8 @@ export type OnRequestFailureFn = (name: string, failureCode: AbilityStartFailure
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 21
- * @arkts 1.1&1.2
+ * @since 21 dynamic
+ * @since 22 static
  */
 export class CompletionHandlerForAbilityStartCallback {
   /**
@@ -66,8 +66,8 @@ export class CompletionHandlerForAbilityStartCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
+   * @since 22 static
    */
   onRequestSuccess?: OnRequestSuccessFn;
 
@@ -78,8 +78,8 @@ export class CompletionHandlerForAbilityStartCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
+   * @since 22 static
    */
   onRequestFailure?: OnRequestFailureFn;
 }
@@ -91,8 +91,8 @@ export class CompletionHandlerForAbilityStartCallback {
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 21
- * @arkts 1.1&1.2
+ * @since 21 dynamic
+ * @since 22 static
 */
 export enum AbilityStartFailureCode {
   /**
@@ -101,8 +101,8 @@ export enum AbilityStartFailureCode {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
+   * @since 22 static
    */
   FAILURE_CODE_SYSTEM_MALFUNCTION = 0,
 
@@ -112,8 +112,8 @@ export enum AbilityStartFailureCode {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
+   * @since 22 static
    */
   FAILURE_CODE_USER_CANCEL = 1,
 }

@@ -40,7 +40,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum DialogAlignment {
   /**
@@ -62,7 +62,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Top,
 
@@ -85,7 +85,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Center,
 
@@ -108,7 +108,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Bottom,
 
@@ -131,7 +131,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Default,
 
@@ -154,7 +154,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   TopStart,
 
@@ -177,7 +177,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   TopEnd,
 
@@ -200,7 +200,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   CenterStart,
 
@@ -223,7 +223,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   CenterEnd,
 
@@ -246,7 +246,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   BottomStart,
 
@@ -269,7 +269,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   BottomEnd,
 }
@@ -289,7 +289,7 @@ declare enum DialogAlignment {
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @crossplatform
 * @atomicservice
-* @since 11
+* @since 11 dynamic
 */
 declare enum DialogButtonDirection {
   /**
@@ -305,7 +305,7 @@ declare enum DialogButtonDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   AUTO = 0,
 
@@ -322,7 +322,7 @@ declare enum DialogButtonDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   HORIZONTAL = 1,
 
@@ -339,7 +339,7 @@ declare enum DialogButtonDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   VERTICAL = 2,
 }
@@ -351,7 +351,7 @@ declare enum DialogButtonDirection {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare interface AlertDialogButtonBaseOptions {
   /**
@@ -382,7 +382,7 @@ declare interface AlertDialogButtonBaseOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   enabled?: boolean;
 
@@ -414,7 +414,7 @@ declare interface AlertDialogButtonBaseOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   defaultFocus?: boolean;
 
@@ -446,7 +446,7 @@ declare interface AlertDialogButtonBaseOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   style?: DialogButtonStyle;
 
@@ -475,7 +475,7 @@ declare interface AlertDialogButtonBaseOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   value: ResourceStr;
 
@@ -504,7 +504,7 @@ declare interface AlertDialogButtonBaseOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   fontColor?: ResourceColor;
 
@@ -533,7 +533,7 @@ declare interface AlertDialogButtonBaseOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   backgroundColor?: ResourceColor;
 
@@ -562,7 +562,7 @@ declare interface AlertDialogButtonBaseOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   action: VoidCallback;
 }
@@ -594,7 +594,7 @@ declare interface AlertDialogButtonBaseOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions {
   /**
@@ -614,7 +614,7 @@ declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   primary?: boolean;
 }
@@ -626,7 +626,7 @@ declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface TextStyle {
   /**
@@ -636,7 +636,7 @@ declare interface TextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   wordBreak?: WordBreak;
 }
@@ -648,7 +648,7 @@ declare interface TextStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare type LevelOrder = import('../api/@ohos.promptAction').LevelOrder;
 
@@ -674,7 +674,7 @@ declare type LevelOrder = import('../api/@ohos.promptAction').LevelOrder;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface AlertDialogParam {
   /**
@@ -699,7 +699,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   title?: ResourceStr;
   
@@ -716,7 +716,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   subtitle?: ResourceStr;
 
@@ -742,7 +742,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   message: ResourceStr;
 
@@ -768,7 +768,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   autoCancel?: boolean;
 
@@ -804,7 +804,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   cancel?: VoidCallback;
 
@@ -830,7 +830,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   alignment?: DialogAlignment;
 
@@ -856,7 +856,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   offset?: Offset;
 
@@ -882,7 +882,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   gridCount?: number;
 
@@ -901,7 +901,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   maskRect?: Rectangle;
   
@@ -922,7 +922,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   showInSubWindow?: boolean;
 
@@ -941,7 +941,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   isModal?: boolean;
 
@@ -962,7 +962,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   backgroundColor?: ResourceColor;
 
@@ -983,7 +983,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   backgroundBlurStyle?: BlurStyle;
 
@@ -994,7 +994,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -1005,7 +1005,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
 
@@ -1016,7 +1016,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onWillDismiss?: Callback<DismissDialogAction>;
 
@@ -1027,7 +1027,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   transition?: TransitionEffect;
 
@@ -1039,7 +1039,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   cornerRadius?: Dimension | BorderRadiuses | LocalizedBorderRadiuses;
 
@@ -1050,7 +1050,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   width?: Dimension;
 
@@ -1061,7 +1061,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   height?: Dimension;
 
@@ -1072,7 +1072,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
 
@@ -1083,7 +1083,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
 
@@ -1094,7 +1094,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   borderStyle?: BorderStyle | EdgeStyles;
 
@@ -1105,7 +1105,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   shadow?: ShadowOptions | ShadowStyle;
 
@@ -1116,7 +1116,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   textStyle?: TextStyle;
 
@@ -1128,7 +1128,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   enableHoverMode?: boolean;
 
@@ -1140,7 +1140,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   hoverModeArea?: HoverModeAreaType;
 
@@ -1151,7 +1151,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   onDidAppear?: Callback<void>;
 
@@ -1162,7 +1162,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   onDidDisappear?: Callback<void>;
 
@@ -1173,7 +1173,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   onWillAppear?: Callback<void>;
 
@@ -1184,7 +1184,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   onWillDisappear?: Callback<void>;
 
@@ -1196,7 +1196,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   levelMode?: LevelMode;
 
@@ -1207,7 +1207,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   levelUniqueId?: number;
 
@@ -1219,7 +1219,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   immersiveMode?: ImmersiveMode;
 
@@ -1231,7 +1231,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   levelOrder?: LevelOrder;
 }
@@ -1261,7 +1261,7 @@ declare interface AlertDialogParam {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
   /**
@@ -1296,7 +1296,7 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   confirm?: AlertDialogButtonBaseOptions;
 }
@@ -1308,7 +1308,7 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface DismissDialogAction {
   /**
@@ -1318,7 +1318,7 @@ declare interface DismissDialogAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   dismiss: Callback<void>;
   
@@ -1329,7 +1329,7 @@ declare interface DismissDialogAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   reason: DismissReason;
 }
@@ -1359,7 +1359,7 @@ declare interface DismissDialogAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface AlertDialogParamWithButtons extends AlertDialogParam {
   /**
@@ -1394,7 +1394,7 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   primaryButton: AlertDialogButtonBaseOptions;
 
@@ -1430,7 +1430,7 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   secondaryButton: AlertDialogButtonBaseOptions;
 }
@@ -1452,7 +1452,7 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface AlertDialogParamWithOptions extends AlertDialogParam {
   /**
@@ -1468,7 +1468,7 @@ declare interface AlertDialogParamWithOptions extends AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   buttons: Array<AlertDialogButtonOptions>;
 
@@ -1487,7 +1487,7 @@ declare interface AlertDialogParamWithOptions extends AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   buttonDirection?: DialogButtonDirection;
 }
@@ -1511,7 +1511,7 @@ declare interface AlertDialogParamWithOptions extends AlertDialogParam {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class AlertDialog {
   /**
@@ -1536,7 +1536,7 @@ declare class AlertDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.UIContext#showAlertDialog
    */

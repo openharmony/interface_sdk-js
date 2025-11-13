@@ -23,7 +23,7 @@
  *
  * @syscap SystemCapability.Multimedia.Audio.Volume
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  */
 export declare class AVVolumePanelParameter {
   /**
@@ -31,7 +31,7 @@ export declare class AVVolumePanelParameter {
    *
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   position?: Position;
 }
@@ -41,7 +41,7 @@ export declare class AVVolumePanelParameter {
  *
  * @syscap SystemCapability.Multimedia.Audio.Volume
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  */
 @Component
 export declare struct AVVolumePanel {
@@ -52,7 +52,7 @@ export declare struct AVVolumePanel {
    * @type { ?number }
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   @Prop
   volumeLevel?: number;
@@ -63,7 +63,7 @@ export declare struct AVVolumePanel {
    * @type { ?AVVolumePanelParameter }
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   @Prop
   volumeParameter?: AVVolumePanelParameter;

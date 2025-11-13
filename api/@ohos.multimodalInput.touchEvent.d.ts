@@ -25,16 +25,16 @@ import type { InputEvent } from './@ohos.multimodalInput.inputEvent';
  *
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 22 static
  */
 export declare enum Action {
   /**
    * Touch cancelled
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   CANCEL = 0,
 
@@ -42,8 +42,8 @@ export declare enum Action {
    * Touch pressed
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   DOWN = 1,
 
@@ -51,8 +51,8 @@ export declare enum Action {
    * Touch moved
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   MOVE = 2,
 
@@ -60,8 +60,8 @@ export declare enum Action {
    * Touch lifted
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   UP = 3
 }
@@ -71,16 +71,16 @@ export declare enum Action {
  *
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 22 static
  */
 export declare enum ToolType {
   /**
    * Finger
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   FINGER = 0,
 
@@ -88,8 +88,8 @@ export declare enum ToolType {
    * Stylus
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   PEN = 1,
 
@@ -97,8 +97,8 @@ export declare enum ToolType {
    * Rubber
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   RUBBER = 2,
 
@@ -106,8 +106,8 @@ export declare enum ToolType {
    * Brush
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   BRUSH = 3,
 
@@ -115,8 +115,8 @@ export declare enum ToolType {
    * Pencil
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   PENCIL = 4,
 
@@ -124,8 +124,8 @@ export declare enum ToolType {
    * Air brush
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   AIRBRUSH = 5,
 
@@ -133,8 +133,8 @@ export declare enum ToolType {
    * Mouse
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   MOUSE = 6,
 
@@ -142,8 +142,8 @@ export declare enum ToolType {
    * lens
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   LENS = 7
 }
@@ -153,16 +153,16 @@ export declare enum ToolType {
  *
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 22 static
  */
 export declare enum SourceType {
   /**
    * Touchscreen
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   TOUCH_SCREEN = 0,
 
@@ -170,8 +170,8 @@ export declare enum SourceType {
    * Stylus
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   PEN = 1,
 
@@ -179,8 +179,8 @@ export declare enum SourceType {
    * Touchpad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   TOUCH_PAD = 2
 }
@@ -191,8 +191,8 @@ export declare enum SourceType {
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi Hide this for inner system use.
- * @since arkts {'1.1':'19', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19 dynamic
+ * @since 22 static
  */
 export declare enum FixedMode {
   /**
@@ -200,8 +200,8 @@ export declare enum FixedMode {
    * 
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 22 static
    */
   NONE = 0,
 
@@ -210,8 +210,8 @@ export declare enum FixedMode {
    * 
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 22 static
    */
   AUTO = 1
 }
@@ -221,16 +221,16 @@ export declare enum FixedMode {
  *
  * @interface Touch
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 22 static
  */
 export declare interface Touch {
   /**
    * Pointer identifier
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   id: int;
 
@@ -238,8 +238,8 @@ export declare interface Touch {
    * Time stamp when touch is pressed
    * @type { long }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   pressedTime: long;
 
@@ -247,8 +247,8 @@ export declare interface Touch {
    * X coordinate of the touch position on the screen
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   screenX: int;
 
@@ -256,8 +256,8 @@ export declare interface Touch {
    * Y coordinate of the touch position on the screen
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   screenY: int;
 
@@ -265,8 +265,8 @@ export declare interface Touch {
    * X coordinate of the touch position in the window
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   windowX: int;
 
@@ -274,8 +274,8 @@ export declare interface Touch {
    * Y coordinate of the touch position in the window
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   windowY: int;
 
@@ -283,8 +283,8 @@ export declare interface Touch {
    * Pressure value. The value range is [0.0, 1.0]. The value 0.0 indicates that the pressure is not supported.
    * @type { double }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   pressure: double;
 
@@ -292,8 +292,8 @@ export declare interface Touch {
    * Width of the contact area when touch is pressed
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   width: int;
 
@@ -301,8 +301,8 @@ export declare interface Touch {
    * Height of the contact area when touch is pressed
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   height: int;
 
@@ -310,8 +310,8 @@ export declare interface Touch {
    * Angle relative to the YZ plane. The value range is [-90, 90]. A positive value indicates a rightward tilt.
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   tiltX: int;
 
@@ -319,8 +319,8 @@ export declare interface Touch {
    * Angle relative to the XZ plane. The value range is [-90, 90]. A positive value indicates a downward tilt.
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   tiltY: int;
 
@@ -328,8 +328,8 @@ export declare interface Touch {
    * Center point X of the tool area
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   toolX: int;
 
@@ -337,8 +337,8 @@ export declare interface Touch {
    * Center point Y of the tool area
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   toolY: int;
 
@@ -346,8 +346,8 @@ export declare interface Touch {
    * Width of the tool area
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   toolWidth: int;
 
@@ -355,8 +355,8 @@ export declare interface Touch {
    * Height of the tool area
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   toolHeight: int;
 
@@ -364,8 +364,8 @@ export declare interface Touch {
    * X coordinate of the input device
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   rawX: int;
 
@@ -373,8 +373,8 @@ export declare interface Touch {
    * Y coordinate of the input device
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   rawY: int;
 
@@ -382,8 +382,8 @@ export declare interface Touch {
    * Tool type
    * @type { ToolType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   toolType: ToolType;
 
@@ -392,8 +392,8 @@ export declare interface Touch {
    * @type { ?int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 22 static
    */
   fixedDisplayX?: int;
 
@@ -402,8 +402,8 @@ export declare interface Touch {
    * @type { ?int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 22 static
    */
   fixedDisplayY?: int;
 
@@ -411,8 +411,8 @@ export declare interface Touch {
    * globalX - Global X coordinate.
    * @type { ?number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 20
-   * @arkts 1.1&1.2	
+   * @since 20 dynamic
+   * @since 22 static
    */	
   globalX?: number;	
 
@@ -420,8 +420,8 @@ export declare interface Touch {
    * globalY - Global Y coordinate.
    * @type { ?number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   globalY?: number;
 }
@@ -432,16 +432,16 @@ export declare interface Touch {
  * @extends InputEvent
  * @interface TouchEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 22 static
  */
 export declare interface TouchEvent extends InputEvent {
   /**
    * Touch action
    * @type { Action }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   action: Action;
 
@@ -449,8 +449,8 @@ export declare interface TouchEvent extends InputEvent {
    * Current touch point
    * @type { Touch }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   touch: Touch;
 
@@ -458,8 +458,8 @@ export declare interface TouchEvent extends InputEvent {
    * All touch points
    * @type { Touch[] }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   touches: Touch[];
 
@@ -467,8 +467,8 @@ export declare interface TouchEvent extends InputEvent {
    * Device type of the touch source
    * @type { SourceType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   sourceType: SourceType;
 
@@ -478,8 +478,8 @@ export declare interface TouchEvent extends InputEvent {
    * @type { FixedMode }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 22 static
    */
   fixedMode?: FixedMode;
 
@@ -488,7 +488,7 @@ export declare interface TouchEvent extends InputEvent {
    * @type { ?boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since 20
+   * @since 20 dynamic
    */
   isInject?: boolean;
 }

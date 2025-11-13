@@ -34,8 +34,8 @@ import uri from './@ohos.uri';
  * @namespace fileUri
  * @syscap SystemCapability.FileManagement.AppFileService
  * @atomicservice
- * @since arkts {'1.1':'15', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15 dynamic
+ * @since 22 static
  */
 declare namespace fileUri {
   /**
@@ -51,8 +51,8 @@ declare namespace fileUri {
    * @extends uri.URI
    * @syscap SystemCapability.FileManagement.AppFileService
    * @atomicservice
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 22 static
    */
   class FileUri extends uri.URI {
     /**
@@ -76,8 +76,8 @@ declare namespace fileUri {
      * @throws { BusinessError } 14300002 - Invalid uri
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 22 static
      */
     constructor(uriOrPath: string);
 
@@ -100,7 +100,7 @@ declare namespace fileUri {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     readonly name: string;
 
@@ -123,7 +123,7 @@ declare namespace fileUri {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     getFullDirectoryUri(): string;
 
@@ -142,7 +142,7 @@ declare namespace fileUri {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     isRemoteUri(): boolean;
   }
@@ -166,8 +166,8 @@ declare namespace fileUri {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.AppFileService
    * @atomicservice
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 22 static
    */
   function getUriFromPath(path: string): string;
 }

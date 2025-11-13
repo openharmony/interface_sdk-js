@@ -24,7 +24,7 @@
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export enum ToneMappingType {
   /**
@@ -32,7 +32,7 @@ export enum ToneMappingType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   ACES = 0,
 
@@ -41,7 +41,7 @@ export enum ToneMappingType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   ACES_2020 = 1,
 
@@ -50,7 +50,7 @@ export enum ToneMappingType {
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   FILMIC = 2,
 }
@@ -61,7 +61,7 @@ export enum ToneMappingType {
  * @typedef ToneMappingSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface ToneMappingSettings {
   /**
@@ -70,7 +70,7 @@ export interface ToneMappingSettings {
    * @type { ?ToneMappingType }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type?: ToneMappingType;
 
@@ -80,7 +80,7 @@ export interface ToneMappingSettings {
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   exposure?: double;
 }
@@ -91,6 +91,7 @@ export interface ToneMappingSettings {
  * @typedef BloomSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
+ * @since 22 static
  */
 export interface BloomSettings {
   /**
@@ -99,6 +100,7 @@ export interface BloomSettings {
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 22 static
    */
   thresholdHard?: double;
 
@@ -108,6 +110,7 @@ export interface BloomSettings {
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 22 static
    */
   thresholdSoft?: double;
 
@@ -119,6 +122,7 @@ export interface BloomSettings {
    * @type { ?double}
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 22 static
    */
   scaleFactor?: double;
 
@@ -128,8 +132,60 @@ export interface BloomSettings {
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 22 static
    */
   scatter?: double;
+}
+
+/**
+ * Defines vignette parameters.
+ *
+ * @typedef VignetteSettings
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 22 dynamic&static
+ */
+export interface VignetteSettings {
+  /**
+   * Controls the roundness of vignette between [0, 1].
+   * Lower value will make the vignette effect more square.
+   *
+   * @type { ?double }
+   * @default 0.707
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  roundness?: double;
+
+  /**
+   * Controls how strong the dark or bright edges are.
+   * When intensity > 0, the edges darken and the center brightens, creating a classic vignette effect.
+   * When intensity < 0, the center darkens and the edges brighten, producing an reverse vignette effect.
+   *
+   * @type { ?double }
+   * @default 0.4
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  intensity?: double;
+}
+
+/**
+ * Defines color fringe parameters.
+ *
+ * @typedef ColorFringeSettings
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 22 dynamic&static
+ */
+export interface ColorFringeSettings {
+  /**
+   * Controls the strength of color fringe.
+   *
+   * @type { ?double }
+   * @default 0.2
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  intensity?: double;
 }
 
 /**
@@ -138,7 +194,7 @@ export interface BloomSettings {
  * @typedef PostProcessSettings 
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
- * @since 20 static
+ * @since 22 static
  */
 export interface PostProcessSettings {
   /**
@@ -147,7 +203,7 @@ export interface PostProcessSettings {
    * @type { ?ToneMappingSettings }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   toneMapping?: ToneMappingSettings;
 
@@ -157,6 +213,27 @@ export interface PostProcessSettings {
    * @type { ?BloomSettings }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 22 static
    */
   bloom?: BloomSettings;
+
+  /**
+   * Vignette settings of the post processing settings
+   *
+   * @type { ?VignetteSettings }
+   * @default vignette enabled by default
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  vignette?: VignetteSettings;
+
+  /**
+   * Color fringe settings of the post processing settings
+   *
+   * @type { ?ColorFringeSettings }
+   * @default colorFringe enabled by default
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 22 dynamic&static
+   */
+  colorFringe?: ColorFringeSettings;
 }

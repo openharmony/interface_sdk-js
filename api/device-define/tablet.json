@@ -116,7 +116,6 @@
     "SystemCapability.HiviewDFX.HiCollie",
     "SystemCapability.Update.UpdateService",
     "SystemCapability.DistributedHardware.DeviceManager",
-    "SystemCapability.Security.DataTransitManager",
     "SystemCapability.Security.Huks.Core",
     "SystemCapability.Security.Huks.Extension",
     "SystemCapability.Security.Asset",
@@ -139,7 +138,6 @@
     "SystemCapability.FileManagement.StorageService.Encryption",
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.FileManagement.File.Environment",
-    "SystemCapability.FileManagement.File.DistributedFile",
     "SystemCapability.FileManagement.AppFileService",
     "SystemCapability.FileManagement.UserFileService",
     "SystemCapability.FileManagement.UserFileManager.Core",
@@ -224,7 +222,6 @@
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
     "SystemCapability.Test.PerfTest",
     "SystemCapability.DistributedHardware.DistributedHardwareFWK",
-    "SystemCapability.ResourceSchedule.SystemLoad",
-    "SystemCapability.Tee.TeeClient"
+    "SystemCapability.ResourceSchedule.SystemLoad"
   ]
 }

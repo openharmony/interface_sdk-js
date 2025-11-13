@@ -26,7 +26,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @namespace volumeManager
  * @syscap SystemCapability.FileManagement.StorageService.Volume
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 declare namespace volumeManager {
   /**
@@ -35,7 +35,7 @@ declare namespace volumeManager {
    * @interface Volume
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   export interface Volume {
     /**
@@ -44,7 +44,7 @@ declare namespace volumeManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     id: string;
 
@@ -54,7 +54,7 @@ declare namespace volumeManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     uuid: string;
 
@@ -64,7 +64,7 @@ declare namespace volumeManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     diskId: string;
 
@@ -74,7 +74,7 @@ declare namespace volumeManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     description: string;
 
@@ -84,7 +84,7 @@ declare namespace volumeManager {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     removable: boolean;
 
@@ -94,7 +94,7 @@ declare namespace volumeManager {
      * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     state: number;
 
@@ -104,7 +104,7 @@ declare namespace volumeManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
      */
     path: string;
 
@@ -114,7 +114,7 @@ declare namespace volumeManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     fsType: string;
   }
@@ -131,7 +131,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getAllVolumes(callback: AsyncCallback<Array<Volume>>): void;
 
@@ -148,7 +148,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getAllVolumes(): Promise<Array<Volume>>;
 
@@ -171,7 +171,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function mount(volumeId: string, callback: AsyncCallback<void>): void;
 
@@ -194,7 +194,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function mount(volumeId: string): Promise<void>;
 
@@ -217,7 +217,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function unmount(volumeId: string, callback: AsyncCallback<void>): void;
 
@@ -240,7 +240,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function unmount(volumeId: string): Promise<void>;
 
@@ -260,7 +260,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getVolumeByUuid(uuid: string, callback: AsyncCallback<Volume>): void;
 
@@ -280,7 +280,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getVolumeByUuid(uuid: string): Promise<Volume>;
 
@@ -300,7 +300,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getVolumeById(volumeId: string, callback: AsyncCallback<Volume>): void;
 
@@ -320,7 +320,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getVolumeById(volumeId: string): Promise<Volume>;
 
@@ -343,7 +343,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function setVolumeDescription(uuid: string, description: string, callback: AsyncCallback<void>): void;
 
@@ -366,7 +366,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function setVolumeDescription(uuid: string, description: string): Promise<void>;
 
@@ -389,7 +389,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function format(volumeId: string, fsType: string, callback: AsyncCallback<void>): void;
 
@@ -412,7 +412,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function format(volumeId: string, fsType: string): Promise<void>;
 
@@ -433,7 +433,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function partition(diskId: string, type: number, callback: AsyncCallback<void>): void;
 
@@ -454,7 +454,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function partition(diskId: string, type: number): Promise<void>;
 }

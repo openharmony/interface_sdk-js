@@ -17,17 +17,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
-import { Component } from './arkui/component/customComponent';
-import { ResourceStr } from './arkui/component/units';
-import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
-import { BuilderParam, Builder } from './arkui/component/builder';
+import { Component } from '@ohos.arkui.component';
+import { ResourceStr } from '@ohos.arkui.component';
+import { SymbolGlyphModifier } from 'arkui.SymbolGlyphModifier';
+import { BuilderParam, Builder } from '@ohos.arkui.component';
 /**
  * Declaration of the menu item on the right side.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  * @noninterop
  */
 export declare class TabTitleBarMenuItem {
@@ -35,72 +34,72 @@ export declare class TabTitleBarMenuItem {
    * Icon resource for this menu item.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  value: ResourceStr;
+  public value: ResourceStr;
   /**
    * Symbol resource for this menu item.
    *
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  symbolStyle?: SymbolGlyphModifier;
+  public symbolStyle?: SymbolGlyphModifier;
   /**
    * Icon label for this menu item.
    *
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  label?: ResourceStr;
+  public label?: ResourceStr;
   /**
    * Whether to enable this menu item.
    *
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  isEnabled?: boolean;
+  public isEnabled?: boolean;
   /**
    * Callback function when click on this menu item.
    *
    * @type { ?function }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  action?: () => void;
+  public action?: () => void;
   /**
    * The accessibilityText of this menu item.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  accessibilityText?: ResourceStr;
+  public accessibilityText?: ResourceStr;
   /**
    * The accessibilityDescription of this menu item.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  accessibilityDescription?: ResourceStr;
+  public accessibilityDescription?: ResourceStr;
   /**
    * The accessibilityLevel of this menu item.
    *
    * @type { ?string }
    * @default 'auto'
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  accessibilityLevel?: string;
+  public accessibilityLevel?: string;
 }
 /**
  * Declaration of the tab item.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  * @noninterop
  */
 export declare class TabTitleBarTabItem {
@@ -109,31 +108,31 @@ export declare class TabTitleBarTabItem {
    *
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  title: ResourceStr;
+  public title: ResourceStr;
   /**
    * Icon resource for this tab item.
    *
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  icon?: ResourceStr;
+  public icon?: ResourceStr;
   /**
    * Symbol resource for this tab item.
    *
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  symbolStyle?: SymbolGlyphModifier;
+  public symbolStyle?: SymbolGlyphModifier;
 }
 /**
  * Declaration of the tabbed title bar.
  * @struct { TabTitleBar }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  * @noninterop
  */
 @Component
@@ -143,7 +142,7 @@ export declare struct TabTitleBar {
    *
    * @type { Array<TabTitleBarTabItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   tabItems: Array<TabTitleBarTabItem>;
   /**
@@ -151,7 +150,7 @@ export declare struct TabTitleBar {
    *
    * @type { ?Array<TabTitleBarMenuItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   menuItems?: Array<TabTitleBarMenuItem>;
   /**
@@ -160,7 +159,7 @@ export declare struct TabTitleBar {
    *
    * @type { function }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   @BuilderParam
   swiperContent: () => void;
@@ -168,7 +167,8 @@ export declare struct TabTitleBar {
    * The method to build component.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 staticonly
    */
-  @Builder build(): void;
+  @Builder
+  build(): void;
 }

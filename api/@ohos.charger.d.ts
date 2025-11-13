@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit BasicServicesKit
- * @arkts 1.1&1.2
  */
 
 /**
@@ -25,7 +24,8 @@
  * @namespace charger
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
  * @systemapi
- * @since 10
+ * @since 10 dynamic
+ * @since 22 static
  */
 declare namespace charger {
   /**
@@ -34,7 +34,8 @@ declare namespace charger {
    * @enum { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   export enum ChargeType {
     /**
@@ -42,7 +43,8 @@ declare namespace charger {
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     NONE,
     /**
@@ -50,7 +52,8 @@ declare namespace charger {
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     WIRED_NORMAL,
     /**
@@ -58,7 +61,8 @@ declare namespace charger {
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     WIRED_QUICK,
     /**
@@ -66,7 +70,8 @@ declare namespace charger {
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     WIRED_SUPER_QUICK,
     /**
@@ -74,7 +79,8 @@ declare namespace charger {
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     WIRELESS_NORMAL,
     /**
@@ -82,7 +88,8 @@ declare namespace charger {
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     WIRELESS_QUICK,
     /**
@@ -90,7 +97,8 @@ declare namespace charger {
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     WIRELESS_SUPER_QUICK
   }

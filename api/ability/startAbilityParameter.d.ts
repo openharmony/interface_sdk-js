@@ -25,7 +25,7 @@ import Want from '../@ohos.app.ability.Want';
  *
  * @typedef StartAbilityParameter
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @since 6
+ * @since 6 dynamic
  */
 export interface StartAbilityParameter {
   /**
@@ -34,7 +34,7 @@ export interface StartAbilityParameter {
    * @type { Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 6
+   * @since 6 dynamiconly
    */
   want: Want;
 
@@ -44,7 +44,7 @@ export interface StartAbilityParameter {
    * @type { ?object }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 6
+   * @since 6 dynamiconly
    */
   abilityStartSetting?: { [key: string]: any };
 
@@ -55,7 +55,7 @@ export interface StartAbilityParameter {
    * @type { ?Record<string, Object>}
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 11
+   * @since 11 dynamiconly
    */
   abilityStartSettings?: Record<string, Object>;
 }

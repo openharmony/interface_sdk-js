@@ -37,8 +37,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 22 static
  */
 declare class LightWeightMap<K, V> {
   /**
@@ -63,8 +63,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   constructor();
   /**
@@ -89,7 +89,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   length: number;
     /**
@@ -99,8 +99,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   get length(): int;
   /**
@@ -140,8 +139,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   hasAll(map: LightWeightMap<K, V>): boolean;
   /**
@@ -172,8 +171,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   hasKey(key: K): boolean;
   /**
@@ -204,8 +203,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   hasValue(value: V): boolean;
   /**
@@ -245,8 +244,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   increaseCapacityTo(minimumCapacity: int): void;
   /**
@@ -274,8 +273,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   entries(): IterableIterator<[K, V]>;
   /**
@@ -306,7 +305,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get(key: K): V;
 
@@ -318,8 +317,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   get(key: K): V | undefined;
 
@@ -351,8 +349,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   getIndexOfKey(key: K): int;
   /**
@@ -383,8 +381,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   getIndexOfValue(value: V): int;
   /**
@@ -412,8 +410,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   isEmpty(): boolean;
   /**
@@ -459,7 +457,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getKeyAt(index: number): K;
   /**
@@ -471,8 +469,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   getKeyAt(index: int): K | undefined;
 
@@ -502,8 +499,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   keys(): IterableIterator<K>;
   /**
@@ -540,8 +537,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   setAll(map: LightWeightMap<K, V>): void;
   /**
@@ -575,8 +572,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   set(key: K, value: V): Object;
   /**
@@ -607,7 +604,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   remove(key: K): V;
 
@@ -619,8 +616,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   remove(key: K): V | undefined;
 
@@ -661,8 +657,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   removeAt(index: int): boolean;
   /**
@@ -690,8 +686,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   clear(): void;
   /**
@@ -740,8 +736,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   setValueAt(index: int, newValue: V): boolean;
   /**
@@ -796,7 +792,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   forEach(callbackFn: (value?: V, key?: K, map?: LightWeightMap<K, V>) => void, thisArg?: Object): void;
 
@@ -807,8 +803,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   forEach(callbackFn: LightWeightMapCbFn<K, V>): void;
 
@@ -837,7 +832,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   [Symbol.iterator](): IterableIterator<[K, V]>;
 
@@ -848,8 +843,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   $_iterator(): IterableIterator<[K, V]>;
 
@@ -878,8 +872,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   toString(): String;
   /**
@@ -925,7 +919,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getValueAt(index: number): V;
 /**
@@ -937,8 +931,7 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   getValueAt(index: int): V | undefined;
 
@@ -967,8 +960,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   values(): IterableIterator<V>;
 }
@@ -983,8 +976,7 @@ declare class LightWeightMap<K, V> {
    * @returns { void } This callback does not return a value
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   export type LightWeightMapCbFn<K, V> = (value: V, key: K, map: LightWeightMap<K, V>) => void;
 

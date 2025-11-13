@@ -40,8 +40,8 @@
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 declare class PermissionRequestResult {
   /**
@@ -69,8 +69,8 @@ declare class PermissionRequestResult {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   permissions: Array<string>;
 
@@ -102,8 +102,8 @@ declare class PermissionRequestResult {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   authResults: Array<int>;
 
@@ -115,8 +115,8 @@ declare class PermissionRequestResult {
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   dialogShownResults?: Array<boolean>;
 
@@ -135,8 +135,8 @@ declare class PermissionRequestResult {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   /**
    * Enumerates the return values of the permission request operation.
@@ -154,8 +154,8 @@ declare class PermissionRequestResult {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
+   * @since 22 static
    */
   errorReasons?: Array<int>;
 }

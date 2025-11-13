@@ -22,8 +22,8 @@
  * The process data.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since arkts {'1.1':'14', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14 dynamic
+ * @since 22 static
  */
 declare class ProcessData {
   /**
@@ -31,8 +31,8 @@ declare class ProcessData {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   bundleName: string;
 
@@ -41,8 +41,8 @@ declare class ProcessData {
    *
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   pid: int;
 
@@ -51,8 +51,8 @@ declare class ProcessData {
    *
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   uid: int;
 
@@ -61,8 +61,8 @@ declare class ProcessData {
    *
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   state: int;
 
@@ -71,8 +71,8 @@ declare class ProcessData {
    *
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   isContinuousTask: boolean;
 
@@ -81,8 +81,8 @@ declare class ProcessData {
    *
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   isKeepAlive: boolean;
 }

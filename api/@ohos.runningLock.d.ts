@@ -30,8 +30,8 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
  *
  * @namespace runningLock
  * @syscap SystemCapability.PowerManager.PowerManager.Core
- * @since arkts {'1.1':'7', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 22 static
  */
 declare namespace runningLock {
 
@@ -39,8 +39,8 @@ declare namespace runningLock {
    * Provides a mechanism to prevent the system from hibernating so that the applications can run in the background or
    * when the screen is off.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 22 static
    */
   class RunningLock {
     /**
@@ -51,7 +51,7 @@ declare namespace runningLock {
      * @param { number } timeout Indicates the lock duration (ms). After the lock duration times out, the lock is automatically
      * released and the system hibernates if no other {@link RunningLock} is set.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead RunningLock#hold
      */
@@ -68,8 +68,8 @@ declare namespace runningLock {
      * @throws { BusinessError } 201 – If the permission is denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     hold(timeout: int): void;
 
@@ -78,7 +78,7 @@ declare namespace runningLock {
      *
      * @returns { boolean } Returns true if the lock is held or in use; returns false if the lock has been released.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead RunningLock#isHolding
      */
@@ -89,8 +89,8 @@ declare namespace runningLock {
      *
      * @returns { boolean } Returns true if the lock is held or in use; returns false if the lock has been released.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     isHolding(): boolean;
 
@@ -100,7 +100,7 @@ declare namespace runningLock {
      *
      * @permission ohos.permission.RUNNING_LOCK
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead RunningLock#unhold
      */
@@ -113,8 +113,8 @@ declare namespace runningLock {
      * @permission ohos.permission.RUNNING_LOCK
      * @throws { BusinessError } 201 – If the permission is denied.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     unhold(): void;
   }
@@ -127,15 +127,15 @@ declare namespace runningLock {
    *
    * @enum { int }
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 22 static
    */
   export enum RunningLockType {
     /**
      * Indicates the lock that prevents the system from hibernating.
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 7
+     * @since 7 dynamic
      * @deprecated since 10
      */
     BACKGROUND = 1,
@@ -146,8 +146,8 @@ declare namespace runningLock {
      * from the user's ear, the screen turns on.
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 22 static
      */
     PROXIMITY_SCREEN_CONTROL = 2
   }
@@ -159,7 +159,7 @@ declare namespace runningLock {
    * @param { AsyncCallback<boolean> } callback Indicates the callback function contains the result whether the specified
    * {@link RunningLockType} is supported.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead RunningLock#isSupported
    */
@@ -172,7 +172,7 @@ declare namespace runningLock {
    * @returns { Promise<boolean> } Returns true if the specified {@link RunningLockType} is supported;
    * returns false otherwise.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead RunningLock#isSupported
    */
@@ -187,8 +187,8 @@ declare namespace runningLock {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * 2. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function isSupported(type: RunningLockType): boolean;
 
@@ -203,7 +203,7 @@ declare namespace runningLock {
    * @param { RunningLockType } type Indicates the {@link RunningLockType}.
    * @param { AsyncCallback<RunningLock> } callback Indicates the callback contains the {@link RunningLock} object.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead RunningLock#create
    */
@@ -220,7 +220,7 @@ declare namespace runningLock {
    * @param { RunningLockType } type Indicates the {@link RunningLockType}.
    * @returns { Promise<RunningLock> } Returns the {@link RunningLock} object.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead RunningLock#create
    */
@@ -242,8 +242,8 @@ declare namespace runningLock {
    * @throws { BusinessError } 201 – If the permission is denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function create(name: string, type: RunningLockType, callback: AsyncCallback<RunningLock>): void;
 
@@ -262,8 +262,8 @@ declare namespace runningLock {
    * @throws { BusinessError } 201 – If the permission is denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function create(name: string, type: RunningLockType): Promise<RunningLock>;
 }

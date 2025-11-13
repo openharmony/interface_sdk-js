@@ -28,7 +28,7 @@ import { AsyncCallback } from './@ohos.base';
  * @interface FormMenuItemStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface FormMenuItemStyle {
   /**
@@ -37,7 +37,7 @@ export interface FormMenuItemStyle {
    * @type { ?MenuItemOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   options?: MenuItemOptions;
 }
@@ -48,7 +48,7 @@ export interface FormMenuItemStyle {
  * @interface AddFormOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface AddFormOptions {
   /**
@@ -57,7 +57,7 @@ export interface AddFormOptions {
    * @type { ?formBindingData.FormBindingData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   formBindingData?: formBindingData.FormBindingData;
 
@@ -67,7 +67,7 @@ export interface AddFormOptions {
    * @type { ?AsyncCallback<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   callback?: AsyncCallback<string>;
 
@@ -77,7 +77,7 @@ export interface AddFormOptions {
    * @type { ?FormMenuItemStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   style?: FormMenuItemStyle;
 }
@@ -90,7 +90,7 @@ export interface AddFormOptions {
  * @param { AddFormOptions } [options] - Add form options.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 @Builder
 export declare function AddFormMenuItem(

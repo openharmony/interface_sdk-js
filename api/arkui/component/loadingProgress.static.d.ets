@@ -17,40 +17,39 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { CommonMethod, ContentModifier, CommonConfiguration } from './common';
 import { ResourceColor } from "./units";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { ComponentBuilder, CustomBuilder } from './builder';
+import { AttributeModifier } from "./common";
 
 /**
  * Load style of progress bar.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare enum LoadingProgressStyle {
     /**
      * Default style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     Default,
     /**
      * Announcement style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     Circular,
     /**
      * The style of the track.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     Orbital
 }
@@ -60,7 +59,8 @@ export declare enum LoadingProgressStyle {
  * @extends CommonMethod
  * @interface LoadingProgressAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
+ * @noninterop
  */
 export declare interface LoadingProgressAttribute extends CommonMethod {
     /**
@@ -69,7 +69,7 @@ export declare interface LoadingProgressAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { LoadingProgressAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default color(value: ResourceColor | undefined): this;
     /**
@@ -78,7 +78,7 @@ export declare interface LoadingProgressAttribute extends CommonMethod {
      * @param { boolean | undefined } value - indicates the state of LoadingProgress content
      * @returns { LoadingProgressAttribute } the attribute of the LoadingProgress.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default enableLoading(value: boolean | undefined): this;
     /**
@@ -88,7 +88,7 @@ export declare interface LoadingProgressAttribute extends CommonMethod {
      *     The contentModifier of LoadingProgress.
      * @returns { LoadingProgressAttribute} the attribute of the loading progress
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default contentModifier(modifier: ContentModifier<LoadingProgressConfiguration> | undefined): this;
     /**
@@ -97,7 +97,7 @@ export declare interface LoadingProgressAttribute extends CommonMethod {
      * @param { AttributeModifier<LoadingProgressAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { LoadingProgressAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<LoadingProgressAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -107,7 +107,7 @@ export declare interface LoadingProgressAttribute extends CommonMethod {
  * @extends CommonConfiguration<LoadingProgressConfiguration>
  * @interface LoadingProgressConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare interface LoadingProgressConfiguration extends CommonConfiguration<LoadingProgressConfiguration> {
     /**
@@ -115,21 +115,20 @@ export declare interface LoadingProgressConfiguration extends CommonConfiguratio
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     enableLoading: boolean;
 }
 /**
  * Defines the LoadingProgress component.
  *
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { LoadingProgressAttribute } The attribute of the LoadingProgress.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function LoadingProgress(
-    @memo
-    content_?: () => void
+    content_?: CustomBuilder
 ): LoadingProgressAttribute;

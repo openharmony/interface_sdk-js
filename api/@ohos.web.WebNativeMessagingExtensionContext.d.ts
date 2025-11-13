@@ -19,7 +19,7 @@
  * @kit ArkWeb
  */
 
-import ExtensionContext from '@ohos.inner.application.ExtensionContext';
+import ExtensionContext from './application/ExtensionContext';
 import Want from './@ohos.app.ability.Want';
 import StartOptions from './@ohos.app.ability.StartOptions';
 
@@ -29,7 +29,7 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  * @extends ExtensionContext
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
- * @since 21
+ * @since 21 dynamic
  */
 export default class WebNativeMessagingExtensionContext extends ExtensionContext {
   /**
@@ -50,7 +50,8 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
    * @throws { BusinessError } 16000019 - No matching ability is found.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
+   *     2. The system service failed to communicate with dependency module.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16000071 - App clone is not supported.
    * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
@@ -62,7 +63,7 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @since 21
+   * @since 21 dynamic
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -72,24 +73,26 @@ export default class WebNativeMessagingExtensionContext extends ExtensionContext
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
+   *     2. The system service failed to communicate with dependency module.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @since 21
+   * @since 21 dynamic
    */
   terminateSelf(): Promise<void>;
 
   /**
    * Stop the specified native connection.
    * 
-   * @param { int } connectionId - Indicates the id of the specified connection.
+   * @param { number } connectionId - Indicates the id of the specified connection.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
+   *     2. The system service failed to communicate with dependency module.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @since 21
+   * @since 21 dynamic
    */
-  stopNativeConnection(connectionId: int): Promise<void>;
+  stopNativeConnection(connectionId: number): Promise<void>;
 }

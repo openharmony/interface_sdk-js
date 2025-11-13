@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 
@@ -30,6 +29,6 @@ import { HyperlinkAttribute } from '@ohos.arkui.component';
  *
  * @implements { HyperlinkAttribute, AttributeModifier<HyperlinkAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class HyperlinkModifier implements HyperlinkAttribute, AttributeModifier<HyperlinkAttribute> {}

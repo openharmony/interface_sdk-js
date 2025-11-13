@@ -31,7 +31,7 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
@@ -42,8 +42,7 @@ type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 22 static
  */
 type Rounding = int;
 
@@ -60,7 +59,7 @@ type Rounding = int;
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 type Modulo = Rounding | 9;
 
@@ -71,8 +70,7 @@ type Modulo = Rounding | 9;
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 22 static
  */
 type Modulo = int;
 
@@ -90,8 +88,8 @@ type Modulo = int;
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
+ * @since 22 static
  */
 type Value = string | double | Decimal;
 
@@ -110,8 +108,8 @@ type Value = string | double | Decimal;
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
+ * @since 22 static
  */
 interface DecimalConfig {
   /**
@@ -127,12 +125,12 @@ interface DecimalConfig {
    * The maximum number of significant digits of the result of an operation.
    * Default value: 20
    *
-   * @type { double } integer, 1 to 1e+9 inclusive
+   * @type { ?double } integer, 1 to 1e+9 inclusive
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   precision?: double;
   /**
@@ -156,8 +154,8 @@ interface DecimalConfig {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   rounding?: Rounding;
   /**
@@ -177,8 +175,8 @@ interface DecimalConfig {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toExpNeg?: double;
   /**
@@ -194,12 +192,12 @@ interface DecimalConfig {
    * The positive exponent value at and above which toString returns exponential notation.
    * Default value: 20
    *
-   * @type { double } integer, 0 to 9e15 inclusive
+   * @type { ?double } integer, 0 to 9e15 inclusive
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toExpPos?: double;
   /**
@@ -215,12 +213,12 @@ interface DecimalConfig {
    * The negative exponent limit, i.e. the exponent value below which underflow to zero occurs.
    * Default value: -9e15
    *
-   * @type { double } integer, -9e15 to 0 inclusive
+   * @type { ?double } integer, -9e15 to 0 inclusive
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   minE?: double;
   /**
@@ -236,12 +234,12 @@ interface DecimalConfig {
    * The positive exponent limit, i.e. the exponent value above which overflow to Infinity occurs.
    * Default value: 9e15
    *
-   * @type { double } integer, 0 to 9e15 inclusive
+   * @type { ?double } integer, 0 to 9e15 inclusive
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   maxE?: double;
   /**
@@ -261,8 +259,8 @@ interface DecimalConfig {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   crypto?: boolean;
   /**
@@ -282,8 +280,8 @@ interface DecimalConfig {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   modulo?: Modulo;
   /**
@@ -303,8 +301,8 @@ interface DecimalConfig {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   defaults?: boolean;
 }
@@ -322,8 +320,8 @@ interface DecimalConfig {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
+ * @since 22 static
  */
 declare class Decimal {
   /**
@@ -343,7 +341,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   readonly d: number[];
 
@@ -355,8 +353,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   get d(): Array<double> | null;
 
@@ -377,8 +374,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   get e(): double;
 
@@ -399,8 +396,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   get s(): double;
 
@@ -425,8 +422,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   constructor(n: Value);
 
@@ -445,8 +442,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   abs(): Decimal;
 
@@ -467,8 +464,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   floor(): Decimal;
 
@@ -489,8 +486,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   ceil(): Decimal;
 
@@ -509,8 +506,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   trunc(): Decimal;
 
@@ -543,8 +540,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   clamp(min: Value, max: Value): Decimal;
 
@@ -573,8 +570,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   add(n: Value): Decimal;
 
@@ -603,8 +600,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   sub(n: Value): Decimal;
 
@@ -633,8 +630,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   mul(n: Value): Decimal;
 
@@ -663,8 +660,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   div(n: Value): Decimal;
 
@@ -693,8 +690,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   mod(n: Value): Decimal;
 
@@ -715,8 +712,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   sqrt(): Decimal;
 
@@ -737,8 +734,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   cbrt(): Decimal;
 
@@ -769,8 +766,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   pow(n: Value): Decimal;
 
@@ -795,8 +792,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   exp(): Decimal;
 
@@ -827,8 +824,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   log(n: Value): Decimal;
 
@@ -851,8 +848,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   ln(): Decimal;
 
@@ -871,8 +868,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   cos(): Decimal;
 
@@ -891,8 +888,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   sin(): Decimal;
 
@@ -911,8 +908,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   tan(): Decimal;
 
@@ -933,8 +930,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   cosh(): Decimal;
 
@@ -953,8 +950,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   sinh(): Decimal;
 
@@ -973,8 +970,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   tanh(): Decimal;
 
@@ -995,8 +992,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   acos(): Decimal;
 
@@ -1019,8 +1016,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   asin(): Decimal;
 
@@ -1041,8 +1038,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   atan(): Decimal;
 
@@ -1065,8 +1062,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   acosh(): Decimal;
 
@@ -1089,8 +1086,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   asinh(): Decimal;
 
@@ -1113,8 +1110,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   atanh(): Decimal;
 
@@ -1149,8 +1146,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   comparedTo(n: Value): double;
 
@@ -1177,8 +1174,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   equals(n: Value): boolean;
 
@@ -1205,8 +1202,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   greaterThan(n: Value): boolean;
 
@@ -1235,8 +1232,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   greaterThanOrEqualTo(n: Value): boolean;
 
@@ -1263,8 +1260,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   lessThan(n: Value): boolean;
 
@@ -1291,8 +1288,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   lessThanOrEqualTo(n: Value): boolean;
 
@@ -1311,8 +1308,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   isFinite(): boolean;
 
@@ -1331,8 +1328,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   isInteger(): boolean;
 
@@ -1351,8 +1348,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   isNaN(): boolean;
 
@@ -1371,8 +1368,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   isNegative(): boolean;
 
@@ -1391,8 +1388,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   isPositive(): boolean;
 
@@ -1411,8 +1408,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   isZero(): boolean;
 
@@ -1441,8 +1438,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   dividedToIntegerBy(n: Value): Decimal;
 
@@ -1461,8 +1458,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   negate(): Decimal;
 
@@ -1481,8 +1478,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toBinary(): string;
 
@@ -1507,8 +1504,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toBinary(significantDigits: double): string;
 
@@ -1535,8 +1532,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toBinary(significantDigits: double, rounding: Rounding): string;
 
@@ -1555,8 +1552,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toOctal(): string;
 
@@ -1579,8 +1576,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toOctal(significantDigits: double): string;
 
@@ -1607,8 +1604,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toOctal(significantDigits: double, rounding: Rounding): string;
 
@@ -1627,8 +1624,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toHexadecimal(): string;
 
@@ -1651,8 +1648,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toHexadecimal(significantDigits: double): string;
 
@@ -1679,8 +1676,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toHexadecimal(significantDigits: double, rounding: Rounding): string;
 
@@ -1699,8 +1696,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toDecimalPlaces(): Decimal;
 
@@ -1725,8 +1722,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toDecimalPlaces(decimalPlaces: double): Decimal;
 
@@ -1753,8 +1750,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toDecimalPlaces(decimalPlaces: double, rounding: Rounding): Decimal;
 
@@ -1773,8 +1770,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toExponential(): string;
 
@@ -1799,8 +1796,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toExponential(decimalPlaces: double): string;
 
@@ -1827,8 +1824,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toExponential(decimalPlaces: double, rounding: Rounding): string;
 
@@ -1847,8 +1844,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toFixed(): string;
 
@@ -1872,8 +1869,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toFixed(decimalPlaces: double): string;
 
@@ -1900,8 +1897,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toFixed(decimalPlaces: double, rounding: Rounding): string;
 
@@ -1922,8 +1919,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toFraction(): Decimal[];
 
@@ -1954,8 +1951,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toFraction(maxDenominator: Value): Decimal[];
 
@@ -1982,8 +1979,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toNearest(n: Value): Decimal;
 
@@ -2016,8 +2013,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toNearest(n: Value, rounding: Rounding): Decimal;
 
@@ -2036,8 +2033,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toPrecision(): string;
 
@@ -2060,8 +2057,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toPrecision(significantDigits: double): string;
 
@@ -2088,8 +2085,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toPrecision(significantDigits: double, rounding: Rounding): string;
 
@@ -2108,8 +2105,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toSignificantDigits(): Decimal;
 
@@ -2134,8 +2131,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toSignificantDigits(significantDigits: double): Decimal;
 
@@ -2162,8 +2159,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toSignificantDigits(significantDigits: double, rounding: Rounding): Decimal;
 
@@ -2182,8 +2179,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toNumber(): double;
 
@@ -2206,8 +2203,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   toString(): string;
 
@@ -2228,8 +2225,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   valueOf(): string;
 
@@ -2248,8 +2245,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   decimalPlaces(): double;
 
@@ -2268,8 +2265,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   precision(): double;
 
@@ -2296,8 +2293,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   precision(includeZeros: boolean | int): double;
 
@@ -2326,8 +2323,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static abs(n: Value): Decimal;
 
@@ -2356,8 +2353,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static floor(n: Value): Decimal;
 
@@ -2386,8 +2383,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static ceil(n: Value): Decimal;
 
@@ -2416,8 +2413,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static trunc(n: Value): Decimal;
 
@@ -2452,8 +2449,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static clamp(n: Value, min: Value, max: Value): Decimal;
 
@@ -2486,8 +2483,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static add(x: Value, y: Value): Decimal;
 
@@ -2522,8 +2519,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static sum(...n: Value[]): Decimal;
 
@@ -2556,8 +2553,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static sub(x: Value, y: Value): Decimal;
 
@@ -2590,8 +2587,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static mul(x: Value, y: Value): Decimal;
 
@@ -2624,8 +2621,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static div(x: Value, y: Value): Decimal;
 
@@ -2658,8 +2655,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static mod(x: Value, y: Value): Decimal;
 
@@ -2690,8 +2687,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static sqrt(n: Value): Decimal;
 
@@ -2722,8 +2719,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static cbrt(n: Value): Decimal;
 
@@ -2758,8 +2755,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static pow(base: Value, exponent: Value): Decimal;
 
@@ -2792,8 +2789,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static exp(n: Value): Decimal;
 
@@ -2828,8 +2825,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static log(n: Value, base: Value): Decimal;
 
@@ -2862,8 +2859,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static ln(n: Value): Decimal;
 
@@ -2896,8 +2893,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static log2(n: Value): Decimal;
 
@@ -2930,8 +2927,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static log10(n: Value): Decimal;
 
@@ -2962,8 +2959,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static cos(n: Value): Decimal;
 
@@ -2994,8 +2991,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static sin(n: Value): Decimal;
 
@@ -3026,8 +3023,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static tan(n: Value): Decimal;
 
@@ -3058,8 +3055,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static cosh(n: Value): Decimal;
 
@@ -3090,8 +3087,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static sinh(n: Value): Decimal;
 
@@ -3122,8 +3119,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static tanh(n: Value): Decimal;
 
@@ -3154,8 +3151,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static acos(n: Value): Decimal;
 
@@ -3188,8 +3185,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static asin(n: Value): Decimal;
 
@@ -3222,8 +3219,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static atan(n: Value): Decimal;
 
@@ -3256,8 +3253,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static acosh(n: Value): Decimal;
 
@@ -3290,8 +3287,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static asinh(n: Value): Decimal;
 
@@ -3324,8 +3321,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static atanh(n: Value): Decimal;
 
@@ -3360,8 +3357,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static atan2(y: Value, x: Value): Decimal;
 
@@ -3392,8 +3389,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static hypot(...n: Value[]): Decimal;
 
@@ -3422,8 +3419,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static max(...n: Value[]): Decimal;
 
@@ -3452,8 +3449,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static min(...n: Value[]): Decimal;
 
@@ -3476,8 +3473,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static random(): Decimal;
 
@@ -3510,8 +3507,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static random(significantDigits: double): Decimal;
 
@@ -3550,8 +3547,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static sign(n: Value): double;
 
@@ -3580,8 +3577,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static round(n: Value): Decimal;
 
@@ -3632,8 +3629,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   static set(config: DecimalConfig): void;
 
@@ -3654,7 +3651,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   static readonly ROUND_UP : 0;
 
@@ -3667,8 +3664,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   static readonly ROUND_UP: int;
 
@@ -3689,7 +3685,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   static readonly ROUND_DOWN : 1;
 
@@ -3702,8 +3698,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   static readonly ROUND_DOWN: int;
 
@@ -3724,7 +3719,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   static readonly ROUND_CEILING : 2;
 
@@ -3737,8 +3732,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   static readonly ROUND_CEILING: int;
 
@@ -3759,7 +3753,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   static readonly ROUND_FLOOR : 3;
 
@@ -3772,8 +3766,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   static readonly ROUND_FLOOR: int;
 
@@ -3794,7 +3787,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   static readonly ROUND_HALF_UP : 4;
 
@@ -3807,8 +3800,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   static readonly ROUND_HALF_UP: int;
 
@@ -3829,7 +3821,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   static readonly ROUND_HALF_DOWN : 5;
 
@@ -3842,8 +3834,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   static readonly ROUND_HALF_DOWN: int;
 
@@ -3864,7 +3855,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   static readonly ROUND_HALF_EVEN : 6;
 
@@ -3877,8 +3868,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   static readonly ROUND_HALF_EVEN: int;
 
@@ -3899,7 +3889,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   static readonly ROUND_HALF_CEILING : 7;
 
@@ -3912,8 +3902,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   static readonly ROUND_HALF_CEILING: int;
 
@@ -3934,7 +3923,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   static readonly ROUND_HALF_FLOOR : 8;
 
@@ -3947,8 +3936,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   static readonly ROUND_HALF_FLOOR: int;
 
@@ -3969,7 +3957,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   static readonly EUCLIDEAN : 9;
 
@@ -3982,8 +3970,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   static readonly EUCLIDEAN: int;
 }

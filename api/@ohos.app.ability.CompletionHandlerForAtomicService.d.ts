@@ -25,8 +25,8 @@
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   * @stagemodelonly
   * @atomicservice
-  * @since 20
-  * @arkts 1.1&1.2
+  * @since 20 dynamic
+  * @since 22 static
 */
 declare enum FailureCode {
   /**
@@ -35,8 +35,8 @@ declare enum FailureCode {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   FAILURE_CODE_SYSTEM_MALFUNCTION = 0,
 
@@ -46,8 +46,8 @@ declare enum FailureCode {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   FAILURE_CODE_USER_CANCEL = 1,
 
@@ -57,8 +57,8 @@ declare enum FailureCode {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   FAILURE_CODE_USER_REFUSE = 2,
 }
@@ -70,8 +70,7 @@ declare enum FailureCode {
   * @param { string } appId - Globally unique identifier of an atomicservice, which is allocated by the cloud.
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   * @stagemodelonly
-  * @since 22
-  * @arkts 1.2
+  * @since 22 static
   */
 type OnAtomicServiceRequestSuccessFn = (appId: string) => void;
 
@@ -84,8 +83,7 @@ type OnAtomicServiceRequestSuccessFn = (appId: string) => void;
   * @param { string } failureMessage - Indicates the detail failure message for open atomic service.
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   * @stagemodelonly
-  * @since 22
-  * @arkts 1.2
+  * @since 22 static
   */
 type OnAtomicServiceRequestFailureFn = (appId: string, failureCode: FailureCode, failureMessage: string) => void;
 
@@ -95,8 +93,8 @@ type OnAtomicServiceRequestFailureFn = (appId: string, failureCode: FailureCode,
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'20', '1.2':'22'}
- * @arkts 1.1&1.2
+ * @since 20 dynamic
+ * @since 22 static
  */
 declare class CompletionHandlerForAtomicService {
   /**
@@ -106,7 +104,7 @@ declare class CompletionHandlerForAtomicService {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   onAtomicServiceRequestSuccess(appId: string): void;
 
@@ -119,19 +117,18 @@ declare class CompletionHandlerForAtomicService {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   onAtomicServiceRequestFailure(appId: string, failureCode: FailureCode, failureMessage: string): void;
 
-  /*** if arkts 1.2 */
+  /*** if arkts static */
   /**
    * Notify the success result of openAtomicService.
    *
    * @type { OnAtomicServiceRequestSuccessFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   onAtomicServiceRequestSuccess: OnAtomicServiceRequestSuccessFn;
 
@@ -141,8 +138,7 @@ declare class CompletionHandlerForAtomicService {
    * @type { OnAtomicServiceRequestFailureFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 22
-   * @arkts 1.2
+   * @since 22 static
    */
   onAtomicServiceRequestFailure: OnAtomicServiceRequestFailureFn;
   /*** endif */

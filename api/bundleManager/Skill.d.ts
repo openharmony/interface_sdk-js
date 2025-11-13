@@ -24,8 +24,8 @@
  * @typedef Skill
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 22 static
  */
 export interface Skill {
   /**
@@ -35,8 +35,8 @@ export interface Skill {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly actions: Array<string>;
 
@@ -47,8 +47,8 @@ export interface Skill {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly entities: Array<string>;
 
@@ -59,8 +59,8 @@ export interface Skill {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly uris: Array<SkillUri>;
 
@@ -71,8 +71,8 @@ export interface Skill {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly domainVerify: boolean;
 }
@@ -83,8 +83,8 @@ export interface Skill {
  * @typedef SkillUri
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 22 static
  */
 export interface SkillUri {
   /**
@@ -94,8 +94,8 @@ export interface SkillUri {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly scheme: string;
 
@@ -106,8 +106,8 @@ export interface SkillUri {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly host: string;
 
@@ -118,10 +118,20 @@ export interface SkillUri {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   readonly port: int;
+
+  /**
+   * Indicates the port of the skillUri
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 22 static
+   */
+  readonly port: string;
 
   /**
    * Indicates the path of the skillUri
@@ -130,8 +140,8 @@ export interface SkillUri {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly path: string;
 
@@ -142,8 +152,8 @@ export interface SkillUri {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly pathStartWith: string;
 
@@ -154,8 +164,8 @@ export interface SkillUri {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly pathRegex: string;
 
@@ -166,8 +176,8 @@ export interface SkillUri {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly type: string;
 
@@ -178,8 +188,8 @@ export interface SkillUri {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly utd: string;
 
@@ -190,8 +200,8 @@ export interface SkillUri {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly maxFileSupported: int;
 
@@ -202,8 +212,8 @@ export interface SkillUri {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly linkFeature: string;
 }

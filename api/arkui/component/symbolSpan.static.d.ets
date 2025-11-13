@@ -16,57 +16,55 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Resource } from './../../../api/global/resource';
 import { CommonMethod, AttributeModifier } from "./common";
 import { ResourceColor } from "./units";
 import { FontWeight } from "./enums";
 import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Provides attribute for SymbolSpan.
  *
- * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
-export declare interface SymbolSpanAttribute extends CommonMethod {
+export declare interface SymbolSpanAttribute {
     /**
      * Called when the SymbolSpan size is set.
      *
-     * @param { number | string | Resource | undefined } value
+     * @param { double | string | Resource | undefined } value
      * @returns { SymbolSpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    default fontSize(value: number | string | Resource | undefined): this;
+    default fontSize(value: double | string | Resource | undefined): this;
     /**
      * Called when the SymbolSpan color is set.
      *
      * @param { Array<ResourceColor> | undefined } value
      * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default fontColor(value: Array<ResourceColor> | undefined): this;
     /**
      * Called when the font SymbolSpan weight is set.
      *
-     * @param { number | FontWeight | string | undefined } value
+     * @param { int | FontWeight | string | undefined } value
      * @returns { SymbolSpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    default fontWeight(value: number | FontWeight | string | undefined): this;
+    default fontWeight(value: int | FontWeight | string | undefined): this;
     /**
      * Called when the SymbolSpan effect is set.
      *
      * @param { SymbolEffectStrategy | undefined } value
      * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default effectStrategy(value: SymbolEffectStrategy | undefined): this;
     /**
@@ -75,42 +73,51 @@ export declare interface SymbolSpanAttribute extends CommonMethod {
      * @param { SymbolRenderingStrategy | undefined } value
      * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default renderingStrategy(value: SymbolRenderingStrategy | undefined): this;
+    /**
+     * Key. User can set an key to the component to identify it.
+     *
+     * @param { string | undefined } value
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     * @test
+     */
+    default key(value: string | undefined): this;
+    /**
+     * Id. User can set an id to the component to identify it.
+     *
+     * @param { string | undefined } value
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    default id(value: string | undefined): this;
     /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<SymbolSpanAttribute> | undefined } modifier - The instance of symbol span modifier.
+     *     Passing `undefined` will do nothing.
      * @returns { SymbolSpanAttribute } the attribute of the SymbolSpanAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute> | undefined): this;
-    /**
-     * Sets the attribute modifier.
-     *
-     * @param { AttributeModifier<SymbolSpanAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
-     * @returns { SymbolSpanAttribute } the attribute of the SymbolSpanAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
-     */
-    default attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
  * Defines SymbolSpan Component.
  *
  * @param { Resource } value
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { SymbolSpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function SymbolSpan(
     value: Resource, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): SymbolSpanAttribute

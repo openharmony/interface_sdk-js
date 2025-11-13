@@ -32,8 +32,8 @@
  * @syscap SystemCapability.Notification.CommonEvent
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 export interface CommonEventSubscribeInfo {
   /**
@@ -50,8 +50,8 @@ export interface CommonEventSubscribeInfo {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   events: Array<string>;
 
@@ -68,8 +68,8 @@ export interface CommonEventSubscribeInfo {
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   publisherPermission?: string;
 
@@ -86,8 +86,8 @@ export interface CommonEventSubscribeInfo {
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   publisherDeviceId?: string;
 
@@ -106,8 +106,8 @@ export interface CommonEventSubscribeInfo {
    * @type { ?int }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   userId?: int;
 
@@ -124,8 +124,8 @@ export interface CommonEventSubscribeInfo {
    * @type { ?int }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   priority?: int;
 
@@ -135,8 +135,8 @@ export interface CommonEventSubscribeInfo {
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   publisherBundleName?: string;
 }

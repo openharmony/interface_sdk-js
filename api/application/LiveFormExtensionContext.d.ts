@@ -29,7 +29,7 @@ import Want from '../@ohos.app.ability.Want';
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare class LiveFormExtensionContext extends ExtensionContext {
   /**
@@ -45,7 +45,7 @@ declare class LiveFormExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   startAbilityByLiveForm(want: Want): Promise<void>;
 
@@ -60,11 +60,11 @@ declare class LiveFormExtensionContext extends ExtensionContext {
   *     application which is not a system application uses system API.
   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-  * @throws { BusinessError } 16501011 - The form can not support this operation
+  * @throws { BusinessError } 16501011 - The form can not support this operation.
   * @syscap SystemCapability.Ability.Form
   * @systemapi
   * @stagemodelonly
-  * @since 22
+  * @since 21 dynamic
   */
   public connectServiceExtensionAbility(want: Want, connection: ConnectOptions): number;
 
@@ -76,11 +76,11 @@ declare class LiveFormExtensionContext extends ExtensionContext {
   * @throws { BusinessError } 202 - Permission verification failed, 
   *     application which is not a system application uses system API.
   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-  * @throws { BusinessError } 16501011 - The form can not support this operation
+  * @throws { BusinessError } 16501011 - The form can not support this operation.
   * @syscap SystemCapability.Ability.Form
   * @systemapi
   * @stagemodelonly
-  * @since 22
+  * @since 21 dynamic
   */
   public disconnectServiceExtensionAbility(connectionId: number): Promise<void>;
 }

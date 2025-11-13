@@ -15,11 +15,10 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
 import { Length } from "./units";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Defines the RadiusItem.
@@ -27,7 +26,7 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  *
  * @typedef { [Length, Length] } RadiusItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export type RadiusItem = [
     Length,
@@ -39,7 +38,7 @@ export type RadiusItem = [
  *
  * @interface RectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare interface RectOptions {
     /**
@@ -47,7 +46,7 @@ export declare interface RectOptions {
      *
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     width?: double | string;
     /**
@@ -55,7 +54,7 @@ export declare interface RectOptions {
      *
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     height?: double | string;
     /**
@@ -63,7 +62,7 @@ export declare interface RectOptions {
      *
      * @type { ?(Length | Array<RadiusItem>) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     radius?: Length | Array<RadiusItem>;
 }
@@ -73,7 +72,7 @@ export declare interface RectOptions {
  *
  * @interface RoundedRectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare interface RoundedRectOptions {
     /**
@@ -81,7 +80,7 @@ export declare interface RoundedRectOptions {
      *
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     width?: double | string;
     /**
@@ -89,7 +88,7 @@ export declare interface RoundedRectOptions {
      *
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     height?: double | string;
     /**
@@ -97,7 +96,7 @@ export declare interface RoundedRectOptions {
      *
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     radiusWidth?: double | string;
     /**
@@ -105,7 +104,7 @@ export declare interface RoundedRectOptions {
      *
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     radiusHeight?: double | string;
 }
@@ -116,7 +115,7 @@ export declare interface RoundedRectOptions {
  * @extends CommonShapeMethod
  * @interface RectAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare interface RectAttribute extends CommonShapeMethod {
     /**
@@ -125,7 +124,7 @@ export declare interface RectAttribute extends CommonShapeMethod {
      * @param { double | string | undefined } value
      * @returns { RectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default radiusWidth(value: double | string | undefined): this;
     /**
@@ -134,7 +133,7 @@ export declare interface RectAttribute extends CommonShapeMethod {
      * @param { double | string | undefined } value
      * @returns { RectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default radiusHeight(value: double | string | undefined): this;
     /**
@@ -143,7 +142,7 @@ export declare interface RectAttribute extends CommonShapeMethod {
      * @param { Length | Array<RadiusItem> | undefined } value
      * @returns { RectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default radius(value: Length | Array<RadiusItem> | undefined): this;
     /**
@@ -152,7 +151,7 @@ export declare interface RectAttribute extends CommonShapeMethod {
      * @param { AttributeModifier<RectAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { RectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<RectAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -161,15 +160,13 @@ export declare interface RectAttribute extends CommonShapeMethod {
  * Rect is returned when the parameter is transferred.
  *
  * @param { RectOptions | RoundedRectOptions } [options] - The options to create a Rect
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { RectAttribute } The attribute of the Rect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function Rect(
     options?: RectOptions | RoundedRectOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): RectAttribute

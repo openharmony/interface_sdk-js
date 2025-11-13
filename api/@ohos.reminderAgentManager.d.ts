@@ -29,7 +29,8 @@ import { ValuesBucket } from './@ohos.data.ValuesBucket';
  *
  * @namespace reminderAgentManager
  * @syscap SystemCapability.Notification.ReminderAgent
- * @since 9
+ * @since 9 dynamic
+ * @since 22 static
  */
 declare namespace reminderAgentManager {
   /**
@@ -37,54 +38,58 @@ declare namespace reminderAgentManager {
    * 
    * @permission ohos.permission.PUBLISH_AGENT_REMINDER
    * @param { ReminderRequest } reminderReq - Indicates the reminder instance to publish.
-   * @param { AsyncCallback<number> } callback - Indicates the callback function.
+   * @param { AsyncCallback<int> } callback - Indicates the callback function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700001 - Notification is not enabled.
    * @throws { BusinessError } 1700002 - The number of reminders exceeds the limit.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
-  function publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback<number>): void;
+  function publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback<int>): void;
 
   /**
    * Publishes a scheduled reminder.
    *
    * @permission ohos.permission.PUBLISH_AGENT_REMINDER
    * @param { ReminderRequest } reminderReq - Indicates the reminder instance to publish.
-   * @returns { Promise<number> } The reminder id.
+   * @returns { Promise<int> } The reminder id.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700001 - Notification is not enabled.
    * @throws { BusinessError } 1700002 - The number of reminders exceeds the limit.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
-  function publishReminder(reminderReq: ReminderRequest): Promise<number>;
+  function publishReminder(reminderReq: ReminderRequest): Promise<int>;
 
   /**
    * Cancel a reminder.
    *
-   * @param { number } reminderId - Indicates the reminder id.
+   * @param { int } reminderId - Indicates the reminder id.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @throws { BusinessError } 1700004 - The bundle name does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
-  function cancelReminder(reminderId: number, callback: AsyncCallback<void>): void;
+  function cancelReminder(reminderId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Cancel a reminder.
    *
-   * @param { number } reminderId - Indicates the reminder id.
+   * @param { int } reminderId - Indicates the reminder id.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @throws { BusinessError } 1700004 - The bundle name does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
-  function cancelReminder(reminderId: number): Promise<void>;
+  function cancelReminder(reminderId: int): Promise<void>;
 
   /**
    * Obtains all the valid reminders of current application.
@@ -93,7 +98,8 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700004 - The bundle name does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function getValidReminders(callback: AsyncCallback<Array<ReminderRequest>>): void;
 
@@ -104,7 +110,8 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700004 - The bundle name does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function getValidReminders(): Promise<Array<ReminderRequest>>;
 
@@ -115,7 +122,8 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700004 - The bundle name does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function cancelAllReminders(callback: AsyncCallback<void>): void;
 
@@ -126,7 +134,8 @@ declare namespace reminderAgentManager {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700004 - The bundle name does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function cancelAllReminders(): Promise<void>;
 
@@ -137,7 +146,8 @@ declare namespace reminderAgentManager {
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function addNotificationSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
@@ -148,7 +158,8 @@ declare namespace reminderAgentManager {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function addNotificationSlot(slot: NotificationSlot): Promise<void>;
 
@@ -159,7 +170,8 @@ declare namespace reminderAgentManager {
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function removeNotificationSlot(slotType: notification.SlotType, callback: AsyncCallback<void>): void;
 
@@ -170,47 +182,51 @@ declare namespace reminderAgentManager {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function removeNotificationSlot(slotType: notification.SlotType): Promise<void>;
   
   /**
    * add exclude date for calendar reminder request.
    *
-   * @param { number } reminderId reminder id
+   * @param { int } reminderId reminder id
    * @param { Date } date date time
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
-  function addExcludeDate(reminderId: number, date: Date): Promise<void>;
+  function addExcludeDate(reminderId: int, date: Date): Promise<void>;
   
   /**
    * delete exclude date for calendar reminder request.
    *
-   * @param { number } reminderId reminder id
+   * @param { int } reminderId reminder id
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
-  function deleteExcludeDates(reminderId: number): Promise<void>;
+  function deleteExcludeDates(reminderId: int): Promise<void>;
   
   /**
    * get exclude dates
    *
-   * @param { number } reminderId reminder id
+   * @param { int } reminderId reminder id
    * @returns { Promise<Array<Date>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
-  function getExcludeDates(reminderId: number): Promise<Array<Date>>;
+  function getExcludeDates(reminderId: int): Promise<Array<Date>>;
 
   /**
    * Obtains all the valid reminders of current application, include reminderId.
@@ -218,7 +234,8 @@ declare namespace reminderAgentManager {
    * @returns { Promise<Array<ReminderInfo>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   function getAllValidReminders(): Promise<Array<ReminderInfo>>;
 
@@ -226,30 +243,33 @@ declare namespace reminderAgentManager {
    * Updates a scheduled reminder.
    *
    * @permission ohos.permission.PUBLISH_AGENT_REMINDER
-   * @param { reminderId } number - Indicates the reminder id.
+   * @param { reminderId } int - Indicates the reminder id.
    * @param { ReminderRequest } reminderReq - Indicates the reminder.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @throws { BusinessError } 1700007 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
-  function updateReminder(reminderId: number, reminderReq: ReminderRequest): Promise<void>;
+  function updateReminder(reminderId: int, reminderReq: ReminderRequest): Promise<void>;
 
   /**
    * Declares action button type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   export enum ActionButtonType {
     /**
      * Button for closing the reminder.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     ACTION_BUTTON_TYPE_CLOSE = 0,
 
@@ -257,7 +277,8 @@ declare namespace reminderAgentManager {
      * Button for snoozing the reminder.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     ACTION_BUTTON_TYPE_SNOOZE = 1,
 
@@ -266,7 +287,8 @@ declare namespace reminderAgentManager {
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     ACTION_BUTTON_TYPE_CUSTOM = 2
   }
@@ -274,17 +296,19 @@ declare namespace reminderAgentManager {
   /**
    * Declares reminder type.
    *
-   * @enum { number }
+   * @enum { int }
    *
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   export enum ReminderType {
     /**
      * Countdown reminder.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     REMINDER_TYPE_TIMER = 0,
 
@@ -292,7 +316,8 @@ declare namespace reminderAgentManager {
      * Calendar reminder.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     REMINDER_TYPE_CALENDAR = 1,
 
@@ -300,7 +325,8 @@ declare namespace reminderAgentManager {
      * Alarm reminder.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     REMINDER_TYPE_ALARM = 2
   }
@@ -311,7 +337,8 @@ declare namespace reminderAgentManager {
    * @interface ActionButton
    *
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface ActionButton {
     /**
@@ -319,7 +346,8 @@ declare namespace reminderAgentManager {
      *
      * @type { string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     title: string;
 
@@ -328,7 +356,8 @@ declare namespace reminderAgentManager {
      * 
      * @type { ?string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     titleResource?: string;
 
@@ -337,7 +366,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ActionButtonType }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     type: ActionButtonType;
 
@@ -347,7 +377,8 @@ declare namespace reminderAgentManager {
      * @type { ?WantAgent }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     wantAgent?: WantAgent;
 
@@ -357,10 +388,20 @@ declare namespace reminderAgentManager {
      * @type { ?DataShareUpdate }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     dataShareUpdate?: DataShareUpdate;
   }
+
+  /**
+   * Record data type
+   * 
+   * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> }
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 22 static
+   */
+  type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>
 
   /**
    * Want agent information.
@@ -368,7 +409,8 @@ declare namespace reminderAgentManager {
    *
    * @interface WantAgent
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface WantAgent {
     /**
@@ -376,7 +418,8 @@ declare namespace reminderAgentManager {
      *
      * @type { string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     pkgName: string;
 
@@ -385,7 +428,8 @@ declare namespace reminderAgentManager {
      *
      * @type { string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     abilityName: string;
 
@@ -394,18 +438,28 @@ declare namespace reminderAgentManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     uri?: string;
-	
+
     /**
      * The description of the WantParams object in an Want
      *
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 12
+     * @since 12 dynamic
      */
     parameters?: Record<string, Object>;
+
+    /**
+     * The description of the WantParams object in an Want
+     *
+     * @type { ?RecordData }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 22 static
+     */
+    parameters?: RecordData;
   }
 
   /**
@@ -415,7 +469,8 @@ declare namespace reminderAgentManager {
    * @interface DataShareUpdate
    * @syscap SystemCapability.Notification.ReminderAgent
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   interface DataShareUpdate {
     /**
@@ -424,19 +479,21 @@ declare namespace reminderAgentManager {
      * @type { string }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     uri: string;
 
     /**
      * Indicates filter criteria.
      *
-     * @type { Record<string, number | string | boolean> }
+     * @type { Record<string, double | string | boolean> }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
-    equalTo: Record<string, number | string | boolean>;
+    equalTo: Record<string, double | string | boolean>;
 
     /**
      * Indicates the data to update. This parameter can be null.
@@ -444,7 +501,8 @@ declare namespace reminderAgentManager {
      * @type { ValuesBucket }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     value: ValuesBucket;
   }
@@ -454,7 +512,8 @@ declare namespace reminderAgentManager {
    *
    * @interface MaxScreenWantAgent
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface MaxScreenWantAgent {
     /**
@@ -462,7 +521,8 @@ declare namespace reminderAgentManager {
      *
      * @type { string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     pkgName: string;
 
@@ -471,7 +531,8 @@ declare namespace reminderAgentManager {
      *
      * @type { string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     abilityName: string;
   }
@@ -482,14 +543,16 @@ declare namespace reminderAgentManager {
    * @enum { number }
    *
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   export enum RingChannel {
     /**
      * Ring channel alarm.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     RING_CHANNEL_ALARM = 0,
 
@@ -497,7 +560,8 @@ declare namespace reminderAgentManager {
      * Ring channel alarm.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     RING_CHANNEL_MEDIA = 1,
   }
@@ -507,7 +571,8 @@ declare namespace reminderAgentManager {
    *
    * @interface ReminderRequest
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface ReminderRequest {
     /**
@@ -515,7 +580,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ReminderType }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     reminderType: ReminderType;
 
@@ -532,16 +598,26 @@ declare namespace reminderAgentManager {
      *
      * @type { ?[ActionButton?, ActionButton?, ActionButton?] }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 10
+     * @since 10 dynamic
      */
     actionButton?: [ActionButton?, ActionButton?, ActionButton?];
+
+    /**
+     * Action button displayed on the reminder notification.
+     *
+     * @type { ?Array<ActionButton> }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 22 static
+     */
+    actionButton?: Array<ActionButton>;
 
     /**
      * Information about the ability that is redirected to when the notification is clicked.
      *
      * @type { ?WantAgent }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     wantAgent?: WantAgent;
 
@@ -551,133 +627,148 @@ declare namespace reminderAgentManager {
      *
      * @type { ?MaxScreenWantAgent }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     maxScreenWantAgent?: MaxScreenWantAgent;
 
     /**
      * Ringing duration.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    ringDuration?: number;
+    ringDuration?: long;
 
     /**
      * Type of the ring channel.
      *
      * @type { ?RingChannel }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     ringChannel?: RingChannel;
 
     /**
      * Number of reminder snooze times.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    snoozeTimes?: number;
+    snoozeTimes?: int;
 
     /**
      * Reminder snooze interval.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    timeInterval?: number;
+    timeInterval?: long;
 
     /**
      * Reminder title.
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     title?: string;
 
     /**
      * Resource ID for title.
      * 
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
-    titleResourceId?: number;
+    titleResourceId?: int;
   
     /**
      * Reminder content.
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     content?: string;
 
     /**
      * Resource ID for content.
      * 
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
-    contentResourceId?: number;
+    contentResourceId?: int;
   
     /**
      * Content to be displayed when the reminder is expired.
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     expiredContent?: string;
 
     /**
      * Resource ID for expired content.
      * 
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
-    expiredContentResourceId?: number;
+    expiredContentResourceId?: int;
   
     /**
      * Content to be displayed when the reminder is snoozing.
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     snoozeContent?: string;
 
     /**
      * Resource ID for snooze content.
      * 
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 18
+     * @since 18 dynamic
+     * @since 22 static
      */
-    snoozeContentResourceId?: number;
+    snoozeContentResourceId?: int;
   
     /**
      * Notification id. If there are reminders with the same ID, the later one will overwrite the earlier one.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    notificationId?: number;
+    notificationId?: int;
 
     /**
      * If the same group ID is set for reminders, these reminders are canceled together.
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     groupId?: string;
 
@@ -686,7 +777,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?notification.SlotType }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     slotType?: notification.SlotType;
 
@@ -695,25 +787,28 @@ declare namespace reminderAgentManager {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
     tapDismissed?: boolean;
 
     /**
      * Time when the notification is automatically cleared.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 10
+     * @since 10 dynamic
+     * @since 22 static
      */
-    autoDeletedTime?: number;
+    autoDeletedTime?: long;
 
     /**
      * Type of the snoozeSlot used by the reminder.
      *
      * @type { ?notification.SlotType }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     snoozeSlotType?: notification.SlotType;
 
@@ -722,7 +817,8 @@ declare namespace reminderAgentManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     customRingUri?: string;
   }
@@ -733,7 +829,8 @@ declare namespace reminderAgentManager {
    * @extends ReminderRequest
    * @typedef ReminderRequestCalendar
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface ReminderRequestCalendar extends ReminderRequest {
     /**
@@ -741,43 +838,48 @@ declare namespace reminderAgentManager {
      *
      * @type { LocalDateTime }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     dateTime: LocalDateTime;
 
     /**
      * Month in which the reminder repeats.
      *
-     * @type { ?Array<number> }
+     * @type { ?Array<int> }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    repeatMonths?: Array<number>;
+    repeatMonths?: Array<int>;
 
     /**
      * Date on which the reminder repeats.
      *
-     * @type { ?Array<number> }
+     * @type { ?Array<int> }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    repeatDays?: Array<number>;
+    repeatDays?: Array<int>;
 
     /**
      * Days of a week when the reminder repeats.
      *
-     * @type { ?Array<number> }
+     * @type { ?Array<int> }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
-    daysOfWeek?: Array<number>;
+    daysOfWeek?: Array<int>;
 
     /**
      * calendar end date time
      *
      * @type { ?LocalDateTime }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     endDateTime?: LocalDateTime;
 
@@ -788,7 +890,8 @@ declare namespace reminderAgentManager {
      * @type { ?WantAgent }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     rruleWantAgent?: WantAgent;
   }
@@ -799,35 +902,39 @@ declare namespace reminderAgentManager {
    * @extends ReminderRequest
    * @typedef ReminderRequestAlarm
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface ReminderRequestAlarm extends ReminderRequest {
     /**
      * Hour portion of the reminder time.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    hour: number;
+    hour: int;
 
     /**
      * Minute portion of the reminder time.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    minute: number;
+    minute: int;
 
     /**
      * Days of a week when the reminder repeats.
      *
-     * @type { ?Array<number> }
+     * @type { ?Array<int> }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    daysOfWeek?: Array<number>;
+    daysOfWeek?: Array<int>;
   }
 
   /**
@@ -836,17 +943,19 @@ declare namespace reminderAgentManager {
    * @extends ReminderRequest
    * @typedef ReminderRequestTimer
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface ReminderRequestTimer extends ReminderRequest {
     /**
      * The number of seconds to count down.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    triggerTimeInSeconds: number;
+    triggerTimeInSeconds: long;
   }
 
   /**
@@ -854,24 +963,27 @@ declare namespace reminderAgentManager {
    *
    * @interface ReminderInfo
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface ReminderInfo {
     /**
      * Reminder id.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
-    reminderId: number;
+    reminderId: int;
 
     /**
      * Reminder request.
      *
      * @type { ReminderRequest }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     reminderReq: ReminderRequest;
   }
@@ -881,62 +993,69 @@ declare namespace reminderAgentManager {
    *
    * @interface LocalDateTime
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface LocalDateTime {
     /**
      * Value of year.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    year: number;
+    year: int;
 
     /**
      * Value of month.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    month: number;
+    month: int;
 
     /**
      * Value of day.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    day: number;
+    day: int;
 
     /**
      * Value of hour.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    hour: number;
+    hour: int;
 
     /**
      * Value of minute.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    minute: number;
+    minute: int;
 
     /**
      * Value of second.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    second?: number;
+    second?: int;
   }
 }
 export default reminderAgentManager;

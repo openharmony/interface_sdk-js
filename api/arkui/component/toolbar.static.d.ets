@@ -15,29 +15,28 @@
 /**
  * @file Defines toolbar attributes.
  * @kit ArkUI
- * @arkts 1.2
  */
-import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { ComponentBuilder, CustomBuilder } from './builder';
 /**
  * Declare the placement of the toolbar item.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 declare enum ToolBarItemPlacement {
     /**
      * Place toolbar item at the leading of top bar.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     TOP_BAR_LEADING = 0,
     /**
      * Place toolbar item at the trailing of top bar.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     TOP_BAR_TRAILING = 1
 }
@@ -46,7 +45,7 @@ declare enum ToolBarItemPlacement {
  *
  * @interface ToolBarItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 interface ToolBarItemOptions {
     /**
@@ -54,7 +53,7 @@ interface ToolBarItemOptions {
      *
      * @type { ?ToolBarItemPlacement }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     placement?: ToolBarItemPlacement;
 }
@@ -62,7 +61,7 @@ interface ToolBarItemOptions {
  * Defines the ToolBarItem component attribute functions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 declare class ToolBarItemAttribute {
 }
@@ -71,15 +70,13 @@ declare class ToolBarItemAttribute {
  * Defines ToolBarItem Component.
  *
  * @param { ToolBarItemOptions } options - column options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ToolBarItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function ToolBarItem(
     options?: ToolBarItemOptions,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ToolBarItemAttribute

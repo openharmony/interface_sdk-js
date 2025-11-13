@@ -24,10 +24,10 @@ import { NotificationSubscribeInfo as _NotificationSubscribeInfo } from './notif
 import { NotificationSubscriber as _NotificationSubscriber } from './notification/notificationSubscriber';
 import { SubscribeCallbackData as _SubscribeCallbackData } from './notification/notificationSubscriber';
 import { EnabledNotificationCallbackData as _EnabledNotificationCallbackData } from './notification/notificationSubscriber';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './notification/notificationSubscriber';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './notification/notificationSubscriber';
 /*** endif */
 
@@ -35,8 +35,8 @@ import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './noti
  * @namespace notificationSubscribe
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 22 static
  */
 declare namespace notificationSubscribe {
   /**
@@ -45,8 +45,8 @@ declare namespace notificationSubscribe {
    * @typedef NotificationKey
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   export interface NotificationKey {
     /**
@@ -55,8 +55,8 @@ declare namespace notificationSubscribe {
      * @type { int }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     id: int;
 
@@ -66,8 +66,8 @@ declare namespace notificationSubscribe {
      * @type { ?string }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     label?: string;
   }
@@ -78,8 +78,8 @@ declare namespace notificationSubscribe {
    * @enum { int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   export enum RemoveReason {
     /**
@@ -87,8 +87,8 @@ declare namespace notificationSubscribe {
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     CLICK_REASON_REMOVE = 1,
 
@@ -97,8 +97,8 @@ declare namespace notificationSubscribe {
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     CANCEL_REASON_REMOVE = 2
   }
@@ -119,8 +119,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function subscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
@@ -138,8 +138,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   function subscribeSelf(subscriber: NotificationSubscriber): Promise<void>;
 
@@ -160,8 +160,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function subscribe(
     subscriber: NotificationSubscriber,
@@ -186,8 +186,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function subscribe(subscriber: NotificationSubscriber, info?: NotificationSubscribeInfo): Promise<void>;
 
@@ -221,8 +221,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   function unsubscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
@@ -256,8 +256,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   function unsubscribe(subscriber: NotificationSubscriber): Promise<void>;
 
@@ -280,8 +280,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function remove(
     bundle: BundleOption,
@@ -309,8 +309,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason): Promise<void>;
 
@@ -331,8 +331,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function remove(hashCode: string, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
@@ -353,8 +353,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function remove(hashCodes: Array<String>, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
@@ -375,8 +375,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function remove(hashCode: string, reason: RemoveReason): Promise<void>;
 
@@ -396,8 +396,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function remove(hashCodes: Array<String>, reason: RemoveReason): Promise<void>;
 
@@ -417,8 +417,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function removeAll(bundle: BundleOption, callback: AsyncCallback<void>): void;
 
@@ -436,8 +436,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function removeAll(callback: AsyncCallback<void>): void;
 
@@ -457,8 +457,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function removeAll(userId: int, callback: AsyncCallback<void>): void;
 
@@ -478,8 +478,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function removeAll(userId: int): Promise<void>;
 
@@ -499,8 +499,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function removeAll(bundle?: BundleOption): Promise<void>;
 
@@ -519,8 +519,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600021 - Distributed operation timed out.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
    function distributeOperation(hashcode: string, operationInfo?: OperationInfo): Promise<void>;
 
@@ -530,8 +530,8 @@ declare namespace notificationSubscribe {
     * @typedef OperationInfo
     * @syscap SystemCapability.Notification.Notification
     * @systemapi
-    * @since arkts {'1.1':'18', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 18 dynamic
+    * @since 22 static
     */
    export interface OperationInfo {
      /**
@@ -540,8 +540,8 @@ declare namespace notificationSubscribe {
       * @type { ?string }
       * @syscap SystemCapability.Notification.Notification
       * @systemapi
-      * @since arkts {'1.1':'18', '1.2':'20'}
-      * @arkts 1.1&1.2
+      * @since 18 dynamic
+      * @since 22 static
       */
      actionName?: string;
 
@@ -551,8 +551,8 @@ declare namespace notificationSubscribe {
       * @type { ?string }
       * @syscap SystemCapability.Notification.Notification
       * @systemapi
-      * @since arkts {'1.1':'18', '1.2':'20'}
-      * @arkts 1.1&1.2
+      * @since 18 dynamic
+      * @since 22 static
       */
      userInput?: string;
 
@@ -562,8 +562,8 @@ declare namespace notificationSubscribe {
       * @type { ?int }
       * @syscap SystemCapability.Notification.Notification
       * @systemapi
-      * @since 20
-      * @arkts 1.1&1.2
+      * @since 20 dynamic
+      * @since 22 static
       */
      operationType?: int;
 
@@ -573,8 +573,8 @@ declare namespace notificationSubscribe {
       * @type { ?int }
       * @syscap SystemCapability.Notification.Notification
       * @systemapi
-      * @since 20
-      * @arkts 1.1&1.2
+      * @since 20 dynamic
+      * @since 22 static
       */
      buttonIndex?: int;
    }
@@ -585,8 +585,8 @@ declare namespace notificationSubscribe {
    * @typedef { _BundleOption } BundleOption
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   export type BundleOption = _BundleOption;
 
@@ -596,8 +596,8 @@ declare namespace notificationSubscribe {
    * @typedef { _NotificationSubscribeInfo } NotificationSubscribeInfo
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   export type NotificationSubscribeInfo = _NotificationSubscribeInfo;
 
@@ -608,8 +608,8 @@ declare namespace notificationSubscribe {
    * @typedef { _NotificationSubscriber } NotificationSubscriber
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   export type NotificationSubscriber = _NotificationSubscriber;
 
@@ -620,8 +620,8 @@ declare namespace notificationSubscribe {
    * @typedef { _SubscribeCallbackData } SubscribeCallbackData
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   export type SubscribeCallbackData = _SubscribeCallbackData;
 
@@ -631,8 +631,8 @@ declare namespace notificationSubscribe {
    * @typedef { _EnabledNotificationCallbackData } EnabledNotificationCallbackData
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   export type EnabledNotificationCallbackData = _EnabledNotificationCallbackData;
 
@@ -642,8 +642,8 @@ declare namespace notificationSubscribe {
    * @typedef { _BadgeNumberCallbackData } BadgeNumberCallbackData
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   export type BadgeNumberCallbackData = _BadgeNumberCallbackData;
 }

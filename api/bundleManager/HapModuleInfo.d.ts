@@ -45,8 +45,8 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 export interface HapModuleInfo {
   /**
@@ -74,8 +74,8 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly name: string;
 
@@ -104,8 +104,8 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly icon: string;
 
@@ -134,8 +134,8 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly iconId: long;
 
@@ -164,8 +164,8 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly label: string;
 
@@ -194,8 +194,8 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly labelId: long;
 
@@ -224,8 +224,8 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly description: string;
 
@@ -254,8 +254,8 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly descriptionId: long;
 
@@ -284,8 +284,8 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly mainElementName: string;
 
@@ -314,8 +314,8 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly abilitiesInfo: Array<AbilityInfo>;
 
@@ -334,8 +334,8 @@ export interface HapModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly extensionAbilitiesInfo: Array<ExtensionAbilityInfo>;
 
@@ -364,8 +364,8 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly metadata: Array<Metadata>;
 
@@ -394,8 +394,8 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly deviceTypes: Array<string>;
 
@@ -424,8 +424,8 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly installationFree: boolean;
 
@@ -454,8 +454,8 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly hashValue: string;
 
@@ -484,8 +484,8 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly type: bundleManager.ModuleType;
 
@@ -504,8 +504,8 @@ export interface HapModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly dependencies: Array<Dependency>;
 
@@ -524,8 +524,8 @@ export interface HapModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly preloads: Array<PreloadItem>;
 
@@ -536,8 +536,8 @@ export interface HapModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly fileContextMenuConfig: string;
 
@@ -548,8 +548,8 @@ export interface HapModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly routerMap: Array<RouterItem>;
 
@@ -559,8 +559,8 @@ export interface HapModuleInfo {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly nativeLibraryPath: string;
 
@@ -571,8 +571,8 @@ export interface HapModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly codePath: string;
 }
@@ -590,8 +590,8 @@ export interface HapModuleInfo {
  * @typedef Dependency
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 export interface Dependency {
   /**
@@ -609,8 +609,8 @@ export interface Dependency {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly moduleName: string;
 
@@ -629,8 +629,8 @@ export interface Dependency {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly bundleName: string;
 
@@ -649,8 +649,8 @@ export interface Dependency {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly versionCode: long;
 }
@@ -668,8 +668,8 @@ export interface Dependency {
  * @typedef PreloadItem
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 export interface PreloadItem {
   /**
@@ -687,8 +687,8 @@ export interface PreloadItem {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly moduleName: string;
 }
@@ -699,8 +699,8 @@ export interface PreloadItem {
  * @typedef RouterItem
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 22 static
  */
 export interface RouterItem {
   /**
@@ -710,8 +710,8 @@ export interface RouterItem {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly name: string;
   /**
@@ -721,8 +721,8 @@ export interface RouterItem {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly pageSourceFile: string;
   /**
@@ -732,8 +732,8 @@ export interface RouterItem {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly buildFunction: string;
   /**
@@ -743,8 +743,8 @@ export interface RouterItem {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly customData: string;
   /**
@@ -754,8 +754,8 @@ export interface RouterItem {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly data: Array<DataItem>;
 }
@@ -766,8 +766,8 @@ export interface RouterItem {
  * @typedef DataItem
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 22 static
  */
 export interface DataItem {
   /**
@@ -777,8 +777,8 @@ export interface DataItem {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly key: string;
   /**
@@ -788,8 +788,8 @@ export interface DataItem {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   readonly value: string;
 }

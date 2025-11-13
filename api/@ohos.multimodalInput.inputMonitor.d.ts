@@ -35,7 +35,7 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
  * @namespace inputMonitor
  * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
  * @systemapi hide for inner use
- * @since 7
+ * @since 7 dynamic
  */
 declare namespace inputMonitor {
   /**
@@ -44,8 +44,8 @@ declare namespace inputMonitor {
    * @interface TouchEventReceiver
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 22 static
    */
   interface TouchEventReceiver {
     /**
@@ -56,8 +56,8 @@ declare namespace inputMonitor {
      * The value true indicates that the touch event will be dispatched to the window, and the value false indicates the opposite.
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 22 static
      */
     (touchEvent: TouchEvent): Boolean;
   }
@@ -87,7 +87,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamic
    */
   function on(type: 'touch', receiver: TouchEventReceiver): void;
 
@@ -116,7 +116,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamic
    */
   function on(type: 'mouse', receiver: Callback<MouseEvent>): void;
 
@@ -147,7 +147,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamic
    */
   function on(type: 'mouse', rect: display.Rect[], receiver: Callback<MouseEvent>): void;
 
@@ -178,7 +178,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamic
    */
   function off(type: 'touch', receiver?: TouchEventReceiver): void;
 
@@ -209,7 +209,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamic
    */
   function off(type: 'mouse', receiver?: Callback<MouseEvent>): void;
 
@@ -225,7 +225,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 10
+   * @since 10 dynamic
    */
   function on(type: 'pinch', receiver: Callback<Pinch>): void;
 
@@ -242,7 +242,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 10
+   * @since 10 dynamic
    */
   function off(type: 'pinch', receiver?: Callback<Pinch>): void;
 
@@ -259,7 +259,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'pinch', fingers: number, receiver: Callback<Pinch>): void;
 
@@ -277,7 +277,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 11
+   * @since 11 dynamic
    */
   function off(type: 'pinch', fingers: number, receiver?: Callback<Pinch>): void;
 
@@ -294,7 +294,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'rotate', fingers: number, receiver: Callback<Rotate>): void;
 
@@ -312,7 +312,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 11
+   * @since 11 dynamic
    */
   function off(type: 'rotate', fingers: number, receiver?: Callback<Rotate>): void;
 
@@ -328,7 +328,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 10
+   * @since 10 dynamic
    */
   function on(type: 'threeFingersSwipe', receiver: Callback<ThreeFingersSwipe>): void;
 
@@ -345,7 +345,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 10
+   * @since 10 dynamic
    */
   function off(type: 'threeFingersSwipe', receiver?: Callback<ThreeFingersSwipe>): void;
 
@@ -361,7 +361,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 10
+   * @since 10 dynamic
    */
   function on(type: 'fourFingersSwipe', receiver: Callback<FourFingersSwipe>): void;
 
@@ -378,7 +378,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 10
+   * @since 10 dynamic
    */
   function off(type: 'fourFingersSwipe', receiver?: Callback<FourFingersSwipe>): void;
 
@@ -394,7 +394,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'threeFingersTap', receiver: Callback<ThreeFingersTap>): void;
 
@@ -411,7 +411,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 11
+   * @since 11 dynamic
    */
   function off(type: 'threeFingersTap', receiver?: Callback<ThreeFingersTap>): void;
 
@@ -427,7 +427,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamic
    */
   function on(type: 'fingerprint', receiver: Callback<FingerprintEvent>): void;
 
@@ -443,7 +443,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamic
    */
   function off(type: 'fingerprint', receiver?: Callback<FingerprintEvent>): void;
 
@@ -458,7 +458,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamic
    */
   function on(type: 'swipeInward', receiver: Callback<SwipeInward>): void;
 
@@ -473,7 +473,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamic
    */
   function off(type: 'swipeInward', receiver?: Callback<SwipeInward>): void;
 
@@ -492,7 +492,7 @@ declare namespace inputMonitor {
    *                                 3.Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 18
+   * @since 18 dynamic
    */
   function on(type: 'touchscreenSwipe', fingers: number, receiver: Callback<TouchGestureEvent>): void;
 
@@ -512,7 +512,7 @@ declare namespace inputMonitor {
    *                                 3.Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 18
+   * @since 18 dynamic
    */
   function off(type: 'touchscreenSwipe', fingers: number, receiver?: Callback<TouchGestureEvent>): void;
 
@@ -531,7 +531,7 @@ declare namespace inputMonitor {
    *                                 3.Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 18
+   * @since 18 dynamic
    */
   function on(type: 'touchscreenPinch', fingers: number, receiver: Callback<TouchGestureEvent>): void;
 
@@ -551,7 +551,7 @@ declare namespace inputMonitor {
    *                                 3.Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 18
+   * @since 18 dynamic
    */
   function off(type: 'touchscreenPinch', fingers: number, receiver?: Callback<TouchGestureEvent>): void;
 
@@ -570,7 +570,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 4100001 - Event listening not supported for the key.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 15
+   * @since 15 dynamic
    */
   function on(type: 'keyPressed', keys: Array<KeyCode>, receiver: Callback<KeyEvent>): void;
 
@@ -588,7 +588,7 @@ declare namespace inputMonitor {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 15
+   * @since 15 dynamic
    */
   function off(type: 'keyPressed', receiver?: Callback<KeyEvent>): void;
 
@@ -603,7 +603,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 20
+   * @since 20 dynamic
    */
   function queryTouchEvents(count: number) : Promise<Array<TouchEvent>>;
 }

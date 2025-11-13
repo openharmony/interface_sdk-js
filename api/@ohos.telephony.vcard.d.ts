@@ -28,7 +28,7 @@ import type Context from './application/BaseContext';
  *
  * @namespace vcard
  * @syscap SystemCapability.Telephony.CoreService
- * @since 11
+ * @since 11 dynamic
  */
 declare namespace vcard {
   /**
@@ -53,7 +53,7 @@ declare namespace vcard {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function importVCard(context: Context, filePath: string, accountId: number, callback: AsyncCallback<void>): void;
 
@@ -79,7 +79,7 @@ declare namespace vcard {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function importVCard(context: Context, filePath: string, accountId?: number): Promise<void>;
 
@@ -101,7 +101,7 @@ declare namespace vcard {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function importVCard(context: Context, filePath: string, callback: AsyncCallback<void>): void;
 
@@ -122,7 +122,7 @@ declare namespace vcard {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates,
     options: VCardBuilderOptions, callback: AsyncCallback<string>): void;
@@ -144,7 +144,7 @@ declare namespace vcard {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates,
     options?: VCardBuilderOptions): Promise<string>;
@@ -165,7 +165,7 @@ declare namespace vcard {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates,
     callback: AsyncCallback<string>): void;
@@ -176,7 +176,7 @@ declare namespace vcard {
    * @enum { string }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   export enum VCardType {
     /**
@@ -184,7 +184,7 @@ declare namespace vcard {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     VERSION_21 = 0,
 
@@ -193,7 +193,7 @@ declare namespace vcard {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     VERSION_30 = 1,
 
@@ -202,7 +202,7 @@ declare namespace vcard {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     VERSION_40 = 2,
   }
@@ -213,7 +213,7 @@ declare namespace vcard {
    * @interface VCardBuilderOptions
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   export interface VCardBuilderOptions {
     /**
@@ -222,7 +222,7 @@ declare namespace vcard {
      * @type { ?VCardType }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     cardType?: VCardType;
     /**
@@ -231,7 +231,7 @@ declare namespace vcard {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     charset?: string;
   }

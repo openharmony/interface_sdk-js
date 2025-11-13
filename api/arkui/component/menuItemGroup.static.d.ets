@@ -16,19 +16,18 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { CommonMethod } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceStr } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines the option of MenuItemGroup.
  *
  * @interface MenuItemGroupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare interface MenuItemGroupOptions {
     /**
@@ -36,7 +35,7 @@ export declare interface MenuItemGroupOptions {
      *
      * @type { ?(ResourceStr | CustomBuilder) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     header?: ResourceStr | CustomBuilder;
     /**
@@ -44,7 +43,7 @@ export declare interface MenuItemGroupOptions {
      *
      * @type { ?(ResourceStr | CustomBuilder) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     footer?: ResourceStr | CustomBuilder;
 }
@@ -55,7 +54,7 @@ export declare interface MenuItemGroupOptions {
  * @extends CommonMethod
  * @interface MenuItemGroupAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare interface MenuItemGroupAttribute extends CommonMethod {
     /**
@@ -64,7 +63,7 @@ export declare interface MenuItemGroupAttribute extends CommonMethod {
      * @param { AttributeModifier<MenuItemGroupAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { MenuItemGroupAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     attributeModifier(
         modifier: AttributeModifier<MenuItemGroupAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -74,15 +73,13 @@ export declare interface MenuItemGroupAttribute extends CommonMethod {
  * Defines MenuItem Component.
  *
  * @param { MenuItemGroupOptions } [value] - The options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { MenuItemGroupAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function MenuItemGroup(
     value?: MenuItemGroupOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): MenuItemGroupAttribute

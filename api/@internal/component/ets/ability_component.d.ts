@@ -24,7 +24,7 @@
  * @interface AbilityComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since 9 dynamiconly
  * @deprecated since 10
  * @useinstead UIExtensionComponentInterface
  */
@@ -37,7 +37,7 @@ interface AbilityComponentInterface {
    * @returns { AbilityComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead UIExtensionComponentInterface
    */
@@ -50,7 +50,7 @@ interface AbilityComponentInterface {
  * @extends CommonMethod<AbilityComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since 9 dynamiconly
  * @deprecated since 10
  * @useinstead UIExtensionComponentAttribute
  */
@@ -62,7 +62,7 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
    * @returns { AbilityComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead UIExtensionComponent#onRemoteReady
    */
@@ -74,7 +74,7 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
    * @returns { AbilityComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead UIExtensionComponent#onRelease
    */
@@ -85,7 +85,7 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
  * Defines AbilityComponent Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
+ * @since 9 dynamiconly
  * @deprecated since 10
  * @useinstead UIExtensionComponent
  */
@@ -95,7 +95,7 @@ declare const AbilityComponent: AbilityComponentInterface;
  * Defines AbilityComponent Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
+ * @since 9 dynamiconly
  * @deprecated since 10
  * @useinstead UIExtensionComponentInstance
  */

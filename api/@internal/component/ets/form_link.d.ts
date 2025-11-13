@@ -17,9 +17,6 @@
  * @file
  * @kit ArkUI
  */
-/*** if arkts 1.2 */
-import { CommonMethod} from './common';
-/*** endif */
 /**
  * Defines the FormLink options.
  *
@@ -35,8 +32,7 @@ import { CommonMethod} from './common';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 declare interface FormLinkOptions {
   /**
@@ -54,8 +50,7 @@ declare interface FormLinkOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   action: string;
 
@@ -74,8 +69,7 @@ declare interface FormLinkOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   moduleName?: string;
 
@@ -94,8 +88,7 @@ declare interface FormLinkOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   bundleName?: string;
 
@@ -114,8 +107,7 @@ declare interface FormLinkOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   abilityName?: string;
 
@@ -126,8 +118,7 @@ declare interface FormLinkOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   uri?: string;
 
@@ -146,8 +137,7 @@ declare interface FormLinkOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   params?: Object;
 }
@@ -167,8 +157,7 @@ declare interface FormLinkOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
 interface FormLinkInterface {
   /**
@@ -188,8 +177,7 @@ interface FormLinkInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
    */
   (options: FormLinkOptions): FormLinkAttribute;
 }
@@ -209,10 +197,10 @@ interface FormLinkInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
  */
-declare class FormLinkAttribute extends CommonMethod<FormLinkAttribute> {}
+declare class FormLinkAttribute extends CommonMethod<FormLinkAttribute> {
+}
 
 /**
  * Defines FormLink component.
@@ -227,7 +215,7 @@ declare class FormLinkAttribute extends CommonMethod<FormLinkAttribute> {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const FormLink: FormLinkInterface;
 
@@ -244,6 +232,6 @@ declare const FormLink: FormLinkInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const FormLinkInstance: FormLinkAttribute;

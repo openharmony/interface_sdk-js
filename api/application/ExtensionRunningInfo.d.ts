@@ -27,8 +27,8 @@ import bundle from '../@ohos.bundle.bundleManager';
  * @typedef ExtensionRunningInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 22 static
  */
 export interface ExtensionRunningInfo {
   /**
@@ -36,8 +36,8 @@ export interface ExtensionRunningInfo {
    * @default Indicates the extension of the extension info
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   extension: ElementName;
 
@@ -46,8 +46,8 @@ export interface ExtensionRunningInfo {
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   pid: int;
 
@@ -56,8 +56,8 @@ export interface ExtensionRunningInfo {
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   uid: int;
 
@@ -66,8 +66,8 @@ export interface ExtensionRunningInfo {
    * @default the name of the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   processName: string;
 
@@ -76,8 +76,8 @@ export interface ExtensionRunningInfo {
    * @default ability start time
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   startTime: long;
 
@@ -86,8 +86,8 @@ export interface ExtensionRunningInfo {
    * @default All package names under the current process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   clientPackage: Array<String>;
 
@@ -96,8 +96,8 @@ export interface ExtensionRunningInfo {
    * @default Enumerates types of the extension info
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   type: bundle.ExtensionAbilityType;
 }

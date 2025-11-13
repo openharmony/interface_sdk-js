@@ -21,7 +21,8 @@
 /**
  * @typedef ActionResult
  * @syscap SystemCapability.Notification.Notification
- * @since 3
+ * @since 3 dynamic
+ * @deprecated since 7
  */
 export interface ActionResult {
   /**
@@ -29,7 +30,8 @@ export interface ActionResult {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since 3 dynamic
+   * @deprecated since 7
    */
   bundleName: string;
 
@@ -38,7 +40,8 @@ export interface ActionResult {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since 3 dynamic
+   * @deprecated since 7
    */
   abilityName: string;
 
@@ -51,7 +54,8 @@ export interface ActionResult {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since 3 dynamic
+   * @deprecated since 7
    */
   uri: string;
 }
@@ -59,7 +63,8 @@ export interface ActionResult {
 /**
  * @typedef ShowNotificationOptions
  * @syscap SystemCapability.Notification.Notification
- * @since 3
+ * @since 3 dynamic
+ * @deprecated since 7
  */
 export interface ShowNotificationOptions {
   /**
@@ -67,7 +72,8 @@ export interface ShowNotificationOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since 3 dynamic
+   * @deprecated since 7
    */
   contentTitle?: string;
 
@@ -76,7 +82,8 @@ export interface ShowNotificationOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since 3 dynamic
+   * @deprecated since 7
    */
   contentText?: string;
 
@@ -85,23 +92,30 @@ export interface ShowNotificationOptions {
    *
    * @type { ?ActionResult }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   clickAction?: ActionResult;
 }
 
 /**
+ * Manages notifications.
+ * 
  * @syscap SystemCapability.Notification.Notification
- * @since 3
+ * @since 3 dynamiconly
+ * @deprecated since 7
+ * @useinstead ohos.notification/notification
  */
-export default class Notification {
+declare class Notification {
   /**
    * Displays the notification.
    *
    * @param { ShowNotificationOptions } [options] - Options.
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since 3 dynamic
+   * @deprecated since 7
    */
   static show(options?: ShowNotificationOptions): void;
 }
+
+export default Notification;

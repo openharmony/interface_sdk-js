@@ -26,8 +26,8 @@ import type Context from './application/BaseContext';
  *
  * @namespace sms
  * @syscap SystemCapability.Telephony.SmsMms
- * @since arkts {'1.1':'6','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 6 dynamic
+ * @since 22 static
  */
 declare namespace sms {
   /**
@@ -51,7 +51,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function splitMessage(content: string, callback: AsyncCallback<Array<string>>): void;
 
@@ -75,7 +75,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function splitMessage(content: string): Promise<Array<string>>;
 
@@ -97,7 +97,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since 6
+   * @since 6 dynamic
    */
   function createMessage(pdu: Array<number>, specification: string, callback: AsyncCallback<ShortMessage>): void;
 
@@ -119,7 +119,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since 6
+   * @since 6 dynamic
    */
   function createMessage(pdu: Array<number>, specification: string): Promise<ShortMessage>;
 
@@ -139,7 +139,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 10
    * @useinstead telephony.sms#sendShortMessage
    */
@@ -162,7 +162,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since 10
+   * @since 10 dynamic
    */
   function sendShortMessage(options: SendMessageOptions, callback: AsyncCallback<void>): void;
 
@@ -183,7 +183,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since 10
+   * @since 10 dynamic
    */
   function sendShortMessage(options: SendMessageOptions): Promise<void>;
 
@@ -206,7 +206,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function setDefaultSmsSlotId(slotId: number, callback: AsyncCallback<void>): void;
 
@@ -229,7 +229,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function setDefaultSmsSlotId(slotId: number): Promise<void>;
 
@@ -241,7 +241,7 @@ declare namespace sms {
    * Returns {@code 0} if the default SIM card for sending SMS messages is in card slot 1;
    * Returns {@code 1} if the default SIM card for sending SMS messages is in card slot 2.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since 7
+   * @since 7 dynamic
    */
   function getDefaultSmsSlotId(callback: AsyncCallback<number>): void;
 
@@ -251,7 +251,7 @@ declare namespace sms {
    * @returns { Promise<number> } Returns {@code 0} if the default SIM card for sending SMS messages is in card slot 1;
    * Returns {@code 1} if the default SIM card for sending SMS messages is in card slot 2.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since 7
+   * @since 7 dynamic
    */
   function getDefaultSmsSlotId(): Promise<number>;
 
@@ -272,7 +272,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function setSmscAddr(slotId: number, smscAddr: string, callback: AsyncCallback<void>): void;
 
@@ -293,7 +293,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function setSmscAddr(slotId: number, smscAddr: string): Promise<void>;
 
@@ -313,7 +313,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function getSmscAddr(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -333,7 +333,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function getSmscAddr(slotId: number): Promise<string>;
 
@@ -343,8 +343,8 @@ declare namespace sms {
    * @returns { boolean } Returns {@code true} if the device is capable of sending and receiving SMS messages;
    * Returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 22 static
    */
   function hasSmsCapability(): boolean;
 
@@ -364,7 +364,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function addSimMessage(options: SimMessageOptions, callback: AsyncCallback<void>): void;
 
@@ -384,7 +384,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function addSimMessage(options: SimMessageOptions): Promise<void>;
 
@@ -406,7 +406,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function delSimMessage(slotId: number, msgIndex: number, callback: AsyncCallback<void>): void;
 
@@ -428,7 +428,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function delSimMessage(slotId: number, msgIndex: number): Promise<void>;
 
@@ -448,7 +448,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function updateSimMessage(options: UpdateSimMessageOptions, callback: AsyncCallback<void>): void;
 
@@ -468,7 +468,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function updateSimMessage(options: UpdateSimMessageOptions): Promise<void>;
 
@@ -490,7 +490,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function getAllSimMessages(slotId: number, callback: AsyncCallback<Array<SimShortMessage>>): void;
 
@@ -511,7 +511,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function getAllSimMessages(slotId: number): Promise<Array<SimShortMessage>>;
 
@@ -531,7 +531,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function setCBConfig(options: CBConfigOptions, callback: AsyncCallback<void>): void;
 
@@ -551,7 +551,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function setCBConfig(options: CBConfigOptions): Promise<void>;
 
@@ -573,7 +573,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getSmsSegmentsInfo(slotId: number, message: string, force7bit: boolean, callback: AsyncCallback<SmsSegmentsInfo>): void;
 
@@ -594,7 +594,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getSmsSegmentsInfo(slotId: number, message: string, force7bit: boolean): Promise<SmsSegmentsInfo>;
 
@@ -614,7 +614,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function isImsSmsSupported(slotId: number, callback: AsyncCallback<boolean>): void;
 
@@ -633,7 +633,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function isImsSmsSupported(slotId: number): Promise<boolean>;
 
@@ -650,7 +650,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getImsShortMessageFormat(callback: AsyncCallback<string>): void;
 
@@ -664,7 +664,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function getImsShortMessageFormat(): Promise<string>;
 
@@ -683,7 +683,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function decodeMms(mmsFilePathName: string | Array<number>, callback: AsyncCallback<MmsInformation>): void;
 
@@ -701,7 +701,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function decodeMms(mmsFilePathName: string | Array<number>): Promise<MmsInformation>;
 
@@ -719,7 +719,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function encodeMms(mms: MmsInformation, callback: AsyncCallback<Array<number>>): void;
 
@@ -737,7 +737,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   function encodeMms(mms: MmsInformation): Promise<Array<number>>;
 
@@ -755,7 +755,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since 10
+   * @since 10 dynamic
    */
   function getDefaultSmsSimId(callback: AsyncCallback<number>): void;
 
@@ -771,7 +771,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since 10
+   * @since 10 dynamic
    */
   function getDefaultSmsSimId(): Promise<number>;
 
@@ -781,7 +781,7 @@ declare namespace sms {
    * @interface MmsInformation
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface MmsInformation {
     /**
@@ -790,7 +790,7 @@ declare namespace sms {
      * @type { MessageType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     messageType: MessageType;
 
@@ -801,7 +801,7 @@ declare namespace sms {
      * MmsDeliveryInd | MmsReadOrigInd | MmsReadRecInd }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     mmsType: MmsSendReq | MmsSendConf | MmsNotificationInd | MmsRespInd | MmsRetrieveConf | MmsAcknowledgeInd | MmsDeliveryInd | MmsReadOrigInd | MmsReadRecInd;
 
@@ -811,7 +811,7 @@ declare namespace sms {
      * @type { ?Array<MmsAttachment> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     attachment?: Array<MmsAttachment>;
   }
@@ -833,7 +833,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function sendMms(context: Context, mmsParams: MmsParams, callback: AsyncCallback<void>): void;
 
@@ -854,7 +854,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function sendMms(context: Context, mmsParams: MmsParams): Promise<void>;
 
@@ -875,7 +875,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function downloadMms(context: Context, mmsParams: MmsParams, callback: AsyncCallback<void>): void;
 
@@ -896,7 +896,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function downloadMms(context: Context, mmsParams: MmsParams): Promise<void>;
 
@@ -906,7 +906,7 @@ declare namespace sms {
    * @interface MmsParams
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   export interface MmsParams {
     /**
@@ -915,7 +915,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     slotId: number;
 
@@ -925,7 +925,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     mmsc: string;
 
@@ -935,7 +935,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     data: string;
 
@@ -945,7 +945,7 @@ declare namespace sms {
      * @type { ?MmsConfig }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     mmsConfig?: MmsConfig;
   }
@@ -956,7 +956,7 @@ declare namespace sms {
    * @interface MmsConfig
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   export interface MmsConfig {
     /**
@@ -965,7 +965,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     userAgent: string;
 
@@ -975,7 +975,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     userAgentProfile: string;
   }
@@ -986,7 +986,7 @@ declare namespace sms {
    * @interface MmsSendReq
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface MmsSendReq {
     /**
@@ -995,7 +995,7 @@ declare namespace sms {
      * @type { MmsAddress }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     from: MmsAddress;
 
@@ -1005,7 +1005,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     transactionId: string;
 
@@ -1015,7 +1015,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     contentType: string;
 
@@ -1025,7 +1025,7 @@ declare namespace sms {
      * @type { MmsVersionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     version: MmsVersionType;
 
@@ -1035,7 +1035,7 @@ declare namespace sms {
      * @type { ?Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     to?: Array<MmsAddress>;
 
@@ -1045,7 +1045,7 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     date?: number;
 
@@ -1055,7 +1055,7 @@ declare namespace sms {
      * @type { ?Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     cc?: Array<MmsAddress>;
 
@@ -1065,7 +1065,7 @@ declare namespace sms {
      * @type { ?Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     bcc?: Array<MmsAddress>;
 
@@ -1075,7 +1075,7 @@ declare namespace sms {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     subject?: string;
 
@@ -1085,7 +1085,7 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     messageClass?: number;
 
@@ -1095,7 +1095,7 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     expiry?: number;
 
@@ -1105,7 +1105,7 @@ declare namespace sms {
      * @type { ?MmsPriorityType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     priority?: MmsPriorityType;
 
@@ -1115,7 +1115,7 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     senderVisibility?: number;
 
@@ -1125,7 +1125,7 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     deliveryReport?: number;
 
@@ -1135,7 +1135,7 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     readReport?: number;
   }
@@ -1146,7 +1146,7 @@ declare namespace sms {
    * @interface MmsSendConf
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface MmsSendConf {
     /**
@@ -1155,7 +1155,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     responseState: number;
 
@@ -1165,7 +1165,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     transactionId: string;
 
@@ -1175,7 +1175,7 @@ declare namespace sms {
      * @type { MmsVersionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     version: MmsVersionType;
 
@@ -1185,7 +1185,7 @@ declare namespace sms {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     messageId?: string;
   }
@@ -1196,7 +1196,7 @@ declare namespace sms {
    * @interface MmsNotificationInd
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface MmsNotificationInd {
     /**
@@ -1205,7 +1205,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     transactionId: string;
 
@@ -1215,7 +1215,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     messageClass: number;
 
@@ -1225,7 +1225,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     messageSize: number;
 
@@ -1235,7 +1235,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     expiry: number;
 
@@ -1245,7 +1245,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     contentLocation: string;
 
@@ -1255,7 +1255,7 @@ declare namespace sms {
      * @type { MmsVersionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     version: MmsVersionType;
 
@@ -1265,7 +1265,7 @@ declare namespace sms {
      * @type { ?MmsAddress }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     from?: MmsAddress;
 
@@ -1275,7 +1275,7 @@ declare namespace sms {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     subject?: string;
 
@@ -1285,7 +1285,7 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     deliveryReport?: number;
 
@@ -1295,7 +1295,7 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     contentClass?: number;
   }
@@ -1306,7 +1306,7 @@ declare namespace sms {
    * @interface MmsRespInd
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface MmsRespInd {
     /**
@@ -1315,7 +1315,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     transactionId: string;
 
@@ -1325,7 +1325,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     status: number;
 
@@ -1335,7 +1335,7 @@ declare namespace sms {
      * @type { MmsVersionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     version: MmsVersionType;
 
@@ -1345,7 +1345,7 @@ declare namespace sms {
      * @type { ?ReportType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     reportAllowed?: ReportType;
   }
@@ -1356,7 +1356,7 @@ declare namespace sms {
    * @interface MmsRetrieveConf
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface MmsRetrieveConf {
     /**
@@ -1365,7 +1365,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     transactionId: string;
 
@@ -1375,7 +1375,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     messageId: string;
 
@@ -1385,7 +1385,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     date: number;
 
@@ -1395,7 +1395,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     contentType: string;
 
@@ -1405,7 +1405,7 @@ declare namespace sms {
      * @type { Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     to: Array<MmsAddress>;
 
@@ -1415,7 +1415,7 @@ declare namespace sms {
      * @type { MmsVersionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     version: MmsVersionType;
 
@@ -1425,7 +1425,7 @@ declare namespace sms {
      * @type { ?MmsAddress }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     from?: MmsAddress;
 
@@ -1435,7 +1435,7 @@ declare namespace sms {
      * @type { ?Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     cc?: Array<MmsAddress>;
 
@@ -1445,7 +1445,7 @@ declare namespace sms {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     subject?: string;
 
@@ -1455,7 +1455,7 @@ declare namespace sms {
      * @type { ?MmsPriorityType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     priority?: MmsPriorityType;
 
@@ -1465,7 +1465,7 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     deliveryReport?: number;
 
@@ -1475,7 +1475,7 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     readReport?: number;
 
@@ -1485,7 +1485,7 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     retrieveStatus?: number;
 
@@ -1495,7 +1495,7 @@ declare namespace sms {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     retrieveText?: string;
   }
@@ -1506,7 +1506,7 @@ declare namespace sms {
    * @interface MmsAcknowledgeInd
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface MmsAcknowledgeInd {
     /**
@@ -1515,7 +1515,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     transactionId: string;
 
@@ -1525,7 +1525,7 @@ declare namespace sms {
      * @type { MmsVersionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     version: MmsVersionType;
 
@@ -1535,7 +1535,7 @@ declare namespace sms {
      * @type { ?ReportType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     reportAllowed?: ReportType;
   }
@@ -1546,7 +1546,7 @@ declare namespace sms {
    * @interface MmsDeliveryInd
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface MmsDeliveryInd {
     /**
@@ -1555,7 +1555,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     messageId: string;
 
@@ -1565,7 +1565,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     date: number;
 
@@ -1575,7 +1575,7 @@ declare namespace sms {
      * @type { Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     to: Array<MmsAddress>;
 
@@ -1585,7 +1585,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     status: number;
 
@@ -1595,7 +1595,7 @@ declare namespace sms {
      * @type { MmsVersionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     version: MmsVersionType;
   }
@@ -1606,7 +1606,7 @@ declare namespace sms {
    * @interface MmsReadOrigInd
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface MmsReadOrigInd {
     /**
@@ -1615,7 +1615,7 @@ declare namespace sms {
      * @type { MmsVersionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     version: MmsVersionType;
 
@@ -1625,7 +1625,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     messageId: string;
 
@@ -1635,7 +1635,7 @@ declare namespace sms {
      * @type { Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     to: Array<MmsAddress>;
 
@@ -1645,7 +1645,7 @@ declare namespace sms {
      * @type { MmsAddress }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     from: MmsAddress;
 
@@ -1655,7 +1655,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     date: number;
 
@@ -1665,7 +1665,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     readStatus: number;
   }
@@ -1676,7 +1676,7 @@ declare namespace sms {
    * @interface MmsReadRecInd
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface MmsReadRecInd {
     /**
@@ -1685,7 +1685,7 @@ declare namespace sms {
      * @type { MmsVersionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     version: MmsVersionType;
 
@@ -1695,7 +1695,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     messageId: string;
 
@@ -1705,7 +1705,7 @@ declare namespace sms {
      * @type { Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     to: Array<MmsAddress>;
 
@@ -1715,7 +1715,7 @@ declare namespace sms {
      * @type { MmsAddress }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     from: MmsAddress;
 
@@ -1725,7 +1725,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     readStatus: number;
 
@@ -1735,7 +1735,7 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     date?: number;
   }
@@ -1746,7 +1746,7 @@ declare namespace sms {
    * @interface MmsAttachment
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface MmsAttachment {
     /**
@@ -1755,7 +1755,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     contentId: string;
 
@@ -1765,7 +1765,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     contentLocation: string;
 
@@ -1775,7 +1775,7 @@ declare namespace sms {
      * @type { DispositionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     contentDisposition: DispositionType;
 
@@ -1785,7 +1785,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     contentTransferEncoding: string;
 
@@ -1795,7 +1795,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     contentType: string;
 
@@ -1805,7 +1805,7 @@ declare namespace sms {
      * @type { boolean }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     isSmil: boolean;
 
@@ -1815,7 +1815,7 @@ declare namespace sms {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     path?: string;
 
@@ -1825,7 +1825,7 @@ declare namespace sms {
      * @type { ?Array<number> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     inBuff?: Array<number>;
 
@@ -1835,7 +1835,7 @@ declare namespace sms {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     fileName?: string;
 
@@ -1845,7 +1845,7 @@ declare namespace sms {
      * @type { ?MmsCharSets }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     charset?: MmsCharSets;
   }
@@ -1856,7 +1856,7 @@ declare namespace sms {
    * @interface MmsAddress
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface MmsAddress {
     /**
@@ -1865,7 +1865,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     address: string;
 
@@ -1875,7 +1875,7 @@ declare namespace sms {
      * @type { MmsCharSets }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     charset: MmsCharSets;
   }
@@ -1886,7 +1886,7 @@ declare namespace sms {
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export enum MessageType {
     /**
@@ -1894,7 +1894,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     TYPE_MMS_SEND_REQ = 128,
 
@@ -1903,7 +1903,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     TYPE_MMS_SEND_CONF,
 
@@ -1912,7 +1912,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     TYPE_MMS_NOTIFICATION_IND,
 
@@ -1921,7 +1921,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     TYPE_MMS_RESP_IND,
 
@@ -1930,7 +1930,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     TYPE_MMS_RETRIEVE_CONF,
 
@@ -1939,7 +1939,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     TYPE_MMS_ACKNOWLEDGE_IND,
 
@@ -1948,7 +1948,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     TYPE_MMS_DELIVERY_IND,
 
@@ -1957,7 +1957,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     TYPE_MMS_READ_REC_IND,
 
@@ -1966,7 +1966,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     TYPE_MMS_READ_ORIG_IND,
   }
@@ -1977,7 +1977,7 @@ declare namespace sms {
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export enum MmsPriorityType {
     /**
@@ -1985,7 +1985,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     MMS_LOW = 128,
 
@@ -1994,7 +1994,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     MMS_NORMAL,
 
@@ -2003,7 +2003,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     MMS_HIGH,
   }
@@ -2014,7 +2014,7 @@ declare namespace sms {
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export enum MmsVersionType {
     /**
@@ -2022,7 +2022,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     MMS_VERSION_1_0 = 0x10,
 
@@ -2031,7 +2031,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     MMS_VERSION_1_1,
 
@@ -2040,7 +2040,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     MMS_VERSION_1_2,
 
@@ -2049,7 +2049,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     MMS_VERSION_1_3,
   }
@@ -2060,7 +2060,7 @@ declare namespace sms {
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export enum MmsCharSets {
     /**
@@ -2068,7 +2068,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     BIG5 = 0X07EA,
 
@@ -2077,7 +2077,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     ISO_10646_UCS_2 = 0X03E8,
 
@@ -2086,7 +2086,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     ISO_8859_1 = 0X04,
 
@@ -2095,7 +2095,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     ISO_8859_2,
 
@@ -2104,7 +2104,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     ISO_8859_3,
 
@@ -2113,7 +2113,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     ISO_8859_4,
 
@@ -2122,7 +2122,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     ISO_8859_5,
 
@@ -2131,7 +2131,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     ISO_8859_6,
 
@@ -2140,7 +2140,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     ISO_8859_7,
 
@@ -2149,7 +2149,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     ISO_8859_8,
 
@@ -2158,7 +2158,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     ISO_8859_9,
 
@@ -2167,7 +2167,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     SHIFT_JIS = 0X11,
 
@@ -2176,7 +2176,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     US_ASCII = 0X03,
 
@@ -2185,7 +2185,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     UTF_8 = 0X6A,
   }
@@ -2196,7 +2196,7 @@ declare namespace sms {
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export enum DispositionType {
     /**
@@ -2204,7 +2204,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     FROM_DATA = 0,
 
@@ -2213,7 +2213,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     ATTACHMENT,
 
@@ -2222,7 +2222,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     INLINE,
   }
@@ -2233,7 +2233,7 @@ declare namespace sms {
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export enum ReportType {
     /**
@@ -2241,7 +2241,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     MMS_YES = 128,
 
@@ -2250,7 +2250,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     MMS_NO,
   }
@@ -2261,7 +2261,7 @@ declare namespace sms {
    * @interface CBConfigOptions
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   export interface CBConfigOptions {
     /**
@@ -2270,7 +2270,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     slotId: number;
 
@@ -2280,7 +2280,7 @@ declare namespace sms {
      * @type { boolean }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     enable: boolean;
 
@@ -2290,7 +2290,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     startMessageId: number;
 
@@ -2300,7 +2300,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     endMessageId: number;
 
@@ -2310,7 +2310,7 @@ declare namespace sms {
      * @type { RanType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     ranType: RanType;
   }
@@ -2321,7 +2321,7 @@ declare namespace sms {
    * @interface SimMessageOptions
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   export interface SimMessageOptions {
     /**
@@ -2330,7 +2330,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     slotId: number;
 
@@ -2340,7 +2340,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     smsc: string;
 
@@ -2350,7 +2350,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     pdu: string;
 
@@ -2360,7 +2360,7 @@ declare namespace sms {
      * @type { SimMessageStatus }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     status: SimMessageStatus;
   }
@@ -2371,7 +2371,7 @@ declare namespace sms {
    * @interface UpdateSimMessageOptions
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   export interface UpdateSimMessageOptions {
     /**
@@ -2380,7 +2380,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     slotId: number;
 
@@ -2390,7 +2390,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     msgIndex: number;
 
@@ -2400,7 +2400,7 @@ declare namespace sms {
      * @type { SimMessageStatus }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     newStatus: SimMessageStatus;
 
@@ -2410,7 +2410,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     pdu: string;
 
@@ -2420,7 +2420,7 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     smsc: string;
   }
@@ -2430,7 +2430,7 @@ declare namespace sms {
    *
    * @interface ShortMessage
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since 6
+   * @since 6 dynamic
    */
   export interface ShortMessage {
     /**
@@ -2438,7 +2438,7 @@ declare namespace sms {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     visibleMessageBody: string;
 
@@ -2447,7 +2447,7 @@ declare namespace sms {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     visibleRawAddress: string;
 
@@ -2456,7 +2456,7 @@ declare namespace sms {
      *
      * @type { ShortMessageClass }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     messageClass: ShortMessageClass;
 
@@ -2465,7 +2465,7 @@ declare namespace sms {
      *
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     protocolId: number;
 
@@ -2474,7 +2474,7 @@ declare namespace sms {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     scAddress: string;
 
@@ -2483,7 +2483,7 @@ declare namespace sms {
      *
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     scTimestamp: number;
 
@@ -2492,7 +2492,7 @@ declare namespace sms {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     isReplaceMessage: boolean;
 
@@ -2501,7 +2501,7 @@ declare namespace sms {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     hasReplyPath: boolean;
 
@@ -2510,7 +2510,7 @@ declare namespace sms {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     pdu: Array<number>;
 
@@ -2520,7 +2520,7 @@ declare namespace sms {
      *
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     status: number;
 
@@ -2529,7 +2529,7 @@ declare namespace sms {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     isSmsStatusReportMessage: boolean;
   }
@@ -2540,7 +2540,7 @@ declare namespace sms {
    * @interface SimShortMessage
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   export interface SimShortMessage {
     /**
@@ -2549,7 +2549,7 @@ declare namespace sms {
      * @type { ShortMessage }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     shortMessage: ShortMessage;
 
@@ -2559,7 +2559,7 @@ declare namespace sms {
      * @type { SimMessageStatus }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     simMessageStatus: SimMessageStatus;
 
@@ -2569,7 +2569,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     indexOnSim: number;
   }
@@ -2580,7 +2580,7 @@ declare namespace sms {
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   export enum SimMessageStatus {
     /**
@@ -2588,7 +2588,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     SIM_MESSAGE_STATUS_FREE = 0,
 
@@ -2597,7 +2597,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     SIM_MESSAGE_STATUS_READ = 1,
 
@@ -2606,7 +2606,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     SIM_MESSAGE_STATUS_UNREAD = 3,
 
@@ -2615,7 +2615,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     SIM_MESSAGE_STATUS_SENT = 5,
 
@@ -2624,7 +2624,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     SIM_MESSAGE_STATUS_UNSENT = 7,
   }
@@ -2634,14 +2634,14 @@ declare namespace sms {
    *
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since 6
+   * @since 6 dynamic
    */
   export enum ShortMessageClass {
     /**
      * Indicates an unknown type.
      *
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     UNKNOWN,
 
@@ -2649,7 +2649,7 @@ declare namespace sms {
      * Indicates an instant message, which is displayed immediately after being received.
      *
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     INSTANT_MESSAGE,
 
@@ -2657,7 +2657,7 @@ declare namespace sms {
      * Indicates an SMS message that can be stored on the device or SIM card based on the storage status.
      *
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     OPTIONAL_MESSAGE,
 
@@ -2665,7 +2665,7 @@ declare namespace sms {
      * Indicates an SMS message containing SIM card information, which is to be stored in a SIM card.
      *
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     SIM_MESSAGE,
 
@@ -2673,7 +2673,7 @@ declare namespace sms {
      * Indicates an SMS message to be forwarded to another device.
      *
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     FORWARD_MESSAGE
   }
@@ -2683,7 +2683,7 @@ declare namespace sms {
    *
    * @interface SendMessageOptions
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since 6
+   * @since 6 dynamic
    */
   export interface SendMessageOptions {
     /**
@@ -2691,7 +2691,7 @@ declare namespace sms {
      *
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     slotId: number;
 
@@ -2700,7 +2700,7 @@ declare namespace sms {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     destinationHost: string;
 
@@ -2709,7 +2709,7 @@ declare namespace sms {
      *
      * @type { ?string }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     serviceCenter?: string;
 
@@ -2718,7 +2718,7 @@ declare namespace sms {
      *
      * @type { string | Array<number> }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     content: string | Array<number>;
 
@@ -2727,7 +2727,7 @@ declare namespace sms {
      *
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     destinationPort?: number;
 
@@ -2736,7 +2736,7 @@ declare namespace sms {
      *
      * @type { ?AsyncCallback<ISendShortMessageCallback> }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     sendCallback?: AsyncCallback<ISendShortMessageCallback>;
 
@@ -2745,7 +2745,7 @@ declare namespace sms {
      *
      * @type { ?AsyncCallback<IDeliveryShortMessageCallback> }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     deliveryCallback?: AsyncCallback<IDeliveryShortMessageCallback>;
   }
@@ -2755,7 +2755,7 @@ declare namespace sms {
    *
    * @interface ISendShortMessageCallback
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since 6
+   * @since 6 dynamic
    */
   export interface ISendShortMessageCallback {
     /**
@@ -2763,7 +2763,7 @@ declare namespace sms {
      *
      * @type { SendSmsResult }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     result: SendSmsResult;
 
@@ -2772,7 +2772,7 @@ declare namespace sms {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     url: string;
 
@@ -2781,7 +2781,7 @@ declare namespace sms {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     isLastPart: boolean;
   }
@@ -2791,7 +2791,7 @@ declare namespace sms {
    *
    * @interface IDeliveryShortMessageCallback
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since 6
+   * @since 6 dynamic
    */
   export interface IDeliveryShortMessageCallback {
     /**
@@ -2799,7 +2799,7 @@ declare namespace sms {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     pdu: Array<number>;
   }
@@ -2809,14 +2809,14 @@ declare namespace sms {
    *
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since 6
+   * @since 6 dynamic
    */
   export enum SendSmsResult {
     /**
      * Indicates that the SMS message is successfully sent.
      *
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     SEND_SMS_SUCCESS = 0,
 
@@ -2824,7 +2824,7 @@ declare namespace sms {
      * Indicates that sending the SMS message fails due to an unknown reason.
      *
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     SEND_SMS_FAILURE_UNKNOWN = 1,
 
@@ -2832,7 +2832,7 @@ declare namespace sms {
      * Indicates that sending the SMS fails because the modem is powered off.
      *
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     SEND_SMS_FAILURE_RADIO_OFF = 2,
 
@@ -2841,7 +2841,7 @@ declare namespace sms {
      * or does not support sending or reception of SMS messages.
      *
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since 6
+     * @since 6 dynamic
      */
     SEND_SMS_FAILURE_SERVICE_UNAVAILABLE = 3
   }
@@ -2852,7 +2852,7 @@ declare namespace sms {
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   export enum RanType {
     /**
@@ -2860,7 +2860,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     TYPE_GSM = 1,
 
@@ -2869,7 +2869,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 7 dynamic
      */
     TYPE_CDMA = 2,
   }
@@ -2880,7 +2880,7 @@ declare namespace sms {
    * @interface SmsSegmentsInfo
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export interface SmsSegmentsInfo {
     /**
@@ -2889,7 +2889,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     splitCount: number;
 
@@ -2899,7 +2899,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     encodeCount: number;
 
@@ -2909,7 +2909,7 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     encodeCountRemaining: number;
 
@@ -2919,7 +2919,7 @@ declare namespace sms {
      * @type { SmsEncodingScheme }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     scheme: SmsEncodingScheme;
   }
@@ -2930,7 +2930,7 @@ declare namespace sms {
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 8 dynamic
    */
   export enum SmsEncodingScheme {
     /**
@@ -2938,7 +2938,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     SMS_ENCODING_UNKNOWN = 0,
 
@@ -2947,7 +2947,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     SMS_ENCODING_7BIT,
 
@@ -2956,7 +2956,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     SMS_ENCODING_8BIT,
 
@@ -2965,7 +2965,7 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since 8 dynamic
      */
     SMS_ENCODING_16BIT,
   }

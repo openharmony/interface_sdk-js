@@ -17,7 +17,7 @@
  * @file
  * @kit NetworkKit
  */
-/*** if arkts 1.1&1.2 */
+/*** if arkts dynamic&static */
 import connection from '@ohos.net.connection';
 import http from '@ohos.net.http';
 import sharing from '@ohos.net.sharing';
@@ -32,17 +32,18 @@ import policy from '@ohos.net.policy';
 import socket from '@ohos.net.socket';
 import vpn from '@ohos.net.vpn';
 import vpnExtension from '@ohos.net.vpnExtension';
-import VpnExtensionAbility, { VpnExtensionContext } from '@ohos.app.ability.VpnExtensionAbility';
+import VpnExtensionAbility from '@ohos.app.ability.VpnExtensionAbility';
+import VpnExtensionContext from '@ohos.net.vpnExtension';
 import eap from '@ohos.net.eap';
 import netFirewall from '@ohos.net.netFirewall';
 
 export {
   connection, ethernet, http, mdns, policy, sharing, webSocket,
   socket, statistics, vpn, vpnExtension, networkSecurity,
-  VpnExtensionAbility, VpnExtensionContext, netFirewall
+  VpnExtensionAbility, VpnExtensionContext, eap, netFirewall
 };
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 export {
   connection, http, sharing, webSocket, statistics, networkSecurity
 };

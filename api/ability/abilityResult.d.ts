@@ -29,8 +29,8 @@ import Want from '../@ohos.app.ability.Want';
  * @typedef AbilityResult
  * @syscap SystemCapability.Ability.AbilityBase
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 export interface AbilityResult {
   /**
@@ -48,8 +48,8 @@ export interface AbilityResult {
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   resultCode: int;
 
@@ -68,8 +68,8 @@ export interface AbilityResult {
    * @type { ?Want }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   want?: Want;
 }

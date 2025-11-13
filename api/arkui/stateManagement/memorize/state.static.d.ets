@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 /**
@@ -24,7 +23,7 @@
  *
  * @interface MemoState
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export interface MemoState<T> {
   /**
@@ -32,7 +31,7 @@ export interface MemoState<T> {
    * @type { T }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   readonly value: T;
 }

@@ -17,7 +17,6 @@
 /**
  * @file Refresh modifier file, defines modifier and function.
  * @kit ArkUI
- * @arkts 1.2
  */
 
 
@@ -29,7 +28,7 @@ import { RefreshAttribute } from '@ohos.arkui.component';
  *
  * @implements { RefreshAttribute, AttributeModifier<RefreshAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
 */
 export declare class RefreshModifier implements RefreshAttribute, AttributeModifier<RefreshAttribute> {}
   

@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { AttributeModifier } from '@ohos.arkui.component';
@@ -28,6 +27,6 @@ import { BlankAttribute } from '@ohos.arkui.component';
  * @extends BlankAttribute
  * @implements AttributeModifier<BlankAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class BlankModifier implements BlankAttribute, AttributeModifier<BlankAttribute> {}

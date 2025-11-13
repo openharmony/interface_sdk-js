@@ -23,7 +23,7 @@
  *
  * @typedef CustomizeData
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.Metadata
  */
@@ -31,7 +31,7 @@ export interface CustomizeData {
   /**
    * @default Indicates the custom metadata name
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   name: string;
@@ -39,7 +39,7 @@ export interface CustomizeData {
   /**
    * @default Indicates the custom metadata value
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   value: string;
@@ -47,7 +47,7 @@ export interface CustomizeData {
   /**
    * @default Indicates the custom metadata resource
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   extra: string;

@@ -31,8 +31,8 @@
  *
  * @enum { int }
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 export enum NotificationFlagStatus {
   /**
@@ -46,8 +46,8 @@ export enum NotificationFlagStatus {
    * The default flag is used. The effect is the same as that of TYPE_OPEN.
    *
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   TYPE_NONE = 0,
 
@@ -62,8 +62,8 @@ export enum NotificationFlagStatus {
    * The notification flag is enabled.
    *
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   TYPE_OPEN = 1,
 
@@ -78,8 +78,8 @@ export enum NotificationFlagStatus {
    * The notification flag is disabled.
    *
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   TYPE_CLOSE = 2
 }
@@ -89,8 +89,8 @@ export enum NotificationFlagStatus {
  *
  * @typedef NotificationFlags
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'8', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 8 dynamic
+ * @since 22 static
  */
 export interface NotificationFlags {
   /**
@@ -99,8 +99,8 @@ export interface NotificationFlags {
    * @type { ?NotificationFlagStatus }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   readonly soundEnabled?: NotificationFlagStatus;
 
@@ -110,8 +110,8 @@ export interface NotificationFlags {
    * @type { ?NotificationFlagStatus }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   readonly vibrationEnabled?: NotificationFlagStatus;
 
@@ -122,8 +122,8 @@ export interface NotificationFlags {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   readonly reminderFlags?: long;
 }

@@ -22,8 +22,8 @@
  * The application state data.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since arkts {'1.1':'14', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14 dynamic
+ * @since 22 static
  */
 declare class AppStateData {
   /**
@@ -31,38 +31,38 @@ declare class AppStateData {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   bundleName: string;
 
   /**
    * The uid.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
-  uid: number;
+  uid: int;
 
   /**
    * The application state.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
-  state: number;
+  state: int;
 
   /**
    * Indicates whether the application has splitted screens.
    *
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   isSplitScreenMode: boolean;
 
@@ -71,8 +71,8 @@ declare class AppStateData {
    *
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   isFloatingWindowMode: boolean;
 }

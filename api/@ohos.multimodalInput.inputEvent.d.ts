@@ -31,8 +31,8 @@
  * @typedef InputEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 22 static
  */
 export declare interface InputEvent {
   /**
@@ -46,8 +46,8 @@ export declare interface InputEvent {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   id: int;
 
@@ -62,8 +62,8 @@ export declare interface InputEvent {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   deviceId: int;
 
@@ -78,8 +78,8 @@ export declare interface InputEvent {
    * @type { long }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   actionTime: long;
 
@@ -94,8 +94,8 @@ export declare interface InputEvent {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   screenId: int;
 
@@ -110,8 +110,8 @@ export declare interface InputEvent {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   windowId: int;
 }

@@ -49,7 +49,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ButtonType {
   /**
@@ -80,7 +80,7 @@ declare enum ButtonType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Capsule,
 
@@ -112,7 +112,7 @@ declare enum ButtonType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Circle,
 
@@ -144,7 +144,7 @@ declare enum ButtonType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Normal,
 
@@ -155,7 +155,7 @@ declare enum ButtonType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   ROUNDED_RECTANGLE = 3
 }
@@ -177,7 +177,7 @@ declare enum ButtonType {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum ButtonStyleMode {
     /**
@@ -195,7 +195,7 @@ declare enum ButtonStyleMode {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     NORMAL = 0,
     /**
@@ -213,7 +213,7 @@ declare enum ButtonStyleMode {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     EMPHASIZED = 1,
     /**
@@ -231,7 +231,7 @@ declare enum ButtonStyleMode {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     TEXTUAL = 2
 }
@@ -244,7 +244,7 @@ declare enum ButtonStyleMode {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum ButtonRole {
     /**
@@ -254,7 +254,7 @@ declare enum ButtonRole {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     NORMAL = 0,
     /**
@@ -264,7 +264,7 @@ declare enum ButtonRole {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ERROR = 1
 }
@@ -278,7 +278,7 @@ declare enum ButtonRole {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
 
@@ -290,7 +290,7 @@ declare type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 
 declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfiguration> {
@@ -301,7 +301,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     label: string;
     /**
@@ -311,7 +311,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     pressed: boolean;
     /**
@@ -321,7 +321,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     triggerClick: ButtonTriggerClickCallback;
 }
@@ -343,7 +343,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum ControlSize {
     /**
@@ -361,7 +361,7 @@ declare enum ControlSize {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     SMALL = 'small',
     /**
@@ -379,7 +379,7 @@ declare enum ControlSize {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     NORMAL = 'normal'
 }
@@ -416,7 +416,7 @@ declare enum ControlSize {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface ButtonOptions {
     /**
@@ -451,7 +451,7 @@ declare interface ButtonOptions {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     type?: ButtonType;
     /**
@@ -486,7 +486,7 @@ declare interface ButtonOptions {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     stateEffect?: boolean;
     /**
@@ -508,7 +508,7 @@ declare interface ButtonOptions {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     buttonStyle?: ButtonStyleMode;
     /**
@@ -530,7 +530,7 @@ declare interface ButtonOptions {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     controlSize?: ControlSize;
     /**
@@ -542,7 +542,7 @@ declare interface ButtonOptions {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     role?: ButtonRole;
 }
@@ -579,7 +579,7 @@ declare interface ButtonOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface ButtonInterface {
     /**
@@ -614,7 +614,7 @@ interface ButtonInterface {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     (): ButtonAttribute;
     /**
@@ -653,7 +653,7 @@ interface ButtonInterface {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     (options: ButtonOptions): ButtonAttribute;
     /**
@@ -696,7 +696,7 @@ interface ButtonInterface {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     (label: ResourceStr, options?: ButtonOptions): ButtonAttribute;
 }
@@ -716,7 +716,7 @@ interface ButtonInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface LabelStyle {
     /**
@@ -734,7 +734,7 @@ declare interface LabelStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     overflow?: TextOverflow;
     /**
@@ -752,7 +752,7 @@ declare interface LabelStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     maxLines?: number;
     /**
@@ -770,7 +770,7 @@ declare interface LabelStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     minFontSize?: number | ResourceStr;
     /**
@@ -788,7 +788,7 @@ declare interface LabelStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     maxFontSize?: number | ResourceStr;
     /**
@@ -806,7 +806,7 @@ declare interface LabelStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     heightAdaptivePolicy?: TextHeightAdaptivePolicy;
     /**
@@ -824,7 +824,7 @@ declare interface LabelStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     font?: Font;
 }
@@ -860,7 +860,7 @@ declare interface LabelStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   /**
@@ -899,7 +899,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   type(value: ButtonType): ButtonAttribute;
 
@@ -939,7 +939,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   stateEffect(value: boolean): ButtonAttribute;
 
@@ -962,7 +962,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   buttonStyle(value: ButtonStyleMode): ButtonAttribute;
   
@@ -985,7 +985,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   controlSize(value: ControlSize): ButtonAttribute;
 
@@ -998,7 +998,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice 
-   * @since 12
+   * @since 12 dynamic
    */
   role(value: ButtonRole): ButtonAttribute;
 
@@ -1038,7 +1038,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontColor(value: ResourceColor): ButtonAttribute;
 
@@ -1078,7 +1078,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontSize(value: Length): ButtonAttribute;
 
@@ -1118,7 +1118,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontWeight(value: number | FontWeight | string): ButtonAttribute;
 
@@ -1158,7 +1158,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontStyle(value: FontStyle): ButtonAttribute;
 
@@ -1198,7 +1198,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontFamily(value: string | Resource): ButtonAttribute;
 
@@ -1210,7 +1210,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   contentModifier(modifier: ContentModifier<ButtonConfiguration>): ButtonAttribute;
 
@@ -1231,7 +1231,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   labelStyle(value: LabelStyle): ButtonAttribute;
   
@@ -1252,7 +1252,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   minFontScale(scale: number | Resource): ButtonAttribute;
 
@@ -1273,7 +1273,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   maxFontScale(scale: number | Resource): ButtonAttribute;
 }
@@ -1306,7 +1306,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Button: ButtonInterface;
 
@@ -1338,6 +1338,6 @@ declare const Button: ButtonInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const ButtonInstance: ButtonAttribute;

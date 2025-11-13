@@ -27,8 +27,8 @@ import _DriverExtensionContext from './application/DriverExtensionContext';
  *
  * @typedef { _DriverExtensionContext }
  * @syscap SystemCapability.Driver.ExternalDevice
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 22 static
  */
 export type DriverExtensionContext = _DriverExtensionContext;
 
@@ -36,8 +36,8 @@ export type DriverExtensionContext = _DriverExtensionContext;
  * class of driver extension ability.
  * @syscap SystemCapability.Driver.ExternalDevice
  * @StageModelOnly
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 22 static
  */
 declare class DriverExtensionAbility {
   /**
@@ -46,8 +46,8 @@ declare class DriverExtensionAbility {
    * @type { DriverExtensionContext }
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   context: DriverExtensionContext;
 
@@ -56,8 +56,8 @@ declare class DriverExtensionAbility {
    * @param { Want } want - Indicates the want of created driver extension.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   onInit(want: Want): void;
 
@@ -65,8 +65,8 @@ declare class DriverExtensionAbility {
    * Called back before a driver extension is destroyed.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   onRelease(): void;
 
@@ -76,8 +76,8 @@ declare class DriverExtensionAbility {
    * @returns { rpc.RemoteObject | Promise<rpc.RemoteObject> } Rpc remoteObject.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   onConnect(want: Want): rpc.RemoteObject | Promise<rpc.RemoteObject>;
 
@@ -97,8 +97,7 @@ declare class DriverExtensionAbility {
    * @returns { undefined | Promise<void> }
    * @syscap SystemCapability.Driver.ExternalDevice
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   onDisconnect(want: Want): undefined | Promise<void>;
 
@@ -109,8 +108,8 @@ declare class DriverExtensionAbility {
    * @returns { Array<string> } The dump info array.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   onDump(params: Array<string>): Array<string>;
 }
@@ -119,7 +118,7 @@ declare class DriverExtensionAbility {
  * class of driver extension ability.
  * @syscap SystemCapability.Driver.ExternalDevice
  * @stagemodelonly
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 22 static
  */
 export default DriverExtensionAbility;

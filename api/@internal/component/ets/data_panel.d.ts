@@ -50,7 +50,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum DataPanelType {
   /**
@@ -81,7 +81,7 @@ declare enum DataPanelType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Line,
 
@@ -113,7 +113,7 @@ declare enum DataPanelType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Circle,
 }
@@ -130,7 +130,7 @@ declare enum DataPanelType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface ColorStop {
   /**
@@ -146,7 +146,7 @@ declare interface ColorStop {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   color: ResourceColor;
 
@@ -163,7 +163,7 @@ declare interface ColorStop {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   offset: Length;
 }
@@ -181,7 +181,7 @@ declare interface ColorStop {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class LinearGradient {
   /**
@@ -199,7 +199,7 @@ declare class LinearGradient {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor(colorStops: ColorStop[]);
 }
@@ -221,7 +221,7 @@ declare class LinearGradient {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface DataPanelShadowOptions extends MultiShadowOptions {
   /**
@@ -241,7 +241,7 @@ declare interface DataPanelShadowOptions extends MultiShadowOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   colors?: Array<ResourceColor | LinearGradient>;
 }
@@ -278,7 +278,7 @@ declare interface DataPanelShadowOptions extends MultiShadowOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface DataPanelOptions {
   /**
@@ -313,7 +313,7 @@ declare interface DataPanelOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   values: number[];
 
@@ -349,7 +349,7 @@ declare interface DataPanelOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   max?: number;
 
@@ -385,7 +385,7 @@ declare interface DataPanelOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   type?: DataPanelType;
 }
@@ -422,7 +422,7 @@ declare interface DataPanelOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface DataPanelInterface {
   /**
@@ -461,7 +461,7 @@ interface DataPanelInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (options: DataPanelOptions): DataPanelAttribute;
 }
@@ -474,7 +474,7 @@ interface DataPanelInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelConfiguration> {
   /**
@@ -484,7 +484,7 @@ declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelCo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   values: number[];
 
@@ -495,7 +495,7 @@ declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelCo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   maxValue: number;
 }
@@ -532,7 +532,7 @@ declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelCo
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
   /**
@@ -571,7 +571,7 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   closeEffect(value: boolean): DataPanelAttribute;
 
@@ -592,7 +592,7 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   valueColors(value: Array<ResourceColor | LinearGradient>): DataPanelAttribute;
 
@@ -613,7 +613,7 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   trackBackgroundColor(value: ResourceColor): DataPanelAttribute;
 
@@ -634,7 +634,7 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   strokeWidth(value: Length): DataPanelAttribute;
 
@@ -655,7 +655,7 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   trackShadow(value: DataPanelShadowOptions): DataPanelAttribute;
 
@@ -667,7 +667,7 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   contentModifier(modifier: ContentModifier<DataPanelConfiguration>): DataPanelAttribute;
 }
@@ -700,7 +700,7 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const DataPanel: DataPanelInterface
 
@@ -732,6 +732,6 @@ declare const DataPanel: DataPanelInterface
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const DataPanelInstance: DataPanelAttribute;

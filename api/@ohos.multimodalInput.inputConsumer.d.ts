@@ -26,8 +26,8 @@ import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
  *
  * @namespace inputConsumer
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
- * @since arkts {'1.1':'14', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14 dynamic
+ * @since 22 static
  */
 declare namespace inputConsumer {
   /**
@@ -36,8 +36,8 @@ declare namespace inputConsumer {
    * @interface KeyOptions
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   interface KeyOptions {
     /**
@@ -48,8 +48,8 @@ declare namespace inputConsumer {
      * @type { Array<int> }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 22 static
      */
     preKeys: Array<int>;
 
@@ -60,8 +60,8 @@ declare namespace inputConsumer {
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 22 static
      */
     finalKey: int;
 
@@ -72,8 +72,8 @@ declare namespace inputConsumer {
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 22 static
      */
     isFinalKeyDown: boolean;
 
@@ -87,8 +87,8 @@ declare namespace inputConsumer {
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 22 static
      */
     finalKeyDownDuration: int;
 
@@ -99,8 +99,8 @@ declare namespace inputConsumer {
      * @type { ?boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     isRepeat?: boolean;
   }
@@ -110,8 +110,8 @@ declare namespace inputConsumer {
    *
    * @typedef HotkeyOptions
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   interface HotkeyOptions {
     /**
@@ -121,8 +121,8 @@ declare namespace inputConsumer {
      *
      * @type { Array<int> }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     preKeys: Array<int>;
 
@@ -132,8 +132,8 @@ declare namespace inputConsumer {
      *
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     finalKey: int;
 
@@ -143,8 +143,8 @@ declare namespace inputConsumer {
      * 
      * @type { ?boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     isRepeat?: boolean;
   }
@@ -154,8 +154,8 @@ declare namespace inputConsumer {
    *
    * @typedef KeyPressedConfig
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since arkts {'1.1':'16', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 16 dynamic
+   * @since 22 static
    */
   interface KeyPressedConfig {
     /**
@@ -171,8 +171,8 @@ declare namespace inputConsumer {
      *
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since arkts {'1.1':'21', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 21 dynamic
+     * @since 22 static
      */
     key: int;
 
@@ -189,8 +189,8 @@ declare namespace inputConsumer {
      *
      * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since arkts {'1.1':'21', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 21 dynamic
+     * @since 22 static
      */
     action: int;
 
@@ -199,8 +199,8 @@ declare namespace inputConsumer {
      *
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since arkts {'1.1':'16', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16 dynamic
+     * @since 22 static
      */
     isRepeat: boolean;
   }
@@ -211,7 +211,7 @@ declare namespace inputConsumer {
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
-   * @since 11
+   * @since 11 dynamic
    */
   enum ShieldMode {
     /**
@@ -219,7 +219,7 @@ declare namespace inputConsumer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
-     * @since 11
+     * @since 11 dynamic
      */
     FACTORY_MODE
   }
@@ -251,8 +251,8 @@ declare namespace inputConsumer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   function on(type: 'key', keyOptions: KeyOptions, callback: Callback<KeyOptions>): void;
 
@@ -281,8 +281,8 @@ declare namespace inputConsumer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   function off(type: 'key', keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
 
@@ -299,7 +299,7 @@ declare namespace inputConsumer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use.
-   * @since 11
+   * @since 11 dynamic
    */
   function setShieldStatus(shieldMode: ShieldMode, isShield: boolean): void;
 
@@ -315,7 +315,7 @@ declare namespace inputConsumer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use.
-   * @since 11
+   * @since 11 dynamic
    */
   function getShieldStatus(shieldMode: ShieldMode): boolean;
 
@@ -325,7 +325,7 @@ declare namespace inputConsumer {
    * @returns { Promise<Array<HotkeyOptions>> } Promise used to return the list of all system shortcut keys.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 14
+   * @since 14 dynamic
    */
   function getAllSystemHotkeys(): Promise<Array<HotkeyOptions>>;
 
@@ -342,8 +342,8 @@ declare namespace inputConsumer {
    * @throws { BusinessError } 4200002 - The hotkey has been used by the system.
    * @throws { BusinessError } 4200003 - The hotkey has been subscribed to by another.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   function on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void;
 
@@ -358,8 +358,8 @@ declare namespace inputConsumer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void;
 
@@ -374,8 +374,8 @@ declare namespace inputConsumer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since arkts {'1.1':'16', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 16 dynamic
+   * @since 22 static
    */
   function on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback<KeyEvent>): void;
 
@@ -390,8 +390,8 @@ declare namespace inputConsumer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since arkts {'1.1':'16', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 16 dynamic
+   * @since 22 static
    */
   function off(type: 'keyPressed', callback?: Callback<KeyEvent>): void;
 }
