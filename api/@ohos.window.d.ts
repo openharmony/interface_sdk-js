@@ -7587,6 +7587,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     on(type: 'touchOutside', callback: Callback<void>): void;
 
@@ -7609,6 +7610,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11 dynamic
+     * @since 22 static
      */
     off(type: 'touchOutside', callback?: Callback<void>): void;
 
@@ -7940,7 +7942,7 @@ declare namespace window {
      * Interaction events include physical keyboard input events and screen touch/click events, but not soft keyboard input events.
      *
      * @param { 'noInteractionDetected' } type - The value is fixed at 'noInteractionDetected', indicating the window has no interaction for a long time.
-     * @param { number } timeout - The timeout(in seconds) of no interaction detection.
+     * @param { long } timeout - The timeout(in seconds) of no interaction detection.
      * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -7951,8 +7953,9 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
-    on(type: 'noInteractionDetected', timeout: number, callback: Callback<void>): void;
+    on(type: 'noInteractionDetected', timeout: long, callback: Callback<void>): void;
 
     /**
      * Subscribes to non-interaction events in a window within the specified period.
@@ -7984,6 +7987,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     off(type: 'noInteractionDetected', callback?: Callback<void>): void;
 
@@ -8127,6 +8131,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     on(type: 'dialogTargetTouch', callback: Callback<void>): void;
 
@@ -8163,6 +8168,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 22 static
      */
     off(type: 'dialogTargetTouch', callback?: Callback<void>): void;
 
