@@ -897,6 +897,24 @@ declare namespace wifiManager {
   function disableNetwork(netId: number): void;
 
   /**
+    * Disable the specified DeviceConfig by networkId for a period of time.
+    * The disabled DeviceConfig will not be associated with again.
+    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+    * @param { int } netId Identifies the network to disable. The value of networkId cannot be less than 0.
+    * @param { int } blockDuration Indicates the duration of network disablement(unit is secondes),
+    *     If the value is -1, means permanent disablement.
+    * @throws {BusinessError} 201 - Permission denied.
+    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+    * @throws {BusinessError} 801 - Capability not supported.
+    * @throws {BusinessError} 2501000 - Operation failed.
+    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
+    * @syscap SystemCapability.Communication.WiFi.STA
+    * @systemapi Hide this for inner system use.
+    * @since 23 dynamic&static
+    */
+  function disableNetwork(netId: int, blockDuration: int): void;
+
+  /**
    * Remove all the saved Wi-Fi configurations.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
    * @throws {BusinessError} 201 - Permission denied.
