@@ -340,6 +340,22 @@ declare namespace cacheDownload {
      * @since 22 static
      */
     function setDownloadInfoListSize(size: number): void;
+
+    /**
+     * Clears the memory cache used to store downloaded content.
+     *
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 23 dynamic&static
+     */
+    function clearMemoryCache(): void;
+   
+    /**
+     * Clears the file cache used to store downloaded content.
+     *
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 23 dynamic&static
+     */
+    function clearFileCache(): void;
 }
 
 export default cacheDownload;
