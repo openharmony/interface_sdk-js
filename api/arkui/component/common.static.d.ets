@@ -2755,36 +2755,6 @@ export declare interface DragItemInfo {
     extraInfo?: string;
 }
 /**
- * Converts a value in vp units to a value in px.
- * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
- * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
- * @deprecated since 18
- * @useinstead ohos.arkui.UIContext.UIContext#vp2px
- */
-export declare function vp2px(value: number): number;
-/**
- * Converts a number in units of px to a number in units of vp.
- * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
- * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
- * @deprecated since 18
- * @useinstead ohos.arkui.UIContext.UIContext#px2vp
- */
-export declare function px2vp(value: number): number;
-/**
  * Defines the namespace of focus controller.
  *
  * @namespace focusControl
