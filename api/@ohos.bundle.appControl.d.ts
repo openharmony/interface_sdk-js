@@ -656,6 +656,20 @@ declare namespace appControl {
    * @since 22 static
    */
   function setDisposedRules(disposedRuleConfigurations: Array<DisposedRuleConfiguration>): void;
+
+  /**
+   * Query all disposed rules under the current user.
+   *
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @returns { Array<DisposedRuleConfiguration> } Returns all disposed rules.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function getAllDisposedRules(): Array<DisposedRuleConfiguration>;
 }
 
 export default appControl;
