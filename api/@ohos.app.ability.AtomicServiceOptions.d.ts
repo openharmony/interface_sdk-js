@@ -20,6 +20,9 @@
 
 import CompletionHandlerForAtomicService from './@ohos.app.ability.CompletionHandlerForAtomicService';
 import StartOptions from './@ohos.app.ability.StartOptions';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * AtomicServiceOptions is the basic communication component of the system.
@@ -52,9 +55,18 @@ export default class AtomicServiceOptions extends StartOptions {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   parameters?: Record<string, Object>;
+
+  /**
+   * The description of the WantParams object in an AtomicServiceOptions
+   *
+   * @type { ?Record<string, RecordData> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  parameters?: Record<string, RecordData>;
 
   /**
    * The completion handler of openAtomicService.

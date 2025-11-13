@@ -30,6 +30,7 @@ import type { MultiAppMode } from './bundleManager/ApplicationInfo';
  * @systemapi
  * @stagemodelonly
  * @since 11 dynamic
+ * @since 22 static
  */
 declare namespace dialogSession {
 
@@ -41,6 +42,7 @@ declare namespace dialogSession {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
+   * @since 22 static
    */
   export interface DialogAbilityInfo {
 
@@ -52,6 +54,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
+     * @since 22 static
      */
     bundleName: string;
 
@@ -63,6 +66,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
+     * @since 22 static
      */
     moduleName: string;
 
@@ -74,52 +78,57 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
+     * @since 22 static
      */
     abilityName: string;
 
     /**
      * The icon id of ability
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
+     * @since 22 static
      */
-    abilityIconId: number;
+    abilityIconId: int;
 
     /**
      * The label id of ability
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
+     * @since 22 static
      */
-    abilityLabelId: number;
+    abilityLabelId: int;
 
     /**
      * The icon id of bundle
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
+     * @since 22 static
      */
-    bundleIconId: number;
+    bundleIconId: int;
 
     /**
      * The label id of bundle
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
+     * @since 22 static
      */
-    bundleLabelId: number;
+    bundleLabelId: int;
 
     /**
      * The ability is visible
@@ -129,19 +138,21 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 22 static
      */
     visible: boolean;
 
     /**
      * Index of an application clone. It takes effect only for cloned applications.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
+     * @since 22 static
      */
-    appIndex: number;
+    appIndex: int;
 
     /**
       * The mode of the multi-application.
@@ -151,6 +162,7 @@ declare namespace dialogSession {
       * @systemapi
       * @stagemodelonly
       * @since 12 dynamic
+      * @since 22 static
       */
     multiAppMode: MultiAppMode;
   }
@@ -163,6 +175,7 @@ declare namespace dialogSession {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
+   * @since 22 static
    */
   export interface DialogSessionInfo {
 
@@ -174,6 +187,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
+     * @since 22 static
      */
     callerAbilityInfo: DialogAbilityInfo;
 
@@ -185,6 +199,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
+     * @since 22 static
      */
     targetAbilityInfos: Array<DialogAbilityInfo>;
 
@@ -196,6 +211,7 @@ declare namespace dialogSession {
      * @systemapi
      * @stagemodelonly
      * @since 11 dynamic
+     * @since 22 static
      */
     parameters?: Record<string, Object>;
   }
@@ -219,6 +235,23 @@ declare namespace dialogSession {
   function getDialogSessionInfo(dialogSessionId: string): DialogSessionInfo;
 
   /**
+   * Query the session info of dialog.
+   *
+   * @param { string } dialogSessionId - Query information by dialog session id.
+   * @returns { DialogSessionInfo | null } Returns the session info when the target DialogSessionInfo of
+   *     dialogSessionId exists. Returns null if the target DialogSessionInfo of dialogSessionId not exist.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 22 static
+   */
+  function getDialogSessionInfo(dialogSessionId: string): DialogSessionInfo | null;
+
+  /**
    * Send the selection result of dialog.
    *
    * @param { string } dialogSessionId - Send Result by dialog session id.
@@ -235,6 +268,7 @@ declare namespace dialogSession {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
+   * @since 22 static
    */
   function sendDialogResult(dialogSessionId: string, targetWant: Want, isAllowed: boolean): Promise<void>;
 
@@ -255,6 +289,7 @@ declare namespace dialogSession {
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
+   * @since 22 static
    */
   function sendDialogResult(dialogSessionId: string, targetWant: Want, isAllowed: boolean, callback: AsyncCallback<void>): void;
 }

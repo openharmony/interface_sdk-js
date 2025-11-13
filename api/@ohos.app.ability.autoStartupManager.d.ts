@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,6 +21,10 @@
 /*** if arkts dynamic */
 import type { AutoStartupCallback } from './application/AutoStartupCallback';
 import type { AutoStartupInfo } from './application/AutoStartupInfo';
+/*** endif */
+/*** if arkts static */
+import type AutoStartupCallback from './application/AutoStartupCallback';
+import type AutoStartupInfo from './application/AutoStartupInfo';
 /*** endif */
 import type { AsyncCallback } from './@ohos.base';
 
@@ -61,6 +65,22 @@ declare namespace autoStartupManager {
   function on(type: 'systemAutoStartup', callback: AutoStartupCallback): void;
 
   /**
+   * Register the listener that watches for all applications auto startup state.
+   *
+   * @permission ohos.permission.MANAGE_APP_BOOT
+   * @param { AutoStartupCallback } callback - Auto startup callback.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *     "ohos.permission.MANAGE_APP_BOOT".
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 16000050 - Connect to system server failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 22 static
+   */
+  function onSystemAutoStartup(callback: AutoStartupCallback): void;
+
+  /**
    * Unregister listener that watches for all applications auto startup state.
    *
    * @permission ohos.permission.MANAGE_APP_BOOT
@@ -80,6 +100,22 @@ declare namespace autoStartupManager {
   function off(type: 'systemAutoStartup', callback?: AutoStartupCallback): void;
 
   /**
+   * Unregister listener that watches for all applications auto startup state.
+   *
+   * @permission ohos.permission.MANAGE_APP_BOOT
+   * @param { AutoStartupCallback } [callback] - Auto startup callback.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *                                 "ohos.permission.MANAGE_APP_BOOT".
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 16000050 - Connect to system server failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 22 static
+   */
+  function offSystemAutoStartup(callback?: AutoStartupCallback): void;
+
+  /**
    * Set application auto startup state.
    *
    * @permission ohos.permission.MANAGE_APP_BOOT
@@ -97,6 +133,7 @@ declare namespace autoStartupManager {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
+   * @since 22 static
    */
   function setApplicationAutoStartup(info: AutoStartupInfo, callback: AsyncCallback<void>): void;
 
@@ -118,6 +155,7 @@ declare namespace autoStartupManager {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
+   * @since 22 static
    */
   function setApplicationAutoStartup(info: AutoStartupInfo): Promise<void>;
 
@@ -139,6 +177,7 @@ declare namespace autoStartupManager {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
+   * @since 22 static
    */
   function cancelApplicationAutoStartup(info: AutoStartupInfo, callback: AsyncCallback<void>): void;
 
@@ -160,6 +199,7 @@ declare namespace autoStartupManager {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
+   * @since 22 static
    */
   function cancelApplicationAutoStartup(info: AutoStartupInfo): Promise<void>;
 
@@ -179,6 +219,7 @@ declare namespace autoStartupManager {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
+   * @since 22 static
    */
   function queryAllAutoStartupApplications(callback: AsyncCallback<Array<AutoStartupInfo>>): void;
 
@@ -197,6 +238,7 @@ declare namespace autoStartupManager {
    * @systemapi
    * @StageModelOnly
    * @since 11 dynamic
+   * @since 22 static
    */
   function queryAllAutoStartupApplications(): Promise<Array<AutoStartupInfo>>;
 

@@ -21,6 +21,9 @@
 /*** if arkts dynamic */
 import CompletionHandler from './@ohos.app.ability.CompletionHandler';
 /*** endif */
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * Define the available options for openLink API.
@@ -54,9 +57,18 @@ export default interface OpenLinkOptions {
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
    */
   parameters?: Record<string, Object>;
+
+  /**
+   * OpenLinkOptions parameters in the form of custom key-value pairs.
+   *
+   * @type { ?Record<string, RecordData> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  parameters?: Record<string, RecordData>;
 
   /**
    * The completion handler of openLink.

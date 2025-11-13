@@ -28,6 +28,7 @@ import type businessAbilityRouter from '../@ohos.app.businessAbilityRouter';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 10 dynamic
+ * @since 22 static
  */
 export interface BusinessAbilityInfo {
   /**
@@ -38,6 +39,7 @@ export interface BusinessAbilityInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   readonly bundleName: string;
 
@@ -49,6 +51,7 @@ export interface BusinessAbilityInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   readonly moduleName: string;
 
@@ -60,41 +63,45 @@ export interface BusinessAbilityInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   readonly name: string;
 
   /**
    * Indicates the label id of the business ability info
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
-  readonly labelId: number;
+  readonly labelId: int;
 
   /**
    * Indicates the description id of the business ability info
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
-  readonly descriptionId: number;
+  readonly descriptionId: int;
 
   /**
    * Indicates the icon id of the business ability info
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
-  readonly iconId: number;
+  readonly iconId: int;
 
   /**
    * Enumerates types of the business ability info
@@ -104,6 +111,7 @@ export interface BusinessAbilityInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   readonly businessType: businessAbilityRouter.BusinessType;
 
@@ -115,6 +123,7 @@ export interface BusinessAbilityInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10 dynamic
+   * @since 22 static
    */
   readonly applicationInfo: ApplicationInfo;
 }

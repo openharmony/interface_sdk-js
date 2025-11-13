@@ -21,8 +21,8 @@
 /*** if arkts dynamic */
 import { Caller } from '../@ohos.app.ability.UIAbility';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
-import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 /*** endif */
+import AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 import { AsyncCallback } from '../@ohos.base';
 import { ConnectOptions } from '../ability/connectOptions';
 import ExtensionContext from './ExtensionContext';
@@ -2536,6 +2536,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
+   * @since 22 static
    */
   openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<void>;
 

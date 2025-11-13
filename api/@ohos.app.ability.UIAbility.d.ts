@@ -183,9 +183,18 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
    */
   off(type: 'release', callback: OnReleaseCallback): void;
+
+  /**
+   * Unregisters all death listener notification callback.
+   *
+   * @param { OnReleaseCallback } callback - Callback used to return the result.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 22 static
+   */
+  offRelease(callback: OnReleaseCallback): void;
 
   /**
    * Unregisters a callback that is invoked when the stub on the target UIAbility is disconnected.
@@ -197,9 +206,17 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 22 static
    */
   off(type: 'release'): void;
+
+  /**
+   * Unregisters all death listener notification callback.
+   * 
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 22 static
+   */
+  offRelease(): void;
 }
 
 /**
@@ -839,6 +856,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
+   * @since 22 static
    */
   onShare(wantParam: Record<string, Object>): void;
 
@@ -873,6 +891,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
+   * @since 22 static
    */
   onPrepareToTerminate(): boolean;
 
@@ -899,6 +918,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
+   * @since 22 static
    */
   onPrepareToTerminateAsync(): Promise<boolean>;
 
@@ -951,6 +971,7 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 18 dynamic
+   * @since 22 static
    */
   onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult;
 }

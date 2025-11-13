@@ -22,6 +22,9 @@ import type window from './@ohos.window';
 import type insightIntent from './@ohos.app.ability.insightIntent';
 import type InsightIntentContext from './@ohos.app.ability.InsightIntentContext';
 import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * The class of insight intent executor.
@@ -56,9 +59,23 @@ declare class InsightIntentExecutor {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
    */
   onExecuteInUIAbilityForegroundMode(name: string, param: Record<string, Object>, pageLoader: window.WindowStage):
+    insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
+
+  /**
+   * Called when a UIAbility executes the insight intent in the foreground.
+   *
+   * @param { string } name - Indicates the insight intent name.
+   * @param { Record<string, RecordData> } param - Indicates the insight intent parameters.
+   * @param { window.WindowStage } pageLoader - Indicates the page loader.
+   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of
+   *     insight intent execution, support promise.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onExecuteInUIAbilityForegroundMode(name: string, param: Record<string, RecordData>, pageLoader: window.WindowStage):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 
   /**
@@ -71,9 +88,22 @@ declare class InsightIntentExecutor {
    * @StageModelOnly
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
    */
   onExecuteInUIAbilityBackgroundMode(name: string, param: Record<string, Object>):
+    insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
+
+  /**
+   * Called when a UIAbility executes the insight intent in the background.
+   *
+   * @param { string } name - Indicates the insight intent name.
+   * @param { Record<string, RecordData> } param - Indicates the insight intent parameters.
+   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of
+   *     insight intent execution, support promise.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onExecuteInUIAbilityBackgroundMode(name: string, param: Record<string, RecordData>):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 
   /**
@@ -86,9 +116,23 @@ declare class InsightIntentExecutor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
    */
   onExecuteInUIExtensionAbility(name: string, param: Record<string, Object>, pageLoader: UIExtensionContentSession):
+    insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
+
+  /**
+   * Called when a UIExtensionAbility executes the insight intent.
+   *
+   * @param { string } name - Indicates the insight intent name.
+   * @param { Record<string, RecordData> } param - Indicates the insight intent parameters.
+   * @param { UIExtensionContentSession } pageLoader - Indicates the page loader.
+   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of
+   *     insight intent execution, support promise.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onExecuteInUIExtensionAbility(name: string, param: Record<string, RecordData>, pageLoader: UIExtensionContentSession):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 
   /**
@@ -100,9 +144,22 @@ declare class InsightIntentExecutor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 11 dynamic
-   * @since 22 static
    */
   onExecuteInServiceExtensionAbility(name: string, param: Record<string, Object>):
+    insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
+
+  /**
+   * Called when a ServiceExtensionAbility executes the insight intent.
+   *
+   * @param { string } name - Indicates the insight intent name.
+   * @param { Record<string, RecordData> } param - Indicates the insight intent parameters.
+   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of
+   *     insight intent execution, support promise.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onExecuteInServiceExtensionAbility(name: string, param: Record<string, RecordData>):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 }
 

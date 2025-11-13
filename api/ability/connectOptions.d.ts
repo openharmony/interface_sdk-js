@@ -102,9 +102,9 @@ export interface ConnectOptions {
    * @since 12
    */
   /**
-   * The callback interface was connect successfully.
+   * The callback interface was disconnect successfully.
    *
-   * @type { OnConnectFn }
+   * @type { OnDisconnectFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 22 dynamic&static
    */

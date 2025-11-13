@@ -22,6 +22,9 @@ import Want from './@ohos.app.ability.Want';
 import wantConstant from './@ohos.app.ability.wantConstant';
 import type { AsyncCallback } from './@ohos.base';
 import type insightIntent from './@ohos.app.ability.insightIntent';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * Insight intent driver.
@@ -101,9 +104,19 @@ declare namespace insightIntentDriver {
      * @systemapi
      * @StageModelOnly
      * @since 11 dynamic
-     * @since 22 static
      */
     insightIntentParam: Record<string, Object>;
+
+    /**
+     * Indicates the insight intent param.
+     *
+     * @type { Record<string, RecordData> }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 22 static
+     */
+    insightIntentParam: Record<string, RecordData>;
 
     /**
      * Indicates the execute mode.

@@ -18,6 +18,10 @@
  * @kit AbilityKit
  */
 
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
+
 /**
  * Want is the basic communication component of the system.
  *
@@ -190,12 +194,13 @@ export default class Want {
    * For example, wantConstant.Flags.FLAG_ABILITY_CONTINUATION specifies whether to start the ability in cross-device
    * migration scenarios.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11 dynamic
+   * @since 22 static
    */
-  flags?: number;
+  flags?: int;
 
   /**
    * The description of an action in an want.
@@ -299,9 +304,17 @@ export default class Want {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
    */
   parameters?: Record<string, Object>;
+
+  /**
+   * The description of the WantParams object in an Want
+   * 
+   * @type { ?Record<string, RecordData> }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 22 static
+   */
+  parameters?: Record<string, RecordData>;
 
   /**
    * The description of a entities in a Want.

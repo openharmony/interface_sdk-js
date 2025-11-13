@@ -1216,14 +1216,14 @@ export interface AbilityDelegator {
    * Execute the given command in the aa tools side.
    *
    * @param { string } cmd - Shell command
-   * @param { number } timeoutSecs - Timeout, in seconds
+   * @param { long } timeoutSecs - Timeout, in seconds
    * @param { AsyncCallback<ShellCmdResult> } callback - The callback of executeShellCommand.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
    * @since 22 static
    */
-  executeShellCommand(cmd: string, timeoutSecs: number, callback: AsyncCallback<ShellCmdResult>): void;
+  executeShellCommand(cmd: string, timeoutSecs: long, callback: AsyncCallback<ShellCmdResult>): void;
 
   /**
    * Execute the given command in the aa tools side.
@@ -1238,14 +1238,14 @@ export interface AbilityDelegator {
    * Execute the given command in the aa tools side.
    *
    * @param { string } cmd - Shell command
-   * @param { number } [timeoutSecs] - Timeout, in seconds
+   * @param { long } [timeoutSecs] - Timeout, in seconds
    * @returns { Promise<ShellCmdResult> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11 dynamic
    * @since 22 static
    */
-  executeShellCommand(cmd: string, timeoutSecs?: number): Promise<ShellCmdResult>;
+  executeShellCommand(cmd: string, timeoutSecs?: long): Promise<ShellCmdResult>;
 
   /**
    * Finish the test and print log information to the unit testing console.

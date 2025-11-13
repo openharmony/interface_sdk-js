@@ -691,9 +691,21 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
    */
   function on(type: 'applicationState', observer: ApplicationStateObserver): int;
+
+  /**
+   * Register application state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { ApplicationStateObserver } observer - The application state observer.
+   * @returns { int } Returns the number code of the observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 22 static
+   */
+  function onApplicationStateChange(observer: ApplicationStateObserver): int;
 
   /**
    * Register application state observer.
@@ -709,9 +721,22 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
-   * @since 22 static
    */
   function on(type: 'applicationState', observer: ApplicationStateObserver, bundleNameList: Array<string>): int;
+
+  /**
+   * Register application state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { ApplicationStateObserver } observer - The application state observer.
+   * @param { Array<string> } bundleNameList - The list of bundleName. The max length is 128.
+   * @returns { int } Returns the number code of the observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 22 static
+   */
+  function onApplicationStateChange(observer: ApplicationStateObserver, bundleNameList: Array<string>): int;
 
   /**
    * Register application state observer with filter.
@@ -745,9 +770,22 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
    */
   function on(type: 'appForegroundState', observer: AppForegroundStateObserver): void;
+
+  /**
+   * Register app foreground or background state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { AppForegroundStateObserver } observer - The app foreground state observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function onAppForegroundStateChange(observer: AppForegroundStateObserver): void;
 
   /**
    * Register ability first frame state observe.
@@ -764,9 +802,23 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
    */
   function on(type: 'abilityFirstFrameState', observer: AbilityFirstFrameStateObserver, bundleName?: string): void;
+
+  /**
+   * Register ability first frame state observe.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { AbilityFirstFrameStateObserver } observer - The ability first frame state observer.
+   * @param { string } [bundleName] - The target bundle name.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function onAbilityFirstFrameStateChange(observer: AbilityFirstFrameStateObserver, bundleName?: string): void;
 
   /**
    * Unregister application state observer.
@@ -781,9 +833,21 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 15 dynamic
-   * @since 22 static
    */
   function off(type: 'applicationState', observerId: int, callback: AsyncCallback<void>): void;
+
+  /**
+   * Unregister application state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { int } observerId - Indicates the number code of the observer.
+   * @param { AsyncCallback<void> } callback - The callback of off.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 22 static
+   */
+  function offApplicationStateChange(observerId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Unregister application state observer.
@@ -803,6 +867,19 @@ declare namespace appManager {
   function off(type: 'applicationState', observerId: int): Promise<void>;
 
   /**
+   * Unregister application state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { int } observerId - Indicates the number code of the observer.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 22 static
+   */
+  function offApplicationStateChange(observerId: int): Promise<void>;
+
+  /**
    * Unregister app foreground or background state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
@@ -816,9 +893,22 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
    */
   function off(type: 'appForegroundState', observer?: AppForegroundStateObserver): void;
+
+  /**
+   * Unregister app foreground or background state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { AppForegroundStateObserver } observer - The app foreground state observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function offAppForegroundStateChange(observer?: AppForegroundStateObserver): void;
 
   /**
    * Unregister ability first frame state observer.
@@ -834,9 +924,22 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
    */
   function off(type: 'abilityFirstFrameState', observer?: AbilityFirstFrameStateObserver): void;
+
+  /**
+   * Unregister ability first frame state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { AbilityFirstFrameStateObserver } observer - The ability first frame state observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function offAbilityFirstFrameStateChange(observer?: AbilityFirstFrameStateObserver): void;
 
   /**
    * getForegroundApplications.
@@ -1105,6 +1208,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
+   * @since 22 static
    */
   function clearUpApplicationData(bundleName: string): Promise<void>;
 
@@ -1122,8 +1226,9 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
+   * @since 22 static
    */
-  function clearUpApplicationData(bundleName: string, callback: AsyncCallback<void>);
+  function clearUpApplicationData(bundleName: string, callback: AsyncCallback<void>): void;
 
   /**
    * Is it a ram-constrained device
@@ -1431,6 +1536,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 22 static
    */
   function isApplicationRunning(bundleName: string): Promise<boolean>;
 
@@ -1449,6 +1555,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 22 static
    */
   function isApplicationRunning(bundleName: string, callback: AsyncCallback<boolean>): void;
 
@@ -1518,7 +1625,7 @@ declare namespace appManager {
    *
    * @permission ohos.permission.CLEAN_APPLICATION_DATA
    * @param { string } bundleName - bundle name.
-   * @param { number } [appCloneIndex] - app clone index
+   * @param { int } [appCloneIndex] - app clone index
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -1529,14 +1636,15 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 13 dynamic
+   * @since 22 static
    */
-  function clearUpAppData(bundleName: string, appCloneIndex?: number): Promise<void>;
+  function clearUpAppData(bundleName: string, appCloneIndex?: int): Promise<void>;
 
   /**
    * Terminate the mission of a UIAbility and back to caller.
    *
    * @permission ohos.permission.KILL_APP_PROCESSES
-   * @param { number } missionId - The mission id of the UIAbility need to be terminated.
+   * @param { int } missionId - The mission id of the UIAbility need to be terminated.
    * @returns { Promise<void> } Returns the result of terminateMission.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -1546,8 +1654,9 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 13 dynamic
+   * @since 22 static
    */
-  function terminateMission(missionId: number): Promise<void>;
+  function terminateMission(missionId: int): Promise<void>;
 
   /**
    * Get pids of processes which belong to specific bundle name and support process cache feature.
@@ -1632,6 +1741,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   function setKeepAliveForAppServiceExtension(bundleName: string, enabled: boolean): Promise<void>;
 
@@ -1647,6 +1757,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 20 dynamic
+   * @since 22 static
    */
   function getKeepAliveAppServiceExtensions(): Promise<Array<KeepAliveBundleInfo>>;
 
