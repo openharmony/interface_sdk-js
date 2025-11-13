@@ -6012,7 +6012,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 23 dynamic
+     * @since 23 dynamic&static
      */
     getSystemVolumePercentage(volumeType: AudioVolumeType): int;
 
@@ -6034,7 +6034,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 23 dynamic
+     * @since 23 dynamic&static
      */
     setSystemVolumePercentage(volumeType: AudioVolumeType, percentage: int): Promise<void>;
 
@@ -6046,7 +6046,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 23 dynamic
+     * @since 23 dynamic&static
      */
     getMinSystemVolumePercentage(volumeType: AudioVolumeType): int;
 
@@ -8855,7 +8855,7 @@ declare namespace audio {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 23 dynamic
+     * @since 23 dynamic&static
      */
     percentage?: int;
   }
