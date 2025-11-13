@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare type SpaceType = string | number | Resource;
 
@@ -38,7 +38,7 @@ declare type SpaceType = string | number | Resource;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface ColumnOptions {
   /**
@@ -84,7 +84,7 @@ interface ColumnOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   space?: string | number;
 }
@@ -97,7 +97,7 @@ interface ColumnOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface ColumnOptionsV2 {
   /**
@@ -108,7 +108,7 @@ interface ColumnOptionsV2 {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   space?: SpaceType;
 }
@@ -145,7 +145,7 @@ interface ColumnOptionsV2 {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface ColumnInterface {
   /**
@@ -204,7 +204,7 @@ interface ColumnInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options?: ColumnOptions): ColumnAttribute;
   /**
@@ -217,7 +217,7 @@ interface ColumnInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options?: ColumnOptions | ColumnOptionsV2): ColumnAttribute;
 }
@@ -254,7 +254,7 @@ interface ColumnInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
   /**
@@ -293,7 +293,7 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   alignItems(value: HorizontalAlign): ColumnAttribute;
 
@@ -333,7 +333,7 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   justifyContent(value: FlexAlign): ColumnAttribute;
   /**
@@ -343,7 +343,7 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @returns { ColumnAttribute } The attribute of the column.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   pointLight(value: PointLightStyle): ColumnAttribute;
   /**
@@ -355,7 +355,7 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   reverse(isReversed: Optional<boolean>): ColumnAttribute;
 }
@@ -388,7 +388,7 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Column: ColumnInterface;
 
@@ -420,6 +420,6 @@ declare const Column: ColumnInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const ColumnInstance: ColumnAttribute;

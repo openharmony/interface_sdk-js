@@ -31,8 +31,7 @@ import { RecordData } from '@ohos.base';
  *
  * @namespace util
  * @syscap SystemCapability.Utils.Lang
- * @since 20
- * @arkts 1.2
+ * @since 22 static
  */
 declare namespace util {
   /**
@@ -57,8 +56,7 @@ declare namespace util {
    * @param { Object[] } args - Data to be formatted
    * @returns { string } a string formatted in a specific format.
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   function format(format: string, ...args: Object[]): string;
 
@@ -69,8 +67,7 @@ declare namespace util {
    * @returns { string } Return a string representing this UUID.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   function generateRandomUUID(entropyCache?: boolean): string;
   
@@ -79,36 +76,31 @@ declare namespace util {
    *
    * @enum { number } Type
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   enum Type {
     /**
      * The value indicates that the encoding format of base64 is BASIC
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     BASIC,
     /**
      * The value indicates that the encoding format of base64 is MIME
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     MIME,
     /**
      * The value indicates that the encoding format of base64 is BASIC_URL_SAFE
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     BASIC_URL_SAFE,
     /**
      * The value indicates that the encoding format of base64 is MIME_URL_SAFE
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     MIME_URL_SAFE,
   }
@@ -118,16 +110,14 @@ declare namespace util {
    * u8 array using the Base64 encoding scheme.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   class Base64Helper {
     /**
      * Constructor for creating base64 encoding and decoding
      *
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     constructor();
 
@@ -138,8 +128,7 @@ declare namespace util {
      * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and BASIC_URL_SAFE
      * @returns { Uint8Array } Return the encoded new Uint8Array.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     encodeSync(src: Uint8Array, options?: Type): Uint8Array;
 
@@ -150,8 +139,7 @@ declare namespace util {
      * @param { Type } [options] - one of the Type enumeration
      * @returns { string } Return the encoded string.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     encodeToStringSync(src: Uint8Array, options?: Type): string;
 
@@ -163,8 +151,7 @@ declare namespace util {
      * @param { Type } [options] - one of the Type enumeration
      * @returns { Uint8Array } Return the decoded Uint8Array.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     decodeSync(src: Uint8Array | string, options?: Type): Uint8Array;
 
@@ -176,8 +163,7 @@ declare namespace util {
      * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and BASIC_URL_SAFE
      * @returns { Promise<Uint8Array> } Return the encodes asynchronous new Uint8Array.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     encode(src: Uint8Array, options?: Type): Promise<Uint8Array>;
 
@@ -188,8 +174,7 @@ declare namespace util {
      * @param { Type } [options] - one of the Type enumeration
      * @returns { Promise<string> } Returns the encoded asynchronous string.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     encodeToString(src: Uint8Array, options?: Type): Promise<string>;
 
@@ -201,8 +186,7 @@ declare namespace util {
      * @param { Type } [options] - one of the Type enumeration
      * @returns { Promise<Uint8Array> } Return the decoded asynchronous Uint8Array.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     decode(src: Uint8Array | string, options?: Type): Promise<Uint8Array>;
   }
@@ -212,8 +196,7 @@ declare namespace util {
    *
    * @interface ScopeComparable
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-     * @arkts 1.2
+   * @since 22 static
    */
   interface ScopeComparable<T> {
     /**
@@ -222,8 +205,7 @@ declare namespace util {
      * @param { T } other - Other
      * @returns { boolean } Returns whether the current object is greater than or equal to the input object.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     compareTo(other: T): boolean;
   }
@@ -233,8 +215,7 @@ declare namespace util {
     *
     * @typedef { ScopeComparable<T> } ScopeType<T>
     * @syscap SystemCapability.Utils.Lang
-    * @since 20
-    * @arkts 1.2
+    * @since 22 static
     */
   type ScopeType<T> = ScopeComparable<T>;
 
@@ -243,8 +224,7 @@ declare namespace util {
    * with lower and upper limits.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   class ScopeHelper<T extends ScopeComparable<T>> {
     /**
@@ -253,8 +233,7 @@ declare namespace util {
      * @param { T } lowerObj - A ScopeType value
      * @param { T } upperObj - A ScopeType value
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     constructor(lowerObj: T, upperObj: T);
 
@@ -263,8 +242,7 @@ declare namespace util {
      *
      * @returns { string } Returns a string representation of the current range object.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     toString(): string;
 
@@ -274,8 +252,7 @@ declare namespace util {
      * @param { ScopeHelper<T> } range - A Scope range object
      * @returns { ScopeHelper<T> } Returns the intersection of a given range and the current range.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     intersect(range: ScopeHelper<T>): ScopeHelper<T>;
 
@@ -287,8 +264,7 @@ declare namespace util {
      * @returns { ScopeHelper<T> } Returns the intersection of the current range and
      *     the range specified by the given lower and upper bounds.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     intersect(lowerObj: T, upperObj: T): ScopeHelper<T>;
 
@@ -297,8 +273,7 @@ declare namespace util {
      *
      * @returns { T } Returns the upper bound of the current range.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     getUpper(): T;
 
@@ -307,8 +282,7 @@ declare namespace util {
      *
      * @returns { T } Returns the lower bound of the current range.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     getLower(): T;
 
@@ -320,8 +294,7 @@ declare namespace util {
      * @returns { ScopeHelper<T> } Returns the smallest range that includes
      *    the current range and the given lower and upper bounds.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     expand(lowerObj: T, upperObj: T): ScopeHelper<T>;
 
@@ -331,8 +304,7 @@ declare namespace util {
      * @param { ScopeHelper<T> } range - A Scope range object
      * @returns { ScopeHelper<T> } Returns the smallest range that includes the current range and a given range.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     expand(range: ScopeHelper<T>): ScopeHelper<T>;
 
@@ -342,8 +314,7 @@ declare namespace util {
      * @param { T } value - A ScopeType value
      * @returns { ScopeHelper<T> } Returns the smallest range that includes the current range and a given value.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     expand(value: T): ScopeHelper<T>;
 
@@ -353,8 +324,7 @@ declare namespace util {
      * @param { T } value - A ScopeType value
      * @returns { boolean } If the value is within the current range return true,otherwise return false.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     contains(value: T): boolean;
 
@@ -364,8 +334,7 @@ declare namespace util {
      * @param { ScopeHelper<T> } range - A Scope range
      * @returns { boolean } If the current range is within the given range return true,otherwise return false.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     contains(range: ScopeHelper<T>): boolean;
 
@@ -375,8 +344,7 @@ declare namespace util {
      * @param { T } value - A ScopeType value
      * @returns { T } Returns a ScopeType object that a given value is clamped to the current range.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     clamp(value: T): T;
   }
@@ -388,8 +356,7 @@ declare namespace util {
    * and the least accessed data is the least valuable data and should be removed from the cache.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   class LRUCache<K, V> {
     /**
@@ -397,8 +364,7 @@ declare namespace util {
      *
      * @param { number } [capacity] - Indicates the capacity to customize for the buffer.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     constructor(capacity?: number);
 
@@ -407,8 +373,7 @@ declare namespace util {
      *
      * @param { number } newCapacity - Indicates the new capacity to set.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     updateCapacity(newCapacity: number): void;
 
@@ -418,8 +383,7 @@ declare namespace util {
      * @returns { string } Returns the string representation of the object and
      * outputs the string representation of the object.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     toString(): string;
 
@@ -428,8 +392,7 @@ declare namespace util {
      *
      * @returns { number } The length of LRUCache
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     get length(): number;
 
@@ -438,8 +401,7 @@ declare namespace util {
      *
      * @returns { number } Returns the capacity of the current buffer.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     getCapacity(): number;
 
@@ -447,8 +409,7 @@ declare namespace util {
      * Clears key-value pairs from the current buffer.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     clear(): void;
 
@@ -457,8 +418,7 @@ declare namespace util {
      *
      * @returns { number } Returns the number of times createDefault(java.lang.Object) returned a value.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     getCreateCount(): number;
 
@@ -467,8 +427,7 @@ declare namespace util {
      *
      * @returns { number } Returns the number of times that the queried values are not matched.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     getMissCount(): number;
 
@@ -477,8 +436,7 @@ declare namespace util {
      *
      * @returns { number } Returns the number of times that values are evicted from the buffer.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     getRemovalCount(): number;
 
@@ -487,8 +445,7 @@ declare namespace util {
      *
      * @returns { number } Returns the number of times that the queried values are successfully matched.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     getMatchCount(): number;
 
@@ -497,8 +454,7 @@ declare namespace util {
      *
      * @returns { number } Returns the number of times that values are added to the buffer.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     getPutCount(): number;
 
@@ -507,8 +463,7 @@ declare namespace util {
      *
      * @returns { boolean } Returns true if the current buffer contains no value.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isEmpty(): boolean;
 
@@ -519,8 +474,7 @@ declare namespace util {
      * @returns { V | undefined } Returns the value associated with the key
      * if the specified key is present in the buffer; returns null otherwise.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     get(key: K): V | undefined;
 
@@ -532,8 +486,7 @@ declare namespace util {
      * @returns { V | undefined } Returns the value associated with the added key;
      * returns the original value if the key to add already exists, returns null otherwise.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     put(key: K, value: V): V | undefined;
 
@@ -543,8 +496,7 @@ declare namespace util {
      * @returns { Array<V> } Returns the list of all values in the current buffer,
      * ordered from the most recently accessed to the least recently accessed.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     values(): Array<V>;
 
@@ -555,8 +507,7 @@ declare namespace util {
      * @returns { Array<K> } Returns a list of keys ordered by access time,
      * from the most recently accessed to the least recently accessed.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     keys(): Array<K>;
 
@@ -567,8 +518,7 @@ declare namespace util {
      * @returns { V | undefined } Returns an Optional object containing the deleted key-value pair;
      * returns an empty Optional object if the key does not exist.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     remove(key: K): V | undefined;
 
@@ -583,8 +533,7 @@ declare namespace util {
      * put(java.lang.Object,java.lang.Object) method is called and the key to add already exists.
      * The parameter value is null in other cases.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     afterRemoval(isEvict: boolean, key: K, value: V, newValue: V): void;
 
@@ -594,8 +543,7 @@ declare namespace util {
      * @param { K } key - Indicates the key to check.
      * @returns { boolean } Returns true if the buffer contains the specified key.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     contains(key: K): boolean;
 
@@ -605,8 +553,7 @@ declare namespace util {
      * @param { K } key - Indicates the missed key.
      * @returns { V | undefined } Returns the value associated with the key.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     createDefault(key: K): V | undefined;
 
@@ -616,8 +563,7 @@ declare namespace util {
      * @returns { IterableIterator<[K, V]> } Returns an array of key-value pairs
      * for the enumeratable properties of the given object itself.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     entries(): IterableIterator<[K, V]>;
 
@@ -626,8 +572,7 @@ declare namespace util {
      *
      * @returns { IterableIterator<[K, V]> } Returns a two - dimensional array in the form of key - value pairs.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     $_iterator(): IterableIterator<[K, V]>;
   }
@@ -637,16 +582,14 @@ declare namespace util {
    *
    * @interface TextDecoderOptions
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   interface TextDecoderOptions {
     /**
      * Is a fatal error displayed? The default value is false.
      * @type { ?boolean }
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
 
     fatal?: boolean;
@@ -654,8 +597,7 @@ declare namespace util {
     * Do you want to ignore BOM tags? The default value is false.
     * @type { ?boolean }
     * @syscap SystemCapability.Utils.Lang
-    * @since 20
-    * @arkts 1.2
+    * @since 22 static
     */
     ignoreBOM?: boolean;
   }
@@ -665,16 +607,14 @@ declare namespace util {
    *
    * @interface DecodeToStringOptions
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   interface DecodeToStringOptions {
     /**
     * Stream option controls stream processing in decoding. The default value is false.
     * @type { ?boolean }
     * @syscap SystemCapability.Utils.Lang
-    * @since 20
-    * @arkts 1.2
+    * @since 22 static
     */
     stream?: boolean;
   }
@@ -684,8 +624,7 @@ declare namespace util {
    * koi8-r, macintosh, windows-1250, windows-1251, gbk, gb18030, big5, utf-16be, utf-16 le, etc.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   class StringDecoder {
     /**
@@ -693,8 +632,7 @@ declare namespace util {
      *
      * @param { string } [encoding] - Encoding type of the input data.Default: utf8.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     constructor(encoding?: string);
 
@@ -705,8 +643,7 @@ declare namespace util {
      * @param { string | Uint8Array } chunk - The bytes to decode.
      * @returns { string } Returns a decoded string.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     write(chunk: string | Uint8Array): string;
 
@@ -717,8 +654,7 @@ declare namespace util {
      * @param { string | Uint8Array } [chunk] - The bytes to decode.
      * @returns { string } Returns any remaining input stored in the internal buffer as a string.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     end(chunk?: string | Uint8Array): string;
   }
@@ -728,16 +664,14 @@ declare namespace util {
    * decodes it in UTF-8 format, and outputs UTF-8 byte stream.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   class TextDecoder {
     /**
      * The textDecoder constructor.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     constructor();
 
@@ -746,8 +680,7 @@ declare namespace util {
      *
      * @returns { string } The string of the TextDecoder encoding.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     get encoding(): string;
 
@@ -756,8 +689,7 @@ declare namespace util {
      *
      * @returns { boolean } Whether to display fatal errors.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     get fatal(): boolean;
 
@@ -766,8 +698,7 @@ declare namespace util {
      *
      * @returns { boolean } Returns `true` if ignore BOM flag is set, and `false` otherwise.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     get ignoreBOM(): boolean;
 
@@ -779,8 +710,7 @@ declare namespace util {
      * @returns { TextDecoder }
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     static create(encoding?: string, options?: TextDecoderOptions): TextDecoder;
 
@@ -794,8 +724,7 @@ declare namespace util {
      * @param { DecodeToStringOptions } [options] - The default option is set to false.
      * @returns { string } Return decoded text
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     decodeToString(input: Uint8Array, options?: DecodeToStringOptions): string;
   }
@@ -805,16 +734,14 @@ declare namespace util {
    *
    * @interface EncodeIntoUint8ArrayInfo
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   interface EncodeIntoUint8ArrayInfo {
     /**
     * The read represents the number of characters that have been encoded.
     * @type { int }
     * @syscap SystemCapability.Utils.Lang
-    * @since 20
-    * @arkts 1.2
+    * @since 22 static
     */
 
     read: int;
@@ -822,8 +749,7 @@ declare namespace util {
     * The written represents the number of bytes occupied by the encoded characters.
     * @type { int }
     * @syscap SystemCapability.Utils.Lang
-    * @since 20
-    * @arkts 1.2
+    * @since 22 static
     */
     written: int;
   }
@@ -832,16 +758,14 @@ declare namespace util {
    * The rational number is mainly to compare rational numbers and obtain the numerator and denominator.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   class RationalNumber {
     /**
      * A constructor used to create a RationalNumber instance with a given numerator and denominator.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     constructor();
 
@@ -853,8 +777,7 @@ declare namespace util {
      * @returns { RationalNumber }
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     static parseRationalNumber(numerator: number, denominator: number): RationalNumber;
 
@@ -865,8 +788,7 @@ declare namespace util {
      * @returns { RationalNumber } Returns a RationalNumber object generated based on the given string.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     static createRationalFromString(rationalString: string): RationalNumber;
 
@@ -876,8 +798,7 @@ declare namespace util {
      * @param { RationalNumber } another - An object of other rational numbers
      * @returns { number } Returns 0 or 1, or -1, depending on the comparison.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     compare(another: RationalNumber): number;
 
@@ -888,8 +809,7 @@ declare namespace util {
      * @returns { boolean } Returns true if the given object is the same as the current object;
      * Otherwise, false is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     equals(obj: Object): boolean;
 
@@ -898,8 +818,7 @@ declare namespace util {
      *
      * @returns { number } Returns the integer and floating-point values of a rational number object.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     valueOf(): number;
 
@@ -911,8 +830,7 @@ declare namespace util {
      * @returns { number } Returns the greatest common factor of two integers, integer type.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     static getCommonFactor(number1: number, number2: number): number;
 
@@ -921,8 +839,7 @@ declare namespace util {
      *
      * @returns { number } Returns the denominator of the current object.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     getDenominator(): number;
 
@@ -931,8 +848,7 @@ declare namespace util {
      *
      * @returns { number } Returns the numerator of the current object.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     getNumerator(): number;
 
@@ -941,8 +857,7 @@ declare namespace util {
      *
      * @returns { boolean } If the denominator is not 0, true is returned. Otherwise, false is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isFinite(): boolean;
 
@@ -951,8 +866,7 @@ declare namespace util {
      *
      * @returns { boolean } If both the denominator and numerator are 0, true is returned. Otherwise, false is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isNaN(): boolean;
 
@@ -962,8 +876,7 @@ declare namespace util {
      * @returns { boolean } If the value represented by the current object is 0, true is returned.
      * Otherwise, false is returned.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isZero(): boolean;
 
@@ -972,8 +885,7 @@ declare namespace util {
      *
      * @returns { string } Returns a string representation of the current RationalNumber object.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     toString(): string;
   }
@@ -983,8 +895,7 @@ declare namespace util {
    * The encoder takes the byte stream as the input and outputs the String string.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   class TextEncoder {
     /**
@@ -992,8 +903,7 @@ declare namespace util {
      *
      * @returns { string } The string of the TextEncoder encoding.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     get encoding(): string;
 
@@ -1002,8 +912,7 @@ declare namespace util {
      *
      * @param { string } [encoding] - The string for encoding format.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     constructor(encoding?: string);
 
@@ -1014,8 +923,7 @@ declare namespace util {
      * @returns { TextEncoder }
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     static create(encoding?: string): TextEncoder;
 
@@ -1025,8 +933,7 @@ declare namespace util {
      * @param { string } [input] - The string to be encoded.
      * @returns { Uint8Array } Returns the encoded text.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     encodeInto(input?: string): Uint8Array;
 
@@ -1039,8 +946,7 @@ declare namespace util {
      * the number of characters that have been encoded, and written
      * represents the number of bytes occupied by the encoded characters.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     encodeIntoUint8Array(input: string, dest: Uint8Array): EncodeIntoUint8ArrayInfo;
   }
@@ -1049,8 +955,7 @@ declare namespace util {
    * Check the type of parameter.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   class types {
 
@@ -1060,8 +965,7 @@ declare namespace util {
      * @param { Object } value - A ArrayBuffer or SharedArrayBuffer value
      * @returns { boolean } Returns true if the value is a built-in ArrayBuffer or SharedArrayBuffer instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isAnyArrayBuffer(value: Object): boolean;
     /**
@@ -1071,8 +975,7 @@ declare namespace util {
      * @returns { boolean } Returns true if the value is an instance of one of the ArrayBuffer views,
      * such as typed array objects or DataView.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isArrayBufferView(value: Object): boolean;
     /**
@@ -1083,8 +986,7 @@ declare namespace util {
      * This does not include SharedArrayBuffer instances.
      * Usually, it is desirable to test for both; See isAnyArrayBuffer() for that.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isArrayBuffer(value: Object): boolean;
     /**
@@ -1093,8 +995,7 @@ declare namespace util {
      * @param { Object } value - A BigInt64Array value
      * @returns { boolean } Returns true if the value is a BigInt64Array instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isBigInt64Array(value: Object): boolean;
     /**
@@ -1103,8 +1004,7 @@ declare namespace util {
      * @param { Object } value - A BigUint64Array value
      * @returns { boolean } Returns true if the value is a BigUint64Array instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isBigUint64Array(value: Object): boolean;
     /**
@@ -1113,8 +1013,7 @@ declare namespace util {
      * @param { Object } value - A DataView value
      * @returns { boolean } Returns true if the value is a built-in DataView instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isDataView(value: Object): boolean;
     /**
@@ -1123,8 +1022,7 @@ declare namespace util {
      * @param { Object } value - A Date value
      * @returns { boolean } Returns true if the value is a built-in Date instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isDate(value: Object): boolean;
     /**
@@ -1133,8 +1031,7 @@ declare namespace util {
      * @param { Object } value - A Float32Array value
      * @returns { boolean } Returns true if the value is a built-in Float32Array instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isFloat32Array(value: Object): boolean;
     /**
@@ -1143,8 +1040,7 @@ declare namespace util {
      * @param { Object } value - A Float64Array value
      * @returns { boolean } Returns true if the value is a built-in Float64Array instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isFloat64Array(value: Object): boolean;
     /**
@@ -1153,8 +1049,7 @@ declare namespace util {
      * @param { Object } value - A Int8Array value
      * @returns { boolean } Returns true if the value is a built-in Int8Array instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isInt8Array(value: Object): boolean;
     /**
@@ -1163,8 +1058,7 @@ declare namespace util {
      * @param { Object } value - A Int16Array value
      * @returns { boolean } Returns true if the value is a built-in Int16Array instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isInt16Array(value: Object): boolean;
     /**
@@ -1173,8 +1067,7 @@ declare namespace util {
      * @param { Object } value - A Int32Array value
      * @returns { boolean } Returns true if the value is a built-in Int32Array instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isInt32Array(value: Object): boolean;
     /**
@@ -1183,8 +1076,7 @@ declare namespace util {
      * @param { Object } value - A Map value
      * @returns { boolean } Returns true if the value is a built-in Map instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isMap(value: Object): boolean;
     /**
@@ -1193,8 +1085,7 @@ declare namespace util {
      * @param { Object } value - A Map iterator value
      * @returns { boolean } Returns true if the value is an iterator returned for a built-in Map instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isMapIterator(value: Object): boolean;
     /**
@@ -1203,8 +1094,7 @@ declare namespace util {
      * @param { Object } value - A Error value
      * @returns { boolean } Returns true if the value is an instance of a built-in Error type.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isNativeError(value: Object): boolean;
     /**
@@ -1213,8 +1103,7 @@ declare namespace util {
      * @param { Object } value - A Promise value
      * @returns { boolean } Returns true if the value is a built-in Promise.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isPromise(value: Object): boolean;
     /**
@@ -1223,8 +1112,7 @@ declare namespace util {
      * @param { Object } value - A regular expression object value
      * @returns { boolean } Returns true if the value is a regular expression object.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isRegExp(value: Object): boolean;
     /**
@@ -1233,8 +1121,7 @@ declare namespace util {
      * @param { Object } value - A Set instance value
      * @returns { boolean } Returns true if the value is a built-in Set instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isSet(value: Object): boolean;
     /**
@@ -1243,8 +1130,7 @@ declare namespace util {
      * @param { Object } value - A Set iterator value
      * @returns { boolean } Returns true if the value is an iterator returned for a built-in Set instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isSetIterator(value: Object): boolean;
     /**
@@ -1253,8 +1139,7 @@ declare namespace util {
      * @param { Object } value - A TypedArray instance value
      * @returns { boolean } Returns true if the value is a built-in TypedArray instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isTypedArray(value: Object): boolean;
     /**
@@ -1263,8 +1148,7 @@ declare namespace util {
      * @param { Object } value - A Uint8Array value
      * @returns { boolean } Returns true if the value is a built-in Uint8Array instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isUint8Array(value: Object): boolean;
     /**
@@ -1273,8 +1157,7 @@ declare namespace util {
      * @param { Object } value - A Uint8ClampedArray value
      * @returns { boolean } Returns true if the value is a built-in Uint8ClampedArray instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isUint8ClampedArray(value: Object): boolean;
     /**
@@ -1283,8 +1166,7 @@ declare namespace util {
      * @param { Object } value - A Uint16Array value
      * @returns { boolean } Returns true if the value is a built-in Uint16Array instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isUint16Array(value: Object): boolean;
     /**
@@ -1293,8 +1175,7 @@ declare namespace util {
      * @param { Object } value - A Uint32Array value
      * @returns { boolean } Returns true if the value is a built-in Uint32Array instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isUint32Array(value: Object): boolean;
     /**
@@ -1303,8 +1184,7 @@ declare namespace util {
      * @param { Object } value - A WeakMap value
      * @returns { boolean } Returns true if the value is a built-in WeakMap instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isWeakMap(value: Object): boolean;
     /**
@@ -1313,8 +1193,7 @@ declare namespace util {
      * @param { Object } value - A WeakSet value
      * @returns { boolean } Returns true if the value is a built-in WeakSet instance.
      * @syscap SystemCapability.Utils.Lang
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     isWeakSet(value: Object): boolean;
   }
@@ -1326,8 +1205,7 @@ declare namespace util {
    * @param { FixedArray<Any> } args - arguments to be passed
    * @returns { Promise<Any> } - a promise value
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   type PromisifiedFunc = (...args: FixedArray<Any>) => Promise<Any>;
 
@@ -1338,8 +1216,7 @@ declare namespace util {
    * @param { Function } original - Asynchronous Function
    * @returns { PromisifiedFunc } Return a function that returns promises
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   function promisify(original: Function): PromisifiedFunc;
 
@@ -1349,8 +1226,7 @@ declare namespace util {
    * @param { RecordData } obj - The object that need to get hash code.
    * @returns { number } Return a hash code of an object.
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   function getHash(obj: RecordData): number;
 
@@ -1360,8 +1236,7 @@ declare namespace util {
    * @param { boolean } [entropyCache] - Whether to generate the UUID with using the cache. Default: true.
    * @returns { Uint8Array | undefined } Return a Uint8Array representing this UUID, or undefined on failure.
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   function generateRandomBinaryUUID(entropyCache?: boolean): Uint8Array | undefined;
 
@@ -1372,8 +1247,7 @@ declare namespace util {
    * @returns { Uint8Array } Return a Uint8Array representing this UUID. Throw SyntaxError if parsing fails.
    * @throws { BusinessError } 10200002 - Invalid uuid string.
    * @syscap SystemCapability.Utils.Lang
-   * @since 20
-   * @arkts 1.2
+   * @since 22 static
    */
   function parseUUID(uuid: string): Uint8Array;
 }

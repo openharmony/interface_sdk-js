@@ -17,6 +17,7 @@
  * @file
  * @kit ArkUI
  */
+import { BusinessError } from '../@ohos.base';
 import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, BorderRadiuses, ShapeMask, ShapeClip, Edges, LengthMetricsUnit } from './Graphics';
 
 /**
@@ -32,7 +33,7 @@ import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export class RenderNode {
   /**
@@ -48,7 +49,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor();
 
@@ -67,7 +68,19 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   */
+  /**
+   * Add child to the end of the RenderNode's children.
+   *
+   * @param { RenderNode } node - The node will be added.
+   * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
+   *     are included in the error message. For example: "The parameter 'node' is invalid: its corresponding FrameNode
+   *     cannot be adopted."
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   appendChild(node: RenderNode): void;
 
@@ -75,7 +88,8 @@ export class RenderNode {
    * Add child to the current RenderNode.
    *
    * @param { RenderNode } child - The node will be added.
-   * @param { RenderNode | null } sibling - The new node is added after this node. When sibling is null, insert node as the first children of the node.
+   * @param { RenderNode | null } sibling - The new node is added after this node. When sibling is null, insert node as
+   *     the first children of the node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -84,11 +98,26 @@ export class RenderNode {
    * Add child to the current RenderNode.
    *
    * @param { RenderNode } child - The node will be added.
-   * @param { RenderNode | null } sibling - The new node is added after this node. When sibling is null, insert node as the first children of the node.
+   * @param { RenderNode | null } sibling - The new node is added after this node. When sibling is null, insert node as
+   *     the first children of the node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
+   */
+  /**
+   * Add child to the current RenderNode.
+   *
+   * @param { RenderNode } child - The node will be added.
+   * @param { RenderNode | null } sibling - The new node is added after this node. When sibling is null, insert node as
+   *     the first children of the node.
+   * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
+   *     are included in the error message. For example: "The parameter 'child' is invalid: its corresponding FrameNode
+   *     cannot be adopted."
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   insertChildAfter(child: RenderNode, sibling: RenderNode | null): void;
 
@@ -107,7 +136,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   removeChild(node: RenderNode): void;
 
@@ -124,7 +153,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   clearChildren(): void;
 
@@ -145,7 +174,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getChild(index: number): RenderNode | null;
 
@@ -166,7 +195,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getFirstChild(): RenderNode | null;
 
@@ -185,7 +214,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getNextSibling(): RenderNode | null;
 
@@ -204,7 +233,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getPreviousSibling(): RenderNode | null;
 
@@ -223,7 +252,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set backgroundColor(color: number);
 
@@ -243,7 +272,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get backgroundColor(): number;
 
@@ -262,7 +291,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set clipToFrame(useClip: boolean);
 
@@ -282,7 +311,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get clipToFrame(): boolean;
 
@@ -301,7 +330,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set opacity(value: number);
 
@@ -321,7 +350,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get opacity(): number;
 
@@ -340,7 +369,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set size(size: Size);
 
@@ -360,7 +389,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get size(): Size;
 
@@ -379,7 +408,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set position(position: Position);
 
@@ -399,7 +428,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get position(): Position;
 
@@ -418,7 +447,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set frame(frame: Frame);
 
@@ -438,7 +467,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get frame(): Frame;
 
@@ -457,7 +486,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set pivot(pivot: Pivot);
 
@@ -477,7 +506,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get pivot(): Pivot;
 
@@ -496,7 +525,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set scale(scale: Scale);
 
@@ -516,7 +545,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get scale(): Scale;
 
@@ -535,7 +564,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set translation(translation: Translation);
 
@@ -555,7 +584,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get translation(): Translation;
 
@@ -574,7 +603,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set rotation(rotation: Rotation);
 
@@ -594,7 +623,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get rotation(): Rotation;
 
@@ -613,7 +642,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set transform(transform: Matrix4);
 
@@ -633,7 +662,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get transform(): Matrix4;
 
@@ -652,7 +681,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set shadowColor(color: number);
 
@@ -672,7 +701,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get shadowColor(): number;
 
@@ -691,7 +720,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set shadowOffset(offset: Offset);
 
@@ -711,7 +740,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get shadowOffset(): Offset;
 
@@ -722,7 +751,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set label(label: string);
 
@@ -733,7 +762,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get label(): string;
 
@@ -752,7 +781,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set shadowAlpha(alpha: number);
 
@@ -772,7 +801,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get shadowAlpha(): number;
 
@@ -791,7 +820,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set shadowElevation(elevation: number);
 
@@ -811,7 +840,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get shadowElevation(): number;
 
@@ -830,7 +859,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set shadowRadius(radius: number);
 
@@ -850,7 +879,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get shadowRadius(): number;
 
@@ -861,7 +890,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set borderStyle(style: Edges<BorderStyle>);
 
@@ -872,7 +901,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get borderStyle(): Edges<BorderStyle>;
 
@@ -883,7 +912,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set borderWidth(width: Edges<number>);
 
@@ -895,7 +924,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get borderWidth(): Edges<number>;
 
@@ -906,7 +935,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set borderColor(color: Edges<number>);
 
@@ -918,7 +947,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get borderColor(): Edges<number>;
 
@@ -929,7 +958,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set borderRadius(radius: BorderRadiuses);
 
@@ -941,7 +970,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get borderRadius(): BorderRadiuses;
 
@@ -952,7 +981,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set shapeMask(shapeMask: ShapeMask);
 
@@ -963,7 +992,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get shapeMask(): ShapeMask;
 
@@ -974,7 +1003,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set shapeClip(shapeClip: ShapeClip);
 
@@ -982,10 +1011,10 @@ export class RenderNode {
    * Get shape clip of the RenderNode.
    *
    * @returns { ShapeClip } - Returns the shape clip of the RenderNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.clip
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get shapeClip(): ShapeClip;
 
@@ -996,7 +1025,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set markNodeGroup(isNodeGroup: boolean);
 
@@ -1008,7 +1037,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get markNodeGroup(): boolean;
 
@@ -1027,7 +1056,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   draw(context: DrawContext): void;
 
@@ -1044,7 +1073,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   invalidate(): void;
 
@@ -1054,7 +1083,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   dispose(): void;
 
@@ -1065,7 +1094,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   set lengthMetricsUnit(unit: LengthMetricsUnit);
 
@@ -1077,7 +1106,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get lengthMetricsUnit(): LengthMetricsUnit;
 
@@ -1088,7 +1117,7 @@ export class RenderNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   isDisposed(): boolean;
 }

@@ -16,17 +16,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
-import { AttributeModifier } from '@ohos.arkui.component';
-import { ImageAttribute } from '@ohos.arkui.component';
+import { AttributeModifier } from './component/common';
+import { ImageAttribute } from './component/image';
 
 /**
  * Defines Image Modifier
  *
  * @implements { ImageAttribute, AttributeModifier<ImageAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class ImageModifier implements ImageAttribute, AttributeModifier<ImageAttribute> {}

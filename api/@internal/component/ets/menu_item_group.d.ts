@@ -39,7 +39,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface MenuItemGroupOptions {
     /**
@@ -64,7 +64,7 @@ declare interface MenuItemGroupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     header?: ResourceStr | CustomBuilder;
     /**
@@ -89,7 +89,7 @@ declare interface MenuItemGroupOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     footer?: ResourceStr | CustomBuilder;
 }
@@ -116,7 +116,7 @@ declare interface MenuItemGroupOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface MenuItemGroupInterface {
     /**
@@ -144,7 +144,7 @@ interface MenuItemGroupInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     (value?: MenuItemGroupOptions): MenuItemGroupAttribute;
 }
@@ -171,7 +171,7 @@ interface MenuItemGroupInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class MenuItemGroupAttribute extends CommonMethod<MenuItemGroupAttribute> {}
 
@@ -194,7 +194,7 @@ declare class MenuItemGroupAttribute extends CommonMethod<MenuItemGroupAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const MenuItemGroup: MenuItemGroupInterface;
 
@@ -217,6 +217,6 @@ declare const MenuItemGroup: MenuItemGroupInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const MenuItemGroupInstance: MenuItemGroupAttribute;

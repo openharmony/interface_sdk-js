@@ -18,11 +18,11 @@
  * @kit ArkGraphics2D
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
 /*** endif */
@@ -42,8 +42,8 @@ import image from './@ohos.multimedia.image';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'14', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14 dynamic
+ * @since 22 static
  */
 
 declare namespace effectKit {
@@ -69,8 +69,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   interface Filter {
 
@@ -99,8 +99,8 @@ declare namespace effectKit {
     * @crossplatform
     * @form
     * @atomicservice
-    * @since arkts {'1.1':'14', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 14 dynamic
+    * @since 22 static
     */
     blur(radius: double): Filter;
 
@@ -112,8 +112,8 @@ declare namespace effectKit {
     *  only CPU rendering is supported. Therefore, the tile mode supports only DECAL.
     * @returns { Filter } Final image effect.
     * @syscap SystemCapability.Multimedia.Image.Core
-    * @since arkts {'1.1':'14', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 14 dynamic
+    * @since 22 static
     */
     blur(radius: double, tileMode: TileMode): Filter;
 
@@ -141,8 +141,8 @@ declare namespace effectKit {
     * @crossplatform
     * @form
     * @atomicservice
-    * @since arkts {'1.1':'14', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 14 dynamic
+    * @since 22 static
     */
     brightness(bright: double): Filter;
 
@@ -167,8 +167,8 @@ declare namespace effectKit {
     * @crossplatform
     * @form
     * @atomicservice
-    * @since arkts {'1.1':'14', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 14 dynamic
+    * @since 22 static
     */
     grayscale(): Filter;
 
@@ -183,8 +183,8 @@ declare namespace effectKit {
     * @returns { Filter } Final image effect.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @crossplatform
-    * @since arkts {'1.1':'14', '1.2':'20'}
-    * @arkts 1.1&1.2 
+    * @since 14 dynamic
+    * @since 22 static
     */
     invert(): Filter;
 
@@ -208,8 +208,8 @@ declare namespace effectKit {
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     setColorMatrix(colorMatrix: Array<double>): Filter;
 
@@ -217,7 +217,7 @@ declare namespace effectKit {
     * Obtains image.PixelMap of the source image to which the filter linked list is added.
     * @returns { image.PixelMap } image.PixelMap.
     * @syscap SystemCapability.Multimedia.Image.Core
-    * @since 9
+    * @since 9 dynamiconly
     * @deprecated since 11
     * @useinstead effectKit.Filter#getEffectPixelMap
     */
@@ -244,8 +244,8 @@ declare namespace effectKit {
     * @crossplatform
     * @form
     * @atomicservice
-    * @since arkts {'1.1':'14', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 14 dynamic
+    * @since 22 static
     */
     getEffectPixelMap(): Promise<image.PixelMap>;
 
@@ -257,7 +257,7 @@ declare namespace effectKit {
     * @crossplatform
     * @form
     * @atomicservice
-    * @since 20
+    * @since 20 dynamic
     */
     getEffectPixelMap(useCpuRender : boolean): Promise<image.PixelMap>;
   }
@@ -283,8 +283,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2 
+   * @since 14 dynamic
+   * @since 22 static
    */
   interface ColorPicker {
 
@@ -309,8 +309,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 14 dynamic
+     * @since 22 static
      */
     getMainColor(): Promise<Color>;
 
@@ -335,8 +335,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     getMainColorSync(): Color;
 
@@ -361,8 +361,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 14 dynamic
+     * @since 22 static
      */
     getLargestProportionColor(): Color;
 
@@ -387,10 +387,49 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     getTopProportionColors(colorCount: int): Array<Color | null>;
+
+    /**
+     * Get top proportion colors and percentages of an image
+     * @param { int } colorCount - The number of colors to require, the value is 1 to 10.
+     * @returns { Map<Color | null, double | null> } Map of colors and percentages, sorted by proportion.
+     *    - If the number of colors obtained is less than the value of colorCount, the map size is 
+     *      the actual number obtained.
+     *    - If the colors fail to be obtained or the number of colors obtained is less than 1, Map() is returned.
+     *    - If the value of colorCount is greater than 10, a map holding the first 10 colors with
+     *      the top proportions is returned.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
+     */
+    getTopProportionColorsAndPercentage(colorCount: int): Map<Color | null, double | null>;
+
+    /**
+     * Get shade degree of an image
+     * @returns { PictureShadeDegree } shade degree of an image
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
+     */
+    getShadeDegree(): PictureShadeDegree;
+
+    /**
+     * Get complexity degree of an image
+     * @returns { PictureComplexityDegree } complexity degree of an image
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @form
+     * @since 22 dynamic&static
+     */
+    getComplexityDegree(): PictureComplexityDegree;
 
     /**
      * Get highest saturation color of an image
@@ -413,8 +452,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 14 dynamic
+     * @since 22 static
      */
     getHighestSaturationColor(): Color;
 
@@ -439,8 +478,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 14 dynamic
+     * @since 22 static
      */
     getAverageColor(): Color;
 
@@ -468,8 +507,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 14 dynamic
+     * @since 22 static
      */
     isBlackOrWhiteOrGrayColor(color: int): boolean;
   }
@@ -495,8 +534,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   interface Color {
 
@@ -521,8 +560,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     red: int;
 
@@ -547,8 +586,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     green: int;
 
@@ -573,8 +612,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     blue: int;
 
@@ -599,8 +638,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     alpha: int;
   }
@@ -630,8 +669,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   function createEffect(source: image.PixelMap): Filter;
 
@@ -663,8 +702,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   function createColorPicker(source: image.PixelMap): Promise<ColorPicker>;
 
@@ -705,8 +744,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   function createColorPicker(source: image.PixelMap, region: Array<double>): Promise<ColorPicker>;
 
@@ -738,8 +777,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>): void;
   
@@ -781,8 +820,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   function createColorPicker(source: image.PixelMap, region: Array<double>, callback: AsyncCallback<ColorPicker>): void;
 
@@ -791,16 +830,16 @@ declare namespace effectKit {
    *
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   enum TileMode {
     /**
      * Replicates the edge color if the shader effect draws outside of its original boundary.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     CLAMP = 0,
 
@@ -808,8 +847,8 @@ declare namespace effectKit {
      * Repeats the shader effect in both horizontal and vertical directions.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     REPEAT = 1,
 
@@ -817,8 +856,8 @@ declare namespace effectKit {
      * Repeats the shader effect in both horizontal and vertical directions, alternating mirror images.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     MIRROR = 2,
 
@@ -826,10 +865,129 @@ declare namespace effectKit {
      * Renders the shader effect only within the original boundary.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     DECAL = 3,
+  }
+
+  /**
+   * Enumerates the shade degree of an image.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  enum PictureShadeDegree {
+    /**
+     * The shade degree of the image is unknown.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    UNKNOWN_SHADE_DEGREE_PICTURE = 0,
+
+    /**
+     * The shade degree of the image is extremely light.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    EXTREMELY_LIGHT_PICTURE = 1,
+
+    /**
+     * The shade degree of the image is very light.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    VERY_LIGHT_PICTURE = 2,
+
+    /**
+     * The shade degree of the image is light.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    LIGHT_PICTURE = 3,
+
+    /**
+     * The shade degree of the image is moderate.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    MODERATE_SHADE_PICTURE = 4,
+
+    /**
+     * The shade degree of the image is dark.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    DARK_PICTURE = 5,
+
+    /**
+     * The shade degree of the image is extremely dark.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    EXTREMELY_DARK_PICTURE = 6,
+  }
+
+  /**
+   * Enumerates the complexity degree of an image.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  enum PictureComplexityDegree {
+    /**
+     * The complexity degree of the image is unknown.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    UNKNOWN_COMPLEXITY_DEGREE_PICTURE = 0,
+
+    /**
+     * The complexity degree of the image is pure.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    PURE_PICTURE = 1,
+
+    /**
+     * The complexity degree of the image is moderate.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    MODERATE_COMPLEXITY_PICTURE = 2,
+
+    /**
+     * The complexity degree of the image is very flowery.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    VERY_FLOWERY_PICTURE = 3,
   }
 }
 

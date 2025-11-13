@@ -15,7 +15,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { CustomBuilder } from '@ohos.arkui.component';
 import { AsyncCallback } from './@ohos.base';
@@ -26,7 +25,7 @@ import image from './@ohos.multimedia.image';
  *
  * @namespace componentSnapshot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 declare namespace componentSnapshot {
     /**
@@ -34,7 +33,7 @@ declare namespace componentSnapshot {
      *
      * @typedef SnapshotRegion
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     export interface SnapshotRegion {
         /**
@@ -42,7 +41,7 @@ declare namespace componentSnapshot {
          *
          * @type { number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 22 static
          */
         left: number;
         /**
@@ -50,7 +49,7 @@ declare namespace componentSnapshot {
          *
          * @type { number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 22 static
          */
         right: number;
         /**
@@ -58,7 +57,7 @@ declare namespace componentSnapshot {
          *
          * @type { number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 22 static
          */
         top: number;
         /**
@@ -66,7 +65,7 @@ declare namespace componentSnapshot {
          *
          * @type { number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 22 static
          */
         bottom: number;
     }
@@ -76,7 +75,7 @@ declare namespace componentSnapshot {
      *
      * @typedef LocalizedSnapshotRegion
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     export interface LocalizedSnapshotRegion {
         /**
@@ -84,7 +83,7 @@ declare namespace componentSnapshot {
          *
          * @type { number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 22 static
          */
         start: number;
         /**
@@ -92,7 +91,7 @@ declare namespace componentSnapshot {
          *
          * @type { number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 22 static
          */
         end: number;
         /**
@@ -100,7 +99,7 @@ declare namespace componentSnapshot {
          *
          * @type { number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 22 static
          */
         top: number;
         /**
@@ -108,7 +107,7 @@ declare namespace componentSnapshot {
          *
          * @type { number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 22 static
          */
         bottom: number;
     }
@@ -117,7 +116,7 @@ declare namespace componentSnapshot {
      *
      * @typedef { SnapshotRegion | LocalizedSnapshotRegion } SnapshotRegionType
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     export type SnapshotRegionType = SnapshotRegion | LocalizedSnapshotRegion;
     /**
@@ -125,7 +124,7 @@ declare namespace componentSnapshot {
      *
      * @typedef SnapshotOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     export interface SnapshotOptions {
         /**
@@ -133,7 +132,7 @@ declare namespace componentSnapshot {
          *
          * @type {?number}
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 22 static
          */
         scale?: number;
         /**
@@ -141,7 +140,7 @@ declare namespace componentSnapshot {
          *
          * @type {?boolean}
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 22 static
          */
         waitUntilRenderFinished?: boolean;
         /**
@@ -149,7 +148,7 @@ declare namespace componentSnapshot {
          *
          * @type {?SnapshotRegionType}
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 22 static
          */
         region?: SnapshotRegionType;
     }
@@ -168,7 +167,7 @@ declare namespace componentSnapshot {
      * @throws { BusinessError } 100001 - Invalid ID.
      * @throws { BusinessError } 160002 - Timeout.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     export function getSync(id: string, options?: SnapshotOptions): image.PixelMap;
 }

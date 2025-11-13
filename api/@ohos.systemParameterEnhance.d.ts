@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit BasicServicesKit
- * @arkts 1.1&1.2
  */
 
 import { AsyncCallback, BusinessError } from './@ohos.base';
@@ -27,7 +26,8 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
  * @namespace systemParameterEnhance
  * @syscap SystemCapability.Startup.SystemInfo
  * @systemapi Hide this for inner system use.
- * @since 9
+ * @since 9 dynamic
+ * @since 22 static
  */
 declare namespace systemParameterEnhance {
   /**
@@ -44,7 +44,8 @@ declare namespace systemParameterEnhance {
    * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function getSync(key: string, def?: string): string;
 
@@ -61,7 +62,8 @@ declare namespace systemParameterEnhance {
    * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function get(key: string, callback: AsyncCallback<string>): void;
 
@@ -79,7 +81,8 @@ declare namespace systemParameterEnhance {
    * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function get(key: string, def: string, callback: AsyncCallback<string>): void;
 
@@ -97,7 +100,8 @@ declare namespace systemParameterEnhance {
    * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function get(key: string, def?: string): Promise<string>;
 
@@ -114,7 +118,8 @@ declare namespace systemParameterEnhance {
    * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function setSync(key: string, value: string): void;
 
@@ -132,7 +137,8 @@ declare namespace systemParameterEnhance {
    * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function set(key: string, value: string, callback: AsyncCallback<void>): void;
 
@@ -150,7 +156,8 @@ declare namespace systemParameterEnhance {
    * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function set(key: string, value: string): Promise<void>;
 }

@@ -26,8 +26,8 @@ import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
  * @extends UIExtensionAbility
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 22 static
  */
 export default class ShareExtensionAbility extends UIExtensionAbility {
 }

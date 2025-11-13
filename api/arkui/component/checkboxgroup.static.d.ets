@@ -16,40 +16,39 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { CommonMethod, Optional, Bindable } from './common';
 import { ResourceColor, MarkStyle } from './units';
 import { CheckBoxShape } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * CheckboxGroup SelectStatus
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare enum SelectStatus {
     /**
      * All checkboxes are selected.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     All,
     /**
      * Part of the checkbox is selected.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     Part,
     /**
      * None of the checkbox is selected.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     None
 }
@@ -58,7 +57,7 @@ export declare enum SelectStatus {
  *
  * @interface CheckboxGroupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare interface CheckboxGroupOptions {
     /**
@@ -66,7 +65,7 @@ export declare interface CheckboxGroupOptions {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     group?: string;
 }
@@ -75,7 +74,7 @@ export declare interface CheckboxGroupOptions {
  *
  * @interface CheckboxGroupResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare interface CheckboxGroupResult {
     /**
@@ -83,7 +82,7 @@ export declare interface CheckboxGroupResult {
      *
      * @type { Array<string> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     name: Array<string>;
     /**
@@ -91,7 +90,7 @@ export declare interface CheckboxGroupResult {
      *
      * @type { SelectStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     status: SelectStatus;
 }
@@ -102,7 +101,7 @@ export declare interface CheckboxGroupResult {
  * @typedef { function } OnCheckboxGroupChangeCallback
  * @param { CheckboxGroupResult } value - checkbox group result
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export type OnCheckboxGroupChangeCallback = (value: CheckboxGroupResult) => void;
 /**
@@ -111,7 +110,7 @@ export type OnCheckboxGroupChangeCallback = (value: CheckboxGroupResult) => void
  * @extends CommonMethod
  * @interface CheckboxGroupAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare interface CheckboxGroupAttribute extends CommonMethod {
     /**
@@ -120,36 +119,36 @@ export declare interface CheckboxGroupAttribute extends CommonMethod {
      * @param { boolean| undefined|Bindable<boolean> } isAllSelected
      * @returns { CheckboxGroupAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    selectAll(isAllSelected: boolean | undefined | Bindable<boolean>): this;
+    default selectAll(isAllSelected: boolean | undefined | Bindable<boolean>): this;
     /**
      * setting the display color of checkbox.
      *
      * @param { ResourceColor | undefined } value
      * @returns { CheckboxGroupAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    selectedColor(value: ResourceColor | undefined): this;
+    default selectedColor(value: ResourceColor | undefined): this;
     /**
      * Set the display border color of unselected checkbox.
      *
      * @param { ResourceColor | undefined } value - The color of border when checkboxgroup unselected.
      * @returns { CheckboxGroupAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    unselectedColor(value: ResourceColor | undefined): this;
+    default unselectedColor(value: ResourceColor | undefined): this;
     /**
      * Set the mark style of checkbox.
      *
      * @param { MarkStyle | undefined } value - The style configuration of checkboxgroup mark.
      * @returns { CheckboxGroupAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    mark(value: MarkStyle | undefined): this;
+    default mark(value: MarkStyle | undefined): this;
     /**
      * Called when the selection status changes.
      * Anonymous Object Rectification.
@@ -157,18 +156,18 @@ export declare interface CheckboxGroupAttribute extends CommonMethod {
      * @param { OnCheckboxGroupChangeCallback | undefined } callback
      * @returns { CheckboxGroupAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    onChange(callback: OnCheckboxGroupChangeCallback | undefined): this;
+    default onChange(callback: OnCheckboxGroupChangeCallback | undefined): this;
     /**
      * Setting the shape of checkbox group.
      *
      * @param { CheckBoxShape | undefined } value - The configuration of checkbox group shape.
      * @returns { CheckboxGroupAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    checkboxShape(value: CheckBoxShape | undefined): this;
+    default checkboxShape(value: CheckBoxShape | undefined): this;
     /**
      * Set the attribute modifier of checkbox group.
      *
@@ -176,9 +175,9 @@ export declare interface CheckboxGroupAttribute extends CommonMethod {
      *     The attribute modifier of checkbox group.
      * @returns { CheckboxGroupAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    attributeModifier(
+    default attributeModifier(
         modifier: AttributeModifier<CheckboxGroupAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
@@ -186,15 +185,13 @@ export declare interface CheckboxGroupAttribute extends CommonMethod {
  * Defines CheckboxGroup Component.
  *
  * @param { CheckboxGroupOptions } [options] - the options of CheckboxGroup.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { CheckboxGroupAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
-@memo
 @ComponentBuilder
 export declare function CheckboxGroup(
-    options?: CheckboxGroupOptions,
-    @memo
-    content_?: () => void,
+    options?: CheckboxGroupOptions, 
+    content_?: CustomBuilder,
 ): CheckboxGroupAttribute

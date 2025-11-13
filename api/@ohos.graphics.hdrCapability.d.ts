@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkGraphics2D
- * @arkts 1.1&1.2
  */
 
 import { AsyncCallback } from './@ohos.base';
@@ -34,7 +33,8 @@ import { AsyncCallback } from './@ohos.base';
  * @namespace hdrCapability
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 12 dynamic
+ * @since 22 static
  */
 declare namespace hdrCapability {
   /**
@@ -50,7 +50,8 @@ declare namespace hdrCapability {
    * @enum { int }
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 12 dynamic
+   * @since 22 static
    */
   enum HDRFormat {
     /**
@@ -64,7 +65,8 @@ declare namespace hdrCapability {
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
+     * @since 22 static
      */
     NONE = 0,
     /**
@@ -78,7 +80,8 @@ declare namespace hdrCapability {
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
+     * @since 22 static
      */
     VIDEO_HLG = 1,
     /**
@@ -92,7 +95,8 @@ declare namespace hdrCapability {
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
+     * @since 22 static
      */
     VIDEO_HDR10 = 2,
     /**
@@ -106,7 +110,8 @@ declare namespace hdrCapability {
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
+     * @since 22 static
      */
     VIDEO_HDR_VIVID = 3,
     /**
@@ -120,7 +125,8 @@ declare namespace hdrCapability {
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
+     * @since 22 static
      */
     IMAGE_HDR_VIVID_DUAL = 4,
     /**
@@ -134,7 +140,8 @@ declare namespace hdrCapability {
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
+     * @since 22 static
      */
     IMAGE_HDR_VIVID_SINGLE = 5,
     /**
@@ -148,7 +155,8 @@ declare namespace hdrCapability {
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
+     * @since 22 static
      */
     IMAGE_HDR_ISO_DUAL = 6,
     /**
@@ -162,7 +170,8 @@ declare namespace hdrCapability {
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12 dynamic
+     * @since 22 static
      */
     IMAGE_HDR_ISO_SINGLE = 7,
   }

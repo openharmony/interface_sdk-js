@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { Position } from './units'
 import { CommonMethod } from './common'
 /*** endif */
@@ -29,8 +29,8 @@ import { CommonMethod } from './common'
  * @interface WindowSceneInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 22 static
  */
 interface WindowSceneInterface {
   /**
@@ -40,8 +40,8 @@ interface WindowSceneInterface {
    * @returns { WindowSceneAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   (persistentId: number): WindowSceneAttribute;
 }
@@ -52,8 +52,8 @@ interface WindowSceneInterface {
  * @extends CommonMethod<WindowSceneAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 22 static
  */
 declare class WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
   /**
@@ -66,8 +66,8 @@ declare class WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
    * @returns { WindowSceneAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   attractionEffect(destination: Position, fraction: number): WindowSceneAttribute;
 }
@@ -77,7 +77,7 @@ declare class WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 10
+ * @since 10 dynamic
  */
 declare const WindowScene: WindowSceneInterface;
 
@@ -86,6 +86,6 @@ declare const WindowScene: WindowSceneInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 10
+ * @since 10 dynamic
  */
 declare const WindowSceneInstance: WindowSceneAttribute;

@@ -40,8 +40,8 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 export interface AbilityDelegatorArgs {
   /**
@@ -66,8 +66,8 @@ export interface AbilityDelegatorArgs {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   bundleName: string;
 
@@ -93,8 +93,8 @@ export interface AbilityDelegatorArgs {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   parameters: Record<string, string>;
 
@@ -120,8 +120,8 @@ export interface AbilityDelegatorArgs {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   testCaseNames: string;
 
@@ -147,12 +147,12 @@ export interface AbilityDelegatorArgs {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   testRunnerClassName: string;
 }
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 export default AbilityDelegatorArgs;
 /*** endif */

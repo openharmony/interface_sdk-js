@@ -35,7 +35,7 @@
  * @namespace batteryInfo
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare namespace batteryInfo {
   /**
@@ -51,7 +51,7 @@ declare namespace batteryInfo {
    * @throws { BusinessError } 5100101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function setBatteryConfig(sceneName: string, sceneValue: string): number;
 
@@ -66,7 +66,7 @@ declare namespace batteryInfo {
    * @throws { BusinessError } 5100101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function getBatteryConfig(sceneName: string): string;
 
@@ -81,7 +81,7 @@ declare namespace batteryInfo {
    * @throws { BusinessError } 5100101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function isBatteryConfigSupported(sceneName: string): boolean;
 
@@ -97,7 +97,7 @@ declare namespace batteryInfo {
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   const batterySOC: number;
 
@@ -113,7 +113,7 @@ declare namespace batteryInfo {
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   const chargingStatus: BatteryChargeState;
 
@@ -121,7 +121,7 @@ declare namespace batteryInfo {
    * Battery health state of the current device.
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
-   * @since 6
+   * @since 6 dynamic
    */
   const healthStatus: BatteryHealthState;
 
@@ -129,7 +129,7 @@ declare namespace batteryInfo {
    * Charger type of the current device.
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
-   * @since 6
+   * @since 6 dynamic
    */
   const pluggedType: BatteryPluggedType;
 
@@ -137,7 +137,7 @@ declare namespace batteryInfo {
    * Battery voltage of the current device, in µV.
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
-   * @since 6
+   * @since 6 dynamic
    */
   const voltage: number;
 
@@ -145,7 +145,7 @@ declare namespace batteryInfo {
    * Battery technology of the current device.
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
-   * @since 6
+   * @since 6 dynamic
    */
   const technology: string;
 
@@ -153,7 +153,7 @@ declare namespace batteryInfo {
    * Battery temperature of the current device, in 0.1℃.
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
-   * @since 6
+   * @since 6 dynamic
    */
   const batteryTemperature: number;
 
@@ -161,7 +161,7 @@ declare namespace batteryInfo {
    * Battery present state of the current device.
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
-   * @since 7
+   * @since 7 dynamic
    */
   const isBatteryPresent: boolean;
 
@@ -169,7 +169,7 @@ declare namespace batteryInfo {
    * Battery capacity level of the current device.
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
-   * @since 9
+   * @since 9 dynamic
    */
   const batteryCapacityLevel: BatteryCapacityLevel;
 
@@ -178,7 +178,7 @@ declare namespace batteryInfo {
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   const estimatedRemainingChargeTime: number;
 
@@ -187,7 +187,7 @@ declare namespace batteryInfo {
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   const totalEnergy: number;
 
@@ -195,7 +195,7 @@ declare namespace batteryInfo {
    * Battery immediate current of the current device, in mA.
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
-   * @since 12
+   * @since 12 dynamic
    */
   const nowCurrent: number;
 
@@ -204,7 +204,7 @@ declare namespace batteryInfo {
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   const remainingEnergy: number;
 
@@ -213,35 +213,35 @@ declare namespace batteryInfo {
    *
    * @enum { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
-   * @since 6
+   * @since 6 dynamic
    */
   export enum BatteryPluggedType {
     /**
      * Unknown type
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 6
+     * @since 6 dynamic
      */
     NONE,
     /**
      * AC charger
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 6
+     * @since 6 dynamic
      */
     AC,
     /**
      * USB charger
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 6
+     * @since 6 dynamic
      */
     USB,
     /**
      * Wireless charger
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 6
+     * @since 6 dynamic
      */
     WIRELESS
   }
@@ -259,7 +259,7 @@ declare namespace batteryInfo {
    * @enum { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   export enum BatteryChargeState {
     /**
@@ -273,7 +273,7 @@ declare namespace batteryInfo {
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     NONE,
     /**
@@ -287,7 +287,7 @@ declare namespace batteryInfo {
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     ENABLE,
     /**
@@ -301,7 +301,7 @@ declare namespace batteryInfo {
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     DISABLE,
     /**
@@ -315,7 +315,7 @@ declare namespace batteryInfo {
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     FULL
   }
@@ -325,49 +325,49 @@ declare namespace batteryInfo {
    *
    * @enum { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
-   * @since 6
+   * @since 6 dynamic
    */
   export enum BatteryHealthState {
     /**
      * Unknown state.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 6
+     * @since 6 dynamic
      */
     UNKNOWN,
     /**
      * The battery is in healthy state.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 6
+     * @since 6 dynamic
      */
     GOOD,
     /**
      * The battery is overheated.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 6
+     * @since 6 dynamic
      */
     OVERHEAT,
     /**
      * The battery voltage is over high.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 6
+     * @since 6 dynamic
      */
     OVERVOLTAGE,
     /**
      * The battery temperature is low.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 6
+     * @since 6 dynamic
      */
     COLD,
     /**
      * The battery is dead.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 6
+     * @since 6 dynamic
      */
     DEAD
   }
@@ -377,56 +377,56 @@ declare namespace batteryInfo {
    *
    * @enum { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
-   * @since 9
+   * @since 9 dynamic
    */
   export enum BatteryCapacityLevel {
     /**
      * The battery is in full capacity level.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 9
+     * @since 9 dynamic
      */
     LEVEL_FULL,
     /**
      * The battery is in high capacity level.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 9
+     * @since 9 dynamic
      */
     LEVEL_HIGH,
     /**
      * The battery is in normal capacity level.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 9
+     * @since 9 dynamic
      */
     LEVEL_NORMAL,
     /**
      * The battery is in low capacity level.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 9
+     * @since 9 dynamic
      */
     LEVEL_LOW,
     /**
      * The battery is in warning low capacity level.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 9
+     * @since 9 dynamic
      */
     LEVEL_WARNING,
     /**
      * The battery is in critical low capacity level.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 9
+     * @since 9 dynamic
      */
     LEVEL_CRITICAL,
     /**
      * The battery is in the lowest capacity level, system will shut down automatically in a few seconds.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 9
+     * @since 9 dynamic
      */
     LEVEL_SHUTDOWN
   }
@@ -436,70 +436,70 @@ declare namespace batteryInfo {
    *
    * @enum { string }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
-   * @since 9
+   * @since 9 dynamic
    */
   export enum CommonEventBatteryChangedKey {
     /**
      * Extra code of batterySOC.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 9
+     * @since 9 dynamic
      */
     EXTRA_SOC = 'soc',
     /**
      * Extra code of chargingStatus.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 9
+     * @since 9 dynamic
      */
     EXTRA_CHARGE_STATE = 'chargeState',
     /**
      * Extra code of healthStatus.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 9
+     * @since 9 dynamic
      */
     EXTRA_HEALTH_STATE = 'healthState',
     /**
      * Extra code of pluggedType.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 9
+     * @since 9 dynamic
      */
     EXTRA_PLUGGED_TYPE = 'pluggedType',
     /**
      * Extra code of voltage.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 9
+     * @since 9 dynamic
      */
     EXTRA_VOLTAGE = 'voltage',
     /**
      * Extra code of technology.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 9
+     * @since 9 dynamic
      */
     EXTRA_TECHNOLOGY = 'technology',
     /**
      * Extra code of batteryTemperature.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 9
+     * @since 9 dynamic
      */
     EXTRA_TEMPERATURE = 'temperature',
     /**
      * Extra code of isBatteryPresent.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 9
+     * @since 9 dynamic
      */
     EXTRA_PRESENT = 'present',
     /**
      * Extra code of batteryCapacityLevel.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
-     * @since 9
+     * @since 9 dynamic
      */
     EXTRA_CAPACITY_LEVEL = 'capacityLevel'
   }

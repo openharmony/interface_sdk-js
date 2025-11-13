@@ -27,16 +27,16 @@ import ExtensionContext from './ExtensionContext';
  * @extends ExtensionContext
  * @syscap SystemCapability.Driver.ExternalDevice
  * @StageModelOnly
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 22 static
  */
 declare class DriverExtensionContext extends ExtensionContext {
   /**
    * update the state of driver extension.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   updateDriverState(): void;
 }
@@ -46,7 +46,7 @@ declare class DriverExtensionContext extends ExtensionContext {
  * @typedef { DriverExtensionContext }
  * @syscap SystemCapability.Driver.ExternalDevice
  * @stagemodelonly
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 22 static
  */
 export default DriverExtensionContext;

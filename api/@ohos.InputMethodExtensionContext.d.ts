@@ -28,7 +28,7 @@ import ExtensionContext from './application/ExtensionContext';
  * @extends ExtensionContext
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @StageModelOnly
- * @since 9
+ * @since 9 dynamic
  */
 export default class InputMethodExtensionContext extends ExtensionContext {
   /**
@@ -37,7 +37,7 @@ export default class InputMethodExtensionContext extends ExtensionContext {
    * @param { AsyncCallback<void> } callback - the callback of destroy.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   destroy(callback: AsyncCallback<void>): void;
 
@@ -47,7 +47,7 @@ export default class InputMethodExtensionContext extends ExtensionContext {
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   destroy(): Promise<void>;
 
@@ -79,7 +79,7 @@ export default class InputMethodExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @StageModelOnly
-   * @since 12
+   * @since 12 dynamic
    */
   startAbility(want: Want): Promise<void>;
 }

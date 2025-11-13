@@ -24,8 +24,8 @@
  * @namespace fontManager
  * @syscap SystemCapability.Global.FontManager
  * @systemapi
- * @since arkts {'1.1':'19', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19 dynamic
+ * @since 22 static
  */
 declare namespace fontManager {
   /**
@@ -45,8 +45,8 @@ declare namespace fontManager {
    * @throws { BusinessError } 31100106 - Other error.
    * @syscap SystemCapability.Global.FontManager
    * @systemapi
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 22 static
    */
   function installFont(path: string): Promise<int>;
 
@@ -64,8 +64,8 @@ declare namespace fontManager {
    * @throws { BusinessError } 31100109 - Other error.
    * @syscap SystemCapability.Global.FontManager
    * @systemapi
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 22 static
    */
   function uninstallFont(fullName: string): Promise<int>;
 }

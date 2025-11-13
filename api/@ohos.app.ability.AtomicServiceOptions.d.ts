@@ -28,8 +28,8 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 22 static
  */
 export default class AtomicServiceOptions extends StartOptions {
   /**
@@ -39,8 +39,8 @@ export default class AtomicServiceOptions extends StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   flags?: int;
 
@@ -51,8 +51,8 @@ export default class AtomicServiceOptions extends StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   parameters?: Record<string, Object>;
 
@@ -63,8 +63,8 @@ export default class AtomicServiceOptions extends StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   completionHandlerForAtomicService?: CompletionHandlerForAtomicService;
 }

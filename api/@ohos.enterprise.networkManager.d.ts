@@ -490,6 +490,16 @@ declare namespace networkManager {
      * @since 12
      */
     protocol?: Protocol;
+
+    /**
+     * Address family. 1: IPV4, 2: IPV6, default is IPV4.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 22
+     */
+    family?: number;
   }
 
   /**
@@ -540,6 +550,16 @@ declare namespace networkManager {
      * @since 15
      */
     direction?: Direction;
+
+    /**
+     * Address family. 1: IPV4, 2: IPV6, default is IPV4.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 22
+     */
+    family?: number;
   }
 
   /**

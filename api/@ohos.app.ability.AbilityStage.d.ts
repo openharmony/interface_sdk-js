@@ -47,8 +47,8 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 declare class AbilityStage {
   /**
@@ -77,8 +77,8 @@ declare class AbilityStage {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   context: AbilityStageContext;
 
@@ -108,8 +108,8 @@ declare class AbilityStage {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   onCreate(): void;
 
@@ -137,7 +137,7 @@ declare class AbilityStage {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onAcceptWant(want: Want): string;
 
@@ -151,7 +151,7 @@ declare class AbilityStage {
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   * @stagemodelonly
   * @atomicservice
-  * @since 20
+  * @since 20 dynamic
   */
   onAcceptWantAsync(want: Want): Promise<string>;
 
@@ -181,7 +181,7 @@ declare class AbilityStage {
    * runs in the process. Otherwise, a new process is created and the ability runs in it.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   onNewProcessRequest(want: Want): string;
 
@@ -194,7 +194,7 @@ declare class AbilityStage {
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   * @stagemodelonly
   * @atomicservice
-  * @since 20
+  * @since 20 dynamic
   */
   onNewProcessRequestAsync(want: Want): Promise<string>;
 
@@ -229,8 +229,8 @@ declare class AbilityStage {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   onConfigurationUpdate(newConfig: Configuration): void;
 
@@ -259,7 +259,7 @@ declare class AbilityStage {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 
@@ -274,8 +274,8 @@ declare class AbilityStage {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   onDestroy(): void;
 
@@ -296,7 +296,7 @@ declare class AbilityStage {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   onPrepareTermination(): AbilityConstant.PrepareTermination;
 
@@ -318,7 +318,7 @@ declare class AbilityStage {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   onPrepareTerminationAsync(): Promise<AbilityConstant.PrepareTermination>;
 }

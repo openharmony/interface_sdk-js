@@ -24,8 +24,8 @@
  * @typedef RunningMultiInstanceInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since arkts {'1.1':'14', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14 dynamic
+ * @since 22 static
  */
 export interface RunningMultiInstanceInfo {
     /**
@@ -34,8 +34,8 @@ export interface RunningMultiInstanceInfo {
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
      instanceKey: string;
   
@@ -45,8 +45,8 @@ export interface RunningMultiInstanceInfo {
      * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     uid: int;
   
@@ -56,8 +56,8 @@ export interface RunningMultiInstanceInfo {
      * @type { Array<int> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     pids: Array<int>;
   }

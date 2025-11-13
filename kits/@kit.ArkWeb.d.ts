@@ -26,7 +26,7 @@ import webNativeMessagingExtensionManager from '@ohos.web.webNativeMessagingExte
 
 export { WebNativeMessagingExtensionAbility, webNativeMessagingExtensionManager, ConnectionInfo};
 
-/*** if arkts 1.1&1.2 */
+/*** if arkts dynamic&static */
 import webview from '@ohos.web.webview';
 
 export { webview };

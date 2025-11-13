@@ -15,17 +15,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Alignment } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Options used to construct the stack.
  *
  * @interface StackOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare interface StackOptions {
     /**
@@ -35,10 +34,20 @@ export declare interface StackOptions {
      * @type { ?Alignment }
      * @default Alignment.Center
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     alignContent?: Alignment;
 }
+
+/**
+ * The StackAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface StackAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ * @noninterop
+ */
 export declare interface StackAttribute extends CommonMethod {
     /**
      * Called when the alignment of items in the container is set.
@@ -46,7 +55,7 @@ export declare interface StackAttribute extends CommonMethod {
      * @param { Alignment } value
      * @returns { StackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default alignContent(value: Alignment | undefined): this;
     /**
@@ -56,7 +65,7 @@ export declare interface StackAttribute extends CommonMethod {
     * @returns { StackAttribute } The attribute of the stack.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @systemapi
-    * @since 20
+    * @since 22 static
     */
     default pointLight(value: PointLightStyle): StackAttribute;
     /**
@@ -65,16 +74,24 @@ export declare interface StackAttribute extends CommonMethod {
      * @param { AttributeModifier<StackAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { StackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<StackAttribute> | AttributeModifier<CommonMethod>
         | undefined): this;
 }
 
-@memo
+/**
+ * Defines Stack Component.
+ *
+ * @param { StackOptions } [options] - Stack options.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { StackAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ * @noninterop
+ */
 @ComponentBuilder
 export declare function Stack(
     options?: StackOptions,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): StackAttribute

@@ -24,8 +24,7 @@
  * @typedef { Function }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
+ * @since 22 dynamic&static
  */
 type OnPrepareFn = () => void;
 
@@ -35,8 +34,7 @@ type OnPrepareFn = () => void;
  * @typedef { Function }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
+ * @since 22 dynamic&static
  */
 type OnRunFn = () => void;
 
@@ -55,8 +53,8 @@ type OnRunFn = () => void;
  * @interface TestRunner
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 interface TestRunner {
   /**
@@ -78,8 +76,7 @@ interface TestRunner {
    * @type { OnPrepareFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   onPrepare: OnPrepareFn;
 
@@ -102,13 +99,12 @@ interface TestRunner {
    * @typedef { OnRunFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   onRun: OnRunFn;
 }
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 export { TestRunner };
 /*** endif */
 export default TestRunner;

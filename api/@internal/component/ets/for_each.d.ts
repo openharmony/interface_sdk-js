@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
 }
@@ -63,7 +63,7 @@ declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface ForEachInterface {
   /**
@@ -123,7 +123,7 @@ interface ForEachInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   (
     arr: Array<any>,
@@ -160,6 +160,6 @@ interface ForEachInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const ForEach: ForEachInterface;

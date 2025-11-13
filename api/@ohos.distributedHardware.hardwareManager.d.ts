@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,64 +25,73 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @namespace hardwareManager
  * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
  * @systemapi
- * @since 11
+ * @since 11 dynamic
+ * @since 22 static
  */
 declare namespace hardwareManager {
   /**
    * Distributed hardware Type definitions
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   enum DistributedHardwareType {
     /**
      * Indicates all hardware
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     ALL = 0,
     /**
      * Distributed camera
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     CAMERA = 1,
     /**
      * Distributed screen
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     SCREEN = 8,
     /**
      * Mic of distributed modem
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     MODEM_MIC = 256,
     /**
      * Speaker of distributed modem
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     MODEM_SPEAKER = 512,
     /**
      * Distributed mic
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     MIC = 1024,
     /**
      * Distributed speaker
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     SPEAKER = 2048
   }
@@ -92,14 +101,15 @@ declare namespace hardwareManager {
    * @enum {number}
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   enum DistributedHardwareErrorCode {
     /**
      * The distributed hardware is not started.
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     ERR_CODE_DISTRIBUTED_HARDWARE_NOT_STARTED = 24200101,
 
@@ -107,7 +117,8 @@ declare namespace hardwareManager {
      * The source device is not connected.
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     ERR_CODE_DEVICE_NOT_CONNECTED = 24200102
   }
@@ -117,7 +128,8 @@ declare namespace hardwareManager {
    * @typedef HardwareDescriptor
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   interface HardwareDescriptor {
     /**
@@ -126,7 +138,8 @@ declare namespace hardwareManager {
      * @type {DistributedHardwareType}
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     type: DistributedHardwareType;
 
@@ -136,7 +149,8 @@ declare namespace hardwareManager {
      * @type {?string}
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     srcNetworkId?: string;
   }
@@ -153,7 +167,8 @@ declare namespace hardwareManager {
    * @throws {BusinessError} 24200102 - The specified source device is not connected.
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function pauseDistributedHardware(description: HardwareDescriptor): Promise<void>;
 
@@ -169,7 +184,8 @@ declare namespace hardwareManager {
    * @throws {BusinessError} 24200102 - The specified source device is not connected.
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function resumeDistributedHardware(description: HardwareDescriptor): Promise<void>;
 
@@ -185,7 +201,8 @@ declare namespace hardwareManager {
    * @throws {BusinessError} 24200102 - The specified source device is not connected.
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function stopDistributedHardware(description: HardwareDescriptor): Promise<void>;
 }

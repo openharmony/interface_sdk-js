@@ -17,48 +17,47 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { CommonMethod, BlurStyle, Bindable } from './common';
-import { ResourceColor, Length, Position } from './units';
-import { Font } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
+import { ResourceColor, Length, Position } from "./units";
+import { Font } from "./units";
+import { ComponentBuilder, CustomBuilder } from './builder';
+import { AttributeModifier, CommonMethod } from "./common";
 /**
  * indexer align property.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare enum IndexerAlign {
     /**
      * A dialog box is displayed on the right of the index bar.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     Left,
     /**
      * A dialog box is displayed on the left of the index bar.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     Right,
     /**
      * A dialog box is displayed on the start of the index bar.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     START,
     /**
      * A dialog box is displayed on the end of the index bar.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     END
 }
@@ -67,7 +66,8 @@ export declare enum IndexerAlign {
  *
  * @interface AlphabetIndexerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
+ * @noninterop
  */
 export interface AlphabetIndexerOptions {
     /**
@@ -76,46 +76,49 @@ export interface AlphabetIndexerOptions {
      *
      * @type { Array<string> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     arrayValue: Array<string>;
     /**
      * ID of the selected item.
      *
-     * @type { number | Bindable<number> }
+     * @type { int | Bindable<int> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    selected: number | Bindable<number>;
+    selected: int | Bindable<int>;
 }
 /**
  * Defines an AlphabetIndexer callback when onSelect.
  *
  * @typedef { function } OnAlphabetIndexerSelectCallback
- * @param { number } index - selected index
+ * @param { int } index - selected index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
+ * @noninterop
  */
-export type OnAlphabetIndexerSelectCallback = (index: number) => void;
+export type OnAlphabetIndexerSelectCallback = (index: int) => void;
 /**
  * Defines an AlphabetIndexer callback when onPopupSelect.
  *
  * @typedef { function } OnAlphabetIndexerPopupSelectCallback
- * @param { number } index - selected index
+ * @param { int } index - selected index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
+ * @noninterop
  */
-export type OnAlphabetIndexerPopupSelectCallback = (index: number) => void;
+export type OnAlphabetIndexerPopupSelectCallback = (index: int) => void;
 /**
  * Defines an AlphabetIndexer callback when onRequestPopupData.
  *
  * @typedef { function } OnAlphabetIndexerRequestPopupDataCallback
- * @param { number } index - selected index
+ * @param { int } index - selected index
  * @returns { Array<string> } string array corresponding to the index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
+ * @noninterop
  */
-export type OnAlphabetIndexerRequestPopupDataCallback = (index: number) => Array<string>;
+export type OnAlphabetIndexerRequestPopupDataCallback = (index: int) => Array<string>;
 
 /**
  * The AlphabetIndexerAttribute.
@@ -123,7 +126,7 @@ export type OnAlphabetIndexerRequestPopupDataCallback = (index: number) => Array
  * @extends CommonMethod
  * @interface AlphabetIndexerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare interface AlphabetIndexerAttribute extends CommonMethod {
     /**
@@ -132,99 +135,99 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { ResourceColor } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    color(value: ResourceColor | undefined): this;
+    default color(value: ResourceColor | undefined): this;
     /**
      * Select the text color.
      *
      * @param { ResourceColor } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    selectedColor(value: ResourceColor | undefined): this;
+    default selectedColor(value: ResourceColor | undefined): this;
     /**
      * Font color of the pop-up prompt text.
      *
      * @param { ResourceColor } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    popupColor(value: ResourceColor | undefined): this;
+    default popupColor(value: ResourceColor | undefined): this;
     /**
      * Select the text background color.
      *
      * @param { ResourceColor } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    selectedBackgroundColor(value: ResourceColor | undefined): this;
+    default selectedBackgroundColor(value: ResourceColor | undefined): this;
     /**
      * Background color of the pop-up window index.
      *
      * @param { ResourceColor } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    popupBackground(value: ResourceColor | undefined): this;
+    default popupBackground(value: ResourceColor | undefined): this;
     /**
      * Set the selected font color of non-alphabetic part of the pop-up window.
      *
      * @param { ResourceColor } value - indicates the color of the selected font.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    popupSelectedColor(value: ResourceColor | undefined): this;
+    default popupSelectedColor(value: ResourceColor | undefined): this;
     /**
      * Set the unselected font color of non-alphabetic part of the pop-up window.
      *
      * @param { ResourceColor } value - indicates the color of the unselected font.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    popupUnselectedColor(value: ResourceColor | undefined): this;
+    default popupUnselectedColor(value: ResourceColor | undefined): this;
     /**
      * Set the background color of non-alphabetic part of the pop-up window.
      *
      * @param { ResourceColor } value - indicates the color of background.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    popupItemBackgroundColor(value: ResourceColor | undefined): this;
+    default popupItemBackgroundColor(value: ResourceColor | undefined): this;
     /**
      * Whether to use pop-up index hints.
      *
      * @param { boolean } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    usingPopup(value: boolean | undefined): this;
+    default usingPopup(value: boolean | undefined): this;
     /**
      * Select the text text style,
      *
      * @param { Font } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    selectedFont(value: Font | undefined): this;
+    default selectedFont(value: Font | undefined): this;
     /**
      * Select the text background color.
      *
      * @param { Font } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    popupFont(value: Font | undefined): this;
+    default popupFont(value: Font | undefined): this;
     /**
      * Set the font style of non-alphabetic part of the prompt pop-up window.
      * Family and style are not supported currently and will be fixed in future.
@@ -232,27 +235,27 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { Font } value - indicates the style of the font.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    popupItemFont(value: Font | undefined): this;
+    default popupItemFont(value: Font | undefined): this;
     /**
      * Size of the letter area on the letter index bar. The letter area is a square. Set the length of the square side.
      *
-     * @param { string | number } value
+     * @param { string | double } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    itemSize(value: string | number | undefined): this;
+    default itemSize(value: string | double | undefined): this;
     /**
      * Definitions fonts.
      *
      * @param { Font } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    font(value: Font | undefined): this;
+    default font(value: Font | undefined): this;
     /**
      * Alphabet index bar alignment style. The left and right alignment styles are supported,
      * which affects the pop-up position of the pop-up window.
@@ -261,9 +264,9 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { Length } [offset] - indicates the horizontal space between pop-up window and indexer bar.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    alignStyle(value: IndexerAlign | undefined, offset?: Length | undefined): this;
+    default alignStyle(value: IndexerAlign | undefined, offset?: Length | undefined): this;
     /**
      * Index bar selection callback.
      * Anonymous Object Rectification.
@@ -271,9 +274,9 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { OnAlphabetIndexerSelectCallback } callback
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    onSelect(callback: OnAlphabetIndexerSelectCallback | undefined): this;
+    default onSelect(callback: OnAlphabetIndexerSelectCallback | undefined): this;
     /**
      * Index bar selection callback and return the strings which display on pop-up.
      * Anonymous Object Rectification.
@@ -281,9 +284,9 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { OnAlphabetIndexerRequestPopupDataCallback } callback
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    onRequestPopupData(callback: OnAlphabetIndexerRequestPopupDataCallback | undefined): this;
+    default onRequestPopupData(callback: OnAlphabetIndexerRequestPopupDataCallback | undefined): this;
     /**
      * Pop-up selection callback.
      * Anonymous Object Rectification.
@@ -291,81 +294,82 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @param { OnAlphabetIndexerPopupSelectCallback } callback
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    onPopupSelect(callback: OnAlphabetIndexerPopupSelectCallback | undefined): this;
+    default onPopupSelect(callback: OnAlphabetIndexerPopupSelectCallback | undefined): this;
     /**
      * Sets the selected index.
      *
-     * @param { number | Bindable<number> } index
+     * @param { int | Bindable<int> } index
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    selected(index: number | Bindable<number> | undefined): this;
+    default selected(index: int | Bindable<int> | undefined): this;
     /**
      * Position of the pop-up windows, relative to the midpoint of the top border of the indexer bar.
      *
      * @param { Position } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    popupPosition(value: Position | undefined): this;
+    default popupPosition(value: Position | undefined): this;
     /**
      * Automatically collapses the characters when the indexer bar not high enough to display all characters.
      *
      * @param { boolean } value - A boolean value determines whether auto collapses is enabled for indexer bar.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    autoCollapse(value: boolean | undefined): this;
+    default autoCollapse(value: boolean | undefined): this;
     /**
      * Set the radius of the item of the pop-up window.
      *
-     * @param { number } value
+     * @param { double } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    popupItemBorderRadius(value: number | undefined): this;
+    default popupItemBorderRadius(value: double | undefined): this;
     /**
      * Set the radius of the item of the indexer.
-     *
-     * @param { number } value
+     * Default value: 8vp.
+     * @param { double | undefined } value
+     *     undefined means setting to default value.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    itemBorderRadius(value: number | undefined): this;
+    default itemBorderRadius(value: double | undefined): this;
     /**
      * Set the background blurStyle of title of the pop-up window.
      *
      * @param { BlurStyle } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    popupBackgroundBlurStyle(value: BlurStyle | undefined): this;
+    default popupBackgroundBlurStyle(value: BlurStyle | undefined): this;
     /**
      * Set the background color of title of the pop-up window.
      *
      * @param { ResourceColor } value
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    popupTitleBackground(value: ResourceColor | undefined): this;
+    default popupTitleBackground(value: ResourceColor | undefined): this;
     /**
      * Enable or disable haptic feedback.
      *
      * @param { boolean } value - Default value is true, set false to disable haptic feedback.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    enableHapticFeedback(value: boolean | undefined): this;
+    default enableHapticFeedback(value: boolean | undefined): this;
 
     /**
      * Set the attribute modifier of the component.
@@ -374,24 +378,24 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      *  Set the AlphabetIndexer modifier to the component.
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
+     * @noninterop
      */
-    attributeModifier(modifier: AttributeModifier<AlphabetIndexerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default attributeModifier(modifier: AttributeModifier<AlphabetIndexerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
  * Defines AlphabetIndexer Component
  *
  * @param { AlphabetIndexerOptions } options - indexer constructor options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { AlphabetIndexerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function AlphabetIndexer(
     options: AlphabetIndexerOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): AlphabetIndexerAttribute

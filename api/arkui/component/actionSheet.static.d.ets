@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Resource } from '../../global/resource';
 import { VoidCallback, ResourceStr, ResourceColor, Dimension, BorderRadiuses, LocalizedEdgeColors, EdgeColors, EdgeWidths, LocalizedEdgeWidths, EdgeStyles, LocalizedBorderRadiuses } from './units';
@@ -24,14 +23,13 @@ import { Callback, DismissReason, Rectangle, BlurStyle, TransitionEffect, Shadow
 import { DialogButtonStyle, BorderStyle } from './enums';
 import { DialogAlignment } from './alertDialog';
 import { LevelOrder, LevelMode, ImmersiveMode } from '../../@ohos.promptAction';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * The information of sheet.
  *
  * @interface SheetInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export interface SheetInfo {
     /**
@@ -39,7 +37,7 @@ export interface SheetInfo {
      *
      * @type { string | Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     title: string | Resource;
     /**
@@ -47,7 +45,7 @@ export interface SheetInfo {
      *
      * @type { ?(string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     icon?: string | Resource;
     /**
@@ -56,7 +54,7 @@ export interface SheetInfo {
      *
      * @type { VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     action: VoidCallback;
 }
@@ -65,14 +63,14 @@ export interface SheetInfo {
  *
  * @interface DismissDialogAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare interface DismissDialogAction {
     /**
      * Defines dialog dismiss function.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     dismiss(): void;
     /**
@@ -81,7 +79,7 @@ export declare interface DismissDialogAction {
      *
      * @type { DismissReason }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     reason: DismissReason;
 }
@@ -90,7 +88,7 @@ export declare interface DismissDialogAction {
  *
  * @interface ActionSheetButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export interface ActionSheetButtonOptions {
     /**
@@ -101,7 +99,7 @@ export interface ActionSheetButtonOptions {
      * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     enabled?: boolean;
     /**
@@ -112,7 +110,7 @@ export interface ActionSheetButtonOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     defaultFocus?: boolean;
     /**
@@ -122,7 +120,7 @@ export interface ActionSheetButtonOptions {
      * @type { ?DialogButtonStyle }
      * @default DialogButtonStyle.DEFAULT
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     style?: DialogButtonStyle;
     /**
@@ -131,7 +129,7 @@ export interface ActionSheetButtonOptions {
      *
      * @type { string | Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     value: string | Resource;
     /**
@@ -140,7 +138,7 @@ export interface ActionSheetButtonOptions {
      *
      * @type { VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     action: VoidCallback;
 }
@@ -149,34 +147,34 @@ export interface ActionSheetButtonOptions {
  *
  * @interface ActionSheetOffset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export interface ActionSheetOffset {
     /**
      * Offset of the action sheet along the x-axis relative to the alignment position.
      * Anonymous Object Rectification.
      *
-     * @type { number | string | Resource }
+     * @type { double | string | Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    dx: number | string | Resource;
+    dx: double | string | Resource;
     /**
      * Offset of the action sheet along the y-axis relative to the alignment position.
      * Anonymous Object Rectification.
      *
-     * @type { number | string | Resource }
+     * @type { double | string | Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    dy: number | string | Resource;
+    dy: double | string | Resource;
 }
 /**
  * The options of ActionSheet.
  *
  * @interface ActionSheetOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export interface ActionSheetOptions {
     /**
@@ -184,14 +182,14 @@ export interface ActionSheetOptions {
      *
      * @type { string | Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     title: string | Resource;
     /**
      * Subtitle of the dialog box.
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     subtitle?: ResourceStr;
     /**
@@ -199,7 +197,7 @@ export interface ActionSheetOptions {
      *
      * @type { string | Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     message: string | Resource;
     /**
@@ -209,7 +207,7 @@ export interface ActionSheetOptions {
      *
      * @type { ?ActionSheetButtonOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     confirm?: ActionSheetButtonOptions;
     /**
@@ -218,7 +216,7 @@ export interface ActionSheetOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     cancel?: VoidCallback;
     /**
@@ -226,7 +224,7 @@ export interface ActionSheetOptions {
      *
      * @type { Array<SheetInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     sheets: Array<SheetInfo>;
     /**
@@ -236,7 +234,7 @@ export interface ActionSheetOptions {
      * @default true - The value true means to close the dialog box when the overlay is clicked, and false means
      * the opposite.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     autoCancel?: boolean;
     /**
@@ -249,7 +247,7 @@ export interface ActionSheetOptions {
      * @type { ?DialogAlignment }
      * @default DialogAlignment.Bottom
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     alignment?: DialogAlignment;
     /**
@@ -259,7 +257,7 @@ export interface ActionSheetOptions {
      *
      * @type { ?ActionSheetOffset }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     offset?: ActionSheetOffset;
     /**
@@ -272,7 +270,7 @@ export interface ActionSheetOptions {
      * @type { ?Rectangle }
      * @default - {x:0,y:0, width:'100%', height:'100%'}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     maskRect?: Rectangle;
     /**
@@ -285,7 +283,7 @@ export interface ActionSheetOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     showInSubWindow?: boolean;
     /**
@@ -293,7 +291,7 @@ export interface ActionSheetOptions {
      * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     isModal?: boolean;
     /**
@@ -306,7 +304,7 @@ export interface ActionSheetOptions {
      * @type { ?ResourceColor }
      * @default Color.Transparent
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     backgroundColor?: ResourceColor;
     /**
@@ -320,7 +318,7 @@ export interface ActionSheetOptions {
      * @type { ?BlurStyle }
      * @default BlurStyle.COMPONENT_ULTRA_THICK
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     backgroundBlurStyle?: BlurStyle;
     /**
@@ -328,7 +326,7 @@ export interface ActionSheetOptions {
      *
      * @type { ?BackgroundBlurStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
     /**
@@ -336,7 +334,7 @@ export interface ActionSheetOptions {
      *
      * @type { ?BackgroundEffectOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     backgroundEffect?: BackgroundEffectOptions;
     /**
@@ -351,7 +349,7 @@ export interface ActionSheetOptions {
      *
      * @type { ?Callback<DismissDialogAction> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     onWillDismiss?: Callback<DismissDialogAction>;
     /**
@@ -366,7 +364,7 @@ export interface ActionSheetOptions {
      *
      * @type { ?TransitionEffect }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     transition?: TransitionEffect;
     /**
@@ -378,7 +376,7 @@ export interface ActionSheetOptions {
      * negative, the default value is used. When set to a percentage, the value defines the radius as a percentage of
      * the parent component's width or height.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     cornerRadius?: Dimension | BorderRadiuses | LocalizedBorderRadiuses;
     /**
@@ -389,7 +387,7 @@ export interface ActionSheetOptions {
      * When this parameter is set to a percentage, the reference width of the dialog box is the width of the window
      * where the dialog box is located. You can decrease or increase the width as needed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     width?: Dimension;
     /**
@@ -400,7 +398,7 @@ export interface ActionSheetOptions {
      * <br>When this parameter is set to a percentage, the reference height of the dialog box is the height of the
      * window where the dialog box is located minus the safe area. You can decrease or increase the height as needed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     height?: Dimension;
     /**
@@ -412,7 +410,7 @@ export interface ActionSheetOptions {
      * box's width. If the left and right borders are greater than its width, or the top and bottom borders are greater
      * than its height, the dialog box may not display as expected.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
     /**
@@ -425,7 +423,7 @@ export interface ActionSheetOptions {
      * @type { ?(ResourceColor | EdgeColors | LocalizedEdgeColors) }
      * @default Color.Black - borderColor must be used with borderWidth in pairs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
     /**
@@ -434,7 +432,7 @@ export interface ActionSheetOptions {
      * @type { ?(BorderStyle | EdgeStyles) }
      * @default BorderStyle.Solid - borderStyle must be used with borderWidth in pairs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     borderStyle?: BorderStyle | EdgeStyles;
     /**
@@ -444,7 +442,7 @@ export interface ActionSheetOptions {
      * @default - Default value on 2-in-1 devices: ShadowStyle.OUTER_FLOATING_MD when the dialog box is focused and
      * ShadowStyle.OUTER_FLOATING_SM otherwise.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     shadow?: ShadowOptions | ShadowStyle;
     /**
@@ -453,7 +451,7 @@ export interface ActionSheetOptions {
      * @type { ?boolean }
      * @default false - meaning not to enable the hover mode.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     enableHoverMode?: boolean;
     /**
@@ -462,48 +460,48 @@ export interface ActionSheetOptions {
      * @type { ?HoverModeAreaType }
      * @default HoverModeAreaType.BOTTOM_SCREEN
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     hoverModeArea?: HoverModeAreaType;
     /**
      * Callback function when the dialog appears.
      *
-     * @type { ?Callback<void> }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    onDidAppear?: Callback<void>;
+    onDidAppear?: VoidCallback;
     /**
      * Callback function when the dialog disappears.
      *
-     * @type { ?Callback<void> }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    onDidDisappear?: Callback<void>;
+    onDidDisappear?: VoidCallback;
     /**
      * Callback function before the dialog openAnimation starts.
      *
-     * @type { ?Callback<void> }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    onWillAppear?: Callback<void>;
+    onWillAppear?: VoidCallback;
     /**
      * Callback function before the dialog closeAnimation starts.
      *
-     * @type { ?Callback<void> }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    onWillDisappear?: Callback<void>;
+    onWillDisappear?: VoidCallback;
     /**
      * Display level of the dialog box.
      *
      * @type { ?LevelMode }
      * @default LevelMode.OVERLAY - This parameter takes effect only when showInSubWindow is set to false.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     levelMode?: LevelMode;
     /**
@@ -512,18 +510,18 @@ export interface ActionSheetOptions {
      * <br>This parameter takes effect only when levelMode is set to LevelMode.EMBEDDED.
      * </p>
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    levelUniqueId?: number;
+    levelUniqueId?: int;
     /**
      * Overlay effect for the page-level dialog box.
      *
      * @type { ?ImmersiveMode }
      * @default ImmersiveMode.DEFAULT - This parameter takes effect only when levelMode is set to LevelMode.EMBEDDED.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     immersiveMode?: ImmersiveMode;
     /**
@@ -532,7 +530,7 @@ export interface ActionSheetOptions {
      * @type { ?LevelOrder }
      * @default The value returns by LevelOrder.clamp(0)
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     levelOrder?: LevelOrder;
 }

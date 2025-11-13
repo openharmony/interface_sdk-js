@@ -26,7 +26,7 @@ import { ElementName } from './bundleManager/ElementName';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export default class CompletionHandler {
   /**
@@ -37,7 +37,7 @@ export default class CompletionHandler {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   onRequestSuccess(elementName: ElementName, message: string): void;
 
@@ -51,7 +51,7 @@ export default class CompletionHandler {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   onRequestFailure(elementName: ElementName, message: string): void;
 }

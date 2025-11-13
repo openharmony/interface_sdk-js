@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { AttributeModifier } from '@ohos.arkui.component';
@@ -27,6 +26,6 @@ import { MenuAttribute } from '@ohos.arkui.component';
  *
  * @implements { MenuAttribute, AttributeModifier<MenuAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class MenuModifier implements MenuAttribute, AttributeModifier<MenuAttribute> {}

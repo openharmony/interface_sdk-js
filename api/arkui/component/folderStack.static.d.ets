@@ -15,18 +15,17 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import window from '../../@ohos.window';
 import { FoldStatus, Alignment, AppRotation } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Import the WindowStatusType type object for onHoverStatusChange.
  *
  * @typedef { window.WindowStatusType } WindowStatusType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export type WindowStatusType = window.WindowStatusType;
 /**
@@ -34,7 +33,7 @@ export type WindowStatusType = window.WindowStatusType;
  *
  * @interface FolderStackOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export interface FolderStackOptions {
     /**
@@ -43,7 +42,7 @@ export interface FolderStackOptions {
      * Anonymous Object Rectification
      * @type { ?Array<string> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     upperItems?: Array<string>;
 }
@@ -52,7 +51,7 @@ export interface FolderStackOptions {
  *
  * @interface OnFoldStatusChangeInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export interface OnFoldStatusChangeInfo {
     /**
@@ -61,7 +60,7 @@ export interface OnFoldStatusChangeInfo {
      * Anonymous Object Rectification
      * @type { FoldStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     foldStatus: FoldStatus;
 }
@@ -72,7 +71,7 @@ export interface OnFoldStatusChangeInfo {
  * @typedef { function } OnFoldStatusChangeCallback
  * @param { OnFoldStatusChangeInfo } event - the folding information of the current device
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void;
 /**
@@ -82,9 +81,19 @@ export type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void
  * @typedef { function } OnHoverStatusChangeCallback
  * @param { HoverEventParam } param - hover event param
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export type OnHoverStatusChangeCallback = (param: HoverEventParam) => void;
+
+/**
+ * The FolderStackAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface FolderStackAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ * @noninterop
+ */
 export declare interface FolderStackAttribute extends CommonMethod {
     /**
      * Set the alignment of folderStack.
@@ -92,7 +101,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
      * @param { Alignment } value - align of children
      * @returns { FolderStackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default alignContent(value: Alignment | undefined): this;
     /**
@@ -102,7 +111,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
     * @param { OnFoldStatusChangeCallback } callback - executed when folderStatus changed
     * @returns { FolderStackAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 22 static
     */
     default onFolderStateChange(callback: OnFoldStatusChangeCallback | undefined): this;
     /**
@@ -112,7 +121,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
      * @param { OnHoverStatusChangeCallback } handler - executed when hoverStatus changed
      * @returns { FolderStackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default onHoverStatusChange(handler: OnHoverStatusChangeCallback | undefined): this;
     /**
@@ -121,7 +130,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
      * @param { boolean } value - enable the animation of folderStatus changed
      * @returns { FolderStackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default enableAnimation(value: boolean | undefined): this;
     /**
@@ -130,7 +139,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
      * @param { boolean } value - enable auto halfFold
      * @returns { FolderStackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default autoHalfFold(value: boolean | undefined): this;
     /**
@@ -139,7 +148,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
      * @param { AttributeModifier<FolderStackAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { FolderStackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<FolderStackAttribute>
         | AttributeModifier<CommonMethod> | undefined): this;
@@ -149,7 +158,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
  *
  * @interface HoverEventParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare interface HoverEventParam {
     /**
@@ -157,7 +166,7 @@ export declare interface HoverEventParam {
      *
      * @type { FoldStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     foldStatus: FoldStatus;
     /**
@@ -165,7 +174,7 @@ export declare interface HoverEventParam {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     isHoverMode: boolean;
     /**
@@ -173,7 +182,7 @@ export declare interface HoverEventParam {
      *
      * @type { AppRotation }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     appRotation: AppRotation;
     /**
@@ -181,15 +190,23 @@ export declare interface HoverEventParam {
      *
      * @type { WindowStatusType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     windowStatusType: WindowStatusType;
 }
 
-@memo
+/**
+ * Defines FolderStack Component.
+ *
+ * @param { FolderStackOptions } [options] - FolderStack options.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { FolderStackAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ * @noninterop
+ */
 @ComponentBuilder
 export declare function FolderStack(
-    options?: FolderStackOptions,
-    @memo
-    content_?: () => void,
+    options?: FolderStackOptions, 
+    content_?: CustomBuilder
 ): FolderStackAttribute

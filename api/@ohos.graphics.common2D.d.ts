@@ -30,8 +30,17 @@
  * @namespace common2D
  * @syscap SystemCapability.Graphics.Drawing
  * @crossplatform
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic&static
+ */
+
+/**
+ * The date structure that provides the basis for graphics.
+ *
+ * @namespace common2D
+ * @syscap SystemCapability.Graphics.Drawing
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic&static
  */
 declare namespace common2D {
   /**
@@ -45,8 +54,15 @@ declare namespace common2D {
    * @typedef Color
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
+   */
+  /**
+   * Describes a color in ARGB format.
+   * @typedef Color
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   interface Color {
     /**
@@ -60,8 +76,15 @@ declare namespace common2D {
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
+     */
+    /**
+     * Alpha component of the color. The value is an integer ranging from 0 to 255.
+     * @type { int }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
      */
     alpha: int;
     /**
@@ -75,8 +98,15 @@ declare namespace common2D {
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
+     */
+    /**
+     * Red component of the color. The value is an integer ranging from 0 to 255.
+     * @type { int }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
      */
     red: int;
     /**
@@ -90,8 +120,15 @@ declare namespace common2D {
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
+     */
+    /**
+     * Green component of the color. The value is an integer ranging from 0 to 255.
+     * @type { int }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
      */
     green: int;
     /**
@@ -105,8 +142,15 @@ declare namespace common2D {
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
+     */
+    /**
+     * Blue component of the color. The value is an integer ranging from 0 to 255.
+     * @type { int }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
      */
     blue: int;
   }
@@ -122,8 +166,15 @@ declare namespace common2D {
    * @typedef Rect
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
+   */
+  /**
+   * Describes a rectangle, which can be defined by two coordinate points: upper left corner point and lower right corner point.
+   * @typedef Rect
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   interface Rect {
     /**
@@ -137,8 +188,15 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
+     */
+    /**
+     * X coordinate of the upper left corner of the rectangle. The value is a floating point number.
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
      */
     left: double;
     /**
@@ -152,8 +210,15 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
+     */
+    /**
+     * Y coordinate of the upper left corner of the rectangle. The value is a floating point number.
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
      */
     top: double;
     /**
@@ -167,8 +232,15 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
+     */
+    /**
+     * X coordinate of the lower right corner of the rectangle. The value is a floating point number.
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
      */
     right: double;
     /**
@@ -182,8 +254,15 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
+     */
+    /**
+     * Y coordinate of the lower right corner of the rectangle. The value is a floating point number.
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
      */
     bottom: double;
   }
@@ -199,8 +278,15 @@ declare namespace common2D {
    * @typedef Point
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
+   */
+  /**
+   * Describes a coordinate point.
+   * @typedef Point
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   interface Point {
     /**
@@ -214,8 +300,15 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
+     */
+    /**
+     * Horizontal coordinate. The value is a floating point number.
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
      */
     x: double;
 
@@ -230,8 +323,15 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
+     */
+    /**
+     * Vertical coordinate. The value is a floating point number.
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @atomicservice
+     * @since 22 dynamic&static
      */
     y: double;
   }
@@ -251,7 +351,8 @@ declare namespace common2D {
    * @extends Point
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface Point3d extends Point {
     /**
@@ -265,7 +366,8 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     z: double;
   }
@@ -275,8 +377,8 @@ declare namespace common2D {
    * @typedef Color4f
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   interface Color4f {
     /**
@@ -284,8 +386,8 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     alpha: double;
     /**
@@ -293,8 +395,8 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     red: double;
     /**
@@ -302,8 +404,8 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     green: double;
     /**
@@ -311,8 +413,8 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic
+     * @since 22 static
      */
     blue: double;
   }

@@ -16,37 +16,37 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Resource } from './../../../api/global/resource';
 import { CommonMethod, AttributeModifier } from "./common";
 import { Color } from "./enums";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Defines the hyperlink attribute functions
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
+ * @noninterop
  */
 export declare interface HyperlinkAttribute extends CommonMethod {
     /**
      * Set Color
      *
-     * @param { Color | number | string | Resource } value
+     * @param { Color | int | string | Resource } value
      * @returns { HyperlinkAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
-    default color(value: Color | number | string | Resource | undefined): this;
+    default color(value: Color | int | string | Resource | undefined): this;
     /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<HyperlinkAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
      * @returns { HyperlinkAttribute } the attribute of the HyperlinkAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 22 static
      */
     default attributeModifier(modifier: AttributeModifier<HyperlinkAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -54,17 +54,18 @@ export declare interface HyperlinkAttribute extends CommonMethod {
 /**
  * Defines Hyperlink Component.
  *
- * @param { string | Resource } address
- * @param { string | Resource } [content]
- * @param { function } [content_]
+ * @param { string | Resource | undefined } address - The link address of component.
+ *     The default value is an empty string.
+ *     Passing `undefined` resets it to the default value.
+ * @param { string | Resource } [content] - The title of the component.
+ * @param { CustomBuilder } [content_] - The node of component.
  * @returns { HyperlinkAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Hyperlink(
-    address: string | Resource, content?: string | Resource, 
-    @memo
-    content_?: () => void,
+    address: string | Resource | undefined, content?: string | Resource, 
+    content_?: CustomBuilder,
 ): HyperlinkAttribute

@@ -25,50 +25,55 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 12
+ * @since 12 dynamic
+ * @since 22 static
  */
 export default interface AutoFillRect {
   /**
    * The left of the rect.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
-  left: number;
+  left: double;
 
   /**
    * The top of the rect.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
-  top: number;
+  top: double;
 
   /**
    * The width of the rect.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
-  width: number;
+  width: double;
 
   /**
    * The height of the rect.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
-  height: number;
+  height: double;
 }

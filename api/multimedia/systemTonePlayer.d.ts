@@ -25,8 +25,8 @@ import { ErrorCallback, Callback } from '../@ohos.base';
  * @typedef SystemTonePlayer
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 export declare interface SystemTonePlayer {
   /**
@@ -36,8 +36,8 @@ export declare interface SystemTonePlayer {
    * @throws { BusinessError } 5400103 - I/O error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   getTitle(): Promise<string>;
 
@@ -52,8 +52,8 @@ export declare interface SystemTonePlayer {
    * @throws { BusinessError } 20700002 - Parameter check error. For example, value is outside [0,1].
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 22 static
    */
   setAudioVolumeScale(scale: double): void;
 
@@ -63,8 +63,8 @@ export declare interface SystemTonePlayer {
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 22 static
    */
   getAudioVolumeScale(): double;
 
@@ -75,8 +75,8 @@ export declare interface SystemTonePlayer {
    * @throws { BusinessError } 20700003 - Unsupported operation.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 22 static
    */
   getSupportedHapticsFeatures(): Promise<Array<systemSoundManager.ToneHapticsFeature>>;
 
@@ -91,8 +91,8 @@ export declare interface SystemTonePlayer {
    * @throws { BusinessError } 20700003 - Unsupported operation.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 22 static
    */
   setHapticsFeature(hapticsFeature: systemSoundManager.ToneHapticsFeature): void;
 
@@ -103,8 +103,8 @@ export declare interface SystemTonePlayer {
    * @throws { BusinessError } 20700003 - Unsupported operation.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 22 static
    */
   getHapticsFeature(): systemSoundManager.ToneHapticsFeature;
 
@@ -116,8 +116,8 @@ export declare interface SystemTonePlayer {
    * @throws { BusinessError } 5400103 - I/O error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   prepare(): Promise<void>;
 
@@ -135,8 +135,8 @@ export declare interface SystemTonePlayer {
    * @throws { BusinessError } 5400102 - Operation not allowed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   start(toneOptions?: SystemToneOptions): Promise<int>;
 
@@ -151,8 +151,8 @@ export declare interface SystemTonePlayer {
    * @throws { BusinessError } 5400102 - Operation not allowed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   stop(id: int): Promise<void>;
 
@@ -162,8 +162,8 @@ export declare interface SystemTonePlayer {
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   release(): Promise<void>;
 
@@ -177,10 +177,22 @@ export declare interface SystemTonePlayer {
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   on(type: 'playFinished', streamId: int, callback: Callback<int>): void;
+
+   /**
+   * Subscribes the play finished events.
+   * @param { int } streamId - Stream id, received from start().
+   * @param { Callback<int> } callback - Callback used to obtain the finished event. The callback info is the stream
+   *     id that is finished.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 20700002 -Parameter check error.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 22 static
+   */
+  onPlayFinished(streamId: int, callback: Callback<int>): void;
 
   /**
    * Unsubscribes the play finished events.
@@ -190,10 +202,20 @@ export declare interface SystemTonePlayer {
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   off(type: 'playFinished', callback?: Callback<int>): void;
+
+  /**
+   * Unsubscribes the play finished events.
+   * @param { Callback<int> } [callback] - Callback used to obtain the finished event.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 20700002 -Parameter check error.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 22 static
+   */
+  offPlayFinished(callback?: Callback<int>): void;
 
   /**
    * Subscribes the error events.
@@ -203,10 +225,20 @@ export declare interface SystemTonePlayer {
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
   on(type: 'error', callback: ErrorCallback): void;
+
+  /**
+   * Subscribes the error events.
+   * @param { ErrorCallback } callback - Error callback while receiving the error event.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 20700002 -Parameter check error.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 22 static
+   */
+  onError(callback: ErrorCallback): void;
 
   /**
    * Unsubscribes the error events.
@@ -216,10 +248,20 @@ export declare interface SystemTonePlayer {
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
    */
-  off(type: 'error', callback?: ErrorCallback): void
+  off(type: 'error', callback?: ErrorCallback): void;
+
+  /**
+   * Unsubscribes the error events.
+   * @param { ErrorCallback } [callback] - Error callback while receiving the error event.
+   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 20700002 -Parameter check error.
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 22 static
+   */
+  offError(callback?: ErrorCallback): void;
 }
 
 /**
@@ -227,8 +269,8 @@ export declare interface SystemTonePlayer {
  * @typedef SystemToneOptions
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 export interface SystemToneOptions {
   /**
@@ -236,8 +278,8 @@ export interface SystemToneOptions {
    * @type {?boolean}
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   muteAudio?: boolean;
 
@@ -246,8 +288,8 @@ export interface SystemToneOptions {
    * @type {?boolean}
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   muteHaptics?: boolean;
 }

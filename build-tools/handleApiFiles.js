@@ -34,11 +34,15 @@ const DirType = {
 const NotNullFilePath = [
   'api',
   'api/@internal/ets',
-  'api/@internal/component/ets',
   'api/arkui/component',
   'arkts',
   'kits',
 ];
+
+const COMPILER_OPTIONS = {
+  target: ts.ScriptTarget.ES2017,
+  etsAnnotationsEnable: true
+};
 
 const NOT_COPY_DIR = ['build-tools', '.git', '.gitee'];
 
@@ -166,11 +170,12 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) 
 
   if (isEndWithStatic) {
     if (type === 'ets2') {
+      let staticFileCotent = deleteArktsTag(fileContent);
       if (isPublic === 'true') {
-        writeFile(outputPath, deleteArktsTag(fileContent));
+        writeFile(outputPath, deleteUnsportedTag(staticFileCotent));
         return;
       } else {
-        writeFile(outputPath.replace(/\.static\.d\.ets$/, '.d.ets'), deleteArktsTag(fileContent));
+        writeFile(outputPath.replace(/\.static\.d\.ets$/, '.d.ets'), deleteUnsportedTag(staticFileCotent));
         return;
       }
     } else {
@@ -290,7 +295,7 @@ function handleFileInFirstType(apiRelativePath, fullPath, type, output) {
   //删除使用/*** if arkts 1.2 */
   fileContent = handleArktsDefinition(type, fileContent);
 
-  const sourceFile = ts.createSourceFile(path.basename(apiRelativePath), fileContent, ts.ScriptTarget.ES2017, true);
+  const sourceFile = ts.createSourceFile(path.basename(apiRelativePath), fileContent, ts.ScriptTarget.ES2017, true, undefined, COMPILER_OPTIONS);
   const secondRegx = /(?:\*\s(@arkts\s1.2|@arkts\sstatic)\s*(\r|\n)\s*)/;
   const thirdRegx = /(?:\*\s(@arkts\s1\.1&1\.2|@arkts\sdynamic&static)\s*(\r|\n)\s*)/;
   if (sourceFile.statements.length === 0) {
@@ -422,7 +427,7 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
   const thirdRegx = /(?:\*\s(@arkts\s1\.1&1\.2|@arkts\sdynamic&static|@since\s\S*\sdynamic&static)\s*(\r|\n)\s*)/;
   const arktsRegx = /\/\*\*\* if arkts ((1.1|dynamic)&)?(1.2|static) \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
   let fileContent = fs.readFileSync(fullPath, 'utf-8');
-  let sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true);
+  let sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true, undefined, COMPILER_OPTIONS);
   const outputPath = output ? path.join(output, apiRelativePath) : fullPath;
   if (!secondRegx.test(fileContent) && !thirdRegx.test(fileContent) && arktsRegx.test(fileContent)) {
     saveApiByArktsDefinition(sourceFile, fileContent, outputPath);
@@ -430,7 +435,7 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
   }
   //删除使用/*** if arkts 1.2 */
   fileContent = handleArktsDefinition(type, fileContent);
-  sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true);
+  sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true, undefined, COMPILER_OPTIONS);
   const regx = /(?:\*\s(@arkts\s1\.1|@since\s\S\sdynamic)\s*(\r|\n)\s*)/;
 
   if (sourceFile.statements.length === 0) {
@@ -557,7 +562,7 @@ function getFileContent(newContent, filePath) {
   if (!regex.test(newContent)) {
     return newContent;
   }
-  const sourceFile = ts.createSourceFile(path.basename(filePath), newContent, ts.ScriptTarget.ES2017, true);
+  const sourceFile = ts.createSourceFile(path.basename(filePath), newContent, ts.ScriptTarget.ES2017, true, undefined, COMPILER_OPTIONS);
   const printer = ts.createPrinter();
   const result = ts.transform(sourceFile, [deleteOverLoadJsDoc], { etsAnnotationsEnable: true });
   const output = printer.printFile(result.transformed[0]);
@@ -785,8 +790,9 @@ const transformExportApi = (context) => {
         importNameSet.add(node.name?.getText());
       }
       // 剩下未被删除的API中，如果还有与被删除API名字一样的API，就将其从set集合中删掉
-      if (apiNodeTypeArr.includes(node.kind) && deleteApiSet.has(node.name?.getText())) {
-        deleteApiSet.delete(node.name?.getText());
+      const apiNodeName = getApiNodeName(node);
+      if (apiNodeTypeArr.includes(node.kind) && deleteApiSet.has(apiNodeName)) {
+        deleteApiSet.delete(apiNodeName);
       }
       // 非目标节点：继续遍历子节点
       return ts.visitEachChild(node, importOrExportNodeVisitor, context);
@@ -811,6 +817,42 @@ const transformExportApi = (context) => {
     return ts.visitNode(rootNode, allNodeVisitor);
   };
 };
+
+/**
+ * 获取api节点名称，VariableStatement需要特殊处理
+ *
+ * @param { ts.Node } node 
+ * @returns { string }
+ */
+function getApiNodeName(node) {
+  let apiName = '';
+  if (ts.isVariableStatement(node)) {
+    apiName = variableStatementGetEscapedText(node);
+  } else {
+    apiName = node.name?.getText();
+  }
+  return apiName;
+}
+
+/**
+ * 获取 variableStatement节点名称
+ * @param {ts.Node} statement 
+ * @returns 
+ */
+function variableStatementGetEscapedText(statement) {
+  let name = '';
+  if (
+    statement &&
+    statement.declarationList &&
+    statement.declarationList.declarations &&
+    statement.declarationList.declarations.length > 0 &&
+    statement.declarationList.declarations[0].name &&
+    statement.declarationList.declarations[0].name.escapedText
+  ) {
+    name = statement.declarationList.declarations[0].name.escapedText.toString();
+  }
+  return name;
+}
 
 /**
  * 判断是否为use static标记
@@ -950,7 +992,7 @@ function judgeIsDeleteApi(node) {
   }
 
   if (dirType === DirType.typeThree) {
-    return !/@arkts\s*(1\.1&)?1\.2/g.test(notesStr) && !/@since\s\S*\s(staticonly|(dynamic&)?static)/g.test(notesStr);
+    return !/@arkts\s*(1\.1&)?1\.2\s/g.test(notesStr) && !/@since\s\S*\s(staticonly|(dynamic&)?static)/g.test(notesStr);
   }
 
   return false;

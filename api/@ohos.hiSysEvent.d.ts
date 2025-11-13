@@ -28,8 +28,8 @@ import { AsyncCallback } from './@ohos.base';
  * @namespace hiSysEvent
  * @syscap SystemCapability.HiviewDFX.HiSysEvent
  * @systemapi hide for inner use
- * @since arkts {'1.1':'9','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 22 static
  */
 declare namespace hiSysEvent {
   /**
@@ -38,8 +38,8 @@ declare namespace hiSysEvent {
    * @enum {int}
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   enum EventType {
     /**
@@ -47,8 +47,8 @@ declare namespace hiSysEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     FAULT = 1,
 
@@ -57,8 +57,8 @@ declare namespace hiSysEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     STATISTIC = 2,
 
@@ -67,8 +67,8 @@ declare namespace hiSysEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     SECURITY = 3,
 
@@ -77,8 +77,8 @@ declare namespace hiSysEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     BEHAVIOR = 4
   }
@@ -89,8 +89,8 @@ declare namespace hiSysEvent {
    * @interface SysEventInfo
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface SysEventInfo {
     /**
@@ -99,8 +99,8 @@ declare namespace hiSysEvent {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     domain: string;
 
@@ -110,8 +110,8 @@ declare namespace hiSysEvent {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     name: string;
 
@@ -121,8 +121,8 @@ declare namespace hiSysEvent {
      * @type { EventType }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     eventType: EventType;
 
@@ -140,7 +140,7 @@ declare namespace hiSysEvent {
      * @type { ?object }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 12
+     * @since 12 dynamic
      */
     params?: object;
 
@@ -150,8 +150,7 @@ declare namespace hiSysEvent {
      * @type { ?(Record<string, boolean | int | double | string | bigint | boolean[] | int[] | double[] | string[] | bigint[]> | null | undefined) }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     params?: Record<string, boolean | int | double | string | bigint | boolean[] | int[] | double[] | string[] | bigint[]> | null | undefined;
   }
@@ -175,8 +174,8 @@ declare namespace hiSysEvent {
    * @throws {BusinessError} 11200054 - The number of event parameters of the array type exceeds the limit.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function write(info: SysEventInfo): Promise<void>;
 
@@ -199,8 +198,8 @@ declare namespace hiSysEvent {
    * @throws {BusinessError} 11200054 - The number of event parameters of the array type exceeds the limit.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function write(info: SysEventInfo, callback: AsyncCallback<void>): void;
 
@@ -210,8 +209,8 @@ declare namespace hiSysEvent {
    * @enum {int}
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   enum RuleType {
     /**
@@ -219,8 +218,8 @@ declare namespace hiSysEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     WHOLE_WORD = 1,
 
@@ -229,8 +228,8 @@ declare namespace hiSysEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     PREFIX = 2,
 
@@ -239,8 +238,8 @@ declare namespace hiSysEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     REGULAR = 3
   }
@@ -251,8 +250,8 @@ declare namespace hiSysEvent {
    * @interface WatchRule
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface WatchRule {
     /**
@@ -261,8 +260,8 @@ declare namespace hiSysEvent {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     domain: string;
 
@@ -272,8 +271,8 @@ declare namespace hiSysEvent {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     name: string;
 
@@ -291,7 +290,7 @@ declare namespace hiSysEvent {
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 12
+     * @since 12 dynamic
      */
     tag?: string;
 
@@ -301,8 +300,7 @@ declare namespace hiSysEvent {
      * @type { ?(string | null | undefined) }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     tag?: string | null | undefined;
 
@@ -312,8 +310,8 @@ declare namespace hiSysEvent {
      * @type { RuleType }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     ruleType: RuleType;
   }
@@ -324,8 +322,8 @@ declare namespace hiSysEvent {
    * @interface Watcher
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface Watcher {
     /**
@@ -334,8 +332,8 @@ declare namespace hiSysEvent {
      * @type { WatchRule[] }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     rules: WatchRule[];
 
@@ -345,8 +343,8 @@ declare namespace hiSysEvent {
     * @type { function }
     * @syscap SystemCapability.HiviewDFX.HiSysEvent
     * @systemapi hide for inner use
-    * @since arkts {'1.1':'9','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 9 dynamic
+    * @since 22 static
     */
     onEvent: (info: SysEventInfo) => void;
 
@@ -356,8 +354,8 @@ declare namespace hiSysEvent {
      * @type { function }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     onServiceDied: () => void;
   }
@@ -368,8 +366,8 @@ declare namespace hiSysEvent {
    * @interface QueryArg
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface QueryArg {
     /**
@@ -378,8 +376,8 @@ declare namespace hiSysEvent {
      * @type { long }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     beginTime: long;
 
@@ -389,8 +387,8 @@ declare namespace hiSysEvent {
      * @type { long }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     endTime: long;
 
@@ -400,8 +398,8 @@ declare namespace hiSysEvent {
      * @type { long }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     maxEvents: long;
 
@@ -411,7 +409,7 @@ declare namespace hiSysEvent {
      * @type { ?long }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 10
+     * @since 10 dynamic
      */
     fromSeq?: long;
 
@@ -421,8 +419,7 @@ declare namespace hiSysEvent {
      * @type { ?(long | null | undefined) }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     fromSeq?: long | null | undefined;
 
@@ -432,7 +429,7 @@ declare namespace hiSysEvent {
      * @type { ?long }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 10
+     * @since 10 dynamic
      */
     toSeq?: long;
 
@@ -442,8 +439,7 @@ declare namespace hiSysEvent {
      * @type { ?(long | null | undefined) }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 20 
-     * @arkts 1.2
+     * @since 22 static
      */
     toSeq?: long | null | undefined;
   }
@@ -454,8 +450,8 @@ declare namespace hiSysEvent {
    * @interface QueryRule
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface QueryRule {
     /**
@@ -464,8 +460,8 @@ declare namespace hiSysEvent {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     domain: string;
 
@@ -475,8 +471,8 @@ declare namespace hiSysEvent {
      * @type { string[] }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     names: string[];
 
@@ -486,7 +482,7 @@ declare namespace hiSysEvent {
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 10 
+     * @since 10 dynamic
      */
     condition?: string;
 
@@ -496,8 +492,7 @@ declare namespace hiSysEvent {
      * @type { ?(string | null | undefined) }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 20
-     * @arkts 1.2
+     * @since 22 static
      */
     condition?: string | null | undefined;
   }
@@ -508,8 +503,8 @@ declare namespace hiSysEvent {
    * @interface Querier
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   interface Querier {
     /**
@@ -518,8 +513,8 @@ declare namespace hiSysEvent {
      * @type { function }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     onQuery: (infos: SysEventInfo[]) => void;
 
@@ -529,8 +524,8 @@ declare namespace hiSysEvent {
      * @type { function }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     onComplete: (reason: int, total: int) => void;
   }
@@ -550,8 +545,8 @@ declare namespace hiSysEvent {
    * @throws {BusinessError} 11200102 - The number of watch rules exceeds the limit.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function addWatcher(watcher: Watcher): void;
 
@@ -569,8 +564,8 @@ declare namespace hiSysEvent {
    * @throws {BusinessError} 11200201 - The watcher does not exist.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function removeWatcher(watcher: Watcher): void;
 
@@ -593,8 +588,8 @@ declare namespace hiSysEvent {
    * @throws {BusinessError} 11200304 - The query frequency exceeds the limit.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function query(queryArg: QueryArg, rules: QueryRule[], querier: Querier): void;
 
@@ -616,8 +611,8 @@ declare namespace hiSysEvent {
    * @throws {BusinessError} 11200304 – The query frequency exceeds the limit.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function exportSysEvents(queryArg: QueryArg, rules: QueryRule[]): long;
 
@@ -637,8 +632,8 @@ declare namespace hiSysEvent {
    * @throws {BusinessError} 11200302 - Invalid query rule.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function subscribe(rules: QueryRule[]): long;
 
@@ -655,8 +650,8 @@ declare namespace hiSysEvent {
    * @throws {BusinessError} 11200305 – Unsubscription failed.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function unsubscribe(): void;
 }

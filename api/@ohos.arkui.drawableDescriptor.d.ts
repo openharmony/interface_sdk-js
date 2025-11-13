@@ -27,7 +27,7 @@ import image from './@ohos.multimedia.image';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 21
+ * @since 21 dynamic
  */
 export interface DrawableDescriptorLoadedResult {
   /**
@@ -37,7 +37,7 @@ export interface DrawableDescriptorLoadedResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   imageWidth: number
   /**
@@ -47,7 +47,7 @@ export interface DrawableDescriptorLoadedResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   imageHeight: number
 }
@@ -71,7 +71,7 @@ export interface DrawableDescriptorLoadedResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export class DrawableDescriptor {
   /**
@@ -79,7 +79,7 @@ export class DrawableDescriptor {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   constructor();
 
@@ -105,7 +105,7 @@ export class DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getPixelMap(): image.PixelMap;
 
@@ -117,7 +117,7 @@ export class DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   loadSync(): DrawableDescriptorLoadedResult;
 
@@ -129,7 +129,7 @@ export class DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   load(): Promise<DrawableDescriptorLoadedResult>;
 }
@@ -156,7 +156,7 @@ export class DrawableDescriptor {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export class LayeredDrawableDescriptor extends DrawableDescriptor {
   /**
@@ -167,7 +167,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @param { DrawableDescriptor } [mask] - Indicates the mask option to create LayeredDrawableDescriptor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(
     foreground?: DrawableDescriptor,
@@ -197,7 +197,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getForeground(): DrawableDescriptor;
 
@@ -223,7 +223,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getBackground(): DrawableDescriptor;
 
@@ -249,7 +249,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   getMask(): DrawableDescriptor;
 
@@ -275,7 +275,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   static getMaskClipPath(): string;
 }
@@ -286,7 +286,7 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
  * @extends DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export class PixelMapDrawableDescriptor extends DrawableDescriptor {
   /**
@@ -294,7 +294,7 @@ export class PixelMapDrawableDescriptor extends DrawableDescriptor {
    * @param { image.PixelMap } src - Indicates the resource to create PixelMapDrawableDescriptor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(src?: image.PixelMap);
 }
@@ -306,7 +306,7 @@ export class PixelMapDrawableDescriptor extends DrawableDescriptor {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface AnimationOptions {
   /**
@@ -316,7 +316,7 @@ declare interface AnimationOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   duration?: number;
   /**
@@ -326,7 +326,7 @@ declare interface AnimationOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   iterations?: number;
   /**
@@ -336,7 +336,7 @@ declare interface AnimationOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   frameDurations?: Array<number>;
   /**
@@ -346,7 +346,7 @@ declare interface AnimationOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   autoPlay?: boolean;
 }
@@ -358,7 +358,7 @@ declare interface AnimationOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 21
+ * @since 21 dynamic
  */
 export interface AnimationController {
   /**
@@ -367,7 +367,7 @@ export interface AnimationController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   start(): void;
 
@@ -377,7 +377,7 @@ export interface AnimationController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   stop(): void;
 
@@ -387,7 +387,7 @@ export interface AnimationController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   pause(): void;
 
@@ -397,7 +397,7 @@ export interface AnimationController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   resume(): void;
 
@@ -408,7 +408,7 @@ export interface AnimationController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   getStatus(): AnimationStatus;
 }
@@ -420,7 +420,7 @@ export interface AnimationController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export class AnimatedDrawableDescriptor extends DrawableDescriptor {
   /**
@@ -431,7 +431,7 @@ export class AnimatedDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(pixelMaps: Array<image.PixelMap>, options?: AnimationOptions);
 
@@ -443,7 +443,7 @@ export class AnimatedDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   constructor(src: ResourceStr | Array<image.PixelMap>, options?: AnimationOptions);
 
@@ -455,7 +455,7 @@ export class AnimatedDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   getAnimationController(id?: string): AnimationController | undefined;
 }

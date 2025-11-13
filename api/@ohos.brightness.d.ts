@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit BasicServicesKit
- * @arkts 1.1&1.2
  */
 
 import { BusinessError } from './@ohos.base';
@@ -27,7 +26,8 @@ import { BusinessError } from './@ohos.base';
  * @namespace brightness
  * @syscap SystemCapability.PowerManager.DisplayPowerManager
  * @systemapi
- * @since arkts {'1.1':'7', '1.2':'20'}
+ * @since 7 dynamic
+ * @since 22 static
  */
 declare namespace brightness {
   /**
@@ -41,7 +41,8 @@ declare namespace brightness {
    * @throws { BusinessError } 4700101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @since 7 dynamic
+   * @since 22 static
    */
   function setValue(value: int): void;
 
@@ -60,7 +61,8 @@ declare namespace brightness {
    * @throws { BusinessError } 4700101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11 dynamic
+   * @since 22 static
    */
   function setValue(value: int, continuous: boolean): void;
 }

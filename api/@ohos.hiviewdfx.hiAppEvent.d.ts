@@ -52,7 +52,7 @@ import type { RecordData } from './@ohos.base'
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
- * @since 20 static
+ * @since 22 static
  */
 declare namespace hiAppEvent {
   /**
@@ -78,7 +78,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   enum EventType {
     /**
@@ -101,7 +101,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     FAULT = 1,
 
@@ -125,7 +125,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     STATISTIC = 2,
 
@@ -149,7 +149,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     SECURITY = 3,
 
@@ -173,7 +173,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     BEHAVIOR = 4
   }
@@ -194,7 +194,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   namespace domain {
     /**
@@ -211,7 +211,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     const OS: string;
   }
@@ -245,7 +245,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   namespace event {
     /**
@@ -260,7 +260,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     const USER_LOGIN: string;
 
@@ -276,7 +276,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     const USER_LOGOUT: string;
 
@@ -292,7 +292,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     const DISTRIBUTED_SERVICE_START: string;
 
@@ -310,7 +310,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     const APP_CRASH: string;
 
@@ -320,7 +320,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     const APP_FREEZE: string;
 
@@ -330,7 +330,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     const APP_LAUNCH: string;
 
@@ -340,7 +340,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     const SCROLL_JANK: string;
 
@@ -350,7 +350,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     const CPU_USAGE_HIGH: string;
 
@@ -360,7 +360,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     const BATTERY_USAGE: string;
 
@@ -370,7 +370,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     const RESOURCE_OVERLIMIT: string;
 
@@ -380,7 +380,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     const ADDRESS_SANITIZER: string;
 
@@ -390,7 +390,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     const MAIN_THREAD_JANK: string;
 
@@ -400,7 +400,8 @@ declare namespace hiAppEvent {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     const APP_KILLED: string;
 
@@ -450,7 +451,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   namespace param {
     /**
@@ -473,7 +474,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     const USER_ID: string;
 
@@ -497,7 +498,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     const DISTRIBUTED_SERVICE_NAME: string;
 
@@ -521,7 +522,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     const DISTRIBUTED_SERVICE_INSTANCE_ID: string;
   }
@@ -560,7 +561,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function configure(config: ConfigOption): void;
 
@@ -587,7 +588,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface ConfigOption {
     /**
@@ -619,7 +620,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     disable?: boolean;
 
@@ -655,7 +656,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     maxStorage?: string;
   }
@@ -683,7 +684,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AppEventInfo {
     /**
@@ -712,7 +713,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     domain: string;
 
@@ -745,7 +746,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -772,7 +773,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     eventType: EventType;
 
@@ -861,7 +862,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 20 static
+     * @since 22 static
      */
     params: RecordData;
   }
@@ -945,7 +946,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function write(info: AppEventInfo): Promise<void>;
 
@@ -1028,7 +1029,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function write(info: AppEventInfo, callback: AsyncCallback<void>): void;
 
@@ -1048,7 +1049,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   type ParamType = int | long | double | string | boolean | Array<string>;
 
@@ -1122,7 +1123,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setEventParam(params: Record<string, ParamType>, domain: string, name?: string): Promise<void>;
 
@@ -1144,7 +1145,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 15 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setEventConfig(name: string, config: Record<string, ParamType>): Promise<void>;
 
@@ -1174,7 +1175,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AppEventPackage {
     /**
@@ -1200,7 +1201,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     packageId: int;
 
@@ -1227,7 +1228,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     row: int;
 
@@ -1254,7 +1255,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     size: int;
 
@@ -1281,7 +1282,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     data: string[];
 
@@ -1301,7 +1302,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     appEventInfos: Array<AppEventInfo>;
   }
@@ -1326,7 +1327,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   class AppEventPackageHolder {
     /**
@@ -1358,7 +1359,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     constructor(watcherName: string);
 
@@ -1399,7 +1400,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setSize(size: int): void;
 
@@ -1431,7 +1432,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     setRow(size: int): void;
 
@@ -1488,7 +1489,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 20 static
+     * @since 22 static
      */
     takeNext(): AppEventPackage | null;
   }
@@ -1516,7 +1517,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface TriggerCondition {
     /**
@@ -1548,7 +1549,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     row?: int;
 
@@ -1581,7 +1582,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     size?: int;
 
@@ -1614,7 +1615,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     timeOut?: int;
   }
@@ -1648,7 +1649,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AppEventFilter {
     /**
@@ -1677,7 +1678,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     domain: string;
 
@@ -1704,7 +1705,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     eventTypes?: EventType[];
 
@@ -1724,7 +1725,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     names?: string[];
   }
@@ -1747,7 +1748,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AppEventGroup {
     /**
@@ -1766,7 +1767,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -1786,7 +1787,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     appEventInfos: Array<AppEventInfo>;
   }
@@ -1817,7 +1818,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Watcher {
     /**
@@ -1849,7 +1850,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -1879,7 +1880,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     triggerCondition?: TriggerCondition;
 
@@ -1909,7 +1910,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     appEventFilters?: AppEventFilter[];
 
@@ -1948,7 +1949,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     onTrigger?: (curRow: int, curSize: int, holder: AppEventPackageHolder) => void;
 
@@ -1974,7 +1975,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     onReceive?: (domain: string, appEventGroups: Array<AppEventGroup>) => void;
   }
@@ -2034,7 +2035,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addWatcher(watcher: Watcher): AppEventPackageHolder;
 
@@ -2075,7 +2076,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeWatcher(watcher: Watcher): void;
 
@@ -2102,7 +2103,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function clearData(): void;
 
@@ -2134,7 +2135,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setUserId(name: string, value: string): void;
 
@@ -2164,7 +2165,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getUserId(name: string): string;
 
@@ -2196,7 +2197,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function setUserProperty(name: string, value: string): void;
 
@@ -2226,7 +2227,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getUserProperty(name: string): string;
 
@@ -2237,7 +2238,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface AppEventReportConfig {
     /**
@@ -2249,7 +2250,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     domain?: string;
 
@@ -2262,7 +2263,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name?: string;
 
@@ -2274,7 +2275,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     isRealTime?: boolean;
   }
@@ -2286,7 +2287,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   interface Processor {
     /**
@@ -2297,7 +2298,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     name: string;
 
@@ -2309,7 +2310,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     debugMode?: boolean;
 
@@ -2321,7 +2322,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     routeInfo?: string;
 
@@ -2333,7 +2334,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     appId?: string;
 
@@ -2345,7 +2346,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     onStartReport?: boolean;
 
@@ -2357,7 +2358,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     onBackgroundReport?: boolean;
 
@@ -2369,7 +2370,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     periodReport?: int;
 
@@ -2382,7 +2383,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     batchReport?: int;
 
@@ -2394,7 +2395,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     userIds?: string[];
 
@@ -2406,7 +2407,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     userProperties?: string[];
 
@@ -2418,7 +2419,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     eventConfigs?: AppEventReportConfig[];
 
@@ -2431,7 +2432,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     configId?: int;
 
@@ -2448,7 +2449,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     customConfigs?: Record<string, string>;
 
@@ -2458,7 +2459,8 @@ declare namespace hiAppEvent {
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     configName?: string;
   }
@@ -2479,7 +2481,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function addProcessor(processor: Processor): long;
 
@@ -2494,7 +2496,8 @@ declare namespace hiAppEvent {
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function addProcessorFromConfig(processorName: string, configName?: string): Promise<long>;
 
@@ -2509,9 +2512,255 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function removeProcessor(id: long): void;
+
+  /**
+   * Definition of main thread jank event policy
+   *
+   * @interface MainThreadJankPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  interface MainThreadJankPolicy {
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     * logType = 0: Default value. When the main thread times out consecutively twice within 150ms~450ms,
+     *     the call stack is collected; when the main thread times out for 450ms, a trace is collected.
+     * logType = 1: Only the call stack is collected, and the threshold for triggering detection is user-defined.
+     * logType = 2: Only the trace is collected.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    logType?: int;
+
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     * Ignore main thread timeout detection during startup.Unit: seconds (s), Minimum value: 3, Default
+     * value: 10.Timeout detection is not performed for a certain period after thread startup.Some processes
+     * have longer startup times, and capturing full timeout sampling stacks during this period holds little
+     * analytical value.Therefore, timeout detection is disabled within the startup time interval
+     * defined by the developer.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    ignoreStartupTime?: int;
+
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     * The timeout detection interval and sampling interval for the main thread.
+     * The unit is milliseconds (ms), and the value range is [50, 500]. The Default Value is 150 (ms).
+     * The system performs timeout detection judgments based on the interval set by the developer and
+     *     uses this interval as the period for periodic task detection.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    sampleInterval?: int;
+
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     * Number of main thread timeout samples. Once the system detects that the current main thread task
+     * execution exceeds the sampling limit, it periodically collects stack traces at each interval,
+     * for a total of sampleCount times. Minimum value: 1 time(s), Unit: time(s). Default value: 10 time(s).
+     * The maximum value is dynamically calculated based on the custom sampleInterval, using the formula:
+     * sampleCount <= (2500 / sampleInterval - 4).
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    sampleCount?: int;
+
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     * Number of main thread timeout sampling reports per application PID within a single lifecycle.
+     *     This can only be set once per lifecycle.Default value: 1 time(s), Unit: time(s). The max
+     *     value is 180. Exceed max value will be set to max value.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    reportTimesPerApp?: int;
+
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     * Stop sampling main thread stack when main thread blockage is resolved. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    autoStopSampling?: boolean;
+  }
+
+  /**
+   * Definition of cpu usage high event policy
+   *
+   * @interface CpuUsageHighPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  interface CpuUsageHighPolicy {
+    /**
+     * The policy for CPU_USAGE_HIGH event
+     * The param is used for user to set the threshould for foreground progress cpu load anomaly,
+     * The value rang is [1, 100], Strongly recommend less than 30
+     * If not set the param, the default value is 30.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    foregroundLoadThreshold?: int;
+
+    /**
+     * The policy for CPU_USAGE_HIGH event
+     * The param is used for user to set the threshould for background progress cpu load anomaly,
+     * The value rang is [1, 100] Strongly recommend less than 10.
+     * If not set the param, the default value is 10.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    backgroundLoadThreshold?: int;
+
+    /**
+     * The policy for CPU_USAGE_HIGH event
+     * The param is used for user to set the threshould for thread cpu load anomaly,
+     * The value rang is [15, 100]
+     * If not set the param, the default value is 70.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    threadLoadThreshold?: int;
+
+    /**
+     * The policy for CPU_USAGE_HIGH event
+     * The number of log captures per day. Once the system detects that the  execution count of the
+     * current abnormal log, The value rang is [-1, 100]
+     * if it exceeds the perfLogCaptureCount, it will stop capture logs but it will still report anomaly event.
+     * perfLogCaptureCount = -1: Collection log times per day is not limited per day.
+     * perfLogCaptureCount = 0 : Collection log times per day is zero, do not collect logs.
+     * perfLogCaptureCount > 0 : Collection log times per day is perfLogCaptureCount.
+     * perfLogCaptureCount default value is zero
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    perfLogCaptureCount?: int;
+
+    /**
+     * The policy for CPU_USAGE_HIGH event
+     * The Interval of cpu thread anomaly, The unit is second. If not set, default is 60s;
+     * The value rang is [5, 3600] Strongly recommend multiples of 5.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    threadLoadInterval?: int;
+  }
+
+  /**
+   * Definition of resource overlimit event policy
+   *
+   * @interface ResourceOverlimitPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  interface ResourceOverlimitPolicy {
+    /**
+     * The policy for RESOURCE_OVERLIMIT event
+     * This parameter is used to specify whether to pass profiler logs for native leak.
+     * When certain conditions are met and this parameter is set to true, profiler logs will
+     * be passed into the sandbox.
+     * If not set the param, the default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    collectNativeHeapProfile?: boolean;
+  }
+
+  /**
+   * Definition of event policy
+   *
+   * @interface EventPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  interface EventPolicy {
+    /**
+     * The policy for MAIN_THREAD_JANK event
+     *
+     * @type { ?MainThreadJankPolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    mainThreadJankPolicy?: MainThreadJankPolicy;
+
+    /**
+     * The policy for CPU_USAGE_HIGH event
+     *
+     * @type { ?CpuUsageHighPolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    cpuUsageHighPolicy?: CpuUsageHighPolicy;
+
+    /**
+     * The policy for RESOURCE_OVERLIMIT event
+     *
+     * @type { ?ResourceOverlimitPolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    resourceOverlimitPolicy?: ResourceOverlimitPolicy;
+  }
+
+  /**
+   * Configure target event process policy
+   *
+   * @param { EventPolicy } policy The policy object.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  function configEventPolicy(policy: EventPolicy): Promise<void>;
 }
 
 export default hiAppEvent;

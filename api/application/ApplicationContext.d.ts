@@ -24,11 +24,12 @@ import { ProcessInformation } from './ProcessInformation';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import Want from '../@ohos.app.ability.Want';
 import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
-/*** if arkts 1.1 */
 import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
+import InteropAbilityLifecycleCallback from '../@ohos.app.ability.InteropAbilityLifecycleCallback';
+/*** if arkts dynamic */
 import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 /*** endif */
 
@@ -58,8 +59,8 @@ import ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStat
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 declare class ApplicationContext extends Context {
   /**
@@ -102,9 +103,34 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback): number;
+
+  /**
+   * Register ability lifecycle callback.
+   *
+   * @param { AbilityLifecycleCallback } callback - Callback used to return the ID of the registered listener.
+   * @returns { int } Returns the number code of the callback.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onAbilityLifecycle(callback: AbilityLifecycleCallback): int;
+
+  /**	
+   * Registers a listener to monitor the ability lifecycle of the application for interoperability.	
+   * 
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { InteropAbilityLifecycleCallback } callback - Callback used to be registered as the listener.	
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core	
+   * @stagemodelonly	
+   * @since 22 static
+   */	
+  onInteropAbilityLifecycle(callback: InteropAbilityLifecycleCallback): void;
 
   /**
    * Unregister ability lifecycle callback.
@@ -147,9 +173,20 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Unregisters ability lifecycle callback.
+   * 
+   * @param { int } callbackId - ID of the listener to unregister.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the deregistration is successful,
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  offAbilityLifecycle(callbackId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Unregister ability lifecycle callback.
@@ -191,9 +228,39 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   off(type: 'abilityLifecycle', callbackId: number): Promise<void>;
+
+  /**
+   * Unregisters the listener that monitors the ability lifecycle of the application.
+   * This API uses a promise to return the result.
+   * 
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { int } callbackId - Indicates the number code of the callback.
+   * @returns { Promise<void> } ThePromise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  offAbilityLifecycle(callbackId: int): Promise<void>;
+
+  /**
+   * Unregisters the listener that monitors the ability lifecycle of the application for interoperability.
+   * 
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { InteropAbilityLifecycleCallback } callback - Callback used to be unregistered.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  offInteropAbilityLifecycle(callback?: InteropAbilityLifecycleCallback): void;
 
   /**
    * Register environment callback.
@@ -216,8 +283,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   on(type: 'environment', callback: EnvironmentCallback): int;
 
@@ -242,8 +309,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   off(type: 'environment', callbackId: int, callback: AsyncCallback<void>): void;
 
@@ -268,8 +335,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   off(type: 'environment', callbackId: int): Promise<void>;
 
@@ -312,8 +379,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback): void;
 
@@ -358,8 +425,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   off(type: 'applicationStateChange', callback?: ApplicationStateChangeCallback): void;
 
@@ -400,8 +467,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
 
@@ -442,8 +509,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 
@@ -475,8 +542,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   killAllProcesses(): Promise<void>;
 
@@ -499,8 +566,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   killAllProcesses(clearPageStack: boolean): Promise<void>;
 
@@ -533,8 +600,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   killAllProcesses(callback: AsyncCallback<void>): void;
 
@@ -565,8 +632,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 
@@ -585,8 +652,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   /**
    * Sets the language for the application.
@@ -602,8 +669,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
+   * @since 22 static
    */
   setLanguage(language: string): void;
 
@@ -622,8 +689,8 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   clearUpApplicationData(): Promise<void>;
 
@@ -645,8 +712,8 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   clearUpApplicationData(callback: AsyncCallback<void>): void;
 
@@ -669,8 +736,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   restartApp(want: Want): void;
 
@@ -696,8 +763,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   preloadUIExtensionAbility(want: Want): Promise<void>;
 
@@ -724,8 +791,8 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   setSupportedProcessCache(isSupported : boolean): void;
 
@@ -743,8 +810,8 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   /**
    * Sets the font for this application.
@@ -759,8 +826,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
+   * @since 22 static
    */
   setFont(font: string): void;
 
@@ -773,8 +840,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   getCurrentAppCloneIndex(): int;
 
@@ -785,8 +852,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'13', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 20 static
    */
   /**
    * Sets the scale ratio for the font size of this application.
@@ -802,8 +869,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
+   * @since 22 static
    */
   setFontSizeScale(fontSizeScale: double): void;
 
@@ -820,8 +887,8 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 16000078 - The multi-instance is not supported.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
   getCurrentInstanceKey(): string;
 
@@ -841,8 +908,8 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 16000078 - The multi-instance is not supported.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 22 static
    */
     getAllRunningInstanceKeys(): Promise<Array<string>>;
 }

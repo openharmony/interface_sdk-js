@@ -15,16 +15,16 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { CommonMethod, Callback, PixelMap } from './common';
 import { FrameNode } from '../FrameNode';
 import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
 import { Matrix2D } from './matrix2d';
-import { VoidCallback, LengthMetricsUnit, LengthMetrics } from './units';
+import { DrawingCanvas, VoidCallback, LengthMetricsUnit, LengthMetrics } from './units';
 import { Size } from '../Graphics';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
+import { Color } from './enums'
 
 /**
  * Filling style algorithm, which determines whether a point is within or outside the path. The following
@@ -34,7 +34,7 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @typedef { 'evenodd' | 'nonzero' } CanvasFillRule
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export type CanvasFillRule = 'evenodd' | 'nonzero';
 
@@ -47,7 +47,7 @@ export type CanvasFillRule = 'evenodd' | 'nonzero';
  *
  * @typedef { 'butt' | 'round' | 'square' } CanvasLineCap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export type CanvasLineCap = 'butt' | 'round' | 'square';
 
@@ -63,7 +63,7 @@ export type CanvasLineCap = 'butt' | 'round' | 'square';
  *
  * @typedef { 'bevel' | 'miter' | 'round' } CanvasLineJoin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export type CanvasLineJoin = 'bevel' | 'miter' | 'round';
 
@@ -75,7 +75,7 @@ export type CanvasLineJoin = 'bevel' | 'miter' | 'round';
  *
  * @typedef { 'inherit' | 'ltr' | 'rtl' } CanvasDirection
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export type CanvasDirection = 'inherit' | 'ltr' | 'rtl';
 
@@ -91,7 +91,7 @@ export type CanvasDirection = 'inherit' | 'ltr' | 'rtl';
  *
  * @typedef { 'center' | 'end' | 'left' | 'right' | 'start' } CanvasTextAlign
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export type CanvasTextAlign = 'center' | 'end' | 'left' | 'right' | 'start';
 
@@ -108,7 +108,7 @@ export type CanvasTextAlign = 'center' | 'end' | 'left' | 'right' | 'start';
  *
  * @typedef { 'alphabetic' | 'bottom' | 'hanging' | 'ideographic' | 'middle' | 'top' } CanvasTextBaseline
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export type CanvasTextBaseline = 'alphabetic' | 'bottom' | 'hanging' | 'ideographic' | 'middle' | 'top';
 
@@ -120,7 +120,7 @@ export type CanvasTextBaseline = 'alphabetic' | 'bottom' | 'hanging' | 'ideograp
  *
  * @typedef { 'high' | 'low' | 'medium' } ImageSmoothingQuality
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export type ImageSmoothingQuality = 'high' | 'low' | 'medium';
 
@@ -128,133 +128,133 @@ export type ImageSmoothingQuality = 'high' | 'low' | 'medium';
  * Opaque objects that describe gradients, created by createLinearGradient() or createRadialGradient()
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class CanvasGradient {
   /**
    * Add a breakpoint defined by offset and color to the gradient
    *
-   * @param { number } offset - Value between 0 and 1, out of range throws INDEX_SIZE_ERR error
+   * @param { double } offset - Value between 0 and 1, out of range throws INDEX_SIZE_ERR error
    * @param { string } color - Set the gradient color.
    *     a SYNTAX_ERR error is thrown.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  addColorStop(offset: number, color: string): void;
+  addColorStop(offset: double, color: string): void;
 }
 
 /**
  * Path object, which provides basic methods for drawing paths.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class CanvasPath {
   /**
    * Draw an arc path
    *
-   * @param { number } x - The x-axis coordinate of the center (center of the circle) of the arc.
-   * @param { number } y - The y-axis coordinate of the center (center of the circle) of the arc.
-   * @param { number } radius - Radius of the arc.
-   * @param { number } startAngle - Start point of an arc, which starts to be calculated in the x-axis direction.
+   * @param { double } x - The x-axis coordinate of the center (center of the circle) of the arc.
+   * @param { double } y - The y-axis coordinate of the center (center of the circle) of the arc.
+   * @param { double } radius - Radius of the arc.
+   * @param { double } startAngle - Start point of an arc, which starts to be calculated in the x-axis direction.
    *     The unit is radian.
-   * @param { number } endAngle - The end point of the arc, in radians.
+   * @param { double } endAngle - The end point of the arc, in radians.
    * @param { boolean } [counterclockwise] - If the value is true, the arc is drawn counterclockwise. Otherwise,
    *     the arc is drawn clockwise. The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void;
+  arc(x: double, y: double, radius: double, startAngle: double, endAngle: double, counterclockwise?: boolean): void;
   /**
    * Draw arc paths based on control points and radius
    *
-   * @param { number } x1 - The x-axis coordinate of the first control point.
-   * @param { number } y1 - The y-axis coordinate of the first control point.
-   * @param { number } x2 - The x-axis coordinate of the second control point.
-   * @param { number } y2 - The y-axis coordinate of the second control point.
-   * @param { number } radius - Radius of the arc.
+   * @param { double } x1 - The x-axis coordinate of the first control point.
+   * @param { double } y1 - The y-axis coordinate of the first control point.
+   * @param { double } x2 - The x-axis coordinate of the second control point.
+   * @param { double } y2 - The y-axis coordinate of the second control point.
+   * @param { double } radius - Radius of the arc.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
+  arcTo(x1: double, y1: double, x2: double, y2: double, radius: double): void;
   /**
    * Drawing Cubic Bessel Curve Paths
    *
-   * @param { number } cp1x - The x-axis coordinate of the first control point.
-   * @param { number } cp1y - The y-axis coordinate of the first control point.
-   * @param { number } cp2x - The x-axis coordinate of the second control point.
-   * @param { number } cp2y - The y-axis coordinate of the second control point.
-   * @param { number } x - x-axis coordinate of the end point.
-   * @param { number } y - y-axis coordinate of the end point.
+   * @param { double } cp1x - The x-axis coordinate of the first control point.
+   * @param { double } cp1y - The y-axis coordinate of the first control point.
+   * @param { double } cp2x - The x-axis coordinate of the second control point.
+   * @param { double } cp2y - The y-axis coordinate of the second control point.
+   * @param { double } x - x-axis coordinate of the end point.
+   * @param { double } y - y-axis coordinate of the end point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
+  bezierCurveTo(cp1x: double, cp1y: double, cp2x: double, cp2y: double, x: double, y: double): void;
   /**
    * Returns the pen point to the start point of the current sub-path
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   closePath(): void;
   /**
    * Draw an Elliptic Path
    *
-   * @param { number } x - x-axis coordinate of the center of the ellipse.
-   * @param { number } y - y-axis coordinate of the center of the ellipse.
-   * @param { number } radiusX - Radius of the major axis of the ellipse.
-   * @param { number } radiusY - Radius of the minor axis of the ellipse.
-   * @param { number } rotation - The rotation angle of the ellipse, in radians (not angular degrees).
-   * @param { number } startAngle - The angle of the starting point to be drawn, measured from the x-axis in radians
+   * @param { double } x - x-axis coordinate of the center of the ellipse.
+   * @param { double } y - y-axis coordinate of the center of the ellipse.
+   * @param { double } radiusX - Radius of the major axis of the ellipse.
+   * @param { double } radiusY - Radius of the minor axis of the ellipse.
+   * @param { double } rotation - The rotation angle of the ellipse, in radians (not angular degrees).
+   * @param { double } startAngle - The angle of the starting point to be drawn, measured from the x-axis in radians
    *     (not angular degrees).
-   * @param { number } endAngle - The angle, in radians, at which the ellipse is to be drawn (not angular degrees).
+   * @param { double } endAngle - The angle, in radians, at which the ellipse is to be drawn (not angular degrees).
    * @param { boolean } [counterclockwise] - If the value is true, the ellipse is drawn counterclockwise. Otherwise,
    *     the ellipse is drawn clockwise. The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  ellipse(x: number, y: number, radiusX: number, radiusY: number, rotation: number, startAngle: number,
-    endAngle: number, counterclockwise?: boolean): void;
+  ellipse(x: double, y: double, radiusX: double, radiusY: double, rotation: double, startAngle: double,
+    endAngle: double, counterclockwise?: boolean): void;
   /**
    * Connect sub-path using straight lines
    *
-   * @param { number } x - The x-axis coordinate of the end point of the line.
-   * @param { number } y - The y-axis coordinate of the end point of the line.
+   * @param { double } x - The x-axis coordinate of the end point of the line.
+   * @param { double } y - The y-axis coordinate of the end point of the line.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  lineTo(x: number, y: number): void;
+  lineTo(x: double, y: double): void;
   /**
    * Moves the start point of a new sub-path to the (x, y) coordinate.
    *
-   * @param { number } x - The x-axis coordinate of the point.
-   * @param { number } y - The y-axis coordinate of the point.
+   * @param { double } x - The x-axis coordinate of the point.
+   * @param { double } y - The y-axis coordinate of the point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  moveTo(x: number, y: number): void;
+  moveTo(x: double, y: double): void;
   /**
    * Draw quadratic Bezier curve paths
    *
-   * @param { number } cpx - The x-axis coordinate of the control point.
-   * @param { number } cpy - The y-axis coordinate of the control point.
-   * @param { number } x - x-axis coordinate of the end point.
-   * @param { number } y - y-axis coordinate of the end point.
+   * @param { double } cpx - The x-axis coordinate of the control point.
+   * @param { double } cpy - The y-axis coordinate of the control point.
+   * @param { double } x - x-axis coordinate of the end point.
+   * @param { double } y - y-axis coordinate of the end point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
+  quadraticCurveTo(cpx: double, cpy: double, x: double, y: double): void;
   /**
    * Draw Rectangular Paths
    *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
+   * @param { double } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { double } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { double } w - Width of the rectangle.
+   * @param { double } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  rect(x: number, y: number, w: number, h: number): void;
+  rect(x: double, y: double, w: double, h: double): void;
 }
 
 /**
@@ -262,7 +262,7 @@ export declare class CanvasPath {
  *
  * @extends CanvasPath
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class Path2D extends CanvasPath {
   /**
@@ -271,14 +271,14 @@ export declare class Path2D extends CanvasPath {
    * @param { Path2D } path - Indicates the path object to be added.
    * @param { Matrix2D } [transform] - Transformation matrix of the new trail. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   addPath(path: Path2D, transform?: Matrix2D): void;
   /**
    * Create an empty path object.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   constructor();
   /**
@@ -286,7 +286,7 @@ export declare class Path2D extends CanvasPath {
    *
    * @param { LengthMetricsUnit } unit - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   constructor(unit: LengthMetricsUnit);
   /**
@@ -294,7 +294,7 @@ export declare class Path2D extends CanvasPath {
    *
    * @param { Path2D } path - Path object to be copied
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   constructor(path: Path2D);
   /**
@@ -303,7 +303,7 @@ export declare class Path2D extends CanvasPath {
    * @param { Path2D } path - Path object to be copied
    * @param { LengthMetricsUnit } unit - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   constructor(path: Path2D, unit: LengthMetricsUnit);
   /**
@@ -311,7 +311,7 @@ export declare class Path2D extends CanvasPath {
    *
    * @param { string } d - Indicates the path string that compiles with the SVG path description specifications.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   constructor(d: string);
   /**
@@ -321,7 +321,7 @@ export declare class Path2D extends CanvasPath {
    *     the SVG path description specifications.
    * @param { LengthMetricsUnit } unit - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   constructor(description: string, unit: LengthMetricsUnit);
 }
@@ -331,7 +331,7 @@ export declare class Path2D extends CanvasPath {
  *
  * @interface CanvasPattern
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare interface CanvasPattern {
   /**
@@ -339,7 +339,7 @@ export declare interface CanvasPattern {
    *
    * @param { Matrix2D } [transform] - transformation matrix. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   setTransform(transform?: Matrix2D): void;
 }
@@ -349,167 +349,167 @@ export declare interface CanvasPattern {
  *
  * @interface TextMetrics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare interface TextMetrics {
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the top of
    *    the rectangular boundary of the rendered text.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  readonly actualBoundingBoxAscent: number;
+  readonly actualBoundingBoxAscent: double;
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the bottom of
    *    the rectangular boundary of the rendered text.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  readonly actualBoundingBoxDescent: number;
+  readonly actualBoundingBoxDescent: double;
   /**
    * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
    *    the left of the text rectangle boundary.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  readonly actualBoundingBoxLeft: number;
+  readonly actualBoundingBoxLeft: double;
   /**
    * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
    *    the right of the text rectangle boundary.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  readonly actualBoundingBoxRight: number;
+  readonly actualBoundingBoxRight: double;
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the alphabetic baseline of
    *    the wireframe.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  readonly alphabeticBaseline: number;
+  readonly alphabeticBaseline: double;
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the top of the
    *    em square in the wireframe.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  readonly emHeightAscent: number;
+  readonly emHeightAscent: double;
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
    *    em box in the wireframe.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  readonly emHeightDescent: number;
+  readonly emHeightDescent: double;
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the top of the
    *    highest rectangle boundary of all fonts rendering text.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  readonly fontBoundingBoxAscent: number;
+  readonly fontBoundingBoxAscent: double;
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
    *   rectangular boundary of all fonts rendering text.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  readonly fontBoundingBoxDescent: number;
+  readonly fontBoundingBoxDescent: double;
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to
    *    the hanging baseline of the wireframe.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  readonly hangingBaseline: number;
+  readonly hangingBaseline: double;
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to
    *    the ideographic baseline of the wireframe.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  readonly ideographicBaseline: number;
+  readonly ideographicBaseline: double;
   /**
    * Indicates the width of a character string. The value is of the double type.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  readonly width: number;
+  readonly width: double;
   /**
    * Indicates the height of a character string. The value is of the double type.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  readonly height: number;
+  readonly height: double;
 }
 
 /**
  * Bitmap image object that can be drawn onto the current Canvas
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class ImageBitmap {
   /**
    * Indicates the height of the CSS pixel unit of ImageData.
    *
-   * @return { number }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  get height(): number;
+  get height(): double;
   /**
    * Indicates the width of the CSS pixel unit of ImageData.
    *
-   * @return { number }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  get width(): number;
+  get width(): double;
   /**
    * Releases all graphics resources associated with an ImageBitmap.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   close(): void;
   /**
@@ -518,7 +518,7 @@ export declare class ImageBitmap {
    * @param { PixelMap | string } src - image path or PixelMap object
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   constructor(src: PixelMap | string, unit?: LengthMetricsUnit);
 }
@@ -527,52 +527,52 @@ export declare class ImageBitmap {
  * Image data object
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class ImageData {
   /**
    * Array containing image pixel data
    *
-   * @return { Uint8ClampedArray }
+   * @returns { Uint8ClampedArray }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   get data(): Uint8ClampedArray;
   /**
    * Height of the image.
    *
-   * @return { int }
+   * @returns { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   get height(): int;
   /**
    * Width of the image.
    *
-   * @return { int }
+   * @returns { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   get width(): int;
   /**
    * Create an ImageData object based on the input parameters.
    *
-   * @param { number } width - Width of the image.
-   * @param { number } height - Height of the image.
+   * @param { double } width - Width of the image.
+   * @param { double } height - Height of the image.
    * @param { Uint8ClampedArray } [data] - Data of the image. 
    *     If this parameter is not specified, the default value is a black rectangular image.
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  constructor(width: number, height: number, data?: Uint8ClampedArray, unit?: LengthMetricsUnit);
+  constructor(width: double, height: double, data?: Uint8ClampedArray, unit?: LengthMetricsUnit);
 }
 
 /**
  * This object allows you to set properties when creating a rendering context
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class RenderingContextSettings {
   /**
@@ -580,7 +580,7 @@ export declare class RenderingContextSettings {
    *
    * @return { boolean | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   get antialias(): boolean | undefined;
   /**
@@ -588,7 +588,7 @@ export declare class RenderingContextSettings {
    *
    * @param { boolean | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   set antialias(antialias: boolean | undefined);
   /**
@@ -596,7 +596,7 @@ export declare class RenderingContextSettings {
    *
    * @param { boolean } [antialias] - Indicates whether anti-aliasing is enabled for canvas
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   constructor(antialias?: boolean);
 }
@@ -606,15 +606,15 @@ export declare class RenderingContextSettings {
  *
  * @extends CanvasPath
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class CanvasRenderer extends CanvasPath {
   /**
    * Get spacing for letter.
    *
-   * @return { LengthMetrics | string }
+   * @returns { LengthMetrics | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   get letterSpacing(): LengthMetrics | string;
   /**
@@ -622,27 +622,28 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { LengthMetrics | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   set letterSpacing(letterSpacing: LengthMetrics | string);
   /**
    * Get transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
    *    If the value is out of range, the assignment is invalid.
    *
-   * @return { number }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  get globalAlpha(): number;
+  get globalAlpha(): double;
   /**
  * Set transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
  *    If the value is out of range, the assignment is invalid.
  *
- * @param { number }
+ * @param { double } globalAlpha - The alpha value that is applied to shapes and images
+ *     before they are drawn onto the canvas.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
-  set globalAlpha(globalAlpha: number);
+  set globalAlpha(globalAlpha: double);
   /**
    * Get the type of composition operation applied when drawing a new shape. The following types are supported:
    * source-over: (Default) Draws a new drawing on top of an existing canvas context.
@@ -660,9 +661,9 @@ export declare class CanvasRenderer extends CanvasPath {
    * copy: Only new graphics are displayed.
    * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
    *
-   * @return { string }
+   * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   get globalCompositeOperation(): string;
   /**
@@ -684,59 +685,59 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   set globalCompositeOperation(globalCompositeOperation: string);
   /**
    * Draw an image on a canvas
    *
    * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
-   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { double } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { double } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number): void;
+  drawImage(image: ImageBitmap | PixelMap, dx: double, dy: double): void;
   /**
    * Draw an image on a canvas
    *
    * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
-   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dw - Specifies the drawing width of the image on the target canvas.
+   * @param { double } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { double } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { double } dw - Specifies the drawing width of the image on the target canvas.
    *     The width of the drawn image will be scaled.
-   * @param { number } dh - Specifies the drawing height of the image on the target canvas.
+   * @param { double } dh - Specifies the drawing height of the image on the target canvas.
    *     The height of the drawn image will be scaled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number, dw: number, dh: number): void;
+  drawImage(image: ImageBitmap | PixelMap, dx: double, dy: double, dw: double, dh: double): void;
   /**
    *Draw an image on a canvas
    *
    * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
-   * @param { number } sx - x coordinate of the upper left corner of
+   * @param { double } sx - x coordinate of the upper left corner of
    *     the rectangle (cropping) selection box of the image.
-   * @param { number } sy - y coordinate of the upper left corner of
+   * @param { double } sy - y coordinate of the upper left corner of
    *     the rectangle (cropping) selection box of the image.
-   * @param { number } sw - Width of the rectangle (cropping) selection box of the image.
-   * @param { number } sh - Height of the rectangle (cropping) selection box of the image.
-   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param { number } dw - Specifies the drawing width of the image on the target canvas.
+   * @param { double } sw - Width of the rectangle (cropping) selection box of the image.
+   * @param { double } sh - Height of the rectangle (cropping) selection box of the image.
+   * @param { double } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { double } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { double } dw - Specifies the drawing width of the image on the target canvas.
    *     The width of the drawn image will be scaled.
-   * @param { number } dh - Specifies the drawing height of the image on the target canvas.
+   * @param { double } dh - Specifies the drawing height of the image on the target canvas.
    *     The height of the drawn image will be scaled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  drawImage(image: ImageBitmap | PixelMap, sx: number, sy: number, sw: number, sh: number, dx: number, dy: number,
-    dw: number, dh: number): void;
+  drawImage(image: ImageBitmap | PixelMap, sx: double, sy: double, sw: double, sh: double, dx: double, dy: double,
+    dw: double, dh: double): void;
   /**
    * Clear the sub-path list and start a new path.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   beginPath(): void;
   /**
@@ -744,7 +745,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { CanvasFillRule } [fillRule] - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   clip(fillRule?: CanvasFillRule): void;
   /**
@@ -753,7 +754,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { Path2D } path - Path to be cut.
    * @param { CanvasFillRule } [fillRule] - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   clip(path: Path2D, fillRule?: CanvasFillRule): void;
   /**
@@ -761,7 +762,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { CanvasFillRule } [fillRule] - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   fill(fillRule?: CanvasFillRule): void;
   /**
@@ -770,7 +771,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @param { Path2D } path - Path to be filled.
    * @param { CanvasFillRule } [fillRule] - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   fill(path: Path2D, fillRule?: CanvasFillRule): void;
   /**
@@ -778,71 +779,75 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { Path2D } [path] - Specified stroke path object
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   stroke(path?: Path2D): void;
   /**
    * Get the attributes specifie the color, gradient, or pattern to use inside shapes. The options are as follows:
    *
-   * @return { string | int | CanvasGradient | CanvasPattern }
-   * string: Color String.
-   * int: Indicates the color with number.
-   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
-   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @returns { string | Color | int | CanvasGradient | CanvasPattern }
+   *     string: Color String.
+   *     Color: Common enum of Color.
+   *     int: Indicates the color with double.
+   *     CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
+   *     CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  get fillStyle(): string | int | CanvasGradient | CanvasPattern;
+  get fillStyle(): string | Color | int | CanvasGradient | CanvasPattern;
   /**
    * Set the attributes specifie the color, gradient, or pattern to use inside shapes. The options are as follows:
    *
-   * @param { string | int | CanvasGradient | CanvasPattern }
-   * string: Color String.
-   * int: Indicates the color with number.
-   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
-   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @param { string | Color | int | CanvasGradient | CanvasPattern } fillStyle
+   *     string: Color String.
+   *     Color: Common enum of Color.
+   *     int: Indicates the color with double.
+   *     CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
+   *     CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  set fillStyle(fillStyle: string | int | CanvasGradient | CanvasPattern);
+  set fillStyle(fillStyle: string | Color | int | CanvasGradient | CanvasPattern);
   /**
    * Get the attributes specifie the color, gradient, or pattern to use for the strokes (outlines) around shapes.
    * The options are as follows:
    *
-   * @return { string | int | CanvasGradient | CanvasPattern }
-   * string: Color String.
-   * int: Indicates the color with number.
-   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
-   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @returns { string | Color | int | CanvasGradient | CanvasPattern }
+   *     string: Color String.
+   *     Color: Common enum of Color.
+   *     int: Indicates the color with double.
+   *     CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
+   *     CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  get strokeStyle(): string | int | CanvasGradient | CanvasPattern;
+  get strokeStyle(): string | Color | int | CanvasGradient | CanvasPattern;
   /**
    * Set the attributes specifie the color, gradient, or pattern to use for the strokes (outlines) around shapes.
    * The options are as follows:
    *
-   * @param { string | int | CanvasGradient | CanvasPattern }
-   * string: Color String.
-   * int: Indicates the color with number.
-   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
-   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @param { string | Color | int | CanvasGradient | CanvasPattern } strokeStyle
+   *     string: Color String.
+   *     Color: Common enum of Color.
+   *     int: Indicates the color with double.
+   *     CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
+   *     CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  set strokeStyle(strokeStyle: string | int | CanvasGradient | CanvasPattern);
+  set strokeStyle(strokeStyle: string | Color | int | CanvasGradient | CanvasPattern);
   /**
    * Creates a linear gradient object that is specified along the parameter coordinates
    *
-   * @param { number } x0 - The x-axis coordinate of the start point.
-   * @param { number } y0 - The y-axis coordinate of the start point.
-   * @param { number } x1 - x-axis coordinate of the end point.
-   * @param { number } y1 - y-axis coordinate of the end point.
+   * @param { double } x0 - The x-axis coordinate of the start point.
+   * @param { double } y0 - The y-axis coordinate of the start point.
+   * @param { double } x1 - x-axis coordinate of the end point.
+   * @param { double } y1 - y-axis coordinate of the end point.
    * @returns { CanvasGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  createLinearGradient(x0: number, y0: number, x1: number, y1: number): CanvasGradient;
+  createLinearGradient(x0: double, y0: double, x1: double, y1: double): CanvasGradient;
   /**
    * Creates a template object using the specified image
    *
@@ -857,35 +862,35 @@ export declare class CanvasRenderer extends CanvasPath {
    *         alternating mirror images so that adjacent images always seam.
    * @returns { CanvasPattern | null }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   createPattern(image: ImageBitmap, repetition: string | null): CanvasPattern | null;
   /**
    * Creates a radioactive gradient object based on parameters that determine the coordinates of two circles
    *
-   * @param { number } x0 - The x-axis coordinate of the start circle.
-   * @param { number } y0 - The y-axis coordinate of the start circle.
-   * @param { number } r0 - Radius of the starting circle.
-   * @param { number } x1 - The x-axis coordinate of the end circle.
-   * @param { number } y1 - The y-axis coordinate of the end circle.
-   * @param { number } r1 - Radius of the end circle.
+   * @param { double } x0 - The x-axis coordinate of the start circle.
+   * @param { double } y0 - The y-axis coordinate of the start circle.
+   * @param { double } r0 - Radius of the starting circle.
+   * @param { double } x1 - The x-axis coordinate of the end circle.
+   * @param { double } y1 - The y-axis coordinate of the end circle.
+   * @param { double } r1 - Radius of the end circle.
    * @returns { CanvasGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient;
+  createRadialGradient(x0: double, y0: double, r0: double, x1: double, y1: double, r1: double): CanvasGradient;
   /**
    * Creates a gradient around a point with given coordinates.
    *
-   * @param { number } startAngle - The angle at which to begin the gradient, in radians.
+   * @param { double } startAngle - The angle at which to begin the gradient, in radians.
    *     Angle measurements start horizontally the right of the center and move around clockwise.
-   * @param { number } x - The x-axis coordinate of the center of the gradient.
-   * @param { number } y - The y-axis coordinate of the center of the gradient.
+   * @param { double } x - The x-axis coordinate of the center of the gradient.
+   * @param { double } y - The y-axis coordinate of the center of the gradient.
    * @returns { CanvasGradient } A CanvasGradient object that draws a conic gradient around the given coordinates.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  createConicGradient(startAngle: number, x: number, y: number): CanvasGradient;
+  createConicGradient(startAngle: double, x: double, y: double): CanvasGradient;
   /**
    * Provides filter effects such as blur and grayscale. You can get the following filter effects:
    * blur(<length>): Adds a Gaussian blur effect to the drawing
@@ -912,9 +917,9 @@ export declare class CanvasRenderer extends CanvasPath {
    *     When the value is 0%, there is no change in the image.
    * none: Turn off filter effects.
    *
-   * @return { string }
+   * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   get filter(): string;
   /**
@@ -941,99 +946,99 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   set filter(filter: string);
   /**
    * Creates a new, empty ImageData object of the specified size
    *
-   * @param { number } sw - Width of the ImageData object.
-   * @param { number } sh - Height of the ImageData object.
+   * @param { double } sw - Width of the ImageData object.
+   * @param { double } sh - Height of the ImageData object.
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  createImageData(sw: number, sh: number): ImageData;
+  createImageData(sw: double, sh: double): ImageData;
   /**
    * From an existing ImageData object, copy an object with the same width and height as the image.
    *    The image content is not copied.
    *
-   * @param { ImageData } imagedata - ImageData object to be copied.
+   * @param { ImageData } imageData - ImageData object to be copied.
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  createImageData(imagedata: ImageData): ImageData;
+  createImageData(imageData: ImageData): ImageData;
   /**
    * Obtains the pixel data of a specified area on the current canvas.
    *
-   * @param { number } sx - x coordinate of the upper left corner of the rectangular area
+   * @param { double } sx - x coordinate of the upper left corner of the rectangular area
    *     of the image data to be extracted.
-   * @param { number } sy - y coordinate of the upper left corner of the rectangular area
+   * @param { double } sy - y coordinate of the upper left corner of the rectangular area
    *     of the image data to be extracted.
-   * @param { number } sw - The width of the rectangular area of the image data to be extracted.
-   * @param { number } sh - The height of the rectangular area of the image data to be extracted.
+   * @param { double } sw - The width of the rectangular area of the image data to be extracted.
+   * @param { double } sh - The height of the rectangular area of the image data to be extracted.
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
+  getImageData(sx: double, sy: double, sw: double, sh: double): ImageData;
   /**
    * Obtains the PixelMap of a specified area on the current canvas.
    *
-   * @param { number } sx - x coordinate of the upper left corner of the rectangular area of the PixelMap
+   * @param { double } sx - x coordinate of the upper left corner of the rectangular area of the PixelMap
    *     to be extracted.
-   * @param { number } sy - y coordinate of the upper left corner of the rectangular area of the PixelMap
+   * @param { double } sy - y coordinate of the upper left corner of the rectangular area of the PixelMap
    *     to be extracted.
-   * @param { number } sw - The width of the rectangular area of the PixelMap to be extracted.
-   * @param { number } sh - The height of the rectangular area of the PixelMap to be extracted.
+   * @param { double } sw - The width of the rectangular area of the PixelMap to be extracted.
+   * @param { double } sh - The height of the rectangular area of the PixelMap to be extracted.
    * @returns { PixelMap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap;
+  getPixelMap(sx: double, sy: double, sw: double, sh: double): PixelMap;
   /**
    * Draws the specified ImageData object onto the canvas
    *
-   * @param { ImageData } imagedata - ImageData object to be drawn.
-   * @param { number | string } dx - Position offset of the source image data
+   * @param { ImageData } imageData - ImageData object to be drawn.
+   * @param { double | string } dx - Position offset of the source image data
    *     in the target canvas (the offset in the x-axis direction).
-   * @param { number | string } dy - Position offset of the source image data
+   * @param { double | string } dy - Position offset of the source image data
    *     in the target canvas (the offset in the y-axis direction).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  putImageData(imagedata: ImageData, dx: number | string, dy: number | string): void;
+  putImageData(imageData: ImageData, dx: double | string, dy: double | string): void;
   /**
    * Draws the specified ImageData object onto the canvas
    *
-   * @param { ImageData } imagedata - ImageData object to be drawn.
-   * @param { number | string } dx - Position offset of the source image data
+   * @param { ImageData } imageData - ImageData object to be drawn.
+   * @param { double | string } dx - Position offset of the source image data
    *     in the target canvas (the offset in the x-axis direction).
-   * @param { number | string } dy - Position offset of the source image data
+   * @param { double | string } dy - Position offset of the source image data
    *     in the target canvas (the offset in the y-axis direction).
-   * @param { number | string } dirtyX - Position of the upper left corner of the rectangular area
+   * @param { double | string } dirtyX - Position of the upper left corner of the rectangular area
    *     in the source image data.
    *     The default is the upper left corner (x coordinate) of the entire image data.
-   * @param { number | string } dirtyY - Position of the upper left corner of the rectangular area
+   * @param { double | string } dirtyY - Position of the upper left corner of the rectangular area
    *     in the source image data.
    *     The default is the upper left corner (y coordinate) of the entire image data.
-   * @param { number | string } dirtyWidth - Width of the rectangular area in the source image data.
+   * @param { double | string } dirtyWidth - Width of the rectangular area in the source image data.
    *     The default is the width of the image data.
-   * @param { number | string } dirtyHeight - Height of the rectangular area in the source image data.
+   * @param { double | string } dirtyHeight - Height of the rectangular area in the source image data.
    *     The default is the height of the image data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  putImageData(imagedata: ImageData, dx: number | string, dy: number | string, dirtyX: number | string,
-    dirtyY: number | string, dirtyWidth: number | string, dirtyHeight: number | string): void;
+  putImageData(imageData: ImageData, dx: double | string, dy: double | string, dirtyX: double | string,
+    dirtyY: double | string, dirtyWidth: double | string, dirtyHeight: double | string): void;
   /**
    * Get the status whether to smooth the image. The value true indicates that the image is smooth.
    *    The value false indicates that the image is not smooth.
    *
-   * @return { boolean }
+   * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   get imageSmoothingEnabled(): boolean;
   /**
@@ -1042,15 +1047,15 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   set imageSmoothingEnabled(imageSmoothingEnabled: boolean);
   /**
    * Get the smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
    *
-   * @return { ImageSmoothingQuality }
+   * @returns { ImageSmoothingQuality }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   get imageSmoothingQuality(): ImageSmoothingQuality;
   /**
@@ -1058,15 +1063,15 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { ImageSmoothingQuality }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   set imageSmoothingQuality(imageSmoothingQuality: ImageSmoothingQuality);
   /**
    * Get the line segment endpoint attribute. For details, see {@link CanvasLineCap}.
    *
-   * @return { CanvasLineCap }
+   * @returns { CanvasLineCap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   get lineCap(): CanvasLineCap;
   /**
@@ -1074,31 +1079,31 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { CanvasLineCap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   set lineCap(lineCap: CanvasLineCap);
   /**
    * Get the dotted line offset attribute.
    *
-   * @return { number }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  get lineDashOffset(): number;
+  get lineDashOffset(): double;
   /**
    * Set the dotted line offset attribute.
    *
-   * @param { number }
+   * @param { double } lineDashOffset - The line dash offset.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  set lineDashOffset(lineDashOffset: number);
+  set lineDashOffset(lineDashOffset: double);
   /**
    * Get the line segment connection point attribute. For details, see {@link CanvasLineJoin}.
    *
-   * @return { CanvasLineJoin }
+   * @returns { CanvasLineJoin }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   get lineJoin(): CanvasLineJoin;
   /**
@@ -1106,113 +1111,113 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { CanvasLineJoin }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   set lineJoin(lineJoin: CanvasLineJoin);
   /**
-   * Get the line thickness attribute. The value cannot be 0 or a negative number.
+   * Get the line thickness attribute. The value cannot be 0 or a negative double.
    *
-   * @return { number }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  get lineWidth(): number;
+  get lineWidth(): double;
   /**
-   * Set the line thickness attribute. The value cannot be 0 or a negative number.
+   * Set the line thickness attribute. The value cannot be 0 or a negative double.
    *
-   * @param { number }
+   * @param { double } lineWidth - The thickness of lines.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  set lineWidth(lineWidth: number);
+  set lineWidth(lineWidth: double);
   /**
-   * Get the value of this parameter cannot be 0 or a negative number.
+   * Get the value of this parameter cannot be 0 or a negative double.
    *
-   * @return { number }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  get miterLimit(): number;
+  get miterLimit(): double;
   /**
-   * Set the value of this parameter cannot be 0 or a negative number.
+   * Set the value of this parameter cannot be 0 or a negative double.
    *
-   * @param { number }
+   * @param { double } miterLimit - The miter limit ratio.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  set miterLimit(miterLimit: number);
+  set miterLimit(miterLimit: double);
   /**
    * Gets the current segment style.
    *
-   * @returns { number[] }
+   * @returns { double[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  getLineDash(): number[];
+  getLineDash(): double[];
   /**
    * Sets the dashed line mode for line drawing.
    *
-   * @param { number[] } segments - A set of numbers that describe the length of alternating drawn lines segments and
+   * @param { double[] } segments - A set of doubles that describe the length of alternating drawn lines segments and
    *     spacing (coordinate space units).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  setLineDash(segments: number[]): void;
+  setLineDash(segments: double[]): void;
   /**
    * Clears the drawing content of a rectangular area.
    *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
+   * @param { double } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { double } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { double } w - Width of the rectangle.
+   * @param { double } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  clearRect(x: number, y: number, w: number, h: number): void;
+  clearRect(x: double, y: double, w: double, h: double): void;
   /**
    * Fills a specified rectangular area
    *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
+   * @param { double } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { double } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { double } w - Width of the rectangle.
+   * @param { double } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  fillRect(x: number, y: number, w: number, h: number): void;
+  fillRect(x: double, y: double, w: double, h: double): void;
   /**
    * Stroke Specify Rectangular Area
    *
-   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
-   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
-   * @param { number } w - Width of the rectangle.
-   * @param { number } h - Height of the rectangle.
+   * @param { double } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { double } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { double } w - Width of the rectangle.
+   * @param { double } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  strokeRect(x: number, y: number, w: number, h: number): void;
+  strokeRect(x: double, y: double, w: double, h: double): void;
   /**
-   * Get the shadow blur radius. The value cannot be a negative number.
+   * Get the shadow blur radius. The value cannot be a negative double.
    *
-   * @return { number }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  get shadowBlur(): number;
+  get shadowBlur(): double;
   /**
-   * Set the shadow blur radius. The value cannot be a negative number.
+   * Set the shadow blur radius. The value cannot be a negative double.
    *
-   * @param { number }
+   * @param { double } shadowBlur - The amount of blur applied to shadows.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  set shadowBlur(shadowBlur: number);
+  set shadowBlur(shadowBlur: double);
   /**
    * Get the shadow color.
    *
-   * @return { string }
+   * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   get shadowColor(): string;
   /**
@@ -1220,92 +1225,92 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   set shadowColor(shadowColor: string);
   /**
    * Get the horizontal offset distance of the shadow.
    *
-   * @return { number }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  get shadowOffsetX(): number;
+  get shadowOffsetX(): double;
   /**
    * Set the horizontal offset distance of the shadow.
    *
-   * @param { number }
+   * @param { double } shadowOffsetX - The distance that shadows will be offset horizontally.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  set shadowOffsetX(shadowOffsetX: number);
+  set shadowOffsetX(shadowOffsetX: double);
   /**
    * Get the vertical offset distance of the shadow.
    *
-   * @return { number }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  get shadowOffsetY(): number;
+  get shadowOffsetY(): double;
   /**
    * Set the vertical offset distance of the shadow.
    *
-   * @param { number }
+   * @param { double } shadowOffsetY - The distance that shadows will be offset vertically.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  set shadowOffsetY(shadowOffsetY: number);
+  set shadowOffsetY(shadowOffsetY: double);
   /**
    * Top of the stack pop-up state in the drawing state stack
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   restore(): void;
   /**
    * Saves the current drawing state to the drawing state stack
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   save(): void;
   /**
    * Fills the specified text at the specified location
    *
    * @param { string } text - Text string to be drawn.
-   * @param { number } x - The x-axis coordinate of the start point of the text.
-   * @param { number } y - The y-axis coordinate of the start point of the text.
-   * @param { number } [maxWidth] - Maximum width of the drawing.
+   * @param { double } x - The x-axis coordinate of the start point of the text.
+   * @param { double } y - The y-axis coordinate of the start point of the text.
+   * @param { double } [maxWidth] - Maximum width of the drawing.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  fillText(text: string, x: number, y: number, maxWidth?: number): void;
+  fillText(text: string, x: double, y: double, maxWidth?: double): void;
   /**
    * Measure the size of a specified text. For details about the return value, see {@link TextMetrics}.
    *
    * @param { string } text - Text string to be measured.
    * @returns { TextMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   measureText(text: string): TextMetrics;
   /**
    * Stroke specified text at specified position
    *
    * @param { string } text - Text string to be stroked.
-   * @param { number } x - The x-axis coordinate of the start point of the text.
-   * @param { number } y - The y-axis-axis coordinate of the start point of the text.
-   * @param { number } [maxWidth] - Maximum width of the stroke.
+   * @param { double } x - The x-axis coordinate of the start point of the text.
+   * @param { double } y - The y-axis-axis coordinate of the start point of the text.
+   * @param { double } [maxWidth] - Maximum width of the stroke.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  strokeText(text: string, x: number, y: number, maxWidth?: number): void;
+  strokeText(text: string, x: double, y: double, maxWidth?: double): void;
   /**
    * Get the text drawing direction. For details, see {@link CanvasDirection}.
    *
-   * @return { CanvasDirection }
+   * @returns { CanvasDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   get direction(): CanvasDirection;
   /**
@@ -1313,15 +1318,15 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { CanvasDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   set direction(direction: CanvasDirection);
   /**
    * Get the font style.
    *
-   * @return { string }
+   * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   get font(): string;
   /**
@@ -1329,15 +1334,15 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   set font(font: string);
   /**
    * Get the text alignment mode. For details, see {@link CanvasTextAlign}.
    *
-   * @return { CanvasTextAlign }
+   * @returns { CanvasTextAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   get textAlign(): CanvasTextAlign;
   /**
@@ -1345,15 +1350,15 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { CanvasTextAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   set textAlign(textAlign: CanvasTextAlign);
   /**
    * Get the text baseline. For details, see {@link CanvasTextBaseline}.
    *
-   * @return { CanvasTextBaseline }
+   * @returns { CanvasTextBaseline }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   get textBaseline(): CanvasTextBaseline;
   /**
@@ -1361,7 +1366,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { CanvasTextBaseline }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   set textBaseline(textBaseline: CanvasTextBaseline);
   /**
@@ -1369,86 +1374,86 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   getTransform(): Matrix2D;
   /**
    * Resets the current transformation matrix using the identity matrix
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   resetTransform(): void;
   /**
    * Adds the effect of a rotation
    *
-   * @param { number } angle - The radian of clockwise rotation, 
+   * @param { double } angle - The radian of clockwise rotation, 
    *     which can be converted to an angle value using the formula: degree * Math.PI / 180.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  rotate(angle: number): void;
+  rotate(angle: double): void;
   /**
    * Increases the scaling effect of the X and Y axes.
    *
-   * @param { number } x - Horizontal scaling factor
-   * @param { number } y - Vertical scaling factor
+   * @param { double } x - Horizontal scaling factor
+   * @param { double } y - Vertical scaling factor
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  scale(x: number, y: number): void;
+  scale(x: double, y: double): void;
   /**
    * Adds 2D transformation effects, including rotation, translation, and scaling.
    *    The current transformation matrix will not be overwritten. Multiple transformations will be superimposed.
    *
-   * @param { number } a - Horizontal Zoom
-   * @param { number } b - Vertical Tilt
-   * @param { number } c - Horizontal Tilt
-   * @param { number } d - Vertical Zoom
-   * @param { number } e - Horizontal movement
-   * @param { number } f - Vertical movement
+   * @param { double } a - Horizontal Zoom
+   * @param { double } b - Vertical Tilt
+   * @param { double } c - Horizontal Tilt
+   * @param { double } d - Vertical Zoom
+   * @param { double } e - Horizontal movement
+   * @param { double } f - Vertical movement
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void;
+  setTransform(a: double, b: double, c: double, d: double, e: double, f: double): void;
   /**
    * The 2D transformation effect is added. The current transformation matrix is not overwritten and
    *    the transformations are superimposed for multiple times.
    *
    * @param { Matrix2D } [transform] - 2D transformation matrix. For details, see {@link Matrix2D}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   setTransform(transform?: Matrix2D): void;
   /**
    * Adds the 2D transformation effect, including rotation, translation, and scaling,
    *    and overwrites the current transformation matrix.
    *
-   * @param { number } a - Horizontal Zoom
-   * @param { number } b - Vertical Tilt
-   * @param { number } c - Horizontal Tilt
-   * @param { number } d - Vertical Zoom
-   * @param { number } e - Horizontal movement
-   * @param { number } f - Vertical movement
+   * @param { double } a - Horizontal Zoom
+   * @param { double } b - Vertical Tilt
+   * @param { double } c - Horizontal Tilt
+   * @param { double } d - Vertical Zoom
+   * @param { double } e - Horizontal movement
+   * @param { double } f - Vertical movement
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  transform(a: number, b: number, c: number, d: number, e: number, f: number): void;
+  transform(a: double, b: double, c: double, d: double, e: double, f: double): void;
   /**
    * Increases the translation effect of the X and Y axes
    *
-   * @param { number } x - Horizontal movement distance
-   * @param { number } y - Vertical travel distance
+   * @param { double } x - Horizontal movement distance
+   * @param { double } y - Vertical travel distance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  translate(x: number, y: number): void;
+  translate(x: double, y: double): void;
   /**
    * Set a PixelMap to the current context. The drawing content is synchronized to the PixelMap.
    *
    * @param { PixelMap } [value] - PixelMap object
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   setPixelMap(value?: PixelMap): void;
   /**
@@ -1456,28 +1461,28 @@ export declare class CanvasRenderer extends CanvasPath {
    *
    * @param { ImageBitmap } bitmap
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   transferFromImageBitmap(bitmap: ImageBitmap): void;
   /**
    * Allocate a layer for subsequent drawing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   saveLayer(): void;
   /**
    * Remove changes to transform and clip since saveLayer was last called and draw the layer on canvas.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   restoreLayer(): void;
   /**
    * Clear the backing buffer, drawing state stack, any defined paths, and styles.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   reset(): void;
 }
@@ -1487,47 +1492,45 @@ export declare class CanvasRenderer extends CanvasPath {
  *
  * @extends CanvasRenderer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
    *
-   * @return { number }
-   * @readonly
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  get height(): number;
+  get height(): double;
   /**
    * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
    *
-   * @return { number }
-   * @readonly
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  get width(): number;
+  get width(): double;
   /**
    * Frame node of the canvas. The default value is null.
    *
-   * @return { FrameNode }
+   * @returns { FrameNode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   get canvas(): FrameNode;
   /**
    * Generate a character string in the data url format.
    *
    * @param { string } [type] - Image format. The default value is image/png.
-   * @param { number } [quality] - If the image format is image/jpeg or image/webp,
+   * @param { double } [quality] - If the image format is image/jpeg or image/webp,
    *     you can select the image quality from 0 to 1.
    *     If the value is out of the range, the default value 0.92 is used.
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  toDataURL(type?: string, quality?: number): string;
+  toDataURL(type?: string, quality?: double): string;
   /**
    * Start image analyzer.
    *
@@ -1537,13 +1540,13 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @throws { BusinessError } 110002 - Image analysis is currently being executed.
    * @throws { BusinessError } 110003 - Image analysis is stopped.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   startImageAnalyzer(config: ImageAnalyzerConfig): Promise<void>;
   /**
    * Stop image analyzer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   stopImageAnalyzer(): void;
   /**
@@ -1553,7 +1556,7 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
    *     For details, see {@link RenderingContextSettings}.
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   constructor(settings?: RenderingContextSettings, unit?: LengthMetricsUnit);
   /**
@@ -1566,7 +1569,7 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   on(type: 'onAttach', callback: Callback<void>): void;
   /**
@@ -1579,7 +1582,7 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   off(type: 'onAttach', callback?: Callback<void>): void;
   /**
@@ -1592,7 +1595,7 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   on(type: 'onDetach', callback: Callback<void>): void;
   /**
@@ -1605,7 +1608,7 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   off(type: 'onDetach', callback?: Callback<void>): void;
 }
@@ -1615,87 +1618,87 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
  *
  * @extends CanvasRenderer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Generate a character string in the data url format.
    *
    * @param { string } [type] - Image format. The default value is image/png.
-   * @param { number } [quality] - If the image format is image/jpeg or image/webp,
+   * @param { double } [quality] - If the image format is image/jpeg or image/webp,
    *     you can select the image quality from 0 to 1.
    *     If the value is out of the range, the default value 0.92 is used.
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  toDataURL(type?: string, quality?: number): string;
+  toDataURL(type?: string, quality?: double): string;
   /**
    * transfer the content to ImageBitmap
    *
    * @returns { ImageBitmap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   transferToImageBitmap(): ImageBitmap;
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
    *
-   * @param { number } width - the width of the OffscreenCanvas
-   * @param { number } height - the height of the OffscreenCanvas
+   * @param { double } width - the width of the OffscreenCanvas
+   * @param { double } height - the height of the OffscreenCanvas
    * @param { RenderingContextSettings } [settings] - Drawing attribute.
    *     For details, see {@link RenderingContextSettings}.
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  constructor(width: number, height: number, settings?: RenderingContextSettings, unit?: LengthMetricsUnit);
+  constructor(width: double, height: double, settings?: RenderingContextSettings, unit?: LengthMetricsUnit);
 }
 /**
  * Draw an object off the screen. The drawing content is not directly displayed on the screen.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class OffscreenCanvas {
   /**
    * Get the height of the off-screen canvas.
    *
-   * @return { number }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  get height(): number;
+  get height(): double;
   /**
    * Set the height of the off-screen canvas.
    *
-   * @param { number }
+   * @param { double } height - The height of an off-screen canvas object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  set height(height: number);
+  set height(height: double);
   /**
    * Get the width of the off-screen canvas.
    *
-   * @return { number }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  get width(): number;
+  get width(): double;
   /**
    * Set the width of the off-screen canvas.
    *
-   * @param { number }
+   * @param { double } width - The width of an off-screen canvas object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  set width(width: number);
+  set width(width: double);
   /**
    * Exports rendered content as an ImageBitmap object
    *
    * @returns { ImageBitmap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   transferToImageBitmap(): ImageBitmap;
   /**
@@ -1709,26 +1712,26 @@ export declare class OffscreenCanvas {
    * @returns { OffscreenCanvasRenderingContext2D } The rendering context of offscreen canvas,
    *     see {@link OffscreenCanvasRenderingContext2D}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   getContext(contextType: '2d', options?: RenderingContextSettings): OffscreenCanvasRenderingContext2D;
   /**
    * Constructor of the off-screen canvas, which is used to create an off-screen canvas object.
    *
-   * @param { number } width - Width of the off-screen canvas.
-   * @param { number } height - Height of the off-screen canvas.
+   * @param { double } width - Width of the off-screen canvas.
+   * @param { double } height - Height of the off-screen canvas.
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  constructor(width: number, height: number, unit?: LengthMetricsUnit);
+  constructor(width: double, height: double, unit?: LengthMetricsUnit);
 }
 
 /**
  * Defines DrawingRenderingContext.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class DrawingRenderingContext {
   /**
@@ -1736,14 +1739,22 @@ export declare class DrawingRenderingContext {
    *
    * @returns { Size } The size of the DrawingRenderingContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   get size(): Size;
+  /**
+   * Get canvas of the DrawingRenderingContext.
+   *
+   * @returns { DrawingCanvas | undefined } The canvas of the DrawingRenderingContext.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  get canvas(): DrawingCanvas | undefined; 
   /**
    * Invalidate the component, which will cause a re-render of the component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   invalidate(): void;
   /**
@@ -1751,7 +1762,7 @@ export declare class DrawingRenderingContext {
    *
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   constructor(unit?: LengthMetricsUnit);
 }
@@ -1762,7 +1773,8 @@ export declare class DrawingRenderingContext {
  * @extends CommonMethod
  * @interface CanvasAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
+ * @noninterop
  */
 export declare interface CanvasAttribute extends CommonMethod {
   /**
@@ -1771,7 +1783,7 @@ export declare interface CanvasAttribute extends CommonMethod {
    * @param { VoidCallback | undefined } event
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   onReady(event: VoidCallback | undefined): this;
   /**
@@ -1780,7 +1792,7 @@ export declare interface CanvasAttribute extends CommonMethod {
    * @param { boolean | undefined } enable - If enable image analyzer for Canvas. The default value is false.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   enableAnalyzer(enable: boolean | undefined): this;
   /**
@@ -1789,7 +1801,7 @@ export declare interface CanvasAttribute extends CommonMethod {
    * @param { AttributeModifier<CanvasAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   attributeModifier(modifier: AttributeModifier<CanvasAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -1799,15 +1811,14 @@ export declare interface CanvasAttribute extends CommonMethod {
  *
  * @param { CanvasRenderingContext2D | DrawingRenderingContext } [context] - Canvas context object.
  * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { CanvasAttribute } The attribute of the Canvas.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Canvas(
   context?: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptions?: ImageAIOptions,
-  @memo
-  content_?: () => void,
+  content_?: CustomBuilder,
 ): CanvasAttribute

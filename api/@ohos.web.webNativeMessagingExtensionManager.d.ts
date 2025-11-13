@@ -28,27 +28,26 @@ import type Want from './@ohos.app.ability.Want';
  * @namespace webNativeMessagingExtensionManager
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
- * @since 21
+ * @since 21 dynamic
  */
 declare namespace webNativeMessagingExtensionManager {
-
   /**
    * Indicates connection information about web native messaging connection
    * @typedef ConnectionNativeInfo
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @since 21
+   * @since 21 dynamic
    */
   interface ConnectionNativeInfo {
     /**
      * Indicates connection id
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
-    connectionId: int;
+    connectionId: number;
 
     /**
      * Indicates the bundle name of the web native messaging extension
@@ -56,7 +55,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
     bundleName: string;
 
@@ -66,19 +65,19 @@ declare namespace webNativeMessagingExtensionManager {
      * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
     extensionOrigin: string;
 
     /**
      * Indicates the pid of the web native messaging extension
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
-    extensionPid: int;
+    extensionPid: number;
   }
   /**
    * Enumerates the module error code of Native Messaging.
@@ -86,7 +85,7 @@ declare namespace webNativeMessagingExtensionManager {
    * @enum { int }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @since 21
+   * @since 21 dynamic
    */
   export enum NmErrorCode {
     /**
@@ -94,7 +93,7 @@ declare namespace webNativeMessagingExtensionManager {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
     PERMISSION_DENY = 17100203,
     /**
@@ -102,7 +101,7 @@ declare namespace webNativeMessagingExtensionManager {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
     WANT_CONTENT_ERROR = 17100202,
     /**
@@ -110,7 +109,7 @@ declare namespace webNativeMessagingExtensionManager {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
     INNER_ERROR = 17100201
   }
@@ -121,7 +120,7 @@ declare namespace webNativeMessagingExtensionManager {
    * @typedef WebExtensionConnectionCallback
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @since 21
+   * @since 21 dynamic
    */
   interface WebExtensionConnectionCallback {
     /**
@@ -130,7 +129,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @param { ConnectionNativeInfo } connection - The remote connection info
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
     onConnect(connection: ConnectionNativeInfo): void;
 
@@ -140,7 +139,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @param { ConnectionNativeInfo } connection - The remote connection info
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
     onDisconnect(connection: ConnectionNativeInfo): void;
 
@@ -151,7 +150,7 @@ declare namespace webNativeMessagingExtensionManager {
      * @param { string } errMsg - The error message of the failure.
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 21
+     * @since 21 dynamic
      */
     onFailed(code: NmErrorCode, errMsg: string): void;
   }
@@ -163,29 +162,30 @@ declare namespace webNativeMessagingExtensionManager {
    * @param { UIAbilityContext } context - The context of the caller of the ui ability
    * @param { Want } want - The element name of the web native messaging ability
    * @param { WebExtensionConnectionCallback } callback - The remote object instance
-   * @returns { int } Returns the number code of the ability connected
+   * @returns { number } Returns the number code of the ability connected
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @since 21
+   * @since 21 dynamic
    */
-  function connectNative(context: UIAbilityContext, want: Want, callback: WebExtensionConnectionCallback): int;
+  function connectNative(context: UIAbilityContext, want: Want, callback: WebExtensionConnectionCallback): number;
 
   /**
    * Disconnect current ability from an web native messaging extension, in contrast to {@link connectNative}.
    *
    * @permission ohos.permission.WEB_NATIVE_MESSAGING
-   * @param { int } connectionId - The number code of the ability connected
+   * @param { number } connectionId - The number code of the ability connected
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
+   *     2. The system service failed to communicate with dependency module.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @since 21
+   * @since 21 dynamic
    */
-  function disconnectNative(connectionId: int): Promise<void>;
+  function disconnectNative(connectionId: number): Promise<void>;
 }
 
 export default webNativeMessagingExtensionManager;

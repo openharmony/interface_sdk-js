@@ -38,7 +38,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
  */
 export declare class TabTitleBarMenuItem {
   /**
@@ -60,7 +60,7 @@ export declare class TabTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   value: ResourceStr;
 
@@ -77,7 +77,7 @@ export declare class TabTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   symbolStyle?: SymbolGlyphModifier;
 
@@ -94,7 +94,7 @@ export declare class TabTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   label?: ResourceStr;
 
@@ -117,7 +117,7 @@ export declare class TabTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   isEnabled?: boolean;
 
@@ -140,7 +140,7 @@ export declare class TabTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   action?: () => void;
 
@@ -157,7 +157,7 @@ export declare class TabTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   accessibilityText?: ResourceStr;
 
@@ -174,7 +174,7 @@ export declare class TabTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   accessibilityDescription?: ResourceStr;
 
@@ -193,7 +193,7 @@ export declare class TabTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   accessibilityLevel?: string;
 }
@@ -214,7 +214,7 @@ export declare class TabTitleBarMenuItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
  */
 export declare class TabTitleBarTabItem {
   /**
@@ -236,7 +236,7 @@ export declare class TabTitleBarTabItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   title: ResourceStr;
 
@@ -259,7 +259,7 @@ export declare class TabTitleBarTabItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   icon?: ResourceStr;
 
@@ -276,7 +276,7 @@ export declare class TabTitleBarTabItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   symbolStyle?: SymbolGlyphModifier;
 }
@@ -297,7 +297,7 @@ export declare class TabTitleBarTabItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
  */
 @Component
 export declare struct TabTitleBar {
@@ -320,7 +320,7 @@ export declare struct TabTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   tabItems: Array<TabTitleBarTabItem>;
 
@@ -343,7 +343,7 @@ export declare struct TabTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   menuItems?: Array<TabTitleBarMenuItem>;
 
@@ -369,7 +369,7 @@ export declare struct TabTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
   @BuilderParam
   swiperContent: () => void;

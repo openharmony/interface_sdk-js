@@ -28,7 +28,7 @@ import colorSpaceManager from './@ohos.graphics.colorSpaceManager';
  * 
  * @namespace abilityConnectionManager
  * @syscap SystemCapability.DistributedSched.AppCollaboration
- * @since 18
+ * @since 18 dynamic
  */
 declare namespace abilityConnectionManager {
 
@@ -36,7 +36,7 @@ declare namespace abilityConnectionManager {
      * Collaborative application information.
      * @interface PeerInfo
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     interface PeerInfo {
         /**
@@ -45,7 +45,7 @@ declare namespace abilityConnectionManager {
          * the obtained ID will change.
          * @type { string }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         deviceId: string;
 
@@ -53,7 +53,7 @@ declare namespace abilityConnectionManager {
          * bundle name.
          * @type { string }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         bundleName: string;
 
@@ -61,7 +61,7 @@ declare namespace abilityConnectionManager {
          * module name.
          * @type { string }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         moduleName: string;
 
@@ -69,7 +69,7 @@ declare namespace abilityConnectionManager {
          * ability name.
          * @type { string }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         abilityName: string;
 
@@ -77,7 +77,7 @@ declare namespace abilityConnectionManager {
          * Service name.
          * @type { ?string }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         serviceName?: string;
     }
@@ -86,14 +86,14 @@ declare namespace abilityConnectionManager {
      * Connection options for ability connection sessions.
      * @interface ConnectOptions
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     interface ConnectOptions {
         /**
          * Send Data Configuration Options. WiFi needs to be turned on.
          * @type { ?boolean }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         needSendData?: boolean;
 
@@ -102,7 +102,7 @@ declare namespace abilityConnectionManager {
          * @type { ?boolean }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         needSendStream?: boolean;
 
@@ -111,7 +111,7 @@ declare namespace abilityConnectionManager {
          * @type { ?boolean }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         needReceiveStream?: boolean;
 
@@ -119,7 +119,7 @@ declare namespace abilityConnectionManager {
          * Startup option.
          * @type { ?StartOptionParams }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         startOptions?: StartOptionParams;
 
@@ -127,7 +127,7 @@ declare namespace abilityConnectionManager {
          * Additional information about the ability connection request.
          * @type { ?Record<string, string> }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         parameters?: Record<string, string>;
     }
@@ -136,14 +136,14 @@ declare namespace abilityConnectionManager {
      * Connection result.
      * @interface ConnectResult
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     interface ConnectResult {
         /**
          * Connection is accepted or rejected.
          * @type { boolean }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         isConnected: boolean;
 
@@ -151,7 +151,7 @@ declare namespace abilityConnectionManager {
          * Connection failure error code.
          * @type { ?ConnectErrorCode }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         errorCode?: ConnectErrorCode;
 
@@ -159,7 +159,7 @@ declare namespace abilityConnectionManager {
          * Indicates the reason for reject.
          * @type { ?string }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */        
         reason?: string;
     }
@@ -168,48 +168,48 @@ declare namespace abilityConnectionManager {
      * Connection failure error code.
      * @enum { number }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     export enum ConnectErrorCode {
         /**
          * A connected session exists between the two application.
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         CONNECTED_SESSION_EXISTS = 0,
 
         /**
          * The peer application rejects the collaboration request.
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         PEER_APP_REJECTED = 1,
 
         /**
          * Connection failed due to the device's WiFi being off.
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         LOCAL_WIFI_NOT_OPEN = 2,
 
         /**
          * Connection failed due to the peer's WiFi being off.
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         PEER_WIFI_NOT_OPEN = 3,
 
         /**
          * Connection failed due to the peer ability has not implemented the onCollaborate method.
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         PEER_ABILITY_NO_ONCOLLABORATE = 4,
 
         /**
          * The connection failed due to an internal system error.
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         SYSTEM_INTERNAL_ERROR = 5,
     }
@@ -219,13 +219,13 @@ declare namespace abilityConnectionManager {
      * 
      * @enum { number }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     export enum StartOptionParams {
         /**
          * Launching the peer application to the foreground.
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         START_IN_FOREGROUND = 0,
 
@@ -233,7 +233,7 @@ declare namespace abilityConnectionManager {
          * Launching the peer application to the background.
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         START_IN_BACKGROUND = 1,
     }
@@ -242,14 +242,14 @@ declare namespace abilityConnectionManager {
      * Connection event callback information.
      * @interface EventCallbackInfo
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     interface EventCallbackInfo {
         /**
          * Ability connection Session id.
          * @type { number }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         sessionId: number;
 
@@ -257,7 +257,7 @@ declare namespace abilityConnectionManager {
          * Indicates the reason of ability disconnection.
          * @type { ?DisconnectReason }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         reason?: DisconnectReason;
 
@@ -265,7 +265,7 @@ declare namespace abilityConnectionManager {
          * Received message data.
          * @type { ?string }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         msg?: string;
 
@@ -273,7 +273,7 @@ declare namespace abilityConnectionManager {
          * Received data.
          * @type { ?ArrayBuffer }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         data?: ArrayBuffer;
 
@@ -282,7 +282,7 @@ declare namespace abilityConnectionManager {
          * @type { ?image.PixelMap }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         image?: image.PixelMap;
     }
@@ -291,14 +291,14 @@ declare namespace abilityConnectionManager {
      * Collaborate event information.
      * @interface CollaborateEventInfo
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     interface CollaborateEventInfo {
         /**
          * Indicates the type of collaborate event.
          * @type { CollaborateEventType }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         eventType: CollaborateEventType;
 
@@ -306,7 +306,7 @@ declare namespace abilityConnectionManager {
          * Indicates the collaborate message of collaborate event.
          * @type { ?string }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         eventMsg?: string;
     }
@@ -315,20 +315,20 @@ declare namespace abilityConnectionManager {
      * CollaborateEventType.
      * @enum { number }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     enum CollaborateEventType {
         /**
          * Indicates send task failure.
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         SEND_FAILURE = 0,
 
         /**
          * Indicates color space conversion failure.
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         COLOR_SPACE_CONVERSION_FAILURE = 1,
     }
@@ -337,27 +337,27 @@ declare namespace abilityConnectionManager {
      * DisconnectReason.
      * @enum { number }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     enum DisconnectReason {
         /**
          * Indicates that the reason is the peer application actively closes the collaboration.
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         PEER_APP_CLOSE_COLLABORATION = 0,
 
         /**
          * Indicates that the reason is the peer application exit.
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         PEER_APP_EXIT = 1,
 
         /**
          * Indicates that the reason is a network disconnection.
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         NETWORK_DISCONNECTED = 2,
     }
@@ -370,7 +370,7 @@ declare namespace abilityConnectionManager {
      * @param { Callback<EventCallbackInfo> } callback - Used to handle ('connect') command.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     function on(type: 'connect', sessionId: number,
         callback: Callback<EventCallbackInfo>): void;
@@ -383,7 +383,7 @@ declare namespace abilityConnectionManager {
      * @param { Callback<EventCallbackInfo> } callback - Used to handle ('connect') command.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     function off(type: 'connect', sessionId: number,
         callback?: Callback<EventCallbackInfo>): void;
@@ -396,7 +396,7 @@ declare namespace abilityConnectionManager {
      * @param { Callback<EventCallbackInfo> } callback - Used to handle ('disconnect') command.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     function on(type: 'disconnect', sessionId: number,
         callback: Callback<EventCallbackInfo>): void;
@@ -409,7 +409,7 @@ declare namespace abilityConnectionManager {
      * @param { Callback<EventCallbackInfo> } callback - Used to handle ('disconnect') command.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     function off(type: 'disconnect', sessionId: number,
         callback?: Callback<EventCallbackInfo>): void;
@@ -422,7 +422,7 @@ declare namespace abilityConnectionManager {
      * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveMessage') command.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     function on(type: 'receiveMessage', sessionId: number,
         callback: Callback<EventCallbackInfo>): void;
@@ -435,7 +435,7 @@ declare namespace abilityConnectionManager {
      * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveMessage') command.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     function off(type: 'receiveMessage', sessionId: number,
         callback?: Callback<EventCallbackInfo>): void;
@@ -448,7 +448,7 @@ declare namespace abilityConnectionManager {
      * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveData') command.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     function on(type: 'receiveData', sessionId: number,
         callback: Callback<EventCallbackInfo>): void;
@@ -461,7 +461,7 @@ declare namespace abilityConnectionManager {
      * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveData') command.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     function off(type: 'receiveData', sessionId: number,
         callback?: Callback<EventCallbackInfo>): void;
@@ -476,7 +476,7 @@ declare namespace abilityConnectionManager {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     function on(type: 'receiveImage', sessionId: number,
         callback: Callback<EventCallbackInfo>): void;
@@ -491,7 +491,7 @@ declare namespace abilityConnectionManager {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     function off(type: 'receiveImage', sessionId: number,
         callback?: Callback<EventCallbackInfo>): void;
@@ -506,7 +506,7 @@ declare namespace abilityConnectionManager {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     function on(type: 'collaborateEvent', sessionId: number,
         callback: Callback<CollaborateEventInfo>): void;
@@ -521,7 +521,7 @@ declare namespace abilityConnectionManager {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     function off(type: 'collaborateEvent', sessionId: number,
         callback?: Callback<CollaborateEventInfo>): void;
@@ -538,7 +538,7 @@ declare namespace abilityConnectionManager {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     function createAbilityConnectionSession(serviceName: string, context: Context, peerInfo: PeerInfo,
         connectOptions: ConnectOptions): number;
@@ -548,7 +548,7 @@ declare namespace abilityConnectionManager {
      *
      * @param { number } sessionId - Ability connection Session id.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     function destroyAbilityConnectionSession(sessionId: number): void;
 
@@ -559,7 +559,7 @@ declare namespace abilityConnectionManager {
      * @returns { PeerInfo | undefined } Returns the collaborative application information at the sink end.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     function getPeerInfoById(sessionId: number): PeerInfo | undefined;
 
@@ -570,7 +570,7 @@ declare namespace abilityConnectionManager {
      * @returns { Promise<ConnectResult> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     function connect(sessionId: number): Promise<ConnectResult>;
 
@@ -579,7 +579,7 @@ declare namespace abilityConnectionManager {
      *
      * @param { number } sessionId - Ability connection Session id.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     function disconnect(sessionId: number): void;
 
@@ -591,7 +591,7 @@ declare namespace abilityConnectionManager {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     function acceptConnect(sessionId: number, token: string): Promise<void>;
 
@@ -602,7 +602,7 @@ declare namespace abilityConnectionManager {
      * @param { string } reason - Reason for connection rejection.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     function reject(token: string, reason: string): void;
 
@@ -614,7 +614,7 @@ declare namespace abilityConnectionManager {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     function sendMessage(sessionId: number, msg: string): Promise<void>;
 
@@ -626,7 +626,7 @@ declare namespace abilityConnectionManager {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     function sendData(sessionId: number, data: ArrayBuffer): Promise<void>;
     
@@ -641,7 +641,7 @@ declare namespace abilityConnectionManager {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     function sendImage(sessionId: number, image: image.PixelMap, quality?: number): Promise<void>;
 
@@ -658,7 +658,7 @@ declare namespace abilityConnectionManager {
      * @throws { BusinessError } 32300004 - Color space not supported.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     function createStream(sessionId: number, param: StreamParam): Promise<number>;
 
@@ -672,7 +672,7 @@ declare namespace abilityConnectionManager {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     function setSurfaceId(streamId: number, surfaceId: string, param: SurfaceParam): void;
     /**
@@ -685,7 +685,7 @@ declare namespace abilityConnectionManager {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     function getSurfaceId(streamId: number, param: SurfaceParam): string;
 
@@ -698,7 +698,7 @@ declare namespace abilityConnectionManager {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     function updateSurfaceParam(streamId: number, param: SurfaceParam): void;
 
@@ -710,7 +710,7 @@ declare namespace abilityConnectionManager {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     function destroyStream(streamId: number): void;
 
@@ -723,7 +723,7 @@ declare namespace abilityConnectionManager {
      * @throws { BusinessError } 32300002 - The stream at the receive end is not started.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     function startStream(streamId: number): void;
 
@@ -735,7 +735,7 @@ declare namespace abilityConnectionManager {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     function stopStream(streamId: number): void;
 
@@ -744,7 +744,7 @@ declare namespace abilityConnectionManager {
      * @interface StreamParam
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     interface StreamParam {
         /**
@@ -752,7 +752,7 @@ declare namespace abilityConnectionManager {
          * @type { string }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         name: string;
 
@@ -761,7 +761,7 @@ declare namespace abilityConnectionManager {
          * @type { StreamRole }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         role: StreamRole;
 
@@ -770,7 +770,7 @@ declare namespace abilityConnectionManager {
          * @type { ?number }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         bitrate?: number;
 
@@ -780,7 +780,7 @@ declare namespace abilityConnectionManager {
          * @type { ?colorSpaceManager.ColorSpace }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         colorSpaceConversionTarget?: colorSpaceManager.ColorSpace;
     }
@@ -790,7 +790,7 @@ declare namespace abilityConnectionManager {
      * @interface SurfaceParam
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     interface SurfaceParam {
         /**
@@ -798,7 +798,7 @@ declare namespace abilityConnectionManager {
          * @type { number }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         width: number;
 
@@ -807,7 +807,7 @@ declare namespace abilityConnectionManager {
          * @type { number }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         height: number;
 
@@ -817,7 +817,7 @@ declare namespace abilityConnectionManager {
          * @type { ?VideoPixelFormat }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         format?: VideoPixelFormat;
 
@@ -827,7 +827,7 @@ declare namespace abilityConnectionManager {
          * @type { ?number }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         rotation?: number;
 
@@ -836,7 +836,7 @@ declare namespace abilityConnectionManager {
          * @type { ?FlipOptions }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         flip?: FlipOptions;
     }
@@ -846,14 +846,14 @@ declare namespace abilityConnectionManager {
      * @enum { number }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     export enum FlipOptions {
         /**
          * Horizontal Flip
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         HORIZONTAL = 0,
 
@@ -861,7 +861,7 @@ declare namespace abilityConnectionManager {
          * Vertical Flip
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         VERTICAL = 1,
     }
@@ -871,14 +871,14 @@ declare namespace abilityConnectionManager {
      * @enum { number }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     export enum StreamRole {
         /**
          * This status indicates the stream is a send stream.
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         SOURCE = 0,
 
@@ -886,7 +886,7 @@ declare namespace abilityConnectionManager {
          * This status indicates the stream is a receive stream.
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         SINK = 1,
     }
@@ -896,14 +896,14 @@ declare namespace abilityConnectionManager {
      * @enum { number }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @systemapi
-     * @since 18
+     * @since 18 dynamic
      */
     export enum VideoPixelFormat {
         /**
          * Unknown.
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         UNKNOWN = -1,
 
@@ -911,7 +911,7 @@ declare namespace abilityConnectionManager {
          * NV12. yuv 420 semiplanar.
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         NV12 = 0,
 
@@ -919,7 +919,7 @@ declare namespace abilityConnectionManager {
          * NV21. yvu 420 semiplanar.
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @systemapi
-         * @since 18
+         * @since 18 dynamic
          */
         NV21 = 1,
     }
@@ -928,27 +928,27 @@ declare namespace abilityConnectionManager {
      * The keys for ability onCollaborate parameters.
      * @enum { string }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     export enum CollaborationKeys {
         /**
          * The key of peerinfo
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         PEER_INFO = 'ohos.collaboration.key.peerInfo',
 
         /**
          * The key of connect options
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         CONNECT_OPTIONS = 'ohos.collaboration.key.connectOptions',
 
         /**
          * The key of collaboration type
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         COLLABORATE_TYPE = 'ohos.collaboration.key.abilityCollaborateType',
     }
@@ -957,20 +957,20 @@ declare namespace abilityConnectionManager {
      * Ability collaboration values.
      * @enum { string }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 18
+     * @since 18 dynamic
      */
     export enum CollaborationValues {
         /**
          * Default collaboration type
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         ABILITY_COLLABORATION_TYPE_DEFAULT = 'ohos.collaboration.value.abilityCollab',
 
         /**
          * Collaboration type of connect proxy
          * @syscap SystemCapability.DistributedSched.AppCollaboration
-         * @since 18
+         * @since 18 dynamic
          */
         ABILITY_COLLABORATION_TYPE_CONNECT_PROXY = 'ohos.collaboration.value.connectProxy',
     }

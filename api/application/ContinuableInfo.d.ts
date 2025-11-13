@@ -24,7 +24,7 @@
  * @typedef ContinuableInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi Hide this for inner system use.
- * @since 10
+ * @since 10 dynamic
  */
 export interface ContinuableInfo {
   /**
@@ -33,7 +33,7 @@ export interface ContinuableInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
-   * @since 10
+   * @since 10 dynamic
    */
   srcDeviceId: string;
   /**
@@ -42,7 +42,7 @@ export interface ContinuableInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
-   * @since 10
+   * @since 10 dynamic
    */
   bundleName: string;
   /**
@@ -51,7 +51,7 @@ export interface ContinuableInfo {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
-   * @since 12
+   * @since 12 dynamic
    */
   srcBundleName?: string;
   /**
@@ -60,7 +60,7 @@ export interface ContinuableInfo {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
-   * @since 12
+   * @since 12 dynamic
    */
   continueType?: string;
 }

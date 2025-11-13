@@ -26,7 +26,8 @@ import { AsyncCallback } from './@ohos.base';
  * @namespace quickFixManager
  * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
  * @systemapi
- * @since 9
+ * @since 9 dynamic
+ * @since 22 static
  */
 declare namespace quickFixManager {
   /**
@@ -35,7 +36,8 @@ declare namespace quickFixManager {
    * @typedef HapModuleQuickFixInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   export interface HapModuleQuickFixInfo {
     /**
@@ -45,7 +47,8 @@ declare namespace quickFixManager {
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     readonly moduleName: string;
 
@@ -56,7 +59,8 @@ declare namespace quickFixManager {
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     readonly originHapHash: string;
 
@@ -67,7 +71,8 @@ declare namespace quickFixManager {
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     readonly quickFixFilePath: string;
   }
@@ -78,7 +83,8 @@ declare namespace quickFixManager {
    * @typedef ApplicationQuickFixInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since 9
+     * @since 9 dynamic
+     * @since 22 static
    */
   export interface ApplicationQuickFixInfo {
     /**
@@ -88,20 +94,22 @@ declare namespace quickFixManager {
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     readonly bundleName: string;
 
     /**
      * The version number of the bundle.
      *
-     * @type { number }
+     * @type { long }
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    readonly bundleVersionCode: number;
+    readonly bundleVersionCode: long;
 
     /**
      * The version name of the bundle.
@@ -110,20 +118,22 @@ declare namespace quickFixManager {
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     readonly bundleVersionName: string;
 
     /**
      * The version number of the quick fix.
      *
-     * @type { number }
+     * @type { long }
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
-    readonly quickFixVersionCode: number;
+    readonly quickFixVersionCode: long;
 
     /**
      * The version name of the quick fix.
@@ -132,7 +142,8 @@ declare namespace quickFixManager {
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     readonly quickFixVersionName: string;
 
@@ -143,7 +154,8 @@ declare namespace quickFixManager {
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     readonly hapModuleQuickFixInfo: Array<HapModuleQuickFixInfo>;
   }
@@ -163,7 +175,8 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function applyQuickFix(hapModuleQuickFixFiles: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -182,7 +195,8 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function applyQuickFix(hapModuleQuickFixFiles: Array<string>): Promise<void>;
 
@@ -200,7 +214,8 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 18500009 - The application has an ongoing quick fix task.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   function revokeQuickFix(bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -218,7 +233,8 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 18500009 - The application has an ongoing quick fix task.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   function revokeQuickFix(bundleName: string): Promise<void>;
 
@@ -236,7 +252,8 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function getApplicationQuickFixInfo(bundleName: string, callback: AsyncCallback<ApplicationQuickFixInfo>): void;
 
@@ -254,7 +271,8 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function getApplicationQuickFixInfo(bundleName: string): Promise<ApplicationQuickFixInfo>;
 }

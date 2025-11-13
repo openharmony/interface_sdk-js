@@ -17,7 +17,6 @@
 /**
  * @file WaterFlow modifier file，defines modifier and function.
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { AttributeModifier } from '@ohos.arkui.component';
@@ -29,6 +28,6 @@ import { WaterFlowAttribute } from '@ohos.arkui.component';
  *
  * @implements { WaterFlowAttribute, AttributeModifier<WaterFlowAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class WaterFlowModifier implements WaterFlowAttribute, AttributeModifier<WaterFlowAttribute> {}

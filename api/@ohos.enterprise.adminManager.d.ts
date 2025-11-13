@@ -27,8 +27,8 @@ import common from '@ohos.app.ability.common';
  *
  * @namespace adminManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 22 static
  */
 declare namespace adminManager {
   /**
@@ -37,8 +37,8 @@ declare namespace adminManager {
    * @typedef EnterpriseInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   export interface EnterpriseInfo {
     /**
@@ -47,8 +47,8 @@ declare namespace adminManager {
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     name: string;
 
@@ -58,8 +58,8 @@ declare namespace adminManager {
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 22 static
      */
     description: string;
   }
@@ -476,8 +476,8 @@ declare namespace adminManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function getEnterpriseInfo(admin: Want, callback: AsyncCallback<EnterpriseInfo>): void;
 
@@ -493,8 +493,8 @@ declare namespace adminManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function getEnterpriseInfo(admin: Want): Promise<EnterpriseInfo>;
 
@@ -715,8 +715,8 @@ declare namespace adminManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   function getSuperAdmin(): Promise<Want>;
 

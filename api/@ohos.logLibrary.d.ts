@@ -24,8 +24,8 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace logLibrary
  * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
  * @systemapi
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 22 static
  */
 declare namespace logLibrary {
   /**
@@ -34,8 +34,8 @@ declare namespace logLibrary {
    * @typedef LogEntry
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   interface LogEntry {
     /**
@@ -44,8 +44,8 @@ declare namespace logLibrary {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     name: string;
 
@@ -55,8 +55,8 @@ declare namespace logLibrary {
      * @type { long }
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     mtime: long;
 
@@ -66,8 +66,8 @@ declare namespace logLibrary {
      * @type { long }
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 22 static
      */
     size: long;
   }
@@ -86,8 +86,8 @@ declare namespace logLibrary {
    * <br>3. Parameter verification failed.
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function list(logType: string): LogEntry[];
 
@@ -108,8 +108,8 @@ declare namespace logLibrary {
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function copy(logType: string, logName: string, dest: string): Promise<void>;
 
@@ -130,8 +130,8 @@ declare namespace logLibrary {
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function copy(logType: string, logName: string, dest: string, callback: AsyncCallback<void>): void;
 
@@ -152,8 +152,8 @@ declare namespace logLibrary {
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function move(logType: string, logName: string, dest: string): Promise<void>;
 
@@ -174,8 +174,8 @@ declare namespace logLibrary {
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function move(logType: string, logName: string, dest: string, callback: AsyncCallback<void>): void;
 
@@ -194,8 +194,8 @@ declare namespace logLibrary {
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 22 static
    */
   function remove(logType: string, logName: string): void;
 }

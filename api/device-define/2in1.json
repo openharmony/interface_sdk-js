@@ -76,7 +76,6 @@
     "SystemCapability.FileManagement.StorageService.Volume",
     "SystemCapability.FileManagement.StorageService.SpatialStatistics",
     "SystemCapability.ArkUI.ArkUI.Napi",
-    "SystemCapability.Security.DataTransitManager",
     "SystemCapability.PowerManager.DisplayPowerManager",
     "SystemCapability.HiviewDFX.HiChecker",
     "SystemCapability.PowerManager.ThermalManager",
@@ -216,13 +215,11 @@
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask",
-    "SystemCapability.FileManagement.File.DistributedFile",
     "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.Global.I18n",
     "SystemCapability.Test.PerfTest",
-    "SystemCapability.ArkUI.ArkUI.Lite",
-    "SystemCapability.Tee.TeeClient"
+    "SystemCapability.ArkUI.ArkUI.Lite"
   ]
 }

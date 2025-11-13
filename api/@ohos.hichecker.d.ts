@@ -23,8 +23,8 @@
  *
  * @namespace hichecker
  * @syscap SystemCapability.HiviewDFX.HiChecker
- * @since arkts {'1.1':'8','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 8 dynamic
+ * @since 22 static
  */
 declare namespace hichecker {
   /**
@@ -32,8 +32,8 @@ declare namespace hichecker {
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   const RULE_CAUTION_PRINT_LOG = 9223372036854775808n; // 1 << 63
 
@@ -42,8 +42,8 @@ declare namespace hichecker {
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   const RULE_CAUTION_TRIGGER_CRASH = 4611686018427387904n; // 1 << 62
 
@@ -52,8 +52,8 @@ declare namespace hichecker {
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   const RULE_THREAD_CHECK_SLOW_PROCESS = 1n;
 
@@ -62,8 +62,8 @@ declare namespace hichecker {
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   const RULE_CHECK_ABILITY_CONNECTION_LEAK = 8589934592n; // 1 << 33
 
@@ -72,8 +72,8 @@ declare namespace hichecker {
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   const RULE_CHECK_ARKUI_PERFORMANCE = 17179869184n; // 1 << 34
 
@@ -82,7 +82,7 @@ declare namespace hichecker {
    *
    * @param { bigint } rule
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.hichecker/hichecker#addCheckRule
    */
@@ -93,7 +93,7 @@ declare namespace hichecker {
    *
    * @param { bigint } rule
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.hichecker/hichecker#removeCheckRule
    */
@@ -104,8 +104,8 @@ declare namespace hichecker {
    *
    * @returns { bigint } all added thread rule and process rule.
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   function getRule(): bigint;
 
@@ -115,7 +115,7 @@ declare namespace hichecker {
    * @param { bigint } rule
    * @returns { boolean } the result of whether the query rule is added.
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.hichecker/hichecker#containsCheckRule
    */
@@ -127,8 +127,8 @@ declare namespace hichecker {
    * @param { bigint } rule
    * @throws { BusinessError } 401 - the parameter check failed, only one bigint type parameter is needed
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function addCheckRule(rule: bigint): void;
 
@@ -138,8 +138,8 @@ declare namespace hichecker {
    * @param { bigint } rule
    * @throws { BusinessError } 401 - the parameter check failed, only one bigint type parameter is needed
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function removeCheckRule(rule: bigint): void;
 
@@ -150,8 +150,8 @@ declare namespace hichecker {
    * @returns { boolean } the result of whether the query rule is added.
    * @throws { BusinessError } 401 - the parameter check failed, only one bigint type parameter is needed
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 22 static
    */
   function containsCheckRule(rule: bigint): boolean;
 }

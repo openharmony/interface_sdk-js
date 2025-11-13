@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -24,32 +24,32 @@ import type { GesturePoint } from './@ohos.accessibility.GesturePoint';
  * Indicates the path of the gesture.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9
+ * @since 9 dynamiconly
  */
 export declare class GesturePath {
   /**
    * A constructor used to create a GesturePath object.
    *
-   * @param { number } durationTime - Indicates the duration of the gesture.
+   * @param { long } durationTime - Indicates the duration of the gesture.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    */
-  constructor(durationTime: number);
+  constructor(durationTime: long);
   /**
    * Indicates the position of the points that make up the gesture.
    *
    * @type { Array<GesturePoint> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    */
   points: Array<GesturePoint>;
   /**
    * Indicates the duration of the gesture.
    *
-   * @type { number }
+   * @type { long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    */
-  durationTime: number;
+  durationTime: long;
 }

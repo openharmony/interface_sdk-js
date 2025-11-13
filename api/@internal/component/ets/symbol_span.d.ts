@@ -42,7 +42,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 interface SymbolSpanInterface {
   /**
@@ -72,7 +72,7 @@ interface SymbolSpanInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   (value: Resource): SymbolSpanAttribute;
 }
@@ -101,7 +101,7 @@ interface SymbolSpanInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
   /**
@@ -131,7 +131,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   fontSize(value: number | string | Resource): SymbolSpanAttribute;
 
@@ -162,7 +162,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   fontColor(value: Array<ResourceColor>): SymbolSpanAttribute;
 
@@ -193,7 +193,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   fontWeight(value: number | FontWeight | string): SymbolSpanAttribute;
 
@@ -224,7 +224,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   effectStrategy(value: SymbolEffectStrategy): SymbolSpanAttribute;
 
@@ -255,7 +255,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   renderingStrategy(value: SymbolRenderingStrategy): SymbolSpanAttribute;
 
@@ -276,7 +276,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute>): SymbolSpanAttribute;
 }
@@ -302,7 +302,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare const SymbolSpan: SymbolSpanInterface;
 
@@ -327,6 +327,6 @@ declare const SymbolSpan: SymbolSpanInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare const SymbolSpanInstance: SymbolSpanAttribute;

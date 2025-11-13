@@ -17,76 +17,75 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
-import { ResourceStr } from './arkui/component/units';
-import { Component } from './arkui/component/customComponent';
-import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
-import { Builder } from './arkui/component/builder';
+import { ResourceStr } from '@ohos.arkui.component';
+import { Component } from '@ohos.arkui.component';
+import { SymbolGlyphModifier } from 'arkui.SymbolGlyphModifier';
+import { Builder } from '@ohos.arkui.component';
 /**
  * Declaration of the menu item on the right side.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  * @noninterop
  */
 export declare class ComposeTitleBarMenuItem {
   /**
    * Icon resource for this menu item.
    *
-   * @type { ResourceStr }.
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  value: ResourceStr;
+  public value: ResourceStr;
   /**
    * Symbol resource for this menu item.
    *
-   * @type { ?SymbolGlyphModifier }.
+   * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  symbolStyle?: SymbolGlyphModifier;
+  public symbolStyle?: SymbolGlyphModifier;
   /**
    * Icon label for this menu item.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  label?: ResourceStr;
+  public label?: ResourceStr;
   /**
    * Whether to enable this menu item.
    *
-   * @type { ?boolean }.
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  isEnabled?: boolean;
+  public isEnabled?: boolean;
   /**
    * Callback function when click on this menu item.
    *
-   * @type { ?function }.
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  action?: () => void;
+  public action?: () => void;
   /**
    * The accessibilityText of this menu item.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  accessibilityText?: ResourceStr;
+  public accessibilityText?: ResourceStr;
   /**
    * The accessibilityDescription of this menu item.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  accessibilityDescription?: ResourceStr;
+  public accessibilityDescription?: ResourceStr;
   /**
    * The accessibilityLevel of this menu item.
    *
@@ -98,15 +97,15 @@ export declare class ComposeTitleBarMenuItem {
    *     "no-hide-descendants":The current component and all its child components are not selectable<br/>
    *     for the accessibility service.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
-  accessibilityLevel?: string;
+  public accessibilityLevel?: string;
 }
 /**
  * Declaration of the composable title bar.
  * @struct { ComposeTitleBar }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  * @noninterop
  */
 @Component
@@ -114,40 +113,41 @@ export declare struct ComposeTitleBar {
   /**
    * Avatar resource and event callback of this title bar.
    *
-   * @type { ?ComposeTitleBarMenuItem }.
+   * @type { ?ComposeTitleBarMenuItem }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   item?: ComposeTitleBarMenuItem;
   /**
    * Title of this title bar.
    *
-   * @type { ResourceStr }.
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   title: ResourceStr;
   /**
    * Sub-title of this title bar.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   subtitle?: ResourceStr;
   /**
    * Menu items on the right side.
    *
-   * @type { ?Array<ComposeTitleBarMenuItem> }.
+   * @type { ?Array<ComposeTitleBarMenuItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   menuItems?: Array<ComposeTitleBarMenuItem>;
   /**
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 staticonly
    */
-  @Builder build(): void;
+  @Builder
+  build(): void;
 }

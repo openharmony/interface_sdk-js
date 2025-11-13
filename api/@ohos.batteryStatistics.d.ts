@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit BasicServicesKit
- * @arkts 1.1&1.2
  */
 
 import { AsyncCallback, BusinessError } from './@ohos.base';
@@ -27,8 +26,8 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
  * @namespace batteryStats
  * @syscap SystemCapability.PowerManager.BatteryStatistics
  * @systemapi
- * @since arkts {'1.1':'8', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 8 dynamic
+ * @since 22 static
  */
 declare namespace batteryStats {
   /**
@@ -37,8 +36,8 @@ declare namespace batteryStats {
    * @enum { int }
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   export enum ConsumptionType {
     /**
@@ -46,8 +45,8 @@ declare namespace batteryStats {
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 22 static
      */
     CONSUMPTION_TYPE_INVALID = -17,
 
@@ -56,8 +55,8 @@ declare namespace batteryStats {
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 22 static
      */
     CONSUMPTION_TYPE_APP,
 
@@ -66,8 +65,8 @@ declare namespace batteryStats {
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 22 static
      */
     CONSUMPTION_TYPE_BLUETOOTH,
 
@@ -76,8 +75,8 @@ declare namespace batteryStats {
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 22 static
      */
     CONSUMPTION_TYPE_IDLE,
 
@@ -86,8 +85,8 @@ declare namespace batteryStats {
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 22 static
      */
     CONSUMPTION_TYPE_PHONE,
 
@@ -96,8 +95,8 @@ declare namespace batteryStats {
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 22 static
      */
     CONSUMPTION_TYPE_RADIO,
 
@@ -106,8 +105,8 @@ declare namespace batteryStats {
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 22 static
      */
     CONSUMPTION_TYPE_SCREEN,
 
@@ -116,8 +115,8 @@ declare namespace batteryStats {
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 22 static
      */
     CONSUMPTION_TYPE_USER,
 
@@ -126,8 +125,8 @@ declare namespace batteryStats {
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 22 static
      */
     CONSUMPTION_TYPE_WIFI
   }
@@ -140,8 +139,8 @@ declare namespace batteryStats {
    * @throws { BusinessError } 4600101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   function getBatteryStats(): Promise<Array<BatteryStatsInfo>>;
 
@@ -155,8 +154,8 @@ declare namespace batteryStats {
    * @throws { BusinessError } 4600101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   function getBatteryStats(callback: AsyncCallback<Array<BatteryStatsInfo>>): void;
 
@@ -170,8 +169,8 @@ declare namespace batteryStats {
    * @throws { BusinessError } 4600101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   function getAppPowerValue(uid: int): double;
 
@@ -185,8 +184,8 @@ declare namespace batteryStats {
    * @throws { BusinessError } 4600101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   function getAppPowerPercent(uid: int): double;
 
@@ -201,8 +200,8 @@ declare namespace batteryStats {
    * @throws { BusinessError } 4600101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   function getHardwareUnitPowerValue(type: ConsumptionType): double;
 
@@ -217,8 +216,8 @@ declare namespace batteryStats {
    * @throws { BusinessError } 4600101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   function getHardwareUnitPowerPercent(type: ConsumptionType): double;
 
@@ -229,8 +228,8 @@ declare namespace batteryStats {
    * @typedef BatteryStatsInfo
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 22 static
    */
   interface BatteryStatsInfo {
     /**
@@ -239,8 +238,8 @@ declare namespace batteryStats {
      * @type { int }
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 22 static
      */
     uid: int;
 
@@ -250,8 +249,8 @@ declare namespace batteryStats {
      * @type { ConsumptionType }
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 22 static
      */
     type: ConsumptionType;
 
@@ -261,8 +260,8 @@ declare namespace batteryStats {
      * @type { double }
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 22 static
      */
     power: double;
   }
@@ -274,7 +273,7 @@ declare namespace batteryStats {
  * @namespace batteryStats
  * @syscap SystemCapability.PowerManager.BatteryStatistics
  * @systemapi
- * @since arkts {'1.1':'8', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 8 dynamic
+ * @since 22 static
  */
 export default batteryStats;

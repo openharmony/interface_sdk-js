@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import image from './@ohos.multimedia.image';
@@ -26,7 +25,7 @@ import image from './@ohos.multimedia.image';
  * Use the DrawableDescriptor class to get drawable image.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class DrawableDescriptor {
   /**
@@ -34,7 +33,7 @@ export declare class DrawableDescriptor {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi Hide this for inner system use.
-   * @since 20
+   * @since 22 static
    */
   constructor();
 
@@ -43,7 +42,7 @@ export declare class DrawableDescriptor {
    *
    * @returns { image.PixelMap | undefined } Return the PixelMap of the calling DrawableDescriptor object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   getPixelMap(): image.PixelMap | undefined;
 }
@@ -53,7 +52,7 @@ export declare class DrawableDescriptor {
  *
  * @extends DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
   /**
@@ -63,7 +62,7 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @param { DrawableDescriptor } [background] - Indicates the background option to create LayeredDrawableDescriptor.
    * @param { DrawableDescriptor } [mask] - Indicates the mask option to create LayeredDrawableDescriptor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   constructor(
     foreground?: DrawableDescriptor,
@@ -76,7 +75,7 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
    *
    * @returns { DrawableDescriptor | undefined } Return the DrawableDescriptor object of foreground.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   getForeground(): DrawableDescriptor | undefined;
 
@@ -85,7 +84,7 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
    *
    * @returns { DrawableDescriptor | undefined } Return the DrawableDescriptor object of background.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   getBackground(): DrawableDescriptor | undefined;
 
@@ -94,7 +93,7 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
    *
    * @returns { DrawableDescriptor | undefined } Return the DrawableDescriptor object of mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   getMask(): DrawableDescriptor | undefined;
 
@@ -104,7 +103,7 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @returns { string } Return the clip path info of mask.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   static getMaskClipPath(): string;
 }
@@ -114,14 +113,14 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
  *
  * @extends DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class PixelMapDrawableDescriptor extends DrawableDescriptor {
   /**
    * Creates a new PixelMapDrawableDescriptor.
    * @param { image.PixelMap } [src] - Indicates the resource to create PixelMapDrawableDescriptor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   constructor(src?: image.PixelMap);
 }
@@ -131,7 +130,7 @@ export declare class PixelMapDrawableDescriptor extends DrawableDescriptor {
  *
  * @interface AnimationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export interface AnimationOptions {
   /**
@@ -139,7 +138,7 @@ export interface AnimationOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   duration?: number;
   /**
@@ -147,7 +146,7 @@ export interface AnimationOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   iterations?: number;
 }
@@ -157,7 +156,7 @@ export interface AnimationOptions {
  *
  * @extends DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 22 static
  */
 export declare class AnimatedDrawableDescriptor extends DrawableDescriptor {
   /**
@@ -166,7 +165,7 @@ export declare class AnimatedDrawableDescriptor extends DrawableDescriptor {
    * @param { Array<image.PixelMap> } pixelMaps - PixelMap List.
    * @param { AnimationOptions } [options] - Animation control options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 22 static
    */
   constructor(pixelMaps: Array<image.PixelMap>, options?: AnimationOptions);
 }

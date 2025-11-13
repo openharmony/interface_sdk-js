@@ -24,31 +24,31 @@ import type { AsyncCallback } from './@ohos.base';
  * Provides networkSecurity related APIs.
  * @namespace networkSecurity
  * @syscap SystemCapability.Communication.NetStack
- * @since arkts{'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 declare namespace networkSecurity {
   /**
    * Defines the certificate type.
    * @enum {int}
    * @syscap SystemCapability.Communication.NetStack
-   * @since arkts{'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   export enum CertType {
     /**
      * PEM type certificate.
      * @syscap SystemCapability.Communication.NetStack
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     CERT_TYPE_PEM = 0,
 
     /**
      * DER type certificate.
      * @syscap SystemCapability.Communication.NetStack
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     CERT_TYPE_DER = 1
   }
@@ -57,16 +57,16 @@ declare namespace networkSecurity {
    * Define the certificate content.
    * @interface CertBlob
    * @syscap SystemCapability.Communication.NetStack
-  * @since arkts{'1.1':'11','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 11 dynamic
+  * @since 22 static
    */
   export interface CertBlob {
     /**
      * Certificate type.
      * @type { CertType }
      * @syscap SystemCapability.Communication.NetStack
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     type: CertType;
 
@@ -74,8 +74,8 @@ declare namespace networkSecurity {
      * Certificate data.
      * @type {string | ArrayBuffer}
      * @syscap SystemCapability.Communication.NetStack
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     data: string | ArrayBuffer;
   }
@@ -130,8 +130,8 @@ declare namespace networkSecurity {
    * @throws { BusinessError } 2305027 - Certificate is untrusted.
    * @throws { BusinessError } 2305069 - Invalid certificate verification context.
    * @syscap SystemCapability.Communication.NetStack
-   * @since arkts{'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   export function certVerification(cert: CertBlob, caCert?: CertBlob): Promise<int>;
 
@@ -183,8 +183,8 @@ declare namespace networkSecurity {
    * @throws { BusinessError } 2305027 - Certificate is untrusted.
    * @throws { BusinessError } 2305069 - Invalid certificate verification context.
    * @syscap SystemCapability.Communication.NetStack
-   * @since arkts{'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   export function certVerificationSync(cert: CertBlob, caCert?: CertBlob): int;
 
@@ -195,7 +195,7 @@ declare namespace networkSecurity {
    * @returns { boolean } Returns true if the Cleartext traffic is permitted, else returns false.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 18
+   * @since 18 dynamic
    */
   export function isCleartextPermitted(): boolean;
  
@@ -207,7 +207,7 @@ declare namespace networkSecurity {
    * @returns { boolean } Returns true if the Cleartext traffic is permitted, else returns false.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 18
+   * @since 18 dynamic
    */
   export function isCleartextPermittedByHostName(hostName: string): boolean;
 }

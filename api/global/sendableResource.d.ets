@@ -28,7 +28,7 @@ import collections from '../../arkts/@arkts.collections';
  * @syscap SystemCapability.Global.ResourceManager
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  */
 interface SendableResource extends lang.ISendable {
 
@@ -39,7 +39,7 @@ interface SendableResource extends lang.ISendable {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   bundleName: string;
 
@@ -50,7 +50,7 @@ interface SendableResource extends lang.ISendable {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   moduleName: string;
 
@@ -61,7 +61,7 @@ interface SendableResource extends lang.ISendable {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   id: number;
 
@@ -72,7 +72,7 @@ interface SendableResource extends lang.ISendable {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   params?: collections.Array <string | number>;
 
@@ -83,7 +83,7 @@ interface SendableResource extends lang.ISendable {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   type?: number;
 }

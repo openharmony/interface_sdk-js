@@ -25,7 +25,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 11
+ * @since 11 dynamic
  */
 export interface AutoStartupInfo {
   /**
@@ -35,7 +35,7 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   bundleName: string;
 
@@ -46,7 +46,7 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   moduleName?: string;
 
@@ -57,7 +57,7 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   abilityName: string;
 
@@ -68,7 +68,7 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   abilityTypeName?: string;
 
@@ -78,7 +78,7 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   appCloneIndex?: number;
 
@@ -90,8 +90,8 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly userId?: number;
 
@@ -103,8 +103,8 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly setterUserId?: number;
 
@@ -116,8 +116,8 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic
+   * @since 22 static
    */
   readonly canUserModify?: boolean;
 }

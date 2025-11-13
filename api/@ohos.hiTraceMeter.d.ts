@@ -112,7 +112,8 @@
  * @syscap SystemCapability.HiviewDFX.HiTrace
  * @crossplatform
  * @atomicservice
- * @since 20 dynamic&static
+ * @since 20 dynamic
+ * @since 22 static
  */
 declare namespace hiTraceMeter {
 
@@ -133,7 +134,8 @@ declare namespace hiTraceMeter {
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   enum HiTraceOutputLevel {
     /**
@@ -149,7 +151,8 @@ declare namespace hiTraceMeter {
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     DEBUG = 0,
 
@@ -166,7 +169,8 @@ declare namespace hiTraceMeter {
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     INFO = 1,
 
@@ -183,7 +187,8 @@ declare namespace hiTraceMeter {
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     CRITICAL = 2,
 
@@ -200,7 +205,8 @@ declare namespace hiTraceMeter {
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     COMMERCIAL = 3,
 
@@ -217,7 +223,8 @@ declare namespace hiTraceMeter {
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic&static
+     * @since 20 dynamic
+     * @since 22 static
      */
     MAX = COMMERCIAL
   }
@@ -262,7 +269,8 @@ declare namespace hiTraceMeter {
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function startTrace(name: string, taskId: int): void;
 
@@ -303,7 +311,8 @@ declare namespace hiTraceMeter {
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function finishTrace(name: string, taskId: int): void;
 
@@ -332,7 +341,8 @@ declare namespace hiTraceMeter {
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function traceByValue(name: string, count: long): void;
 
@@ -365,7 +375,8 @@ declare namespace hiTraceMeter {
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function startSyncTrace(level: HiTraceOutputLevel, name: string, customArgs?: string): void;
 
@@ -392,7 +403,8 @@ declare namespace hiTraceMeter {
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function finishSyncTrace(level: HiTraceOutputLevel): void;
 
@@ -431,7 +443,8 @@ declare namespace hiTraceMeter {
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function startAsyncTrace(level: HiTraceOutputLevel, name: string, taskId: int, customCategory: string,
       customArgs?: string): void;
@@ -465,7 +478,8 @@ declare namespace hiTraceMeter {
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function finishAsyncTrace(level: HiTraceOutputLevel, name: string, taskId: int): void;
 
@@ -488,7 +502,8 @@ declare namespace hiTraceMeter {
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function traceByValue(level: HiTraceOutputLevel, name: string, count: long): void;
 
@@ -507,9 +522,60 @@ declare namespace hiTraceMeter {
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
+   * @since 22 static
    */
   function isTraceEnabled(): boolean;
+
+  /**
+   * Defines the callback type used in trace status switch event.
+   * The value of traceStatus indicates the current trace status.
+   *
+   * @typedef { function } TraceEventListener
+   * @param { boolean } traceStatus The current trace status, true for open, false for close.
+   * @syscap SystemCapability.HiviewDFX.HiTrace
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  type TraceEventListener = (traceStatus: boolean) => void;
+
+  /**
+   * Register trace switch notification callback.
+   *
+   * Register a callback function to execute specific trace-related behavior when trace
+   * status is changed. The current status will be passed as 0 for off or 1 for on as callback function
+   * paramter representing current trace status. The maximum number of registered callback functions is 10.
+   *
+   * @param { TraceEventListener } callback - The callback function to be invoked when trace status is changed.
+   * @returns { int } The callback registeration status.
+   *     >= 0: Successfully registered and callback index used for unregister.
+   *     -1: Reaches max number of callback functions.
+   *     -2: Invalid parameter.
+   * @syscap SystemCapability.HiviewDFX.HiTrace
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  function registerTraceListener(callback: TraceEventListener): int;
+
+  /**
+   * Unregister trace switch notification callback.
+   *
+   * Unregister the callback function registeration for trace switch notification
+   * with provided registered callback function index.
+   *
+   * @param { int } index - The callback function index to be unregistered.
+   * @returns { int } The callback unregisteration status.
+   *     0: Success.
+   *     -1: Callback function with target index has not been registered.
+   *     -2: Invalid index range.
+   * @syscap SystemCapability.HiviewDFX.HiTrace
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  function unregisterTraceListener(index: int): int;
 }
 
 export default hiTraceMeter;

@@ -19,7 +19,9 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+/*** if arkts dynamic */
 import { DataAbilityHelper } from './ability/dataAbilityHelper';
+/*** endif */
 import Context from './application/Context';
 
 /**
@@ -35,7 +37,8 @@ import Context from './application/Context';
  * @namespace settings
  * @syscap SystemCapability.Applications.Settings.Core
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
+ * @since 22 static
  */
 declare namespace settings {
 
@@ -44,7 +47,8 @@ declare namespace settings {
    *
    * @namespace domainName
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   namespace domainName {
     /**
@@ -54,7 +58,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     const DEVICE_SHARED: string;
 
@@ -65,7 +70,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     const USER_PROPERTY: string;
 
@@ -77,7 +83,8 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
+     * @since 22 static
      */
     const USER_SECURITY: string;
   }
@@ -87,7 +94,8 @@ declare namespace settings {
    *
    * @namespace date
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   namespace date {
 
@@ -98,7 +106,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const DATE_FORMAT: string
@@ -111,7 +120,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
     const TIME_FORMAT: string
 
@@ -124,7 +134,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const AUTO_GAIN_TIME: string
@@ -137,7 +148,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const AUTO_GAIN_TIME_ZONE: string
@@ -149,7 +161,8 @@ declare namespace settings {
    *
    * @namespace display
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   namespace display {
     /**
@@ -157,7 +170,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
     const FONT_SCALE: string
 
@@ -166,7 +180,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
     const SCREEN_BRIGHTNESS_STATUS: string
 
@@ -178,7 +193,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
     const AUTO_SCREEN_BRIGHTNESS: string
 
@@ -187,18 +203,20 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
-    const AUTO_SCREEN_BRIGHTNESS_MODE: number
+    const AUTO_SCREEN_BRIGHTNESS_MODE: int
 
     /**
      * Indicates the value of {@code AUTO_SCREEN_BRIGHTNESS} when manual screen brightness adjustment is used.
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
-    const MANUAL_SCREEN_BRIGHTNESS_MODE: number
+    const MANUAL_SCREEN_BRIGHTNESS_MODE: int
 
     /**
      * Indicates the duration that the device waits before going to sleep after a period of inactivity, in
@@ -206,7 +224,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
     const SCREEN_OFF_TIMEOUT: string
 
@@ -225,7 +244,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const DEFAULT_SCREEN_ROTATION: string
@@ -238,7 +258,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const ANIMATOR_DURATION_SCALE: string
@@ -249,7 +270,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const TRANSITION_ANIMATION_SCALE: string
@@ -260,7 +282,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const WINDOW_ANIMATION_SCALE: string
@@ -273,7 +296,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const DISPLAY_INVERSION_STATUS: string
@@ -285,7 +309,8 @@ declare namespace settings {
    *
    * @namespace general
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   namespace general {
     /**
@@ -296,7 +321,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const SETUP_WIZARD_FINISHED: string
@@ -314,7 +340,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const END_BUTTON_ACTION: string
@@ -328,7 +355,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
     const ACCELEROMETER_ROTATION_STATUS: string
 
@@ -339,7 +367,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const AIRPLANE_MODE_STATUS: string
@@ -352,7 +381,8 @@ declare namespace settings {
      * the screen lock.
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const DEVICE_PROVISION_STATUS: string
@@ -364,7 +394,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const HDC_STATUS: string
@@ -374,7 +405,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const BOOT_COUNTING: string
@@ -387,7 +419,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const CONTACT_METADATA_SYNC_STATUS: string
@@ -400,7 +433,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const DEVELOPMENT_SETTINGS_STATUS: string
@@ -410,7 +444,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
     const DEVICE_NAME: string
 
@@ -422,7 +457,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const USB_STORAGE_STATUS: string
@@ -435,7 +471,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const DEBUGGER_WAITING: string
@@ -445,7 +482,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const DEBUG_APP_PACKAGE: string
@@ -458,7 +496,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const ACCESSIBILITY_STATUS: string
@@ -468,7 +507,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const ACTIVATED_ACCESSIBILITY_SERVICES: string
@@ -479,7 +519,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const GEOLOCATION_ORIGINS_ALLOWED: string
@@ -493,7 +534,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const SKIP_USE_HINTS: string
@@ -506,7 +548,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const TOUCH_EXPLORATION_STATUS: string
@@ -518,7 +561,8 @@ declare namespace settings {
    *
    * @namespace input
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   namespace input {
     /**
@@ -526,7 +570,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const DEFAULT_INPUT_METHOD: string
@@ -536,7 +581,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      */
     const ACTIVATED_INPUT_METHOD_SUB_MODE: string
 
@@ -550,7 +596,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const ACTIVATED_INPUT_METHODS: string
@@ -563,7 +610,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const SELECTOR_VISIBILITY_FOR_INPUT_METHOD: string
@@ -576,7 +624,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const AUTO_CAPS_TEXT_INPUT: string
@@ -590,7 +639,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const AUTO_PUNCTUATE_TEXT_INPUT: string
@@ -603,7 +653,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const AUTO_REPLACE_TEXT_INPUT: string
@@ -617,7 +668,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const SHOW_PASSWORD_TEXT_INPUT: string
@@ -629,7 +681,8 @@ declare namespace settings {
    *
    * @namespace network
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   namespace network {
     /**
@@ -640,7 +693,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const DATA_ROAMING_STATUS: string
@@ -651,7 +705,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const HTTP_PROXY_CFG: string
@@ -661,7 +716,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const NETWORK_PREFERENCE_USAGE: string
@@ -672,7 +728,8 @@ declare namespace settings {
    *
    * @namespace phone
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   namespace phone {
     /**
@@ -682,7 +739,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const RTT_CALLING_STATUS: string
@@ -694,7 +752,8 @@ declare namespace settings {
    *
    * @namespace sound
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   namespace sound {
     /**
@@ -706,7 +765,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const VIBRATE_WHILE_RINGING: string
@@ -718,7 +778,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const DEFAULT_ALARM_ALERT: string
@@ -731,7 +792,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const DTMF_TONE_TYPE_WHILE_DIALING: string
@@ -744,7 +806,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const DTMF_TONE_WHILE_DIALING: string
@@ -757,7 +820,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const AFFECTED_MODE_RINGER_STREAMS: string
@@ -769,7 +833,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const AFFECTED_MUTE_STREAMS: string
@@ -781,7 +846,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const DEFAULT_NOTIFICATION_SOUND: string
@@ -793,7 +859,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const DEFAULT_RINGTONE: string
@@ -806,7 +873,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const SOUND_EFFECTS_STATUS: string
@@ -819,7 +887,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const VIBRATE_STATUS: string
@@ -831,7 +900,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const HAPTIC_FEEDBACK_STATUS: string
@@ -843,7 +913,8 @@ declare namespace settings {
    *
    * @namespace TTS
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   namespace TTS {
     /**
@@ -853,7 +924,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const DEFAULT_TTS_PITCH: string
@@ -863,7 +935,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const DEFAULT_TTS_RATE: string
@@ -873,7 +946,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const DEFAULT_TTS_SYNTH: string
@@ -884,7 +958,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const ENABLED_TTS_PLUGINS: string
@@ -896,7 +971,8 @@ declare namespace settings {
    *
    * @namespace wireless
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   namespace wireless {
     /**
@@ -908,7 +984,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const BLUETOOTH_DISCOVER_ABILITY_STATUS: string
@@ -920,7 +997,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const BLUETOOTH_DISCOVER_TIMEOUT: string
@@ -938,7 +1016,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const AIRPLANE_MODE_RADIOS: string
@@ -950,7 +1029,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const BLUETOOTH_STATUS: string
@@ -960,7 +1040,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const BLUETOOTH_RADIO: string
@@ -970,7 +1051,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const CELL_RADIO: string
@@ -980,7 +1062,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const NFC_RADIO: string
@@ -990,7 +1073,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const WIFI_RADIO: string
@@ -1004,7 +1088,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const OWNER_LOCKDOWN_WIFI_CFG: string
@@ -1014,7 +1099,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const WIFI_DHCP_MAX_RETRY_COUNT: string
@@ -1025,7 +1111,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const WIFI_TO_MOBILE_DATA_AWAKE_TIMEOUT: string
@@ -1037,7 +1124,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const WIFI_STATUS: string
@@ -1050,7 +1138,8 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since 7
+     * @since 7 dynamic
+     * @since 22 static
      * @deprecated since 21
      */
     const WIFI_WATCHDOG_STATUS: string
@@ -1063,7 +1152,7 @@ declare namespace settings {
    * @param { string } name - Indicates the name of the setting to set.
    * @param { AsyncCallback<object> } [callback] - The callback of getURI result.
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   function getURI(name: string, callback: AsyncCallback<object>): void;
@@ -1075,7 +1164,7 @@ declare namespace settings {
    * @param { string } name - Indicates the name of the setting to set.
    * @returns { Promise<object> } Returns the corresponding URI; returns {@code null} if the URI does not exist.
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   function getURI(name: string): Promise<object>;
@@ -1089,7 +1178,7 @@ declare namespace settings {
    * @param { AsyncCallback<object> } [callback] - The callback of getValue result.
    * @syscap SystemCapability.Applications.Settings.Core
    * @famodelonly
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.settings#getValue
    */
@@ -1105,7 +1194,7 @@ declare namespace settings {
    * null} otherwise.
    * @syscap SystemCapability.Applications.Settings.Core
    * @famodelonly
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.settings#getValue
    */
@@ -1119,7 +1208,8 @@ declare namespace settings {
    * @param { AsyncCallback<string> } [callback] - The callback of getValue result.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   function getValue(context: Context, name: string, callback: AsyncCallback<string>): void;
 
@@ -1131,7 +1221,8 @@ declare namespace settings {
    * null} otherwise.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   function getValue(context: Context, name: string): Promise<string>;
 
@@ -1146,7 +1237,8 @@ declare namespace settings {
    * null} otherwise.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function getValue(context: Context, name: string, domainName: string): Promise<string>;
 
@@ -1161,7 +1253,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @systemapi Hide this for inner system use.
    * @famodelonly
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.settings#setValue
    */
@@ -1178,7 +1270,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @systemapi Hide this for inner system use.
    * @famodelonly
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.settings#setValue
    */
@@ -1194,7 +1286,8 @@ declare namespace settings {
    * @param { AsyncCallback<boolean> } [callback] - The callback of setValue result.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   function setValue(context: Context, name: string, value: string, callback: AsyncCallback<boolean>): void;
 
@@ -1208,7 +1301,8 @@ declare namespace settings {
    * @returns { Promise<boolean> } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   function setValue(context: Context, name: string, value: string): Promise<boolean>;
 
@@ -1226,7 +1320,8 @@ declare namespace settings {
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function setValue(context: Context, name: string, value: string, domainName: string): Promise<boolean>;
 
@@ -1237,7 +1332,8 @@ declare namespace settings {
    * airplane mode, and {@code false} means to disable airplane mode.
    * @param { AsyncCallback<void> } [callback] - The callback of enableAirplaneMode result.
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   function enableAirplaneMode(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -1248,7 +1344,8 @@ declare namespace settings {
    * airplane mode, and {@code false} means to disable airplane mode.
    * @returns { Promise<void> } - Return Promise.
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   function enableAirplaneMode(enable: boolean): Promise<void>;
 
@@ -1257,7 +1354,8 @@ declare namespace settings {
    *
    * @param { AsyncCallback<boolean> } [callback] - The callback of canShowFloating result.
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   function canShowFloating(callback: AsyncCallback<boolean>): void;
 
@@ -1267,7 +1365,8 @@ declare namespace settings {
    * @returns { Promise<boolean> } Returns {@code true} if the application can draw over other applications; returns
    * {@code false} otherwise.
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 7
+   * @since 7 dynamic
+   * @since 22 static
    */
   function canShowFloating(): Promise<boolean>;
 
@@ -1277,7 +1376,8 @@ declare namespace settings {
    * @param { string } name - Indicates the name of the setting to set.
    * @returns { string } Returns settingsdata uri.
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since 8
+   * @since 8 dynamic
+   * @since 22 static
    */
   function getUriSync(name: string): string;
 
@@ -1290,7 +1390,7 @@ declare namespace settings {
    * @returns { string } Returns settingsdata value.
    * @syscap SystemCapability.Applications.Settings.Core
    * @famodelonly
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.settings#getValueSync
    */
@@ -1305,7 +1405,8 @@ declare namespace settings {
    * @returns { string } Returns settingsdata value.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   function getValueSync(context: Context, name: string, defValue: string): string;
 
@@ -1320,7 +1421,8 @@ declare namespace settings {
    * @returns { string } Returns settingsdata value.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function getValueSync(context: Context, name: string, defValue: string, domainName: string): string;
 
@@ -1334,7 +1436,7 @@ declare namespace settings {
    * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @syscap SystemCapability.Applications.Settings.Core
    * @famodelonly
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.settings#setValueSync
    */
@@ -1350,7 +1452,8 @@ declare namespace settings {
    * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since 10
+   * @since 10 dynamic
+   * @since 22 static
    */
   function setValueSync(context: Context, name: string, value: string): boolean;
 
@@ -1368,7 +1471,8 @@ declare namespace settings {
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function setValueSync(context: Context, name: string, value: string, domainName: string): boolean;
 
@@ -1383,7 +1487,8 @@ declare namespace settings {
    * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function registerKeyObserver(context: Context, name: string, domainName: string, observer: AsyncCallback<void>): boolean;
 
@@ -1397,7 +1502,8 @@ declare namespace settings {
    * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
+   * @since 22 static
    */
   function unregisterKeyObserver(context: Context, name: string, domainName: string): boolean;
 
@@ -1409,7 +1515,8 @@ declare namespace settings {
    * @throws { BusinessError } 14800000 - Parameter error.
    * @throws { BusinessError } 14800010 - Original service error.
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
+   * @since 22 static
    */
   function openNetworkManagerSettings(context: Context): Promise<boolean>;
 }

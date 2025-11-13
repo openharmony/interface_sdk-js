@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare interface PolygonOptions {
   /**
@@ -82,7 +82,7 @@ declare interface PolygonOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   width?: Length;
 
@@ -139,7 +139,7 @@ declare interface PolygonOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   height?: Length;
 }
@@ -176,7 +176,7 @@ declare interface PolygonOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface PolygonInterface {
   /**
@@ -218,7 +218,7 @@ interface PolygonInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   new (options?: PolygonOptions): PolygonAttribute;
 
@@ -270,7 +270,7 @@ interface PolygonInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options?: PolygonOptions): PolygonAttribute;
 }
@@ -307,7 +307,7 @@ interface PolygonInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   /**
@@ -346,7 +346,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   points(value: Array<any>): PolygonAttribute;
 }
@@ -379,7 +379,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const Polygon: PolygonInterface;
 
@@ -411,6 +411,6 @@ declare const Polygon: PolygonInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare const PolygonInstance: PolygonAttribute;

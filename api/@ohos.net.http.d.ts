@@ -40,8 +40,8 @@ import type connection from './@ohos.net.connection';
  * @syscap SystemCapability.Communication.NetStack
  * @crossplatform
  * @atomicservice
- * @since arkts{'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 22 static
  */
 declare namespace http {
   /**
@@ -61,8 +61,8 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since arkts{'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   type HttpProxy = connection.HttpProxy;
 
@@ -85,8 +85,8 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since arkts{'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   function createHttp(): HttpRequest;
 
@@ -94,27 +94,27 @@ declare namespace http {
    * Enum for Address Family
    * @enum {string}
    * @syscap SystemCapability.Communication.NetStack
-   * @since 15
+   * @since 15 dynamic
    */
   export enum AddressFamily {
     /**
      * Default, can use addresses of all IP versions that your system allows.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 15
+     * @since 15 dynamic
      */
     DEFAULT = 'CURL_IPRESOLVE_WHATEVER',
  
     /**
      * ONLYV4 Uses only IPv4 addresses.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 15
+     * @since 15 dynamic
      */
     ONLY_V4 = 'CURL_IPRESOLVE_V4',
  
     /**
      * ONLYV6 Uses only IPv6 addresses.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 15
+     * @since 15 dynamic
      */
     ONLY_V6 = 'CURL_IPRESOLVE_V6'
   }
@@ -138,8 +138,8 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since arkts{'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   export interface HttpRequestOptions {
     /**
@@ -161,8 +161,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     method?: RequestMethod;
 
@@ -188,8 +188,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     extraData?: string | Object | ArrayBuffer;
 
@@ -212,8 +212,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     expectDataType?: HttpDataType;
 
@@ -236,8 +236,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     usingCache?: boolean;
 
@@ -260,8 +260,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     priority?: int;
 
@@ -284,8 +284,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     header?: Object;
 
@@ -308,8 +308,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     readTimeout?: int;
 
@@ -332,8 +332,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     connectTimeout?: int;
 
@@ -356,8 +356,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     usingProtocol?: HttpProtocol;
 
@@ -383,8 +383,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     usingProxy?: boolean | HttpProxy;
 
@@ -407,7 +407,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     caPath?: string;
 
@@ -420,7 +420,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     caData?: string;
 
@@ -430,7 +430,7 @@ declare namespace http {
      * @type { ?SslType }
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     sslType?: SslType;
 
@@ -440,7 +440,7 @@ declare namespace http {
      * @type { ?ClientCert }
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     clientEncCert?: ClientCert;
 
@@ -459,7 +459,7 @@ declare namespace http {
      * @type {?long}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     resumeFrom?: long;
 
@@ -478,7 +478,7 @@ declare namespace http {
      * @type {?long}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     resumeTo?: long;
 
@@ -493,8 +493,8 @@ declare namespace http {
      * @type {?ClientCert}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     clientCert?: ClientCert;
 
@@ -513,7 +513,7 @@ declare namespace http {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     dnsOverHttps?: string;
 
@@ -532,7 +532,7 @@ declare namespace http {
      * @type {?Array<string>}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     dnsServers?: Array<string>;
 
@@ -549,7 +549,7 @@ declare namespace http {
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     maxLimit?: int;
 
@@ -568,8 +568,8 @@ declare namespace http {
      * @type {?Array<MultiFormData>}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     multiFormDataList?: Array<MultiFormData>;
 
@@ -578,7 +578,7 @@ declare namespace http {
      * {@link CertificatePinning.publicKeyHash}, request will fail.
      * @type {?(CertificatePinning | CertificatePinning[])}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 12
+     * @since 12 dynamic
      */
     certificatePinning?: CertificatePinning | CertificatePinning[];
 
@@ -587,7 +587,7 @@ declare namespace http {
       * @type {?RemoteValidation}
       * @syscap SystemCapability.Communication.NetStack
       * @atomicservice
-      * @since 18
+      * @since 18 dynamic
       */
      remoteValidation?: RemoteValidation;
  
@@ -596,7 +596,7 @@ declare namespace http {
       * @type {?TlsOptions}
       * @syscap SystemCapability.Communication.NetStack
       * @atomicservice
-      * @since 18
+      * @since 18 dynamic
       */
      tlsOptions?: TlsOptions;
  
@@ -605,7 +605,7 @@ declare namespace http {
       * @type {?ServerAuthentication}
       * @syscap SystemCapability.Communication.NetStack
       * @atomicservice
-      * @since 18
+      * @since 18 dynamic
       */
      serverAuthentication?: ServerAuthentication;
 
@@ -613,7 +613,7 @@ declare namespace http {
      * Address family option.
      * @type {?AddressFamily}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 15
+     * @since 15 dynamic
      */
     addressFamily?: AddressFamily;
   }
@@ -623,8 +623,8 @@ declare namespace http {
     * @typedef ServerAuthentication
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since arkts{'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 18 dynamic
+    * @since 22 static
     */
    export interface ServerAuthentication {
      /**
@@ -632,8 +632,8 @@ declare namespace http {
       * @type {Credential}
       * @syscap SystemCapability.Communication.NetStack
       * @atomicservice
-      * @since arkts{'1.1':'18','1.2':'20'}
-      * @arkts 1.1&1.2
+      * @since 18 dynamic
+      * @since 22 static
       */
      credential: Credential;
      /**
@@ -641,8 +641,8 @@ declare namespace http {
       * @type {?AuthenticationType}
       * @syscap SystemCapability.Communication.NetStack
       * @atomicservice
-      * @since arkts{'1.1':'18','1.2':'20'}
-      * @arkts 1.1&1.2
+      * @since 18 dynamic
+      * @since 22 static
       */
      authenticationType?: AuthenticationType;
    }
@@ -654,8 +654,8 @@ declare namespace http {
     * @typedef {'system' | TlsConfig}
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since arkts{'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 18 dynamic
+    * @since 22 static
     */
    export type TlsOptions = 'system' | TlsConfig;
  
@@ -664,8 +664,8 @@ declare namespace http {
     * @typedef {'system' | 'skip'}
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since arkts{'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 18 dynamic
+    * @since 22 static
     */
    export type RemoteValidation = 'system' | 'skip';
  
@@ -674,8 +674,8 @@ declare namespace http {
     * @typedef {'basic' | 'ntlm' | 'digest'}
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since arkts{'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 18 dynamic
+    * @since 22 static
     */
    export type AuthenticationType = 'basic' | 'ntlm' | 'digest';
  
@@ -684,7 +684,7 @@ declare namespace http {
     * @typedef { 'TLS' | 'TLCP'}
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since 20
+    * @since 20 dynamic
     */
    export type SslType = 'TLS' | 'TLCP';
   
@@ -693,8 +693,8 @@ declare namespace http {
     * @typedef Credential
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since arkts{'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 18 dynamic
+    * @since 22 static
     */
    export interface Credential {
      /**
@@ -702,8 +702,8 @@ declare namespace http {
       * @type {string}
       * @syscap SystemCapability.Communication.NetStack
       * @atomicservice
-      * @since arkts{'1.1':'18','1.2':'20'}
-      * @arkts 1.1&1.2
+      * @since 18 dynamic
+      * @since 22 static
       */
      username: string;
      /**
@@ -711,8 +711,8 @@ declare namespace http {
       * @type {string}
       * @syscap SystemCapability.Communication.NetStack
       * @atomicservice
-      * @since arkts{'1.1':'18','1.2':'20'}
-      * @arkts 1.1&1.2
+      * @since 18 dynamic
+      * @since 22 static
       */
      password: string;
    }
@@ -722,8 +722,8 @@ declare namespace http {
     * @typedef TlsConfig
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since arkts{'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 18 dynamic
+    * @since 22 static
     */
    export interface TlsConfig {
        /**
@@ -731,8 +731,8 @@ declare namespace http {
         * @type {TlsVersion}
         * @syscap SystemCapability.Communication.NetStack
         * @atomicservice
-        * @since arkts{'1.1':'18','1.2':'20'}
-        * @arkts 1.1&1.2
+        * @since 18 dynamic
+        * @since 22 static
         */
        tlsVersionMin: TlsVersion;
        /**
@@ -740,8 +740,8 @@ declare namespace http {
         * @type {TlsVersion}
         * @syscap SystemCapability.Communication.NetStack
         * @atomicservice
-        * @since arkts{'1.1':'18','1.2':'20'}
-        * @arkts 1.1&1.2
+        * @since 18 dynamic
+        * @since 22 static
         */
        tlsVersionMax: TlsVersion;
        /**
@@ -749,8 +749,8 @@ declare namespace http {
         * @type {?CipherSuite[]}
         * @syscap SystemCapability.Communication.NetStack
         * @atomicservice
-        * @since arkts{'1.1':'18','1.2':'20'}
-        * @arkts 1.1&1.2
+        * @since 18 dynamic
+        * @since 22 static
         */
        cipherSuites?: CipherSuite[];
    }
@@ -761,8 +761,8 @@ declare namespace http {
     * @typedef {'TLS_AES_128_GCM_SHA256' | 'TLS_AES_256_GCM_SHA384' | 'TLS_CHACHA20_POLY1305_SHA256'}
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since arkts{'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 18 dynamic
+    * @since 22 static
     */
    export type TlsV13SpecificCipherSuite = 'TLS_AES_128_GCM_SHA256' | 'TLS_AES_256_GCM_SHA384' | 'TLS_CHACHA20_POLY1305_SHA256';
  
@@ -771,8 +771,8 @@ declare namespace http {
     * @typedef {'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256' | 'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256' | 'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384' | 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384' | 'TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256' | 'TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256' | 'TLS_RSA_WITH_AES_128_GCM_SHA256' | 'TLS_RSA_WITH_AES_256_GCM_SHA384'}
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since arkts{'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 18 dynamic
+    * @since 22 static
     */
    export type TlsV12SpecificCipherSuite = 'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256' | 'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256' | 'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384' | 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384' | 'TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256' | 'TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256' | 'TLS_RSA_WITH_AES_128_GCM_SHA256' | 'TLS_RSA_WITH_AES_256_GCM_SHA384';
    
@@ -781,8 +781,8 @@ declare namespace http {
     * @typedef {'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA' | 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA' | 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA' | 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA' | 'TLS_RSA_WITH_AES_128_CBC_SHA' | 'TLS_RSA_WITH_AES_256_CBC_SHA' | 'TLS_RSA_WITH_3DES_EDE_CBC_SHA'}
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since arkts{'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 18 dynamic
+    * @since 22 static
     */
    export type TlsV10SpecificCipherSuite = 'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA' | 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA' | 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA' | 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA' | 'TLS_RSA_WITH_AES_128_CBC_SHA' | 'TLS_RSA_WITH_AES_256_CBC_SHA' | 'TLS_RSA_WITH_3DES_EDE_CBC_SHA';
   
@@ -791,8 +791,8 @@ declare namespace http {
    * @typedef {TlsV13CipherSuite}
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
-   * @since arkts{'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   export type CipherSuite = TlsV13CipherSuite;
   
@@ -801,8 +801,8 @@ declare namespace http {
    * @typedef {TlsV12CipherSuite | TlsV13SpecificCipherSuite}
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
-   * @since arkts{'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   export type TlsV13CipherSuite = TlsV12CipherSuite | TlsV13SpecificCipherSuite;
   
@@ -811,8 +811,8 @@ declare namespace http {
    * @typedef {TlsV11CipherSuite | TlsV12SpecificCipherSuite}
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
-   * @since arkts{'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   export type TlsV12CipherSuite = TlsV11CipherSuite | TlsV12SpecificCipherSuite;
   
@@ -821,8 +821,8 @@ declare namespace http {
    * @typedef {TlsV10CipherSuite}
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
-   * @since arkts{'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   export type TlsV11CipherSuite = TlsV10CipherSuite;
   
@@ -831,8 +831,8 @@ declare namespace http {
    * @typedef {TlsV10SpecificCipherSuite}
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
-   * @since arkts{'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   export type TlsV10CipherSuite = TlsV10SpecificCipherSuite;
   
@@ -841,16 +841,16 @@ declare namespace http {
    * @enum {int}
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
-   * @since arkts{'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 22 static
    */
   export enum TlsVersion {
     /**
      * Tls version 1.0
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
-     * @since arkts{'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     TLS_V_1_0 = 4,
 
@@ -858,8 +858,8 @@ declare namespace http {
      * Tls version 1.1
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
-     * @since arkts{'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     TLS_V_1_1 = 5,
 
@@ -867,8 +867,8 @@ declare namespace http {
      * Tls version 1.2
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
-     * @since arkts{'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     TLS_V_1_2 = 6,
 
@@ -876,8 +876,8 @@ declare namespace http {
      * Tls version 1.3
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
-     * @since arkts{'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     TLS_V_1_3 = 7
   }
@@ -893,8 +893,8 @@ declare namespace http {
    * @interface MultiFormData
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
-   * @since arkts{'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   export interface MultiFormData {
     /**
@@ -908,8 +908,8 @@ declare namespace http {
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     name: string;
 
@@ -924,8 +924,8 @@ declare namespace http {
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     contentType: string;
 
@@ -940,8 +940,8 @@ declare namespace http {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     remoteFileName?: string;
 
@@ -956,8 +956,8 @@ declare namespace http {
      * @type {?(string | Object | ArrayBuffer)}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     data?: string | Object | ArrayBuffer;
 
@@ -978,8 +978,8 @@ declare namespace http {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     filePath?: string;
   }
@@ -995,8 +995,8 @@ declare namespace http {
    * @enum {string}
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
-   * @since arkts{'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   export enum CertType {
     /**
@@ -1008,8 +1008,8 @@ declare namespace http {
      * PEM format certificate
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     PEM = 'PEM',
 
@@ -1022,8 +1022,8 @@ declare namespace http {
      * DER format certificate
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     DER = 'DER',
 
@@ -1036,8 +1036,8 @@ declare namespace http {
      * P12 format certificate
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     P12 = 'P12'
   }
@@ -1055,8 +1055,8 @@ declare namespace http {
    * @interface ClientCert
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
-   * @since arkts{'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   export interface ClientCert {
     /**
@@ -1070,8 +1070,8 @@ declare namespace http {
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     certPath: string;
 
@@ -1086,8 +1086,8 @@ declare namespace http {
      * @type {?CertType}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     certType?: CertType;
 
@@ -1102,8 +1102,8 @@ declare namespace http {
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     keyPath: string;
 
@@ -1118,8 +1118,8 @@ declare namespace http {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     keyPassword?: string;
   }
@@ -1128,21 +1128,21 @@ declare namespace http {
    * Certificate pinning option.
    * @interface CertificatePinning
    * @syscap SystemCapability.Communication.NetStack
-   * @since 12
+   * @since 12 dynamic
    */
   interface CertificatePinning {
     /**
      * Public key hash.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 12
+     * @since 12 dynamic
      */
     publicKeyHash: string;
     /**
      * Certificate public key hash algorithm.
      * @type {'SHA-256'}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 12
+     * @since 12 dynamic
      */
     hashAlgorithm: 'SHA-256';
   }
@@ -1169,8 +1169,8 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since arkts{'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   export interface HttpRequest {
     /**
@@ -1376,8 +1376,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     request(url: string, callback: AsyncCallback<HttpResponse>): void;
 
@@ -1589,8 +1589,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     request(url: string, options: HttpRequestOptions, callback: AsyncCallback<HttpResponse>): void;
 
@@ -1802,8 +1802,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     request(url: string, options?: HttpRequestOptions): Promise<HttpResponse>;
 
@@ -1972,7 +1972,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     requestInStream(url: string, callback: AsyncCallback<int>): void;
 
@@ -2141,7 +2141,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     requestInStream(url: string, options: HttpRequestOptions, callback: AsyncCallback<int>): void;
 
@@ -2310,7 +2310,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     requestInStream(url: string, options?: HttpRequestOptions): Promise<int>;
 
@@ -2330,8 +2330,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     destroy(): void;
 
@@ -2340,7 +2340,7 @@ declare namespace http {
      * @param { "headerReceive" } type - Indicates Event name.
      * @param { AsyncCallback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 8
      * @useinstead on_headersReceive
      */
@@ -2351,7 +2351,7 @@ declare namespace http {
      * @param { "headerReceive" } type - Indicates Event name.
      * @param { AsyncCallback<Object> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 8
      * @useinstead off_headersReceive
      */
@@ -2379,7 +2379,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     on(type: "headersReceive", callback: Callback<Object>): void;
 
@@ -2405,7 +2405,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     off(type: "headersReceive", callback?: Callback<Object>): void;
 
@@ -2431,7 +2431,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     once(type: "headersReceive", callback: Callback<Object>): void;
 
@@ -2457,7 +2457,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     on(type: "dataReceive", callback: Callback<ArrayBuffer>): void;
 
@@ -2483,7 +2483,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     off(type: "dataReceive", callback?: Callback<ArrayBuffer>): void;
 
@@ -2509,7 +2509,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     on(type: "dataEnd", callback: Callback<void>): void;
 
@@ -2535,7 +2535,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     off(type: "dataEnd", callback?: Callback<void>): void;
 
@@ -2568,7 +2568,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     on(type: 'dataReceiveProgress', callback: Callback<DataReceiveProgressInfo>): void;
 
@@ -2601,7 +2601,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     off(type: 'dataReceiveProgress', callback?: Callback<DataReceiveProgressInfo>): void;
 
@@ -2627,7 +2627,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     on(type: 'dataSendProgress', callback: Callback<DataSendProgressInfo>): void
 
@@ -2653,7 +2653,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     off(type: 'dataSendProgress', callback?: Callback<DataSendProgressInfo>): void
   }
@@ -2677,8 +2677,8 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since arkts{'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   export enum RequestMethod {
     /**
@@ -2697,8 +2697,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     OPTIONS = "OPTIONS",
 
@@ -2718,8 +2718,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     GET = "GET",
 
@@ -2739,8 +2739,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     HEAD = "HEAD",
 
@@ -2760,8 +2760,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     POST = "POST",
 
@@ -2781,8 +2781,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     PUT = "PUT",
 
@@ -2802,8 +2802,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     DELETE = "DELETE",
 
@@ -2823,8 +2823,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     TRACE = "TRACE",
 
@@ -2844,8 +2844,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     CONNECT = "CONNECT"
   }
@@ -2869,8 +2869,8 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since arkts{'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   export enum ResponseCode {
     /**
@@ -2889,8 +2889,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     OK = 200,
 
@@ -2910,8 +2910,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     CREATED,
 
@@ -2931,8 +2931,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     ACCEPTED,
 
@@ -2952,8 +2952,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     NOT_AUTHORITATIVE,
 
@@ -2973,8 +2973,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     NO_CONTENT,
 
@@ -2994,8 +2994,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     RESET,
 
@@ -3015,8 +3015,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     PARTIAL,
 
@@ -3036,8 +3036,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     MULT_CHOICE = 300,
 
@@ -3060,8 +3060,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     MOVED_PERM,
 
@@ -3081,8 +3081,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     MOVED_TEMP,
 
@@ -3102,8 +3102,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     SEE_OTHER,
 
@@ -3123,8 +3123,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     NOT_MODIFIED,
 
@@ -3144,8 +3144,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     USE_PROXY,
 
@@ -3165,8 +3165,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     BAD_REQUEST = 400,
 
@@ -3186,8 +3186,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     UNAUTHORIZED,
 
@@ -3207,8 +3207,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     PAYMENT_REQUIRED,
 
@@ -3228,8 +3228,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     FORBIDDEN,
 
@@ -3249,8 +3249,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     NOT_FOUND,
 
@@ -3270,8 +3270,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     BAD_METHOD,
 
@@ -3291,8 +3291,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     NOT_ACCEPTABLE,
 
@@ -3312,8 +3312,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     PROXY_AUTH,
 
@@ -3333,8 +3333,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     CLIENT_TIMEOUT,
 
@@ -3357,8 +3357,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     CONFLICT,
 
@@ -3378,8 +3378,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     GONE,
 
@@ -3399,8 +3399,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     LENGTH_REQUIRED,
 
@@ -3420,8 +3420,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     PRECON_FAILED,
 
@@ -3441,8 +3441,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     ENTITY_TOO_LARGE,
 
@@ -3462,8 +3462,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     REQ_TOO_LONG,
 
@@ -3483,8 +3483,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     UNSUPPORTED_TYPE,
 
@@ -3493,7 +3493,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     RANGE_NOT_SATISFIABLE,
 
@@ -3513,8 +3513,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     INTERNAL_ERROR = 500,
 
@@ -3534,8 +3534,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     NOT_IMPLEMENTED,
 
@@ -3555,8 +3555,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     BAD_GATEWAY,
 
@@ -3576,8 +3576,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     UNAVAILABLE,
 
@@ -3597,8 +3597,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     GATEWAY_TIMEOUT,
 
@@ -3618,8 +3618,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     VERSION
   }
@@ -3643,8 +3643,8 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since arkts{'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
 
   export enum HttpProtocol {
@@ -3664,8 +3664,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     HTTP1_1,
 
@@ -3685,8 +3685,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     HTTP2,
 
@@ -3703,8 +3703,8 @@ declare namespace http {
      * Fallback to http2 or http1.1 if needed.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     HTTP3
   }
@@ -3728,8 +3728,8 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since arkts{'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   export enum HttpDataType {
     /**
@@ -3748,8 +3748,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     STRING,
 
@@ -3769,8 +3769,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     OBJECT = 1,
 
@@ -3790,8 +3790,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     ARRAY_BUFFER = 2
   }
@@ -3815,8 +3815,8 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since arkts{'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   export interface HttpResponse {
     /**
@@ -3841,8 +3841,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     result: string | Object | ArrayBuffer;
 
@@ -3871,8 +3871,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     resultType: HttpDataType;
 
@@ -3895,8 +3895,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     responseCode: ResponseCode | int;
 
@@ -3919,8 +3919,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     header: Object;
 
@@ -3943,8 +3943,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     cookies: string;
 
@@ -3959,8 +3959,8 @@ declare namespace http {
      * @type {PerformanceTiming}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     performanceTiming: PerformanceTiming;
   }
@@ -3976,8 +3976,8 @@ declare namespace http {
    * @interface PerformanceTiming
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
-   * @since arkts{'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 22 static
    */
   export interface PerformanceTiming {
     /**
@@ -3991,8 +3991,8 @@ declare namespace http {
      * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     dnsTiming: double;
 
@@ -4007,8 +4007,8 @@ declare namespace http {
      * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     tcpTiming: double;
 
@@ -4023,8 +4023,8 @@ declare namespace http {
      * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     tlsTiming: double;
 
@@ -4039,8 +4039,8 @@ declare namespace http {
      * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     firstSendTiming: double;
 
@@ -4055,8 +4055,8 @@ declare namespace http {
      * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     firstReceiveTiming: double;
 
@@ -4071,8 +4071,8 @@ declare namespace http {
      * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     totalFinishTiming: double;
 
@@ -4087,8 +4087,8 @@ declare namespace http {
      * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     redirectTiming: double;
 
@@ -4103,8 +4103,8 @@ declare namespace http {
      * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     responseHeaderTiming: double;
 
@@ -4119,8 +4119,8 @@ declare namespace http {
      * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     responseBodyTiming: double;
 
@@ -4135,8 +4135,8 @@ declare namespace http {
      * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     totalTiming: double;
   }
@@ -4160,7 +4160,7 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   export interface DataReceiveProgressInfo {
     /**
@@ -4182,7 +4182,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     receiveSize: int;
     /**
@@ -4204,7 +4204,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     totalSize: int;
   }
@@ -4228,7 +4228,7 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   export interface DataSendProgressInfo {
     /**
@@ -4250,8 +4250,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 22 static
      */
     sendSize: int;
     /**
@@ -4273,8 +4273,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 22 static
      */
     totalSize: int;
   }
@@ -4301,8 +4301,8 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since arkts{'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   function createHttpResponseCache(cacheSize?: int): HttpResponseCache;
 
@@ -4325,8 +4325,8 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since arkts{'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   export interface HttpResponseCache {
     /**
@@ -4348,8 +4348,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     flush(callback: AsyncCallback<void>): void;
 
@@ -4372,7 +4372,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     flush(): Promise<void>;
 
@@ -4395,8 +4395,8 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     delete(callback: AsyncCallback<void>): void;
 
@@ -4419,10 +4419,179 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     delete(): Promise<void>;
+  }
+
+  /**
+   * Types of an HTTP interceptor.
+   * @enum { string }
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  export enum InterceptorType {
+    /**
+     * Intercept after the initial HTTP request is assembled.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    INITIAL_REQUEST = 'INITIAL_REQUEST',
+
+    /**
+     * Intercept when we get a redirection responsed and is going to send another request.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    REDIRECTION = 'REDIRECTION',
+
+    /**
+     * Intercept after we checked the HTTP cache.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    CACHE_CHECKED = 'READ_CACHE',
+
+    /**
+     * Intercept when we perform network connection, such as TLS and TCP.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    NETWORK_CONNECT = 'CONNECT_NETWORK',
+
+    /**
+     * Intercept when we get the final HTTP response.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    FINAL_RESPONSE = 'FINAL_RESPONSE',
+  }
+
+
+  /**
+   * The request data.
+   * @interface HttpRequestContext
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  export interface HttpRequestContext {
+    /**
+     * The URL of an HTTP request interceptor. It can be modified in an interceptor.
+     * @type { string }
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    url: string;
+
+    /**
+     * The header of an HTTP request interceptor. It can be modified in an interceptor.
+     * @type { Object }
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    header: Object;
+
+    /**
+     * The header of an HTTP request interceptor. It can be modified in an interceptor.
+     * @type { Object }
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    body: Object;
+  }
+
+
+  /**
+   * Whether or not to continue process of interceptor chain.
+   * @typedef { boolean }
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  export type ChainContinue = boolean;
+
+  /**
+   * Defines an HTTP Interceptor. User can implement this interface to define the handle function.
+   * @interface HttpInterceptor
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  export interface HttpInterceptor {
+    /**
+     * The type of this interceptor. It defines when this intercptor would be called.
+     * @type { InterceptorType }
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    interceptorType: InterceptorType;
+
+    /**
+     * Intercept an HTTP process and do changes as disired.
+     * @param { HttpRequestContext } reqContext - the context of the target HTTP request.
+     * @param { HttpResponse } rspContext - the context of the target HTTP response.
+     * @returns { Promise<ChainContinue> } Continue the HTTP process or terminate then return the HTTP response.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    interceptorHandle(reqContext: HttpRequestContext, rspContext: HttpResponse): Promise<ChainContinue>;
+  }
+
+  /**
+   * Defines an HTTP Interceptor chain.
+   * @class HttpInterceptorChain
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  export class HttpInterceptorChain {
+    /**
+     * The method to get the chain of interceptors.
+     * @returns { HttpInterceptor[] } The chain of interceptors.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    public getChain(): HttpInterceptor[];
+
+    /**
+     * Add an interceptor chain to the HTTP client.
+     * @param { HttpInterceptor[] } chain - The chain of interceptors.
+     * @returns { boolean } Whether the chain is added successfully.
+     * @throws { BusinessError } 2300801 - Parameter type not supported by the interceptor.
+     * @throws { BusinessError } 2300802 - Duplicated interceptor type in the chain.
+     * @throws { BusinessError } 2300999 - Internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    public addChain(chain: HttpInterceptor[]): boolean;
+
+    /**
+     * Attach the chain to the target http request.
+     * Only one chain can be attached to a given request.
+     * @param { HttpRequest } httpRequest - Initiates an HTTP request to a given URL.
+     * @returns { boolean } Whether the interceptor chain is attached successfully.
+     * @throws { BusinessError } 2300801 - Parameter type not supported by the interceptor.
+     * @throws { BusinessError } 2300999 - Internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    public apply(httpRequest: HttpRequest): boolean;
   }
 }
 

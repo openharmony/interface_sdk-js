@@ -27,7 +27,7 @@ import UIAbilityContext from './UIAbilityContext';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export default class EmbeddableUIAbilityContext extends UIAbilityContext {
 }
