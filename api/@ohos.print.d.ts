@@ -1498,7 +1498,8 @@ declare namespace print {
     /**
      * Print printer driver exception.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic	
+     * @since 22 static
      */
     PRINT_JOB_BLOCK_DRIVER_EXCEPTION = 17,
 
@@ -1593,21 +1594,24 @@ declare namespace print {
     /**
      * Print driver file missing.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic	
+     * @since 22 static
      */
     PRINT_JOB_BLOCK_DRIVER_MISSING = 34,
 
     /**
      * Print job interrupt.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic	
+     * @since 22 static
      */
     PRINT_JOB_BLOCK_INTERRUPT = 35,
 
     /**
      * Print on an unavailable printer.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 20 dynamic&static
+     * @since 20 dynamic	
+     * @since 22 static
      */
     PRINT_JOB_BLOCK_PRINTER_UNAVAILABLE = 98,
 
@@ -1858,7 +1862,8 @@ declare namespace print {
    * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 20 dynamic&static
+   * @since 20 dynamic	
+     * @since 22 static
    */
   function startDiscoverPrinter(extensionList: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1884,7 +1889,8 @@ declare namespace print {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 20 dynamic&static
+   * @since 20 dynamic	
+     * @since 22 static
    */
   function startDiscoverPrinter(extensionList: Array<string>): Promise<void>;
 
@@ -1904,7 +1910,8 @@ declare namespace print {
    * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 20 dynamic&static
+   * @since 20 dynamic	
+     * @since 22 static
    */
   function stopDiscoverPrinter(callback: AsyncCallback<void>): void;
 
@@ -1924,7 +1931,8 @@ declare namespace print {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 20 dynamic&static
+   * @since 20 dynamic	
+     * @since 22 static
    */
   function stopDiscoverPrinter(): Promise<void>;
 
@@ -1948,7 +1956,8 @@ declare namespace print {
    * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 20 dynamic&static
+   * @since 20 dynamic	
+     * @since 22 static
    */
   function connectPrinter(printerId: string, callback: AsyncCallback<void>): void;
 
@@ -1972,7 +1981,8 @@ declare namespace print {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 20 dynamic&static
+   * @since 20 dynamic	
+     * @since 22 static
    */
   function connectPrinter(printerId: string): Promise<void>;
 
@@ -2105,7 +2115,8 @@ declare namespace print {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 20 dynamic&static
+   * @since 20 dynamic	
+     * @since 22 static
    */
   function restartPrintJob(jobId: string): Promise<void>;
 
@@ -2579,7 +2590,8 @@ declare namespace print {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 20 dynamic&static
+   * @since 20 dynamic	
+     * @since 22 static
    */
   function queryAllActivePrintJobs(): Promise<PrintJob[]>;
 
