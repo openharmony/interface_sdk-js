@@ -7727,6 +7727,33 @@ export declare enum PreviewScaleMode {
   MAINTAIN = 2
 }
 /**
+ * Defines the content transition effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export declare class ContentTransitionEffect {
+  /**
+   * When the content changes,there is no animation effect.
+   *
+   * @type {ContentTransitionEffect}
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  static get IDENTITY(): ContentTransitionEffect;
+
+  /**
+   * When the content changes,there is a smooth fade-in and fade-out effect.
+   *
+   * @type {ContentTransitionEffect}
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  static get OPACITY(): ContentTransitionEffect;
+}
+/**
  * Defines the type of border radius.
  *
  * @typedef { Length | BorderRadiuses | LocalizedBorderRadiuses }
