@@ -4117,8 +4117,8 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-  * @since 12 dynamic
-  * @since 22 static
+   * @since 12 dynamic
+   * @since 22 static
    */
   interface CertChainValidator {
     /**
