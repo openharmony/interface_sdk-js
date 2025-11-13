@@ -1581,11 +1581,11 @@ declare namespace sensor {
 
   /**
    * Subscribe to fusion pressure sensor data.
-   * @param { SensorId.FUSION_PRESSURE } type - Indicate the sensor type to listen for, {@code SensorId.FUSION_PRESSURE}.
+   * @param { SensorId.FUSION_PRESSURE } type - Indicate the sensor type to listen for,
+   * <br> {@code SensorId.FUSION_PRESSURE}.
    * @param { Callback<FusionPressureResponse> } callback - callback fusion pressure percent data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported,
+   * <br> {@code Options}.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2506,13 +2506,14 @@ declare namespace sensor {
   /**
    * Unsubscribe to fusion pressure sensor data.
    * @param { SensorId.FUSION_PRESSURE } type - Indicate the sensor type to listen for, {@code SensorId.FUSION_PRESSURE}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<FusionPressureResponse> } callback - callback fusion pressure percent data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 22 dynamic
    */
-  function off(type: SensorId.FUSION_PRESSURE, callback?: Callback<FusionPressureResponse>): void;
+  function off(type: SensorId.FUSION_PRESSURE, sensorInfoParam?: SensorInfoParam, callback?: Callback<FusionPressureResponse>): void;
 
   /**
    * Unsubscribe to wear detection sensor data.
